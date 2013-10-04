@@ -97,6 +97,11 @@ local.properties
 *.suo
 *.user
 *.sln.docstates
+./P02Project/Properties
+./P02Project/obj
+./P02Project/bin
+./P02Project/P02Project.sln
+./P02Project/P02Project.suo
 
 # Build results
 
