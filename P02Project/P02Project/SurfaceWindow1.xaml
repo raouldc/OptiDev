@@ -6,74 +6,81 @@
     >
 
 
-    <Grid Width="1024" Height="768">
-        <s:ScatterView Grid.Column="0">
-
-            <s:ScatterViewItem x:Name="_playBeadsSVI" Width="320" Background="Transparent" Height="240" Orientation="0">
+<!-- I'm using 16:09 ratio, hopefully it works-->
+    <Grid Width="1280" Height="720" Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="120"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition Width="250" />
+        </Grid.ColumnDefinitions>
+        
+        <s:ScatterView Name="_title" Grid.Row="0" Grid.Column="0" Background="BlueViolet">
+            <s:ScatterViewItem Background="Transparent" Width="300" Height="100" Orientation="0" CanRotate="False" CanScale="False" Center="150,50">
+                <Image Stretch="Uniform"  Source="Resources/logoCCF-transparentaltered.png"/>
+            </s:ScatterViewItem>
+        </s:ScatterView>
+		
+		<s:ScatterView Name="_titleExtension" Grid.Row="0" Grid.Column="1" Background="BlueViolet">
+        </s:ScatterView>
+		
+		
+        
+        <s:ScatterView Grid.Row="1">
+            <s:ScatterViewItem x:Name="_playBeadsSVI" Width="320" Height="240" Background="Transparent" Orientation="0" CanRotate="False" CanScale="False" Center="1050,450">
                 <Grid>
                     <Image x:Name="_playBeadsSVIPhoto" Stretch="Uniform"  Source="Resources/beads.png"/>
                     <s:SurfaceButton x:Name="_playBeadsSVIButton"  Opacity="0"  Content="" Click="homeView_AboutIsClicked"/>
                 </Grid>
             </s:ScatterViewItem>
 
-            <s:ScatterViewItem x:Name="_familySupportSVI" Width="380" Background="Transparent" Height="260" Orientation="0">
+            <s:ScatterViewItem x:Name="_familySupportSVI" Width="380" Height="260"  Background="Transparent" Orientation="0" CanRotate="False" CanScale="False" Center="730,450">
                 <Grid>
                     <Image x:Name="_familySupportSVIPhoto" Stretch="Uniform"  Source="Resources/FS.png"/>
                     <s:SurfaceButton x:Name="_familySupportSVIButton"  Opacity="0"  Content="" Click="homeView_AboutIsClicked"/>
                 </Grid>
             </s:ScatterViewItem>
 
-            <s:ScatterViewItem x:Name="_howCanIHelpSVI" Width="320" Background="Transparent" Height="240" Orientation="0">
+            <s:ScatterViewItem x:Name="_howCanIHelpSVI" Width="320" Height="240" Background="Transparent" Orientation="0" CanRotate="False" CanScale="False" Center="450,450">
                 <Grid>
                     <Image x:Name="_howCanIHelpSVIPhoto" Stretch="Uniform"  Source="Resources/howCanIHelp.png"/>
                     <s:SurfaceButton x:Name="_howCanIHelpSVIButton"  Opacity="0"  Content="" Click="homeView_AboutIsClicked"/>
                 </Grid>
             </s:ScatterViewItem>
 
-            <s:ScatterViewItem x:Name="_contactUsSVI" Width="320" Background="Transparent" Height="240" Orientation="0">
+            <s:ScatterViewItem x:Name="_contactUsSVI" Width="320" Height="240" Background="Transparent" Orientation="0" CanRotate="False" CanScale="False" Center="150,450">
                 <Grid>
                     <Image x:Name="_contactUsSVIPhoto" Stretch="Uniform"  Source="Resources/contact.png"/>
                     <s:SurfaceButton x:Name="_contactUsSVIButton"  Opacity="0"  Content="" Click="homeView_AboutIsClicked"/>
                 </Grid>
             </s:ScatterViewItem>
 
-            <s:ScatterViewItem x:Name="_eventSVI" Width="320" Background="Transparent" Height="240" Orientation="0">
+            <s:ScatterViewItem x:Name="_eventSVI" Width="320" Height="240" Background="Transparent" Orientation="0" CanRotate="False" CanScale="False" Center="1050, 200">
                 <Grid>
                     <Image x:Name="_eventSVIPhoto" Stretch="Uniform"  Source="Resources/events.png"/>
                     <s:SurfaceButton x:Name="_eventSVIButton"  Opacity="0"  Content="" Click="homeView_AboutIsClicked"/>
                 </Grid>
             </s:ScatterViewItem>
 
-            <s:ScatterViewItem x:Name="_newsSVI" Width="320" Background="Transparent" Height="240" Orientation="0">
+            <s:ScatterViewItem x:Name="_newsSVI" Width="350" Height="300" Background="Transparent" Orientation="0" CanRotate="False" CanScale="False" Center="600,200">
                 <Grid>
                     <Image x:Name="_newsSVIPhoto" Stretch="Uniform"  Source="Resources/news.png"/>
                     <s:SurfaceButton x:Name="_newsSVIButton"  Opacity="0"  Content="" Click="homeView_AboutIsClicked"/>
                 </Grid>
             </s:ScatterViewItem>
 
-            <s:ScatterViewItem x:Name="_aboutSVI" Width="400" Background="Transparent" Height="300" Orientation="0">
+            <s:ScatterViewItem x:Name="_aboutSVI" Width="450" Height="350" Background="Transparent" Orientation="0" CanRotate="False" CanScale="False" Center="200,180">
                 <Grid>
                     <Image x:Name="_aboutSVIPhoto" Stretch="Uniform"  Source="Resources/abt.png"/>
                     <s:SurfaceButton x:Name="_aboutSVIButton"  Opacity="0"  Content="" Click="homeView_AboutIsClicked"/>
                 </Grid>
             </s:ScatterViewItem>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         </s:ScatterView>
+
 
 
 

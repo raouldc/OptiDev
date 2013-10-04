@@ -94,6 +94,7 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\logoCCF-transparentaltered.png" />
     <Resource Include="Resources\abt.png" />
     <Resource Include="Resources\beads.png" />
     <Resource Include="Resources\contact.png" />
