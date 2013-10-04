@@ -1,0 +1,84 @@
+﻿<s:SurfaceWindow x:Class="P02Project.SurfaceWindow1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:s="http://schemas.microsoft.com/surface/2008"
+    Title="P02Project"
+    >
+
+
+    <Grid Width="1024" Height="768">
+        <s:ScatterView Grid.Column="0">
+
+            <s:ScatterViewItem x:Name="_playBeadsSVI" Width="320" Background="Transparent" Height="240" Orientation="0">
+                <Grid>
+                    <Image x:Name="_playBeadsSVIPhoto" Stretch="Uniform"  Source="Resources/beads.png"/>
+                    <s:SurfaceButton x:Name="_playBeadsSVIButton"  Opacity="0"  Content="" Click="homeView_AboutIsClicked"/>
+                </Grid>
+            </s:ScatterViewItem>
+
+            <s:ScatterViewItem x:Name="_familySupportSVI" Width="380" Background="Transparent" Height="260" Orientation="0">
+                <Grid>
+                    <Image x:Name="_familySupportSVIPhoto" Stretch="Uniform"  Source="Resources/FS.png"/>
+                    <s:SurfaceButton x:Name="_familySupportSVIButton"  Opacity="0"  Content="" Click="homeView_AboutIsClicked"/>
+                </Grid>
+            </s:ScatterViewItem>
+
+            <s:ScatterViewItem x:Name="_howCanIHelpSVI" Width="320" Background="Transparent" Height="240" Orientation="0">
+                <Grid>
+                    <Image x:Name="_howCanIHelpSVIPhoto" Stretch="Uniform"  Source="Resources/howCanIHelp.png"/>
+                    <s:SurfaceButton x:Name="_howCanIHelpSVIButton"  Opacity="0"  Content="" Click="homeView_AboutIsClicked"/>
+                </Grid>
+            </s:ScatterViewItem>
+
+            <s:ScatterViewItem x:Name="_contactUsSVI" Width="320" Background="Transparent" Height="240" Orientation="0">
+                <Grid>
+                    <Image x:Name="_contactUsSVIPhoto" Stretch="Uniform"  Source="Resources/contact.png"/>
+                    <s:SurfaceButton x:Name="_contactUsSVIButton"  Opacity="0"  Content="" Click="homeView_AboutIsClicked"/>
+                </Grid>
+            </s:ScatterViewItem>
+
+            <s:ScatterViewItem x:Name="_eventSVI" Width="320" Background="Transparent" Height="240" Orientation="0">
+                <Grid>
+                    <Image x:Name="_eventSVIPhoto" Stretch="Uniform"  Source="Resources/events.png"/>
+                    <s:SurfaceButton x:Name="_eventSVIButton"  Opacity="0"  Content="" Click="homeView_AboutIsClicked"/>
+                </Grid>
+            </s:ScatterViewItem>
+
+            <s:ScatterViewItem x:Name="_newsSVI" Width="320" Background="Transparent" Height="240" Orientation="0">
+                <Grid>
+                    <Image x:Name="_newsSVIPhoto" Stretch="Uniform"  Source="Resources/news.png"/>
+                    <s:SurfaceButton x:Name="_newsSVIButton"  Opacity="0"  Content="" Click="homeView_AboutIsClicked"/>
+                </Grid>
+            </s:ScatterViewItem>
+
+            <s:ScatterViewItem x:Name="_aboutSVI" Width="400" Background="Transparent" Height="300" Orientation="0">
+                <Grid>
+                    <Image x:Name="_aboutSVIPhoto" Stretch="Uniform"  Source="Resources/abt.png"/>
+                    <s:SurfaceButton x:Name="_aboutSVIButton"  Opacity="0"  Content="" Click="homeView_AboutIsClicked"/>
+                </Grid>
+            </s:ScatterViewItem>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </s:ScatterView>
+
+
+
+
+
+    </Grid>
+
+</s:SurfaceWindow>
