@@ -1,4 +1,4 @@
-~~OptiDave~~ OptiDev
+OptiDev
 ========
 
 ## User Guide
