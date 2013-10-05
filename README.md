@@ -1,8 +1,6 @@
 ~~OptiDave~~ OptiDev
 ========
 
-SoftEng306-ROSVILLE
-=================
 ## User Guide
 
 This page will provide all the steps for getting this project setup and running
