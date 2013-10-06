@@ -7,21 +7,21 @@ using System.Windows;
 public class SVIWithImgBtn
 {
     // ScatterViewItem
-    private ScatterViewItem _svi { get; set; }
+    public ScatterViewItem _svi { get; set; }
     // original width and height of the _svi
-    private int _sviOrgWidth { get; set; }
-    private int _sviOrgHeight { get; set; }
+    public double _sviOrgWidth { get; set; }
+    public double _sviOrgHeight { get; set; }
 
     // image that embedded in the _svi
-    private Image _sviImg {get; set;}
+    public Image _sviImg { get; set; }
 
     // SurfaceButton that embedded in _svi
-    private SurfaceButton _sviBtn {get; set;}
+    public SurfaceButton _sviBtn { get; set; }
     // original content and background color of the _sviBtn
-    private String _sviBtnOrgContent { get; set; }
-    private Brush _sviBtnOrgBackground { get; set; }
-    
-    private Point _orgCenter { get; set; }
+    public String _sviBtnOrgContent { get; set; }
+    public Brush _sviBtnOrgBackground { get; set; }
+
+    public Point _orgCenter { get; set; }
     
     public SVIWithImgBtn()
 	{

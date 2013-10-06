@@ -38,12 +38,10 @@ namespace P02Project
         public static readonly int W_LINK_TILE = WIDTH * 3 / 16;
         public static readonly int H_LINK_TILE = HEIGHT / 6;
 
-        // list stores all the ScatterViewItems represent the 7 main tiles
-        // _aboutSVI, _newsSVI, _eventSVI, ContactUs, HowCanIHelp, FamilySupport, PlayBeads
-        private List<ScatterViewItem> _mainTiles;
-        // list stores all images and buttons that are embbeded in the ScatterViewItem
-        private List<Image> _mainTilesImages;
-        private List<SurfaceButton> _mainTilesButtons;
+        // dictionary stores all the ScatterViewItem with its embedded Image and SurfaceButton represent the 7 main tiles
+        // about, news, events, contactUs, HowCanIHelp, FamilySupport, PlayBeads
+        private Dictionary<String, SVIWithImgBtn> _dictOfAllHomeTiles;
+
 
         /// <summary>
         /// Default constructor.
@@ -128,37 +126,17 @@ namespace P02Project
         {
             base.OnInitialized(e);
 
-            // add the ScatterViewItem (s) that represent each section of the app into the list
-            _mainTiles = new List<ScatterViewItem>();
-            _mainTiles.Add(_aboutSVI);
-            _mainTiles.Add(_familySupportSVI);
-            _mainTiles.Add(_howCanIHelpSVI);
-            _mainTiles.Add(_newsSVI);
-            _mainTiles.Add(_eventSVI);
-            _mainTiles.Add(_playBeadsSVI);
-            _mainTiles.Add(_contactUsSVI);
-
-            // add the Image (s) that embbeded in the scatterviewitem that represends a section of the app into the list
-            _mainTilesImages = new List<Image>();
-            _mainTilesImages.Add(_aboutSVIImage);
-            _mainTilesImages.Add(_familySupportSVIImage);
-            _mainTilesImages.Add(_howCanIHelpSVIImage);
-            _mainTilesImages.Add(_newsSVIImage);
-            _mainTilesImages.Add(_eventSVIImage);
-            _mainTilesImages.Add(_playBeadsSVIImage);
-            _mainTilesImages.Add(_contactUsSVIImage);
-
-            // add the SurfaceButton (s) that embbeded in the scatterviewitem that represends a section of the app into the list
-            _mainTilesButtons = new List<SurfaceButton>();
-            _mainTilesButtons.Add(_aboutSVIButton);
-            _mainTilesButtons.Add(_familySupportSVIButton);
-            _mainTilesButtons.Add(_howCanIHelpSVIButton);
-            _mainTilesButtons.Add(_newsSVIButton);
-            _mainTilesButtons.Add(_eventSVIButton);
-            _mainTilesButtons.Add(_playBeadsSVIButton);
-            _mainTilesButtons.Add(_contactUsSVIButton);
-
-
+            // the ScatterViewItem (s) that represent each tile that links to each secion of the app
+            // the Image (s) that embbeded in the scatterviewitem
+            // the SurfaceButton (s) that embbeded in the scatterviewitem
+            _dictOfAllHomeTiles = new Dictionary<string, SVIWithImgBtn>();
+            _dictOfAllHomeTiles.Add(_aboutSVIButton.ToString(), new SVIWithImgBtn(_aboutSVI, _aboutSVIImage, _aboutSVIButton));
+            _dictOfAllHomeTiles.Add(_familySupportSVIButton.ToString(), new SVIWithImgBtn(_familySupportSVI, _familySupportSVIImage, _familySupportSVIButton));
+            _dictOfAllHomeTiles.Add(_howCanIHelpSVIButton.ToString(), new SVIWithImgBtn(_howCanIHelpSVI, _howCanIHelpSVIImage, _howCanIHelpSVIButton));
+            _dictOfAllHomeTiles.Add(_newsSVIButton.ToString(), new SVIWithImgBtn(_newsSVI, _newsSVIImage, _newsSVIButton));
+            _dictOfAllHomeTiles.Add(_eventsSVIButton.ToString(), new SVIWithImgBtn(_eventsSVI, _eventsSVIImage, _eventsSVIButton));
+            _dictOfAllHomeTiles.Add(_playBeadsSVIButton.ToString(), new SVIWithImgBtn(_playBeadsSVI, _playBeadsSVIImage, _playBeadsSVIButton));
+            _dictOfAllHomeTiles.Add(_contactUsSVIButton.ToString(), new SVIWithImgBtn(_contactUsSVI, _contactUsSVIImage, _contactUsSVIButton));
             
         }
 
@@ -169,37 +147,37 @@ namespace P02Project
         {
             if (sviButton.Equals(_aboutSVIButton))
             {
-                _title.Background = new System.Windows.Media.SolidColorBrush(Color.FromRgb(89, 126, 170));
+                _title.Background = _aboutSVIButton.Background;
                 changeContentToAboutSection();
             }
             else if (sviButton.Equals(_familySupportSVIButton))
             {
-                _title.Background = new System.Windows.Media.SolidColorBrush(Color.FromRgb(166, 77, 121));
+                _title.Background = _familySupportSVIButton.Background;
                 changeContentToFamilySupportSection();
             }
             else if (sviButton.Equals(_howCanIHelpSVIButton))
             {
-                _title.Background = new System.Windows.Media.SolidColorBrush(Color.FromRgb(230, 145, 56));
+                _title.Background = _howCanIHelpSVIButton.Background;
                 changeContentToHowCanIHelpSection();
             }
             else if (sviButton.Equals(_newsSVIButton))
             {
-                _title.Background = new System.Windows.Media.SolidColorBrush(Color.FromRgb(103, 78, 167));
+                _title.Background = _newsSVIButton.Background;
                 changeContentToNewsSection();
             }
-            else if (sviButton.Equals(_eventSVIButton))
+            else if (sviButton.Equals(_eventsSVIButton))
             {
-                _title.Background = new System.Windows.Media.SolidColorBrush(Color.FromRgb(106, 168, 79));
+                _title.Background = _eventsSVIButton.Background;
                 changeContentToEventsSection();
             }
             else if (sviButton.Equals(_playBeadsSVIButton))
             {
-                _title.Background = new System.Windows.Media.SolidColorBrush(Color.FromRgb(204, 0, 0));
+                _title.Background = _playBeadsSVIButton.Background;
                 changeContentToPlayBeadsSection();
             }
             else if (sviButton.Equals(_contactUsSVIButton))
             {
-                _title.Background = new System.Windows.Media.SolidColorBrush(Color.FromRgb(241, 194, 50));
+                _title.Background = _contactUsSVIButton.Background;
                 changeContentToContactUsSection();
             }
         }
@@ -214,11 +192,13 @@ namespace P02Project
             SurfaceButton clickedButton = null;
 
             // iterte on each tile to animate it.
-            for (int i = 0; i < _mainTiles.Count; i++)
+            foreach(KeyValuePair<String, SVIWithImgBtn> pair in _dictOfAllHomeTiles)
             {
-                ScatterViewItem svi = _mainTiles[i];
-                SurfaceButton sviButton = _mainTilesButtons[i];
-                Image sviImage = _mainTilesImages[i];
+                SVIWithImgBtn sviWthImgBtn = pair.Value;
+
+                ScatterViewItem svi = sviWthImgBtn._svi;
+                SurfaceButton sviButton = sviWthImgBtn._sviBtn;
+                Image sviImage = sviWthImgBtn._sviImg;
 
                 // declare an endpoint of the animation
                 Point endPoint = new Point(endPointX, endPointY);
