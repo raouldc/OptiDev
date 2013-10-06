@@ -1,4 +1,8 @@
 ﻿using System;
+using Microsoft.Surface.Presentation.Controls;
+using System.Windows.Controls;
+using System.Windows.Media;
+using System.Windows;
 
 public class SVIWithImgBtn
 {
@@ -15,7 +19,7 @@ public class SVIWithImgBtn
     private SurfaceButton _sviBtn {get; set;}
     // original content and background color of the _sviBtn
     private String _sviBtnOrgContent { get; set; }
-    private SolidColorBrush _sviBtnOrgBackground { get; set; }
+    private Brush _sviBtnOrgBackground { get; set; }
     
     private Point _orgCenter { get; set; }
     
@@ -29,10 +33,10 @@ public class SVIWithImgBtn
         _sviOrgWidth = svi.Width;
         _sviOrgHeight = svi.Height;
 
-        _sviImage = img;
+        _sviImg = img;
 
         _sviBtn = btn;
-        _sviBtnOrgContent = btn.Content;
+        _sviBtnOrgContent = btn.Content.ToString() ;
         _sviBtnOrgBackground = btn.Background;
     }
 }
