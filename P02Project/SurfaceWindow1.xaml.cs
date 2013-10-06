@@ -207,11 +207,8 @@ namespace P02Project
             int endPointX = WIDTH - (W_LINK_TILE / 2);
             int endPointY = -H_LINK_TILE / 2;
 
-            Storyboard stb = new Storyboard();
-            PointAnimation moveCenter = new PointAnimation();
-
             // a temporary button, will use to point to a clicked button
-            SurfaceButton clickedButton = new SurfaceButton();
+            SurfaceButton clickedButton = null;
 
             // iterte on each tile to animate it.
             for (int i = 0; i < _mainTiles.Count; i++)
@@ -229,7 +226,7 @@ namespace P02Project
                 else endPointY += H_LINK_TILE;
 
                 // call a helper method to animate the tile
-                helperHomeViewAnimator(stb, moveCenter, endPoint, svi, sviButton, sviImage);
+                helperHomeViewAnimator(svi, sviButton, sviImage, endPoint);
 
                 // collapsed (hide) the clicked tile
                 // set clickedButton to point to the clicked tile
@@ -246,8 +243,11 @@ namespace P02Project
 
         // a helper method for homeView_aButtonIsClicked
         // this method animates the given ScatterViewItem
-        private void helperHomeViewAnimator(Storyboard stb, PointAnimation moveCenter, Point endPoint, ScatterViewItem svi, SurfaceButton sviButton, Image sviImage)
+        private void helperHomeViewAnimator(ScatterViewItem svi, SurfaceButton sviButton, Image sviImage, Point endPoint)
         {
+
+            Storyboard stb = new Storyboard();
+            PointAnimation moveCenter = new PointAnimation();
             // the starting point of the animation
             moveCenter.From = svi.ActualCenter;
 
