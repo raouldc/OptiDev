@@ -79,10 +79,10 @@
                 </Grid>
             </s:ScatterViewItem>
 
-            <s:ScatterViewItem x:Name="_eventSVI" Width="320" Height="240" Background="Transparent" Orientation="0" CanRotate="False" CanScale="False" Center="1050, 200">
+            <s:ScatterViewItem x:Name="_eventsSVI" Width="320" Height="240" Background="Transparent" Orientation="0" CanRotate="False" CanScale="False" Center="1050, 200">
                 <Grid>
-                    <Image x:Name="_eventSVIImage" Stretch="Uniform"  Source="Resources/events.png"/>
-                    <s:SurfaceButton x:Name="_eventSVIButton"  Opacity="0"  Content="Events" Click="homeView_aButtonIsClicked" Background="#ff6aa84f"/>
+                    <Image x:Name="_eventsSVIImage" Stretch="Uniform"  Source="Resources/events.png"/>
+                    <s:SurfaceButton x:Name="_eventsSVIButton"  Opacity="0"  Content="Events" Click="homeView_aButtonIsClicked" Background="#ff6aa84f"/>
                 </Grid>
             </s:ScatterViewItem>
 
