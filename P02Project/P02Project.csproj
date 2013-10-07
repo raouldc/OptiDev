@@ -58,6 +58,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Util.cs" />
     <Compile Include="RightButtonControl.xaml.cs">
       <DependentUpon>RightButtonControl.xaml</DependentUpon>
     </Compile>

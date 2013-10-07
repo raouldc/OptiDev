@@ -83,17 +83,20 @@ namespace P02Project
             {
                 nextScreen = new TopLevelPage(ParentWindow, "About");
                 ((TopLevelPage)nextScreen).setTitleColour(_aboutSVIButton.Background);
+                ((TopLevelPage)nextScreen).setButtons(new String[6] { "Family Support", "How Can I Help?","News", "Events", "Play Beads", "Contact Us" });
                 //((TopLevelPage)nextScreen).setContent(new Controls."CONTENT CONTROL NAME HERE");
             }
             else if (sviButton.Equals(_familySupportSVIButton))
             {
                 nextScreen = new TopLevelPage(ParentWindow, "Family Support");
+                ((TopLevelPage)nextScreen).setButtons(new String[6] { "About", "How Can I Help?", "News", "Events", "Play Beads", "Contact Us" });
                 ((TopLevelPage)nextScreen).setTitleColour(_familySupportSVIButton.Background);
                 //((TopLevelPage)nextScreen).setContent(new Controls."CONTENT CONTROL NAME HERE");
             }
             else if (sviButton.Equals(_howCanIHelpSVIButton))
             {
                 nextScreen = new TopLevelPage(ParentWindow, "How Can I Help?");
+                ((TopLevelPage)nextScreen).setButtons(new String[6] { "About", "Family Support", "News", "Events", "Play Beads", "Contact Us" });
                 ((TopLevelPage)nextScreen).setTitleColour(_howCanIHelpSVIButton.Background);
                 //((TopLevelPage)nextScreen).setContent(new Controls."CONTENT CONTROL NAME HERE");
             }
@@ -101,23 +104,27 @@ namespace P02Project
             {
                 nextScreen = new TopLevelPage(ParentWindow, "News");
                 ((TopLevelPage)nextScreen).setTitleColour(_newsSVIButton.Background);
+                ((TopLevelPage)nextScreen).setButtons(new String[6]{"About", "Family Support", "How Can I Help?", "Events", "Play Beads", "Contact Us"});
                 //((TopLevelPage)nextScreen).setContent(new Controls."CONTENT CONTROL NAME HERE");
             }
             else if (sviButton.Equals(_eventsSVIButton))
             {
                 nextScreen = new TopLevelPage(ParentWindow, "Events");
+                ((TopLevelPage)nextScreen).setButtons(new String[6] { "About", "Family Support", "How Can I Help?", "News", "Play Beads", "Contact Us" });
                ((TopLevelPage)nextScreen).setTitleColour(_eventsSVIButton.Background);
                 //((TopLevelPage)nextScreen).setContent(new Controls."CONTENT CONTROL NAME HERE");
             }
             else if (sviButton.Equals(_playBeadsSVIButton))
             {
                 nextScreen = new TopLevelPage(ParentWindow, "Play Beads");
+                ((TopLevelPage)nextScreen).setButtons(new String[6] { "About", "Family Support", "How Can I Help?", "News", "Events", "Contact Us" });
                 ((TopLevelPage)nextScreen).setTitleColour(_playBeadsSVIButton.Background);
                 //((TopLevelPage)nextScreen).setContent(new Controls."CONTENT CONTROL NAME HERE");
             }
             else if (sviButton.Equals(_contactUsSVIButton))
             {
                 nextScreen = new TopLevelPage(ParentWindow, "Contact Us");
+                ((TopLevelPage)nextScreen).setButtons(new String[6] { "About", "Family Support", "How Can I Help?", "News", "Events", "Play Beads" });
                 ((TopLevelPage)nextScreen).setTitleColour(_contactUsSVIButton.Background);
                 //((TopLevelPage)nextScreen).setContent(new Controls."CONTENT CONTROL NAME HERE");
             }
