@@ -52,6 +52,9 @@ namespace P02Project
 
             // Add handlers for window availability events
             AddWindowAvailabilityHandlers();
+            Donate.setImage("donate.png");
+            Donate.setCaption("Donate");
+            Donate.setColour(Colors.Orange);
         }
 
         /// <summary>

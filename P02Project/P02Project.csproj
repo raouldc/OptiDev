@@ -62,6 +62,12 @@
     <Compile Include="Screens\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Screens\HowCanIHelpControl.xaml.cs">
+      <DependentUpon>HowCanIHelpControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\PoloroidControl.xaml.cs">
+      <DependentUpon>PoloroidControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Screens\TitleBarControl.xaml.cs">
       <DependentUpon>TitleBarControl.xaml</DependentUpon>
     </Compile>
@@ -70,6 +76,14 @@
     </Compile>
     <Compile Include="SVIWithImgBtn.cs" />
     <Page Include="Screens\HomePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Screens\HowCanIHelpControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Screens\PoloroidControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -119,6 +133,7 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\donate.png" />
     <Resource Include="Resources\logoCCF-transparentaltered.png" />
     <Resource Include="Resources\abt.png" />
     <Resource Include="Resources\beads.png" />
@@ -134,8 +149,11 @@
     </Content>
     <Resource Include="Resources\news.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Fonts\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\Expression\Blend\.NETFramework\v4.0\Microsoft.Expression.Blend.WPF.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

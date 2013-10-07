@@ -22,12 +22,12 @@ namespace P02Project.Screens
         public TopLevelPage(SurfaceWindow1 parentWindow, String title) : base(parentWindow)
 		{
 			InitializeComponent();
-            Title.Content = title;
+            //Title.Content = title;
 		}
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
-            ParentWindow.popScreen();
+            //ParentWindow.popScreen();
         }
     }
 }
