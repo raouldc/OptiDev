@@ -7,5 +7,5 @@
     SizeToContent="Manual"             
     Topmost="True"
     Background="White" 
-    WindowState="Maximized" 
+    WindowState="Normal" 
     WindowStyle="None"></s:SurfaceWindow>

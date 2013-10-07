@@ -141,6 +141,7 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\bead background2.png" />
     <Resource Include="Resources\donate.png" />
     <Resource Include="Resources\go-back-icon-NOT_FREE.png" />
     <Resource Include="Resources\logoCCF-transparentaltered.png" />

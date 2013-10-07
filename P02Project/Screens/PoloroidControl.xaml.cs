@@ -53,6 +53,12 @@ namespace P02Project
             Caption.Background = new SolidColorBrush(colour);
         }
 
+        public Color colour{
+            get {
+                return (Caption.Background as SolidColorBrush).Color;
+            }
+        }
+
         private void Poloroid_TouchDown(object sender, TouchEventArgs e)
         {
             hideShadow();

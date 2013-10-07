@@ -8,8 +8,14 @@
              xmlns:view="clr-namespace:P02Project"
              d:DesignHeight="1080" d:DesignWidth="1920">
     
-    <Grid x:Name="LayoutRoot" Background="White" OpacityMask="White">
-        <Grid x:Name="pageGrid" Margin="0,0,0,0" Width="1920" Height="1080" Background="White" OpacityMask="White">
+    <Grid x:Name="LayoutRoot" OpacityMask="White">
+    	<Grid.Background>
+    		<ImageBrush TileMode="FlipX"/>
+    	</Grid.Background>
+        <Grid x:Name="pageGrid" Margin="0,0,0,0" Width="1920" Height="1080" OpacityMask="White">
+        	<Grid.Background>
+        		<ImageBrush ImageSource="/P02Project;component/Resources/bead background2.png"/>
+        	</Grid.Background>
             <Grid.RowDefinitions>
                 <RowDefinition Name="_gridRow0" Height="180"/>
                 <RowDefinition Name="_gridRow1"/>

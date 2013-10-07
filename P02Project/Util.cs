@@ -13,15 +13,15 @@ namespace P02Project
     class Util
     {
 
-        public static readonly Dictionary<string, Brush> _pageColDict = new Dictionary<string, Brush>()
+        public static readonly Dictionary<string, Color> _pageColDict = new Dictionary<string, Color>()
         {
-            { "About",              new SolidColorBrush((Color)ColorConverter.ConvertFromString("#00aedbff"))},
-            { "Family Support",     new SolidColorBrush((Color)ColorConverter.ConvertFromString("#ec008bff"))},
-            { "How Can I Help?",    new SolidColorBrush((Color)ColorConverter.ConvertFromString("#f68e1eff"))},
-            { "News",               new SolidColorBrush((Color)ColorConverter.ConvertFromString("#a13e97ff"))},
-            { "Events",             new SolidColorBrush((Color)ColorConverter.ConvertFromString("#bcd530ff"))},
-            { "Contact Us",         new SolidColorBrush((Color)ColorConverter.ConvertFromString("#ffe411ff"))},
-            { "Play Beads",         new SolidColorBrush((Color)ColorConverter.ConvertFromString("#ee3123ff"))}
+            { "About",              (Color)ColorConverter.ConvertFromString("#ff00aedb")},
+            { "Family Support",     (Color)ColorConverter.ConvertFromString("#ffec008b")},
+            { "How Can I Help?",    (Color)ColorConverter.ConvertFromString("#fff68e1e")},
+            { "News",               (Color)ColorConverter.ConvertFromString("#ffa13e97")},
+            { "Events",             (Color)ColorConverter.ConvertFromString("#ffbcd530")},
+            { "Contact Us",         (Color)ColorConverter.ConvertFromString("#ffe411ff")},
+            { "Play Beads",         (Color)ColorConverter.ConvertFromString("#ffee3123")}
         };
             
     }

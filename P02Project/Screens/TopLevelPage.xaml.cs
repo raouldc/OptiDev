@@ -39,22 +39,23 @@ namespace P02Project.Screens
             TitleBar.SubTitle.Content = sub;
         }
 
-        public void setTitleColour(Brush bg)
+        public void setTitleColour(Color col)
         {
-            TitleBar.BarBG.Background = bg;
+            TitleBar.BarBG.Background = new SolidColorBrush(col);
         }
 
         public void setButtons(String[] bNames)
         {
             //Set the names of the buttons
             //Needs to be improved so it sets the colours based on the name too
-            
-            RightButtons.Button1.Content = bNames[0];
-            RightButtons.Button2.Content = bNames[1];
-            RightButtons.Button3.Content = bNames[2];
-            RightButtons.Button4.Content = bNames[3];
-            RightButtons.Button5.Content = bNames[4];
-            RightButtons.Button6.Content = bNames[5];
+            RightButtons.setButtons(bNames);
+
+            //RightButtons.Button1.Content = bNames[0];
+            //RightButtons.Button2.Content = bNames[1];
+            //RightButtons.Button3.Content = bNames[2];
+            //RightButtons.Button4.Content = bNames[3];
+            //RightButtons.Button5.Content = bNames[4];
+            //RightButtons.Button6.Content = bNames[5];
         
         }
 
