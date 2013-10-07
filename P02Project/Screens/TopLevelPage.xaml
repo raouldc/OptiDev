@@ -1,0 +1,32 @@
+﻿<view:Screen x:Class="P02Project.Screens.TopLevelPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:s="http://schemas.microsoft.com/surface/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	         mc:Ignorable="d"
+             xmlns:view="clr-namespace:P02Project"
+             d:DesignHeight="1080" d:DesignWidth="1920">
+    
+    <Grid x:Name="LayoutRoot">
+        <Grid Margin="0,0,0,0" Width="1920" Height="1080" Background="White">
+            <Grid.RowDefinitions>
+                <RowDefinition Name="_gridRow0" Height="180"/>
+                <RowDefinition Name="_gridRow1"/>
+				<RowDefinition Name="_gridRow2"/>
+				<RowDefinition Name="_gridRow3"/>
+				<RowDefinition Name="_gridRow4"/>
+				<RowDefinition Name="_gridRow5"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Name="_gridCol0" />
+                <ColumnDefinition Name="_gridCol1"  Width="50" />
+                <ColumnDefinition Name="_gridCol2" Width="240" />
+            </Grid.ColumnDefinitions>
+        	<view:TitleBarControl/>
+        	
+            
+        </Grid>
+    </Grid>
+</view:Screen>
