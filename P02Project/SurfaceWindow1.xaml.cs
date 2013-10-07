@@ -40,8 +40,8 @@ namespace P02Project
 
         // dictionary stores all the ScatterViewItem with its embedded Image and SurfaceButton represent the 7 main tiles
         // about, news, events, contactUs, HowCanIHelp, FamilySupport, PlayBeads
-        private Dictionary<String, SVIWithImgBtn> _dictOfAllHomeTiles;
-
+        //private Dictionary<String, SVIWithImgBtn> _dictOfAllHomeTiles;
+        private Stack<Screen> stackOfScreens;
 
         /// <summary>
         /// Default constructor.
@@ -55,6 +55,10 @@ namespace P02Project
             Donate.setImage("donate.png");
             Donate.setCaption("Donate");
             Donate.setColour(Colors.Orange);
+
+            stackOfScreens = new Stack<Screen>();
+            //Setting starting Screen here, maybe should be in one of the other OnXXX methods of this class
+            pushScreen(new HomePage(this));
         }
 
         /// <summary>
@@ -123,7 +127,38 @@ namespace P02Project
             //TODO: disable audio, animations here
         }
 
+        public void popScreen()
+        {
+        
+            if (stackOfScreens.Count > 1)
+            {
+                stackOfScreens.Pop();
+                this.Content = stackOfScreens.Peek();
+                this.WindowState = WindowState.Maximized;
+                this.WindowStyle = WindowStyle.None;
+            }
+        }
+        public void pushScreen(Screen screen)
+        {
+         
+            stackOfScreens.Push(screen);
+            this.Content = stackOfScreens.Peek();
+            this.WindowState = WindowState.Maximized;
+            this.WindowStyle = WindowStyle.None;
 
+        }
+
+        public void popAll()
+        {
+           
+            while (stackOfScreens.Count > 1)
+            {
+                stackOfScreens.Pop();
+            }
+            this.Content = stackOfScreens.Peek();
+            this.WindowState = WindowState.Maximized;
+            this.WindowStyle = WindowStyle.None;
+        }
         //// this method called when the surface app has just been created.
         //protected override void OnInitialized(EventArgs e)
         //{

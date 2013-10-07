@@ -8,8 +8,8 @@
              xmlns:view="clr-namespace:P02Project"
              d:DesignHeight="1080" d:DesignWidth="1920">
     
-    <Grid x:Name="LayoutRoot">
-        <Grid Margin="0,0,0,0" Width="1920" Height="1080" Background="White">
+    <Grid x:Name="LayoutRoot" Background="White" OpacityMask="White">
+        <Grid x:Name="pageGrid" Margin="0,0,0,0" Width="1920" Height="1080" Background="White" OpacityMask="White">
             <Grid.RowDefinitions>
                 <RowDefinition Name="_gridRow0" Height="180"/>
                 <RowDefinition Name="_gridRow1"/>
@@ -24,7 +24,9 @@
                 <ColumnDefinition Name="_gridCol1"  Width="50" />
                 <ColumnDefinition Name="_gridCol2" Width="240" />
             </Grid.ColumnDefinitions>
-        	<view:TitleBarControl/>
+        	<view:TitleBarControl x:Name="TitleBar"/>
+        	<view:RightButtonControl x:Name="RightButtons" Grid.Column="2" Margin="10" Grid.RowSpan="6"/>
+        	<Grid x:Name="PageContent" Margin="0" Grid.Row="1" Grid.RowSpan="5"/>
         	
             
         </Grid>

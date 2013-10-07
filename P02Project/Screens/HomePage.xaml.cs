@@ -15,6 +15,7 @@ using Microsoft.Surface.Presentation;
 using Microsoft.Surface.Presentation.Controls;
 using Microsoft.Surface.Presentation.Input;
 using System.Windows.Media.Animation;
+using P02Project.Screens;
 
 namespace P02Project
 {
@@ -40,72 +41,86 @@ namespace P02Project
         // about, news, events, contactUs, HowCanIHelp, FamilySupport, PlayBeads
         private Dictionary<String, SVIWithImgBtn> _dictOfAllHomeTiles;
 
-		public HomePage()
+        public HomePage(SurfaceWindow1 parentWindow) : base(parentWindow)
 		{
 			this.InitializeComponent();
 		}
 	
 
     //// this method called when the surface app has just been created.
-    //protected override void OnInitialized(EventArgs e)
-    //{
-    //    base.OnInitialized(e);
+        protected override void OnInitialized(EventArgs e)
+        {
+            base.OnInitialized(e);
 
-    //    // the ScatterViewItem (s) that represent each tile that links to each secion of the app
-    //    // the Image (s) that embbeded in the scatterviewitem
-    //    // the SurfaceButton (s) that embbeded in the scatterviewitem
-    //    _dictOfAllHomeTiles = new Dictionary<string, SVIWithImgBtn>();
-    //    _dictOfAllHomeTiles.Add(_aboutSVIButton.ToString(), new SVIWithImgBtn(_aboutSVI, _aboutSVIImage, _aboutSVIButton));
-    //    _dictOfAllHomeTiles.Add(_familySupportSVIButton.ToString(), new SVIWithImgBtn(_familySupportSVI, _familySupportSVIImage, _familySupportSVIButton));
-    //    _dictOfAllHomeTiles.Add(_howCanIHelpSVIButton.ToString(), new SVIWithImgBtn(_howCanIHelpSVI, _howCanIHelpSVIImage, _howCanIHelpSVIButton));
-    //    _dictOfAllHomeTiles.Add(_newsSVIButton.ToString(), new SVIWithImgBtn(_newsSVI, _newsSVIImage, _newsSVIButton));
-    //    _dictOfAllHomeTiles.Add(_eventsSVIButton.ToString(), new SVIWithImgBtn(_eventsSVI, _eventsSVIImage, _eventsSVIButton));
-    //    _dictOfAllHomeTiles.Add(_playBeadsSVIButton.ToString(), new SVIWithImgBtn(_playBeadsSVI, _playBeadsSVIImage, _playBeadsSVIButton));
-    //    _dictOfAllHomeTiles.Add(_contactUsSVIButton.ToString(), new SVIWithImgBtn(_contactUsSVI, _contactUsSVIImage, _contactUsSVIButton));
+            // the ScatterViewItem (s) that represent each tile that links to each secion of the app
+            // the Image (s) that embbeded in the scatterviewitem
+            // the SurfaceButton (s) that embbeded in the scatterviewitem
+            _dictOfAllHomeTiles = new Dictionary<string, SVIWithImgBtn>();
+            _dictOfAllHomeTiles.Add(_aboutSVIButton.ToString(), new SVIWithImgBtn(_aboutSVI, _aboutSVIImage, _aboutSVIButton));
+            _dictOfAllHomeTiles.Add(_familySupportSVIButton.ToString(), new SVIWithImgBtn(_familySupportSVI, _familySupportSVIImage, _familySupportSVIButton));
+            _dictOfAllHomeTiles.Add(_howCanIHelpSVIButton.ToString(), new SVIWithImgBtn(_howCanIHelpSVI, _howCanIHelpSVIImage, _howCanIHelpSVIButton));
+            _dictOfAllHomeTiles.Add(_newsSVIButton.ToString(), new SVIWithImgBtn(_newsSVI, _newsSVIImage, _newsSVIButton));
+            _dictOfAllHomeTiles.Add(_eventsSVIButton.ToString(), new SVIWithImgBtn(_eventsSVI, _eventsSVIImage, _eventsSVIButton));
+            _dictOfAllHomeTiles.Add(_playBeadsSVIButton.ToString(), new SVIWithImgBtn(_playBeadsSVI, _playBeadsSVIImage, _playBeadsSVIButton));
+            _dictOfAllHomeTiles.Add(_contactUsSVIButton.ToString(), new SVIWithImgBtn(_contactUsSVI, _contactUsSVIImage, _contactUsSVIButton));
 
-    //}
+        }
 
 
     //// It checks what button is clicked, then call to the corresponding function to handle the changing of the coentent
     //// and change the color of the title bar accordingly
-    //private void changeContentBasedOnClickedButton(SurfaceButton sviButton)
-    //{
-    //    if (sviButton.Equals(_aboutSVIButton))
-    //    {
-    //        _title.Background = _aboutSVIButton.Background;
-    //        changeContentToAboutSection();
-    //    }
-    //    else if (sviButton.Equals(_familySupportSVIButton))
-    //    {
-    //        _title.Background = _familySupportSVIButton.Background;
-    //        changeContentToFamilySupportSection();
-    //    }
-    //    else if (sviButton.Equals(_howCanIHelpSVIButton))
-    //    {
-    //        _title.Background = _howCanIHelpSVIButton.Background;
-    //        changeContentToHowCanIHelpSection();
-    //    }
-    //    else if (sviButton.Equals(_newsSVIButton))
-    //    {
-    //        _title.Background = _newsSVIButton.Background;
-    //        changeContentToNewsSection();
-    //    }
-    //    else if (sviButton.Equals(_eventsSVIButton))
-    //    {
-    //        _title.Background = _eventsSVIButton.Background;
-    //        changeContentToEventsSection();
-    //    }
-    //    else if (sviButton.Equals(_playBeadsSVIButton))
-    //    {
-    //        _title.Background = _playBeadsSVIButton.Background;
-    //        changeContentToPlayBeadsSection();
-    //    }
-    //    else if (sviButton.Equals(_contactUsSVIButton))
-    //    {
-    //        _title.Background = _contactUsSVIButton.Background;
-    //        changeContentToContactUsSection();
-    //    }
-    //}
+        private void changeContentBasedOnClickedButton(SurfaceButton sviButton)
+        {
+            Screen nextScreen = null;
+         
+            //Set next screen to add to the stack and it's contents depending on the button clicked
+
+            if (sviButton.Equals(_aboutSVIButton))
+            {
+                nextScreen = new TopLevelPage(ParentWindow, "About");
+                ((TopLevelPage)nextScreen).setTitleColour(_aboutSVIButton.Background);
+                //((TopLevelPage)nextScreen).setContent(new Controls."CONTENT CONTROL NAME HERE");
+            }
+            else if (sviButton.Equals(_familySupportSVIButton))
+            {
+                nextScreen = new TopLevelPage(ParentWindow, "Family Support");
+                ((TopLevelPage)nextScreen).setTitleColour(_familySupportSVIButton.Background);
+                //((TopLevelPage)nextScreen).setContent(new Controls."CONTENT CONTROL NAME HERE");
+            }
+            else if (sviButton.Equals(_howCanIHelpSVIButton))
+            {
+                nextScreen = new TopLevelPage(ParentWindow, "How Can I Help?");
+                ((TopLevelPage)nextScreen).setTitleColour(_howCanIHelpSVIButton.Background);
+                //((TopLevelPage)nextScreen).setContent(new Controls."CONTENT CONTROL NAME HERE");
+            }
+            else if (sviButton.Equals(_newsSVIButton))
+            {
+                nextScreen = new TopLevelPage(ParentWindow, "News");
+                ((TopLevelPage)nextScreen).setTitleColour(_newsSVIButton.Background);
+                //((TopLevelPage)nextScreen).setContent(new Controls."CONTENT CONTROL NAME HERE");
+            }
+            else if (sviButton.Equals(_eventsSVIButton))
+            {
+                nextScreen = new TopLevelPage(ParentWindow, "Events");
+               ((TopLevelPage)nextScreen).setTitleColour(_eventsSVIButton.Background);
+                //((TopLevelPage)nextScreen).setContent(new Controls."CONTENT CONTROL NAME HERE");
+            }
+            else if (sviButton.Equals(_playBeadsSVIButton))
+            {
+                nextScreen = new TopLevelPage(ParentWindow, "Play Beads");
+                ((TopLevelPage)nextScreen).setTitleColour(_playBeadsSVIButton.Background);
+                //((TopLevelPage)nextScreen).setContent(new Controls."CONTENT CONTROL NAME HERE");
+            }
+            else if (sviButton.Equals(_contactUsSVIButton))
+            {
+                nextScreen = new TopLevelPage(ParentWindow, "Contact Us");
+                ((TopLevelPage)nextScreen).setTitleColour(_contactUsSVIButton.Background);
+                //((TopLevelPage)nextScreen).setContent(new Controls."CONTENT CONTROL NAME HERE");
+            }
+
+            //nextScreen should never be null
+            ParentWindow.pushScreen(nextScreen);
+        }
 
     private void homeView_aButtonIsClicked(Object sender, RoutedEventArgs e)
     {
@@ -141,51 +156,51 @@ namespace P02Project
             if (sender.Equals(sviButton))
             {
                 clickedButton = sviButton;
-                svi.Visibility = System.Windows.Visibility.Collapsed;
+                //svi.Visibility = System.Windows.Visibility.Collapsed;
             }
         }
 
     //    // call a helper method to change the content based on the button that is clicked
-    //    changeContentBasedOnClickedButton(clickedButton);
+        changeContentBasedOnClickedButton(clickedButton);
     }
 
     //// a helper method for homeView_aButtonIsClicked
     //// this method animates the given ScatterViewItem
-    //private void helperHomeViewAnimator(ScatterViewItem svi, SurfaceButton sviButton, Image sviImage, Point endPoint)
-    //{
+    private void helperHomeViewAnimator(ScatterViewItem svi, SurfaceButton sviButton, Image sviImage, Point endPoint)
+    {
 
-    //    Storyboard stb = new Storyboard();
-    //    PointAnimation moveCenter = new PointAnimation();
-    //    // the starting point of the animation
-    //    moveCenter.From = svi.ActualCenter;
+        Storyboard stb = new Storyboard();
+        PointAnimation moveCenter = new PointAnimation();
+        // the starting point of the animation
+        moveCenter.From = svi.ActualCenter;
 
-    //    // set the scatterViewItem to be visible
-    //    svi.Visibility = System.Windows.Visibility.Visible;
-    //    // change its size
-    //    svi.Width = W_LINK_TILE;
-    //    svi.Height = H_LINK_TILE;
-    //    svi.Opacity = 100;
+        // set the scatterViewItem to be visible
+        svi.Visibility = System.Windows.Visibility.Visible;
+        // change its size
+        svi.Width = W_LINK_TILE;
+        svi.Height = H_LINK_TILE;
+        svi.Opacity = 100;
 
-    //    // showing the button
-    //    sviButton.Opacity = 100;
+        // showing the button
+        sviButton.Opacity = 100;
 
-    //    // turnoff the image that embbeded in the scatter view.
-    //    sviImage.Opacity = 0;
+        // turnoff the image that embbeded in the scatter view.
+        sviImage.Opacity = 0;
 
-    //    // set the color our extension area in the title bar (the grid row=0, column=1 and 2)
-    //    _titleExtension1.Opacity = 0;
-    //    _titleExtension2.Opacity = 0;
+        // set the color our extension area in the title bar (the grid row=0, column=1 and 2)
+        _titleExtension1.Opacity = 0;
+        _titleExtension2.Opacity = 0;
 
-    //    // end point of the animation
-    //    moveCenter.To = endPoint;
-    //    // set animation duration
-    //    moveCenter.Duration = new Duration(TimeSpan.FromSeconds(1.0));
-    //    // set the animation and points into the storyboard
-    //    stb.Children.Add(moveCenter);
-    //    Storyboard.SetTarget(moveCenter, svi);
-    //    Storyboard.SetTargetProperty(moveCenter, new PropertyPath(ScatterViewItem.CenterProperty));
-    //    // start animation
-    //    stb.Begin(this);
-    //}
+        // end point of the animation
+        moveCenter.To = endPoint;
+        // set animation duration
+        moveCenter.Duration = new Duration(TimeSpan.FromSeconds(1.0));
+        // set the animation and points into the storyboard
+        stb.Children.Add(moveCenter);
+        Storyboard.SetTarget(moveCenter, svi);
+        Storyboard.SetTargetProperty(moveCenter, new PropertyPath(ScatterViewItem.CenterProperty));
+        // start animation
+        stb.Begin(this);
+    }
     }
 }
