@@ -29,8 +29,8 @@
 		</Style>
 	</UserControl.Resources>
 
-	<Grid x:Name="BarBG" Background="#FF0D7F81">
-		<Button x:Name="Back" Content="Back" HorizontalAlignment="Left" Margin="8,8,0,8" Width="100" BorderThickness="0" Background="#FFED2121" OpacityMask="#FFE90C0C" Height="100" VerticalAlignment="Center" Click="Back_Click"/>
+	<Grid x:Name="LayoutRoot" Background="#FF0D7F81">
+		<Button x:Name="Back" Content="Back" HorizontalAlignment="Left" Margin="8,8,0,8" Width="100" BorderThickness="0" Background="#FFED2121" OpacityMask="#FFE90C0C" Height="100" VerticalAlignment="Center"/>
 		<Button x:Name="CCF_Button" Content="" HorizontalAlignment="Left" Margin="125,8,0,8" Style="{DynamicResource CCF_Logo_Button}" Width="137" Height="104" VerticalAlignment="Center"/>
 		<Label x:Name="Title" Content="Page Title" Margin="300,0,0,0" FontSize="40" Foreground="White" VerticalAlignment="Center" FontFamily="Verdana"/>
 		<Label x:Name="SubTitle" Content="SubTitle" Margin="300,0,0,0" FontSize="29.333" Foreground="White" VerticalAlignment="Bottom" FontFamily="Verdana"/>

@@ -14,19 +14,13 @@ using System.Windows.Shapes;
 namespace P02Project
 {
 	/// <summary>
-	/// Interaction logic for TitleBarControl.xaml
+	/// Interaction logic for RightButtonControl.xaml
 	/// </summary>
-	public partial class TitleBarControl : UserControl
+	public partial class RightButtonControl : UserControl
 	{
-		public TitleBarControl()
+		public RightButtonControl()
 		{
 			this.InitializeComponent();
 		}
-
-        private void Back_Click(object sender, RoutedEventArgs e)
-        {
-            SurfaceWindow1 parentWindow = (SurfaceWindow1)Window.GetWindow(this);
-            parentWindow.popScreen();
-        }
 	}
 }

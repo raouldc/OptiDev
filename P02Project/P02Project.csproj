@@ -58,6 +58,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="RightButtonControl.xaml.cs">
+      <DependentUpon>RightButtonControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Screen.cs" />
     <Compile Include="Screens\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
@@ -69,6 +72,10 @@
       <DependentUpon>TopLevelPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="SVIWithImgBtn.cs" />
+    <Page Include="RightButtonControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Screens\HomePage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -119,6 +126,7 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\go-back-icon-NOT_FREE.png" />
     <Resource Include="Resources\logoCCF-transparentaltered.png" />
     <Resource Include="Resources\abt.png" />
     <Resource Include="Resources\beads.png" />

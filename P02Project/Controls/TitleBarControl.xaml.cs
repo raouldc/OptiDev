@@ -22,11 +22,5 @@ namespace P02Project
 		{
 			this.InitializeComponent();
 		}
-
-        private void Back_Click(object sender, RoutedEventArgs e)
-        {
-            SurfaceWindow1 parentWindow = (SurfaceWindow1)Window.GetWindow(this);
-            parentWindow.popScreen();
-        }
 	}
 }
