@@ -42,6 +42,7 @@ Generated_Code
 *.rar
 *.tar
 *.zip
+*.nupkg
  
 # Logs and databases #
 ######################
@@ -212,6 +213,9 @@ App_Data/*.ldf
 # =========================
 # Windows detritus
 # =========================
+
+packages/
+*/packages.config
 
 # Windows image file caches
 Thumbs.db

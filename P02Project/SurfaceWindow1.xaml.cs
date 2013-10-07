@@ -11,6 +11,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Google.Maps.Geocoding;
+using Microsoft.Maps;
+using Microsoft.Maps.MapControl.WPF;
 using Microsoft.Surface;
 using Microsoft.Surface.Presentation;
 using Microsoft.Surface.Presentation.Controls;
@@ -262,13 +265,6 @@ namespace P02Project
             stb.Begin(this);
         }
 
-
-
-
-
-
-
-
         private void changeContentToAboutSection()
         {
             // create 5 ScatterViewItem(s)
@@ -290,6 +286,18 @@ namespace P02Project
 
         private void changeContentToContactUsSection()
         {
+            //create map in _mainGrid
+            var map = new MapCore{
+                                     CredentialsProvider =
+                                         new ApplicationIdCredentialsProvider(
+                                         "AmVwNPRfp45FelI8abG8yRRvQNPORDJdVE74ipdYXqeTtOnYsbgYxkc55CDxHqFv"),
+                                     Center = new Location(-41.291537, 173.268035),
+                                     ZoomLevel = 6
+                                 };
+            map.Height = 500;
+            map.Width = 300;
+            
+
         }
 
         private void changeContentToHowCanIHelpSection()

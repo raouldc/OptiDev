@@ -28,7 +28,7 @@
     <!-- Column=2 : is kept for the tiles link to different pages (it is shown in all views except home view). the width of Column=0 is (3/16 * ScreenWidth)-->
     <Grid Name="_mainGrid"  Width="1280" Height="720" Background="White">
         <Grid.RowDefinitions>
-            <RowDefinition Name="_gridRow0" Height="120"/>
+            <RowDefinition Name="_gridRow0" Height="150"/>
             <RowDefinition Name="_gridRow1"/>
         </Grid.RowDefinitions>
 
