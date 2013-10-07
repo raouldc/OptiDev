@@ -137,7 +137,6 @@ namespace P02Project
             _dictOfAllHomeTiles.Add(_eventsSVIButton.ToString(), new SVIWithImgBtn(_eventsSVI, _eventsSVIImage, _eventsSVIButton));
             _dictOfAllHomeTiles.Add(_playBeadsSVIButton.ToString(), new SVIWithImgBtn(_playBeadsSVI, _playBeadsSVIImage, _playBeadsSVIButton));
             _dictOfAllHomeTiles.Add(_contactUsSVIButton.ToString(), new SVIWithImgBtn(_contactUsSVI, _contactUsSVIImage, _contactUsSVIButton));
-            
         }
 
 
@@ -192,7 +191,7 @@ namespace P02Project
             SurfaceButton clickedButton = null;
 
             // iterte on each tile to animate it.
-            foreach(KeyValuePair<String, SVIWithImgBtn> pair in _dictOfAllHomeTiles)
+            foreach (KeyValuePair<String, SVIWithImgBtn> pair in _dictOfAllHomeTiles)
             {
                 SVIWithImgBtn sviWthImgBtn = pair.Value;
 
@@ -204,7 +203,7 @@ namespace P02Project
                 Point endPoint = new Point(endPointX, endPointY);
 
                 // the tile that is clicked must stay in the middle
-                if (sender.Equals(sviButton)) endPoint = new Point(WIDTH / 2, HEIGHT / 2);
+                if (sender.Equals(sviButton)) endPoint = new Point(W_LINK_TILE / 2, H_LINK_TILE / 2);
                 // other tiles move to the right
                 else endPointY += H_LINK_TILE;
 
