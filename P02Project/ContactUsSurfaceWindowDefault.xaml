@@ -27,16 +27,12 @@
         <s:ScatterView Name="_titleExtension1" Grid.Row="0" Grid.Column="2" Background="#fff1c232" />
         <s:ScatterView Name="_titleExtension2" Grid.Row="0" Grid.Column="3" Background="#fff1c232" />
 
-        <m:Map Name="houseMap" CredentialsProvider="AmVwNPRfp45FelI8abG8yRRvQNPORDJdVE74ipdYXqeTtOnYsbgYxkc55CDxHqFv" Center="-41, 173" ZoomLevel="5.9"
-                   Grid.Row="1" Grid.Column="2" Margin="190,22,124,24">
-            <Canvas Width="50" Height="80"
-                            m:MapLayer.Position="-36.857769,174.769119"
-                            m:MapLayer.PositionOrigin="BottomCenter" Opacity="0.5">
-                <Path Data="M 0,0 L 50,0 50,50 25,80 0,50 0,0" Fill="Wheat" Stroke="Wheat" StrokeThickness="2" />
-                <TextBlock FontSize="10" Margin="5" TextAlignment="Center" Height="52" Width="46" Canvas.Top="-5">
-                    Auckland Family Space
-                </TextBlock>
-            </Canvas>
+        <m:Map Name="houseMap" Mode="Road" CredentialsProvider="AmVwNPRfp45FelI8abG8yRRvQNPORDJdVE74ipdYXqeTtOnYsbgYxkc55CDxHqFv" Center="-41, 173" ZoomLevel="5.9"
+                   Grid.Row="1" Grid.Column="2" Margin="190,22,124,24" AnimationLevel="UserInput">
+            <m:Pushpin m:MapLayer.Position="-36.857769,174.769119">
+                
+            </m:Pushpin>
+            
         </m:Map>
     </Grid>
 </s:SurfaceWindow>
