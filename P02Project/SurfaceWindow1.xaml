@@ -8,15 +8,4 @@
     Topmost="True"
     Background="White" 
     WindowState="Maximized" 
-    WindowStyle="None">
-	<local:PoloroidControl x:Name="Donate" HorizontalAlignment="Left" Margin="100,100,0,0" Width="250" Height="250" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" >
-		<local:PoloroidControl.RenderTransform>
-			<TransformGroup>
-				<ScaleTransform/>
-				<SkewTransform/>
-				<RotateTransform Angle="-7.654"/>
-				<TranslateTransform/>
-			</TransformGroup>
-		</local:PoloroidControl.RenderTransform>
-	</local:PoloroidControl>
-</s:SurfaceWindow>
+    WindowStyle="None"></s:SurfaceWindow>

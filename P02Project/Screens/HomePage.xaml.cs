@@ -44,6 +44,10 @@ namespace P02Project
         public HomePage(SurfaceWindow1 parentWindow) : base(parentWindow)
 		{
 			this.InitializeComponent();
+
+            Donate.setImage("donate.png");
+            Donate.setCaption("Donate");
+            Donate.setColour(Colors.Orange);
 		}
 	
 

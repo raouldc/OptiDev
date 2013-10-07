@@ -34,7 +34,7 @@
 
 
 
-        <s:ScatterView Grid.Row="1">
+        <s:ScatterView Grid.Row="1" Margin="-4.667,4,4.667,-4">
             <s:ScatterViewItem x:Name="_playBeadsSVI" Width="320" Height="240" Background="Transparent" Orientation="0" CanRotate="False" CanScale="False" Center="1050,450">
                 <Grid>
                     <Image x:Name="_playBeadsSVIImage" Stretch="Uniform"  Source="../Resources/beads.png"/>
@@ -87,6 +87,17 @@
             </s:ScatterViewItem>
 
         </s:ScatterView>
+        <view:PoloroidControl x:Name="Donate" Height="316.546" Margin="712.697,67.227,584.697,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Grid.Row="1" >
+        	<view:PoloroidControl.RenderTransform>
+        		<TransformGroup>
+        			<ScaleTransform/>
+        			<SkewTransform/>
+        			<RotateTransform Angle="5.382"/>
+        			<TranslateTransform/>
+        		</TransformGroup>
+        	</view:PoloroidControl.RenderTransform>
+
+        </view:PoloroidControl>
 
 			
 			</Grid>
