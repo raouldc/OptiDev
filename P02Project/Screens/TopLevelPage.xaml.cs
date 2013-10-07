@@ -48,6 +48,7 @@ namespace P02Project.Screens
         {
             //Set the names of the buttons
             //Needs to be improved so it sets the colours based on the name too
+            
             RightButtons.Button1.Content = bNames[0];
             RightButtons.Button2.Content = bNames[1];
             RightButtons.Button3.Content = bNames[2];
