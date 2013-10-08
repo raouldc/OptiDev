@@ -59,5 +59,24 @@ namespace P02Project.Screens
 
            
         }
+
+        private void Polaroid_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            switch ((sender as PoloroidControl).text)
+            {
+                case "About Us":
+                    break;
+                case "Our Ambassadors":
+                    break;
+                case "Our Stories":
+                    break;
+                case "How we Help":
+                    break;
+                case "Our History":
+                    break;
+                default:
+                    break;
+
+            }
     }
 }
