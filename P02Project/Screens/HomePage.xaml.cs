@@ -201,6 +201,7 @@ namespace P02Project
                     nextScreen = new TopLevelPage(ParentWindow, "Family Support");
                     ((TopLevelPage)nextScreen).setButtons(new String[6] { "About", "How Can I Help?", "News", "Events", "Play Beads", "Contact Us" });
                     ((TopLevelPage)nextScreen).setTitleColour(familySupport.colour);
+                    ((TopLevelPage)nextScreen).setContent(new GridView("NOthing"));
                     //((TopLevelPage)nextScreen).setContent(new Controls."CONTENT CONTROL NAME HERE");
                     break;
                 case "How Can I Help?":
