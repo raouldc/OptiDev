@@ -29,23 +29,28 @@ namespace P02Project
 
         public void setButtons(String[] bNames)
         {
-            Button1.Content = bNames[0];
-            Button1.Background = new SolidColorBrush(Util._pageColDict[bNames[0]]);
+            //Button1.Content = bNames[0];
+            //Button1.Background = new SolidColorBrush(Util._pageColDict[bNames[0]]);
 
-            Button2.Content = bNames[1];
-            Button2.Background = new SolidColorBrush(Util._pageColDict[bNames[1]]);
+            //Button2.Content = bNames[1];
+            //Button2.Background = new SolidColorBrush(Util._pageColDict[bNames[1]]);
 
-            Button3.Content = bNames[2];
-            Button3.Background = new SolidColorBrush(Util._pageColDict[bNames[2]]);
+            //Button3.Content = bNames[2];
+            //Button3.Background = new SolidColorBrush(Util._pageColDict[bNames[2]]);
 
-            Button4.Content = bNames[3];
-            Button4.Background = new SolidColorBrush(Util._pageColDict[bNames[3]]);
+            //Button4.Content = bNames[3];
+            //Button4.Background = new SolidColorBrush(Util._pageColDict[bNames[3]]);
 
-            Button5.Content = bNames[4];
-            Button5.Background = new SolidColorBrush(Util._pageColDict[bNames[4]]);
+            //Button5.Content = bNames[4];
+            //Button5.Background = new SolidColorBrush(Util._pageColDict[bNames[4]]);
 
-            Button6.Content = bNames[5];
-            Button6.Background = new SolidColorBrush(Util._pageColDict[bNames[5]]);
+            //Button6.Content = bNames[5];
+            //Button6.Background = new SolidColorBrush(Util._pageColDict[bNames[5]]);
+
+            ButtonStack.Children.Clear();
+
+            ButtonStack.Children.Add(Button2);
+            
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
