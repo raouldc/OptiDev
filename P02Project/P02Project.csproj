@@ -61,6 +61,12 @@
     <Compile Include="GridView.xaml.cs">
       <DependentUpon>GridView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Screens\FunkyGrid.xaml.cs">
+      <DependentUpon>FunkyGrid.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\TitleControl.xaml.cs">
+      <DependentUpon>TitleControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Util.cs" />
     <Compile Include="RightButtonControl.xaml.cs">
       <DependentUpon>RightButtonControl.xaml</DependentUpon>
@@ -94,6 +100,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Screens\FunkyGrid.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Screens\HomePage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -107,6 +117,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Screens\TitleBarControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Screens\TitleControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
