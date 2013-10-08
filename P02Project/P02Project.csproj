@@ -190,6 +190,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\images\LittleBaby2.png" />
+    <Resource Include="Resources\images\LittleBaby3.png" />
+    <Resource Include="Resources\images\OurAmbassador.png" />
+    <Resource Include="Resources\images\Sisters.png" />
     <Content Include="Resources\xml\About.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -212,6 +216,22 @@
     <Resource Include="Resources\bead background2.png" />
     <Resource Include="Resources\donate.png" />
     <Resource Include="Resources\go-back-icon-NOT_FREE.png" />
+    <Resource Include="Resources\images\Ambassadors\Amanda.png" />
+    <Resource Include="Resources\images\Ambassadors\Bernadine.png" />
+    <Resource Include="Resources\images\Ambassadors\Chris.png" />
+    <Resource Include="Resources\images\Ambassadors\HamishEric.png" />
+    <Resource Include="Resources\images\Ambassadors\Jerome.png" />
+    <Resource Include="Resources\images\Ambassadors\Kieran.png" />
+    <Resource Include="Resources\images\Ambassadors\Lorraine.png" />
+    <Resource Include="Resources\images\Ambassadors\Megan.png" />
+    <Resource Include="Resources\images\Ambassadors\Steve.png" />
+    <Resource Include="Resources\images\LittleBaby1.png" />
+    <Resource Include="Resources\images\Stories\Dequarn.png" />
+    <Resource Include="Resources\images\Stories\Emma.png" />
+    <Resource Include="Resources\images\Stories\Hana.png" />
+    <Resource Include="Resources\images\Stories\Joyce.png" />
+    <Resource Include="Resources\images\Stories\Kavahn.png" />
+    <Resource Include="Resources\images\Stories\Manu.png" />
     <Resource Include="Resources\logoCCF-transparentaltered.png" />
     <Resource Include="Resources\abt.png" />
     <Resource Include="Resources\beads.png" />
@@ -229,7 +249,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Fonts\" />
-    <Folder Include="Resources\images\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Expression\Blend\.NETFramework\v4.0\Microsoft.Expression.Blend.WPF.targets" />
