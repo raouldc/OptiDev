@@ -82,6 +82,10 @@
       <DependentUpon>TopLevelPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="SVIWithImgBtn.cs" />
+    <Compile Include="Utils\xml\Content.cs">
+      <DependentUpon>Content.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\xml\XMLUtilities.cs" />
     <Page Include="GridView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -146,8 +150,12 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <None Include="Utils\xml\Content.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\xml\Content.xml" />
     <Resource Include="Resources\bead background2.png" />
     <Resource Include="Resources\donate.png" />
     <Resource Include="Resources\go-back-icon-NOT_FREE.png" />

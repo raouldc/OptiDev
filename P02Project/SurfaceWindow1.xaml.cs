@@ -16,6 +16,7 @@ using Microsoft.Surface.Presentation;
 using Microsoft.Surface.Presentation.Controls;
 using Microsoft.Surface.Presentation.Input;
 using System.Windows.Media.Animation;
+using P02Project.Resources.xml;
 
 namespace P02Project
 {
@@ -53,6 +54,10 @@ namespace P02Project
             stackOfScreens = new Stack<Screen>();
             //Setting starting Screen here, maybe should be in one of the other OnXXX methods of this class
             pushScreen(new HomePage(this));
+            
+          
+            
+            Content temp = XMLUtilities.GetContentFromFile(" ");
         }
 
         /// <summary>
