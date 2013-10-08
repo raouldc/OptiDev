@@ -114,7 +114,7 @@ namespace P02Project
                     break;
 
                 default:
-                    //This shouldn't ever happen.
+                    //This should never happen.
                     nextScreen = null;
                     break;
             }
