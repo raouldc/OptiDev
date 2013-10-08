@@ -11,6 +11,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Microsoft.Maps.MapControl;
+using Microsoft.Maps.MapControl.WPF;
 using Microsoft.Surface;
 using Microsoft.Surface.Presentation;
 using Microsoft.Surface.Presentation.Controls;
@@ -26,6 +28,7 @@ namespace P02Project
         // constant color for selected and unselected button
         private static readonly Brush SELECTED_COLOR = new SolidColorBrush(Color.FromRgb(113, 11, 126));
         private static readonly Brush UNSELECTED_COLOR = new SolidColorBrush(Color.FromRgb(228, 17, 255));
+	    private Map baseMap;
 
         // list storing the ScatterViewItems
         private List<ScatterViewItem> _sviList;
@@ -33,7 +36,8 @@ namespace P02Project
 		public ContactUs()
 		{
 			this.InitializeComponent();
-
+            DataContext = new MapAddressViewModel();
+		    baseMap = houseMap;
             _sviList = new List<ScatterViewItem>();
             _sviList.Add(_fmlPlSVI);
             _sviList.Add(_fmlSptBrsSVI);
@@ -56,10 +60,48 @@ namespace P02Project
             _mainOffSVI.Background = UNSELECTED_COLOR;
             
             // change the map content here
+            
+//            baseMap.Center = new Location(-41, 173);
+//            baseMap.ZoomLevel = 5.9;
+//            baseMap.AnimationLevel = AnimationLevel.UserInput;
+//            baseMap.Children.Clear();
+//            var pushPin = new Pushpin{
+//                                         AllowDrop = false,
+//                                         Location = new Location(-36.857769, 174.769119),
+//                                         Name = "AucklandHouse"
+//                                     };
+//            pushPin.TouchEnter += _displayInfo;
+//            baseMap.Children.Add(pushPin);
         }
 
+	    private void _displayInfo(object sender, RoutedEventArgs e)
+	    {
+	        var pin = (Pushpin) sender;
+            
+	        switch (pin.Name)
+	        {
+                case "AucklandHouse":
+                    
+	                break;
+	        } 
+	    }
 
-        /// <summary>
+        private void Pushpin_TouchEnter(object sender, TouchEventArgs touchEventArgs) {
+            var pin = sender as FrameworkElement;
+            MapLayer.SetPosition(ContentPopup, MapLayer.GetPosition(pin));
+            MapLayer.SetPositionOffset(ContentPopup, new Point(0, -50));
+
+            var location = (MapAddress)pin.Tag;
+
+            ContentPopupTitle.Text = location.Title;
+            ContentPopupAddress.Text = location.Address;
+            ContentPopup.Visibility = Visibility.Visible;
+        }
+
+        private void Pushpin_TouchLeave(object sender, RoutedEventArgs routedEventArgs) {
+            ContentPopup.Visibility = Visibility.Collapsed;
+        }
+	    /// <summary>
         /// this method called when the "Main Office" option button has been clicked
         /// </summary>
         /// <param name="sender"></param>
@@ -108,7 +150,6 @@ namespace P02Project
             // change the map content here
         }
 
-        private void UserControl_Loaded(object sender, RoutedEventArgs e){ 
-
+        private void UserControl_Loaded(object sender, RoutedEventArgs e) {}
 	}
 }

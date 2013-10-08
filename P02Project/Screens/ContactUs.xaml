@@ -3,14 +3,18 @@
 	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-	xmlns:Custom="http://schemas.microsoft.com/surface/2008"
-    
-	mc:Ignorable="d"
+	xmlns:Custom="http://schemas.microsoft.com/surface/2008" 
+    xmlns:m="clr-namespace:Microsoft.Maps.MapControl.WPF;assembly=Microsoft.Maps.MapControl.WPF" 
+    mc:Ignorable="d"
 	x:Class="P02Project.ContactUs"
 	x:Name="UserControl"
 	d:DesignWidth="1630" d:DesignHeight="900" Loaded="UserControl_Loaded">
-
-	<Grid x:Name="LayoutRoot" Background="White">
+    <UserControl.Resources>
+        <DataTemplate x:Key="MapAddressTemplate">
+            <m:Pushpin m:MapLayer.Position="{Binding Location}" Tag="{Binding}" TouchDown="Pushpin_TouchEnter" />
+        </DataTemplate>
+    </UserControl.Resources>
+    <Grid x:Name="LayoutRoot" Background="White">
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition/>
 			<ColumnDefinition Width="282.88"/>
@@ -60,12 +64,23 @@
             
             <!-- map here -->
 			<Grid Margin="500,70,70,70">
-            
+                <m:Map Name="houseMap" Mode="Road" CredentialsProvider="AmVwNPRfp45FelI8abG8yRRvQNPORDJdVE74ipdYXqeTtOnYsbgYxkc55CDxHqFv" Center="-41, 173" ZoomLevel="5.9"
+                   Margin="190,22,124,24" AnimationLevel="UserInput" GotFocus="Pushpin_TouchLeave">
+                    <m:MapItemsControl ItemsSource="{Binding Addresses}"
+                                 ItemTemplate="{StaticResource MapAddressTemplate}"/>
+                    <m:MapLayer Name="ContentPopupLayer">
+                        <Grid x:Name="ContentPopup" Visibility="Collapsed" Background="White" Opacity="0.8" Height="100" Width="300" >
+                            <StackPanel Margin="15">
+                                <TextBlock x:Name="ContentPopupTitle" FontSize="12" FontWeight="Bold"></TextBlock>
+                            	<TextBlock x:Name="ContentPopupAddress" FontSize="12" ></TextBlock>
+                            </StackPanel>
+                        </Grid>
+                    </m:MapLayer>
+                </m:Map>
             </Grid>
 
-
-
             
+
 
 
         </Grid>
