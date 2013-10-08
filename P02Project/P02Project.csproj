@@ -169,7 +169,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\xml\Content.xml" />
+    <Content Include="Resources\xml\Content.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Resource Include="Resources\bead background2.png" />
     <Resource Include="Resources\donate.png" />
     <Resource Include="Resources\go-back-icon-NOT_FREE.png" />
