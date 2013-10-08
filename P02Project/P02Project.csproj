@@ -58,6 +58,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Content\hcihDonateControl.xaml.cs">
+      <DependentUpon>hcihDonateControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Content\hcihHomeControl.xaml.cs">
+      <DependentUpon>hcihHomeControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Util.cs" />
     <Compile Include="RightButtonControl.xaml.cs">
       <DependentUpon>RightButtonControl.xaml</DependentUpon>
@@ -79,6 +85,14 @@
       <DependentUpon>TopLevelPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="SVIWithImgBtn.cs" />
+    <Page Include="Content\hcihDonateControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Content\hcihHomeControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="RightButtonControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
