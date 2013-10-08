@@ -19,15 +19,23 @@ namespace P02Project.Screens
     /// </summary>
     public partial class TopLevelPage : Screen
     {
+        private Stack<UIElement> stackOfContent;
+
         public TopLevelPage(SurfaceWindow1 parentWindow, String title) : base(parentWindow)
 		{
 			InitializeComponent();
+
+            stackOfContent = new Stack<UIElement>();
             TitleBar.Title.Content = title;
 		}
 
         //Set the content part of the grid
         public void setContent(UIElement control)
         {
+            //Add content to stack
+            stackOfContent.Push(control);
+
+            //set control to it's place in the grid
             Grid.SetColumn(control, 0);
             Grid.SetRow(control, 1);
             Grid.SetRowSpan(control, 5);
@@ -49,20 +57,23 @@ namespace P02Project.Screens
             //Set the names of the buttons
             //Needs to be improved so it sets the colours based on the name too
             RightButtons.setButtons(bNames);
-
-            //RightButtons.Button1.Content = bNames[0];
-            //RightButtons.Button2.Content = bNames[1];
-            //RightButtons.Button3.Content = bNames[2];
-            //RightButtons.Button4.Content = bNames[3];
-            //RightButtons.Button5.Content = bNames[4];
-            //RightButtons.Button6.Content = bNames[5];
-        
+     
         }
 
         //Go back one screen
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
-            //ParentWindow.popScreen();
+            if (stackOfContent.Count > 1)
+            {
+                //pop the top control off the stack
+                stackOfContent.Pop();
+                //set next control to be the content
+                this.setContent(stackOfContent.Peek());
+            }
+            else
+            {
+                ParentWindow.popScreen();
+            }
         }
 
     }
