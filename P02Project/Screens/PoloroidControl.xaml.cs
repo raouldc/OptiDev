@@ -48,6 +48,14 @@ namespace P02Project
             Caption.Text = caption;
         }
 
+        public String text
+        {
+            get
+            {
+                return Caption.Text;
+            }
+        }
+
         public void setColour(Color colour)
         {
             Caption.Background = new SolidColorBrush(colour);

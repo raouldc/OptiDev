@@ -12,29 +12,31 @@
     	<Grid.Background>
     		<ImageBrush TileMode="FlipX"/>
     	</Grid.Background>
-        <Grid x:Name="pageGrid" Margin="0,0,0,0" Width="1920" Height="1080" OpacityMask="White">
-        	<Grid.Background>
-        		<ImageBrush ImageSource="/P02Project;component/Resources/bead background2.png"/>
-        	</Grid.Background>
-            <Grid.RowDefinitions>
-                <RowDefinition Name="_gridRow0" Height="180"/>
-                <RowDefinition Name="_gridRow1"/>
-				<RowDefinition Name="_gridRow2"/>
-				<RowDefinition Name="_gridRow3"/>
-				<RowDefinition Name="_gridRow4"/>
-				<RowDefinition Name="_gridRow5"/>
-            </Grid.RowDefinitions>
+    	<Viewbox Margin="0">
+    		<Grid x:Name="pageGrid" Margin="0,0,0,0" Width="1920" Height="1080" OpacityMask="White" d:LayoutOverrides="Width, Height">
+    			<Grid.Background>
+    				<ImageBrush ImageSource="/P02Project;component/Resources/bead background2.png"/>
+    			</Grid.Background>
+    			<Grid.RowDefinitions>
+    				<RowDefinition x:Name="_gridRow0" Height="180"/>
+    				<RowDefinition x:Name="_gridRow1"/>
+    				<RowDefinition x:Name="_gridRow2"/>
+    				<RowDefinition x:Name="_gridRow3"/>
+    				<RowDefinition x:Name="_gridRow4"/>
+    				<RowDefinition x:Name="_gridRow5"/>
+    			</Grid.RowDefinitions>
 
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Name="_gridCol0" />
-                <ColumnDefinition Name="_gridCol1"  Width="50" />
-                <ColumnDefinition Name="_gridCol2" Width="240" />
-            </Grid.ColumnDefinitions>
-        	<view:TitleBarControl x:Name="TitleBar"/>
-        	<view:RightButtonControl x:Name="RightButtons" Grid.Column="2" Margin="10" Grid.RowSpan="6"/>
-        	<Grid x:Name="PageContent" Margin="0" Grid.Row="1" Grid.RowSpan="5"/>
+    			<Grid.ColumnDefinitions>
+    				<ColumnDefinition x:Name="_gridCol0" />
+    				<ColumnDefinition x:Name="_gridCol1"  Width="50" />
+    				<ColumnDefinition x:Name="_gridCol2" Width="240" />
+    			</Grid.ColumnDefinitions>
+    			<view:TitleBarControl x:Name="TitleBar"/>
+    			<view:RightButtonControl x:Name="RightButtons" Grid.Column="2" Margin="10" Grid.RowSpan="6"/>
+    			<Grid x:Name="PageContent" Margin="0" Grid.Row="1" Grid.RowSpan="5"/>
         	
             
-        </Grid>
+    		</Grid>
+    	</Viewbox>
     </Grid>
 </view:Screen>
