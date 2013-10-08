@@ -105,7 +105,7 @@ namespace P02Project
                     nextScreen = new TopLevelPage(parentWindow, "Contact Us");
                     ((TopLevelPage)nextScreen).setButtons(new String[6] { "About", "Family Support", "How Can I Help?", "News", "Events", "Play Beads" });
                     ((TopLevelPage)nextScreen).setTitleColour(Util._pageColDict["Contact Us"]);
-                    //((TopLevelPage)nextScreen).setContent(new Controls."CONTENT CONTROL NAME HERE");
+                    ((TopLevelPage)nextScreen).setContent(new ContactUs());
                     break;
 
                 default:
