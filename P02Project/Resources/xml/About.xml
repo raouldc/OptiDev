@@ -11,7 +11,7 @@
 
   <ImageList>
     <Image id="About Us" caption="About Us" link="toAboutUs">images/LittleBaby1.png</Image>
-    <Image id="Our Ambassadors" caption="Our Ambassadors">images/OurAmbassadors.png</Image>
+    <Image id="Our Ambassadors" caption="Our Ambassadors">images/OurAmbassador.png</Image>
     <Image id="Our Stories" caption="Our Stories">images/LittleBaby3.png</Image>
     <Image id="How we Help" caption="How we Help">images/Sisters.png</Image>
     <Image id="Our History" caption="Our History">images/LittleBaby2.png</Image>
