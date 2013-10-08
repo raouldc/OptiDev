@@ -21,17 +21,25 @@ namespace P02Project.Screens
     {
         private Stack<UIElement> stackOfContent;
 
-        public TopLevelPage(SurfaceWindow1 parentWindow, String title) : base(parentWindow)
-		{
-			InitializeComponent();
+        public TopLevelPage(SurfaceWindow1 parentWindow, String title)
+            : base(parentWindow)
+        {
+            InitializeComponent();
 
             stackOfContent = new Stack<UIElement>();
             TitleBar.Title.Content = title;
-		}
+        }
 
         //Set the content part of the grid
         public void setContent(UIElement control)
         {
+
+            //remove content from grid (if any) while leaving it on the stack
+            if (stackOfContent.Count > 0)
+            {
+                UIElement oldContent = stackOfContent.Peek();
+                pageGrid.Children.Remove(oldContent);
+            }
             //Add content to stack
             stackOfContent.Push(control);
 
@@ -57,7 +65,7 @@ namespace P02Project.Screens
             //Set the names of the buttons
             //Needs to be improved so it sets the colours based on the name too
             RightButtons.setButtons(bNames);
-     
+
         }
 
         //Go back one screen

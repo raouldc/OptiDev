@@ -107,7 +107,7 @@ namespace P02Project
             TopLevelPage nextScreen = new TopLevelPage(ParentWindow, "How Can I Help?");
             ((TopLevelPage)nextScreen).setButtons(new String[6] { "About", "Family Support", "News", "Events", "Play Beads", "Contact Us" });
             ((TopLevelPage)nextScreen).setTitleColour(howCanIHelp.colour);
-            ((TopLevelPage)nextScreen).setContent(new hcihHomeControl());
+            ((TopLevelPage)nextScreen).setContent(new hcihHomeControl((TopLevelPage)nextScreen));
             ((TopLevelPage)nextScreen).setSubtitle("");
             ParentWindow.pushScreen(nextScreen);
         }

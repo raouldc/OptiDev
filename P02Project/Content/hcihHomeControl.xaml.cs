@@ -19,10 +19,13 @@ namespace P02Project
     /// </summary>
     public partial class hcihHomeControl : UserControl
     {
-        public hcihHomeControl()
+        private TopLevelPage topLevelPage;
+
+        public hcihHomeControl(TopLevelPage tlpage)
         {
             this.InitializeComponent();
 
+            topLevelPage = tlpage;
             donate.setImage("donate.png");
             donate.setCaption("Donate");
             donate.setColour(Util._pageColDict["How Can I Help?"]);
@@ -30,46 +33,43 @@ namespace P02Project
 
         private void donate_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            TopLevelPage page = FindTopLevel(sender);
-
-            if (page == null) { Console.WriteLine("NO TOP LEVEL PAGE?!?"); return; }
             
-            page.setContent(new hcihDonateControl());
-            page.setSubtitle("Donate");
+            topLevelPage.setContent(new hcihDonateControl());
+            topLevelPage.setSubtitle("Donate");
 
         }
 
-        public TopLevelPage FindTopLevel(Object obj)
-        {
+        //public TopLevelPage FindTopLevel(Object obj)
+        //{
 
-            if (obj is FrameworkElement)
-            {
-                //If null return null
-                if (((FrameworkElement)obj).Parent != null)
-                {
-                    //if parent is top level page return it
-                    if (((FrameworkElement)obj).Parent is TopLevelPage)
-                    {
-                        return (TopLevelPage)((FrameworkElement)obj).Parent;
-                    }
-                    else
-                    {
-                        //Continue searching recursively for toplevel page
-                        FindTopLevel(((FrameworkElement)obj).Parent);
+        //    if (obj is FrameworkElement)
+        //    {
+        //        //If null return null
+        //        if (((FrameworkElement)obj).Parent != null)
+        //        {
+        //            //if parent is top level page return it
+        //            if (((FrameworkElement)obj).Parent is TopLevelPage)
+        //            {
+        //                return (TopLevelPage)((FrameworkElement)obj).Parent;
+        //            }
+        //            else
+        //            {
+        //                //Continue searching recursively for toplevel page
+        //                FindTopLevel(((FrameworkElement)obj).Parent);
                         
                         
-                    }
-                }
-                else 
-                { 
-                    return null;
-                }
+        //            }
+        //        }
+        //        else 
+        //        { 
+        //            return null;
+        //        }
                 
 
-            }
-            //shouldn't get here
-            return null;
+        //    }
+        //    //shouldn't get here
+        //    return null;
 
-        }
+        //}
     }
 }

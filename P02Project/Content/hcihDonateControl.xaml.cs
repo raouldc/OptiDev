@@ -21,6 +21,7 @@ namespace P02Project
 		public hcihDonateControl()
 		{
 			this.InitializeComponent();
+            donate.setImage("donate.png");
 		}
 	}
 }
