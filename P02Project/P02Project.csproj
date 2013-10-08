@@ -64,6 +64,9 @@
     <Compile Include="Screens\FunkyGrid.xaml.cs">
       <DependentUpon>FunkyGrid.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Screens\SplitGridView.xaml.cs">
+      <DependentUpon>SplitGridView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Screens\TitleControl.xaml.cs">
       <DependentUpon>TitleControl.xaml</DependentUpon>
     </Compile>
@@ -115,6 +118,10 @@
     <Page Include="Screens\PoloroidControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Screens\SplitGridView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Screens\TitleBarControl.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -171,6 +178,7 @@
   <ItemGroup>
     <Content Include="Resources\xml\Content.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Resource Include="Resources\bead background2.png" />
     <Resource Include="Resources\donate.png" />
