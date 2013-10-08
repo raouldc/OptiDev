@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<!--Can store information regarding, text images, links-->
+
+<PageModel id ="About-Kavahn Taumatauka">
+
+
+  <TextList>
+
+    <Text>
+      Kavahn is now eight years old, will be turning nine, on Waitangi Day 2013.
+    </Text>
+
+    <Text>
+      He is due to finish treatment 18th Feb 2013, which we are all looking forward to.  Kavahn was diagnosed with Acute Lymphoblastic Leukaemia in October 2009, when he was six.
+
+      Kavahn is attending Colwill Primary School in Massey and is in Year Four.  He is excelling in all subjects, with the exception of handwriting - which is, I think, just a boy thing.  He enjoys being at school and hanging with his friends. He enjoys riding his scooter and is will start his new season of T-Ball shortly, which is his favourite sport.  Kavahn likes to watch rugby and go fishing with his dad.  We have not had a smooth run, but as always has trooped on and got on with his treatment plan.  Kavahn has approximately 1,200 beads of courage®.
+    </Text>
+  </TextList>
+
+
+  <ImageList>
+    <Image id="top" caption="Before">images/Stories/Kavahn2.png</Image>
+    <Image id="bottom" caption="Now">images/Stories/Kavahn.png</Image>
+   
+  </ImageList>
+
+  <LinksList>
+  </LinksList>
+
+
+
+</PageModel>

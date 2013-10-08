@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<!--Can store information regarding, text images, links-->
+
+<PageModel id ="About-About us">
+
+
+  <TextList>
+
+    <Text id="P1">
+      Our vision is that every child and their family walking the child cancer journey will never feel alone.
+    </Text>
+    <Text id="P2">
+      Every week in New Zealand three families are told their child has cancer. We support these families from the very beginning.  Our vision is that every child and their family walking the child cancer journey will never feel alone and our mission is to support them throughout their journey.
+    </Text>
+    <Text id="P3">
+      The Foundation’s work with children with cancer and their families is unique and receives no direct government funding or support from other cancer agencies.
+    </Text>
+  </TextList>
+
+
+  <ImageList>    
+    <Image id="Top">images/Sisters.png</Image>
+    <Image id="Bottom">images/LittleBaby1.png</Image>
+  </ImageList>
+
+  <LinksList>
+  </LinksList>
+
+
+
+</PageModel>

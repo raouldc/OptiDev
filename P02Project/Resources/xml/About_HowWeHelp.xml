@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<!--Can store information regarding, text images, links-->
+
+<PageModel id ="About-How We Help">
+
+
+  <TextList>
+
+    <Text id="P1">
+      Child Cancer Foundation aims to reduce isolation and the impact of cancer through offering and coordinating support services, programmes and resources that ensure children and families are well cared for, supported and informed at every stage of their journey.
+    </Text>
+    <Text>
+      There are several ways that CCF helps:
+      Family support
+      Volunteer Branches
+      Support Programmes
+      Scholarship Programme
+      Beads of Courage®
+      Family Places
+      Holiday Homes
+      
+    </Text>
+  </TextList>
+
+
+  <ImageList>
+    <Image id="Top">images/Sisters.png</Image>
+    <Image id="Bottom">images/LittleBaby1.png</Image>
+  </ImageList>
+
+  <LinksList>
+  </LinksList>
+
+
+
+</PageModel>

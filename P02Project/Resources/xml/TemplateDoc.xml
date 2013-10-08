@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<!--Can store information regarding, text images, links-->
+
+<PageModel id ="SomeIdentifier">
+
+
+  <TextList>
+    <Text id="First Paragraph">
+      hello world
+      hello world
+
+    </Text>
+    <Text id="Second Paragraph">
+
+      hello world
+      hello world
+    </Text>
+
+  </TextList>
+
+
+  <ImageList>
+    
+    <Image id="Child1" caption="Mother and her child">resources/images/abt.png</Image>
+    <Image id="Child2" caption="">resources/images/abt.png</Image>
+    <Image id="Child3"></Image>
+
+  </ImageList>
+
+  <LinksList>
+    <Link id="link1">www.google.com</Link>
+    <Link id="link1">www.google2.com</Link>
+    <Link id="link1">www.google3.com</Link>
+
+  </LinksList>
+
+
+
+</PageModel>

@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<!--Can store information regarding, text images, links-->
+
+<PageModel id ="About-Lorraine Downes">
+
+
+  <TextList>
+
+    <Text>
+      Lorraine Downes has been a passionate and much appreciated supporter of the Child Cancer Foundation over the years.
+    </Text>
+
+    <Text>
+      Lorraine’s association with the Foundation began in spectacular fashion in 2006 when she selected the Child Cancer Foundation as her chosen charity while competing on TVNZ’s Dancing with the Stars. Lorraine won the competition with partner Aaron Gilmore, and raised an amazing nearly $112,000.  Lorraine has gone on to help promote the Child Cancer Foundation on radio, television and magazines and has been instrumental in gaining considerable media profile for our cause.
+
+      Lorraine joined CCF in 2010.
+    </Text>
+  </TextList>
+
+
+  <ImageList>
+    <Image id="top">images/Ambassadors/Lorraine.png</Image>
+   
+   
+  </ImageList>
+
+  <LinksList>
+  </LinksList>
+
+
+
+</PageModel>

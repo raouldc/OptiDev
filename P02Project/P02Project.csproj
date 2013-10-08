@@ -64,8 +64,17 @@
     <Compile Include="Content\hcihHomeControl.xaml.cs">
       <DependentUpon>hcihHomeControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="GridView.xaml.cs">
+      <DependentUpon>GridView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="RightButton.xaml.cs">
       <DependentUpon>RightButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\FunkyGrid.xaml.cs">
+      <DependentUpon>FunkyGrid.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\SplitGridView.xaml.cs">
+      <DependentUpon>SplitGridView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Util.cs" />
     <Compile Include="RightButtonControl.xaml.cs">
@@ -74,9 +83,6 @@
     <Compile Include="Screen.cs" />
     <Compile Include="Screens\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Screens\HowCanIHelpControl.xaml.cs">
-      <DependentUpon>HowCanIHelpControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Screens\PoloroidControl.xaml.cs">
       <DependentUpon>PoloroidControl.xaml</DependentUpon>
@@ -88,11 +94,22 @@
       <DependentUpon>TopLevelPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="SVIWithImgBtn.cs" />
+    <Compile Include="Utils\xml\PageModel.cs">
+      <DependentUpon>PageModel.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\xml\PageModel.Designer.cs">
+      <DependentUpon>PageModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\xml\XMLUtilities.cs" />
     <Page Include="Content\hcihDonateControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Content\hcihHomeControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="GridView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -104,15 +121,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Screens\FunkyGrid.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Screens\HomePage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Screens\HowCanIHelpControl.xaml">
+    <Page Include="Screens\PoloroidControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Screens\PoloroidControl.xaml">
+    <Page Include="Screens\SplitGridView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -160,8 +181,66 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <None Include="Utils\xml\Content.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Utils\xml\PageModel.xsc">
+      <DependentUpon>PageModel.xsd</DependentUpon>
+    </None>
+    <None Include="Utils\xml\PageModel.xsd" />
+    <None Include="Utils\xml\PageModel.xss">
+      <DependentUpon>PageModel.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Utils\xml\PageModel.xml" />
+    <Resource Include="Resources\images\Ambassadors\Amanda.png" />
+    <Resource Include="Resources\images\Ambassadors\Bernadine.png" />
+    <Resource Include="Resources\images\Ambassadors\Chris.png" />
+    <Resource Include="Resources\images\Ambassadors\HamishEric.png" />
+    <Resource Include="Resources\images\Ambassadors\Jerome.png" />
+    <Resource Include="Resources\images\Ambassadors\Kieran.png" />
+    <Resource Include="Resources\images\Ambassadors\Lorraine.png" />
+    <Resource Include="Resources\images\Ambassadors\Megan.png" />
+    <Resource Include="Resources\images\Ambassadors\Steve.png" />
+    <Resource Include="Resources\images\LittleBaby1.png" />
+    <Resource Include="Resources\images\LittleBaby2.png" />
+    <Resource Include="Resources\images\LittleBaby3.png" />
+    <Resource Include="Resources\images\OurAmbassador.png" />
+    <Resource Include="Resources\images\Sisters.png" />
+    <Resource Include="Resources\images\Stories\Dequarn.png" />
+    <Resource Include="Resources\images\Stories\Dequarn2.png" />
+    <Resource Include="Resources\images\Stories\Emma.png" />
+    <Resource Include="Resources\images\Stories\Emma2.png" />
+    <Resource Include="Resources\images\Stories\Hana.png" />
+    <Resource Include="Resources\images\Stories\Hana2.png" />
+    <Resource Include="Resources\images\Stories\Joyce.png" />
+    <Resource Include="Resources\images\Stories\Joyce2.png" />
+    <Resource Include="Resources\images\Stories\Kavahn.png" />
+    <Resource Include="Resources\images\Stories\Kavahn2.png" />
+    <Resource Include="Resources\images\Stories\Manu.png" />
+    <Resource Include="Resources\xml\About.xml" />
+    <Resource Include="Resources\xml\About_AboutUs.xml" />
+    <Resource Include="Resources\xml\About_HowWeHelp.xml" />
+    <Resource Include="Resources\xml\About_OurAmbassadors.xml" />
+    <Resource Include="Resources\xml\About_OurHistory.xml" />
+    <Resource Include="Resources\xml\About_OurStories.xml" />
+    <Resource Include="Resources\xml\Profiles\Amanda.xml" />
+    <Resource Include="Resources\xml\Profiles\Bernadine.xml" />
+    <Resource Include="Resources\xml\Profiles\Chris.xml" />
+    <Resource Include="Resources\xml\Profiles\Dequaran.xml" />
+    <Resource Include="Resources\xml\Profiles\Emma.xml" />
+    <Resource Include="Resources\xml\Profiles\Hamish.xml" />
+    <Resource Include="Resources\xml\Profiles\Hana.xml" />
+    <Resource Include="Resources\xml\Profiles\Jerome.xml" />
+    <Resource Include="Resources\xml\Profiles\Joyce.xml" />
+    <Resource Include="Resources\xml\Profiles\Kavahn.xml" />
+    <Resource Include="Resources\xml\Profiles\Kieran.xml" />
+    <Resource Include="Resources\xml\Profiles\Lorraine.xml" />
+    <Resource Include="Resources\xml\Profiles\Manuaitu.xml" />
+    <Resource Include="Resources\xml\Profiles\Megan.xml" />
+    <Resource Include="Resources\xml\Profiles\Steve.xml" />
+    <Resource Include="Resources\xml\TemplateDoc.xml" />
     <Resource Include="Resources\qrcode_Donate.png" />
     <Resource Include="Resources\bead background2.png" />
     <Resource Include="Resources\donate.png" />

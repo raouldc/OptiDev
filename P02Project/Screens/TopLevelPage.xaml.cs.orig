@@ -19,19 +19,38 @@ namespace P02Project.Screens
     /// </summary>
     public partial class TopLevelPage : Screen
     {
-        public TopLevelPage(SurfaceWindow1 parentWindow, String title) : base(parentWindow)
-		{
-			InitializeComponent();
-<<<<<<< HEAD
-            //Title.Content = title;
-=======
+        private Stack<UIElement> stackOfContent;
+
+        public TopLevelPage(SurfaceWindow1 parentWindow, String title)
+            : base(parentWindow)
+        {
+            InitializeComponent();
+
+            stackOfContent = new Stack<UIElement>();
             TitleBar.Title.Content = title;
->>>>>>> origin/donate
-		}
+            TitleBar.setTopPage(this);
+        }
 
         //Set the content part of the grid
         public void setContent(UIElement control)
         {
+<<<<<<< HEAD
+
+            //remove content from grid (if any) while leaving it on the stack
+            if (stackOfContent.Count > 0)
+            {
+                UIElement oldContent = stackOfContent.Peek();
+                pageGrid.Children.Remove(oldContent);
+            }
+            //Add content to stack if it's not already in it
+            if (!stackOfContent.ToArray().Contains(control))
+            {
+            stackOfContent.Push(control);
+            }
+            //set control to it's place in the grid
+=======
+            pageGrid.Children.RemoveAt(pageGrid.Children.Count-1);
+>>>>>>> 75881280447303e3bf4085f58f72ac3532069581
             Grid.SetColumn(control, 0);
             Grid.SetRow(control, 1);
             Grid.SetRowSpan(control, 5);
@@ -43,28 +62,35 @@ namespace P02Project.Screens
             TitleBar.SubTitle.Content = sub;
         }
 
-        public void setTitleColour(Brush bg)
+        public void setTitleColour(Color col)
         {
-            TitleBar.BarBG.Background = bg;
+            TitleBar.BarBG.Background = new SolidColorBrush(col);
         }
 
         public void setButtons(String[] bNames)
         {
             //Set the names of the buttons
             //Needs to be improved so it sets the colours based on the name too
-            RightButtons.Button1.Content = bNames[0];
-            RightButtons.Button2.Content = bNames[1];
-            RightButtons.Button3.Content = bNames[2];
-            RightButtons.Button4.Content = bNames[3];
-            RightButtons.Button5.Content = bNames[4];
-            RightButtons.Button6.Content = bNames[5];
-        
+            RightButtons.setButtons(bNames);
+
         }
 
         //Go back one screen
-        private void BackButton_Click(object sender, RoutedEventArgs e)
+        public void BackButton_Click(object sender, RoutedEventArgs e)
         {
-            //ParentWindow.popScreen();
+            if (stackOfContent.Count > 1)
+            {
+                //pop the top control off the stack
+                UIElement old = stackOfContent.Pop();
+                //remove it from the view
+                pageGrid.Children.Remove(old);
+                //set next control to be the content
+                this.setContent(stackOfContent.Pop());
+            }
+            else
+            {
+                ParentWindow.popScreen();
+            }
         }
 
     }
