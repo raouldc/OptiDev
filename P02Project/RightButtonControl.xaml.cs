@@ -62,6 +62,8 @@ namespace P02Project
 
                 button.Foreground = new SolidColorBrush(Colors.White);
 
+                button.Click += new RoutedEventHandler(Button_Click);
+
                 ButtonStack.Children.Add(button);
             }
             
@@ -72,10 +74,10 @@ namespace P02Project
             SurfaceWindow1 parentWindow = (SurfaceWindow1)Window.GetWindow(this);
             Screen nextScreen = null;
             String cont = "";
-            cont = (String)(sender as SurfaceButton).Content;
+            cont = (String)(sender as Button).Content;
             Console.WriteLine("Button clocked - {0}", cont);
             //Set next screen to add to the stack and it's contents depending on the button clicked
-            switch ((String)(sender as SurfaceButton).Content)
+            switch (cont)
             {
 
                 case "About":
