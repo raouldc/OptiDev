@@ -52,11 +52,12 @@
 			</Grid>
 
 
-            <!--
+            
             <Custom:ScatterViewItem HorizontalAlignment="Left" Background="White" Height="326" Margin="82,0,0,58" VerticalAlignment="Bottom" Width="326">
                 <Image Source="/P02Project;component/Resources/ContactUsQR.png"/>
             </Custom:ScatterViewItem>
--->
+
+            
 
 
         </Grid>

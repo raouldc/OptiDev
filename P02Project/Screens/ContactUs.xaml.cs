@@ -31,39 +31,51 @@ namespace P02Project
 		public ContactUs()
 		{
 			this.InitializeComponent();
-		}
 
-
-        
-        protected override void OnInitialized(EventArgs e)
-        {
-            
             _sviList = new List<ScatterViewItem>();
             _sviList.Add(_fmlPlSVI);
             _sviList.Add(_fmlSptBrsSVI);
             _sviList.Add(_mainOffSVI);
             _sviList.Add(_fndRsSVI);
             
-        }
-        
+		}
+
 
 
         private void fmlPlClicked(Object sender, RoutedEventArgs e)
         {
+            _fmlPlSVI.Background = SELECTED_COLOR;
+            _fmlSptBrsSVI.Background = UNSELECTED_COLOR;
+            _fndRsSVI.Background = UNSELECTED_COLOR;
+            _mainOffSVI.Background = UNSELECTED_COLOR;
             
             
         }
 
         private void mainOffClicked(Object sender, RoutedEventArgs e)
         {
+            _mainOffSVI.Background = SELECTED_COLOR;
+            _fmlPlSVI.Background = UNSELECTED_COLOR;
+            _fmlSptBrsSVI.Background = UNSELECTED_COLOR;
+            _fndRsSVI.Background = UNSELECTED_COLOR;
+            
         }
 
         private void fndRsClicked(Object sender, RoutedEventArgs e)
         {
+            _fndRsSVI.Background = SELECTED_COLOR;
+            _mainOffSVI.Background = UNSELECTED_COLOR;
+            _fmlPlSVI.Background = UNSELECTED_COLOR;
+            _fmlSptBrsSVI.Background = UNSELECTED_COLOR;
+            
         }
 
         private void fmlSptBrsClicked(Object sender, RoutedEventArgs e)
         {
+            _fmlSptBrsSVI.Background = SELECTED_COLOR;
+            _mainOffSVI.Background = UNSELECTED_COLOR;
+            _fmlPlSVI.Background = UNSELECTED_COLOR;
+            _fndRsSVI.Background = UNSELECTED_COLOR;
         }
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
