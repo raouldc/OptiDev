@@ -62,13 +62,23 @@ namespace P02Project.Screens
 
         private void Polaroid_MouseUp(object sender, MouseButtonEventArgs e)
         {
+            FrameworkElement objParent = (FrameworkElement)this.Parent;
+            while (objParent.GetType() != typeof(TopLevelPage))
+            {
+                objParent = (FrameworkElement)objParent.Parent;
+            }
+            TopLevelPage levelpage = (TopLevelPage)objParent;
             switch ((sender as PoloroidControl).text)
             {
                 case "About Us":
+                    //TODO
+
                     break;
                 case "Our Ambassadors":
+                    levelpage.setContent(new GridView("Resources/xml/About_OurAmbassadors.xml"));
                     break;
                 case "Our Stories":
+                    levelpage.setContent(new GridView("Resources/xml/About_OurStories.xml"));
                     break;
                 case "How we Help":
                     break;

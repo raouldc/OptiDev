@@ -11,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using P02Project.Resources.xml;
 
 namespace P02Project
 {
@@ -32,7 +33,12 @@ namespace P02Project
             this.InitializeComponent();
             /*first we need to bind the xml and create a grid Layout for that*/
             //dummy data
-            numberOfItems = 7;
+            String path = System.IO.Path.Combine(System.IO.Path.GetFullPath("."), Xpath);
+            
+            PageModelImage[] temp = XMLUtilities.GetContentFromFile(path).ImageList;
+           
+            numberOfItems  = temp.Count();
+
             if (numberOfItems >= 4)
             {
                 numberOfRows++;
@@ -74,6 +80,9 @@ namespace P02Project
                     colNum = 0;
                 }
                 PoloroidControl p = new PoloroidControl();
+                p.setCaption(temp[i].caption);
+                p.setImage(temp[i].Value);
+                p.setColour(Util._pageColDict["About"]);
                 p.Margin = new Thickness(25);
                 Grid.SetColumn(p, colNum);
                 Grid.SetRow(p, rowNum);
