@@ -230,6 +230,7 @@ namespace P02Project
                     nextScreen = new TopLevelPage(ParentWindow, "Contact Us");
                     ((TopLevelPage)nextScreen).setButtons(new String[6] { "About", "Family Support", "How Can I Help?", "News", "Events", "Play Beads" });
                     ((TopLevelPage)nextScreen).setTitleColour(contactUs.colour);
+                    Console.Out.WriteLine("here is homepage create contact");
                     ((TopLevelPage)nextScreen).setContent(new ContactUs());
                     break;
                 default:

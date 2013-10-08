@@ -4,6 +4,7 @@
 	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 	xmlns:Custom="http://schemas.microsoft.com/surface/2008"
+    
 	mc:Ignorable="d"
 	x:Class="P02Project.ContactUs"
 	x:Name="UserControl"
@@ -45,17 +46,24 @@
 					<Custom:SurfaceButton Opacity="0" x:Name="_fmlSptBrsSVIBtn" Click="fmlSptBrsClicked"/>
 				</Grid>
 			</Custom:ScatterViewItem>
-			
-
-			<!-- map will be here -->
-			<Grid Margin="500,70,70,70">
-			</Grid>
 
 
-            
             <Custom:ScatterViewItem HorizontalAlignment="Left" Background="White" Height="326" Margin="82,0,0,58" VerticalAlignment="Bottom" Width="326">
                 <Image Source="/P02Project;component/Resources/ContactUsQR.png"/>
             </Custom:ScatterViewItem>
+
+            
+            
+            
+            
+            
+            
+            <!-- map here -->
+			<Grid Margin="500,70,70,70">
+            
+            </Grid>
+
+
 
             
 

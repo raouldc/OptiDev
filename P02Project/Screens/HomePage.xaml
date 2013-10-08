@@ -36,61 +36,6 @@
 				<s:ScatterView x:Name="_titleExtension2" Grid.Row="0" Grid.Column="2" Background="#FF5E99E9" />
 
 
-
-
-				<s:ScatterView Grid.Row="1" Margin="-4.667,4,4.667,-4" Grid.ColumnSpan="3" Visibility="Collapsed">
-					<s:ScatterViewItem x:Name="_playBeadsSVI" Width="320" Height="240" Background="Transparent" Orientation="0" CanRotate="False" CanScale="False" Center="1050,450">
-						<Grid>
-							<Image x:Name="_playBeadsSVIImage" Stretch="Uniform"  Source="/P02Project;component/Resources/beads.png"/>
-							<s:SurfaceButton x:Name="_playBeadsSVIButton"  Opacity="0"  Content="Play Beads Game" Click="homeView_aButtonIsClicked" Background="#ffee3123"/>
-						</Grid>
-					</s:ScatterViewItem>
-
-					<s:ScatterViewItem x:Name="_familySupportSVI" Width="380" Height="260"  Background="Transparent" Orientation="0" CanRotate="False" CanScale="False" Center="730,450">
-						<Grid>
-							<Image x:Name="_familySupportSVIImage" Stretch="Uniform"  Source="/P02Project;component/Resources/FS.png"/>
-							<s:SurfaceButton x:Name="_familySupportSVIButton"  Opacity="0"  Content="Family Support" Click="homeView_aButtonIsClicked" Background="#ffec008b"/>
-						</Grid>
-					</s:ScatterViewItem>
-
-					<s:ScatterViewItem x:Name="_howCanIHelpSVI" Width="320" Height="240" Background="Transparent" Orientation="0" CanRotate="False" CanScale="False" Center="450,450">
-						<Grid>
-							<Image x:Name="_howCanIHelpSVIImage" Stretch="Uniform"  Source="/P02Project;component/Resources/howCanIHelp.png"/>
-							<s:SurfaceButton x:Name="_howCanIHelpSVIButton"  Opacity="0"  Content="How Can I Help?" Click="homeView_aButtonIsClicked" Background="#fff68e1e"/>
-						</Grid>
-					</s:ScatterViewItem>
-
-					<s:ScatterViewItem x:Name="_contactUsSVI" Width="320" Height="240" Background="Transparent" Orientation="0" CanRotate="False" CanScale="False" Center="150,450">
-						<Grid>
-							<Image x:Name="_contactUsSVIImage" Stretch="Uniform"  Source="/P02Project;component/Resources/contact.png"/>
-							<s:SurfaceButton x:Name="_contactUsSVIButton"  Opacity="0"  Content="Contact Us" Click="homeView_aButtonIsClicked" Background="#ffe411ff"/>
-						</Grid>
-					</s:ScatterViewItem>
-
-					<s:ScatterViewItem x:Name="_eventsSVI" Width="320" Height="240" Background="Transparent" Orientation="0" CanRotate="False" CanScale="False" Center="1050, 200">
-						<Grid>
-							<Image x:Name="_eventsSVIImage" Stretch="Uniform"  Source="/P02Project;component/Resources/events.png"/>
-							<s:SurfaceButton x:Name="_eventsSVIButton"  Opacity="0"  Content="Events" Click="homeView_aButtonIsClicked" Background="#ffbcd530"/>
-						</Grid>
-					</s:ScatterViewItem>
-
-					<s:ScatterViewItem x:Name="_newsSVI" Width="350" Height="300" Background="Transparent" Orientation="0" CanRotate="False" CanScale="False" Center="600,200">
-						<Grid>
-							<Image x:Name="_newsSVIImage" Stretch="Uniform"  Source="/P02Project;component/Resources/news.png"/>
-							<s:SurfaceButton x:Name="_newsSVIButton"  Opacity="0" Content="News" Click="homeView_aButtonIsClicked" Background="#ffa13e97"/>
-
-						</Grid>
-					</s:ScatterViewItem>
-
-					<s:ScatterViewItem x:Name="_aboutSVI" Width="450" Height="350" Background="Transparent" Orientation="0" CanRotate="False" CanScale="False" Center="200,180">
-						<Grid>
-							<Image x:Name="_aboutSVIImage" Stretch="Uniform"  Source="/P02Project;component/Resources/abt.png"/>
-							<s:SurfaceButton x:Name="_aboutSVIButton"  Opacity="0" Content="About" Click="homeView_aButtonIsClicked" Background="#ff00aedb"/>
-
-						</Grid>
-					</s:ScatterViewItem>
-
-				</s:ScatterView>
 				<view:PoloroidControl x:Name="familySupport" Height="316.546" Margin="0,0,275.697,135.227" VerticalAlignment="Bottom" RenderTransformOrigin="0.5,0.5" Grid.Row="1" HorizontalAlignment="Right" Width="332.606" MouseUp="poloriod_MouseUp">
 					<view:PoloroidControl.RenderTransform>
 						<TransformGroup>
