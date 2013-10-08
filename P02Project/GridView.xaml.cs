@@ -12,6 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using P02Project.Resources.xml;
+using P02Project.Screens;
 
 namespace P02Project
 {
@@ -84,6 +85,7 @@ namespace P02Project
                 p.setImage(temp[i].Value);
                 p.setColour(Util._pageColDict["About"]);
                 p.Margin = new Thickness(25);
+                p.MouseUp+=new MouseButtonEventHandler(Polaroid_MouseUp);
                 Grid.SetColumn(p, colNum);
                 Grid.SetRow(p, rowNum);
                 /*if there are an add number of things, we must span the last picture in the firstRow for 2 columns */
@@ -116,6 +118,21 @@ namespace P02Project
 
             mainGrid.Children.Add(g);
             UpdateLayout();
+        }
+
+        private void Polaroid_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            FrameworkElement objParent = (FrameworkElement)this.Parent;
+            while (objParent.GetType() != typeof(TopLevelPage))
+            {
+                objParent = (FrameworkElement)objParent.Parent;
+            }
+            TopLevelPage levelpage = (TopLevelPage)objParent;
+            String fullname = (sender as PoloroidControl).text ;
+            String firstName = fullname.Split(' ')[0];
+            levelpage.setContent(new SplitGridView("xml/Profiles/"+firstName+".xml"));
+
+
         }
     }
 }

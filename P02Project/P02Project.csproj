@@ -190,6 +190,11 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\images\Stories\Dequarn2.png" />
+    <Resource Include="Resources\images\Stories\Emma2.png" />
+    <Resource Include="Resources\images\Stories\Hana2.png" />
+    <Resource Include="Resources\images\Stories\Joyce2.png" />
+    <Resource Include="Resources\images\Stories\Kavahn2.png" />
     <Content Include="Resources\xml\About.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -210,49 +215,49 @@
     <Content Include="Resources\xml\About_OurStories.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\xml\Profiles\Ambassadors\Amanda.xml">
+    <Content Include="Resources\xml\Profiles\Amanda.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\xml\Profiles\Ambassadors\Bernadine.xml">
+    <Content Include="Resources\xml\Profiles\Bernadine.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\xml\Profiles\Ambassadors\Chris.xml">
+    <Content Include="Resources\xml\Profiles\Chris.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\xml\Profiles\Ambassadors\HamishEric.xml">
+    <Content Include="Resources\xml\Profiles\Hamish.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\xml\Profiles\Ambassadors\Jerome.xml">
+    <Content Include="Resources\xml\Profiles\Jerome.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\xml\Profiles\Ambassadors\Kieran.xml">
+    <Content Include="Resources\xml\Profiles\Kieran.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\xml\Profiles\Ambassadors\Lorraine.xml">
+    <Content Include="Resources\xml\Profiles\Lorraine.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\xml\Profiles\Ambassadors\Megan.xml">
+    <Content Include="Resources\xml\Profiles\Megan.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\xml\Profiles\Ambassadors\Steve.xml">
+    <Content Include="Resources\xml\Profiles\Steve.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\xml\Profiles\Stories\Dequarn.xml">
+    <Content Include="Resources\xml\Profiles\Dequaran.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\xml\Profiles\Stories\Emma.xml">
+    <Content Include="Resources\xml\Profiles\Emma.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\xml\Profiles\Stories\Hana.xml">
+    <Content Include="Resources\xml\Profiles\Hana.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\xml\Profiles\Stories\Joyce.xml">
+    <Content Include="Resources\xml\Profiles\Joyce.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\xml\Profiles\Stories\Kavahn.xml">
+    <Content Include="Resources\xml\Profiles\Kavahn.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\xml\Profiles\Stories\Manuaitu.xml">
+    <Content Include="Resources\xml\Profiles\Manuaitu.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\xml\TemplateDoc.xml">

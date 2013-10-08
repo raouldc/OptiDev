@@ -22,8 +22,8 @@
 
 
   <ImageList>
-    <Image id="top" caption="Before">images/Stories/Emma2.jpg</Image>
-    <Image id="bottom" caption="Now">images/Stories/Emma.jpg</Image>
+    <Image id="top" caption="Before">images/Stories/Emma2.png</Image>
+    <Image id="bottom" caption="Now">images/Stories/Emma.png</Image>
    
   </ImageList>
 
