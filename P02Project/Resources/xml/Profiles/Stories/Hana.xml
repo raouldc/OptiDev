@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<!--Can store information regarding, text images, links-->
+
+<PageModel id ="About-Hana Ellis Kaa">
+
+
+  <TextList>
+
+    <Text>
+      Hana is now eight and in Year 4 at Newmarket Primary School in Auckland along with her brother Takimoana (5) and sister Emere (11).
+    </Text>
+
+    <Text>
+      She finished treatment in August 2009 for Acute Lymphoblastic Leukeamia (ALL). She had started school whilst on treatment, and finished when she was year two. She really enjoys going to school and is in the Year Four choir and hula group. Last month she helped her sister organise a mufti day to raise money for Child Cancer as part of their One Day campaign.
+
+      She enjoys swimming, going to the movies, drawing, baking, riding on her scooter and playing with her La La Loopsies. She also enjoys medical play of course, and the occasional visit to the Castle (now known as the Family Place).  She still loves playing on the playground, and with the play house and trampoline she received from Make-a-Wish when she turned four and in was in the midst of treatment.
+
+    </Text>
+  </TextList>
+
+
+  <ImageList>
+    <Image id="top" caption="Before">images/Stories/Hana2.png</Image>
+    <Image id="bottom" caption="Now">images/Stories/Hana.png</Image>
+   
+  </ImageList>
+
+  <LinksList>
+  </LinksList>
+
+
+
+</PageModel>

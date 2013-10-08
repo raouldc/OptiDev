@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<!--Can store information regarding, text images, links-->
+
+<PageModel id ="About-Bernadine Oliver-Kerby">
+
+
+  <TextList>
+
+    <Text>
+      We were very fortunate to have someone as professional as Bernadine featuring on our Child Cancer Foundation Appeal Month television commercial this year. The clip with young Emma was beautiful.
+    </Text>
+
+    <Text>
+      Bernadine began her broadcasting career in children’s television in Christchurch and moved to Auckland to specialise in sport. These days, with two young daughters to care for, she reads breakfast bulletins on Newstalk ZB as well as presenting One News at 6pm on weekends.  Bernadine fronted CCF’s National Appeal TV and radio advertisements in 2011 and 2012 and is influential in helping the Foundation gain media coverage.  Bernadine is extremely well liked and has helped at numerous events including Round the Bays and the Steve Price Night of Courage, where she was a brilliant MC.
+
+
+      Bernadine joined CCF in 2009
+    </Text>
+  </TextList>
+
+
+  <ImageList>
+    <Image id="top">images/Ambassadors/Bernadine.png</Image>
+   
+   
+  </ImageList>
+
+  <LinksList>
+  </LinksList>
+
+
+
+</PageModel>

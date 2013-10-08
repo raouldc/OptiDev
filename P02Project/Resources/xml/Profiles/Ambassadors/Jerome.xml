@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<!--Can store information regarding, text images, links-->
+
+<PageModel id ="About-Jerome Kaino">
+
+
+  <TextList>
+
+    <Text>
+      In 2011 Jerome Kaino played an important role in the All Blacks winning the Rugby World Cup. He was named in the starting XV for every game. He played every minute of every game except for the final few seconds in the semi-final against Australia He scored four tries in the World Cup.
+    </Text>
+
+    <Text>
+      In 2011 Jerome Kaino played an important role in the All Blacks winning the Rugby World Cup. He was named in the starting XV for every game. He played every minute of every game except for the final few seconds in the semi-final against Australia He scored four tries in the World Cup.  Jerome plays an enforcer on the field, but couldn’t be more of a family man and gentleman off-field. He has been generous with his time since joining the Foundation in March, 2012 and is a big hit with CCF children, he has met at fundraisers and events.  Jerome shaved his head for the 2012 Steve Price Night of Courage.  Jerome’s career has now taking him to Japan for the next few years, but he will continue to support the Foundation during his trips back home, and remains a loyal supporter.
+    </Text>
+  </TextList>
+
+
+  <ImageList>
+    <Image id="top">images/Ambassadors/Jerome.png</Image>
+   
+   
+  </ImageList>
+
+  <LinksList>
+  </LinksList>
+
+
+
+</PageModel>

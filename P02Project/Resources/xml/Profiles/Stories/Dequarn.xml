@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<!--Can store information regarding, text images, links-->
+
+<PageModel id ="About-Dequarn Harrison">
+
+
+  <TextList>
+
+    <Text>
+      Dequarn is now five and started school at the beginning of the year at Pukekohe Hill Primary.
+    </Text>
+
+    <Text>
+      Dequarn was diagnosed with Acute Lymphoblastic Leukaemia in 2009 and completed treatment in February this year.
+
+      Dequarn loves everything about school - the kids, the environment - and is always happy to go.  He particularly enjoys physical education, and was relieved to have his portacath removed earlier this year.  Before treatment Dequarn, who is of Maori and Cook Island heritage, used to have long curly hair worn in a plait. These days he is sporting a Mohawk!
+    </Text>
+  </TextList>
+
+
+  <ImageList>
+    <Image id="top" caption="Before">images/Stories/Dequarn2.png</Image>
+    <Image id="bottom" caption="Now">images/Stories/Dequarn.png</Image>
+   
+  </ImageList>
+
+  <LinksList>
+  </LinksList>
+
+
+
+</PageModel>

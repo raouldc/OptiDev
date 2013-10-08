@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<!--Can store information regarding, text images, links-->
+
+<PageModel id ="About-Joyce Singh">
+
+
+  <TextList>
+
+    <Text>
+      Joyce was diagnosed with Acute Lymphoblastic Leukaemia in November 2009 and finished treatment in March this year.
+    </Text>
+
+    <Text>
+      She is now enjoying going to school at Valley School in Pukekohe where she enjoys sports, maths and reading.
+
+      Joyce’s big passion is now karate, which she got into after her best friend took it up. She enjoys the moves and learning how to defend herself.  Joyce loved doing TV work when she was an ambassador for CCF and wanted to be a model. She has changed her mind now though. She doesn’t want to model, but would still like to be on TV as a presenter one day.
+    </Text>
+  </TextList>
+
+
+  <ImageList>
+    <Image id="top" caption="Before">images/Stories/Joyce2.png</Image>
+    <Image id="bottom" caption="Now">images/Stories/Joyce.png</Image>
+   
+  </ImageList>
+
+  <LinksList>
+  </LinksList>
+
+
+
+</PageModel>
