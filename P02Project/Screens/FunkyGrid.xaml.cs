@@ -26,9 +26,14 @@ namespace P02Project.Screens
             //create XML Parameter
             //read and parse XML
             //Set properties of items to the object
+        }
 
-            Content temp = XMLUtilities.GetContentFromFile("Content.xml");
-           
+        public FunkyGrid(String filename)
+        {
+            InitializeComponent();
+            Content temp = XMLUtilities.GetContentFromFile(filename);
+            //TODO: Set title and subtitle
+            AboutUsPolaroid.setImage(temp.ImageList[0].Value);
         }
     }
 }

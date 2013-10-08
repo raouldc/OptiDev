@@ -194,7 +194,7 @@ namespace P02Project
                     nextScreen = new TopLevelPage(ParentWindow, "About");
                     ((TopLevelPage)nextScreen).setTitleColour(about.colour);
                     ((TopLevelPage)nextScreen).setButtons(new String[6] { "Family Support", "How Can I Help?", "News", "Events", "Play Beads", "Contact Us" });
-                    ((TopLevelPage)nextScreen).setContent(new FunkyGrid());   
+                    ((TopLevelPage)nextScreen).setContent(new FunkyGrid("Content.xml"));   
                 //((TopLevelPage)nextScreen).setContent(new Controls."CONTENT CONTROL NAME HERE");
                     break;
                 case "Family Support":
