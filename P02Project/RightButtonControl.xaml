@@ -6,14 +6,7 @@
 	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 	mc:Ignorable="d"
 	x:Class="P02Project.RightButtonControl"
-	x:Name="UserControl"
+	x:Name="RightMenu"
 	d:DesignWidth="220" d:DesignHeight="1060">
-	<StackPanel Margin="0,0,1,2" Name="ButtonStack">
-		<s:SurfaceButton x:Name="Button1" Content="Page Name" FontSize="26.667" Background="#FF2D395E" BorderThickness="0" Height="160" Click="Button_Click" Margin="0"/>
-		<s:SurfaceButton x:Name="Button4" Margin="0,0,-1,0" FontSize="26.667" Content="Page Name" Background="#FF30562E" BorderThickness="0" Height="160" Click="Button_Click"/>
-		<s:SurfaceButton x:Name="Button3" FontSize="26.667" Margin="0,0,-1,0" RenderTransformOrigin="8.195,2.962" Content="Page Name" Background="#FF492626" BorderThickness="0" Height="160" Click="Button_Click"/>
-		<s:SurfaceButton x:Name="Button2" Content="Page Name" FontSize="26.667" Margin="0,0,-1,0" Background="#FF504223" BorderThickness="0" Height="160" Click="Button_Click"/>
-		<s:SurfaceButton x:Name="Button5" Content="Page Name" Margin="0,0,-1,0" FontSize="26.667" Background="#FF6C3B72" BorderThickness="0" Height="160" Click="Button_Click"/>
-		<s:SurfaceButton x:Name="Button6" Content="Page Name" FontSize="26.667" Background="#FF68662B" BorderThickness="0" Height="160" Click="Button_Click" Margin="0,0,1,0"/>
-	</StackPanel>
+	<StackPanel Margin="0,0,1,2" Name="ButtonStack"></StackPanel>
 </UserControl>

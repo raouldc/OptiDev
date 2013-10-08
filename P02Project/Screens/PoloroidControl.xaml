@@ -3,6 +3,7 @@
 	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:System="clr-namespace:System;assembly=mscorlib"
 	mc:Ignorable="d"
 	x:Class="P02Project.PoloroidControl"
 	x:Name="Poloroid"
@@ -28,6 +29,6 @@
 			</Rectangle.Effect>
 		</Rectangle>
 		<Image x:Name="Image" Stretch="Fill" Margin="15,15,15,55"/>
-		<TextBlock x:Name="Caption" Height="38" Margin="15,0,15,13" TextWrapping="Wrap" VerticalAlignment="Bottom" TextAlignment="Center" FontSize="40" FontFamily="Andy" Background="White" HorizontalAlignment="Stretch"><Run Language="en-nz" Text="Text"/></TextBlock>
+		<TextBlock x:Name="Caption" Height="38" Margin="15,0,15,13" TextWrapping="Wrap" VerticalAlignment="Bottom" TextAlignment="Center" FontSize="40" FontFamily="Andy" Background="White" HorizontalAlignment="Stretch" Text="Text"/>
 	</Grid>
 </UserControl>

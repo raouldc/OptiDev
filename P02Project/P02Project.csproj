@@ -64,6 +64,9 @@
     <Compile Include="Content\hcihHomeControl.xaml.cs">
       <DependentUpon>hcihHomeControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="RightButton.xaml.cs">
+      <DependentUpon>RightButton.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Util.cs" />
     <Compile Include="RightButtonControl.xaml.cs">
       <DependentUpon>RightButtonControl.xaml</DependentUpon>
@@ -90,6 +93,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Content\hcihHomeControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="RightButton.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
