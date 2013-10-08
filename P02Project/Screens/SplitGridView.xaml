@@ -15,7 +15,6 @@
 			<ColumnDefinition Width="Auto"/>
 			<ColumnDefinition/>
 		</Grid.ColumnDefinitions>
-		<TextBlock x:Name="contentTextBlock" Grid.Column="1" Margin="0,8,0,0" TextWrapping="Wrap" Text="TextBlock" Grid.RowSpan="2" d:LayoutOverrides="Height" HorizontalAlignment="Right"/>
             
 	</Grid>
 </UserControl>

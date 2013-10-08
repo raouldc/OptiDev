@@ -11,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using P02Project.Resources.xml;
 
 namespace P02Project.Screens
 {
@@ -19,9 +20,43 @@ namespace P02Project.Screens
     /// </summary>
     public partial class SplitGridView : UserControl
     {
-        public SplitGridView()
+        public SplitGridView(String filename)
         {
             InitializeComponent();
+            String path = System.IO.Path.Combine(System.IO.Path.GetFullPath("."), "Resources/" + filename);
+            PageModel temp = XMLUtilities.GetContentFromFile(path);
+
+            PageModelImage[] imgList = temp.ImageList;
+
+            int count = 0;
+
+            foreach (PageModelImage img in imgList)
+            {
+                PoloroidControl p = new PoloroidControl();
+                p.setImage(img.Value);
+                p.setCaption(img.caption);
+                p.setColour(Util._pageColDict["About"]);
+                Grid.SetColumn(p, 0);
+                Grid.SetRow(p, count);
+                PageContent.Children.Add(p);
+                count++;
+            }
+            PageModelText[] textList = temp.TextList;
+
+            String fcontent = "";
+
+            foreach (PageModelText txt in textList)
+            {
+                fcontent += txt.Value+"\n\n";
+            }
+            TextBlock tb = new TextBlock();
+            tb.Text = fcontent;
+            tb.Foreground = System.Windows.Media.Brushes.Black;
+            Grid.SetColumn(tb,1);
+            Grid.SetRow(tb,0);
+            
+            PageContent.Children.Add(tb);
+            UpdateLayout();
         }
     }
 }

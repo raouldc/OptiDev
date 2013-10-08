@@ -71,8 +71,7 @@ namespace P02Project.Screens
             switch ((sender as PoloroidControl).text)
             {
                 case "About Us":
-                    //TODO
-
+                    levelpage.setContent(new SplitGridView("xml/About_AboutUs.xml"));
                     break;
                 case "Our Ambassadors":
                     levelpage.setContent(new GridView("Resources/xml/About_OurAmbassadors.xml"));
@@ -81,8 +80,10 @@ namespace P02Project.Screens
                     levelpage.setContent(new GridView("Resources/xml/About_OurStories.xml"));
                     break;
                 case "How we Help":
+                    levelpage.setContent(new SplitGridView("xml/About_HowWeHelp.xml"));
                     break;
                 case "Our History":
+                    levelpage.setContent(new SplitGridView("xml/About_OurHistory.xml"));
                     break;
                 default:
                     break;
