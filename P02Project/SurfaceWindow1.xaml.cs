@@ -191,7 +191,7 @@ namespace P02Project
             SurfaceButton clickedButton = null;
 
             // iterte on each tile to animate it.
-            foreach(KeyValuePair<String, SVIWithImgBtn> pair in _dictOfAllHomeTiles)
+            foreach (KeyValuePair<String, SVIWithImgBtn> pair in _dictOfAllHomeTiles)
             {
                 SVIWithImgBtn sviWthImgBtn = pair.Value;
 
