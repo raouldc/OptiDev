@@ -45,6 +45,16 @@ namespace P02Project
                 ColumnDefinition col = new ColumnDefinition();
                 g.ColumnDefinitions.Add(col);
             }
+
+            //if it is an odd number
+            //need to span the last column 1 colum
+            for (int i = 0; i < numberOfItems; i++)
+            {
+                PoloroidControl p = new PoloroidControl();
+                p.setCaption(i.ToString());
+                g.Children.Add(p);
+            }
+
         }
     }
 }

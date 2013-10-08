@@ -58,6 +58,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="GridView.xaml.cs">
+      <DependentUpon>GridView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Util.cs" />
     <Compile Include="RightButtonControl.xaml.cs">
       <DependentUpon>RightButtonControl.xaml</DependentUpon>
@@ -79,6 +82,10 @@
       <DependentUpon>TopLevelPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="SVIWithImgBtn.cs" />
+    <Page Include="GridView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="RightButtonControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
