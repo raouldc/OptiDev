@@ -22,7 +22,7 @@ namespace P02Project.Resources.xml
         {
             Content xmlContent;
             XmlSerializer mySerializer = new XmlSerializer(typeof(Content));
-            String path= Path.Combine(Path.GetFullPath("."), "Resources/xml/Content.xml");
+            String path= Path.Combine(Path.GetFullPath("."), ("Resources/xml/"+filename));
             FileStream myFileStream = new FileStream(path, FileMode.Open);
 
             xmlContent = (Content)mySerializer.Deserialize(myFileStream);

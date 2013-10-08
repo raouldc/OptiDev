@@ -23,7 +23,7 @@
 
 
   <ImageList>
-    <Image id="Child1" caption="Mother and her child">resources/images/abt.png</Image>
+    <Image id="Child1" caption="Mother and her child" link="hdhd">resources/images/abt.png</Image>
     <Image id="Child2" caption="">resources/images/abt.png</Image>
     <Image id="Child3"></Image>
     

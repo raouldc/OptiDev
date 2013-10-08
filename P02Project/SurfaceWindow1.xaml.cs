@@ -57,7 +57,7 @@ namespace P02Project
             
           
             
-            Content temp = XMLUtilities.GetContentFromFile(" ");
+          
         }
 
         /// <summary>
