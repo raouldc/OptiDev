@@ -28,6 +28,7 @@ namespace P02Project.Screens
 
             stackOfContent = new Stack<UIElement>();
             TitleBar.Title.Content = title;
+            TitleBar.setTopPage(this);
         }
 
         //Set the content part of the grid
@@ -40,9 +41,11 @@ namespace P02Project.Screens
                 UIElement oldContent = stackOfContent.Peek();
                 pageGrid.Children.Remove(oldContent);
             }
-            //Add content to stack
+            //Add content to stack if it's not already in it
+            if (!stackOfContent.ToArray().Contains(control))
+            {
             stackOfContent.Push(control);
-
+            }
             //set control to it's place in the grid
             Grid.SetColumn(control, 0);
             Grid.SetRow(control, 1);
@@ -69,14 +72,16 @@ namespace P02Project.Screens
         }
 
         //Go back one screen
-        private void BackButton_Click(object sender, RoutedEventArgs e)
+        public void BackButton_Click(object sender, RoutedEventArgs e)
         {
             if (stackOfContent.Count > 1)
             {
                 //pop the top control off the stack
-                stackOfContent.Pop();
+                UIElement old = stackOfContent.Pop();
+                //remove it from the view
+                pageGrid.Children.Remove(old);
                 //set next control to be the content
-                this.setContent(stackOfContent.Peek());
+                this.setContent(stackOfContent.Pop());
             }
             else
             {

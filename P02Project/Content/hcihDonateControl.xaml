@@ -23,15 +23,15 @@
 				</Grid.ColumnDefinitions>
 		<ScrollViewer x:Name="text" Grid.Column="1" Margin="20" Grid.RowSpan="3" Grid.ColumnSpan="2" Background="#7F525252"/>
 		<StackPanel Margin="20" Grid.RowSpan="2">
-			<Button x:Name="oneOff" Content="One Off Donation" Margin="20" FontSize="48" FontFamily="Andy" Background="#FFD47C1E" BorderThickness="0" BorderBrush="#00707070" Foreground="White" MouseUp="oneOff_MouseUp">
+			<Button x:Name="oneOff" Content="One Off Donation" Margin="20" FontSize="48" FontFamily="Andy" Background="#FFD47C1E" BorderThickness="0" BorderBrush="#00707070" Foreground="White" Click="oneOff_Click">
 				<Button.Effect>
 					<DropShadowEffect/>
 				</Button.Effect>
 			</Button>
-			<Button x:Name="onGoing" Content="On Going Donation" Margin="20" FontSize="48" FontFamily="Andy" BorderThickness="0" Background="#FFD4A339" BorderBrush="#00707070" Foreground="White"/>
-			<Button x:Name="lastingLegacy" Content="Lasting Legacy" Margin="20" FontSize="48" FontFamily="Andy" BorderThickness="0" Background="#FFD4A339" BorderBrush="#00707070" Foreground="White"/>
-			<Button x:Name="workplaceGiving" Content="Workplace Giving" Margin="20" FontSize="48" FontFamily="Andy" BorderThickness="0" Background="#FFD4A339" BorderBrush="#00707070" Foreground="White"/>
-			<Button x:Name="moreInfo" Content="More Information" Margin="20" FontSize="48" FontFamily="Andy" BorderThickness="0" Background="#FFD4A339" BorderBrush="#00000000" Foreground="White"/>
+			<Button x:Name="onGoing" Content="On Going Donation" Margin="20" FontSize="48" FontFamily="Andy" BorderThickness="0" Background="#FFD4A339" BorderBrush="#00707070" Foreground="White"  Click="onGoing_Click" />
+			<Button x:Name="lastingLegacy" Content="Lasting Legacy" Margin="20" FontSize="48" FontFamily="Andy" BorderThickness="0" Background="#FFD4A339" BorderBrush="#00707070" Foreground="White"  Click="lastingLegacy_Click" />
+			<Button x:Name="workplaceGiving" Content="Workplace Giving" Margin="20" FontSize="48" FontFamily="Andy" BorderThickness="0" Background="#FFD4A339" BorderBrush="#00707070" Foreground="White" Click="workplaceGiving_Click" />
+			<Button x:Name="moreInfo" Content="More Information" Margin="20" FontSize="48" FontFamily="Andy" BorderThickness="0" Background="#FFD4A339" BorderBrush="#00000000" Foreground="White" Click="moreInfo_Click" />
 		</StackPanel>
 		<view:PoloroidControl x:Name="donate" HorizontalAlignment="Center" VerticalAlignment="Center" Width="237.161" Height="227.099" RenderTransformOrigin="0.5,0.5" Grid.Row="2">
 				<view:PoloroidControl.RenderTransform>
