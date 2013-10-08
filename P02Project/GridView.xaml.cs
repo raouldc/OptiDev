@@ -29,13 +29,13 @@ namespace P02Project
 
         public GridView(String Xpath)
         {
-            InitializeComponent();
+            this.InitializeComponent();
             /*first we need to bind the xml and create a grid Layout for that*/
             //dummy data
             numberOfItems = 7;
             if (numberOfItems >= 4)
             {
-                numberOfRows = 2;
+                numberOfRows ++;
             }
             numberOfCols = (int)Math.Ceiling((double)numberOfItems / (double)numberOfRows);
             //create a gridView
@@ -45,6 +45,21 @@ namespace P02Project
                 ColumnDefinition col = new ColumnDefinition();
                 g.ColumnDefinitions.Add(col);
             }
+            for (int i = 0; i < numberOfRows; i++)
+            {
+                RowDefinition row = new RowDefinition();
+                g.RowDefinitions.Add(row);
+            }
+            //if it is an odd number
+            //need to span the last column 1 colum
+            for (int i = 0; i < numberOfItems; i++)
+            {
+                PoloroidControl p = new PoloroidControl();
+                p.setCaption(i.ToString());
+                g.Children.Insert(i,p);
+            }
+            mainGrid.Children.Add(g);
+            UpdateLayout();
         }
     }
 }
