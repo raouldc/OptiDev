@@ -11,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using P02Project.Resources.xml;
 
 namespace P02Project.Screens
 {
@@ -25,6 +26,9 @@ namespace P02Project.Screens
             //create XML Parameter
             //read and parse XML
             //Set properties of items to the object
+
+            Content temp = XMLUtilities.GetContentFromFile("Content.xml");
+           
         }
     }
 }
