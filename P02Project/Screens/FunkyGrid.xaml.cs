@@ -22,6 +22,9 @@ namespace P02Project.Screens
         public FunkyGrid()
         {
             InitializeComponent();
+            //create XML Parameter
+            //read and parse XML
+            //Set properties of items to the object
         }
     }
 }
