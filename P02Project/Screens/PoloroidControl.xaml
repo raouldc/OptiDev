@@ -16,12 +16,18 @@
 				<TranslateTransform/>
 			</TransformGroup>
 		</Grid.RenderTransform>
-		<Rectangle x:Name="Canvas" Fill="#FFF4F4F5" Stroke="Black">
+		<Rectangle x:Name="Canvas" Stroke="Black">
+			<Rectangle.Fill>
+				<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+					<GradientStop Color="White" Offset="0"/>
+					<GradientStop Color="White" Offset="1"/>
+				</LinearGradientBrush>
+			</Rectangle.Fill>
 			<Rectangle.Effect>
 				<DropShadowEffect BlurRadius="20" ShadowDepth="8"/>
 			</Rectangle.Effect>
 		</Rectangle>
-		<Image x:Name="Image" Stretch="Fill" Margin="10,10,10,50"/>
-		<TextBlock x:Name="Caption" Height="38" Margin="10,0,10,8" TextWrapping="Wrap" VerticalAlignment="Bottom" TextAlignment="Center" FontSize="40" FontFamily="Andy" Background="White" HorizontalAlignment="Stretch"><Run Language="en-nz" Text="Text"/></TextBlock>
+		<Image x:Name="Image" Stretch="Fill" Margin="15,15,15,55"/>
+		<TextBlock x:Name="Caption" Height="38" Margin="15,0,15,13" TextWrapping="Wrap" VerticalAlignment="Bottom" TextAlignment="Center" FontSize="40" FontFamily="Andy" Background="White" HorizontalAlignment="Stretch"><Run Language="en-nz" Text="Text"/></TextBlock>
 	</Grid>
 </UserControl>
