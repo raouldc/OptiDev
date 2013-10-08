@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<!--Can store information regarding, text images, links-->
+
+<PageModel id ="About-Steve Price">
+
+
+  <TextList>
+
+    <Text>
+      Steve Price is a legend of league on both sides of the Tasman and is recognised as one of the best role models and leaders in sport today.
+    </Text>
+
+    <Text>
+      Steve is a former Australian rugby league and Warriors team captain. His most recent major contribution to the Foundation is his support of the Steve Price Night of Courage which now launches Appeal Month and is highly successful.  Steve’s mana and personality brings a huge amount to the event and he is instrumental in selling tables and securing auction items. Steve also shaves his head at the event. He has raised a considerable amount for CCF through funrazor head shaves over the years.  Steve has strong media contacts and is referred to as “the most loved Australian sportsperson in New Zealand.”
+
+      He joined CCF in 2008.
+    </Text>
+  </TextList>
+
+
+  <ImageList>
+    <Image id="top">images/Ambassadors/Steve.png</Image>
+
+  </ImageList>
+
+  <LinksList>
+  </LinksList>
+
+
+
+</PageModel>

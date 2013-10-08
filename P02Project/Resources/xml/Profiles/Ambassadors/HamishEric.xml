@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<!--Can store information regarding, text images, links-->
+
+<PageModel id ="About-Hamish and Eric">
+
+
+  <TextList>
+
+    <Text>
+      Eric and Hamish won the men’s coxless fours at the 2012 London Olympics.
+    </Text>
+
+    <Text>
+      Eric and Hamish won the men’s coxless fours at the 2012 London Olympics, taking an incredible six seconds off the world record in the process. The victory capped an undefeated streak that began when Murray and Bond began racing the pair internationally in 2009.  The pair are now national heroes and we are very fortunate to have been able to secure the support of the now sought after rowers.  During the Olympics the pair sold supporter tshirts to support CCF and within weeks of returning to New Zealand had produced a unique video for a charity dinner for CCF and donated signed tshirts.
+    </Text>
+  </TextList>
+
+
+  <ImageList>
+    <Image id="top">images/Ambassadors/HamishEric.png</Image>
+   
+   
+  </ImageList>
+
+  <LinksList>
+  </LinksList>
+
+
+
+</PageModel>

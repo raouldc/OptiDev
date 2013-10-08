@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<!--Can store information regarding, text images, links-->
+
+<PageModel id ="About-Manuaitu Haggie">
+
+
+  <TextList>
+
+    <Text>
+      Two year old Manuaitu Haggie’s cancer journey has been recorded on the most unusual of mediums.
+    </Text>
+
+    <Text>
+      It is hard to imagine another child has their cancer journey and family history carved into a ten pin bowling ball using Maori traditional design!
+
+      It would be fair to say Manu doesn’t appreciate the unusual work of his talented father Reihana, who is the carver, just yet. No doubt he will do in the future, but for now Manu is busy running around making two-year-old mayhem.
+
+      Manu completed treatment in September 2011 for Hepatoblastoma, a rare liver tumour that had also spread to his lungs.  He was diagnosed at just 10 months old had went through eight months of intensive and exhausting treatment including surgery and chemotherapy in Christchurch.  The summer was spent in hospital, drawing on the support of CCF, family and friends in the community of Beckenham.  The family of course, like many others, experienced the February 22nd 2011 earthquake and ongoing after shocks.
+
+      Manu, his brothers Ruateatea (8) and Te Toa (4), now live in Dunedin, where they have enjoyed connecting with the local CCF branch.
+
+      Manu’s father Reihana decided to record his son’s experiences, using his unusual talent, to raise money for the Child Cancer Foundation. Reihana likes a challenge and he also likes to use traditional carving on contemporary mediums.
+
+      “I wanted to do something that would challenge my skill level and be different,” Reihana says.  “So I picked up a ball on Trade Me and got going.    I have only seen one carved bowling ball on the internet, but it was an old wooden one from America. No one as far as I know has carved one with whakairo (carved patterns).”
+
+      The carving represents Manu’s journey and whakapapa (Tainui), and it is Reihana’s second fundraising effort for the foundation.  Last year he carved a Maori weapon (tewhatewha) which fetched $2,500 at auction.  Reihana has also previously used a surfboard as another unusual contemporary medium.
+    </Text>
+  </TextList>
+
+
+  <ImageList>
+    <Image id="top" caption="Before" link="toAboutUs">images/Stories/Manu.png</Image>
+   
+   
+  </ImageList>
+
+  <LinksList>
+  </LinksList>
+
+
+
+</PageModel>
