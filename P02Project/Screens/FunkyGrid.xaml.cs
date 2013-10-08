@@ -26,8 +26,8 @@ namespace P02Project.Screens
             //create XML Parameter
             //read and parse XML
             //Set properties of items to the object
-
-            Content temp = XMLUtilities.GetContentFromFile("Content.xml");
+            String path = System.IO.Path.Combine(System.IO.Path.GetFullPath("."), "Resources/xml/About.xml");
+            PageModel temp = XMLUtilities.GetContentFromFile(path);
            
         }
     }
