@@ -7,7 +7,7 @@
 	mc:Ignorable="d"
 	x:Class="P02Project.ContactUs"
 	x:Name="UserControl"
-	d:DesignWidth="1630" d:DesignHeight="900">
+	d:DesignWidth="1630" d:DesignHeight="900" Loaded="UserControl_Loaded">
 
 	<Grid x:Name="LayoutRoot" Background="White">
 		<Grid.ColumnDefinitions>
@@ -18,28 +18,28 @@
 		<!-- screenWidth=1920  screenHeight=1080-->
 		<!-- Option Tiles: width = screenWidth/5,  height = screenHeight/15-->
 		<Grid Grid.ColumnSpan="2">
-			<Custom:ScatterViewItem x:Name="_fmlPlSVI"  HorizontalAlignment="Left" Height="80" Width="384" Margin="48,50,0,0" VerticalAlignment="Top" Background="#fff1c232" FontSize="26.667" FontFamily="Andy">
+            <Custom:ScatterViewItem x:Name="_fmlPlSVI"  HorizontalAlignment="Left" Height="80" Width="384" Margin="48,50,0,0" VerticalAlignment="Top" Background="#ff710b7e" FontSize="26.667" FontFamily="Andy">
 				<Grid>
                     <ContentPresenter Content="Family Places" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 					<Custom:SurfaceButton Opacity="0" x:Name="_fmlPlSVIBtn" Click="fmlPlClicked"/>
 				</Grid>
 			</Custom:ScatterViewItem>
 
-            <Custom:ScatterViewItem x:Name="_mainOffSVI" HorizontalAlignment="Left" Height="80" Width="384" Margin="48,149,0,0" VerticalAlignment="Top" Background="#fff1c232" FontSize="26.667" FontFamily="Andy">
+            <Custom:ScatterViewItem x:Name="_mainOffSVI" HorizontalAlignment="Left" Height="80" Width="384" Margin="48,149,0,0" VerticalAlignment="Top" Background="#ffe411ff" FontSize="26.667" FontFamily="Andy">
 				<Grid> 
 					<ContentPresenter Content="Main Office" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 					<Custom:SurfaceButton Opacity="0" x:Name="_mainOffSVIBtn" Click="mainOffClicked"/>
 				</Grid>
 			</Custom:ScatterViewItem>
 
-            <Custom:ScatterViewItem x:Name="_fndRsSVI" HorizontalAlignment="Left" Height="80" Width="384" Margin="48,248,0,0" VerticalAlignment="Top" Background="#fff1c232" FontSize="26.667" FontFamily="Andy">
+            <Custom:ScatterViewItem x:Name="_fndRsSVI" HorizontalAlignment="Left" Height="80" Width="384" Margin="48,248,0,0" VerticalAlignment="Top" Background="#ffe411ff" FontSize="26.667" FontFamily="Andy">
 				<Grid> 
 					<ContentPresenter Content="Fundraising Offices" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 					<Custom:SurfaceButton Opacity="0" x:Name="_fndRsSVIBtn" Click="fndRsClicked"/>
 				</Grid>
 			</Custom:ScatterViewItem>
 
-            <Custom:ScatterViewItem x:Name="_fmlSptBrsSVI" HorizontalAlignment="Left" Height="80" Width="384" Margin="48,347,0,0" VerticalAlignment="Top" Background="#fff1c232" FontSize="26.667" FontFamily="Andy">
+            <Custom:ScatterViewItem x:Name="_fmlSptBrsSVI" HorizontalAlignment="Left" Height="80" Width="384" Margin="48,347,0,0" VerticalAlignment="Top" Background="#ffe411ff" FontSize="26.667" FontFamily="Andy">
 				<Grid> 
 					<ContentPresenter Content="Family Support Branches" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 					<Custom:SurfaceButton Opacity="0" x:Name="_fmlSptBrsSVIBtn" Click="fmlSptBrsClicked"/>
@@ -50,11 +50,15 @@
 			<!-- map will be here -->
 			<Grid Margin="500,70,70,70">
 			</Grid>
-			<Custom:ScatterViewItem HorizontalAlignment="Left" Background="White" Height="326" Margin="82,0,0,58" VerticalAlignment="Bottom" Width="326">
-				<Image Source="Resources/ContactUsQR.png"/>
-			</Custom:ScatterViewItem>
-			
-		
-		</Grid>
+
+
+            <!--
+            <Custom:ScatterViewItem HorizontalAlignment="Left" Background="White" Height="326" Margin="82,0,0,58" VerticalAlignment="Bottom" Width="326">
+                <Image Source="/P02Project;component/Resources/ContactUsQR.png"/>
+            </Custom:ScatterViewItem>
+-->
+
+
+        </Grid>
 	</Grid>
 </UserControl>

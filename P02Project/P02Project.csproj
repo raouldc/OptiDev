@@ -160,6 +160,7 @@
     <Resource Include="Resources\events.png" />
     <Resource Include="Resources\FS.png" />
     <Resource Include="Resources\howCanIHelp.png" />
+    <Resource Include="Resources\ContactUsQR.png" />
     <Content Include="Resources\icon.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

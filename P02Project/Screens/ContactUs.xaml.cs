@@ -24,29 +24,33 @@ namespace P02Project
 	/// </summary>
 	public partial class ContactUs : UserControl
 	{
-        private Dictionary<String, SVIWithImgBtn> _dictOptionBtns;
-        //private static readonly Brush = new SolidColorBrush(Color  )
+        private List<ScatterViewItem> _sviList;
+        private static readonly Brush SELECTED_COLOR = new SolidColorBrush(Color.FromRgb(113, 11, 126));
+        private static readonly Brush UNSELECTED_COLOR = new SolidColorBrush(Color.FromRgb(228, 17 , 255));
 
 		public ContactUs()
 		{
 			this.InitializeComponent();
 		}
 
+
+        
         protected override void OnInitialized(EventArgs e)
         {
-            _dictOptionBtns = new Dictionary<String, SVIWithImgBtn>();
-           _dictOptionBtns.Add(_fmlPlSVIBtn.ToString(), new SVIWithImgBtn(_fmlPlSVI, null, _fmlPlSVIBtn));
-           _dictOptionBtns.Add(_mainOffSVI.ToString(), new SVIWithImgBtn(_mainOffSVI, null, _mainOffSVIBtn));
-           _dictOptionBtns.Add(_fndRsSVI.ToString(), new SVIWithImgBtn(_fndRsSVI, null, _fndRsSVIBtn));
-           _dictOptionBtns.Add(_fmlSptBrsSVI.ToString(), new SVIWithImgBtn(_fmlSptBrsSVI, null, _fmlSptBrsSVIBtn));
-
+            
+            _sviList = new List<ScatterViewItem>();
+            _sviList.Add(_fmlPlSVI);
+            _sviList.Add(_fmlSptBrsSVI);
+            _sviList.Add(_mainOffSVI);
+            _sviList.Add(_fndRsSVI);
+            
         }
-
+        
 
 
         private void fmlPlClicked(Object sender, RoutedEventArgs e)
         {
-            ScatterViewItem svi = _dictOptionBtns[sender.ToString()]._svi;
+            
             
         }
 
@@ -60,6 +64,11 @@ namespace P02Project
 
         private void fmlSptBrsClicked(Object sender, RoutedEventArgs e)
         {
+        }
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+
         }
 
 
