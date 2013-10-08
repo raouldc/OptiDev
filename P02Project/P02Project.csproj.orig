@@ -58,7 +58,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Util.cs" />
     <Compile Include="RightButtonControl.xaml.cs">
       <DependentUpon>RightButtonControl.xaml</DependentUpon>
     </Compile>
@@ -141,9 +140,11 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\bead background2.png" />
+<<<<<<< HEAD
     <Resource Include="Resources\donate.png" />
+=======
     <Resource Include="Resources\go-back-icon-NOT_FREE.png" />
+>>>>>>> origin/donate
     <Resource Include="Resources\logoCCF-transparentaltered.png" />
     <Resource Include="Resources\abt.png" />
     <Resource Include="Resources\beads.png" />

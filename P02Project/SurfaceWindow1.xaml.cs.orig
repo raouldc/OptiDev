@@ -50,6 +50,12 @@ namespace P02Project
         {
             InitializeComponent();
 
+            // Add handlers for window availability events
+            AddWindowAvailabilityHandlers();
+            Donate.setImage("donate.png");
+            Donate.setCaption("Donate");
+            Donate.setColour(Colors.Orange);
+
             stackOfScreens = new Stack<Screen>();
             //Setting starting Screen here, maybe should be in one of the other OnXXX methods of this class
             pushScreen(new HomePage(this));
