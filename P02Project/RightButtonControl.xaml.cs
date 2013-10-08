@@ -49,7 +49,21 @@ namespace P02Project
 
             ButtonStack.Children.Clear();
 
-            ButtonStack.Children.Add(Button2);
+            foreach(String name in bNames)
+            {
+                Button button = new Button();
+
+                button.Width = Width;
+                button.Height = 150;
+                button.Margin = new Thickness(0,0,0,20);
+
+                button.Background = new SolidColorBrush(Util._pageColDict[name]);
+                button.Content = name;
+
+                button.Foreground = new SolidColorBrush(Colors.White);
+
+                ButtonStack.Children.Add(button);
+            }
             
         }
 
