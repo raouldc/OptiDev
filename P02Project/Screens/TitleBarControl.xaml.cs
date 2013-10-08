@@ -10,6 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using P02Project.Screens;
 
 namespace P02Project
 {
@@ -18,15 +19,20 @@ namespace P02Project
 	/// </summary>
 	public partial class TitleBarControl : UserControl
 	{
+        private TopLevelPage topLevelPage;
+
 		public TitleBarControl()
 		{
 			this.InitializeComponent();
 		}
 
+        public void setTopPage(TopLevelPage top){
+            topLevelPage = top;
+        }
+
         private void Back_Click(object sender, RoutedEventArgs e)
         {
-            SurfaceWindow1 parentWindow = (SurfaceWindow1)Window.GetWindow(this);
-            parentWindow.popScreen();
+            topLevelPage.BackButton_Click(sender, e);
         }
 	}
 }
