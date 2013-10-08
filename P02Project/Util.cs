@@ -18,6 +18,8 @@ namespace P02Project
             { "About",              (Color)ColorConverter.ConvertFromString("#ff00aedb")},
             { "Family Support",     (Color)ColorConverter.ConvertFromString("#ffec008b")},
             { "How Can I Help?",    (Color)ColorConverter.ConvertFromString("#fff68e1e")},
+            { "hcihSelected",       (Color)ColorConverter.ConvertFromString("#FFD47C1E")},
+            { "hcihUnSelected",     (Color)ColorConverter.ConvertFromString("#FFD4A339")},
             { "News",               (Color)ColorConverter.ConvertFromString("#ffa13e97")},
             { "Events",             (Color)ColorConverter.ConvertFromString("#ffbcd530")},
             { "Contact Us",         (Color)ColorConverter.ConvertFromString("#ffe411ff")},
