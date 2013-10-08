@@ -28,6 +28,7 @@ namespace P02Project.Screens
         //Set the content part of the grid
         public void setContent(UIElement control)
         {
+            pageGrid.Children.RemoveAt(pageGrid.Children.Count-1);
             Grid.SetColumn(control, 0);
             Grid.SetRow(control, 1);
             Grid.SetRowSpan(control, 5);
