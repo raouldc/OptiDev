@@ -22,6 +22,7 @@ namespace P02Project
     /// </summary>
     public partial class RightButtonControl : UserControl
     {
+
         public RightButtonControl()
         {
             this.InitializeComponent();
@@ -52,62 +53,50 @@ namespace P02Project
 
         private void Button_Click(object sender, MouseButtonEventArgs e)
         {
-            SurfaceWindow1 parentWindow = (SurfaceWindow1)Window.GetWindow(this);
-            Screen nextScreen = null;
-            String cont = "";
-            cont = (String)(sender as RightButton).Caption;
+            SurfaceWindow1 ParentWindow = (SurfaceWindow1)Window.GetWindow(this);
+            TopLevelPage nextScreen;
+
+            String cont = (sender as RightButton).Caption;
+            Color colour = (sender as RightButton).Colour;
+
             Console.WriteLine("Button clocked - {0}", cont);
             //Set next screen to add to the stack and it's contents depending on the button clicked
             switch (cont)
             {
-
                 case "About":
-                    nextScreen = new TopLevelPage(parentWindow, "About");
-                    ((TopLevelPage)nextScreen).setTitleColour(Util._pageColDict["About"]);
-                    ((TopLevelPage)nextScreen).setButtons(new String[6] { "Family Support", "How Can I Help?", "News", "Events", "Play Beads", "Contact Us" });
-                    //((TopLevelPage)nextScreen).setContent(new Controls."CONTENT CONTROL NAME HERE");
-                    break;
-
-                case "Family Support":
-                    nextScreen = new TopLevelPage(parentWindow, "Family Support");
-                    ((TopLevelPage)nextScreen).setButtons(new String[6] { "About", "How Can I Help?", "News", "Events", "Play Beads", "Contact Us" });
-                    ((TopLevelPage)nextScreen).setTitleColour(Util._pageColDict["Family Support"]);
-                    //((TopLevelPage)nextScreen).setContent(new Controls."CONTENT CONTROL NAME HERE");
-                    break;
-
-                case "How Can I Help?":
-                    nextScreen = new TopLevelPage(parentWindow, "How Can I Help?");
-                    ((TopLevelPage)nextScreen).setButtons(new String[6] { "About", "Family Support", "News", "Events", "Play Beads", "Contact Us" });
-                    ((TopLevelPage)nextScreen).setTitleColour(Util._pageColDict["How Can I Help?"]);
-                    //((TopLevelPage)nextScreen).setContent(new Controls."CONTENT CONTROL NAME HERE");
+                    nextScreen = new TopLevelPage(ParentWindow, "About");
+                    ParentWindow.pushScreenOnStack(nextScreen, new String[6] { "Family Support", "How Can I Help?", "News", "Events", "Play Beads", "Contact Us" }, colour, new TopLevelPage(ParentWindow,""), "");
                     break;
 
                 case "News":
-                    nextScreen = new TopLevelPage(parentWindow, "News");
-                    ((TopLevelPage)nextScreen).setTitleColour(Util._pageColDict["News"]);
-                    ((TopLevelPage)nextScreen).setButtons(new String[6] { "About", "Family Support", "How Can I Help?", "Events", "Play Beads", "Contact Us" });
-                    //((TopLevelPage)nextScreen).setContent(new Controls."CONTENT CONTROL NAME HERE");
+                    nextScreen = new TopLevelPage(ParentWindow, "News");
+                    ParentWindow.pushScreenOnStack(nextScreen, new String[6] { "About", "Family Support", "How Can I Help?", "Events", "Play Beads", "Contact Us" }, colour, new TopLevelPage(ParentWindow, ""), "");
+                    break;
+
+                case "How Can I Help?":
+                    
+                    nextScreen = new TopLevelPage(ParentWindow, "How Can I Help?");
+                    ParentWindow.pushScreenOnStack(nextScreen, new String[6] { "About", "Family Support", "News", "Events", "Play Beads", "Contact Us" }, colour, new hcihHomeControl(nextScreen), "");
                     break;
 
                 case "Events":
-                    nextScreen = new TopLevelPage(parentWindow, "Events");
-                    ((TopLevelPage)nextScreen).setButtons(new String[6] { "About", "Family Support", "How Can I Help?", "News", "Play Beads", "Contact Us" });
-                    ((TopLevelPage)nextScreen).setTitleColour(Util._pageColDict["Events"]);
-                    //((TopLevelPage)nextScreen).setContent(new Controls."CONTENT CONTROL NAME HERE");
+                    nextScreen = new TopLevelPage(ParentWindow, "Events");
+                    ParentWindow.pushScreenOnStack(nextScreen, new String[6] { "About", "Family Support", "How Can I Help?", "News", "Play Beads", "Contact Us" }, colour, new TopLevelPage(ParentWindow, ""), "");
+                    break;
+
+                case "Family Support":
+                    nextScreen = new TopLevelPage(ParentWindow, "Family Support");
+                    ParentWindow.pushScreenOnStack(nextScreen, new String[6] { "About", "How Can I Help?", "News", "Events", "Play Beads", "Contact Us" }, colour, new TopLevelPage(ParentWindow, ""), "");
                     break;
 
                 case "Play Beads":
-                    nextScreen = new TopLevelPage(parentWindow, "Play Beads");
-                    ((TopLevelPage)nextScreen).setButtons(new String[6] { "About", "Family Support", "How Can I Help?", "News", "Events", "Contact Us" });
-                    ((TopLevelPage)nextScreen).setTitleColour(Util._pageColDict["Play Beads"]);
-                    //((TopLevelPage)nextScreen).setContent(new Controls."CONTENT CONTROL NAME HERE");
+                    nextScreen = new TopLevelPage(ParentWindow, "Play Beads");
+                    ParentWindow.pushScreenOnStack(nextScreen, new String[6] { "About", "Family Support", "How Can I Help?", "News", "Events", "Contact Us" }, colour, new TopLevelPage(ParentWindow, ""), "");
                     break;
 
                 case "Contact Us":
-                    nextScreen = new TopLevelPage(parentWindow, "Contact Us");
-                    ((TopLevelPage)nextScreen).setButtons(new String[6] { "About", "Family Support", "How Can I Help?", "News", "Events", "Play Beads" });
-                    ((TopLevelPage)nextScreen).setTitleColour(Util._pageColDict["Contact Us"]);
-                    //((TopLevelPage)nextScreen).setContent(new Controls."CONTENT CONTROL NAME HERE");
+                    nextScreen = new TopLevelPage(ParentWindow, "Contact Us");
+                    ParentWindow.pushScreenOnStack(nextScreen, new String[6] { "About", "Family Support", "How Can I Help?", "News", "Events", "Play Beads" }, colour, new TopLevelPage(ParentWindow, ""), "");
                     break;
 
                 default:
@@ -115,11 +104,6 @@ namespace P02Project
                     nextScreen = null;
                     break;
             }
-
-            //Go back to home first so dont end up in a maze
-            parentWindow.popAll();
-            //Go to new screen
-            parentWindow.pushScreen(nextScreen);
         }
 
 

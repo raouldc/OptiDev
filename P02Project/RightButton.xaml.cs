@@ -33,6 +33,7 @@ namespace P02Project
         public Color Colour
         {
             set { this.Canvas.Fill = new SolidColorBrush(value); }
+            get { return ((SolidColorBrush)this.Canvas.Fill).Color; }
         }
 
         private void showShadow()

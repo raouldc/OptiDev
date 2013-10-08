@@ -16,6 +16,7 @@ using Microsoft.Surface.Presentation;
 using Microsoft.Surface.Presentation.Controls;
 using Microsoft.Surface.Presentation.Input;
 using System.Windows.Media.Animation;
+using P02Project.Screens;
 
 namespace P02Project
 {
@@ -152,6 +153,15 @@ namespace P02Project
             this.Content = stackOfScreens.Peek();
             this.WindowState = WindowState.Maximized;
             this.WindowStyle = WindowStyle.None;
+        }
+
+        public void pushScreenOnStack(TopLevelPage nextScreen, String[] buttons, Color colour, UserControl content, String Subtitle)
+        {
+            nextScreen.setButtons(buttons);
+            nextScreen.setTitleColour(colour);
+            nextScreen.setContent(content);
+            nextScreen.setSubtitle(Subtitle);
+            pushScreen(nextScreen);
         }
         //// this method called when the surface app has just been created.
         //protected override void OnInitialized(EventArgs e)

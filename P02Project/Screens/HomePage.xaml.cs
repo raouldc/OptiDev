@@ -69,65 +69,45 @@ namespace P02Project
         private void about_MouseUp(object sender, MouseButtonEventArgs e)
         {
             TopLevelPage nextScreen = new TopLevelPage(ParentWindow, "About");
-            nextScreen.setTitleColour(about.colour);
-            nextScreen.setButtons(new String[6] { "Family Support", "How Can I Help?", "News", "Events", "Play Beads", "Contact Us" });
-            //((TopLevelPage)nextScreen).setContent(new Controls."CONTENT CONTROL NAME HERE");
-            ParentWindow.pushScreen(nextScreen);
+            ParentWindow.pushScreenOnStack(nextScreen, new String[6] { "Family Support", "How Can I Help?", "News", "Events", "Play Beads", "Contact Us" }, about.colour, new TopLevelPage(ParentWindow,""), "");
         }
 
         private void news_MouseUp(object sender, MouseButtonEventArgs e)
         {
             TopLevelPage nextScreen = new TopLevelPage(ParentWindow, "News");
-            ((TopLevelPage)nextScreen).setTitleColour(news.colour);
-            ((TopLevelPage)nextScreen).setButtons(new String[6] { "About", "Family Support", "How Can I Help?", "Events", "Play Beads", "Contact Us" });
-            //((TopLevelPage)nextScreen).setContent(new Controls."CONTENT CONTROL NAME HERE");
-            ParentWindow.pushScreen(nextScreen);
+            ParentWindow.pushScreenOnStack(nextScreen, new String[6] { "About", "Family Support", "How Can I Help?", "Events", "Play Beads", "Contact Us" }, news.colour, new TopLevelPage(ParentWindow, ""), "");
         }
 
         private void events_MouseUp(object sender, MouseButtonEventArgs e)
         {
             TopLevelPage nextScreen = new TopLevelPage(ParentWindow, "Events");
-            ((TopLevelPage)nextScreen).setButtons(new String[6] { "About", "Family Support", "How Can I Help?", "News", "Play Beads", "Contact Us" });
-            ((TopLevelPage)nextScreen).setTitleColour(events.colour);
-            //((TopLevelPage)nextScreen).setContent(new Controls."CONTENT CONTROL NAME HERE");
-            ParentWindow.pushScreen(nextScreen);
+            ParentWindow.pushScreenOnStack(nextScreen, new String[6] { "About", "Family Support", "How Can I Help?", "News", "Play Beads", "Contact Us" }, events.colour, new TopLevelPage(ParentWindow, ""), "");
         }
 
         private void contactUs_MouseUp(object sender, MouseButtonEventArgs e)
         {
             TopLevelPage nextScreen = new TopLevelPage(ParentWindow, "Contact Us");
-            ((TopLevelPage)nextScreen).setButtons(new String[6] { "About", "Family Support", "How Can I Help?", "News", "Events", "Play Beads" });
-            ((TopLevelPage)nextScreen).setTitleColour(contactUs.colour);
-            //((TopLevelPage)nextScreen).setContent(new Controls."CONTENT CONTROL NAME HERE");
-            ParentWindow.pushScreen(nextScreen);
+            ParentWindow.pushScreenOnStack(nextScreen, new String[6] { "About", "Family Support", "How Can I Help?", "News", "Events", "Play Beads" }, contactUs.colour, new TopLevelPage(ParentWindow, ""), "");
         }
 
         private void howCanIHelp_MouseUp(object sender, MouseButtonEventArgs e)
         {
             TopLevelPage nextScreen = new TopLevelPage(ParentWindow, "How Can I Help?");
-            ((TopLevelPage)nextScreen).setButtons(new String[6] { "About", "Family Support", "News", "Events", "Play Beads", "Contact Us" });
-            ((TopLevelPage)nextScreen).setTitleColour(howCanIHelp.colour);
-            ((TopLevelPage)nextScreen).setContent(new hcihHomeControl((TopLevelPage)nextScreen));
-            ((TopLevelPage)nextScreen).setSubtitle("");
-            ParentWindow.pushScreen(nextScreen);
+            ParentWindow.pushScreenOnStack(nextScreen, new String[6] { "About", "Family Support", "News", "Events", "Play Beads", "Contact Us" }, howCanIHelp.colour, new hcihHomeControl(nextScreen), "");
         }
 
         private void familySupport_MouseUp(object sender, MouseButtonEventArgs e)
         {
             TopLevelPage nextScreen = new TopLevelPage(ParentWindow, "Family Support");
-            ((TopLevelPage)nextScreen).setButtons(new String[6] { "About", "How Can I Help?", "News", "Events", "Play Beads", "Contact Us" });
-            ((TopLevelPage)nextScreen).setTitleColour(familySupport.colour);
-            //((TopLevelPage)nextScreen).setContent(new Controls."CONTENT CONTROL NAME HERE");
-            ParentWindow.pushScreen(nextScreen);
+            ParentWindow.pushScreenOnStack(nextScreen, new String[6] { "About", "How Can I Help?", "News", "Events", "Play Beads", "Contact Us" }, familySupport.colour, new TopLevelPage(ParentWindow, ""), "");
         }
 
         private void playBeads_MouseUp(object sender, MouseButtonEventArgs e)
         {
             TopLevelPage nextScreen = new TopLevelPage(ParentWindow, "Play Beads");
-            ((TopLevelPage)nextScreen).setButtons(new String[6] { "About", "Family Support", "How Can I Help?", "News", "Events", "Contact Us" });
-            ((TopLevelPage)nextScreen).setTitleColour(playBeads.colour);
-            //((TopLevelPage)nextScreen).setContent(new Controls."CONTENT CONTROL NAME HERE");
-            ParentWindow.pushScreen(nextScreen);
+            ParentWindow.pushScreenOnStack(nextScreen, new String[6] { "About", "Family Support", "How Can I Help?", "News", "Events", "Contact Us" }, playBeads.colour, new TopLevelPage(ParentWindow, ""), "");
         }
+
+        
     }
 }
