@@ -230,7 +230,7 @@ namespace P02Project
                     nextScreen = new TopLevelPage(ParentWindow, "Contact Us");
                     ((TopLevelPage)nextScreen).setButtons(new String[6] { "About", "Family Support", "How Can I Help?", "News", "Events", "Play Beads" });
                     ((TopLevelPage)nextScreen).setTitleColour(contactUs.colour);
-                    //((TopLevelPage)nextScreen).setContent(new Controls."CONTENT CONTROL NAME HERE");
+                    ((TopLevelPage)nextScreen).setContent(new ContactUs());
                     break;
                 default:
                     //This should never happen.
