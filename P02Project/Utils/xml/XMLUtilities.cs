@@ -18,14 +18,14 @@ namespace P02Project.Resources.xml
 
 
 
-        public static Content GetContentFromFile(String filename)
+        public static PageModel GetContentFromFile(String filePath)
         {
-            Content xmlContent;
-            XmlSerializer mySerializer = new XmlSerializer(typeof(Content));
-            String path= Path.Combine(Path.GetFullPath("."), "Resources/xml/Content.xml");
-            FileStream myFileStream = new FileStream(path, FileMode.Open);
+            PageModel xmlContent;
+            XmlSerializer mySerializer = new XmlSerializer(typeof(PageModel));
+           
+            FileStream myFileStream = new FileStream(filePath, FileMode.Open);
 
-            xmlContent = (Content)mySerializer.Deserialize(myFileStream);
+            xmlContent = (PageModel)mySerializer.Deserialize(myFileStream);
 
             return xmlContent;
 

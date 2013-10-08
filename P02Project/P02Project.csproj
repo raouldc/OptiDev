@@ -88,8 +88,13 @@
       <DependentUpon>TopLevelPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="SVIWithImgBtn.cs" />
-    <Compile Include="Utils\xml\Content.cs">
-      <DependentUpon>Content.xsd</DependentUpon>
+    <Compile Include="Utils\xml\PageModel.cs">
+      <DependentUpon>PageModel.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\xml\PageModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PageModel.xsd</DependentUpon>
     </Compile>
     <Compile Include="Utils\xml\XMLUtilities.cs" />
     <Page Include="GridView.xaml">
@@ -159,19 +164,31 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
-    <None Include="Utils\xml\Content.xsd">
+    <None Include="Utils\xml\PageModel.xsc">
+      <DependentUpon>PageModel.xsd</DependentUpon>
+    </None>
+    <None Include="Utils\xml\PageModel.xsd">
+      <Generator>MSDataSetGenerator</Generator>
       <SubType>Designer</SubType>
+      <LastGenOutput>PageModel.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Utils\xml\PageModel.xss">
+      <DependentUpon>PageModel.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\xml\Content.xml">
+    <Content Include="Resources\xml\TemplateDoc.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Utils\xml\PageModel.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <Resource Include="Resources\bead background2.png" />
     <Resource Include="Resources\donate.png" />
     <Resource Include="Resources\go-back-icon-NOT_FREE.png" />

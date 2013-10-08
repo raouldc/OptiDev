@@ -2,10 +2,8 @@
 
 <!--Can store information regarding, text images, links-->
 
-<Content id ="SomeIdentifier">
-  <PageTitle>
-    hello
-  </PageTitle>
+<PageModel id ="SomeIdentifier">
+
 
   <TextList>
     <Text id="First Paragraph">
@@ -18,15 +16,16 @@
       hello world
       hello world
     </Text>
-   
+
   </TextList>
 
 
   <ImageList>
+    
     <Image id="Child1" caption="Mother and her child">resources/images/abt.png</Image>
     <Image id="Child2" caption="">resources/images/abt.png</Image>
     <Image id="Child3"></Image>
-    
+
   </ImageList>
 
   <LinksList>
@@ -38,4 +37,4 @@
 
 
 
-</Content>
+</PageModel>

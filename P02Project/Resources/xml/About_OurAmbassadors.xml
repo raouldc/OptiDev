@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<!--Can store information regarding, text images, links-->
+
+<PageModel id ="About-Our History">
+
+
+  <TextList>
+  </TextList>
+
+
+  <ImageList>
+    <Image id="Amanda" caption="Amanda Billing">images/Ambassadors/Amanda.jpg</Image>
+    <Image id="Steve" caption="Steve Price">images/Ambassadors/Steve.jpg</Image>
+    <Image id="Jerome" caption="Jerome Kaino">images/Ambassadors/Jerome.jpg</Image>
+    <Image id="HamishEric" caption="Hamish and Eric">images/Ambassadors/HamishEric.jpg</Image>
+    <Image id="Lorraine" caption="Lorraine Downes">images/Ambassadors/Lorraine.jpg</Image>
+    <Image id="Megan" caption="Megan Alotini">images/Ambassadors/Megan.jpg</Image>
+    <Image id="Brenadine" caption="Bernadine Kerby">images/Ambassadors/Brendaine.jpg</Image>
+    <Image id="Chris" caption="Chris Jack">images/Ambassadors/Chris.jpg</Image>
+    <Image id="Kieran" caption="Kieran Read">images/Ambassadors/Kieran.jpg</Image>
+  </ImageList>
+
+  <LinksList>
+  </LinksList>
+
+
+
+</PageModel>

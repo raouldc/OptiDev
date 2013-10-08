@@ -22,33 +22,20 @@ using System.Xml.Serialization;
 [System.ComponentModel.DesignerCategoryAttribute("code")]
 [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
 [System.Xml.Serialization.XmlRootAttribute(Namespace="", IsNullable=false)]
-public partial class Content {
+public partial class PageModel {
     
-    private string pageTitleField;
+    private PageModelText[] textListField;
     
-    private ContentText[] textListField;
+    private PageModelImage[] imageListField;
     
-    private ContentImage[] imageListField;
-    
-    private ContentLink[] linksListField;
-    
-    private string miscListField;
+    private PageModelLink[] linksListField;
     
     private string idField;
     
     /// <remarks/>
-    public string PageTitle {
-        get {
-            return this.pageTitleField;
-        }
-        set {
-            this.pageTitleField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlArrayItemAttribute("Text", IsNullable=false)]
-    public ContentText[] TextList {
+    [System.Xml.Serialization.XmlArrayAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    [System.Xml.Serialization.XmlArrayItemAttribute("Text", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public PageModelText[] TextList {
         get {
             return this.textListField;
         }
@@ -58,8 +45,9 @@ public partial class Content {
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlArrayItemAttribute("Image", IsNullable=false)]
-    public ContentImage[] ImageList {
+    [System.Xml.Serialization.XmlArrayAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    [System.Xml.Serialization.XmlArrayItemAttribute("Image", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public PageModelImage[] ImageList {
         get {
             return this.imageListField;
         }
@@ -69,23 +57,14 @@ public partial class Content {
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlArrayItemAttribute("Link", IsNullable=false)]
-    public ContentLink[] LinksList {
+    [System.Xml.Serialization.XmlArrayAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    [System.Xml.Serialization.XmlArrayItemAttribute("Link", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public PageModelLink[] LinksList {
         get {
             return this.linksListField;
         }
         set {
             this.linksListField = value;
-        }
-    }
-    
-    /// <remarks/>
-    public string MiscList {
-        get {
-            return this.miscListField;
-        }
-        set {
-            this.miscListField = value;
         }
     }
     
@@ -107,7 +86,7 @@ public partial class Content {
 [System.Diagnostics.DebuggerStepThroughAttribute()]
 [System.ComponentModel.DesignerCategoryAttribute("code")]
 [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
-public partial class ContentText {
+public partial class PageModelText {
     
     private string idField;
     
@@ -142,11 +121,15 @@ public partial class ContentText {
 [System.Diagnostics.DebuggerStepThroughAttribute()]
 [System.ComponentModel.DesignerCategoryAttribute("code")]
 [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
-public partial class ContentImage {
+public partial class PageModelImage {
     
     private string idField;
     
     private string captionField;
+    
+    private string linkField;
+    
+    private string valueField;
     
     /// <remarks/>
     [System.Xml.Serialization.XmlAttributeAttribute()]
@@ -169,6 +152,28 @@ public partial class ContentImage {
             this.captionField = value;
         }
     }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAttributeAttribute()]
+    public string link {
+        get {
+            return this.linkField;
+        }
+        set {
+            this.linkField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlTextAttribute()]
+    public string Value {
+        get {
+            return this.valueField;
+        }
+        set {
+            this.valueField = value;
+        }
+    }
 }
 
 /// <remarks/>
@@ -177,7 +182,7 @@ public partial class ContentImage {
 [System.Diagnostics.DebuggerStepThroughAttribute()]
 [System.ComponentModel.DesignerCategoryAttribute("code")]
 [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
-public partial class ContentLink {
+public partial class PageModelLink {
     
     private string idField;
     
@@ -202,6 +207,29 @@ public partial class ContentLink {
         }
         set {
             this.valueField = value;
+        }
+    }
+}
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.0.30319.1")]
+[System.SerializableAttribute()]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
+[System.Xml.Serialization.XmlRootAttribute(Namespace="", IsNullable=false)]
+public partial class NewDataSet {
+    
+    private PageModel[] itemsField;
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlElementAttribute("PageModel")]
+    public PageModel[] Items {
+        get {
+            return this.itemsField;
+        }
+        set {
+            this.itemsField = value;
         }
     }
 }

@@ -54,10 +54,6 @@ namespace P02Project
             stackOfScreens = new Stack<Screen>();
             //Setting starting Screen here, maybe should be in one of the other OnXXX methods of this class
             pushScreen(new HomePage(this));
-            
-          
-            
-            Content temp = XMLUtilities.GetContentFromFile(" ");
         }
 
         /// <summary>

@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<!--Can store information regarding, text images, links-->
+
+<PageModel id ="About-Our Stories">
+
+
+  <TextList>
+  </TextList>
+
+
+  <ImageList>
+    <Image id="1" caption="Dequaran Harrison" link="?">images/Stories/Dequarn.jpg</Image>
+    <Image id="2" caption="Emma Watson">images/Stories/Emma.jpg</Image>
+    <Image id="3" caption="Kavahn Taumatauka">images/Stories/Kavahn.jpg</Image>
+    <Image id="4" caption="Manuaitu Haggie">images/Stories/Manu.jpg</Image>
+    <Image id="5" caption="Hana Ellis-Kaa">images/Stories/Hana.jpg</Image>
+    <Image id="6" caption="Joyce Singh">images/Stories/Joyce.jpg</Image>
+  </ImageList>
+
+  <LinksList>
+  </LinksList>
+
+
+
+</PageModel>
