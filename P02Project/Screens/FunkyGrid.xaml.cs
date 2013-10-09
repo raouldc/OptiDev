@@ -82,18 +82,23 @@ namespace P02Project.Screens
             {
                 case "About Us":
                     levelpage.setContent(new SplitGridView("xml/About_AboutUs.xml"));
+                    levelpage.setSubtitle("About Us");
                     break;
                 case "Our Ambassadors":
                     levelpage.setContent(new GridView("Resources/xml/About_OurAmbassadors.xml"));
+                    levelpage.setSubtitle("Our Ambassadors");
                     break;
                 case "Our Stories":
                     levelpage.setContent(new GridView("Resources/xml/About_OurStories.xml"));
+                    levelpage.setSubtitle("Our Stories");
                     break;
                 case "How We Help":
                     levelpage.setContent(new SplitGridView("xml/About_HowWeHelp.xml"));
+                    levelpage.setSubtitle("How We Help");
                     break;
                 case "Our History":
                     levelpage.setContent(new SplitGridView("xml/About_OurHistory.xml"));
+                    levelpage.setSubtitle("Our History");
                     break;
                 default:
                     break;
