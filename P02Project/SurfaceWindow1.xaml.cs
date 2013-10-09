@@ -163,6 +163,7 @@ namespace P02Project
             nextScreen.setTitleColour(colour);
             nextScreen.setContent(content);
             nextScreen.setSubtitle(Subtitle);
+            popAll();
             pushScreen(nextScreen);
         }
     
