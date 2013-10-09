@@ -87,7 +87,7 @@ namespace P02Project
         private void contactUs_MouseUp(object sender, MouseButtonEventArgs e)
         {
             TopLevelPage nextScreen = new TopLevelPage(ParentWindow, "Contact Us");
-            ParentWindow.pushScreenOnStack(nextScreen, new String[6] { "About", "Family Support", "How Can I Help?", "News", "Events", "Play Beads" }, contactUs.colour, new UserControl(), "");
+            ParentWindow.pushScreenOnStack(nextScreen, new String[6] { "About", "Family Support", "How Can I Help?", "News", "Events", "Play Beads" }, contactUs.colour, new ContactUs(), "");
         }
 
         private void howCanIHelp_MouseUp(object sender, MouseButtonEventArgs e)

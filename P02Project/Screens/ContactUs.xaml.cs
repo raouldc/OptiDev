@@ -35,7 +35,7 @@ namespace P02Project
 
 		public ContactUs()
 		{
-            //this.InitializeComponent();
+            this.InitializeComponent();
             DataContext = new MapAddressViewModel();
             //baseMap = houseMap;
             //_sviList = new List<ScatterViewItem>();
