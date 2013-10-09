@@ -36,6 +36,13 @@ namespace P02Project {
                                                               Type = AddressType.FamilyPlace
                                                           }
                                         };
+            if (type == AddressType.FamilySupport)
+                data.Add(new MapAddress{
+                                           Address = "76 Grafton Road\nGrafton\nAuckland",
+                                           Title = "Auckland Family Place",
+                                           Location = new Location(-36.857769, 174.769119),
+                                           Type = AddressType.FamilyPlace
+                                       });
             callback(null, new MapAddressEventArgs(data));
         }
     }

@@ -57,15 +57,9 @@
             </Custom:ScatterViewItem>
 
             
-            
-            
-            
-            
-            
             <!-- map here -->
 			<Grid Margin="497,70,73,70">
-                <m:Map Name="houseMap" Mode="Road" CredentialsProvider="AmVwNPRfp45FelI8abG8yRRvQNPORDJdVE74ipdYXqeTtOnYsbgYxkc55CDxHqFv" Center="-41, 173" ZoomLevel="5.9"
-                   Margin="190,22,124,24" AnimationLevel="UserInput" GotFocus="Pushpin_TouchLeave">
+                <m:Map Name="houseMap" Mode="Road" CredentialsProvider="AmVwNPRfp45FelI8abG8yRRvQNPORDJdVE74ipdYXqeTtOnYsbgYxkc55CDxHqFv" Center="-41, 173" ZoomLevel="5.9" Margin="190,22,124,24" AnimationLevel="UserInput" GotFocus="Pushpin_TouchLeave">
                     <m:MapItemsControl ItemsSource="{Binding Addresses}"
                                  ItemTemplate="{StaticResource MapAddressTemplate}"/>
                     <m:MapLayer Name="ContentPopupLayer">
@@ -79,10 +73,6 @@
                 </m:Map>
             </Grid>
 
-            
 
-
-
-        </Grid>
-	</Grid>
+    </Grid>
 </UserControl>

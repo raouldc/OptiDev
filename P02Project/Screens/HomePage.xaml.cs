@@ -58,7 +58,7 @@ namespace P02Project
 
             contactUs.setImage("contact.png");
             contactUs.setCaption("Contact Us");
-            contactUs.setColour(Util._pageColDict["Contact Us"]);
+            contactUs.setColour(Util._pageColDict["contactUUnSelected"]);
 
             playBeads.setImage("beads.png");
             playBeads.setCaption("Play Beads");
