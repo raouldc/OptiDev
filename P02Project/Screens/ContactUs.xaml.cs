@@ -40,7 +40,7 @@ namespace P02Project
         public ContactUs()
         {
             this.InitializeComponent();
-            DataContext = new MapAddressViewModel();
+            DataContext = new MapAddressViewModel(AddressType.FamilyPlace);
             //baseMap = houseMap;
             _fmlPlcList = new List<RichTextBox>();
             _fmlPlcList.Add(_fmlPlc0);
