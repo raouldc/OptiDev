@@ -69,25 +69,25 @@ namespace P02Project
         private void about_MouseUp(object sender, MouseButtonEventArgs e)
         {
             TopLevelPage nextScreen = new TopLevelPage(ParentWindow, "About");
-            ParentWindow.pushScreenOnStack(nextScreen, new String[6] { "Family Support", "How Can I Help?", "News", "Events", "Play Beads", "Contact Us" }, about.colour, new TopLevelPage(ParentWindow,""), "");
+            ParentWindow.pushScreenOnStack(nextScreen, new String[6] { "Family Support", "How Can I Help?", "News", "Events", "Play Beads", "Contact Us" }, about.colour, new FunkyGrid("xml/About.xml"), "");
         }
 
         private void news_MouseUp(object sender, MouseButtonEventArgs e)
         {
             TopLevelPage nextScreen = new TopLevelPage(ParentWindow, "News");
-            ParentWindow.pushScreenOnStack(nextScreen, new String[6] { "About", "Family Support", "How Can I Help?", "Events", "Play Beads", "Contact Us" }, news.colour, new TopLevelPage(ParentWindow, ""), "");
+            ParentWindow.pushScreenOnStack(nextScreen, new String[6] { "About", "Family Support", "How Can I Help?", "Events", "Play Beads", "Contact Us" }, news.colour, new UserControl(), "");
         }
 
         private void events_MouseUp(object sender, MouseButtonEventArgs e)
         {
             TopLevelPage nextScreen = new TopLevelPage(ParentWindow, "Events");
-            ParentWindow.pushScreenOnStack(nextScreen, new String[6] { "About", "Family Support", "How Can I Help?", "News", "Play Beads", "Contact Us" }, events.colour, new TopLevelPage(ParentWindow, ""), "");
+            ParentWindow.pushScreenOnStack(nextScreen, new String[6] { "About", "Family Support", "How Can I Help?", "News", "Play Beads", "Contact Us" }, events.colour, new UserControl(), "");
         }
 
         private void contactUs_MouseUp(object sender, MouseButtonEventArgs e)
         {
             TopLevelPage nextScreen = new TopLevelPage(ParentWindow, "Contact Us");
-            ParentWindow.pushScreenOnStack(nextScreen, new String[6] { "About", "Family Support", "How Can I Help?", "News", "Events", "Play Beads" }, contactUs.colour, new TopLevelPage(ParentWindow, ""), "");
+            ParentWindow.pushScreenOnStack(nextScreen, new String[6] { "About", "Family Support", "How Can I Help?", "News", "Events", "Play Beads" }, contactUs.colour, new UserControl(), "");
         }
 
         private void howCanIHelp_MouseUp(object sender, MouseButtonEventArgs e)
@@ -99,13 +99,13 @@ namespace P02Project
         private void familySupport_MouseUp(object sender, MouseButtonEventArgs e)
         {
             TopLevelPage nextScreen = new TopLevelPage(ParentWindow, "Family Support");
-            ParentWindow.pushScreenOnStack(nextScreen, new String[6] { "About", "How Can I Help?", "News", "Events", "Play Beads", "Contact Us" }, familySupport.colour, new TopLevelPage(ParentWindow, ""), "");
+            ParentWindow.pushScreenOnStack(nextScreen, new String[6] { "About", "How Can I Help?", "News", "Events", "Play Beads", "Contact Us" }, familySupport.colour, new UserControl(), "");
         }
 
         private void playBeads_MouseUp(object sender, MouseButtonEventArgs e)
         {
             TopLevelPage nextScreen = new TopLevelPage(ParentWindow, "Play Beads");
-            ParentWindow.pushScreenOnStack(nextScreen, new String[6] { "About", "Family Support", "How Can I Help?", "News", "Events", "Contact Us" }, playBeads.colour, new TopLevelPage(ParentWindow, ""), "");
+            ParentWindow.pushScreenOnStack(nextScreen, new String[6] { "About", "Family Support", "How Can I Help?", "News", "Events", "Contact Us" }, playBeads.colour, new UserControl(), "");
                     ((TopLevelPage)nextScreen).setContent(new FunkyGrid("xml/About.xml"));   
         }
 
