@@ -52,19 +52,19 @@ namespace P02Project
         /// <param name="e"></param>
         private void fmlPlClicked(Object sender, RoutedEventArgs e)
         {
-            //_fmlPlcs.Background = SELECTED_COLOR;
-            //_mainOff.Background = UNSELECTED_COLOR;
-            //_fndrsOff.Background = UNSELECTED_COLOR;
-            //_fmlSptBrns.Background = UNSELECTED_COLOR;
+            _fmlPlcs.Background = SELECTED_COLOR;
+            _mainOff.Background = UNSELECTED_COLOR;
+            _fndrsOff.Background = UNSELECTED_COLOR;
+            _fmlSptBrns.Background = UNSELECTED_COLOR;
 
-            ////remove drop shadow from other buttons
-            //_mainOff.Effect = null;
-            //_fndrsOff.Effect = null;
-            //_fmlSptBrns.Effect = null;
+            //remove drop shadow from other buttons
+            _mainOff.Effect = null;
+            _fndrsOff.Effect = null;
+            _fmlSptBrns.Effect = null;
 
 
-            ////add drop shadow
-            //_fmlPlcs.Effect = new DropShadowEffect();
+            //add drop shadow
+            _fmlPlcs.Effect = new DropShadowEffect();
 
             // change the map content here
 
@@ -119,19 +119,19 @@ namespace P02Project
         /// <param name="e"></param>
         private void mainOffClicked(Object sender, RoutedEventArgs e)
         {
-            //_fmlPlcs.Background = UNSELECTED_COLOR;
-            //_mainOff.Background = SELECTED_COLOR;
-            //_fndrsOff.Background = UNSELECTED_COLOR;
-            //_fmlSptBrns.Background = UNSELECTED_COLOR;
+            _fmlPlcs.Background = UNSELECTED_COLOR;
+            _mainOff.Background = SELECTED_COLOR;
+            _fndrsOff.Background = UNSELECTED_COLOR;
+            _fmlSptBrns.Background = UNSELECTED_COLOR;
 
-            ////remove drop shadow from other buttons
-            //_fmlPlcs.Effect = null;
-            //_fndrsOff.Effect = null;
-            //_fmlSptBrns.Effect = null;
+            //remove drop shadow from other buttons
+            _fmlPlcs.Effect = null;
+            _fndrsOff.Effect = null;
+            _fmlSptBrns.Effect = null;
 
 
-            ////add drop shadow
-            //_mainOff.Effect = new DropShadowEffect();
+            //add drop shadow
+            _mainOff.Effect = new DropShadowEffect();
 
             // change the map content here
 	        houseMap.Visibility = Visibility.Collapsed;
@@ -145,19 +145,19 @@ namespace P02Project
         /// <param name="e"></param>
         private void fndrsClicked(Object sender, RoutedEventArgs e)
         {
-            //_fmlPlcs.Background = UNSELECTED_COLOR;
-            //_mainOff.Background = UNSELECTED_COLOR;
-            //_fndrsOff.Background = SELECTED_COLOR;
-            //_fmlSptBrns.Background = UNSELECTED_COLOR;
+            _fmlPlcs.Background = UNSELECTED_COLOR;
+            _mainOff.Background = UNSELECTED_COLOR;
+            _fndrsOff.Background = SELECTED_COLOR;
+            _fmlSptBrns.Background = UNSELECTED_COLOR;
 
-            ////remove drop shadow from other buttons
-            //_fmlPlcs.Effect = null;
-            //_mainOff.Effect = null;
-            //_fmlSptBrns.Effect = null;
+            //remove drop shadow from other buttons
+            _fmlPlcs.Effect = null;
+            _mainOff.Effect = null;
+            _fmlSptBrns.Effect = null;
 
 
-            ////add drop shadow
-            //_fndrsOff.Effect = new DropShadowEffect();
+            //add drop shadow
+            _fndrsOff.Effect = new DropShadowEffect();
 
             
             // change the map content here
@@ -172,19 +172,19 @@ namespace P02Project
         /// <param name="e"></param>
         private void fmlSptBrsClicked(Object sender, RoutedEventArgs e)
         {
-            //_fmlPlcs.Background = UNSELECTED_COLOR;
-            //_mainOff.Background = UNSELECTED_COLOR;
-            //_fndrsOff.Background = UNSELECTED_COLOR;
-            //_fmlSptBrns.Background = SELECTED_COLOR;
+            _fmlPlcs.Background = UNSELECTED_COLOR;
+            _mainOff.Background = UNSELECTED_COLOR;
+            _fndrsOff.Background = UNSELECTED_COLOR;
+            _fmlSptBrns.Background = SELECTED_COLOR;
 
-            ////remove drop shadow from other buttons
-            //_fmlPlcs.Effect = null;
-            //_mainOff.Effect = null;
-            //_fndrsOff.Effect = null;
+            //remove drop shadow from other buttons
+            _fmlPlcs.Effect = null;
+            _mainOff.Effect = null;
+            _fndrsOff.Effect = null;
 
 
-            ////add drop shadow
-            //_fmlSptBrns.Effect = new DropShadowEffect();
+            //add drop shadow
+            _fmlSptBrns.Effect = new DropShadowEffect();
 
 
             // change the map content here

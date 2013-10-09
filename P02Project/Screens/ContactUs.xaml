@@ -15,50 +15,38 @@
         </DataTemplate>
     </UserControl.Resources>
     <Grid x:Name="LayoutRoot">
+				
+		<!-- screenWidth=1920  screenHeight=1080-->
+		<!-- Option Tiles: width = screenWidth/5,  height = screenHeight/15-->
+
+        <Grid.RowDefinitions>
+            <RowDefinition x:Name="_gridRow0" />
+            <RowDefinition x:Name="_gridRow1"/>
+            <RowDefinition x:Name="_gridRow2"/>
+        </Grid.RowDefinitions>
+
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition Width="282.88"/>
+            <ColumnDefinition x:Name="_gridCol0" />
+            <ColumnDefinition x:Name="_gridCol1" />
+            <ColumnDefinition x:Name="_gridCol2" />
         </Grid.ColumnDefinitions>
 
-        <!-- screenWidth=1920  screenHeight=1080-->
-        <!-- Option Tiles: width = screenWidth/5,  height = screenHeight/15-->
-        <Grid Grid.ColumnSpan="2">
-            <Custom:ScatterViewItem x:Name="_fmlPlSVI"  HorizontalAlignment="Left" Height="80" Width="384" Margin="48,50,0,0" VerticalAlignment="Top" Background="#ff710b7e" FontSize="26.667" FontFamily="Andy">
-                <Grid>
-                    <ContentPresenter Content="Family Places" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    <Custom:SurfaceButton Opacity="0" x:Name="_fmlPlSVIBtn" />
-                </Grid>
-            </Custom:ScatterViewItem>
+        <ScrollViewer x:Name="text" Grid.Column="1" Margin="20" Grid.RowSpan="3" Grid.ColumnSpan="2" Background="#7F525252"/>
 
-            <Custom:ScatterViewItem x:Name="_mainOffSVI" HorizontalAlignment="Left" Height="80" Width="384" Margin="48,149,0,0" VerticalAlignment="Top" Background="#ffe411ff" FontSize="26.667" FontFamily="Andy">
-                <Grid>
-                    <ContentPresenter Content="Main Office" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    <Custom:SurfaceButton Opacity="0" x:Name="_mainOffSVIBtn" />
-                </Grid>
-            </Custom:ScatterViewItem>
+        <StackPanel Margin="20" Grid.RowSpan="2">
+            <Button x:Name="_fmlPlcs" Content="Family Places" Margin="20" FontSize="48" FontFamily="Andy" Background="#ffe411ff" BorderThickness="0" BorderBrush="#00707070" Foreground="White" Click="fmlPlClicked">
+                <Button.Effect>
+                    <DropShadowEffect/>
+                </Button.Effect>
+            </Button>
+            <Button x:Name="_mainOff" Content="Main Office" Margin="20" FontSize="48" FontFamily="Andy" BorderThickness="0" Background="#ffe411ff" BorderBrush="#00707070" Foreground="White"  Click="mainOffClicked" />
+            <Button x:Name="_fndrsOff" Content="Fundraising Offices" Margin="20" FontSize="48" FontFamily="Andy" BorderThickness="0" Background="#ffe411ff" BorderBrush="#00707070" Foreground="White"  Click="fndrsClicked" />
+            <Button x:Name="_fmlSptBrns" Content="Family Support Branches" Margin="20" FontSize="48" FontFamily="Andy" BorderThickness="0" Background="#ffe411ff" BorderBrush="#00707070" Foreground="White" Click="fmlSptBrsClicked" />
 
-            <Custom:ScatterViewItem x:Name="_fndRsSVI" HorizontalAlignment="Left" Height="80" Width="384" Margin="48,248,0,0" VerticalAlignment="Top" Background="#ffe411ff" FontSize="26.667" FontFamily="Andy">
-                <Grid>
-                    <ContentPresenter Content="Fundraising Offices" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    <Custom:SurfaceButton Opacity="0" x:Name="_fndRsSVIBtn" />
-                </Grid>
-            </Custom:ScatterViewItem>
-
-            <Custom:ScatterViewItem x:Name="_fmlSptBrsSVI" HorizontalAlignment="Left" Height="80" Width="384" Margin="48,347,0,0" VerticalAlignment="Top" Background="#ffe411ff" FontSize="26.667" FontFamily="Andy">
-                <Grid>
-                    <ContentPresenter Content="Family Support Branches" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    <Custom:SurfaceButton Opacity="0" x:Name="_fmlSptBrsSVIBtn" />
-                </Grid>
-            </Custom:ScatterViewItem>
-
-
-            <Custom:ScatterViewItem HorizontalAlignment="Left" Background="White" Height="326" Margin="82,0,0,58" VerticalAlignment="Bottom" Width="326">
-                <Image Source="/P02Project;component/Resources/ContactUsQR.png"/>
-            </Custom:ScatterViewItem>
-
-
+        </StackPanel>
+            
             <!-- map here -->
-            <Grid Margin="497,70,73,70">
+			<Grid Grid.Column="1" Grid.Row="1">
                 <m:Map Name="houseMap" Mode="Road" CredentialsProvider="AmVwNPRfp45FelI8abG8yRRvQNPORDJdVE74ipdYXqeTtOnYsbgYxkc55CDxHqFv" Center="-41, 173" ZoomLevel="5.9" Margin="190,22,124,24" AnimationLevel="UserInput" GotFocus="Pushpin_TouchLeave">
                     <m:MapItemsControl ItemsSource="{Binding Addresses}"
                                  ItemTemplate="{StaticResource MapAddressTemplate}"/>
@@ -66,7 +54,7 @@
                         <Grid x:Name="ContentPopup" Visibility="Collapsed" Background="White" Opacity="0.8" Height="100" Width="300" >
                             <StackPanel Margin="15">
                                 <TextBlock x:Name="ContentPopupTitle" FontSize="12" FontWeight="Bold"></TextBlock>
-                                <TextBlock x:Name="ContentPopupAddress" FontSize="12" ></TextBlock>
+                            	<TextBlock x:Name="ContentPopupAddress" FontSize="12" ></TextBlock>
                             </StackPanel>
                         </Grid>
                     </m:MapLayer>
@@ -74,6 +62,5 @@
             </Grid>
 
 
-        </Grid>
     </Grid>
 </UserControl>

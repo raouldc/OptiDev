@@ -44,9 +44,9 @@ namespace P02Project
             { "pbUnSelected",       (Color)ColorConverter.ConvertFromString("#FFbd43ca")},
 
             
-            { "Extra",         (Color)ColorConverter.ConvertFromString("#ff146290")},
-            { "extraSelected",         (Color)ColorConverter.ConvertFromString("#FF073f60")},
-            { "extraUnSelected",       (Color)ColorConverter.ConvertFromString("#FF4899c8")}
+            { "Extra",              (Color)ColorConverter.ConvertFromString("#ff146290")},
+            { "extraSelected",      (Color)ColorConverter.ConvertFromString("#FF073f60")},
+            { "extraUnSelected",    (Color)ColorConverter.ConvertFromString("#FF4899c8")}
         };
 
         public static String[] getLinks(String exclude)
