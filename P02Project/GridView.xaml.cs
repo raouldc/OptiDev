@@ -135,6 +135,7 @@ namespace P02Project
             String fullname = (sender as PoloroidControl).text ;
             String firstName = fullname.Split(' ')[0];
             levelpage.setContent(new SplitGridView("xml/Profiles/"+firstName+".xml"));
+            levelpage.setSubtitle(levelpage.getSubtitle());
 
 
         }

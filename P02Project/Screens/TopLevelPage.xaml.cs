@@ -20,6 +20,7 @@ namespace P02Project.Screens
     public partial class TopLevelPage : Screen
     {
         private Stack<UIElement> stackOfContent;
+        private Stack<String> stackSubtitle;
 
         public TopLevelPage(SurfaceWindow1 parentWindow, String title)
             : base(parentWindow)
@@ -29,6 +30,7 @@ namespace P02Project.Screens
             stackOfContent = new Stack<UIElement>();
             TitleBar.Title.Content = title;
             TitleBar.setTopPage(this);
+            stackSubtitle = new Stack<String>();
         }
 
         //Set the content part of the grid
@@ -56,6 +58,12 @@ namespace P02Project.Screens
         public void setSubtitle(String sub)
         {
             TitleBar.SubTitle.Content = sub;
+            stackSubtitle.Push(sub);
+        }
+
+        public String getSubtitle()
+        {
+            return TitleBar.SubTitle.Content.ToString();
         }
 
         public void setTitleColour(Color col)
@@ -83,9 +91,18 @@ namespace P02Project.Screens
                 //set next control to be the content
                 UIElement newContent = stackOfContent.Pop();
                 this.setContent(newContent);
-                if (newContent.GetType() == typeof(FunkyGrid))
+               
+                stackSubtitle.Pop();
+
+                if (stackSubtitle.Count < 1)
                 {
                     this.setSubtitle("");
+                }
+                else
+                {
+                    String sub = stackSubtitle.Pop();
+                    this.setSubtitle(sub);
+                    
                 }
             }
             else
