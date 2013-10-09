@@ -16,7 +16,7 @@
     <Image id="HamishEric" caption="Hamish and Eric">images/Ambassadors/HamishEric.png</Image>
     <Image id="Lorraine" caption="Lorraine Downes">images/Ambassadors/Lorraine.png</Image>
     <Image id="Megan" caption="Megan Alotini">images/Ambassadors/Megan.png</Image>
-    <!--<Image id="Brenadine" caption="Bernadine Kerby">images/Ambassadors/Brendaine.png</Image>-->
+    <Image id="Bernadine" caption="Bernadine Kerby">images/Ambassadors/Bernadine.png</Image>
     <Image id="Chris" caption="Chris Jack">images/Ambassadors/Chris.png</Image>
     <Image id="Kieran" caption="Kieran Read">images/Ambassadors/Kieran.png</Image>
   </ImageList>
