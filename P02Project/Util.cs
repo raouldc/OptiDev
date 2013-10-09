@@ -48,6 +48,14 @@ namespace P02Project
             { "extraSelected",         (Color)ColorConverter.ConvertFromString("#FF073f60")},
             { "extraUnSelected",       (Color)ColorConverter.ConvertFromString("#FF4899c8")}
         };
+
+        public static String[] getLinks(String exclude)
+        {
+            List<String> links = new List<string>( new String[]{ "About", "Family Support", "How Can I Help?", "News", "Events", "Play Beads", "Contact Us" });
+
+            links.Remove(exclude);
+            return links.ToArray();   
+        }
             
     }
 }

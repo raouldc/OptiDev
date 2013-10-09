@@ -65,38 +65,38 @@ namespace P02Project
             {
                 case "About":
                     nextScreen = new TopLevelPage(ParentWindow, "About");
-                    ParentWindow.pushScreenOnStack(nextScreen, new String[6] { "Family Support", "How Can I Help?", "News", "Events", "Play Beads", "Contact Us" }, colour, new FunkyGrid("xml/About.xml"), "");
+                    ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("About"), colour, new FunkyGrid("xml/About.xml"), "");
                     break;
 
                 case "News":
                     nextScreen = new TopLevelPage(ParentWindow, "News");
-                    ParentWindow.pushScreenOnStack(nextScreen, new String[6] { "About", "Family Support", "How Can I Help?", "Events", "Play Beads", "Contact Us" }, colour, new UserControl(), "");
+                    ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("News"), colour, new UserControl(), "");
                     break;
 
                 case "How Can I Help?":
                     
                     nextScreen = new TopLevelPage(ParentWindow, "How Can I Help?");
-                    ParentWindow.pushScreenOnStack(nextScreen, new String[6] { "About", "Family Support", "News", "Events", "Play Beads", "Contact Us" }, colour, new hcihHomeControl(nextScreen), "");
+                    ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("How Can I help?"), colour, new hcihHomeControl(nextScreen), "");
                     break;
 
                 case "Events":
                     nextScreen = new TopLevelPage(ParentWindow, "Events");
-                    ParentWindow.pushScreenOnStack(nextScreen, new String[6] { "About", "Family Support", "How Can I Help?", "News", "Play Beads", "Contact Us" }, colour, new UserControl(), "");
+                    ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("Events"), colour, new UserControl(), "");
                     break;
 
                 case "Family Support":
                     nextScreen = new TopLevelPage(ParentWindow, "Family Support");
-                    ParentWindow.pushScreenOnStack(nextScreen, new String[6] { "About", "How Can I Help?", "News", "Events", "Play Beads", "Contact Us" }, colour, new UserControl(), "");
+                    ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("Family Support"), colour, new UserControl(), "");
                     break;
 
                 case "Play Beads":
                     nextScreen = new TopLevelPage(ParentWindow, "Play Beads");
-                    ParentWindow.pushScreenOnStack(nextScreen, new String[6] { "About", "Family Support", "How Can I Help?", "News", "Events", "Contact Us" }, colour, new UserControl(), "");
+                    ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("Play Beads"), colour, new UserControl(), "");
                     break;
 
                 case "Contact Us":
                     nextScreen = new TopLevelPage(ParentWindow, "Contact Us");
-                    ParentWindow.pushScreenOnStack(nextScreen, new String[6] { "About", "Family Support", "How Can I Help?", "News", "Events", "Play Beads" }, colour, new ContactUs(), "");
+                    ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("Contact Us"), colour, new UserControl(), "");
                     break;
 
                 default:
