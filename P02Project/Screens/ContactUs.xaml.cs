@@ -99,18 +99,18 @@ namespace P02Project
         private void Pushpin_TouchEnter(object sender, TouchEventArgs touchEventArgs)
         {
             var pin = sender as FrameworkElement;
-            MapLayer.SetPosition(ContentPopup, MapLayer.GetPosition(pin));
-            MapLayer.SetPositionOffset(ContentPopup, new Point(0, -50));
+//            MapLayer.SetPosition(ContentPopup, MapLayer.GetPosition(pin));
+//            MapLayer.SetPositionOffset(ContentPopup, new Point(0, -50));
 
             var location = (MapAddress)pin.Tag;
 
-            ContentPopupTitle.Text = location.Title;
-            ContentPopupAddress.Text = location.Address;
-            ContentPopup.Visibility = Visibility.Visible;
+//            ContentPopupTitle.Text = location.Title;
+//            ContentPopupAddress.Text = location.Address;
+//            ContentPopup.Visibility = Visibility.Visible;
         }
 
         private void Pushpin_TouchLeave(object sender, RoutedEventArgs routedEventArgs) {
-            ContentPopup.Visibility = Visibility.Collapsed;
+//            ContentPopup.Visibility = Visibility.Collapsed;
         }
         /// <summary>
         /// this method called when the "Main Office" option button has been clicked

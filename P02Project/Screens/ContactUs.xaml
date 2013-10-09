@@ -31,8 +31,7 @@
             <ColumnDefinition x:Name="_gridCol2" />
         </Grid.ColumnDefinitions>
 
-        <ScrollViewer x:Name="text" Grid.Column="1" Margin="20" Grid.RowSpan="3" Grid.ColumnSpan="2" Background="#7F525252"/>
-
+        <ScrollViewer x:Name="text" Grid.Column="1" Margin="20" Grid.RowSpan="3" Grid.ColumnSpan="2" Background="#7F525252"></ScrollViewer>
         <StackPanel Margin="20" Grid.RowSpan="2">
             <Button x:Name="_fmlPlcs" Content="Family Places" Margin="20" FontSize="48" FontFamily="Andy" Background="#ffe411ff" BorderThickness="0" BorderBrush="#00707070" Foreground="White" Click="fmlPlClicked">
                 <Button.Effect>
@@ -46,20 +45,21 @@
         </StackPanel>
             
             <!-- map here -->
-			<Grid Grid.Column="1" Grid.Row="1">
-                <m:Map Name="houseMap" Mode="Road" CredentialsProvider="AmVwNPRfp45FelI8abG8yRRvQNPORDJdVE74ipdYXqeTtOnYsbgYxkc55CDxHqFv" Center="-41, 173" ZoomLevel="5.9" Margin="190,22,124,24" AnimationLevel="UserInput" GotFocus="Pushpin_TouchLeave">
+			<Grid Grid.Column="1" Grid.ColumnSpan="2" Margin="0,40,276,40" Grid.RowSpan="3">
+                <m:Map Name="houseMap" Mode="Road" CredentialsProvider="AmVwNPRfp45FelI8abG8yRRvQNPORDJdVE74ipdYXqeTtOnYsbgYxkc55CDxHqFv" Center="-41, 173" ZoomLevel="5.9" AnimationLevel="UserInput" GotFocus="Pushpin_TouchLeave" Margin="37,0,201,0">
                     <m:MapItemsControl ItemsSource="{Binding Addresses}"
                                  ItemTemplate="{StaticResource MapAddressTemplate}"/>
-                    <m:MapLayer Name="ContentPopupLayer">
-                        <Grid x:Name="ContentPopup" Visibility="Collapsed" Background="White" Opacity="0.8" Height="100" Width="300" >
+                    <!--m:MapLayer Name="ContentPopupLayer">
+                    <Grid x:Name="ContentPopup" Visibility="Collapsed" Background="White" Opacity="0.8" Height="100" Width="300" >
                             <StackPanel Margin="15">
                                 <TextBlock x:Name="ContentPopupTitle" FontSize="12" FontWeight="Bold"></TextBlock>
                             	<TextBlock x:Name="ContentPopupAddress" FontSize="12" ></TextBlock>
                             </StackPanel>
-                        </Grid>
-                    </m:MapLayer>
+                        </Grid >
+                    </m:MapLayer-->
                 </m:Map>
-            </Grid>
+            <TextBlock Height="271" Name="textBlock1" Text="TextBlock" Width="189" Background="White" Margin="616,6,0,0" />
+        </Grid>
 
 
     </Grid>
