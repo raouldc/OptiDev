@@ -31,7 +31,10 @@ namespace P02Project.Screens
         public FunkyGrid(String filename)
         {
             InitializeComponent();
+            //TopLevelPage parentpage = getTopLevelPage();
+           // parentpage.setSubtitle(pageName);
             PageModel temp;
+
             //TODO: Set title and subtitle
             String path = System.IO.Path.Combine(System.IO.Path.GetFullPath("."), "Resources/xml/About.xml");
             temp = XMLUtilities.GetContentFromFile(path);
@@ -60,7 +63,7 @@ namespace P02Project.Screens
            
         }
 
-        private void Polaroid_MouseUp(object sender, MouseButtonEventArgs e)
+        private TopLevelPage getTopLevelPage()
         {
             FrameworkElement objParent = (FrameworkElement)this.Parent;
             while (objParent.GetType() != typeof(TopLevelPage))
@@ -68,6 +71,13 @@ namespace P02Project.Screens
                 objParent = (FrameworkElement)objParent.Parent;
             }
             TopLevelPage levelpage = (TopLevelPage)objParent;
+            return levelpage;
+        }
+
+        private void Polaroid_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            
+            TopLevelPage levelpage = getTopLevelPage();
             switch ((sender as PoloroidControl).text)
             {
                 case "About Us":

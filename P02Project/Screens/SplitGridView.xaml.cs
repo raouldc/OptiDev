@@ -50,7 +50,6 @@ namespace P02Project.Screens
             }
             PageModelText[] textList = temp.TextList;
 
-            String fcontent = "";
             TextBlock tb = new TextBlock();
             tb.TextAlignment = TextAlignment.Left;
             tb.FontSize = 24;
