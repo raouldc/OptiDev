@@ -81,7 +81,12 @@ namespace P02Project.Screens
                 //remove it from the view
                 pageGrid.Children.Remove(old);
                 //set next control to be the content
-                this.setContent(stackOfContent.Pop());
+                UIElement newContent = stackOfContent.Pop();
+                this.setContent(newContent);
+                if (newContent.GetType() == typeof(FunkyGrid))
+                {
+                    this.setSubtitle("");
+                }
             }
             else
             {

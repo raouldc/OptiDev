@@ -234,6 +234,7 @@
     <Resource Include="Resources\images\Stories\Manu.png" />
     <Content Include="Resources\xml\About.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="Resources\xml\About_AboutUs.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
