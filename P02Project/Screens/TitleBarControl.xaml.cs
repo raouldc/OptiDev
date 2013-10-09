@@ -30,6 +30,12 @@ namespace P02Project
             topLevelPage = top;
         }
 
+        public void setBackground(Color col)
+        {
+            lRect.Fill = new SolidColorBrush(col);
+            rGradStop.Color = col;
+        }
+
         private void Back_Click(object sender, RoutedEventArgs e)
         {
             topLevelPage.BackButton_Click(sender, e);

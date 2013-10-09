@@ -24,6 +24,15 @@ namespace P02Project
 			this.InitializeComponent();
             donate.setImage("donate.png");
 
+            //Set button cols
+            SolidColorBrush unsel = new SolidColorBrush(Util._pageColDict["hcihUnSelected"]);
+
+            oneOff.Background = new SolidColorBrush(Util._pageColDict["hcihSelected"]);
+            onGoing.Background = unsel;
+            lastingLegacy.Background = unsel;
+            workplaceGiving.Background = unsel;
+            moreInfo.Background = unsel;
+            //set content
             text.Content = oneOffContent();
 		}
 

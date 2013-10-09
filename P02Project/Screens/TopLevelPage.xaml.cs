@@ -60,7 +60,7 @@ namespace P02Project.Screens
 
         public void setTitleColour(Color col)
         {
-            TitleBar.BarBG.Background = new SolidColorBrush(col);
+            TitleBar.setBackground(col);
         }
 
         public void setButtons(String[] bNames)
