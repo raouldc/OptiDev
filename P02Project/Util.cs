@@ -26,6 +26,14 @@ namespace P02Project
             { "contactUUnSelected",  (Color)ColorConverter.ConvertFromString("#ffe411ff")},
             { "Play Beads",         (Color)ColorConverter.ConvertFromString("#ffee3123")}
         };
+
+        public static String[] getLinks(String exclude)
+        {
+            List<String> links = new List<string>( new String[]{ "About", "Family Support", "How Can I Help?", "News", "Events", "Play Beads", "Contact Us" });
+
+            links.Remove(exclude);
+            return links.ToArray();   
+        }
             
     }
 }
