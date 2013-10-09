@@ -29,13 +29,20 @@ namespace P02Project.Screens
             PageModelImage[] imgList = temp.ImageList;
 
             int count = 0;
+            double rotation =8;
 
             foreach (PageModelImage img in imgList)
             {
                 PoloroidControl p = new PoloroidControl();
                 p.setImage(img.Value);
+                p.Width = 350;
+                p.Height = 350;
                 p.setCaption(img.caption);
-                p.setColour(Util._pageColDict["About"]);
+                p.Margin = new Thickness(25);
+                p.RenderTransformOrigin.Offset(0.5,0.5);
+                p.RenderTransform = new RotateTransform(rotation);
+                rotation = rotation * -1;
+               // p.Margin
                 Grid.SetColumn(p, 0);
                 Grid.SetRow(p, count);
                 PageContent.Children.Add(p);

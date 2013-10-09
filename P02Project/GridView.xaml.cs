@@ -73,6 +73,7 @@ namespace P02Project
 
             int colNum = 0;
             int rowNum = 0;
+            double rotation = 1.5;
             for (int i = 0; i < numberOfItems; i++)
             {
                 if (colNum >= numberOfCols)
@@ -84,10 +85,13 @@ namespace P02Project
                 p.setCaption(temp[i].caption);
                 p.setImage(temp[i].Value);
                 p.setColour(Util._pageColDict["About"]);
-                p.Margin = new Thickness(25);
+                p.Margin = new Thickness(30);
+                p.RenderTransform = new RotateTransform(rotation);
+                rotation = rotation * -1;
                 p.MouseUp+=new MouseButtonEventHandler(Polaroid_MouseUp);
                 Grid.SetColumn(p, colNum);
                 Grid.SetRow(p, rowNum);
+
                 /*if there are an add number of things, we must span the last picture in the firstRow for 2 columns */
                 //if we are in the second last row and first column
                 if ((colNum == numberOfCols - 2) && (rowNum == 0) && ((numberOfItems % 2) == 1))
