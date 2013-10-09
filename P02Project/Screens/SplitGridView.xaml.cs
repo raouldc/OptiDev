@@ -49,14 +49,25 @@ namespace P02Project.Screens
             {
                 fcontent += txt.Value+"\n\n";
             }
+
+
+            StackPanel contentStackPanel = new StackPanel();
+
+
+
+            
+
             TextBlock tb = new TextBlock();
             tb.Text = fcontent;
-            tb.Foreground = System.Windows.Media.Brushes.Black;
-            Grid.SetColumn(tb,1);
-            Grid.SetRow(tb,0);
+            tb.TextAlignment = TextAlignment.Left;
+            tb.FontSize = 24;
+            tb.Margin = new Thickness(10);
+            tb.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#ffffffff"));
+            contentStackPanel.Children.Add(tb);
+                        
+            splitContentScrollViewer.Content = contentStackPanel;
             
-            PageContent.Children.Add(tb);
-            UpdateLayout();
+  
         }
     }
 }
