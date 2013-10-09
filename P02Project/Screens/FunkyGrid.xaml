@@ -28,7 +28,7 @@
     			</TransformGroup>
     		</P02Project:PoloroidControl.RenderTransform>
     	</P02Project:PoloroidControl>
-    	<P02Project:PoloroidControl x:Name="OurStoriesPolaroid" Margin="0,0,42,58" Height="274" VerticalAlignment="Bottom" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Right" Width="413.75" MouseUp="Polaroid_MouseUp">
+        <P02Project:PoloroidControl x:Name="HowWeCanHelpPolaroid" Margin="0,0,42,58" Height="274" VerticalAlignment="Bottom" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Right" Width="413.75" MouseUp="Polaroid_MouseUp">
     		<P02Project:PoloroidControl.RenderTransform>
     			<TransformGroup>
     				<ScaleTransform/>
@@ -48,7 +48,7 @@
     			</TransformGroup>
     		</P02Project:PoloroidControl.RenderTransform>
     	</P02Project:PoloroidControl>
-    	<P02Project:PoloroidControl x:Name="HowWeCanHelpPolaroid" Margin="521,144,506.75,214" RenderTransformOrigin="0.5,0.5" MouseUp="Polaroid_MouseUp">
+        <P02Project:PoloroidControl x:Name="OurStoriesPolaroid" Margin="521,144,506.75,214" RenderTransformOrigin="0.5,0.5" MouseUp="Polaroid_MouseUp">
     		<P02Project:PoloroidControl.RenderTransform>
     			<TransformGroup>
     				<ScaleTransform/>
