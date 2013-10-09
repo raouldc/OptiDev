@@ -51,12 +51,24 @@ namespace P02Project.Screens
             PageModelText[] textList = temp.TextList;
 
             String fcontent = "";
-
+            TextBlock tb = new TextBlock();
+            tb.TextAlignment = TextAlignment.Left;
+            tb.FontSize = 24;
+            tb.Margin = new Thickness(10);
+            tb.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#ffffffff"));
             foreach (PageModelText txt in textList)
             {
-                fcontent += txt.Value.Trim()+"\n\n";
-            }
+      
+                if ((txt.id!=null)&&(txt.id.Equals("bold")))
+                {
+                    tb.Inlines.Add(new Bold(new Run(txt.Value.Trim() + "\n\n")));
+                }
+                else
+                {
+                    tb.Inlines.Add(new Run(txt.Value.Trim() + "\n\n"));
 
+                }
+            }
 
             StackPanel contentStackPanel = new StackPanel();
 
@@ -64,12 +76,8 @@ namespace P02Project.Screens
 
             
 
-            TextBlock tb = new TextBlock();
-            tb.Text = fcontent;
-            tb.TextAlignment = TextAlignment.Left;
-            tb.FontSize = 24;
-            tb.Margin = new Thickness(10);
-            tb.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#ffffffff"));
+            
+            
             contentStackPanel.Children.Add(tb);
                         
             splitContentScrollViewer.Content = contentStackPanel;
