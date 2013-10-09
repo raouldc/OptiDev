@@ -6,13 +6,14 @@
 
 
   <TextList>
-
+	<Text id="bold">
+	Kieran Read
+	</Text>
     <Text>
       Kieran is a well-regarded All Black forward, tipped by many to be the next captain.
     </Text>
 
-    <Text>
-      Kieran is a well-regarded All Black forward, tipped by many to be the next captain.  Since coming on this year, Kieran has impressed with his can-do attitude, taking part in a promotion with More FM in Christchurch, during One Day for Child Cancer, where he could not talk about rugby in any form for a day, donating rugby memorabilia and making a popular visit to the Christchurch Farmers store which raised the most during the 2012 Annual Appeal.
+    <Text>Since coming on this year, Kieran has impressed with his can-do attitude, taking part in a promotion with More FM in Christchurch, during One Day for Child Cancer, where he could not talk about rugby in any form for a day, donating rugby memorabilia and making a popular visit to the Christchurch Farmers store which raised the most during the 2012 Annual Appeal.
     </Text>
   </TextList>
 

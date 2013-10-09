@@ -6,17 +6,17 @@
 
 
   <TextList>
-
+	<Text id="bold">
+	Chris Jack
+	</Text>
     <Text>
       Chris Jack is a well-known sporting icon in New Zealand and overseas. He has been an enthusiastic and passionate supporter of Child Cancer for several years.
     </Text>
-
     <Text>
-      Chris officially came on board as an ambassador in 2011.
-
-      The popular Crusaders lock ended his All Black career in 2007 as the country’s second most capped lock, with only Ian Jones (79 Tests) ahead of him.
-
-      Chris has young children, Sophia and Samuel and gives very generously of his time both behind the scenes visiting children with cancer and also lending his profile in the public arena.  Chris is well known among children with cancer in Christchurch for his generous good nature and he regularly brightens children’s  days. Chris has also enlisted the help of several other well known members of the Crusaders to help out.
+      The popular Crusaders lock ended his All Black career in 2007 as the country’s second most capped lock, with only Ian Jones (79 Tests) ahead of him.Chris has young children, Sophia and Samuel and gives very generously of his time both behind the scenes visiting children with cancer and also lending his profile in the public arena.  Chris is well known among children with cancer in Christchurch for his generous good nature and he regularly brightens children’s  days. Chris has also enlisted the help of several other well known members of the Crusaders to help out.
+    </Text>
+    <Text>
+      Chris joined CCF in 2009
     </Text>
   </TextList>
 

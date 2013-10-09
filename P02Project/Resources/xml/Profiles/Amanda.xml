@@ -6,15 +6,17 @@
 
 
   <TextList>
-
+	<Text id="bold">
+	Amanda Billing
+	</Text>
     <Text>
       Amanda Billing is best known for her role as Dr Sarah Potts on TVNZ’s Shortland Street.
     </Text>
 
     <Text>
-      Amanda Billing is best known for her role as Dr Sarah Potts on TVNZ’s Shortland Street.
       Amanda’s first project with the foundation was to lead a group of children with cancer who together painted a giant fibreglass horse, in 2011.  Maia, as he is now known, has been covered in Child Cancer Foundation Beads of Courage®.  Amanda has given selflessly of her time and artistic talents and been a wonderful friend to the young people she has met. She was, along with Megan Alatini the ambassador for One Day for Child Cancer launched in 2012, manages the kids’ section in Sharing Magazine and helps out at any event she can.
-
+    </Text>
+    <Text>
       Amanda joined CCF in 2011
     </Text>
   </TextList>

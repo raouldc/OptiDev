@@ -6,17 +6,15 @@
 
 
   <TextList>
-
+	<Text id="bold">
+	Emma Watson
+	</Text>
     <Text>
       Emma finished treatment was diagnosed with Acute Lymphoblastic Leukaemia in early 2011 and finished treatment this May.
     </Text>
 
-    <Text>
-      She is now almost 5 ½.  Her favourite thing of all is playing with her best friend Zuben, and she tells everyone, “He’s not my dog, he’s my best friend.” She also loves to read!
-      Emma at present has a lovely teacher from the Northern Health School who comes twice a week, but when she is able, she will be going to the ‘Seventh Day Adventist Christian School of New Plymouth’ where another child attends who is currently on treatment for leukaemia.
-      
+    <Text>She is now almost 5 ½.  Her favourite thing of all is playing with her best friend Zuben, and she tells everyone, “He’s not my dog, he’s my best friend.” She also loves to read!Emma at present has a lovely teacher from the Northern Health School who comes twice a week, but when she is able, she will be going to the ‘Seventh Day Adventist Christian School of New Plymouth’ where another child attends who is currently on treatment for leukaemia.
       Emma unfortunately fell into the less than 3% of the population that developed a rash following the chickenpox vaccine which could put the other child who is immune- compromised at risk.  She needs one further chickenpox vaccine in the middle of October, and will potentially develop the rash again, so rather than put another child at risk, she will probably be home schooled until next year.
-
     </Text>
   </TextList>
 
