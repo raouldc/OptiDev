@@ -36,8 +36,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Maps.MapControl.WPF">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\Bing Maps WPF Control\V1\Libraries\Microsoft.Maps.MapControl.WPF.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -60,6 +65,10 @@
     </ApplicationDefinition>
     <Compile Include="Content\hcihDonateControl.xaml.cs">
       <DependentUpon>hcihDonateControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MapAddress.cs" />
+    <Compile Include="Screens\ContactUs.xaml.cs">
+      <DependentUpon>ContactUs.xaml</DependentUpon>
     </Compile>
     <Compile Include="Content\hcihHomeControl.xaml.cs">
       <DependentUpon>hcihHomeControl.xaml</DependentUpon>
@@ -121,6 +130,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <None Include="Screens\ContactUs.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </None>
     <Page Include="Screens\FunkyGrid.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -266,6 +279,7 @@
     <Resource Include="Resources\events.png" />
     <Resource Include="Resources\FS.png" />
     <Resource Include="Resources\howCanIHelp.png" />
+    <Resource Include="Resources\ContactUsQR.png" />
     <Content Include="Resources\icon.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

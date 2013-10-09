@@ -16,11 +16,9 @@ using Microsoft.Surface.Presentation;
 using Microsoft.Surface.Presentation.Controls;
 using Microsoft.Surface.Presentation.Input;
 using System.Windows.Media.Animation;
-<<<<<<< HEAD
-using P02Project.Screens;
-=======
 using P02Project.Resources.xml;
->>>>>>> 75881280447303e3bf4085f58f72ac3532069581
+using P02Project.Screens;
+
 
 namespace P02Project
 {
@@ -158,6 +156,7 @@ namespace P02Project
             this.WindowState = WindowState.Maximized;
             this.WindowStyle = WindowStyle.None;
         }
+<<<<<<< HEAD
 
         public void pushScreenOnStack(TopLevelPage nextScreen, String[] buttons, Color colour, UserControl content, String Subtitle)
         {
@@ -365,5 +364,8 @@ namespace P02Project
         //{
 
         //}
+=======
+    
+>>>>>>> origin/ContactUs
     }
 }

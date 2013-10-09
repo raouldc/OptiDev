@@ -106,7 +106,7 @@ namespace P02Project
         {
             TopLevelPage nextScreen = new TopLevelPage(ParentWindow, "Play Beads");
             ParentWindow.pushScreenOnStack(nextScreen, new String[6] { "About", "Family Support", "How Can I Help?", "News", "Events", "Contact Us" }, playBeads.colour, new UserControl(), "");
-                    ((TopLevelPage)nextScreen).setContent(new FunkyGrid("xml/About.xml"));   
+
         }
 
         
