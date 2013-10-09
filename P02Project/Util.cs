@@ -22,7 +22,8 @@ namespace P02Project
             { "hcihUnSelected",     (Color)ColorConverter.ConvertFromString("#FFD4A339")},
             { "News",               (Color)ColorConverter.ConvertFromString("#ffa13e97")},
             { "Events",             (Color)ColorConverter.ConvertFromString("#ffbcd530")},
-            { "Contact Us",         (Color)ColorConverter.ConvertFromString("#ffe411ff")},
+            { "contactUsSelected",  (Color)ColorConverter.ConvertFromString("#ff710b7e")},
+            { "contactUUnSelected",  (Color)ColorConverter.ConvertFromString("#ffe411ff")},
             { "Play Beads",         (Color)ColorConverter.ConvertFromString("#ffee3123")}
         };
 
