@@ -16,7 +16,7 @@
 			<ColumnDefinition/>
 		</Grid.ColumnDefinitions>
             
-		<Custom:SurfaceScrollViewer Grid.Column="1" Margin="598.204,0,1.796,0" Grid.RowSpan="2" Width="1000" Background="#7F525252" Name="splitContentScrollViewer" HorizontalScrollBarVisibility="Disabled" />
+		<Custom:SurfaceScrollViewer Grid.Column="1" Margin="50,20,0,0" Grid.RowSpan="2" Width="1100" Background="#7F525252" Name="splitContentScrollViewer" HorizontalScrollBarVisibility="Disabled" />
             
 	</Grid>
 </UserControl>
