@@ -79,7 +79,7 @@ namespace P02Project.Screens
                 case "Our Stories":
                     levelpage.setContent(new GridView("Resources/xml/About_OurStories.xml"));
                     break;
-                case "How we Help":
+                case "How We Help":
                     levelpage.setContent(new SplitGridView("xml/About_HowWeHelp.xml"));
                     break;
                 case "Our History":
