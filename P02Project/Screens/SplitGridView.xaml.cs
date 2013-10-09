@@ -54,7 +54,7 @@ namespace P02Project.Screens
 
             foreach (PageModelText txt in textList)
             {
-                fcontent += txt.Value+"\n\n";
+                fcontent += txt.Value.Trim()+"\n\n";
             }
 
 
