@@ -27,8 +27,8 @@ namespace P02Project
     public partial class ContactUs : UserControl
     {
         // constant color for selected and unselected button
-        private static readonly Brush SELECTED_COLOR = new SolidColorBrush(Util._pageColDict["contactUsSelected"]);
-        private static readonly Brush UNSELECTED_COLOR = new SolidColorBrush(Util._pageColDict["contactUUnSelected"]);
+        private static readonly Brush SELECTED_COLOR = new SolidColorBrush(Util._pageColDict["cuSelected"]);
+        private static readonly Brush UNSELECTED_COLOR = new SolidColorBrush(Util._pageColDict["cuUnSelected"]);
         //private Map baseMap;
 
         // lists storing the contents of each option
@@ -40,7 +40,13 @@ namespace P02Project
         public ContactUs()
         {
             this.InitializeComponent();
-            DataContext = new MapAddressViewModel();
+
+            _fmlPlcs.Background = SELECTED_COLOR;
+            _mainOff.Background = UNSELECTED_COLOR;
+            _fndrsOff.Background = UNSELECTED_COLOR;
+            _fmlSptBrns.Background = UNSELECTED_COLOR;
+
+            //DataContext = new MapAddressViewModel();
             //baseMap = houseMap;
             _fmlPlcList = new List<RichTextBox>();
             _fmlPlcList.Add(_fmlPlc0);
@@ -70,6 +76,8 @@ namespace P02Project
             _fmlSptList.Add(_fmlSpt3);
             _fmlSptList.Add(_fmlSpt4);
             _fmlSptList.Add(_fmlSpt5);
+
+
         }
 
 

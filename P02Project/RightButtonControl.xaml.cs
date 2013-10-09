@@ -96,7 +96,7 @@ namespace P02Project
 
                 case "Contact Us":
                     nextScreen = new TopLevelPage(ParentWindow, "Contact Us");
-                    ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("Contact Us"), colour, new UserControl(), "");
+                    ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("Contact Us"), colour, new ContactUs(), "");
                     break;
 
                 default:
