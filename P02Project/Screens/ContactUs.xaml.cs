@@ -11,7 +11,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Microsoft.Maps.MapControl.WPF;
+//using Microsoft.Maps.MapControl;
+//using Microsoft.Maps.MapControl.WPF;
 using Microsoft.Surface;
 using Microsoft.Surface.Presentation;
 using Microsoft.Surface.Presentation.Controls;
@@ -28,20 +29,47 @@ namespace P02Project
         // constant color for selected and unselected button
         private static readonly Brush SELECTED_COLOR = new SolidColorBrush(Util._pageColDict["contactUsSelected"]);
         private static readonly Brush UNSELECTED_COLOR = new SolidColorBrush(Util._pageColDict["contactUUnSelected"]);
+        //private Map baseMap;
 
-        // list storing the ScatterViewItems
-        //        private List<ScatterViewItem> _sviList;
+        // lists storing the contents of each option
+        private List<RichTextBox> _fmlPlcList;
+        private List<RichTextBox> _mnOffList;
+        private List<RichTextBox> _fndrsOffList;
+        private List<RichTextBox> _fmlSptList;
 
         public ContactUs()
         {
             this.InitializeComponent();
-            DataContext = new MapAddressViewModel(AddressType.FamilyPlace);
+            DataContext = new MapAddressViewModel();
             //baseMap = houseMap;
-            //_sviList = new List<ScatterViewItem>();
-            //_sviList.Add(_fmlPlSVI);
-            //_sviList.Add(_fmlSptBrsSVI);
-            //_sviList.Add(_mainOffSVI);
-            //_sviList.Add(_fndRsSVI);
+            _fmlPlcList = new List<RichTextBox>();
+            _fmlPlcList.Add(_fmlPlc0);
+            _fmlPlcList.Add(_fmlPlc1);
+            _fmlPlcList.Add(_fmlPlc2);
+            _fmlPlcList.Add(_fmlPlc3);
+            _fmlPlcList.Add(_fmlPlc4);
+            _fmlPlcList.Add(_fmlPlc5);
+
+            _mnOffList = new List<RichTextBox>();
+            _mnOffList.Add(_mnOff0);
+            _mnOffList.Add(_mnOff1);
+            _mnOffList.Add(_mnOff2);
+
+            _fndrsOffList = new List<RichTextBox>();
+            _fndrsOffList.Add(_fndrsOff0);
+            _fndrsOffList.Add(_fndrsOff1);
+            _fndrsOffList.Add(_fndrsOff2);
+            _fndrsOffList.Add(_fndrsOff3);
+            _fndrsOffList.Add(_fndrsOff4);
+            _fndrsOffList.Add(_fndrsOff5);
+
+            _fmlSptList = new List<RichTextBox>();
+            _fmlSptList.Add(_fmlSpt0);
+            _fmlSptList.Add(_fmlSpt1);
+            _fmlSptList.Add(_fmlSpt2);
+            _fmlSptList.Add(_fmlSpt3);
+            _fmlSptList.Add(_fmlSpt4);
+            _fmlSptList.Add(_fmlSpt5);
         }
 
 
@@ -66,22 +94,41 @@ namespace P02Project
             //add drop shadow
             _fmlPlcs.Effect = new DropShadowEffect();
 
+            foreach (RichTextBox rtb in _fmlPlcList)
+            {
+                rtb.Opacity = 100;
+            }
+
+            foreach (RichTextBox rtb in _mnOffList)
+            {
+                rtb.Opacity = 0;
+            }
+
+            foreach (RichTextBox rtb in _fndrsOffList)
+            {
+                rtb.Opacity = 0;
+            }
+
+            foreach (RichTextBox rtb in _fmlSptList)
+            {
+                rtb.Opacity = 0;
+            }
+
+            
+
             // change the map content here
 
-            houseMap.Center = new Location(-41, 173);
-            houseMap.ZoomLevel = 5.9;
-            DataContext = new MapAddressViewModel(AddressType.FamilySupport);
-
-            houseMap.Visibility = Visibility.Visible;
-//            baseMap.AnimationLevel = AnimationLevel.UserInput;
-//            baseMap.Children.Clear();
-//            var pushPin = new Pushpin{
-//                                         AllowDrop = false,
-//                                         Location = new Location(-36.857769, 174.769119),
-//                                         Name = "AucklandHouse"
-//                                     };
-//            pushPin.TouchEnter += _displayInfo;
-//            baseMap.Children.Add(pushPin);
+            //            baseMap.Center = new Location(-41, 173);
+            //            baseMap.ZoomLevel = 5.9;
+            //            baseMap.AnimationLevel = AnimationLevel.UserInput;
+            //            baseMap.Children.Clear();
+            //            var pushPin = new Pushpin{
+            //                                         AllowDrop = false,
+            //                                         Location = new Location(-36.857769, 174.769119),
+            //                                         Name = "AucklandHouse"
+            //                                     };
+            //            pushPin.TouchEnter += _displayInfo;
+            //            baseMap.Children.Add(pushPin);
         }
 
         private void _displayInfo(object sender, RoutedEventArgs e)
@@ -99,18 +146,19 @@ namespace P02Project
         private void Pushpin_TouchEnter(object sender, TouchEventArgs touchEventArgs)
         {
             var pin = sender as FrameworkElement;
-//            MapLayer.SetPosition(ContentPopup, MapLayer.GetPosition(pin));
-//            MapLayer.SetPositionOffset(ContentPopup, new Point(0, -50));
+            //MapLayer.SetPosition(ContentPopup, MapLayer.GetPosition(pin));
+            //MapLayer.SetPositionOffset(ContentPopup, new Point(0, -50));
 
             var location = (MapAddress)pin.Tag;
 
-//            ContentPopupTitle.Text = location.Title;
-//            ContentPopupAddress.Text = location.Address;
-//            ContentPopup.Visibility = Visibility.Visible;
+            //ContentPopupTitle.Text = location.Title;
+            //ContentPopupAddress.Text = location.Address;
+            //ContentPopup.Visibility = Visibility.Visible;
         }
 
-        private void Pushpin_TouchLeave(object sender, RoutedEventArgs routedEventArgs) {
-//            ContentPopup.Visibility = Visibility.Collapsed;
+        private void Pushpin_TouchLeave(object sender, RoutedEventArgs routedEventArgs)
+        {
+            //ContentPopup.Visibility = Visibility.Collapsed;
         }
         /// <summary>
         /// this method called when the "Main Office" option button has been clicked
@@ -133,13 +181,33 @@ namespace P02Project
             //add drop shadow
             _mainOff.Effect = new DropShadowEffect();
 
+
+            foreach (RichTextBox rtb in _fmlPlcList)
+            {
+                rtb.Opacity = 0;
+            }
+
+            foreach (RichTextBox rtb in _mnOffList)
+            {
+                rtb.Opacity = 100;
+            }
+
+            foreach (RichTextBox rtb in _fndrsOffList)
+            {
+                rtb.Opacity = 0;
+            }
+
+            foreach (RichTextBox rtb in _fmlSptList)
+            {
+                rtb.Opacity = 0;
+            }
+
             // change the map content here
-	        houseMap.Visibility = Visibility.Collapsed;
         }
 
 
         /// <summary>
-        /// this method called when the "Fundraising Office" option button has been clicked
+        /// this method called when the "Findraising Office" option button has been clicked
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -159,10 +227,27 @@ namespace P02Project
             //add drop shadow
             _fndrsOff.Effect = new DropShadowEffect();
 
-            
-            // change the map content here
-            houseMap.Visibility = Visibility.Collapsed;
+            foreach (RichTextBox rtb in _fmlPlcList)
+            {
+                rtb.Opacity = 0;
+            }
 
+            foreach (RichTextBox rtb in _mnOffList)
+            {
+                rtb.Opacity = 0;
+            }
+
+            foreach (RichTextBox rtb in _fndrsOffList)
+            {
+                rtb.Opacity = 100;
+            }
+
+            foreach (RichTextBox rtb in _fmlSptList)
+            {
+                rtb.Opacity = 0;
+            }
+
+            // change the map content here
         }
 
         /// <summary>
@@ -186,15 +271,34 @@ namespace P02Project
             //add drop shadow
             _fmlSptBrns.Effect = new DropShadowEffect();
 
+            foreach (RichTextBox rtb in _fmlPlcList)
+            {
+                rtb.Opacity = 0;
+            }
+
+            foreach (RichTextBox rtb in _mnOffList)
+            {
+                rtb.Opacity = 0;
+            }
+
+            foreach (RichTextBox rtb in _fndrsOffList)
+            {
+                rtb.Opacity = 0;
+            }
+
+            foreach (RichTextBox rtb in _fmlSptList)
+            {
+                rtb.Opacity = 100;
+            }
 
             // change the map content here
-            houseMap.Center = new Location(-41, 173);
-            houseMap.ZoomLevel = 5.9;
-            DataContext = new MapAddressViewModel(AddressType.FamilySupport);
-            houseMap.Visibility = Visibility.Visible;
-
         }
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e) { }
+
+        private void text_ScrollChanged(object sender, ScrollChangedEventArgs e)
+        {
+
+        }
     }
 }
