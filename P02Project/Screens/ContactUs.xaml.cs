@@ -13,6 +13,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 //using Microsoft.Maps.MapControl;
 //using Microsoft.Maps.MapControl.WPF;
+using Microsoft.Maps.MapControl.WPF;
 using Microsoft.Surface;
 using Microsoft.Surface.Presentation;
 using Microsoft.Surface.Presentation.Controls;
@@ -28,7 +29,6 @@ namespace P02Project
         // constant color for selected and unselected button
         private static readonly Brush SELECTED_COLOR = new SolidColorBrush(Color.FromRgb(113, 11, 126));
         private static readonly Brush UNSELECTED_COLOR = new SolidColorBrush(Color.FromRgb(228, 17, 255));
-        //private Map baseMap;
 
         // list storing the ScatterViewItems
         private List<ScatterViewItem> _sviList;
@@ -36,13 +36,12 @@ namespace P02Project
 		public ContactUs()
 		{
             this.InitializeComponent();
-            DataContext = new MapAddressViewModel();
-            //baseMap = houseMap;
-            //_sviList = new List<ScatterViewItem>();
-            //_sviList.Add(_fmlPlSVI);
-            //_sviList.Add(_fmlSptBrsSVI);
-            //_sviList.Add(_mainOffSVI);
-            //_sviList.Add(_fndRsSVI);
+            DataContext = new MapAddressViewModel(AddressType.FamilyPlace);
+            _sviList = new List<ScatterViewItem>();
+            _sviList.Add(_fmlPlSVI);
+            _sviList.Add(_fmlSptBrsSVI);
+            _sviList.Add(_mainOffSVI);
+            _sviList.Add(_fndRsSVI);
 		}
 
 
@@ -54,15 +53,18 @@ namespace P02Project
         private void fmlPlClicked(Object sender, RoutedEventArgs e)
         {
             // change the color of each option buton
-            //_fmlPlSVI.Background = SELECTED_COLOR;
-            //_fmlSptBrsSVI.Background = UNSELECTED_COLOR;
-            //_fndRsSVI.Background = UNSELECTED_COLOR;
-            //_mainOffSVI.Background = UNSELECTED_COLOR;
+            _fmlPlSVI.Background = SELECTED_COLOR;
+            _fmlSptBrsSVI.Background = UNSELECTED_COLOR;
+            _fndRsSVI.Background = UNSELECTED_COLOR;
+            _mainOffSVI.Background = UNSELECTED_COLOR;
             
             // change the map content here
             
-//            baseMap.Center = new Location(-41, 173);
-//            baseMap.ZoomLevel = 5.9;
+            houseMap.Center = new Location(-41, 173);
+            houseMap.ZoomLevel = 5.9;
+            DataContext = new MapAddressViewModel(AddressType.FamilySupport);
+
+            houseMap.Visibility = Visibility.Visible;
 //            baseMap.AnimationLevel = AnimationLevel.UserInput;
 //            baseMap.Children.Clear();
 //            var pushPin = new Pushpin{
@@ -88,18 +90,18 @@ namespace P02Project
 
         private void Pushpin_TouchEnter(object sender, TouchEventArgs touchEventArgs) {
             var pin = sender as FrameworkElement;
-            //MapLayer.SetPosition(ContentPopup, MapLayer.GetPosition(pin));
-            //MapLayer.SetPositionOffset(ContentPopup, new Point(0, -50));
+            MapLayer.SetPosition(ContentPopup, MapLayer.GetPosition(pin));
+            MapLayer.SetPositionOffset(ContentPopup, new Point(0, -50));
 
             var location = (MapAddress)pin.Tag;
 
-            //ContentPopupTitle.Text = location.Title;
-            //ContentPopupAddress.Text = location.Address;
-            //ContentPopup.Visibility = Visibility.Visible;
+            ContentPopupTitle.Text = location.Title;
+            ContentPopupAddress.Text = location.Address;
+            ContentPopup.Visibility = Visibility.Visible;
         }
 
         private void Pushpin_TouchLeave(object sender, RoutedEventArgs routedEventArgs) {
-            //ContentPopup.Visibility = Visibility.Collapsed;
+            ContentPopup.Visibility = Visibility.Collapsed;
         }
 	    /// <summary>
         /// this method called when the "Main Office" option button has been clicked
@@ -109,29 +111,32 @@ namespace P02Project
         private void mainOffClicked(Object sender, RoutedEventArgs e)
         {
             // change the color of each option buton
-            //_mainOffSVI.Background = SELECTED_COLOR;
-            //_fmlPlSVI.Background = UNSELECTED_COLOR;
-            //_fmlSptBrsSVI.Background = UNSELECTED_COLOR;
-            //_fndRsSVI.Background = UNSELECTED_COLOR;
+            _mainOffSVI.Background = SELECTED_COLOR;
+            _fmlPlSVI.Background = UNSELECTED_COLOR;
+            _fmlSptBrsSVI.Background = UNSELECTED_COLOR;
+            _fndRsSVI.Background = UNSELECTED_COLOR;
             
             // change the map content here
+	        houseMap.Visibility = Visibility.Collapsed;
         }
 
 
         /// <summary>
-        /// this method called when the "Findraising Office" option button has been clicked
+        /// this method called when the "Fundraising Office" option button has been clicked
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void fndRsClicked(Object sender, RoutedEventArgs e)
         {
             // change the color of each option buton
-            //_fndRsSVI.Background = SELECTED_COLOR;
-            //_mainOffSVI.Background = UNSELECTED_COLOR;
-            //_fmlPlSVI.Background = UNSELECTED_COLOR;
-            //_fmlSptBrsSVI.Background = UNSELECTED_COLOR;
+            _fndRsSVI.Background = SELECTED_COLOR;
+            _mainOffSVI.Background = UNSELECTED_COLOR;
+            _fmlPlSVI.Background = UNSELECTED_COLOR;
+            _fmlSptBrsSVI.Background = UNSELECTED_COLOR;
 
             // change the map content here
+            houseMap.Visibility = Visibility.Collapsed;
+
         }
 
         /// <summary>
@@ -142,12 +147,17 @@ namespace P02Project
         private void fmlSptBrsClicked(Object sender, RoutedEventArgs e)
         {
             // change the color of each option buton
-            //_fmlSptBrsSVI.Background = SELECTED_COLOR;
-            //_mainOffSVI.Background = UNSELECTED_COLOR;
-            //_fmlPlSVI.Background = UNSELECTED_COLOR;
-            //_fndRsSVI.Background = UNSELECTED_COLOR;
+            _fmlSptBrsSVI.Background = SELECTED_COLOR;
+            _mainOffSVI.Background = UNSELECTED_COLOR;
+            _fmlPlSVI.Background = UNSELECTED_COLOR;
+            _fndRsSVI.Background = UNSELECTED_COLOR;
 
             // change the map content here
+            houseMap.Center = new Location(-41, 173);
+            houseMap.ZoomLevel = 5.9;
+            DataContext = new MapAddressViewModel(AddressType.FamilySupport);
+            houseMap.Visibility = Visibility.Visible;
+
         }
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e) {}

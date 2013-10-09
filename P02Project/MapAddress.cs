@@ -4,9 +4,13 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
-//using Microsoft.Maps.MapControl.WPF;
+using Microsoft.Maps.MapControl.WPF;
 
 namespace P02Project {
+    public enum AddressType
+    {
+        FamilyPlace, FamilySupport
+    }
     public class MapAddress
     {
         public string Title;
@@ -17,20 +21,22 @@ namespace P02Project {
         public string ContactTitle;
         public string ContactPhone;
         public string ContactEmail;
-        //public Location Location;
+        public Location Location;
+        public AddressType Type;
     }
 
     public class MapAddressService {
-        public static void GetMapAddresses(EventHandler<MapAddressEventArgs> callback) {
+        public static void GetMapAddresses(EventHandler<MapAddressEventArgs> callback, AddressType type) {
             //get data from xml, store in a list then do next line 
-            //var data = new List<MapAddress>{
-            //                                new MapAddress{
-            //                                                  Address = "76 Grafton Road\nGrafton\nAuckland",
-            //                                                  Title = "Auckland Family Place",
-            //                                                  Location = new Location(-36.857769, 174.769119)
-            //                                              }
-            //                            };
-            //callback(null, new MapAddressEventArgs(data));
+            var data = new List<MapAddress>{
+                                            new MapAddress{
+                                                              Address = "76 Grafton Road\nGrafton\nAuckland",
+                                                              Title = "Auckland Family Place",
+                                                              Location = new Location(-36.857769, 174.769119),
+                                                              Type = AddressType.FamilyPlace
+                                                          }
+                                        };
+            callback(null, new MapAddressEventArgs(data));
         }
     }
 
@@ -51,10 +57,10 @@ namespace P02Project {
                 OnPropertyChanged("Addresses");
             }
         }
-        public MapAddressViewModel() {
+        public MapAddressViewModel(AddressType type) {
             MapAddressService.GetMapAddresses((o, ea) => {
                 Addresses = new ObservableCollection<MapAddress>(ea.Locations);
-            });
+            }, type);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
