@@ -76,7 +76,7 @@ namespace P02Project
                 case "How Can I Help?":
                     
                     nextScreen = new TopLevelPage(ParentWindow, "How Can I Help?");
-                    ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("How Can I help?"), colour, new hcihHomeControl(nextScreen), "");
+                    ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("How Can I Help?"), colour, new hcihHomeControl(nextScreen), "");
                     break;
 
                 case "Events":
