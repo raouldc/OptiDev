@@ -7,12 +7,10 @@ using System.Text;
 using Microsoft.Maps.MapControl.WPF;
 
 namespace P02Project {
-    public enum AddressType
-    {
+    public enum AddressType {
         FamilyPlace, FamilySupport
     }
-    public class MapAddress
-    {
+    public class MapAddress {
         public string Title;
         public string Address;
         public string PostalAddress;
@@ -37,12 +35,12 @@ namespace P02Project {
                                                           }
                                         };
             if (type == AddressType.FamilySupport)
-                data.Add(new MapAddress{
-                                           Address = "76 Grafton Road\nGrafton\nAuckland",
-                                           Title = "Auckland Family Place",
-                                           Location = new Location(-36.857769, 174.769119),
-                                           Type = AddressType.FamilyPlace
-                                       });
+                data.Add(new MapAddress {
+                    Address = "76 Grafton Road\nGrafton\nAuckland",
+                    Title = "Auckland Family Place",
+                    Location = new Location(-36.857769, 174.769119),
+                    Type = AddressType.FamilyPlace
+                });
             callback(null, new MapAddressEventArgs(data));
         }
     }
