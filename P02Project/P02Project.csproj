@@ -243,6 +243,7 @@
     </Content>
     <Content Include="Resources\xml\About_OurAmbassadors.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="Resources\xml\About_OurHistory.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -250,21 +251,51 @@
     <Content Include="Resources\xml\About_OurStories.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Resource Include="Resources\xml\Profiles\Amanda.xml" />
-    <Resource Include="Resources\xml\Profiles\Bernadine.xml" />
-    <Resource Include="Resources\xml\Profiles\Chris.xml" />
-    <Resource Include="Resources\xml\Profiles\Dequaran.xml" />
-    <Resource Include="Resources\xml\Profiles\Emma.xml" />
-    <Resource Include="Resources\xml\Profiles\Hamish.xml" />
-    <Resource Include="Resources\xml\Profiles\Hana.xml" />
-    <Resource Include="Resources\xml\Profiles\Jerome.xml" />
-    <Resource Include="Resources\xml\Profiles\Joyce.xml" />
-    <Resource Include="Resources\xml\Profiles\Kavahn.xml" />
-    <Resource Include="Resources\xml\Profiles\Kieran.xml" />
-    <Resource Include="Resources\xml\Profiles\Lorraine.xml" />
-    <Resource Include="Resources\xml\Profiles\Manuaitu.xml" />
-    <Resource Include="Resources\xml\Profiles\Megan.xml" />
-    <Resource Include="Resources\xml\Profiles\Steve.xml" />
+    <Content Include="Resources\xml\Profiles\Amanda.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\xml\Profiles\Bernadine.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\xml\Profiles\Chris.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\xml\Profiles\Dequaran.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\xml\Profiles\Emma.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\xml\Profiles\Hamish.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\xml\Profiles\Hana.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\xml\Profiles\Jerome.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\xml\Profiles\Joyce.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\xml\Profiles\Kavahn.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\xml\Profiles\Kieran.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\xml\Profiles\Lorraine.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\xml\Profiles\Manuaitu.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\xml\Profiles\Megan.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\xml\Profiles\Steve.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Resources\xml\TemplateDoc.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

@@ -26,6 +26,7 @@ namespace P02Project.Resources.xml
             FileStream myFileStream = new FileStream(filePath, FileMode.Open);
 
             xmlContent = (PageModel)mySerializer.Deserialize(myFileStream);
+            myFileStream.Close();
 
             return xmlContent;
 
