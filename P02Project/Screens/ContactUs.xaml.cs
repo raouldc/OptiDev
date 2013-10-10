@@ -11,8 +11,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-//using Microsoft.Maps.MapControl;
-//using Microsoft.Maps.MapControl.WPF;
 using Microsoft.Surface;
 using Microsoft.Surface.Presentation;
 using Microsoft.Surface.Presentation.Controls;
@@ -26,7 +24,7 @@ namespace P02Project
     /// </summary>
     public partial class ContactUs : UserControl
     {
-        // constant color for selected and unselected button
+        // constant color for selected and unselected buttons
         private static readonly Brush SELECTED_COLOR = new SolidColorBrush(Util._pageColDict["cuSelected"]);
         private static readonly Brush UNSELECTED_COLOR = new SolidColorBrush(Util._pageColDict["cuUnSelected"]);
         //private Map baseMap;
@@ -40,14 +38,14 @@ namespace P02Project
         public ContactUs()
         {
             this.InitializeComponent();
-            DataContext = new MapAddressViewModel(AddressType.FamilyPlace);
+            
+            // set the color for each button
             _fmlPlcs.Background = SELECTED_COLOR;
             _mainOff.Background = UNSELECTED_COLOR;
             _fndrsOff.Background = UNSELECTED_COLOR;
             _fmlSptBrns.Background = UNSELECTED_COLOR;
 
-            //DataContext = new MapAddressViewModel();
-            //baseMap = houseMap;
+            // Initialize the lists of contents
             _fmlPlcList = new List<RichTextBox>();
             _fmlPlcList.Add(_fmlPlc0);
             _fmlPlcList.Add(_fmlPlc1);
@@ -81,6 +79,7 @@ namespace P02Project
         }
 
 
+
         /// <summary>
         /// this method called when the "Family Places" option button has been clicked
         /// </summary>
@@ -88,6 +87,7 @@ namespace P02Project
         /// <param name="e"></param>
         private void fmlPlClicked(Object sender, RoutedEventArgs e)
         {
+            // set the color for all buttons
             _fmlPlcs.Background = SELECTED_COLOR;
             _mainOff.Background = UNSELECTED_COLOR;
             _fndrsOff.Background = UNSELECTED_COLOR;
@@ -98,10 +98,10 @@ namespace P02Project
             _fndrsOff.Effect = null;
             _fmlSptBrns.Effect = null;
 
-
             //add drop shadow
             _fmlPlcs.Effect = new DropShadowEffect();
 
+            // set the visibility of the contents according to the button clicked
             foreach (RichTextBox rtb in _fmlPlcList)
             {
                 rtb.Opacity = 100;
@@ -121,53 +121,10 @@ namespace P02Project
             {
                 rtb.Opacity = 0;
             }
-
-            
-
-            // change the map content here
-
-            //            baseMap.Center = new Location(-41, 173);
-            //            baseMap.ZoomLevel = 5.9;
-            //            baseMap.AnimationLevel = AnimationLevel.UserInput;
-            //            baseMap.Children.Clear();
-            //            var pushPin = new Pushpin{
-            //                                         AllowDrop = false,
-            //                                         Location = new Location(-36.857769, 174.769119),
-            //                                         Name = "AucklandHouse"
-            //                                     };
-            //            pushPin.TouchEnter += _displayInfo;
-            //            baseMap.Children.Add(pushPin);
         }
 
-        private void _displayInfo(object sender, RoutedEventArgs e)
-        {
-            //var pin = (Pushpin) sender;
 
-            //switch (pin.Name)
-            //{
-            //    case "AucklandHouse":
 
-            //        break;
-            //} 
-        }
-
-        private void Pushpin_TouchEnter(object sender, TouchEventArgs touchEventArgs)
-        {
-            var pin = sender as FrameworkElement;
-            //MapLayer.SetPosition(ContentPopup, MapLayer.GetPosition(pin));
-            //MapLayer.SetPositionOffset(ContentPopup, new Point(0, -50));
-
-            var location = (MapAddress)pin.Tag;
-
-            //ContentPopupTitle.Text = location.Title;
-            //ContentPopupAddress.Text = location.Address;
-            //ContentPopup.Visibility = Visibility.Visible;
-        }
-
-        private void Pushpin_TouchLeave(object sender, RoutedEventArgs routedEventArgs)
-        {
-            //ContentPopup.Visibility = Visibility.Collapsed;
-        }
         /// <summary>
         /// this method called when the "Main Office" option button has been clicked
         /// </summary>
@@ -175,6 +132,7 @@ namespace P02Project
         /// <param name="e"></param>
         private void mainOffClicked(Object sender, RoutedEventArgs e)
         {
+            // set the color for all buttons
             _fmlPlcs.Background = UNSELECTED_COLOR;
             _mainOff.Background = SELECTED_COLOR;
             _fndrsOff.Background = UNSELECTED_COLOR;
@@ -185,11 +143,10 @@ namespace P02Project
             _fndrsOff.Effect = null;
             _fmlSptBrns.Effect = null;
 
-
             //add drop shadow
             _mainOff.Effect = new DropShadowEffect();
 
-
+            // set the visibility of the contents according to the button clicked
             foreach (RichTextBox rtb in _fmlPlcList)
             {
                 rtb.Opacity = 0;
@@ -209,8 +166,6 @@ namespace P02Project
             {
                 rtb.Opacity = 0;
             }
-
-            // change the map content here
         }
 
 
@@ -221,6 +176,7 @@ namespace P02Project
         /// <param name="e"></param>
         private void fndrsClicked(Object sender, RoutedEventArgs e)
         {
+            // set the color for all buttons
             _fmlPlcs.Background = UNSELECTED_COLOR;
             _mainOff.Background = UNSELECTED_COLOR;
             _fndrsOff.Background = SELECTED_COLOR;
@@ -231,10 +187,10 @@ namespace P02Project
             _mainOff.Effect = null;
             _fmlSptBrns.Effect = null;
 
-
             //add drop shadow
             _fndrsOff.Effect = new DropShadowEffect();
 
+            // set the visibility of the contents according to the button clicked
             foreach (RichTextBox rtb in _fmlPlcList)
             {
                 rtb.Opacity = 0;
@@ -254,9 +210,9 @@ namespace P02Project
             {
                 rtb.Opacity = 0;
             }
-
-            // change the map content here
         }
+
+
 
         /// <summary>
         /// this method called when the "Family Support Branches" option button has been clicked
@@ -265,6 +221,7 @@ namespace P02Project
         /// <param name="e"></param>
         private void fmlSptBrsClicked(Object sender, RoutedEventArgs e)
         {
+            // set the color for all buttons
             _fmlPlcs.Background = UNSELECTED_COLOR;
             _mainOff.Background = UNSELECTED_COLOR;
             _fndrsOff.Background = UNSELECTED_COLOR;
@@ -275,10 +232,10 @@ namespace P02Project
             _mainOff.Effect = null;
             _fndrsOff.Effect = null;
 
-
             //add drop shadow
             _fmlSptBrns.Effect = new DropShadowEffect();
 
+            // set the visibility of the contents according to the button clicked
             foreach (RichTextBox rtb in _fmlPlcList)
             {
                 rtb.Opacity = 0;
@@ -298,15 +255,7 @@ namespace P02Project
             {
                 rtb.Opacity = 100;
             }
-
-            // change the map content here
         }
 
-        private void UserControl_Loaded(object sender, RoutedEventArgs e) { }
-
-        private void text_ScrollChanged(object sender, ScrollChangedEventArgs e)
-        {
-
-        }
     }
 }

@@ -20,17 +20,25 @@ namespace P02Project.Screens
     /// </summary>
     public partial class SplitGridView : UserControl
     {
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="filename"></param>
         public SplitGridView(String filename)
         {
             InitializeComponent();
+
+            //TODO: Set title and subtitle
             String path = System.IO.Path.Combine(System.IO.Path.GetFullPath("."), "Resources/" + filename);
             PageModel temp = XMLUtilities.GetContentFromFile(path);
 
+            // initialize the list to store all the images in this page.
             PageModelImage[] imgList = temp.ImageList;
-
             int count = 0;
             double rotation =8;
 
+            // confige each image
             foreach (PageModelImage img in imgList)
             {
                 PoloroidControl p = new PoloroidControl();
@@ -42,7 +50,6 @@ namespace P02Project.Screens
                 p.RenderTransformOrigin.Offset(0.5,0.5);
                 p.RenderTransform = new RotateTransform(rotation);
                 rotation = rotation * -1;
-               // p.Margin
                 Grid.SetColumn(p, 0);
                 Grid.SetRow(p, count);
                 PageContent.Children.Add(p);
@@ -50,6 +57,7 @@ namespace P02Project.Screens
             }
             PageModelText[] textList = temp.TextList;
 
+            // config all the texts in the page
             TextBlock tb = new TextBlock();
             tb.TextAlignment = TextAlignment.Left;
             tb.FontSize = 24;
@@ -71,16 +79,9 @@ namespace P02Project.Screens
 
             StackPanel contentStackPanel = new StackPanel();
 
-
-
-            
-
-            
-            
             contentStackPanel.Children.Add(tb);
                         
             splitContentScrollViewer.Content = contentStackPanel;
-            
   
         }
     }

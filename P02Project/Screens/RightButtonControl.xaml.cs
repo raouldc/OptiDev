@@ -22,16 +22,25 @@ namespace P02Project
     /// </summary>
     public partial class RightButtonControl : UserControl
     {
-
+        /// <summary>
+        /// constructor
+        /// </summary>
         public RightButtonControl()
         {
             this.InitializeComponent();
         }
 
+
+
+        /// <summary>
+        /// set the buttons according to the list of the buttons given
+        /// </summary>
+        /// <param name="bNames">list of all the buttons to be set into the right buttons</param>
         public void setButtons(String[] bNames)
         {
             ButtonStack.Children.Clear();
 
+            // set every give name into the right button
             foreach(String name in bNames)
             {
                 RightButton button = new RightButton();
@@ -51,6 +60,13 @@ namespace P02Project
             }            
         }
 
+
+
+        /// <summary>
+        /// this method called when a button of the right buttons has been clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Button_Click(object sender, MouseButtonEventArgs e)
         {
             SurfaceWindow1 ParentWindow = (SurfaceWindow1)Window.GetWindow(this);

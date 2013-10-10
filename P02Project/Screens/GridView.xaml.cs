@@ -21,6 +21,7 @@ namespace P02Project
     /// </summary>
     public partial class GridView : UserControl
     {
+        // set the number of items, rows and columns
         private int numberOfItems;
         private int numberOfRows = 1;
         private int numberOfCols;
@@ -29,6 +30,11 @@ namespace P02Project
         private readonly int MAXROWS = 2;
 
 
+
+        /// <summary>
+        /// constructor
+        /// </summary>
+        /// <param name="Xpath"></param>
         public GridView(String Xpath)
         {
             this.InitializeComponent();
@@ -56,7 +62,6 @@ namespace P02Project
             mainGrid.Height = 870;
             mainGrid.Width = 1600;
 
-            //1630
             Grid g = new Grid();
             //create the column definitions
             for (int i = 0; i < numberOfCols; i++)
@@ -103,29 +108,21 @@ namespace P02Project
                 g.Children.Add(p);
                 colNum++;
             }
-            //if it is an odd number
-            //need to span the last column 1 colum
-
-            //for (int i = 0; i < numberOfItems; i++)
-            //{
-            //    if (colValue >= numberOfCols)
-            //    {
-            //        rowValue++;
-            //    }
-            //    PoloroidControl p = new PoloroidControl();
-            //    p.setCaption(i.ToString());
-            //    mainGrid.Children.Add(p);
-            //    Grid.SetColumn(p, colValue);
-            //    Grid.SetRow(p, rowValue);
-            //    colValue++;
-            //}
-
+            
             mainGrid.Children.Add(g);
             UpdateLayout();
         }
 
+
+
+        /// <summary>
+        /// this method called when the mouse is released on the polaroid
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Polaroid_MouseUp(object sender, MouseButtonEventArgs e)
         {
+            // configure the screen and the content
             FrameworkElement objParent = (FrameworkElement)this.Parent;
             while (objParent.GetType() != typeof(TopLevelPage))
             {
@@ -134,8 +131,10 @@ namespace P02Project
             TopLevelPage levelpage = (TopLevelPage)objParent;
             String fullname = (sender as PoloroidControl).text ;
             String firstName = fullname.Split(' ')[0];
+
+            // set the content and the subtitle
             levelpage.setContent(new SplitGridView("xml/Profiles/"+firstName+".xml"));
-            levelpage.setSubtitle(levelpage.getSubtitle());
+            levelpage.setSubtitle(levelpage.getSubtitle() + ": " + firstName);
 
 
         }

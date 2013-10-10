@@ -63,20 +63,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Content\hcihDonateControl.xaml.cs">
+    <Compile Include="Screens\hcihDonateControl.xaml.cs">
       <DependentUpon>hcihDonateControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MapAddress.cs" />
     <Compile Include="Screens\ContactUs.xaml.cs">
       <DependentUpon>ContactUs.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Content\hcihHomeControl.xaml.cs">
+    <Compile Include="Screens\hcihHomeControl.xaml.cs">
       <DependentUpon>hcihHomeControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="GridView.xaml.cs">
+    <Compile Include="Screens\GridView.xaml.cs">
       <DependentUpon>GridView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="RightButton.xaml.cs">
+    <Compile Include="Screens\RightButton.xaml.cs">
       <DependentUpon>RightButton.xaml</DependentUpon>
     </Compile>
     <Compile Include="Screens\FunkyGrid.xaml.cs">
@@ -85,11 +84,11 @@
     <Compile Include="Screens\SplitGridView.xaml.cs">
       <DependentUpon>SplitGridView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Util.cs" />
-    <Compile Include="RightButtonControl.xaml.cs">
+    <Compile Include="Utils\Util.cs" />
+    <Compile Include="Screens\RightButtonControl.xaml.cs">
       <DependentUpon>RightButtonControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Screen.cs" />
+    <Compile Include="Screens\Screen.cs" />
     <Compile Include="Screens\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
     </Compile>
@@ -102,7 +101,6 @@
     <Compile Include="Screens\TopLevelPage.xaml.cs">
       <DependentUpon>TopLevelPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="SVIWithImgBtn.cs" />
     <Compile Include="Utils\xml\PageModel.cs">
       <DependentUpon>PageModel.xsd</DependentUpon>
     </Compile>
@@ -110,23 +108,23 @@
       <DependentUpon>PageModel.cs</DependentUpon>
     </Compile>
     <Compile Include="Utils\xml\XMLUtilities.cs" />
-    <Page Include="Content\hcihDonateControl.xaml">
+    <Page Include="Screens\hcihDonateControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Content\hcihHomeControl.xaml">
+    <Page Include="Screens\hcihHomeControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="GridView.xaml">
+    <Page Include="Screens\GridView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="RightButton.xaml">
+    <Page Include="Screens\RightButton.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="RightButtonControl.xaml">
+    <Page Include="Screens\RightButtonControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

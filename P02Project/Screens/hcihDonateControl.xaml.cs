@@ -19,28 +19,39 @@ namespace P02Project
 	/// </summary>
 	public partial class hcihDonateControl : UserControl
 	{
+        /// <summary>
+        /// Constructor
+        /// </summary>
 		public hcihDonateControl()
 		{
 			this.InitializeComponent();
+            
+            // set image
             donate.setImage("donate.png");
 
             //Set button cols
             SolidColorBrush unsel = new SolidColorBrush(Util._pageColDict["hcihUnSelected"]);
-
             oneOff.Background = new SolidColorBrush(Util._pageColDict["hcihSelected"]);
             onGoing.Background = unsel;
             lastingLegacy.Background = unsel;
             workplaceGiving.Background = unsel;
             moreInfo.Background = unsel;
+
             //set content
             text.Content = oneOffContent();
 		}
 
+
+
+        /// <summary>
+        /// This method called when the "One Off Donation" button has been clicked
+        /// </summary>
+        /// <param name="sender"> the button that has been clicked</param>
+        /// <param name="e"></param>
         private void oneOff_Click(object sender, RoutedEventArgs e)
         {
             //Set the background colours of the buttons
             SolidColorBrush unsel = new SolidColorBrush(Util._pageColDict["hcihUnSelected"]);
-
             oneOff.Background = new SolidColorBrush(Util._pageColDict["hcihSelected"]);
             onGoing.Background = unsel;
             lastingLegacy.Background = unsel;
@@ -60,11 +71,17 @@ namespace P02Project
             text.Content = oneOffContent();
         }
 
+
+
+        /// <summary>
+        /// This method called when the "On Going Donation" button has been clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void onGoing_Click(object sender, RoutedEventArgs e)
         {
             //Set the background colours of the buttons
             SolidColorBrush unsel = new SolidColorBrush(Util._pageColDict["hcihUnSelected"]);
-
             oneOff.Background = unsel;
             onGoing.Background = new SolidColorBrush(Util._pageColDict["hcihSelected"]);
             lastingLegacy.Background = unsel;
@@ -81,14 +98,21 @@ namespace P02Project
             //add drop shadow
             onGoing.Effect = new DropShadowEffect(); 
 
+            // set the content of the textbox
             text.Content = onGoingContent();
         }
 
+
+
+        /// <summary>
+        /// This method called when the "Lasting Legacy" button has been clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void lastingLegacy_Click(object sender, RoutedEventArgs e)
         {
             //Set the background colours of the buttons
             SolidColorBrush unsel = new SolidColorBrush(Util._pageColDict["hcihUnSelected"]);
-
             oneOff.Background = unsel;
             onGoing.Background = unsel;
             lastingLegacy.Background = new SolidColorBrush(Util._pageColDict["hcihSelected"]);
@@ -105,14 +129,21 @@ namespace P02Project
             //add drop shadow
             lastingLegacy.Effect = new DropShadowEffect(); 
 
+            // set the content of the text box
             text.Content = lastingLegacyContent();
         }
 
+
+
+        /// <summary>
+        /// This method called when the "Workplace Giving" button has been clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void workplaceGiving_Click(object sender, RoutedEventArgs e)
         {
             //Set the background colours of the buttons
             SolidColorBrush unsel = new SolidColorBrush(Util._pageColDict["hcihUnSelected"]);
-
             oneOff.Background = unsel;
             onGoing.Background = unsel;
             lastingLegacy.Background = unsel;
@@ -129,14 +160,21 @@ namespace P02Project
             //add drop shadow
             workplaceGiving.Effect = new DropShadowEffect(); 
 
+            // set the content of the textbox
             text.Content = workplaceGivingContent();
         }
 
+
+
+        /// <summary>
+        /// This method called when the "More Information" button has been clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void moreInfo_Click(object sender, RoutedEventArgs e)
         {
             //Set the background colours of the buttons
             SolidColorBrush unsel = new SolidColorBrush(Util._pageColDict["hcihUnSelected"]);
-
             oneOff.Background = unsel;
             onGoing.Background = unsel;
             lastingLegacy.Background = unsel;
@@ -153,11 +191,16 @@ namespace P02Project
             //add drop shadow
             moreInfo.Effect = new DropShadowEffect();
 
-            
-
+            // set the content in the textbox
             text.Content = moreInfoContent();
         }
 
+
+
+        /// <summary>
+        /// the helper method to generate the content when the "One Off Donation" has been clicked
+        /// </summary>
+        /// <returns></returns>
         private StackPanel oneOffContent() {
             //Set content to one off donation
             StackPanel contentStackPanel = new StackPanel();
@@ -198,6 +241,12 @@ namespace P02Project
             return contentStackPanel;
         }
 
+
+
+        /// <summary>
+        /// the helper method to generate the content when the "On Going Donation" has been clicked
+        /// </summary>
+        /// <returns></returns>
         private StackPanel onGoingContent()
         {
             //Set content to on going donation
@@ -218,11 +267,16 @@ namespace P02Project
             onGoingText1.Inlines.Add(new Bold(new Run("EML ")));
             onGoingText1.Inlines.Add(new Run("sarmitage@childcancer.org.nz\n"));
 
-    
             contentStackPanel.Children.Add(onGoingText1);
             return contentStackPanel;
         }
 
+
+
+        /// <summary>
+        /// the helper method to generate the content when the "Lasting Legacy" has been clicked
+        /// </summary>
+        /// <returns></returns>
         private StackPanel lastingLegacyContent()
         {
             //Set content to on going donation
@@ -244,11 +298,16 @@ namespace P02Project
             lastinLegacyText1.Inlines.Add(new Run("- Protect the future of Child Cancer Foundation\n\n"));
             lastinLegacyText1.Inlines.Add(new Run("If you have already decided on leaving a bequest, making a will is the only way to ensure your wishes will be met in relation to the distribution of your assets or estate. A will also helps to avoid confusion over your intentions and gives you peace of mind.\n"));
 
-
             contentStackPanel.Children.Add(lastinLegacyText1);
             return contentStackPanel;
         }
 
+
+
+        /// <summary>
+        /// the helper method to generate the content when the "Workplac Giving" has been clicked
+        /// </summary>
+        /// <returns></returns>
         private StackPanel workplaceGivingContent()
         {
             //Set content to on going donation
@@ -268,11 +327,16 @@ namespace P02Project
             workplaceGivingText1.Inlines.Add(new Bold(new Run("EML ")));
             workplaceGivingText1.Inlines.Add(new Run("sarmitage@childcancer.org.nz\n"));
 
-
             contentStackPanel.Children.Add(workplaceGivingText1);
             return contentStackPanel;
         }
 
+
+
+        /// <summary>
+        /// the helper method to generate the content when the "More Information" has been clicked
+        /// </summary>
+        /// <returns></returns>
         private StackPanel moreInfoContent()
         {
             //Set content to on going donation
@@ -292,7 +356,6 @@ namespace P02Project
             onGoingText1.Inlines.Add(new Run("09 303 9882 | "));
             onGoingText1.Inlines.Add(new Bold(new Run("EML ")));
             onGoingText1.Inlines.Add(new Run("doriordan@childcancer.org.nz\n"));
-
 
             contentStackPanel.Children.Add(onGoingText1);
             return contentStackPanel;

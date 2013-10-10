@@ -6,17 +6,20 @@
              xmlns:P02Project="clr-namespace:P02Project" xmlns:Custom="http://schemas.microsoft.com/surface/2008" x:Class="P02Project.Screens.SplitGridView" 
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300" Width="1630" Height="900">
-	<Grid x:Name="PageContent" Height="900" Margin="29.592,0,0,0" Width="1600">
-		<Grid.RowDefinitions>
-			<RowDefinition/>
-			<RowDefinition/>
-		</Grid.RowDefinitions>
-		<Grid.ColumnDefinitions>
-			<ColumnDefinition Width="Auto"/>
-			<ColumnDefinition/>
-		</Grid.ColumnDefinitions>
-            
-		<Custom:SurfaceScrollViewer Grid.Column="1" Margin="50,20,0,0" Grid.RowSpan="2" Width="1100" Background="#7F525252" Name="splitContentScrollViewer" HorizontalScrollBarVisibility="Disabled" />
-            
-	</Grid>
+    <Grid x:Name="PageContent" Height="900" Margin="29.592,0,0,0" Width="1600">
+        
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <!-- set a scroll view to store the content -->
+        <Custom:SurfaceScrollViewer Grid.Column="1" Margin="50,20,0,0" Grid.RowSpan="2" Width="1100" Background="#7F525252" Name="splitContentScrollViewer" HorizontalScrollBarVisibility="Disabled" />
+
+    </Grid>
 </UserControl>

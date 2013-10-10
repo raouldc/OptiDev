@@ -8,18 +8,18 @@
   <TextList>
 
     <Text id="P1">
-      We have been operating for over 30 years, read about how Child Cancer Foundation began.      
+      We have been operating for over 30 years, read about how Child Cancer Foundation began.
     </Text>
     <Text id="P2">
-     In 1978 a group of concerned parent together with health professional, formed a small Auckland based committee looking at the special needs of children with cancer and their families.
+      In 1978 a group of concerned parent together with health professional, formed a small Auckland based committee looking at the special needs of children with cancer and their families.
     </Text>
     <Text id="P3">
-    From the small beginning, dedicated people established what is now a national orginasation which is made up of 6 regions Northern, Waikatio, Mid-Northern, Central, Canterbury/ West Coast and Otago Soutland. These regions support 22 branches around the country. 
+      From the small beginning, dedicated people established what is now a national orginasation which is made up of 6 regions Northern, Waikatio, Mid-Northern, Central, Canterbury/ West Coast and Otago Soutland. These regions support 22 branches around the country.
     </Text>
   </TextList>
 
 
-  <ImageList>    
+  <ImageList>
     <Image id="Top">images/Sisters.png</Image>
     <Image id="Bottom">images/LittleBaby1.png</Image>
   </ImageList>

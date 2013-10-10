@@ -31,45 +31,19 @@ namespace P02Project
             donate.setColour(Util._pageColDict["How Can I Help?"]);
         }
 
+
+
+        /// <summary>
+        /// this method called when the "Donate" polaroid has been clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void donate_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            
+            // create the donation content and set the subtitle of the view
             topLevelPage.setContent(new hcihDonateControl());
             topLevelPage.setSubtitle("Donate");
 
         }
-
-        //public TopLevelPage FindTopLevel(Object obj)
-        //{
-
-        //    if (obj is FrameworkElement)
-        //    {
-        //        //If null return null
-        //        if (((FrameworkElement)obj).Parent != null)
-        //        {
-        //            //if parent is top level page return it
-        //            if (((FrameworkElement)obj).Parent is TopLevelPage)
-        //            {
-        //                return (TopLevelPage)((FrameworkElement)obj).Parent;
-        //            }
-        //            else
-        //            {
-        //                //Continue searching recursively for toplevel page
-        //                FindTopLevel(((FrameworkElement)obj).Parent);
-                        
-                        
-        //            }
-        //        }
-        //        else 
-        //        { 
-        //            return null;
-        //        }
-                
-
-        //    }
-        //    //shouldn't get here
-        //    return null;
-
-        //}
     }
 }

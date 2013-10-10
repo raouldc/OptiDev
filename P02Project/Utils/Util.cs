@@ -12,7 +12,7 @@ namespace P02Project
 {
     class Util
     {
-
+        // the dictionary of the color of each section
         public static readonly Dictionary<string, Color> _pageColDict = new Dictionary<string, Color>()
         {
             { "About",              (Color)ColorConverter.ConvertFromString("#ffdc1423")},
@@ -49,6 +49,13 @@ namespace P02Project
             { "extraUnSelected",    (Color)ColorConverter.ConvertFromString("#FF4899c8")}
         };
 
+
+
+        /// <summary>
+        /// return the list of the links of the buttons
+        /// </summary>
+        /// <param name="exclude"></param>
+        /// <returns></returns>
         public static String[] getLinks(String exclude)
         {
             List<String> links = new List<string>( new String[]{ "About", "Family Support", "How Can I Help?", "News", "Events", "Play Beads", "Contact Us" });

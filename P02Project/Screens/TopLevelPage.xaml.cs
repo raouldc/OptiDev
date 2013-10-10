@@ -19,35 +19,50 @@ namespace P02Project.Screens
     /// </summary>
     public partial class TopLevelPage : Screen
     {
+        // stach of the screens and the subtitle
         private Stack<UIElement> stackOfContent;
         private Stack<String> stackSubtitle;
 
+
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="parentWindow"></param>
+        /// <param name="title"></param>
         public TopLevelPage(SurfaceWindow1 parentWindow, String title)
             : base(parentWindow)
         {
             InitializeComponent();
 
+            // initilize the stacks and set the title of the screen
             stackOfContent = new Stack<UIElement>();
             TitleBar.Title.Content = title;
             TitleBar.setTopPage(this);
             stackSubtitle = new Stack<String>();
         }
 
-        //Set the content part of the grid
+        
+
+        /// <summary>
+        /// Set the content part of the grid
+        /// </summary>
+        /// <param name="control"></param>
         public void setContent(UIElement control)
         {
-
             //remove content from grid (if any) while leaving it on the stack
             if (stackOfContent.Count > 0)
             {
                 UIElement oldContent = stackOfContent.Peek();
                 pageGrid.Children.Remove(oldContent);
             }
+
             //Add content to stack if it's not already in it
             if (!stackOfContent.ToArray().Contains(control))
             {
             stackOfContent.Push(control);
             }
+
             //set control to it's place in the grid
             Grid.SetColumn(control, 0);
             Grid.SetRow(control, 1);
@@ -55,22 +70,46 @@ namespace P02Project.Screens
             pageGrid.Children.Add(control);
         }
 
+
+
+        /// <summary>
+        /// set the subtitle of the screen
+        /// </summary>
+        /// <param name="sub"></param>
         public void setSubtitle(String sub)
         {
             TitleBar.SubTitle.Content = sub;
             stackSubtitle.Push(sub);
         }
 
+
+
+        /// <summary>
+        /// get the subtitle of the screen
+        /// </summary>
+        /// <returns></returns>
         public String getSubtitle()
         {
             return TitleBar.SubTitle.Content.ToString();
         }
 
+
+
+        /// <summary>
+        /// set the color of the title of the screen
+        /// </summary>
+        /// <param name="col"></param>
         public void setTitleColour(Color col)
         {
             TitleBar.setBackground(col);
         }
 
+
+
+        /// <summary>
+        /// set the right buttons
+        /// </summary>
+        /// <param name="bNames"></param>
         public void setButtons(String[] bNames)
         {
             //Set the names of the buttons
@@ -79,7 +118,11 @@ namespace P02Project.Screens
 
         }
 
-        //Go back one screen
+        /// <summary>
+        /// This method called when the Back button has been clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void BackButton_Click(object sender, RoutedEventArgs e)
         {
             if (stackOfContent.Count > 1)
@@ -94,6 +137,7 @@ namespace P02Project.Screens
                
                 stackSubtitle.Pop();
 
+                // set the subtitle according to the subtitle that store in the stack
                 if (stackSubtitle.Count < 1)
                 {
                     this.setSubtitle("");
