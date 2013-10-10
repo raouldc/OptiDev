@@ -72,7 +72,7 @@ namespace P02Project
         /// <param name="e"></param>
         private void Button_Click(object sender, MouseButtonEventArgs e)
         {
-            SurfaceWindow1 ParentWindow = (SurfaceWindow1)Window.GetWindow(this);
+            TopWindow ParentWindow = (TopWindow)Window.GetWindow(this);
             TopLevelPage nextScreen;
 
             String caption = (sender as RightButton).Caption;

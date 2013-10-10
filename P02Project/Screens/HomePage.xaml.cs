@@ -25,7 +25,7 @@ namespace P02Project
     public partial class HomePage : Screen
     {
 
-        public HomePage(SurfaceWindow1 parentWindow) : base(parentWindow)
+        public HomePage(TopWindow parentWindow) : base(parentWindow)
         {
             this.InitializeComponent();
         }

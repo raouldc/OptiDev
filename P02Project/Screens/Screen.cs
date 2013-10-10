@@ -9,14 +9,14 @@ namespace P02Project
     public class Screen : UserControl
     {
         // pointer to the main screen
-        private SurfaceWindow1 topLevelWindow;
+        private TopWindow topLevelWindow;
 
 
 
         /// <summary>
         /// return the main screen (topLevelWindow is the main screen)
         /// </summary>
-        public SurfaceWindow1 ParentWindow
+        public TopWindow ParentWindow
         {
             get
             {
@@ -37,7 +37,7 @@ namespace P02Project
         /// Constructor of a screen
         /// </summary>
         /// <param name="parentWindow"></param>
-        public Screen(SurfaceWindow1 parentWindow)
+        public Screen(TopWindow parentWindow)
         {
             this.topLevelWindow = parentWindow;
         }

@@ -31,7 +31,7 @@ namespace P02Project.Screens
         /// <param name="parentWindow">This is access to the window that contains the stack. 
         /// The buttons need to go through the stack</param>
         /// <param name="title">Set title bar</param>
-        public TopLevelPage(SurfaceWindow1 parentWindow, String title)
+        public TopLevelPage(TopWindow parentWindow, String title)
             : base(parentWindow)
         {
             InitializeComponent();

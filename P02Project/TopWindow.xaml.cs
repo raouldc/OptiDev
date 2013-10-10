@@ -23,9 +23,9 @@ using P02Project.Screens;
 namespace P02Project
 {
     /// <summary>
-    /// Interaction logic for SurfaceWindow1.xaml
+    /// Interaction logic for TopWindow.xaml
     /// </summary>
-    public partial class SurfaceWindow1 : SurfaceWindow
+    public partial class TopWindow : SurfaceWindow
     {
 
         // screen resolution WIDTH * HEIGHT is a ratio of 16:09
@@ -49,7 +49,7 @@ namespace P02Project
         /// <summary>
         /// Default constructor.
         /// </summary>
-        public SurfaceWindow1()
+        public TopWindow()
         {
             InitializeComponent();
 
