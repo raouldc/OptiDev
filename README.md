@@ -7,7 +7,9 @@ This page will provide all the steps for getting this project setup and running
 
 ## Prerequisites
 
-### 1. Microsoft Windows Operating System
+Please ensure that the following software is installed
+
+###1. Microsoft Windows Operating System
 
 ### 2. Microsoft Visual Studio 2010    
 This project was created and tested using Microsoft Visual Studio 2010, other versions may work but there is no guarantee
@@ -29,4 +31,5 @@ This project was created and tested using Microsoft Visual Studio 2010, other ve
 
 ## Compiling and Running the project
 
-1. #TODO
+1. Build the Solution in Visual Studio using `Ctrl` + `Shift` + `B`
+2. Run the executable
