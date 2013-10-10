@@ -18,7 +18,8 @@ using P02Project.Screens;
 namespace P02Project
 {
     /// <summary>
-    /// Interaction logic for RightButtonControl.xaml
+    /// This class is responsible for laying out the buttons on the right side of the screen
+    /// The colours for these buttons comes from the Util class
     /// </summary>
     public partial class RightButtonControl : UserControl
     {
@@ -47,6 +48,8 @@ namespace P02Project
 
                 button.Width = Width;
                 button.Height = 160;
+
+                //Need ot set a 15 margin on the right to make the shadow visible
                 button.Margin = new Thickness(0, 0, 15, 15);
 
                 button.Colour = Util._pageColDict[name];
@@ -63,21 +66,21 @@ namespace P02Project
 
 
         /// <summary>
-        /// this method called when a button of the right buttons has been clicked
+        /// This event takes care of moving around contents of the stack and the re-laying the buttons on the right
         /// </summary>
-        /// <param name="sender"></param>
+        /// <param name="sender">The sender needs to be of type RightButton</param>
         /// <param name="e"></param>
         private void Button_Click(object sender, MouseButtonEventArgs e)
         {
             SurfaceWindow1 ParentWindow = (SurfaceWindow1)Window.GetWindow(this);
             TopLevelPage nextScreen;
 
-            String cont = (sender as RightButton).Caption;
+            String caption = (sender as RightButton).Caption;
             Color colour = (sender as RightButton).Colour;
 
-            Console.WriteLine("Button clocked - {0}", cont);
+            Console.WriteLine("Button clocked - {0}", caption);
             //Set next screen to add to the stack and it's contents depending on the button clicked
-            switch (cont)
+            switch (caption)
             {
                 case "About":
                     nextScreen = new TopLevelPage(ParentWindow, "About");
@@ -117,8 +120,7 @@ namespace P02Project
 
                 default:
                     //This should never happen.
-                    nextScreen = null;
-                    break;
+                    throw new System.ArgumentException("Button Target not defined. Button caption: " + caption, "sender");
             }
         }
 

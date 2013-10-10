@@ -15,7 +15,8 @@ using System.Windows.Shapes;
 namespace P02Project
 {
 	/// <summary>
-	/// Interaction logic for RightButton.xaml
+	/// This class is the UserControl for the buttons on the Right
+    /// The buttons can have a custom colour and caption
 	/// </summary>
 	public partial class RightButton : UserControl
 	{
@@ -32,7 +33,8 @@ namespace P02Project
 
 
         /// <summary>
-        /// get the text of the button
+        /// Gets or Sets the Caption of the buttons
+        /// The caption is the text on the button
         /// </summary>
         public string Caption
         {
@@ -43,7 +45,7 @@ namespace P02Project
 
 
         /// <summary>
-        /// get the color of the button
+        /// Gets or Sets the colour of the button
         /// </summary>
         public Color Colour
         {
@@ -54,7 +56,8 @@ namespace P02Project
 
 
         /// <summary>
-        /// make the shadow on the button
+        /// Sets the opacity of the shadow to 100%
+        /// Makes the shadow visible
         /// </summary>
         private void showShadow()
         {
@@ -64,7 +67,8 @@ namespace P02Project
 
 
         /// <summary>
-        /// hide shadow
+        /// Sets the opacity of the shadow to 0%
+        /// Makes the shadow invisible
         /// </summary>
         private void hideShadow()
         {
@@ -74,7 +78,8 @@ namespace P02Project
 
 
         /// <summary>
-        /// change the background of the buttn when the mouse pressed down
+        /// When the mouse is down, the shadow of the button is hidden to make
+        /// it look like the button is moving down
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -86,7 +91,8 @@ namespace P02Project
 
 
         /// <summary>
-        /// /// change the background of the buttn when the mouse pressed released
+        /// When the mouse if up, the shadow of the button is made visible to make 
+        /// the button look like it's moving up
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

@@ -28,8 +28,9 @@ namespace P02Project.Screens
         /// <summary>
         /// Constructor
         /// </summary>
-        /// <param name="parentWindow"></param>
-        /// <param name="title"></param>
+        /// <param name="parentWindow">This is access to the window that contains the stack. 
+        /// The buttons need to go through the stack</param>
+        /// <param name="title">Set title bar</param>
         public TopLevelPage(SurfaceWindow1 parentWindow, String title)
             : base(parentWindow)
         {
@@ -47,7 +48,7 @@ namespace P02Project.Screens
         /// <summary>
         /// Set the content part of the grid
         /// </summary>
-        /// <param name="control"></param>
+        /// <param name="control">Sets the inner child contents of the page</param>
         public void setContent(UIElement control)
         {
             //remove content from grid (if any) while leaving it on the stack
@@ -109,7 +110,8 @@ namespace P02Project.Screens
         /// <summary>
         /// set the right buttons
         /// </summary>
-        /// <param name="bNames"></param>
+        /// <param name="bNames">Array of buttons to go on the right side. 
+        /// This array should be of size 6 at all times</param>
         public void setButtons(String[] bNames)
         {
             //Set the names of the buttons
