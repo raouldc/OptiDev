@@ -37,18 +37,11 @@
             <ColumnDefinition x:Name="Col0" />
             <ColumnDefinition x:Name="Col1" Width="200"/>
         </Grid.ColumnDefinitions>
-        <Rectangle x:Name="lRect" Fill="#FFF4F4F5" Margin="0" Stroke="#00000000"/>
+        <Rectangle x:Name="lRect" Margin="0" Stroke="#00000000"/>
         <Button x:Name="Back" Content="Back" HorizontalAlignment="Left" Margin="8,8,0,8" Width="100" BorderThickness="0" Background="#FFED2121" OpacityMask="#FFE90C0C" Height="100" VerticalAlignment="Center" Click="Back_Click"/>
         <Button x:Name="CCF_Button" Content="" HorizontalAlignment="Left" Margin="125,8,0,8" Style="{DynamicResource CCF_Logo_Button}" Width="137" Height="104" VerticalAlignment="Center"/>
-        <Label x:Name="Title" Content="Page Title" Margin="300,0,0,0" FontSize="40" Foreground="White" VerticalAlignment="Center" FontFamily="Verdana"/>
-        <Label x:Name="SubTitle" Content="SubTitle" Margin="300,0,0,0" FontSize="29.333" Foreground="White" VerticalAlignment="Bottom" FontFamily="Verdana"/>
-        <Rectangle x:Name="rRect" Grid.Column="1" Margin="-2,0,0,0" Stroke="#00FDFDFD">
-            <Rectangle.Fill>
-                <LinearGradientBrush x:Name="rGrad" EndPoint="1,0.5" StartPoint="0,0.5">
-                    <GradientStop Offset="1" Color="#19FFFFFF"/>
-                    <GradientStop x:Name="rGradStop" Color="White"/>
-                </LinearGradientBrush>
-            </Rectangle.Fill>
-        </Rectangle>
+        <Label x:Name="Title" Content="Page Title" Margin="300,0,0,0" FontSize="40" Foreground="Red" VerticalAlignment="Center" FontFamily="Verdana" FontWeight="Bold" Background="#00000000"/>
+        <Label x:Name="SubTitle" Content="SubTitle" Margin="300,0,0,0" FontSize="29.333" Foreground="Red" VerticalAlignment="Bottom" FontFamily="Verdana"/>
+        <Rectangle x:Name="rRect" Grid.Column="1" Margin="-2,0,0,0" Stroke="#00FDFDFD"/>
     </Grid>
 </UserControl>

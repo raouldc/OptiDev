@@ -102,7 +102,7 @@ namespace P02Project.Screens
         /// <param name="col"></param>
         public void setTitleColour(Color col)
         {
-            TitleBar.setBackground(col);
+            TitleBar.setColour(col);
         }
 
 

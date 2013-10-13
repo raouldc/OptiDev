@@ -49,10 +49,12 @@ namespace P02Project
         /// set the background of the titlebar
         /// </summary>
         /// <param name="col"></param>
-        public void setBackground(Color col)
+        public void setColour(Color col)
         {
-            lRect.Fill = new SolidColorBrush(col);
-            rGradStop.Color = col;
+            //lRect.Fill = new SolidColorBrush(col);
+            //rGradStop.Color = col;
+            Title.Foreground = new SolidColorBrush(col);
+            SubTitle.Foreground = new SolidColorBrush(col);
         }
 
 
