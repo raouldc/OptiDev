@@ -1,13 +1,19 @@
-﻿<Application x:Class="P02Project.App"
+﻿<Application
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="P02Project.App"
     StartupUri="TopWindow.xaml"
     >
     <Application.Resources>
       <ResourceDictionary>
         <ResourceDictionary.MergedDictionaries>
-          <ResourceDictionary Source="/Microsoft.Surface.Presentation.Generic;v2.0.0.0;31bf3856ad364e35;component/themes\styles.xaml"/>
+        	<ResourceDictionary Source="/Microsoft.Surface.Presentation.Generic;v2.0.0.0;31bf3856ad364e35;component/themes\styles.xaml"/>
         </ResourceDictionary.MergedDictionaries>
+      	<ControlTemplate x:Key="BackButtonTemplate" TargetType="{x:Type Button}">
+      		<Grid>
+      			<TextBlock Margin="8,-19.5,-54.213,-7.75" TextWrapping="Wrap" FontSize="96"><Run Foreground="White" FontFamily="Segoe UI Symbol" Text=""/><LineBreak/><Run Text=""/></TextBlock>
+      		</Grid>
+      	</ControlTemplate>
       </ResourceDictionary>
     </Application.Resources>
 </Application>
