@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<!--Can store information regarding, text images, links-->
+
+<PageModel id ="FamilySupport-ParentResources">
+
+
+  <TextList>
+
+    <Text id="P1">
+      Child Cancer Foundation aims to provide up-to-date information for families. Below is a list of websites providing additional information, research documents and details about child cancer from around the world.
+    </Text>
+    <Text>
+      Kidscope
+      www.kidscope.org
+      An organization which has been formed to help families and children better understand the effects of cancer and chemotherapy.
+
+      CancerCare, Inc.
+      www.cancercareinc.org
+
+      Chemo Kids
+      http://www.chemo4kids.com/cancer-resources/
+      This site offers simplified information about chemotherapy and its use to treat cancer.
+
+      Candlelighters
+      www.candlelighters.org/
+      The Candlelighters mission is to educate, support, serve, and advocate for families of children with cancer, survivors of childhood cancer and professionals who care for them.
+
+      ACT
+      www.act.org.uk
+      The site of the Association for Children with life-threatening or terminal conditions and their families. This site is in the process of redevelopment and will include access to a web-based research journal called LitpaedpalLit.
+
+      International Confederation of Child Cancer Parent Organisations
+      www.icccpo.org
+
+      Action for Children and Youth in Aotearoa
+      www.acya.org.nz
+      This site has many excellent documents relating to areas of rights of children and youth.
+
+      Starbright
+      www.starbrightworld.org
+      Starbright World is an online social network where teens (ages 13 to 20) who have serious medical conditions, and siblings of seriously ill teens, can connect with each other via moderated chat rooms, games, bulletin boards, videos, and more.
+
+      CancerBACKUP
+      www.cancerbackup.org.uk
+      Contains very useful information.
+
+      Children's Cancer Fund of New York Medical College
+      www.childrenscancerfund.org
+      The site of the Children's Cancer Fund of New York Medical College, led by Dr. S. Jayabose, Chief of Pediatric Hematology-Oncology at New York Medical College.
+    </Text>
+  </TextList>
+
+
+  <ImageList>
+    <Image id="Bottom">images/MotherandChild.png</Image>
+  </ImageList>
+
+  <LinksList>
+  </LinksList>
+
+
+
+</PageModel>

@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<!--Can store information regarding, text images, links-->
+
+<PageModel id ="FamilySupport-Scholarships">
+
+
+  <TextList>
+
+    <Text id="P1">
+      The Child Cancer Foundation Scholarship Fund aims to assist children aged 0 to 12 years with cancer, their siblings aged 0 to 12 years, or parents, achieve their personal education and developmental goals. Any activity that has the potential to educationally or developmentally benefit the applicant will be considered.
+    </Text>
+    <Text id="P2">
+      The Scholarship sub-committee, which meets four times a year, receives and considers all applications. Allocations made depend on the funds available and are made according to the policy guidelines of the Child Cancer Foundation.
+    </Text>
+    <Text>
+      All application enquiries should be directed to your local Family Support Coordinator.
+
+      For administration support please contact:
+
+      Alison O'Connor  PHN (04) 389 2620 or email aoconnor@childcancer.org.nz
+    </Text>
+  </TextList>
+
+
+  <ImageList>
+    <Image id="Bottom">images/KidWithHat.png</Image>
+  </ImageList>
+
+  <LinksList>
+  </LinksList>
+
+
+
+</PageModel>

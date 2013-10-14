@@ -78,6 +78,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Screens\FSPage.xaml.cs">
+      <DependentUpon>FSPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Screens\hcihDonateControl.xaml.cs">
       <DependentUpon>hcihDonateControl.xaml</DependentUpon>
     </Compile>
@@ -123,6 +126,10 @@
       <DependentUpon>PageModel.cs</DependentUpon>
     </Compile>
     <Compile Include="Utils\xml\XMLUtilities.cs" />
+    <Page Include="Screens\FSPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Screens\hcihDonateControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -252,6 +259,7 @@
     <Resource Include="Resources\images\SmilingRelative.png" />
     <Resource Include="Resources\images\TigerFacePaint.png" />
     <Resource Include="Resources\images\TwoGirls.png" />
+    <Resource Include="Resources\images\KidWithHat.png" />
     <Content Include="Resources\xml\About.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>
@@ -272,7 +280,24 @@
     <Content Include="Resources\xml\About_OurStories.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Resource Include="Resources\xml\FamilySupport.xml" />
+    <Content Include="Resources\xml\FamilySupport.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\xml\FamilySupport_SupportServices.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\xml\FamilySupport_HolidayHomes.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\xml\FamilySupport_ParentResources.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\xml\FamilySupport_Scholarships.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\xml\FamilySupport_ContactList.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Resources\xml\Profiles\Amanda.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

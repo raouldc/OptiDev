@@ -157,7 +157,7 @@ namespace P02Project
         {
             // create a new subscreen and push it into the stack of subscreens
             TopLevelPage nextScreen = new TopLevelPage(ParentWindow, "Family Support");
-            ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("Family Support"), familySupport.colour, new FunkyGrid("xml/FamilySupport.xml"), "");
+            ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("Family Support"), familySupport.colour, new FSPage("xml/FamilySupport.xml"), "");
         }
 
 

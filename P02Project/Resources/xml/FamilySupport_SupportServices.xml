@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<!--Can store information regarding, text images, links-->
+
+<PageModel id ="FamilySupport-SupportServices">
+
+
+  <TextList>
+
+    <Text id="P1">
+      Our Family Support team work in conjunction with the foundation’s branch members (parents, caregivers, and volunteers) to deliver a range of support services to ensure every child and their family walking the child cancer journey will never feel alone.
+    </Text>
+    
+    <Text>
+      Our Family Support Coordinators provide support to children and their families in hospital, at home, and in the community. They offer individual and group support, information, financial assistance, and advocacy. Our Coordinators also offer support for bereaved families. They connect similar families and provide a link to other agencies and community support groups.
+
+      We offer children with cancer the Beads of Courage®, a registered, therapeutic programme of the Child Cancer Foundation. The programme provides a physical story of a child’s journey recognising their strength and courage during cancer treatments and procedures. Each bead represents a treatment (for example chemotherapy, injections, scans); an experience (hair loss, isolation, fever) or milestone (completion of treatment). The Sibling
+      Beads Programme offers special siblings the opportunity to earn beads by displaying positive behaviour and helpful attitudes to assist their family.
+
+      Our 22 voluntary branches comprised of parents, caregivers, and volunteers nationwide host regular social activities to connect families. Parent volunteers offer mutual support and shared experiences.
+
+      Families are informed and linked nationwide by receiving the “Sharing Magazine,” a publication produced by the foundation three times annually. Families can also access our Family Places (Auckland, Wellington, Christchurch and Dunedin) – day centres where local children and their families, as well as those away from their home towns for treatment, can relax and source information and support from our Coordinators. Our holiday homes (Taupo and Arrowtown) offer families quality time together away from the stressors of the treatment journey or to celebrate a milestone.
+
+      We offer a Scholarship Programme to assist children with cancer, their siblings, and parents to reach their potential and not be disadvantaged by their cancer journey.
+    </Text>
+  </TextList>
+
+
+  <ImageList>
+    <Image id="Bottom">images/Beads1.png</Image>
+  </ImageList>
+
+  <LinksList>
+  </LinksList>
+
+
+
+</PageModel>
