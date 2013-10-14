@@ -29,15 +29,18 @@ namespace P02Project
         private readonly int MAXCOLS = 6;
         private readonly int MAXROWS = 2;
 
+        private bool isFunky;
+
 
 
         /// <summary>
         /// constructor
         /// </summary>
         /// <param name="Xpath"></param>
-        public GridView(String Xpath, bool isFunky)
+        public GridView(String Xpath, bool isF)
         {
             this.InitializeComponent();
+            isFunky = isF;
             /*first we need to bind the xml and create a grid Layout for that*/
             //dummy data
             String path = System.IO.Path.Combine(System.IO.Path.GetFullPath("."),"Resources/"+ Xpath);
@@ -61,7 +64,7 @@ namespace P02Project
             }
             int cos = numberOfCols;
             int ros = numberOfRows;
-            if ((numberOfCols > MAXCOLS) || (numberOfRows > MAXROWS))
+            if (!isFunky && ((numberOfCols > MAXCOLS) || (numberOfRows > MAXROWS)))
             {
                 throw new Exception("There are too many rows or columns");
             }
@@ -108,6 +111,8 @@ namespace P02Project
                     Grid.SetRow(p, 1);
                     Grid.SetColumnSpan(p, 2);
                     Grid.SetRowSpan(p, 2);
+                    g.Children.Add(p);
+                    continue;
                 }
                 else
                 {
@@ -123,9 +128,13 @@ namespace P02Project
                     Grid.SetColumnSpan(p, 2);
                     colNum++;
                 }
+                if (isFunky)
+                {
+                    Grid.SetRowSpan(p, 2);
+                }
                 g.Children.Add(p);
 
-                colNum = isFunky ? colNum + 2 : colNum + 1;
+                colNum = isFunky ? colNum + 3 : colNum + 1;
             }
 
             mainGrid.Children.Add(g);
@@ -148,12 +157,31 @@ namespace P02Project
                 objParent = (FrameworkElement)objParent.Parent;
             }
             TopLevelPage levelpage = (TopLevelPage)objParent;
-            String fullname = (sender as PoloroidControl).text;
-            String firstName = fullname.Split(' ')[0];
-
+            String fulltext = (sender as PoloroidControl).text;
+            String filename;
+            if (isFunky)
+            {
+                filename = fulltext.Replace(" ", "");
+            }
+            else
+            {
+                filename = fulltext.Split(' ')[0];
+            }
             // set the content and the subtitle
-            levelpage.setContent(new SplitGridView("xml/Profiles/" + firstName + ".xml"));
-            levelpage.setSubtitle(levelpage.getSubtitle() + ": " + firstName);
+            String pathTemp;
+
+            if (isFunky)
+            {
+                pathTemp = "xml/" + filename + ".xml";
+                levelpage.setContent(new GridView(pathTemp, false));
+            }
+            else
+            {
+                pathTemp = "xml/Profiles/" + filename + ".xml";
+                levelpage.setContent(new SplitGridView(pathTemp));
+            }
+            
+            levelpage.setSubtitle(levelpage.getSubtitle() + ": " + filename);
 
 
         }
