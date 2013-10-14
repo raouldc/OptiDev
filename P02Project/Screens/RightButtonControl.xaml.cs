@@ -84,7 +84,7 @@ namespace P02Project
             {
                 case "About":
                     nextScreen = new TopLevelPage(ParentWindow, "About");
-                    ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("About"), colour, new FunkyGrid("xml/About.xml"), "");
+                    ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("About"), colour, new GridView("xml/About.xml",true), "");
                     break;
 
                 case "News":
