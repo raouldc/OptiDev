@@ -35,22 +35,30 @@ namespace P02Project
         /// constructor
         /// </summary>
         /// <param name="Xpath"></param>
-        public GridView(String Xpath)
+        public GridView(String Xpath, bool isFunky)
         {
             this.InitializeComponent();
             /*first we need to bind the xml and create a grid Layout for that*/
             //dummy data
             String path = System.IO.Path.Combine(System.IO.Path.GetFullPath("."), Xpath);
-            
-            PageModelImage[] temp = XMLUtilities.GetContentFromFile(path).ImageList;
-           
-            numberOfItems  = temp.Count();
 
-            if (numberOfItems >= 4)
+            PageModelImage[] temp = XMLUtilities.GetContentFromFile(path).ImageList;
+
+            numberOfItems = temp.Count();
+
+            if (isFunky && numberOfItems == 5)
             {
-                numberOfRows++;
+                numberOfRows = 4;
+                numberOfCols = 4;
             }
-            numberOfCols = (int)Math.Ceiling((double)numberOfItems / (double)numberOfRows);
+            else
+            {
+                if (numberOfItems >= 4)
+                {
+                    numberOfRows++;
+                }
+                numberOfCols = (int)Math.Ceiling((double)numberOfItems / (double)numberOfRows);
+            }
             int cos = numberOfCols;
             int ros = numberOfRows;
             if ((numberOfCols > MAXCOLS) || (numberOfRows > MAXROWS))
@@ -83,7 +91,7 @@ namespace P02Project
             {
                 if (colNum >= numberOfCols)
                 {
-                    rowNum++;
+                    rowNum = isFunky ? rowNum + 2 : rowNum + 1;
                     colNum = 0;
                 }
                 PoloroidControl p = new PoloroidControl();
@@ -93,22 +101,33 @@ namespace P02Project
                 p.Margin = new Thickness(30);
                 p.RenderTransform = new RotateTransform(rotation);
                 rotation = rotation * -1;
-                p.MouseUp+=new MouseButtonEventHandler(Polaroid_MouseUp);
-                Grid.SetColumn(p, colNum);
-                Grid.SetRow(p, rowNum);
+                p.MouseUp += new MouseButtonEventHandler(Polaroid_MouseUp);
+                if (i == 3)
+                {
+                    Grid.SetColumn(p, 1);
+                    Grid.SetRow(p, 1);
+                    Grid.SetColumnSpan(p, 2);
+                    Grid.SetRowSpan(p, 2);
+                }
+                else
+                {
+                    Grid.SetColumn(p, colNum);
+                    Grid.SetRow(p, rowNum);
+                }
 
                 /*if there are an add number of things, we must span the last picture in the firstRow for 2 columns */
                 //if we are in the second last row and first column
-                if ((colNum == numberOfCols - 2) && (rowNum == 0) && ((numberOfItems % 2) == 1))
+                if (!isFunky && (colNum == numberOfCols - 2) && (rowNum == 0) && ((numberOfItems % 2) == 1))
                 {
                     //make the picture span 2 columns
                     Grid.SetColumnSpan(p, 2);
                     colNum++;
                 }
                 g.Children.Add(p);
-                colNum++;
+
+                colNum = isFunky ? colNum + 2 : colNum + 1;
             }
-            
+
             mainGrid.Children.Add(g);
             UpdateLayout();
         }
@@ -129,11 +148,11 @@ namespace P02Project
                 objParent = (FrameworkElement)objParent.Parent;
             }
             TopLevelPage levelpage = (TopLevelPage)objParent;
-            String fullname = (sender as PoloroidControl).text ;
+            String fullname = (sender as PoloroidControl).text;
             String firstName = fullname.Split(' ')[0];
 
             // set the content and the subtitle
-            levelpage.setContent(new SplitGridView("xml/Profiles/"+firstName+".xml"));
+            levelpage.setContent(new SplitGridView("xml/Profiles/" + firstName + ".xml"));
             levelpage.setSubtitle(levelpage.getSubtitle() + ": " + firstName);
 
 
