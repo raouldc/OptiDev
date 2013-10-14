@@ -10,8 +10,12 @@
         	<ResourceDictionary Source="/Microsoft.Surface.Presentation.Generic;v2.0.0.0;31bf3856ad364e35;component/themes\styles.xaml"/>
         </ResourceDictionary.MergedDictionaries>
       	<ControlTemplate x:Key="BackButtonTemplate" TargetType="{x:Type Button}">
-      		<Grid>
-      			<TextBlock Margin="8,-19.5,-54.213,-7.75" TextWrapping="Wrap" FontSize="96"><Run Foreground="White" FontFamily="Segoe UI Symbol" Text=""/><LineBreak/><Run Text=""/></TextBlock>
+      		<Grid Margin="0,0,18,68">
+      			<Grid.ColumnDefinitions>
+      				<ColumnDefinition Width="0.713*"/>
+      				<ColumnDefinition Width="0.287*"/>
+      			</Grid.ColumnDefinitions>
+      			<TextBlock Margin="-1,0,1,-16" TextWrapping="Wrap" FontSize="96" Grid.ColumnSpan="2" VerticalAlignment="Bottom" Foreground="Red"><Run FontFamily="Segoe UI Symbol" Text=""/></TextBlock>
       		</Grid>
       	</ControlTemplate>
       </ResourceDictionary>
