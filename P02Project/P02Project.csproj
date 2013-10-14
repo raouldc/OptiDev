@@ -250,20 +250,20 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="Resources\xml\About_AboutUs.xml">
+    <Content Include="Resources\xml\AboutUs.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\xml\About_HowWeHelp.xml">
+    <Content Include="Resources\xml\HowWeHelp.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\xml\About_OurAmbassadors.xml">
+    <Content Include="Resources\xml\OurAmbassadors.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="Resources\xml\About_OurHistory.xml">
+    <Content Include="Resources\xml\OurHistory.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\xml\About_OurStories.xml">
+    <Content Include="Resources\xml\OurStories.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\xml\Profiles\Amanda.xml">
