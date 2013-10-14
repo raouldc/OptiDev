@@ -40,7 +40,7 @@ namespace P02Project
             this.InitializeComponent();
             /*first we need to bind the xml and create a grid Layout for that*/
             //dummy data
-            String path = System.IO.Path.Combine(System.IO.Path.GetFullPath("."), Xpath);
+            String path = System.IO.Path.Combine(System.IO.Path.GetFullPath("."),"Resources/"+ Xpath);
 
             PageModelImage[] temp = XMLUtilities.GetContentFromFile(path).ImageList;
 
