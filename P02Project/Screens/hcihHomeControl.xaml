@@ -10,7 +10,7 @@
 	d:DesignWidth="1630" d:DesignHeight="900" Width="1630" Height="900">
 
     <Grid x:Name="LayoutRoot">
-        <Grid Margin="0">
+        <Grid Margin="8,0,-8,0">
 
             <!-- set the polaroid photos-->
             <view:PoloroidControl x:Name="donate" HorizontalAlignment="Center" VerticalAlignment="Center" Width="330" Height="316" RenderTransformOrigin="0.5,0.5" MouseUp="donate_MouseUp">
@@ -22,6 +22,16 @@
                         <TranslateTransform/>
                     </TransformGroup>
                 </view:PoloroidControl.RenderTransform>
+            </view:PoloroidControl>
+            <view:PoloroidControl x:Name="beadsOfCourage" HorizontalAlignment="Left" Height="376.699" Margin="43.779,28.719,0,0" VerticalAlignment="Top" Width="361.035" RenderTransformOrigin="0.5,0.5" MouseUp="beadsOfCourage_MouseUp">
+            	<view:PoloroidControl.RenderTransform>
+            		<TransformGroup>
+            			<ScaleTransform/>
+            			<SkewTransform/>
+            			<RotateTransform Angle="-6.612"/>
+            			<TranslateTransform/>
+            		</TransformGroup>
+            	</view:PoloroidControl.RenderTransform>
             </view:PoloroidControl>
         </Grid>
     </Grid>

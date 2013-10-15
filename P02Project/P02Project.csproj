@@ -78,6 +78,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Screens\hcihBeads.xaml.cs">
+      <DependentUpon>hcihBeads.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Screens\hcihDonateControl.xaml.cs">
       <DependentUpon>hcihDonateControl.xaml</DependentUpon>
     </Compile>
@@ -123,6 +126,10 @@
       <DependentUpon>PageModel.cs</DependentUpon>
     </Compile>
     <Compile Include="Utils\xml\XMLUtilities.cs" />
+    <Page Include="Screens\hcihBeads.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Screens\hcihDonateControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -246,6 +253,7 @@
     <Resource Include="Resources\images\Stories\Kavahn.png" />
     <Resource Include="Resources\images\Stories\Kavahn2.png" />
     <Resource Include="Resources\images\Stories\Manu.png" />
+    <Resource Include="Resources\images\HowCanIHelp\beads.png" />
     <Content Include="Resources\xml\About.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>

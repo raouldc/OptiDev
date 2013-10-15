@@ -26,9 +26,15 @@ namespace P02Project
             this.InitializeComponent();
 
             topLevelPage = tlpage;
+            Color colour = Util._pageColDict["How Can I Help?"];
+
             donate.setImage("donate.png");
             donate.setCaption("Donate");
-            donate.setColour(Util._pageColDict["How Can I Help?"]);
+            donate.setColour(colour);
+
+            beadsOfCourage.setImage("images\\HowCanIHelp\\beads.png");
+            beadsOfCourage.setCaption("Beads of Courage");
+            beadsOfCourage.setColour(colour);
         }
 
 
@@ -44,6 +50,12 @@ namespace P02Project
             topLevelPage.setContent(new hcihDonateControl());
             topLevelPage.setSubtitle("Donate");
 
+        }
+
+        private void beadsOfCourage_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            topLevelPage.setContent(new hcihBeads());
+            topLevelPage.setSubtitle("Beads of Courage");
         }
     }
 }
