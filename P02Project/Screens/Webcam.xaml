@@ -11,6 +11,7 @@
     
 	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:Custom="http://schemas.microsoft.com/surface/2008"
 	mc:Ignorable="d"
 	x:Class="P02Project.Webcam"
 	x:Name="UserControl"
@@ -29,43 +30,43 @@
             <Setter Property="Margin" Value="6" />
         </Style>
 
-        <Style x:Key="SelectedImage" TargetType="Border">
-            <Setter Property="Padding" Value="4" />
-            <Setter Property="Background" Value="White" />
-            <Setter Property="BorderThickness" Value="1" />
-            <Setter Property="BorderBrush" Value="Black" />
+        <Style x:Key="SelectedImage" TargetType="{x:Type Border}">
 
-            <Setter Property="Image.Margin" Value="4" />
         </Style>
+        
+        
 
-        <Style x:Key="SelectedImagesPanel" TargetType="ItemsControl">
+        <Style x:Key="SelectedImagesPanel" TargetType="{x:Type ItemsControl}">
             <Setter Property="atp:AnimatingTilePanel.ItemHeight" Value="98" />
             <Setter Property="atp:AnimatingTilePanel.ItemWidth" Value="120" />
-            <Setter Property="ItemsControl.ItemsPanel">
+            <Setter Property="ItemsPanel">
                 <Setter.Value>
                     <ItemsPanelTemplate>
                         <atp:AnimatingTilePanel AnimatesNewItem="true" Attraction="2.0" Dampening="0.20" Variation="1.00" />
                     </ItemsPanelTemplate>
                 </Setter.Value>
             </Setter>
-            <Setter Property="ItemsControl.ItemTemplate">
+  
+            <Setter Property="ItemTemplate">
                 <Setter.Value>
                     <DataTemplate>
                         <dropshadow:SystemDropShadowChrome Style="{StaticResource SelectedImageShadow}">
                             <Border Style="{StaticResource SelectedImage}">
+                                <Button Click="selectedImageClicked">
                                 <Image Source="{Binding}">
                                     <Image.ContextMenu>
                                         <ContextMenu>
                                             <!-- Remove Image-->
                                             <MenuItem Command="localinput:CaptureImageCommands.RemoveImage" CommandParameter="{Binding}" 
-                                              Header="{Binding RelativeSource={RelativeSource Self}, Path=Command.Text}" />
+                                              Header="{Binding Command.Text, RelativeSource={RelativeSource Self}}" />
                                             <Separator />
                                             <!-- Clear All Images -->
                                             <MenuItem Command="localinput:CaptureImageCommands.ClearAllImages" 
-                                              Header="{Binding RelativeSource={RelativeSource Self}, Path=Command.Text}" />
+                                              Header="{Binding Command.Text, RelativeSource={RelativeSource Self}}" />
                                         </ContextMenu>
                                     </Image.ContextMenu>
                                 </Image>
+                                </Button>
                             </Border>
                         </dropshadow:SystemDropShadowChrome>
                     </DataTemplate>
@@ -75,62 +76,72 @@
     </UserControl.Resources>
     
     
-    <Grid>
-        <!-- Column definitions -->
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="* " />
+	<Grid>
+		<!-- Column definitions -->
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="* " />
 			<ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
+		</Grid.ColumnDefinitions>
 
-        <!-- Actual content - webcam selection & preview -->
-        <Grid Grid.Column="0" Margin="52,62,97,422.5" HorizontalAlignment="Stretch" Width="Auto">
-            <!-- Row definitions -->
+		<!-- Actual content - webcam selection & preview -->
+		<Grid Grid.Column="0" Margin="52,62,97,422.5" HorizontalAlignment="Stretch" Width="Auto">
+			<!-- Row definitions -->
 
 
-            <!-- Heading -->
-            <TextBox Grid.Row="0" Text="Webcam" HorizontalAlignment="Left" Margin="-1,0,0,0" Width="214" FontSize="40" FontFamily="Andy" VerticalAlignment="Top" Background="White" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" />
+			<!-- Heading -->
+			<TextBox Grid.Row="0" Text="Webcam" HorizontalAlignment="Left" Margin="-1,0,0,0" Width="214" FontSize="40" FontFamily="Andy" VerticalAlignment="Top" Background="White" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" />
 
 			<TextBox Grid.Row="0" Text="Select a webcam:" Margin="230,41.106,222,0" FontSize="24" FontFamily="Andy" VerticalAlignment="Top" Background="White" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" />
-            <!-- Select webcam combobox -->
-            <ComboBox x:Name="webcamComboBox" ItemsSource="{x:Static webcam:CapDevice.DeviceMonikers}"
-                  DisplayMemberPath="Name" SelectedValuePath="MonikerString"
-                  SelectedValue="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:Webcam}}, Path=SelectedWebcamMonikerString}"
-                  Style="{StaticResource DefaultComboBox}" Margin="0,44.976,1,0" Height="35.024" VerticalAlignment="Top" d:LayoutOverrides="GridBox" HorizontalAlignment="Right" Width="272.5" FontSize="21.333" FontFamily="Andy"/>
+			<!-- Select webcam combobox -->
+			<ComboBox x:Name="webcamComboBox" ItemsSource="{x:Static webcam:CapDevice.DeviceMonikers}"
+				DisplayMemberPath="Name" SelectedValuePath="MonikerString"
+				SelectedValue="{Binding SelectedWebcamMonikerString, RelativeSource={RelativeSource AncestorType={x:Type local:Webcam}}}"
+				Style="{StaticResource DefaultComboBox}" Margin="0,44.976,1,0" Height="35.024" VerticalAlignment="Top" d:LayoutOverrides="GridBox" HorizontalAlignment="Right" Width="272.5" FontSize="21.333" FontFamily="Andy"/>
 
-            <!-- Webcamp preview -->
-            <webcam:CapPlayer x:Name="webcamPlayer" Stretch="Fill" 
-                              Rotation="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:Webcam}}, Path=WebcamRotation}"
-                              Device="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:Webcam}}, Path=SelectedWebcam}"
-                              Style="{StaticResource DefaultCapPlayer}" Margin="0,94.5,0,0" d:LayoutOverrides="VerticalAlignment"/>
+			<!-- Webcamp preview -->
+			<webcam:CapPlayer x:Name="webcamPlayer" Stretch="Fill" 
+				Rotation="{Binding WebcamRotation, RelativeSource={RelativeSource AncestorType={x:Type local:Webcam}}}"
+				Device="{Binding SelectedWebcam, RelativeSource={RelativeSource AncestorType={x:Type local:Webcam}}}"
+				Style="{StaticResource DefaultCapPlayer}" Margin="0,94.5,0,0" d:LayoutOverrides="VerticalAlignment"/>
 
-            <!-- Take picture button -->
-            <Button Name="captureImageNowButton" Command="localinput:CaptureImageCommands.CaptureImage"
-                    ToolTip="{Binding RelativeSource={RelativeSource Self}, Path=Command.Text}"
-                    Style="{StaticResource RightAlignedImageButton}" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="64.667" Width="64.666" Margin="0,0,0,0">
-                <Image Source="/Resources/CaptureImageNow.png" />
-            </Button>
+			<!-- Take picture button -->
+			<Button x:Name="captureImageNowButton" Command="localinput:CaptureImageCommands.CaptureImage"
+				ToolTip="{Binding Command.Text, RelativeSource={RelativeSource Self}}"
+				Style="{StaticResource RightAlignedImageButton}" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="64.667" Width="64.666" Margin="0,0,0,0">
+				<Image Source="/Resources/CaptureImageNow.png" />
+			</Button>
 
            
-        </Grid>
+		</Grid>
 
-        <!-- Actual content - selected images -->
-        <Grid Margin="52,0,97,9" Height="372" VerticalAlignment="Bottom">
-            <!-- Row definitions -->
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition />
-            </Grid.RowDefinitions>
+		<!-- Actual content - selected images -->
+		<Grid Margin="52,0,97,9" Height="372" VerticalAlignment="Bottom">
+			<!-- Row definitions -->
+			<Grid.RowDefinitions>
+				<RowDefinition Height="Auto" />
+				<RowDefinition />
+			</Grid.RowDefinitions>
 
-            <!-- Heading -->
-            <TextBox Grid.Row="0" Text="Select an image to tweet" FontSize="40" FontFamily="Andy" Background="White" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" />
+			<!-- Heading -->
+			<TextBox Grid.Row="0" Text="Select an image to tweet" FontSize="40" FontFamily="Andy" Background="White" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" />
 
-            <!-- Selected images -->
-            <ItemsControl Grid.Row="1" Focusable="false"
-                          ItemsSource="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:Webcam}}, Path=SelectedImages}"
-                          Style="{StaticResource SelectedImagesPanel}" Background="#FFAB7777" />
-        </Grid>
+			<!-- Selected images -->
+			<ItemsControl Grid.Row="1" Focusable="false"
+				ItemsSource="{Binding SelectedImages, RelativeSource={RelativeSource AncestorType={x:Type local:Webcam}}}"
+				Style="{StaticResource SelectedImagesPanel}" Background="#FFAB7777" />
+		</Grid>
+		
+		<Image Grid.Column="1" x:Name="_SelectedImg" Margin="33,62,48,234" Source="/P02Project;component/Resources/beads.png" Stretch="Fill" OpacityMask="Black"/>
+        <Border BorderBrush="Black" BorderThickness="3,3,5,5" Grid.Column="1" Margin="29,62,48,234"/>
+		
+		
+		<Custom:SurfaceTextBox Grid.Column="1" x:Name="_tweetTxt" Height="106" Margin="33,0,48,93" TextWrapping="Wrap" Text="Compose new Tweet..." VerticalAlignment="Bottom" FontFamily="Andy" FontSize="26.667" Foreground="#CC000000" Background="#E6FFFFFF" BorderBrush="#33000000" BorderThickness="3"
+				/>
+				
+		<Button x:Name="_tweetBtn" Content="Tweet" Grid.Column="1" Margin="0,0,48,9" Height="58" VerticalAlignment="Bottom" FontFamily="Andy" FontSize="40" HorizontalAlignment="Right" Width="227" />
+		
         
-    </Grid>
+	</Grid>
 	
 	
 </UserControl>

@@ -41,6 +41,7 @@ namespace P02Project
 	{
 
         #region Variables
+        private readonly int NUMB_LIMIT_PHOTOS = 15;
         private int numb = 0;
         private readonly String MYDOC_PATH = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
         #endregion
@@ -86,20 +87,20 @@ namespace P02Project
             //// Store current image in the webcam
             BitmapSource bitmap = webcamPlayer.CurrentBitmap;
 
-            FileStream stream = new FileStream(MYDOC_PATH + "\\test"+numb+".jpg", FileMode.Create);
-            JpegBitmapEncoder encoder = new JpegBitmapEncoder();
-            //TiffBitmapEncoder encoder = new TiffBitmapEncoder();
-            TextBlock myTextBlock = new TextBlock();
-            myTextBlock.Text = "Codec Author is: " + encoder.CodecInfo.Author.ToString();
-            encoder.Frames.Add(BitmapFrame.Create(bitmap));
-           // MessageBox.Show(myPalette.Colors.Count.ToString());
-            encoder.Save(stream);
-            stream.Close();
-            numb++;
-
             if (bitmap != null)
             {
+                if (SelectedImages.Count >= NUMB_LIMIT_PHOTOS)
+                {
+                    SelectedImages.RemoveAt(0);
+                }
                 SelectedImages.Add(bitmap);
+                
+          //      String filename = MYDOC_PATH + "\\test" + numb + ".jpg";
+
+            //    writeThisImageTo(bitmap, filename);
+
+                _SelectedImg.Source = bitmap;
+
             }
         }
 
@@ -209,6 +210,36 @@ namespace P02Project
                 // Now set the moniker string
                 typedSender.SelectedWebcam.MonikerString = newMonikerString;
             }
+        }
+
+
+        /// <summary>
+        /// A helper method that write a given image to a given filename
+        /// </summary>
+        /// <param name="bitmap"></param>
+        private void writeThisImageTo(BitmapSource bitmap, String filename)
+        {
+            // open a stream
+            FileStream stream = new FileStream(filename, FileMode.Create);
+            // create an encoder
+            JpegBitmapEncoder encoder = new JpegBitmapEncoder();
+            TextBlock myTextBlock = new TextBlock();
+            myTextBlock.Text = "Codec Author is: " + encoder.CodecInfo.Author.ToString();
+            // add the bitmap to the frame
+            encoder.Frames.Add(BitmapFrame.Create(bitmap));
+            encoder.Save(stream);
+            // close the stream
+            stream.Close();
+        }
+
+        private void selectedImageClicked(Object sender, RoutedEventArgs e)
+        {
+            
+            Button btn = (Button)sender;
+            Console.Out.WriteLine("helloworld");
+            BitmapSource bitmap = ((Image)btn.Content).Source as BitmapSource;
+
+            _SelectedImg.Source = bitmap;
         }
         #endregion
     }
