@@ -15,6 +15,7 @@ using Microsoft.Surface.Presentation;
 using Microsoft.Surface.Presentation.Controls;
 using Microsoft.Surface.Presentation.Input;
 using System.Windows.Media.Animation;
+using P02Project.Resources.xml;
 using P02Project.Screens;
 
 namespace P02Project
@@ -87,7 +88,8 @@ namespace P02Project
         {
             // create a new subscreen and push it into the stack of subscreens
             TopLevelPage nextScreen = new TopLevelPage(ParentWindow, "About");
-            ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("About"), about.colour, new GridView("xml/About.xml",true), "");
+            String path = System.IO.Path.Combine(System.IO.Path.GetFullPath("."), "Resources/xml/About.xml");
+            ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("About"), about.colour, new GridView(XMLUtilities.GetContentFromFile(path)), "");
         }
 
 
