@@ -29,25 +29,32 @@ namespace P02Project
         private readonly int MAXCOLS = 6;
         private readonly int MAXROWS = 2;
 
-        private bool isFunky;
+        private bool isFunky = false;
 
+
+        private PageModelImage[] _pageModelArray;
 
 
         /// <summary>
-        /// constructor
+        /// Initializes a new instance of the <see cref="GridView"/> class.
         /// </summary>
-        /// <param name="Xpath"></param>
-        public GridView(String Xpath, bool isF)
+        /// <param name="_pageModelArray">The page model array.</param>
+        /// <param name="isF">if set to <c>true</c> [is f].</param>
+        /// <exception cref="System.Exception">There are too many rows or columns</exception>
+        public GridView(PageModel pageModelArray)
         {
             this.InitializeComponent();
-            isFunky = isF;
+
+
+            isFunky = pageModelArray.pageType.ToLower().Equals("funkygridview")?true:false;
+            PageModelImage[] _pageModelImageArray = pageModelArray.ImageList;
             /*first we need to bind the xml and create a grid Layout for that*/
             //dummy data
-            String path = System.IO.Path.Combine(System.IO.Path.GetFullPath("."),"Resources/"+ Xpath);
+            //String path = System.IO.Path.Combine(System.IO.Path.GetFullPath("."),"Resources/"+ Xpath);
 
-            PageModelImage[] temp = XMLUtilities.GetContentFromFile(path).ImageList;
+            //_pageModelArray = XMLUtilities.GetContentFromFile(path).ImageList;
 
-            numberOfItems = temp.Count();
+            numberOfItems = _pageModelImageArray.Count();
 
             if (isFunky && numberOfItems == 5)
             {
@@ -98,8 +105,8 @@ namespace P02Project
                     colNum = 0;
                 }
                 PoloroidControl p = new PoloroidControl();
-                p.setCaption(temp[i].caption);
-                p.setImage(temp[i].Value);
+                p.setCaption(_pageModelImageArray[i].caption);
+                p.setImage(_pageModelImageArray[i].Value);
                 p.setColour(Util._pageColDict["About"]);
                 p.Margin = new Thickness(30);
                 p.RenderTransform = new RotateTransform(rotation);
