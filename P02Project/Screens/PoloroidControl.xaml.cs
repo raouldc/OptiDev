@@ -14,18 +14,22 @@ using System.Windows.Shapes;
 
 namespace P02Project
 {
-	/// <summary>
-	/// Interaction logic for PoloroidControl.xaml
-	/// </summary>
-	public partial class PoloroidControl : UserControl
-	{
+    /// <summary>
+    /// Interaction logic for PoloroidControl.xaml
+    /// </summary>
+    public partial class PoloroidControl : UserControl
+    {
         /// <summary>
         /// Constructor
         /// </summary>
-		public PoloroidControl()
-		{
-			this.InitializeComponent();
-		}
+        /// <value><c>true</c> if this instance is unclickable; otherwise, <c>false</c>.</value>
+
+        public bool IsUnclickable { private get; set; }
+
+        public PoloroidControl()
+        {
+            this.InitializeComponent();
+        }
 
 
 
@@ -101,8 +105,10 @@ namespace P02Project
         /// <summary>
         /// getter method for the polaroid color
         /// </summary>
-        public Color colour{
-            get {
+        public Color colour
+        {
+            get
+            {
                 return (Caption.Background as SolidColorBrush).Color;
             }
         }
@@ -132,14 +138,18 @@ namespace P02Project
         }
 
 
-        
+
         /// <summary>
         /// a helper method for animate the shadow when the polaroid is clicked or touched
         /// </summary>
         private void hideShadow()
         {
-            ((DropShadowEffect)Canvas.Effect).Opacity = 0;
+            if (!IsUnclickable)
+            {
+                ((DropShadowEffect)Canvas.Effect).Opacity = 0;
+            }
         }
+
 
 
 
@@ -148,7 +158,12 @@ namespace P02Project
         /// </summary>
         private void showShadow()
         {
-            ((DropShadowEffect)Canvas.Effect).Opacity = 1;
+            if (!IsUnclickable)
+            {
+                ((
+                DropShadowEffect)Canvas.Effect).Opacity = 1;
+            }
+
         }
 
 
@@ -173,6 +188,6 @@ namespace P02Project
         {
             showShadow();
         }
-	}
+    }
 
 }
