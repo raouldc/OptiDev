@@ -78,6 +78,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DataFetcher\DataItem.cs" />
     <Compile Include="Screens\hcihDonateControl.xaml.cs">
       <DependentUpon>hcihDonateControl.xaml</DependentUpon>
     </Compile>
@@ -89,6 +90,9 @@
     </Compile>
     <Compile Include="Screens\GridView.xaml.cs">
       <DependentUpon>GridView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\PoloroidWithText.xaml.cs">
+      <DependentUpon>PoloroidWithText.xaml</DependentUpon>
     </Compile>
     <Compile Include="Screens\RightButton.xaml.cs">
       <DependentUpon>RightButton.xaml</DependentUpon>
@@ -134,6 +138,10 @@
     <Page Include="Screens\GridView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Screens\PoloroidWithText.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Screens\RightButton.xaml">
       <Generator>MSBuild:Compile</Generator>

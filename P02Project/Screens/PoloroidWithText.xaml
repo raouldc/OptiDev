@@ -3,9 +3,17 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             mc:Ignorable="d" Width="393" Height="322">
-    <Grid>
-    	<Rectangle x:Name="Canvas" Stroke="Black" d:LayoutOverrides="Height" HorizontalAlignment="Left" Width="393">
+             mc:Ignorable="d">
+    <Grid HorizontalAlignment="Center" Margin="0">
+    	<Grid.RowDefinitions>
+    		<RowDefinition Height="0.7*"/>
+    		<RowDefinition Height="0.3*" />
+        </Grid.RowDefinitions>
+    	<Grid.ColumnDefinitions>
+    		<ColumnDefinition Width="Auto"/>
+    		<ColumnDefinition Width="Auto"/>
+    	</Grid.ColumnDefinitions>
+    	<Rectangle x:Name="Canvas" Stroke="Black" Width="393" Grid.RowSpan="2" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
     		<Rectangle.Fill>
     			<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
     				<GradientStop Color="White" Offset="0"/>
@@ -16,11 +24,13 @@
     			<DropShadowEffect BlurRadius="20" ShadowDepth="8"/>
     		</Rectangle.Effect>
     	</Rectangle>
-    	<Image x:Name="Image" Stretch="Fill" Margin="21,20,124,133"/>
-    	<TextBlock x:Name="Title" Foreground="Black" HorizontalAlignment="Right" Margin="0,20,12,0" TextWrapping="Wrap" Width="106" FontSize="20" Height="Auto" VerticalAlignment="Top"><Run Language="en-nz" Text="Title"/></TextBlock>
-        <TextBlock x:Name="Date" Foreground="Black" HorizontalAlignment="Right" Height="19" Margin="0,67,12,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="106"><Run Language="en-nz" Text="Date"/></TextBlock>
-        <TextBlock x:Name="Place" Foreground="Black" HorizontalAlignment="Right" Height="20" Margin="0,92,12,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="106"><Run Language="en-nz" Text="Place"/></TextBlock>
-        <TextBlock x:Name="Description" Foreground="Black" Height="109" Margin="21,0,-65,20" TextWrapping="Wrap" VerticalAlignment="Bottom"><Run Language="en-nz" Text="Description"/></TextBlock>
+    	<Image x:Name="Image" Stretch="Fill" />
+        <TextBlock x:Name="Description" Foreground="Black" Margin="10,5,8,0" TextWrapping="Wrap" Grid.Row="1" Grid.ColumnSpan="2" VerticalAlignment="Top"><Run Language="en-nz" Text="Description"/></TextBlock>
+        <StackPanel x:Name="panel" Margin="0" Grid.Column="1">
+        	<TextBlock x:Name="Title" Foreground="Black" HorizontalAlignment="Left" TextWrapping="Wrap" Width="Auto" FontSize="20" Height="Auto"><Run Language="en-nz" Text="Title"/></TextBlock>
+        	<TextBlock x:Name="Date" Foreground="Black" HorizontalAlignment="Left" Height="Auto" TextWrapping="Wrap" VerticalAlignment="Top" Width="Auto"><Run Language="en-nz" Text="Date"/></TextBlock>
+        	<TextBlock x:Name="Place" Foreground="Black" HorizontalAlignment="Left" Height="Auto" TextWrapping="Wrap" VerticalAlignment="Top" Width="Auto" d:LayoutOverrides="HorizontalAlignment"><Run Language="en-nz" Text="Place"/></TextBlock>
+        </StackPanel>
             
     </Grid>
 </UserControl>
