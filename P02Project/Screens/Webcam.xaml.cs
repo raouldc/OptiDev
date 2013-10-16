@@ -262,7 +262,7 @@ namespace P02Project
             // the bitmap image that need to post
             BitmapSource bitmap = _selectedImg.Source as BitmapSource;
             // the text that need to post
-            String newTweet = _tweetTxt.ToString();
+            String newTweet = _tweetTxt.Text;
 
             Console.Out.WriteLine("here is new tweet: " + newTweet);
 
