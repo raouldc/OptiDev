@@ -35,6 +35,14 @@ namespace P02Project
             beadsOfCourage.setImage("images\\HowCanIHelp\\beads.png");
             beadsOfCourage.setCaption("Beads of Courage");
             beadsOfCourage.setColour(colour);
+
+            schools.setImage("images\\HowCanIHelp\\schools.png");
+            schools.setCaption("Schools");
+            schools.setColour(colour);
+
+            volunteer.setImage("howCanIHelp.png");
+            volunteer.setCaption("Volunteer");
+            volunteer.setColour(colour);
         }
 
 
@@ -56,6 +64,18 @@ namespace P02Project
         {
             topLevelPage.setContent(new hcihBeads());
             topLevelPage.setSubtitle("Beads of Courage");
+        }
+
+        private void schools_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            topLevelPage.setContent(new hcihSchoolsControl());
+            topLevelPage.setSubtitle("Schools");
+        }
+
+        private void volunteer_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            topLevelPage.setContent(new hcihVolunteerControl());
+            topLevelPage.setSubtitle("Volunteer");
         }
     }
 }

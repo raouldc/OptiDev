@@ -13,15 +13,35 @@
         <Grid Margin="8,0,-8,0">
 
             <!-- set the polaroid photos-->
-            <view:PoloroidControl x:Name="donate" HorizontalAlignment="Center" VerticalAlignment="Center" Width="330" Height="316" RenderTransformOrigin="0.5,0.5" MouseUp="donate_MouseUp">
+            <view:PoloroidControl x:Name="donate" VerticalAlignment="Top" Height="316" RenderTransformOrigin="0.5,0.5" MouseUp="donate_MouseUp" Margin="522.5,22,777.5,0">
                 <view:PoloroidControl.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
                         <SkewTransform/>
-                        <RotateTransform Angle="-10.232"/>
+                        <RotateTransform Angle="3.398"/>
                         <TranslateTransform/>
                     </TransformGroup>
                 </view:PoloroidControl.RenderTransform>
+            </view:PoloroidControl>
+            <view:PoloroidControl x:Name="volunteer" HorizontalAlignment="Left" Height="330.138" Margin="68.64,0,0,28.431" VerticalAlignment="Bottom" Width="323.72" RenderTransformOrigin="0.5,0.5" MouseUp="volunteer_MouseUp">
+            	<view:PoloroidControl.RenderTransform>
+            		<TransformGroup>
+            			<ScaleTransform/>
+            			<SkewTransform/>
+            			<RotateTransform Angle="-1.256"/>
+            			<TranslateTransform/>
+            		</TransformGroup>
+            	</view:PoloroidControl.RenderTransform>
+            </view:PoloroidControl>
+            <view:PoloroidControl x:Name="schools" HorizontalAlignment="Left" Margin="340,337.5,0,235.5" Width="319.5" RenderTransformOrigin="0.5,0.5" MouseUp="schools_MouseUp">
+            	<view:PoloroidControl.RenderTransform>
+            		<TransformGroup>
+            			<ScaleTransform/>
+            			<SkewTransform/>
+            			<RotateTransform Angle="4.838"/>
+            			<TranslateTransform/>
+            		</TransformGroup>
+            	</view:PoloroidControl.RenderTransform>
             </view:PoloroidControl>
             <view:PoloroidControl x:Name="beadsOfCourage" HorizontalAlignment="Left" Height="376.699" Margin="43.779,28.719,0,0" VerticalAlignment="Top" Width="361.035" RenderTransformOrigin="0.5,0.5" MouseUp="beadsOfCourage_MouseUp">
             	<view:PoloroidControl.RenderTransform>
