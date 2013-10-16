@@ -63,6 +63,11 @@ namespace P02Project.Screens
         {
             Title.Text = title;
         }
+
+        private void Image_ImageFailed(object sender, ExceptionRoutedEventArgs e)
+        {
+
+        }
     }
 
 }
