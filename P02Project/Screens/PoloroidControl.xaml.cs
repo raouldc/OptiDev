@@ -173,6 +173,17 @@ namespace P02Project
         {
             showShadow();
         }
+
+        public void setGlow() {
+            DropShadowEffect dShad = new DropShadowEffect();
+            dShad.Color = (Color)ColorConverter.ConvertFromString("#fff2df11");
+            dShad.BlurRadius = 10;
+            Canvas.Effect = dShad;
+        }
+
+        public void removeGlow() {
+            Canvas.Effect = new DropShadowEffect();
+        }
 	}
 
 }

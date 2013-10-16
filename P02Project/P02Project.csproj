@@ -267,6 +267,9 @@
     <Resource Include="Resources\images\TigerFacePaint.png" />
     <Resource Include="Resources\images\TwoGirls.png" />
     <Resource Include="Resources\images\KidWithHat.png" />
+    <Resource Include="Resources\images\arrowtown.JPG" />
+    <Resource Include="Resources\images\hawkesBay.JPG" />
+    <Resource Include="Resources\images\taupo.jpg" />
     <Content Include="Resources\xml\About.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>

@@ -28,15 +28,14 @@
 
         <!-- Set the option buttons at the left-->
         <StackPanel Margin="20" Grid.RowSpan="2">
-            <Button x:Name="scholarship" Content="Scholarships" Margin="20" FontSize="48" FontFamily="Andy" Background="#FFD47C1E" BorderThickness="0" BorderBrush="#00707070" Foreground="White" Click="scholarship_Click">
+            <Button x:Name="scholarship" Content="Scholarships" Margin="20" FontSize="48" FontFamily="Andy" Background="#FFD47C1E" BorderThickness="0" BorderBrush="#00707070" Foreground="White" Click="scholarship_Click" TouchDown="schol_TouchDown">
                 <Button.Effect>
                     <DropShadowEffect/>
                 </Button.Effect>
             </Button>
-            <Button x:Name="pResources" Content="Parent Resources" Margin="20" FontSize="48" FontFamily="Andy" BorderThickness="0" Background="#FFD4A339" BorderBrush="#00707070" Foreground="White"  Click="pResources_Click" />
-            <Button x:Name="hHomes" Content="Holiday Homes" Margin="20" FontSize="48" FontFamily="Andy" BorderThickness="0" Background="#FFD4A339" BorderBrush="#00707070" Foreground="White"  Click="hHomes_Click" />
-            <Button x:Name="supService" Content="Support Services" Margin="20" FontSize="48" FontFamily="Andy" BorderThickness="0" Background="#FFD4A339" BorderBrush="#00707070" Foreground="White" Click="supService_Click" />
-            <Button x:Name="cList" Content="Contact List" Margin="20" FontSize="48" FontFamily="Andy" BorderThickness="0" Background="#FFD4A339" BorderBrush="#00000000" Foreground="White" Click="cList_Click" />
+            <Button x:Name="pResources" Content="Parent Resources" Margin="20" FontSize="48" FontFamily="Andy" BorderThickness="0" Background="#FFD4A339" BorderBrush="#00707070" Foreground="White"  Click="pResources_Click" TouchDown="pRes_TouchDown" />
+            <Button x:Name="hHomes" Content="Holiday Homes" Margin="20" FontSize="48" FontFamily="Andy" BorderThickness="0" Background="#FFD4A339" BorderBrush="#00707070" Foreground="White"  Click="hHomes_Click" TouchDown="hHomes_TouchDown" />
+            <Button x:Name="cList" Content="Contact List" Margin="20" FontSize="48" FontFamily="Andy" BorderThickness="0" Background="#FFD4A339" BorderBrush="#00000000" Foreground="White" Click="cList_Click" TouchDown="cList_TouchDown" />
         </StackPanel>
 
         <!-- set the polaroid at bottom left-->
