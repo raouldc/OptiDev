@@ -83,30 +83,30 @@
         </Grid.ColumnDefinitions>
 
         <!-- Actual content - webcam selection & preview -->
-        <Grid Grid.Column="0" Margin="76,62,73,0" HorizontalAlignment="Stretch" Width="Auto" Height="384" VerticalAlignment="Top">
+        <Grid Grid.Column="0" Margin="52,62,97,422.5" HorizontalAlignment="Stretch" Width="Auto">
             <!-- Row definitions -->
 
 
             <!-- Heading -->
-            <TextBlock Grid.Row="0" Text="Webcam" Style="{StaticResource HeadingTextBlock}" HorizontalAlignment="Left" Margin="8,8,0,0" Width="214" FontSize="40" FontFamily="Andy" VerticalAlignment="Top" />
+            <TextBox Grid.Row="0" Text="Webcam" HorizontalAlignment="Left" Margin="-1,0,0,0" Width="214" FontSize="40" FontFamily="Andy" VerticalAlignment="Top" Background="White" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" />
 
-			<TextBlock Grid.Row="0" Text="Select a webcam:" Style="{StaticResource HeadingTextBlock}" Margin="213,46.106,239,0" FontSize="24" FontFamily="Andy" VerticalAlignment="Top" />
+			<TextBox Grid.Row="0" Text="Select a webcam:" Margin="230,41.106,222,0" FontSize="24" FontFamily="Andy" VerticalAlignment="Top" Background="White" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" />
             <!-- Select webcam combobox -->
             <ComboBox x:Name="webcamComboBox" ItemsSource="{x:Static webcam:CapDevice.DeviceMonikers}"
                   DisplayMemberPath="Name" SelectedValuePath="MonikerString"
                   SelectedValue="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:Webcam}}, Path=SelectedWebcamMonikerString}"
-                  Style="{StaticResource DefaultComboBox}" Margin="0,37.976,18,0" Height="35.024" VerticalAlignment="Top" d:LayoutOverrides="GridBox" HorizontalAlignment="Right" Width="272.5" FontSize="29.333"/>
+                  Style="{StaticResource DefaultComboBox}" Margin="0,44.976,1,0" Height="35.024" VerticalAlignment="Top" d:LayoutOverrides="GridBox" HorizontalAlignment="Right" Width="272.5" FontSize="21.333" FontFamily="Andy"/>
 
             <!-- Webcamp preview -->
             <webcam:CapPlayer x:Name="webcamPlayer" Stretch="Fill" 
                               Rotation="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:Webcam}}, Path=WebcamRotation}"
                               Device="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:Webcam}}, Path=SelectedWebcam}"
-                              Style="{StaticResource DefaultCapPlayer}" Margin="34,94.5,36,0" d:LayoutOverrides="VerticalAlignment"/>
+                              Style="{StaticResource DefaultCapPlayer}" Margin="0,94.5,0,0" d:LayoutOverrides="VerticalAlignment"/>
 
             <!-- Take picture button -->
             <Button Name="captureImageNowButton" Command="localinput:CaptureImageCommands.CaptureImage"
                     ToolTip="{Binding RelativeSource={RelativeSource Self}, Path=Command.Text}"
-                    Style="{StaticResource RightAlignedImageButton}" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="64.667" Width="64.666" Margin="0,0,36,0">
+                    Style="{StaticResource RightAlignedImageButton}" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="64.667" Width="64.666" Margin="0,0,0,0">
                 <Image Source="/Resources/CaptureImageNow.png" />
             </Button>
 
@@ -114,7 +114,7 @@
         </Grid>
 
         <!-- Actual content - selected images -->
-        <Grid Margin="76,0,73,42" Height="372" VerticalAlignment="Bottom">
+        <Grid Margin="52,0,97,9" Height="372" VerticalAlignment="Bottom">
             <!-- Row definitions -->
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
@@ -122,13 +122,14 @@
             </Grid.RowDefinitions>
 
             <!-- Heading -->
-            <TextBlock Grid.Row="0" Text="Selected images" Style="{StaticResource HeadingTextBlock}" FontSize="40" FontFamily="Andy" />
+            <TextBox Grid.Row="0" Text="Select an image to tweet" FontSize="40" FontFamily="Andy" Background="White" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" />
 
             <!-- Selected images -->
             <ItemsControl Grid.Row="1" Focusable="false"
                           ItemsSource="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:Webcam}}, Path=SelectedImages}"
                           Style="{StaticResource SelectedImagesPanel}" Background="#FFAB7777" />
         </Grid>
+        
     </Grid>
 	
 	

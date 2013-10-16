@@ -1,4 +1,17 @@
-﻿using System;
+﻿///////////////////////////////////////////////////////////////////////////////
+//
+// Some of the functionalities in this file have been adapted from
+// Geert van Horrik's implementation in his blog.
+// http://blog.catenalogic.com/post/2009/01/08/WPF-Webcam-Control-part-2.aspx
+// 
+// All the api and methods related to Windows Image Aquisition (WIA) were
+// implemented by Tamir Khason and edited by Geert van Horrik
+// 
+// Those API are in WebcamPlayer folder
+//
+///////////////////////////////////////////////////////////////////////////////
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
