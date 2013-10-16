@@ -6,6 +6,59 @@
         <ResourceDictionary Source="/PresentationFramework.Aero;V3.0.0.0;31bf3856ad364e35;component/themes/aero.normalcolor.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
-    
-    
+
+
+    <!-- Auto styles -->
+
+    <!-- Custom styles -->
+    <Style x:Key="RightAlignedImageButton" TargetType="{x:Type Button}" BasedOn="{StaticResource {x:Type Button}}">
+        <Setter Property="Button.Width" Value="33" />
+        <Setter Property="Button.Height" Value="33" />
+        <Setter Property="Button.Margin" Value="0,0,6,0" />
+        <Setter Property="Button.HorizontalAlignment" Value="Right" />
+    </Style>
+
+    <Style x:Key="SmallRightAlignedImageButton" TargetType="{x:Type Button}" BasedOn="{StaticResource {x:Type Button}}">
+        <Setter Property="Button.Width" Value="23" />
+        <Setter Property="Button.Height" Value="23" />
+        <Setter Property="Button.Margin" Value="0,0,6,0" />
+        <Setter Property="Button.HorizontalAlignment" Value="Right" />
+    </Style>
+
+    <Style x:Key="RightAlignedFixedSizeButton" TargetType="{x:Type Button}" BasedOn="{StaticResource {x:Type Button}}">
+        <Setter Property="Button.Width" Value="75" />
+        <Setter Property="Button.Height" Value="23" />
+        <Setter Property="Button.Margin" Value="0,0,6,0" />
+        <Setter Property="Button.HorizontalAlignment" Value="Right" />
+    </Style>
+
+    <Style x:Key="DefaultTextBlock" TargetType="{x:Type TextBlock}" BasedOn="{StaticResource {x:Type TextBlock}}">
+        <Setter Property="TextBlock.Margin" Value="6" />
+        <Setter Property="TextBlock.VerticalAlignment" Value="Center" />
+    </Style>
+
+    <Style x:Key="HeadingTextBlock" TargetType="{x:Type TextBlock}" BasedOn="{StaticResource DefaultTextBlock}">
+        <Setter Property="TextBlock.FontSize" Value="14" />
+        <Setter Property="TextBlock.FontWeight" Value="Bold" />
+    </Style>
+
+    <Style x:Key="DefaultTextBox" TargetType="{x:Type TextBox}" BasedOn="{StaticResource {x:Type TextBox}}">
+        <Setter Property="TextBox.Margin" Value="6" />
+    </Style>
+
+    <Style x:Key="DefaultCheckBox" TargetType="{x:Type CheckBox}" BasedOn="{StaticResource {x:Type CheckBox}}">
+        <Setter Property="CheckBox.Margin" Value="6,10,6,10" />
+    </Style>
+
+    <Style x:Key="DefaultRadioButton" TargetType="{x:Type RadioButton}" BasedOn="{StaticResource {x:Type RadioButton}}">
+        <Setter Property="RadioButton.Margin" Value="6,10,6,10" />
+    </Style>
+
+    <Style x:Key="DefaultComboBox" TargetType="{x:Type ComboBox}" BasedOn="{StaticResource {x:Type ComboBox}}">
+        <Setter Property="ComboBox.Margin" Value="6" />
+    </Style>
+
+    <Style x:Key="DefaultSlider" TargetType="{x:Type Slider}" BasedOn="{StaticResource {x:Type Slider}}">
+        <Setter Property="Slider.Margin" Value="6" />
+    </Style>
 </ResourceDictionary>
