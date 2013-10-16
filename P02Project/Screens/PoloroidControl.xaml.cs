@@ -44,11 +44,6 @@ namespace P02Project
             Storyboard.SetTargetName(dblAnimationIn, this.Name);
             Storyboard.SetTargetProperty(dblAnimationIn, new PropertyPath(UserControl.OpacityProperty));
 
-            sbIn.Completed += delegate
-            {
-
-            }
-
             //Outward Animations
             dblAnimationOut.From = 1.0;
             dblAnimationOut.To = 0.0;
