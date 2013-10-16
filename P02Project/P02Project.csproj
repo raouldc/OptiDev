@@ -99,6 +99,9 @@
     <Compile Include="Screens\SplitGridView.xaml.cs">
       <DependentUpon>SplitGridView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Screens\Webcam.xaml.cs">
+      <DependentUpon>Webcam.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Utils\Util.cs" />
     <Compile Include="Screens\RightButtonControl.xaml.cs">
       <DependentUpon>RightButtonControl.xaml</DependentUpon>
@@ -170,6 +173,10 @@
     <Page Include="Screens\TopLevelPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Screens\Webcam.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="TopWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
