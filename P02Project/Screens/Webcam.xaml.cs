@@ -41,7 +41,7 @@ namespace P02Project
 	{
 
         #region Variables
-        private readonly int NUMB_LIMIT_PHOTOS = 15;
+        private readonly int NUMB_LIMIT_PHOTOS = 9;
         private int numb = 0;
         private readonly String MYDOC_PATH = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
         #endregion
