@@ -34,8 +34,6 @@
 
         </Style>
         
-        
-
         <Style x:Key="SelectedImagesPanel" TargetType="{x:Type ItemsControl}">
             <Setter Property="atp:AnimatingTilePanel.ItemHeight" Value="98" />
             <Setter Property="atp:AnimatingTilePanel.ItemWidth" Value="120" />
@@ -74,74 +72,72 @@
             </Setter>
         </Style>
     </UserControl.Resources>
-    
-    
-	<Grid>
-		<!-- Column definitions -->
-		<Grid.ColumnDefinitions>
-			<ColumnDefinition Width="* " />
-			<ColumnDefinition Width="*" />
-		</Grid.ColumnDefinitions>
-
-		<!-- Actual content - webcam selection & preview -->
-		<Grid Grid.Column="0" Margin="52,62,97,422.5" HorizontalAlignment="Stretch" Width="Auto">
-			<!-- Row definitions -->
 
 
-			<!-- Heading -->
-			<TextBox Grid.Row="0" Text="Webcam" HorizontalAlignment="Left" Margin="-1,0,0,0" Width="214" FontSize="40" FontFamily="Andy" VerticalAlignment="Top" Background="White" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" />
+    <Grid>
+        <!-- Column definitions -->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="* " />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
 
-			<TextBox Grid.Row="0" Text="Select a webcam:" Margin="230,41.106,222,0" FontSize="24" FontFamily="Andy" VerticalAlignment="Top" Background="White" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" />
-			<!-- Select webcam combobox -->
-			<ComboBox x:Name="webcamComboBox" ItemsSource="{x:Static webcam:CapDevice.DeviceMonikers}"
+        <!-- Actual content - webcam selection & preview -->
+        <Grid Grid.Column="0" Margin="52,62,97,422.5" HorizontalAlignment="Stretch" Width="Auto">
+            <!-- Row definitions -->
+
+
+            <!-- Heading -->
+            <TextBox Grid.Row="0" Text="Webcam" HorizontalAlignment="Left" Margin="-1,0,0,0" Width="214" FontSize="40" FontFamily="Andy" VerticalAlignment="Top" Background="White" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" />
+
+            <TextBox Grid.Row="0" Text="Select a webcam:" Margin="230,41.106,222,0" FontSize="24" FontFamily="Andy" VerticalAlignment="Top" Background="White" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" />
+            <!-- Select webcam combobox -->
+            <ComboBox x:Name="webcamComboBox" ItemsSource="{x:Static webcam:CapDevice.DeviceMonikers}"
 				DisplayMemberPath="Name" SelectedValuePath="MonikerString"
 				SelectedValue="{Binding SelectedWebcamMonikerString, RelativeSource={RelativeSource AncestorType={x:Type local:Webcam}}}"
 				Style="{StaticResource DefaultComboBox}" Margin="0,44.976,1,0" Height="35.024" VerticalAlignment="Top" d:LayoutOverrides="GridBox" HorizontalAlignment="Right" Width="272.5" FontSize="21.333" FontFamily="Andy"/>
 
-			<!-- Webcamp preview -->
-			<webcam:CapPlayer x:Name="webcamPlayer" Stretch="Fill" 
+            <!-- Webcamp preview -->
+            <webcam:CapPlayer x:Name="webcamPlayer" Stretch="Fill" 
 				Rotation="{Binding WebcamRotation, RelativeSource={RelativeSource AncestorType={x:Type local:Webcam}}}"
 				Device="{Binding SelectedWebcam, RelativeSource={RelativeSource AncestorType={x:Type local:Webcam}}}"
 				Style="{StaticResource DefaultCapPlayer}" Margin="0,94.5,0,0" d:LayoutOverrides="VerticalAlignment"/>
 
-			<!-- Take picture button -->
-			<Button x:Name="captureImageNowButton" Command="localinput:CaptureImageCommands.CaptureImage"
+            <!-- Take picture button -->
+            <Button x:Name="captureImageNowButton" Command="localinput:CaptureImageCommands.CaptureImage"
 				ToolTip="{Binding Command.Text, RelativeSource={RelativeSource Self}}"
 				Style="{StaticResource RightAlignedImageButton}" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="64.667" Width="64.666" Margin="0,0,0,0">
-				<Image Source="/Resources/CaptureImageNow.png" />
-			</Button>
+                <Image Source="/Resources/CaptureImageNow.png" />
+            </Button>
 
-           
-		</Grid>
 
-		<!-- Actual content - selected images -->
-		<Grid Margin="52,0,97,9" Height="372" VerticalAlignment="Bottom">
-			<!-- Row definitions -->
-			<Grid.RowDefinitions>
-				<RowDefinition Height="Auto" />
-				<RowDefinition />
-			</Grid.RowDefinitions>
+        </Grid>
 
-			<!-- Heading -->
-			<TextBox Grid.Row="0" Text="Select an image to tweet" FontSize="40" FontFamily="Andy" Background="White" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" />
+        <!-- Actual content - selected images -->
+        <Grid Margin="52,0,97,9" Height="372" VerticalAlignment="Bottom">
+            <!-- Row definitions -->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
 
-			<!-- Selected images -->
-			<ItemsControl Grid.Row="1" Focusable="false"
+            <!-- Heading -->
+            <TextBox Grid.Row="0" Text="Select your image to tweet" FontSize="40" FontFamily="Andy" Background="White" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" />
+
+            <!-- Selected images -->
+            <ItemsControl Grid.Row="1" Focusable="false"
 				ItemsSource="{Binding SelectedImages, RelativeSource={RelativeSource AncestorType={x:Type local:Webcam}}}"
 				Style="{StaticResource SelectedImagesPanel}" Background="#FFAB7777" />
-		</Grid>
-		
-		<Image Grid.Column="1" x:Name="_SelectedImg" Margin="33,62,48,234" Source="/P02Project;component/Resources/beads.png" Stretch="Fill" OpacityMask="Black"/>
+        </Grid>
+
+        <!-- Selected Image for tweeting -->
+        <Image Grid.Column="1" x:Name="_selectedImg" Margin="33,62,48,234" Source="/P02Project;component/Resources/beads.png" Stretch="Fill" OpacityMask="Black"/>
         <Border BorderBrush="Black" BorderThickness="3,3,5,5" Grid.Column="1" Margin="29,62,48,234"/>
-		
-		
-		<Custom:SurfaceTextBox Grid.Column="1" x:Name="_tweetTxt" Height="106" Margin="33,0,48,93" TextWrapping="Wrap" Text="Compose new Tweet..." VerticalAlignment="Bottom" FontFamily="Andy" FontSize="26.667" Foreground="#CC000000" Background="#E6FFFFFF" BorderBrush="#33000000" BorderThickness="3"
-				/>
-				
-		<Button x:Name="_tweetBtn" Content="Tweet" Grid.Column="1" Margin="0,0,48,9" Height="58" VerticalAlignment="Bottom" FontFamily="Andy" FontSize="40" HorizontalAlignment="Right" Width="227" />
-		
-        
-	</Grid>
-	
-	
+
+        <!-- Textbox to store the tweet message-->
+        <Custom:SurfaceTextBox Grid.Column="1" x:Name="_tweetTxt" Height="106" Margin="33,0,48,93" TextWrapping="Wrap" Text="Compose new Tweet..." VerticalAlignment="Bottom" FontFamily="Andy" FontSize="26.667" Foreground="#CC000000" Background="#E6FFFFFF" BorderBrush="#33000000" BorderThickness="3" />
+
+        <!-- Tweet Button-->
+        <Button x:Name="_tweetBtn" Content="Tweet" Grid.Column="1" Margin="0,0,48,9" Height="58" VerticalAlignment="Bottom" FontFamily="Andy" FontSize="40" HorizontalAlignment="Right" Width="227" Click="tweetBtnClicked"/>
+
+    </Grid>
 </UserControl>

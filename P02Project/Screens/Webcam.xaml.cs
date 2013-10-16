@@ -89,17 +89,20 @@ namespace P02Project
 
             if (bitmap != null)
             {
+                // if the images in the SelectedImages pool are more than the limit, remove the first one
                 if (SelectedImages.Count >= NUMB_LIMIT_PHOTOS)
                 {
                     SelectedImages.RemoveAt(0);
                 }
                 SelectedImages.Add(bitmap);
                 
-          //      String filename = MYDOC_PATH + "\\test" + numb + ".jpg";
+                // create a new name with the incremented numb (e.g. test0.jpg, test1.jpg, ...)
+                String filename = MYDOC_PATH + "\\test" + numb + ".jpg";
+                numb++;
+                // call a helper method to write this bitmap to this filename.
+                writeThisImageTo(bitmap, filename);
 
-            //    writeThisImageTo(bitmap, filename);
-
-                _SelectedImg.Source = bitmap;
+                _selectedImg.Source = bitmap;
 
             }
         }
@@ -231,17 +234,47 @@ namespace P02Project
             // close the stream
             stream.Close();
         }
+        #endregion
 
+
+        #region Click event handlers
+        /// <summary>
+        /// invoked when an image in the select pool has been clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void selectedImageClicked(Object sender, RoutedEventArgs e)
         {
             
             Button btn = (Button)sender;
-            Console.Out.WriteLine("helloworld");
             BitmapSource bitmap = ((Image)btn.Content).Source as BitmapSource;
 
-            _SelectedImg.Source = bitmap;
+            _selectedImg.Source = bitmap;
+        }
+
+        /// <summary>
+        /// Invoked when "Tweet" button has been clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void tweetBtnClicked(object sender, RoutedEventArgs e)
+        {
+            // the bitmap image that need to post
+            BitmapSource bitmap = _selectedImg.Source as BitmapSource;
+            // the text that need to post
+            String newTweet = _tweetTxt.ToString();
+
+            Console.Out.WriteLine("here is new tweet: " + newTweet);
+
+
+
+            //???????????????????????????????????????????????????????\\
+            // do the tweet post here
+            //???????????????????????????????????????????????????????\\
         }
         #endregion
+
+        
     }
 	
 }
