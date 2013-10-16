@@ -242,6 +242,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\images\HowCanIHelp\qr_volunteer.png" />
     <Resource Include="Screens\kidsForCourage.png" />
     <Resource Include="Utils\xml\PageModel.xml" />
     <Resource Include="Resources\images\Ambassadors\Amanda.png" />
