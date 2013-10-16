@@ -168,19 +168,32 @@ namespace P02Project
                 filename = fulltext.Split(' ')[0];
             }
             // set the content and the subtitle
-            String pathTemp;
+            String path;
 
             if (isFunky)
             {
-                pathTemp = "xml/" + filename + ".xml";
-                levelpage.setContent(new GridView(pathTemp, false));
+                path =System.IO.Path.Combine(System.IO.Path.GetFullPath("."), "Resources/xml/" + filename + ".xml");
+                
             }
             else
             {
-                pathTemp = "xml/Profiles/" + filename + ".xml";
-                levelpage.setContent(new SplitGridView(pathTemp));
+                path = System.IO.Path.Combine(System.IO.Path.GetFullPath("."),"Resources/xml/Profiles/" + filename + ".xml");
             }
-            
+
+            PageModel pModel = XMLUtilities.GetContentFromFile(path);
+
+            switch (pModel.pageType.ToLower())
+            {
+                case "funkygridview":
+                    levelpage.setContent(new GridView(pModel));
+                    break;
+                case "splitgridview":
+                    levelpage.setContent(new GridView(pModel));
+                    break;
+                case "gridview":
+                    levelpage.setContent(new GridView(pModel));
+                    break;
+            }
             levelpage.setSubtitle(levelpage.getSubtitle() + ": " + filename);
 
 
