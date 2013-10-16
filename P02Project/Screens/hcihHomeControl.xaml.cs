@@ -18,7 +18,7 @@ namespace P02Project
     /// <summary>
     /// Interaction logic for hcihHomeControl.xaml
     /// </summary>
-    public partial class hcihHomeControl : UserControl
+    public partial class hcihHomeControl : UserControl, Animatiable
     {
         private TopLevelPage topLevelPage;
         private List<Animatiable> components;
@@ -86,12 +86,16 @@ namespace P02Project
             topLevelPage.setSubtitle("Volunteer");
         }
 
-        public void doInAnimation()
+        public void AnimateIn()
         {
             foreach (Animatiable a in components)
             {
                 a.AnimateIn();
             }
+        }
+
+        public void AnimateOut()
+        {
         }
     }
 }

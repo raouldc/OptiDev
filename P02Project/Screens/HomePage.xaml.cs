@@ -16,15 +16,16 @@ using Microsoft.Surface.Presentation.Controls;
 using Microsoft.Surface.Presentation.Input;
 using System.Windows.Media.Animation;
 using P02Project.Screens;
+using P02Project.Utils;
 
 namespace P02Project
 {
     /// <summary>
     /// Interaction logic for HomePage.xaml
     /// </summary>
-    public partial class HomePage : Screen
+    public partial class HomePage : Screen, Animatiable
     {
-        protected List<Animatable> components;
+        private List<Animatiable> components;
 
         public HomePage(TopWindow parentWindow) : base(parentWindow)
         {
@@ -75,9 +76,28 @@ namespace P02Project
             playBeads.setImage("beads.png");
             playBeads.setCaption("Play Beads");
             playBeads.setColour(Util._pageColDict["Play Beads"]);
-        }
-       
 
+            components = new List<Animatiable>();
+            components.Add(about);
+            components.Add(familySupport);
+            components.Add(howCanIHelp);
+            components.Add(news);
+            components.Add(events);
+            components.Add(contactUs);
+            components.Add(playBeads);
+        }
+
+        public void AnimateOut()
+        {
+            foreach (Animatiable a in components)
+            {
+                a.AnimateIn();
+            }
+        }
+
+        public void AnimateIn()
+        {
+        }
 
         /// <summary>
         /// This method get called when the About has been clicked
@@ -142,11 +162,14 @@ namespace P02Project
         /// <param name="e"></param>
         private void howCanIHelp_MouseUp(object sender, MouseButtonEventArgs e)
         {
+            //Do out animation
+            AnimateOut();
+
             // create a new subscreen and push it into the stack of subscreens
             TopLevelPage nextScreen = new TopLevelPage(ParentWindow, "How Can I Help?");
             hcihHomeControl hcih = new hcihHomeControl(nextScreen);
             ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("How Can I Help?"), howCanIHelp.colour, hcih, "");
-            hcih.doInAnimation();
+            hcih.AnimateIn();
         }
 
 

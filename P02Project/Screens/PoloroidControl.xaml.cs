@@ -37,17 +37,22 @@ namespace P02Project
             //Inward Animations
             dblAnimationIn.From = 0.0;
             dblAnimationIn.To = 1.0;
-            dblAnimationIn.Duration = new Duration(TimeSpan.FromMilliseconds(500));
+            dblAnimationIn.Duration = new Duration(TimeSpan.FromMilliseconds(200));
 
             sbIn.Children.Add(dblAnimationIn);
 
             Storyboard.SetTargetName(dblAnimationIn, this.Name);
             Storyboard.SetTargetProperty(dblAnimationIn, new PropertyPath(UserControl.OpacityProperty));
 
+            sbIn.Completed += delegate
+            {
+
+            }
+
             //Outward Animations
             dblAnimationOut.From = 1.0;
             dblAnimationOut.To = 0.0;
-            dblAnimationOut.Duration = new Duration(TimeSpan.FromMilliseconds(500));
+            dblAnimationOut.Duration = new Duration(TimeSpan.FromMilliseconds(200));
 
             sbOut.Children.Add(dblAnimationOut);
 
