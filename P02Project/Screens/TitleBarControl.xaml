@@ -39,7 +39,8 @@
         </Grid.ColumnDefinitions>
         <Rectangle x:Name="lRect" Stroke="#00000000"/>
         <Button x:Name="Back" Content="" HorizontalAlignment="Left" Margin="37.832,40.081,0,0" BorderThickness="0" Background="#FFED2121" OpacityMask="#FFE90C0C" Click="Back_Click" Template="{DynamicResource BackButtonTemplate}" VerticalAlignment="Top" Height="149.753" Width="100"/>
-        <Button x:Name="CCF_Button" Content="" HorizontalAlignment="Left" Margin="162.334,20.957,0,32.336" Style="{DynamicResource CCF_Logo_Button}" Width="137"/>
+        <Button x:Name="CCF_Button" Content="" HorizontalAlignment="Left" Margin="162.334,20.957,0,32.336" Style="{DynamicResource CCF_Logo_Button}" Width="137"
+                Click="CCF_Button_Click" />
         <Label x:Name="Title" Content="Page Title" Margin="335.333,34.735,-35.333,5.958" FontSize="40" Foreground="Red" FontFamily="Verdana" FontWeight="Bold" Background="#00000000" d:LayoutOverrides="Height"/>
         <Label x:Name="SubTitle" Content="SubTitle" Margin="336.333,79.012,-36.333,34.67" FontSize="29.333" Foreground="Red" FontFamily="Verdana" d:LayoutOverrides="Height"/>
         <Rectangle x:Name="rRect" Grid.Column="1" Margin="-2,0,0,-20.667" Stroke="#00FDFDFD"/>

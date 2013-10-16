@@ -68,5 +68,10 @@ namespace P02Project
         {
             topLevelPage.BackButton_Click(sender, e);
         }
+
+        private void CCF_Button_Click(object sender, RoutedEventArgs e)
+        {
+            topLevelPage.HomeButton_Click();
+        }
 	}
 }

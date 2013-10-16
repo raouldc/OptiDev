@@ -157,5 +157,10 @@ namespace P02Project.Screens
             }
         }
 
+        public void HomeButton_Click()
+        {
+            ParentWindow.popScreen();
+        }
+
     }
 }
