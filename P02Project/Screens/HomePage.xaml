@@ -123,7 +123,12 @@
                         </TransformGroup>
                     </view:PoloroidControl.RenderTransform>
                 </view:PoloroidControl>
-            
+				
+                
+                <!-- this is just a temporary button. need to replace this button from the twitter page. -->
+                <Button Content="Camera" Grid.Column="2" Height="78" Margin="0,0,68,8" Grid.Row="1" VerticalAlignment="Bottom" FontSize="29.333" FontWeight="Bold" Click="openWebcam"/>
+				
+				
             </Grid>
         </Viewbox>
     </Grid>

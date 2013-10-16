@@ -51,9 +51,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="J832.Common, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\J832.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="J832.Wpf.BagOTricksLib, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\J832.Wpf.BagOTricksLib.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Maps.MapControl.WPF">
       <HintPath>References\Microsoft.Maps.MapControl.WPF.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationFramework.Royale" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -66,6 +75,7 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
+    <Reference Include="UIAutomationProvider" />
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -99,6 +109,9 @@
     <Compile Include="Screens\SplitGridView.xaml.cs">
       <DependentUpon>SplitGridView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Screens\Webcam.xaml.cs">
+      <DependentUpon>Webcam.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Utils\Util.cs" />
     <Compile Include="Screens\RightButtonControl.xaml.cs">
       <DependentUpon>RightButtonControl.xaml</DependentUpon>
@@ -123,6 +136,19 @@
       <DependentUpon>PageModel.cs</DependentUpon>
     </Compile>
     <Compile Include="Utils\xml\XMLUtilities.cs" />
+    <Compile Include="WebcamPlayer\CapDevice.cs" />
+    <Compile Include="WebcamPlayer\CapGrabber.cs" />
+    <Compile Include="WebcamPlayer\CapHelper.cs" />
+    <Compile Include="WebcamPlayer\CapInterfaces.cs" />
+    <Compile Include="WebcamPlayer\CapPlayer.cs" />
+    <Compile Include="WebcamPlayer\CapStructures.cs" />
+    <Compile Include="WebcamPlayer\Input\CaptureImageCommands.cs" />
+    <Compile Include="WebcamPlayer\FilterInfo.cs" />
+    <Compile Include="WebcamPlayer\Converters\ThreeFourthConverter.cs" />
+    <Page Include="Resources\themes\WebcamPlayer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Screens\hcihDonateControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -170,6 +196,10 @@
     <Page Include="Screens\TopLevelPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Screens\Webcam.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="TopWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -246,6 +276,7 @@
     <Resource Include="Resources\images\Stories\Kavahn.png" />
     <Resource Include="Resources\images\Stories\Kavahn2.png" />
     <Resource Include="Resources\images\Stories\Manu.png" />
+    <Resource Include="Resources\CaptureImageNow.png" />
     <Content Include="Resources\xml\About.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>
