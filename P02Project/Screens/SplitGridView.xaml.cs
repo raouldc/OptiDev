@@ -25,13 +25,13 @@ namespace P02Project.Screens
         /// Constructor
         /// </summary>
         /// <param name="filename"></param>
-        public SplitGridView(String filename)
+        public SplitGridView(PageModel temp)
         {
             InitializeComponent();
 
-            //TODO: Set title and subtitle
-            String path = System.IO.Path.Combine(System.IO.Path.GetFullPath("."), "Resources/" + filename);
-            PageModel temp = XMLUtilities.GetContentFromFile(path);
+            ////TODO: Set title and subtitle
+            //String path = System.IO.Path.Combine(System.IO.Path.GetFullPath("."), "Resources/" + filename);
+            //PageModel temp = XMLUtilities.GetContentFromFile(path);
 
             // initialize the list to store all the images in this page.
             PageModelImage[] imgList = temp.ImageList;
