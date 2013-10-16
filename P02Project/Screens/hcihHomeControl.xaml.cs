@@ -11,6 +11,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using P02Project.Screens;
+using P02Project.Utils;
 
 namespace P02Project
 {
@@ -20,6 +21,7 @@ namespace P02Project
     public partial class hcihHomeControl : UserControl
     {
         private TopLevelPage topLevelPage;
+        private List<Animatiable> components;
 
         public hcihHomeControl(TopLevelPage tlpage)
         {
@@ -43,6 +45,12 @@ namespace P02Project
             volunteer.setImage("howCanIHelp.png");
             volunteer.setCaption("Volunteer");
             volunteer.setColour(colour);
+
+            components = new List<Animatiable>();
+            components.Add(donate);
+            components.Add(beadsOfCourage);
+            components.Add(schools);
+            components.Add(volunteer);
         }
 
 
@@ -76,6 +84,14 @@ namespace P02Project
         {
             topLevelPage.setContent(new hcihVolunteerControl());
             topLevelPage.setSubtitle("Volunteer");
+        }
+
+        public void doInAnimation()
+        {
+            foreach (Animatiable a in components)
+            {
+                a.AnimateIn();
+            }
         }
     }
 }

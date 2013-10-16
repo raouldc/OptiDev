@@ -24,6 +24,7 @@ namespace P02Project
     /// </summary>
     public partial class HomePage : Screen
     {
+        protected List<Animatable> components;
 
         public HomePage(TopWindow parentWindow) : base(parentWindow)
         {
@@ -143,7 +144,9 @@ namespace P02Project
         {
             // create a new subscreen and push it into the stack of subscreens
             TopLevelPage nextScreen = new TopLevelPage(ParentWindow, "How Can I Help?");
-            ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("How Can I Help?"), howCanIHelp.colour, new hcihHomeControl(nextScreen), "");
+            hcihHomeControl hcih = new hcihHomeControl(nextScreen);
+            ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("How Can I Help?"), howCanIHelp.colour, hcih, "");
+            hcih.doInAnimation();
         }
 
 

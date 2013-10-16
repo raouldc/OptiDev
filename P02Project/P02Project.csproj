@@ -108,6 +108,7 @@
     <Compile Include="Screens\SplitGridView.xaml.cs">
       <DependentUpon>SplitGridView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Utils\Animatiable.cs" />
     <Compile Include="Utils\Util.cs" />
     <Compile Include="Screens\RightButtonControl.xaml.cs">
       <DependentUpon>RightButtonControl.xaml</DependentUpon>

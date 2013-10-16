@@ -30,7 +30,7 @@ namespace P02Project
             donate.setImage("howCanIHelp.png");
 
             //set text
-            text.Content = Content();
+            text.Content = GenerateContent();
 		}
 
         private TextBlock TextBlockFactory()
@@ -44,7 +44,7 @@ namespace P02Project
             return tb;
         }
 
-        private StackPanel Content()
+        private StackPanel GenerateContent()
         {
             StackPanel content = new StackPanel();
 
