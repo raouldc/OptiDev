@@ -104,7 +104,10 @@ public partial class PageModelText {
     private string idField;
     
     private string valueField;
-    
+
+    private string nodeField;
+    private string typeField;
+
     /// <remarks/>
     [System.Xml.Serialization.XmlAttributeAttribute()]
     public string id {
@@ -126,6 +129,26 @@ public partial class PageModelText {
             this.valueField = value;
         }
     }
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAttributeAttribute()]
+    public string node {
+        get {
+            return this.nodeField;
+        }
+        set {
+            this.nodeField = value;
+        }
+    }
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAttributeAttribute()]
+    public string type {
+        get {
+            return this.typeField;
+        }
+        set {
+            this.typeField = value;
+        }
+    }
 }
 
 /// <remarks/>
@@ -143,6 +166,8 @@ public partial class PageModelImage {
     private string linkField;
     
     private string valueField;
+
+    private string nodeField;
     
     /// <remarks/>
     [System.Xml.Serialization.XmlAttributeAttribute()]
@@ -187,6 +212,16 @@ public partial class PageModelImage {
             this.valueField = value;
         }
     }
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAttributeAttribute()]
+    public string node {
+        get {
+            return this.nodeField;
+        }
+        set {
+            this.nodeField = value;
+        }
+    }
 }
 
 /// <remarks/>
@@ -200,7 +235,8 @@ public partial class PageModelLink {
     private string idField;
     
     private string valueField;
-    
+    private string nodeField;
+
     /// <remarks/>
     [System.Xml.Serialization.XmlAttributeAttribute()]
     public string id {
@@ -220,6 +256,17 @@ public partial class PageModelLink {
         }
         set {
             this.valueField = value;
+        }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAttributeAttribute()]
+    public string node {
+        get {
+            return this.nodeField;
+        }
+        set {
+            this.nodeField = value;
         }
     }
 }

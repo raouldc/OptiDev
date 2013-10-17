@@ -62,6 +62,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Lib\J832.Wpf.BagOTricksLib.dll</HintPath>
     </Reference>
+    <Reference Include="HtmlAgilityPack">
+      <HintPath>..\packages\HtmlAgility\HtmlAgilityPack.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Maps.MapControl.WPF">
       <HintPath>References\Microsoft.Maps.MapControl.WPF.dll</HintPath>
     </Reference>
@@ -125,6 +128,8 @@
     <Compile Include="Screens\hcihBeads.xaml.cs">
       <DependentUpon>hcihBeads.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DataFetcher\DataItem.cs" />
+    <Compile Include="Screens\CustomListView.cs" />
     <Compile Include="Screens\hcihDonateControl.xaml.cs">
       <DependentUpon>hcihDonateControl.xaml</DependentUpon>
     </Compile>
@@ -137,8 +142,14 @@
     <Compile Include="Screens\GridView.xaml.cs">
       <DependentUpon>GridView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Screens\PoloroidWithText.xaml.cs">
+      <DependentUpon>PoloroidWithText.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Screens\RightButton.xaml.cs">
       <DependentUpon>RightButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\ScrollableView.xaml.cs">
+      <DependentUpon>ScrollableView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Screens\SplitGridView.xaml.cs">
       <DependentUpon>SplitGridView.xaml</DependentUpon>
@@ -236,6 +247,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Screens\PoloroidWithText.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Screens\RightButton.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -255,6 +270,10 @@
     <Page Include="Screens\PoloroidControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Screens\ScrollableView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Screens\SplitGridView.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -406,6 +425,7 @@
     </Content>
     <Content Include="Resources\xml\OurStories.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="Resources\xml\FamilySupport.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -498,6 +518,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Fonts\" />
+    <Folder Include="Resources\images\Events\" />
+    <Folder Include="Resources\images\News\" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">

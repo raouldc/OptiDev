@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="P02Project.Screens.PoloroidWithText"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" Width="1000" Height="700">
+    <Grid Margin="0">
+    	<Grid.RowDefinitions>
+    		<RowDefinition Height="217*"/>
+    		<RowDefinition Height="83*" />
+        </Grid.RowDefinitions>
+    	<Grid.ColumnDefinitions>
+    		<ColumnDefinition Width="60*"/>
+    		<ColumnDefinition Width="40*"/>
+    	</Grid.ColumnDefinitions>
+    	<Rectangle x:Name="Canvas" Stroke="Black" Grid.RowSpan="2" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+    		<Rectangle.Fill>
+    			<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+    				<GradientStop Color="White" Offset="0"/>
+    				<GradientStop Color="White" Offset="1"/>
+    			</LinearGradientBrush>
+    		</Rectangle.Fill>
+    		<Rectangle.Effect>
+    			<DropShadowEffect BlurRadius="20" ShadowDepth="8"/>
+    		</Rectangle.Effect>
+    	</Rectangle>
+    	<Image x:Name="Image" Stretch="Fill" Grid.IsSharedSizeScope="True" ImageFailed="Image_ImageFailed" Margin="30" Grid.RowSpan="2" />
+        <StackPanel x:Name="panel" Margin="0,30,30,30" Grid.Column="1" Grid.RowSpan="2">
+        	<TextBlock x:Name="Title" Foreground="Black" HorizontalAlignment="Left" TextWrapping="Wrap" Width="Auto" FontSize="40" Height="Auto"><Run Language="en-nz" Text="Title"/></TextBlock>
+        	<TextBlock x:Name="Date" Foreground="Black" HorizontalAlignment="Left" Height="Auto" TextWrapping="Wrap" VerticalAlignment="Top" Width="Auto" Margin="0,15" FontSize="24"><Run Language="en-nz" Text="Date"/></TextBlock>
+        	<TextBlock x:Name="Place" Foreground="Black" HorizontalAlignment="Left" Height="Auto" TextWrapping="Wrap" VerticalAlignment="Top" Width="Auto" d:LayoutOverrides="HorizontalAlignment" FontSize="24" Margin="0,0,0,15"><Run Language="en-nz" Text="Place"/></TextBlock>
+            <TextBlock x:Name="Description" Foreground="Black" TextWrapping="Wrap" HorizontalAlignment="Left" d:LayoutOverrides="GridBox" FontSize="16"><Run Language="en-nz" Text="Description"/></TextBlock>
+        </StackPanel>
+            
+    </Grid>
+</UserControl>
