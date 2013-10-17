@@ -140,6 +140,7 @@
       <DependentUpon>SplitGridView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Utils\Animatiable.cs" />
+    <Compile Include="Screens\TwitterBlock.xaml.cs">
       <DependentUpon>TwitterBlock.xaml</DependentUpon>
     </Compile>
     <Compile Include="Screens\Webcam.xaml.cs">

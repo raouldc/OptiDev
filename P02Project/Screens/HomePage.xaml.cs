@@ -92,12 +92,8 @@ namespace P02Project
             components.Add(contactUs);
             components.Add(playBeads);
 
-            dt = new DispatcherTimer();
-            dt.Interval = new TimeSpan(0, 0, 0, 0, 200);
-
             TwitterBlock tb = new TwitterBlock();
             tb.Foreground = new SolidColorBrush(Colors.Black);
-            
             
             Thickness t = tb.Margin;
             t.Top = 780;
@@ -107,6 +103,9 @@ namespace P02Project
             tb.Height = 78;
             
             LayoutRoot.Children.Add(tb);
+
+            dt = new DispatcherTimer();
+            dt.Interval = new TimeSpan(0, 0, 0, 0, 200);
             sbOut = new Storyboard();
 
             foreach (UserControl uc in components)
