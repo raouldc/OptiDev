@@ -41,6 +41,7 @@ namespace P02Project
 
         #region Variables
         private readonly int NUMB_LIMIT_PHOTOS = 9;
+        private readonly String DEFAULT_TWEET = "Compose new Tweet...";
         private int numb = 0;
         private readonly String MYDOC_PATH = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
         #endregion
@@ -49,6 +50,8 @@ namespace P02Project
         public Webcam()
 		{
 			this.InitializeComponent();
+
+            //SelectedImages.Clear();
             // Subscribe command bindings
             CommandBindings.Add(new CommandBinding(P02Project.WebcamPlayer.Input.CaptureImageCommands.CaptureImage,
                 new ExecutedRoutedEventHandler(CaptureImage_Executed), new CanExecuteRoutedEventHandler(CaptureImage_CanExecute)));
@@ -57,6 +60,7 @@ namespace P02Project
             CommandBindings.Add(new CommandBinding(P02Project.WebcamPlayer.Input.CaptureImageCommands.ClearAllImages,
                 new ExecutedRoutedEventHandler(ClearAllImages_Executed)));
 
+            
             // Create default device
             SelectedWebcamMonikerString = (CapDevice.DeviceMonikers.Length > 0) ? CapDevice.DeviceMonikers[0].MonikerString : "";
         }
@@ -251,6 +255,22 @@ namespace P02Project
             _selectedImg.Source = bitmap;
         }
 
+
+        /// <summary>
+        /// Invoked when tweeting textbox has been touched.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void tweetTxtFocused(object sender, RoutedEventArgs e)
+        {
+            // if the tweeting text is default, remove it
+            if (_tweetTxt.Text.Equals(DEFAULT_TWEET))
+            {
+                _tweetTxt.Text = "";
+            }
+        }
+
+
         /// <summary>
         /// Invoked when "Tweet" button has been clicked
         /// </summary>
@@ -276,6 +296,12 @@ namespace P02Project
             twitter.postTweet(newTweet, bitmap);
         }
         #endregion
+
+
+
+
+
+
 
         
     }

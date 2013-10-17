@@ -209,13 +209,13 @@ namespace P02Project
         private void openWebcam(Object sender, RoutedEventArgs e)
         {
             // create a new subscreen and push it into the stack of subscreens
-            TopLevelPage nextScreen = new TopLevelPage(ParentWindow, "Support Us On Twitter");
+            TopLevelPage nextScreen = new TopLevelPage(ParentWindow, "Twitter");
             
             
             
             //*********************************************************************\\
             // need to change the Util.getLinks("About") to a correct one \\
-            ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("About"), contactUs.colour, new Webcam(), "");
+            ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("About"), Util._pageColDict["Extra"], new Webcam(), "Support Us On Twitter");
         }
     }
 }
