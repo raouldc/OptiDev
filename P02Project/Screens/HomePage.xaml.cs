@@ -96,13 +96,17 @@ namespace P02Project
             tb.Foreground = new SolidColorBrush(Colors.Black);
             
             Thickness t = tb.Margin;
-            t.Top = 780;
-            t.Left = 800;
+            t.Bottom = 30;
+            t.Right = 30;
             tb.Margin = t;
             
-            tb.Height = 78;
+            tb.Height = 80;
+            tb.Width = 700;
+
+            tb.HorizontalAlignment = System.Windows.HorizontalAlignment.Right;
+            tb.VerticalAlignment = System.Windows.VerticalAlignment.Bottom;
             
-            LayoutRoot.Children.Add(tb);
+            poGrid.Children.Add(tb);
 
             dt = new DispatcherTimer();
             dt.Interval = new TimeSpan(0, 0, 0, 0, 200);
