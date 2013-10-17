@@ -199,7 +199,14 @@ namespace P02Project
                     levelpage.setContent(new GridView(pModel));
                     break;
             }
-            levelpage.setSubtitle(levelpage.getSubtitle() + ": " + filename);
+            if (levelpage.getSubtitle().Equals(""))
+            {
+                levelpage.setSubtitle(fulltext);
+            }
+            else
+            {
+                levelpage.setSubtitle(levelpage.getSubtitle()+": " + fulltext);
+            }
 
 
         }
