@@ -175,14 +175,36 @@ namespace P02Project
         }
 
         public void setGlow() {
-            DropShadowEffect dShad = new DropShadowEffect();
-            dShad.Color = (Color)ColorConverter.ConvertFromString("#fff2df11");
-            dShad.BlurRadius = 10;
-            Canvas.Effect = dShad;
+            removeTouch();
+
+            setShadow(10,0.7,(Color)ColorConverter.ConvertFromString("#fff2df11"));
         }
 
         public void removeGlow() {
-            Canvas.Effect = new DropShadowEffect();
+            removeTouch();
+
+            setShadow(10,0.365,(Color)ColorConverter.ConvertFromString("#ff000000"));
+            
+        }
+
+        public void removeTouch()
+        {
+            this.RemoveHandler(UIElement.TouchUpEvent, new EventHandler<TouchEventArgs>(Poloroid_TouchUp));
+            this.RemoveHandler(UIElement.MouseUpEvent, new MouseButtonEventHandler(Poloroid_MouseUp));
+            this.RemoveHandler(UIElement.TouchDownEvent, new EventHandler<TouchEventArgs>(Poloroid_TouchDown));
+            this.RemoveHandler(UIElement.MouseDownEvent, new MouseButtonEventHandler(Poloroid_MouseDown));
+        }
+
+        public void setShadow(double blur, double opacity, Color col) {
+            DropShadowEffect dShdow = new DropShadowEffect();
+            dShdow.BlurRadius = blur;
+            dShdow.Opacity = opacity;
+            dShdow.Color = col;
+            Canvas.Effect = dShdow;
+        }
+
+        public void removeBorder() {
+            Canvas.Stroke = null;
         }
 	}
 

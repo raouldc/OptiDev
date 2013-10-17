@@ -1,0 +1,15 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:P02Project="clr-namespace:P02Project" x:Class="P02Project.Screens.MapControl" 
+    xmlns:m="clr-namespace:Microsoft.Maps.MapControl.WPF;assembly=Microsoft.Maps.MapControl.WPF"
+             
+    mc:Ignorable="d" 
+             d:DesignHeight="1000" d:DesignWidth="800">
+    <Grid>
+        <m:Map x:Name="myMap" CredentialsProvider="AtabbySpgE9zdS1c5C4Pp1FHWjbxM_nHqIBmfZ--pFwtM0Vddbw7-bfUMBW-FBao" Mode="Road"/>
+    </Grid>
+   
+</UserControl>

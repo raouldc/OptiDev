@@ -54,6 +54,7 @@
     <Reference Include="Microsoft.Maps.MapControl.WPF">
       <HintPath>References\Microsoft.Maps.MapControl.WPF.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationFramework.Aero" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -78,8 +79,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Screens\Family Support\FSPage.xaml.cs">
-      <DependentUpon>FSPage.xaml</DependentUpon>
+    <Compile Include="Screens\Family Support\MapControl.xaml.cs">
+      <DependentUpon>MapControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Screens\Family Support\fsHomeControl.xaml.cs">
       <DependentUpon>fsHomeControl.xaml</DependentUpon>
@@ -129,7 +130,7 @@
       <DependentUpon>PageModel.cs</DependentUpon>
     </Compile>
     <Compile Include="Utils\xml\XMLUtilities.cs" />
-    <Page Include="Screens\Family Support\FSPage.xaml">
+    <Page Include="Screens\Family Support\MapControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -234,6 +235,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\bead background3.png" />
     <Resource Include="Utils\xml\PageModel.xml" />
     <Resource Include="Resources\images\Ambassadors\Amanda.png" />
     <Resource Include="Resources\images\Ambassadors\Bernadine.png" />

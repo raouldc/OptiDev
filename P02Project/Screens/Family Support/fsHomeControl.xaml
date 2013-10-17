@@ -3,51 +3,99 @@
 	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-	mc:Ignorable="d"
 	xmlns:view="clr-namespace:P02Project"
+	xmlns:Microsoft_Windows_Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero"
+	mc:Ignorable="d"
 	x:Class="P02Project.fsHomeControl"
 	x:Name="UserControl"
 	d:DesignWidth="1630" d:DesignHeight="900">
 
-    <Grid x:Name="LayoutRoot">
+	<UserControl.Resources>
+		<Style x:Key="ButtonFocusVisual">
+			<Setter Property="Control.Template">
+				<Setter.Value>
+					<ControlTemplate>
+						<Rectangle Margin="2" SnapsToDevicePixels="true" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" StrokeThickness="1" StrokeDashArray="1 2"/>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+		<LinearGradientBrush x:Key="ButtonNormalBackground" EndPoint="0,1" StartPoint="0,0">
+			<GradientStop Color="#F3F3F3" Offset="0"/>
+			<GradientStop Color="#EBEBEB" Offset="0.5"/>
+			<GradientStop Color="#DDDDDD" Offset="0.5"/>
+			<GradientStop Color="#CDCDCD" Offset="1"/>
+		</LinearGradientBrush>
+		<SolidColorBrush x:Key="ButtonNormalBorder" Color="#FF707070"/>
+		<Style x:Key="ButtonStyle1" TargetType="{x:Type Button}">
+			<Setter Property="FocusVisualStyle" Value="{StaticResource ButtonFocusVisual}"/>
+			<Setter Property="Background" Value="{StaticResource ButtonNormalBackground}"/>
+			<Setter Property="BorderBrush" Value="{StaticResource ButtonNormalBorder}"/>
+			<Setter Property="BorderThickness" Value="1"/>
+			<Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+			<Setter Property="HorizontalContentAlignment" Value="Center"/>
+			<Setter Property="VerticalContentAlignment" Value="Center"/>
+			<Setter Property="Padding" Value="1"/>
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type Button}">
+						<Microsoft_Windows_Themes:ButtonChrome x:Name="Chrome" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}" RenderMouseOver="{TemplateBinding IsMouseOver}" RenderPressed="{TemplateBinding IsPressed}" RenderDefaulted="{TemplateBinding IsDefaulted}" SnapsToDevicePixels="true">
+							<ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Content="Holiday Homes"/>
+						</Microsoft_Windows_Themes:ButtonChrome>
+						<ControlTemplate.Triggers>
+							<Trigger Property="IsKeyboardFocused" Value="true">
+								<Setter Property="RenderDefaulted" TargetName="Chrome" Value="true"/>
+							</Trigger>
+							<Trigger Property="ToggleButton.IsChecked" Value="true">
+								<Setter Property="RenderPressed" TargetName="Chrome" Value="true"/>
+							</Trigger>
+							<Trigger Property="IsEnabled" Value="false">
+								<Setter Property="Foreground" Value="#ADADAD"/>
+							</Trigger>
+						</ControlTemplate.Triggers>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+	</UserControl.Resources>
+
+	<Grid x:Name="LayoutRoot">
         
-        <Grid.RowDefinitions>
-            <RowDefinition x:Name="_gridRow0" />
-            <RowDefinition x:Name="_gridRow1"/>
-            <RowDefinition x:Name="_gridRow2"/>
-        </Grid.RowDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition x:Name="_gridRow0" />
+			<RowDefinition x:Name="_gridRow1"/>
+			<RowDefinition x:Name="_gridRow2"/>
+		</Grid.RowDefinitions>
 
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition x:Name="_gridCol0" />
-            <ColumnDefinition x:Name="_gridCol1" />
-            <ColumnDefinition x:Name="_gridCol2" />
-        </Grid.ColumnDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition x:Name="_gridCol0" />
+			<ColumnDefinition x:Name="_gridCol1" />
+			<ColumnDefinition x:Name="_gridCol2" />
+			<ColumnDefinition x:Name="_gridCol3" />
+		</Grid.ColumnDefinitions>
         
-        <!-- textbox used for the content of each subsection-->
-        <my:SurfaceScrollViewer x:Name="text" Grid.Column="1" Margin="20" Grid.RowSpan="3" Grid.ColumnSpan="2" Background="#33D8D8D8" HorizontalScrollBarVisibility="Disabled" />
+		<my:SurfaceScrollViewer x:Name="text" Grid.Column="1" Margin="20" Grid.RowSpan="3" Grid.ColumnSpan="3" Background="#33D8D8D8" HorizontalScrollBarVisibility="Disabled" />
 
-        <!-- Set the option buttons at the left-->
-        <StackPanel Margin="20" Grid.RowSpan="2">
-            <Button x:Name="scholarship" Content="Scholarships" Margin="20" FontSize="48" FontFamily="Andy" Background="#FFD47C1E" BorderThickness="0" BorderBrush="#00707070" Foreground="White" Click="scholarship_Click" TouchDown="schol_TouchDown">
-                <Button.Effect>
-                    <DropShadowEffect/>
-                </Button.Effect>
-            </Button>
-            <Button x:Name="pResources" Content="Parent Resources" Margin="20" FontSize="48" FontFamily="Andy" BorderThickness="0" Background="#FFD4A339" BorderBrush="#00707070" Foreground="White"  Click="pResources_Click" TouchDown="pRes_TouchDown" />
-            <Button x:Name="hHomes" Content="Holiday Homes" Margin="20" FontSize="48" FontFamily="Andy" BorderThickness="0" Background="#FFD4A339" BorderBrush="#00707070" Foreground="White"  Click="hHomes_Click" TouchDown="hHomes_TouchDown" />
-            <Button x:Name="cList" Content="Contact List" Margin="20" FontSize="48" FontFamily="Andy" BorderThickness="0" Background="#FFD4A339" BorderBrush="#00000000" Foreground="White" Click="cList_Click" TouchDown="cList_TouchDown" />
-        </StackPanel>
+		<!-- Set the option buttons at the left-->
+		<StackPanel Margin="20" Grid.RowSpan="2">
+			<Button x:Name="scholarship" Content="Scholarships" Margin="20" FontSize="48" FontFamily="Andy" Focusable="False" Background="#FFD47C1E" BorderThickness="0" BorderBrush="#00707070" Foreground="White" Click="scholarship_Click" TouchDown="schol_TouchDown">
+				
+			</Button>
+			<Button x:Name="pResources" Content="Parent Resources" Margin="20" FontSize="48" FontFamily="Andy" Focusable="False" BorderThickness="0" Background="#FFD4A339" BorderBrush="#00707070" Foreground="White"  Click="pResources_Click" TouchDown="pRes_TouchDown" />
+			<Button x:Name="hHomes" Content="Holiday Homes" Margin="20" FontSize="48" FontFamily="Andy" Focusable="False" BorderThickness="0" Background="#FFD4A339" BorderBrush="#00707070" Foreground="White"  Click="hHomes_Click" TouchDown="hHomes_TouchDown" Style="{DynamicResource ButtonStyle1}" />
+			<Button x:Name="cList" Content="Contact List" Margin="20" FontSize="48" FontFamily="Andy" Focusable="False" BorderThickness="0" Background="#FFD4A339" BorderBrush="#00000000" Foreground="White" Click="cList_Click" TouchDown="cList_TouchDown" />
+		</StackPanel>
 
-        <!-- set the polaroid at bottom left-->
-        <view:PoloroidControl x:Name="fsPol" HorizontalAlignment="Center" VerticalAlignment="Center" Width="237.161" Height="227.099" RenderTransformOrigin="0.5,0.5" Grid.Row="2">
-            <view:PoloroidControl.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="-10.232"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </view:PoloroidControl.RenderTransform>
-        </view:PoloroidControl>
-    </Grid>
+		<!-- set the polaroid at bottom left-->
+		<view:PoloroidControl x:Name="fsPol" HorizontalAlignment="Center" VerticalAlignment="Center" Width="237.161" Height="227.099" RenderTransformOrigin="0.5,0.5" Grid.Row="2">
+			<view:PoloroidControl.RenderTransform>
+				<TransformGroup>
+					<ScaleTransform/>
+					<SkewTransform/>
+					<RotateTransform Angle="-10.232"/>
+					<TranslateTransform/>
+				</TransformGroup>
+			</view:PoloroidControl.RenderTransform>
+		</view:PoloroidControl>
+	</Grid>
 </UserControl>
