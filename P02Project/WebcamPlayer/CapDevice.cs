@@ -91,20 +91,20 @@ namespace CatenaLogic.Windows.Presentation.WebcamPlayer
         #endregion
 
         #region Variables
-        private ManualResetEvent _stopSignal = null;
-        private Thread _worker = null;
-        private IGraphBuilder _graph = null;
-        private ISampleGrabber _grabber = null;
-        private IBaseFilter _sourceObject = null;
-        private IBaseFilter _grabberObject = null;
-        private IMediaControl _control = null;
-        private CapGrabber _capGrabber = null;
-        private IntPtr _map = IntPtr.Zero;
-        private IntPtr _section = IntPtr.Zero;
+        private static ManualResetEvent StopSignal = null;
+        private static Thread Worker = null;
+        private static IGraphBuilder Graph = null;
+        private static ISampleGrabber Grabber = null;
+        private static IBaseFilter SourceObject = null;
+        private static IBaseFilter GrabberObject = null;
+        private static IMediaControl Control = null;
+        private static CapGrabber CapGrabber = null;
+        private static IntPtr Map = IntPtr.Zero;
+        private static IntPtr Section = IntPtr.Zero;
 
-        private System.Diagnostics.Stopwatch _timer = System.Diagnostics.Stopwatch.StartNew();
-        private double _frames = 0.0;
-        private string _monikerString = "";
+        private static System.Diagnostics.Stopwatch _timer = System.Diagnostics.Stopwatch.StartNew();
+        private static double _frames = 0.0;
+        private static string _monikerString = "";
         #endregion
 
         #region Constructor & destructor
@@ -260,10 +260,10 @@ namespace CatenaLogic.Windows.Presentation.WebcamPlayer
             get
             {
                 // Check if we have a worker thread
-                if (_worker == null) return false;
+                if (Worker == null) return false;
 
                 // Check if we can join the thread
-                if (_worker.Join(0) == false) return true;
+                if (Worker.Join(0) == false) return true;
 
                 // Release
                 Release();
@@ -347,19 +347,19 @@ namespace CatenaLogic.Windows.Presentation.WebcamPlayer
             {
                 try
                 {
-                    if ((_capGrabber.Width != default(int)) && (_capGrabber.Height != default(int)))
+                    if ((CapGrabber.Width != default(int)) && (CapGrabber.Height != default(int)))
                     {
                         // Get the pixel count
-                        uint pcount = (uint)(_capGrabber.Width * _capGrabber.Height * PixelFormats.Bgr32.BitsPerPixel / 8);
+                        uint pcount = (uint)(CapGrabber.Width * CapGrabber.Height * PixelFormats.Bgr32.BitsPerPixel / 8);
 
                         // Create a file mapping
-                        _section = CreateFileMapping(new IntPtr(-1), IntPtr.Zero, 0x04, 0, pcount, null);
-                        _map = MapViewOfFile(_section, 0xF001F, 0, 0, pcount);
+                        Section = CreateFileMapping(new IntPtr(-1), IntPtr.Zero, 0x04, 0, pcount, null);
+                        Map = MapViewOfFile(Section, 0xF001F, 0, 0, pcount);
 
                         // Get the bitmap
-                        BitmapSource = Imaging.CreateBitmapSourceFromMemorySection(_section, _capGrabber.Width,
-                            _capGrabber.Height, PixelFormats.Bgr32, _capGrabber.Width * PixelFormats.Bgr32.BitsPerPixel / 8, 0) as InteropBitmap;
-                        _capGrabber.Map = _map;
+                        BitmapSource = Imaging.CreateBitmapSourceFromMemorySection(Section, CapGrabber.Width,
+                            CapGrabber.Height, PixelFormats.Bgr32, CapGrabber.Width * PixelFormats.Bgr32.BitsPerPixel / 8, 0) as InteropBitmap;
+                        CapGrabber.Map = Map;
 
                         // Invoke event
                         if (NewBitmapReady != null)
@@ -433,16 +433,19 @@ namespace CatenaLogic.Windows.Presentation.WebcamPlayer
             }
 
             // Create new grabber
-            _capGrabber = new CapGrabber();
-            _capGrabber.PropertyChanged += new System.ComponentModel.PropertyChangedEventHandler(capGrabber_PropertyChanged);
-            _capGrabber.NewFrameArrived += new EventHandler(capGrabber_NewFrameArrived);
+            CapGrabber = new CapGrabber();
+            CapGrabber.PropertyChanged += new System.ComponentModel.PropertyChangedEventHandler(capGrabber_PropertyChanged);
+            CapGrabber.NewFrameArrived += new EventHandler(capGrabber_NewFrameArrived);
 
             // Create manual reset event
-            _stopSignal = new ManualResetEvent(false);
+            StopSignal = new ManualResetEvent(false);
 
-            // Start the thread
-            _worker = new Thread(RunWorker);
-            _worker.Start();
+            if (Worker == null)
+            {
+                // Start the thread
+                Worker = new Thread(RunWorker);
+                Worker.Start();
+            }
         }
 
         /// <summary>
@@ -456,14 +459,14 @@ namespace CatenaLogic.Windows.Presentation.WebcamPlayer
                 if (IsRunning)
                 {
                     // Yes, stop via the event
-                    _stopSignal.Set();
+                    StopSignal.Set();
 
                     // Abort the thread
-                    _worker.Abort();
-                    if (_worker != null)
+                    Worker.Abort();
+                    if (Worker != null)
                     {
                         // Join
-                        _worker.Join();
+                        Worker.Join();
 
                         // Release
                         Release();
@@ -486,22 +489,22 @@ namespace CatenaLogic.Windows.Presentation.WebcamPlayer
         private void Release()
         {
             // Stop the thread
-            _worker = null;
+            Worker = null;
 
             // Clear the event
-            if (_stopSignal != null)
+            if (StopSignal != null)
             {
-                _stopSignal.Close();
-                _stopSignal = null;
+                StopSignal.Close();
+                StopSignal = null;
             }
 
             // Clean up
-            _graph = null;
-            _sourceObject = null;
-            _grabberObject = null;
-            _grabber = null;
-            _capGrabber = null;
-            _control = null;
+            Graph = null;
+            SourceObject = null;
+            GrabberObject = null;
+            Grabber = null;
+            CapGrabber = null;
+            Control = null;
         }
 
         /// <summary>
@@ -512,28 +515,28 @@ namespace CatenaLogic.Windows.Presentation.WebcamPlayer
             try
             {
                 // Create the main graph
-                _graph = Activator.CreateInstance(Type.GetTypeFromCLSID(FilterGraph)) as IGraphBuilder;
+                Graph = Activator.CreateInstance(Type.GetTypeFromCLSID(FilterGraph)) as IGraphBuilder;
 
                 // Create the webcam source
-                _sourceObject = FilterInfo.CreateFilter(_monikerString);
+                SourceObject = FilterInfo.CreateFilter(_monikerString);
 
                 // Create the grabber
-                _grabber = Activator.CreateInstance(Type.GetTypeFromCLSID(SampleGrabber)) as ISampleGrabber;
-                _grabberObject = _grabber as IBaseFilter;
+                Grabber = Activator.CreateInstance(Type.GetTypeFromCLSID(SampleGrabber)) as ISampleGrabber;
+                GrabberObject = Grabber as IBaseFilter;
 
                 // Add the source and grabber to the main graph
-                _graph.AddFilter(_sourceObject, "source");
-                _graph.AddFilter(_grabberObject, "grabber");
+                Graph.AddFilter(SourceObject, "source");
+                Graph.AddFilter(GrabberObject, "grabber");
 
                 using (AMMediaType mediaType = new AMMediaType())
                 {
                     mediaType.MajorType = MediaTypes.Video;
                     mediaType.SubType = MediaSubTypes.RGB32;
-                    _grabber.SetMediaType(mediaType);
+                    Grabber.SetMediaType(mediaType);
 
-                    if (_graph.Connect(_sourceObject.GetPin(PinDirection.Output, 0), _grabberObject.GetPin(PinDirection.Input, 0)) >= 0)
+                    if (Graph.Connect(SourceObject.GetPin(PinDirection.Output, 0), GrabberObject.GetPin(PinDirection.Input, 0)) >= 0)
                     {
-                        if (_grabber.GetConnectedMediaType(mediaType) == 0)
+                        if (Grabber.GetConnectedMediaType(mediaType) == 0)
                         {
                             // During startup, this code can be too fast, so try at least 3 times
                             int retryCount = 0;
@@ -547,8 +550,8 @@ namespace CatenaLogic.Windows.Presentation.WebcamPlayer
                                 {
                                     // Retrieve the grabber information
                                     VideoInfoHeader header = (VideoInfoHeader)Marshal.PtrToStructure(mediaType.FormatPtr, typeof(VideoInfoHeader));
-                                    _capGrabber.Width = header.BmiHeader.Width;
-                                    _capGrabber.Height = header.BmiHeader.Height;
+                                    CapGrabber.Width = header.BmiHeader.Width;
+                                    CapGrabber.Height = header.BmiHeader.Height;
 
                                     // Succeeded
                                     succeeded = true;
@@ -564,28 +567,28 @@ namespace CatenaLogic.Windows.Presentation.WebcamPlayer
                             }
                         }
                     }
-                    _graph.Render(_grabberObject.GetPin(PinDirection.Output, 0));
-                    _grabber.SetBufferSamples(false);
-                    _grabber.SetOneShot(false);
-                    _grabber.SetCallback(_capGrabber, 1);
+                    Graph.Render(GrabberObject.GetPin(PinDirection.Output, 0));
+                    Grabber.SetBufferSamples(false);
+                    Grabber.SetOneShot(false);
+                    Grabber.SetCallback(CapGrabber, 1);
 
                     // Get the video window
-                    IVideoWindow wnd = (IVideoWindow)_graph;
+                    IVideoWindow wnd = (IVideoWindow)Graph;
                     wnd.put_AutoShow(false);
                     wnd = null;
 
                     // Create the control and run
-                    _control = (IMediaControl)_graph;
-                    _control.Run();
+                    Control = (IMediaControl)Graph;
+                    Control.Run();
 
                     // Wait for the stop signal
-                    while (!_stopSignal.WaitOne(0, true))
+                    while (!StopSignal.WaitOne(0, true))
                     {
                         Thread.Sleep(10);
                     }
 
                     // Stop when ready
-                    _control.StopWhenReady();
+                    Control.StopWhenReady();
                 }
             }
             catch (Exception ex)

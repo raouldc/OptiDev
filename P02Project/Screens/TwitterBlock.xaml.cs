@@ -38,12 +38,15 @@ namespace P02Project
             if (tweets.Count == 0)
             {
                 IEnumerable<TwitterStatus> result = service.getTweets();
-                foreach (TwitterStatus t in result)
+                if (result != null)
                 {
 
-                    tweets.Add(t);
-                }
+                    foreach (TwitterStatus t in result)
+                    {
 
+                        tweets.Add(t);
+                    }
+                }
               
 
                 //msg.Text = "CCF are at the Massey High @Hurricane_Kids gig today. They are rocking out & supporting kids with cancer! pic.twitter.com/1e2HvbKTIw";
