@@ -195,7 +195,7 @@ namespace P02Project
                     levelpage.setContent(new GridView(pModel));
                     break;
                 case "splitgridview":
-                    levelpage.setContent(new GridView(pModel));
+                    levelpage.setContent(new SplitGridView(pModel));
                     break;
                 case "gridview":
                     levelpage.setContent(new GridView(pModel));
