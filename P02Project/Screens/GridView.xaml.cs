@@ -180,6 +180,7 @@ namespace P02Project
             // set the content and the subtitle
             String path;
 
+            //TO DO: Set a property in the xmls to read the paths from
             if (isFunky)
             {
                 path =System.IO.Path.Combine(System.IO.Path.GetFullPath("."), "Resources/xml/" + filename + ".xml");

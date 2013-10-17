@@ -15,7 +15,12 @@
       				<ColumnDefinition Width="0.713*"/>
       				<ColumnDefinition Width="0.287*"/>
       			</Grid.ColumnDefinitions>
-      			<TextBlock Margin="-1,0,1,-16" TextWrapping="Wrap" FontSize="96" Grid.ColumnSpan="2" VerticalAlignment="Bottom" Foreground="Red"><Run FontFamily="Segoe UI Symbol" Text=""/></TextBlock>
+                    <TextBlock Margin="-1,0,1,-16"
+                               TextWrapping="Wrap"
+                               FontSize="96"
+                               Grid.ColumnSpan="2"
+                               VerticalAlignment="Bottom"
+                               Foreground="Red"><Run FontFamily="./resources/fonts/#Segoe UI Symbol" Text=""/></TextBlock>
       		</Grid>
       	</ControlTemplate>
       </ResourceDictionary>
