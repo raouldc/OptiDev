@@ -11,7 +11,7 @@
 
     <Grid x:Name="LayoutRoot">
         <Viewbox Margin="0">
-            <Grid Margin="0,0,0,0" Width="1920" Height="1080" d:LayoutOverrides="Width, Height">
+            <Grid x:Name="poGrid" Margin="0,0,0,0" Width="1920" Height="1080" d:LayoutOverrides="Width, Height">
                 
                 <!-- set the background -->
                 <Grid.Background>
@@ -126,8 +126,7 @@
 				
                 
                 <!-- this is just a temporary button. need to replace this button from the twitter page. -->
-                <Button Content="Camera" Grid.Column="2" Height="78" Margin="0,0,68,8" Grid.Row="1" VerticalAlignment="Bottom" FontSize="29.333" FontWeight="Bold" Click="openWebcam"/>
-				
+                <!--<Button Content="Camera" Grid.Column="2" Height="78" Margin="0,0,68,8" Grid.Row="1" VerticalAlignment="Bottom" FontSize="29.333" FontWeight="Bold" Click="openWebcam"/>-->
 				
             </Grid>
         </Viewbox>

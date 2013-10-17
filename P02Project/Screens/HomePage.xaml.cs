@@ -28,6 +28,8 @@ namespace P02Project
         public HomePage(TopWindow parentWindow) : base(parentWindow)
         {
             this.InitializeComponent();
+
+            //bla.Visibility = System.Windows.Visibility.Visible;
         }
 
 
@@ -74,6 +76,19 @@ namespace P02Project
             playBeads.setImage("beads.png");
             playBeads.setCaption("Play Beads");
             playBeads.setColour(Util._pageColDict["Play Beads"]);
+
+            TwitterBlock tb = new TwitterBlock();
+            tb.Foreground = new SolidColorBrush(Colors.Black);
+            
+            
+            Thickness t = tb.Margin;
+            t.Top = 780;
+            t.Left = 800;
+            tb.Margin = t;
+            
+            tb.Height = 78;
+            
+            LayoutRoot.Children.Add(tb);
         }
        
 
