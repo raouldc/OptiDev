@@ -23,7 +23,7 @@
             		</TransformGroup>
             	</view:PoloroidControl.RenderTransform>
             </view:PoloroidControl>
-            <view:PoloroidControl x:Name="shop" HorizontalAlignment="Right" Margin="0,248,428,314" Width="370" RenderTransformOrigin="0.5,0.5">
+            <view:PoloroidControl x:Name="shop" HorizontalAlignment="Right" Margin="0,248,428,314" Width="370" RenderTransformOrigin="0.5,0.5" MouseUp="shop_MouseUp">
             	<view:PoloroidControl.RenderTransform>
             		<TransformGroup>
             			<ScaleTransform/>

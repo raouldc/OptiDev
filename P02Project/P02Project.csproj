@@ -78,6 +78,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Screens\hcihShopControl.xaml.cs">
+      <DependentUpon>hcihShopControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\hcihCampControl.xaml.cs">
+      <DependentUpon>hcihCampControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Screens\hcihVolunteerControl.xaml.cs">
       <DependentUpon>hcihVolunteerControl.xaml</DependentUpon>
     </Compile>
@@ -133,6 +139,14 @@
       <DependentUpon>PageModel.cs</DependentUpon>
     </Compile>
     <Compile Include="Utils\xml\XMLUtilities.cs" />
+    <Page Include="Screens\hcihShopControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Screens\hcihCampControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Screens\hcihVolunteerControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -243,6 +257,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\images\HowCanIHelp\qr_shop.png" />
     <Resource Include="Resources\images\HowCanIHelp\qr_volunteer.png" />
     <Resource Include="Screens\kidsForCourage.png" />
     <Resource Include="Utils\xml\PageModel.xml" />
@@ -273,6 +288,16 @@
     <Resource Include="Resources\images\Stories\Manu.png" />
     <Resource Include="Resources\images\HowCanIHelp\beads.png" />
     <Resource Include="Resources\images\HowCanIHelp\schools.png" />
+    <Resource Include="Resources\images\HowCanIHelp\camp.png" />
+    <Resource Include="Resources\images\HowCanIHelp\dayOfC.png" />
+    <Resource Include="Resources\images\HowCanIHelp\funrazor.png" />
+    <Resource Include="Resources\images\HowCanIHelp\mam.png" />
+    <Resource Include="Resources\images\HowCanIHelp\oneDay.png" />
+    <Resource Include="Resources\images\HowCanIHelp\qr_camp.png" />
+    <Resource Include="Resources\images\HowCanIHelp\bb.png" />
+    <Resource Include="Resources\images\HowCanIHelp\ff.png" />
+    <Resource Include="Resources\images\HowCanIHelp\kagi.png" />
+    <Resource Include="Resources\images\HowCanIHelp\sb.png" />
     <Content Include="Resources\xml\About.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>

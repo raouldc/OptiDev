@@ -50,12 +50,17 @@ namespace P02Project
             campaings.setCaption("Campaings");
             campaings.setColour(colour);
 
+            shop.setImage("images\\HowCanIhelp\\bb.png");
+            shop.setCaption("Online Shop");
+            shop.setColour(colour);
+
             components = new List<Animatiable>();
             components.Add(donate);
             components.Add(beadsOfCourage);
             components.Add(schools);
             components.Add(volunteer);
             components.Add(campaings);
+            components.Add(shop);
         }
 
 
@@ -110,6 +115,14 @@ namespace P02Project
             hcihCampControl hcih = new hcihCampControl();
             topLevelPage.setContent(hcih);
             topLevelPage.setSubtitle("Campaings");
+            (hcih as Animatiable).AnimateIn();
+        }
+
+        private void shop_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            hcihShopControl hcih = new hcihShopControl();
+            topLevelPage.setContent(hcih);
+            topLevelPage.setSubtitle("Online Shop");
             (hcih as Animatiable).AnimateIn();
         }
     }
