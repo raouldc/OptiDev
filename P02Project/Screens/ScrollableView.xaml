@@ -6,14 +6,14 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300" Loaded="UserControl_Loaded">
     <Grid x:Name="MainGrid">
-        <ListView x:Name="listView" SelectionChanged="listView_SelectionChanged" ScrollViewer.HorizontalScrollBarVisibility="Disabled" >
+        <ListView x:Name="listView" SelectionChanged="listView_SelectionChanged" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Margin="90,0,84,0" >
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <StackPanel Orientation='Horizontal'/>
                 </ItemsPanelTemplate>
             </ListView.ItemsPanel>
         </ListView>
-        <Button x:Name="Left" Content="Left" Height="42" Width="71" HorizontalAlignment="Left" VerticalAlignment="Top" Click="left_Clicked"/>
-        <Button x:Name="Right" Content="Right" Height="43" Width="79" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,46,0,0" Click="right_clicked"/>
+        <Button x:Name="Left" Content="&lt;&lt;" Height="42" Width="71" HorizontalAlignment="Left" VerticalAlignment="Center" Click="left_Clicked" Margin="15,0,0,0" />
+        <Button x:Name="Right" Content=">>" Height="43" Width="79" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0" Click="right_clicked"/>
     </Grid>
 </UserControl>
