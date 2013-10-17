@@ -2,7 +2,7 @@
 
 <!--Can store information regarding, text images, links-->
 
-<PageModel id ="About-How We Help">
+<PageModel id ="About-How We Help" pageType="SplitGridView">
 
 
   <TextList>
