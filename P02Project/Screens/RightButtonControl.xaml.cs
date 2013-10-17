@@ -13,6 +13,7 @@ using System.Windows.Shapes;
 using Microsoft.Surface;
 using Microsoft.Surface.Presentation;
 using Microsoft.Surface.Presentation.Controls;
+using P02Project.Resources.xml;
 using P02Project.Screens;
 using P02Project.Utils;
 using System.Windows.Media.Animation;
@@ -97,11 +98,13 @@ namespace P02Project
 
             Console.WriteLine("Button clocked - {0}", caption);
             //Set next screen to add to the stack and it's contents depending on the button clicked
+            String path;
             switch (caption)
             {
                 case "About":
                     nextScreen = new TopLevelPage(ParentWindow, "About");
-                    ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("About"), colour, new FunkyGrid("xml/About.xml"), "");
+                    path = System.IO.Path.Combine(System.IO.Path.GetFullPath("."), "Resources/xml/About.xml");
+                    ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("About"), colour, new GridView(XMLUtilities.GetContentFromFile(path)), "");
                     break;
 
                 case "News":

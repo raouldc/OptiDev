@@ -1,14 +1,30 @@
-﻿<Application x:Class="P02Project.App"
+﻿<Application
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="P02Project.App"
     StartupUri="TopWindow.xaml"
     >
     <Application.Resources>
       <ResourceDictionary>
         <ResourceDictionary.MergedDictionaries>
-          <ResourceDictionary Source="/Microsoft.Surface.Presentation.Generic;v2.0.0.0;31bf3856ad364e35;component/themes\styles.xaml"/>
+        	<ResourceDictionary Source="/Microsoft.Surface.Presentation.Generic;v2.0.0.0;31bf3856ad364e35;component/themes\styles.xaml"/>
+
           <ResourceDictionary Source="Resources/themes/WebcamPlayer.xaml"/>
             </ResourceDictionary.MergedDictionaries>
+      	<ControlTemplate x:Key="BackButtonTemplate" TargetType="{x:Type Button}">
+      		<Grid Margin="0,0,18,68">
+      			<Grid.ColumnDefinitions>
+      				<ColumnDefinition Width="0.713*"/>
+      				<ColumnDefinition Width="0.287*"/>
+      			</Grid.ColumnDefinitions>
+                    <TextBlock Margin="-1,0,1,-16"
+                               TextWrapping="Wrap"
+                               FontSize="96"
+                               Grid.ColumnSpan="2"
+                               VerticalAlignment="Bottom"
+                               Foreground="Red"><Run FontFamily="./resources/fonts/#Segoe UI Symbol" Text=""/></TextBlock>
+      		</Grid>
+      	</ControlTemplate>
       </ResourceDictionary>
     </Application.Resources>
 </Application>

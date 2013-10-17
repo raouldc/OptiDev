@@ -25,13 +25,13 @@ namespace P02Project.Screens
         /// Constructor
         /// </summary>
         /// <param name="filename"></param>
-        public SplitGridView(String filename)
+        public SplitGridView(PageModel temp)
         {
             InitializeComponent();
 
-            //TODO: Set title and subtitle
-            String path = System.IO.Path.Combine(System.IO.Path.GetFullPath("."), "Resources/" + filename);
-            PageModel temp = XMLUtilities.GetContentFromFile(path);
+            ////TODO: Set title and subtitle
+            //String path = System.IO.Path.Combine(System.IO.Path.GetFullPath("."), "Resources/" + filename);
+            //PageModel temp = XMLUtilities.GetContentFromFile(path);
 
             // initialize the list to store all the images in this page.
             PageModelImage[] imgList = temp.ImageList;
@@ -49,6 +49,7 @@ namespace P02Project.Screens
                 p.Margin = new Thickness(25);
                 p.RenderTransformOrigin.Offset(0.5,0.5);
                 p.RenderTransform = new RotateTransform(rotation);
+                p.IsUnclickable = true;
                 rotation = rotation * -1;
                 Grid.SetColumn(p, 0);
                 Grid.SetRow(p, count);

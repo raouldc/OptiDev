@@ -30,16 +30,23 @@ namespace P02Project
         /// <summary>
         /// Constructor
         /// </summary>
+        /// <value><c>true</c> if this instance is unclickable; otherwise, <c>false</c>.</value>
+        public bool IsUnclickable { private get; set; }
 		public PoloroidControl()
 		{
 			this.InitializeComponent();
+
 
             //Inward Animations
             dblAnimationIn.From = 0.0;
             dblAnimationIn.To = 1.0;
             dblAnimationIn.Duration = new Duration(TimeSpan.FromMilliseconds(200));
 
+
             sbIn.Children.Add(dblAnimationIn);
+
+
+
 
             Storyboard.SetTargetName(dblAnimationIn, this.Name);
             Storyboard.SetTargetProperty(dblAnimationIn, new PropertyPath(UserControl.OpacityProperty));
@@ -126,8 +133,10 @@ namespace P02Project
         /// <summary>
         /// getter method for the polaroid color
         /// </summary>
-        public Color colour{
-            get {
+        public Color colour
+        {
+            get
+            {
                 return (Caption.Background as SolidColorBrush).Color;
             }
         }
@@ -157,14 +166,18 @@ namespace P02Project
         }
 
 
-        
+
         /// <summary>
         /// a helper method for animate the shadow when the polaroid is clicked or touched
         /// </summary>
         private void hideShadow()
         {
-            ((DropShadowEffect)Canvas.Effect).Opacity = 0;
+            if (!IsUnclickable)
+            {
+                ((DropShadowEffect)Canvas.Effect).Opacity = 0;
+            }
         }
+
 
 
 
@@ -173,7 +186,12 @@ namespace P02Project
         /// </summary>
         private void showShadow()
         {
-            ((DropShadowEffect)Canvas.Effect).Opacity = 1;
+            if (!IsUnclickable)
+            {
+                ((
+                DropShadowEffect)Canvas.Effect).Opacity = 1;
+            }
+
         }
 
 

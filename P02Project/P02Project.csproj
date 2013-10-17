@@ -148,9 +148,6 @@
     <Compile Include="Screens\RightButton.xaml.cs">
       <DependentUpon>RightButton.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Screens\FunkyGrid.xaml.cs">
-      <DependentUpon>FunkyGrid.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Screens\ScrollableView.xaml.cs">
       <DependentUpon>ScrollableView.xaml</DependentUpon>
     </Compile>
@@ -266,10 +263,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Screens\FunkyGrid.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Screens\HomePage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -341,6 +334,9 @@
     </None>
     <AppDesigner Include="Properties\" />
     <Resource Include="Resources\images\HowCanIHelp\kidsForCourage.png" />
+    <Resource Include="Resources\Fonts\seguisym.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <None Include="Utils\xml\Content.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -414,20 +410,20 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="Resources\xml\About_AboutUs.xml">
+    <Content Include="Resources\xml\AboutUs.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\xml\About_HowWeHelp.xml">
+    <Content Include="Resources\xml\HowWeHelp.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\xml\About_OurAmbassadors.xml">
+    <Content Include="Resources\xml\OurAmbassadors.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="Resources\xml\About_OurHistory.xml">
+    <Content Include="Resources\xml\OurHistory.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\xml\About_OurStories.xml">
+    <Content Include="Resources\xml\OurStories.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </Content>
