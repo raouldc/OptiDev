@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows;
@@ -19,6 +20,7 @@ using System.Windows.Media.Animation;
 using P02Project.Resources.xml;
 using P02Project.Screens;
 using P02Project.Utils;
+using Path = System.IO.Path;
 
 
 namespace P02Project
@@ -53,7 +55,8 @@ namespace P02Project
         public TopWindow()
         {
             InitializeComponent();
-            XMLUtilities.GetContentFromPage(@"http://www.childcancer.org.nz/News-and-events/Events.aspx");
+
+
             stackOfScreens = new Stack<Screen>();
             //Setting starting Screen here, maybe should be in one of the other OnXXX methods of this class
             pushScreen(new HomePage(this));

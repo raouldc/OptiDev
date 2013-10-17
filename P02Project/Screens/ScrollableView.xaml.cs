@@ -12,6 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Media.Animation;
+using P02Project.Resources.xml;
 
 namespace P02Project.Screens
 {
@@ -21,29 +22,49 @@ namespace P02Project.Screens
     public partial class ScrollableView : UserControl
     {
         private List<PoloroidWithText> listOfObjects;
-        public ScrollableView()
+        private string pageType;
+        public ScrollableView(string pageType)
         {
             InitializeComponent();
+            this.pageType = pageType;
             listOfObjects = new List<PoloroidWithText>();
+
             //add new poloroidWithTexts with all the data specified
-            PoloroidWithText p0 = new PoloroidWithText();
-            p0.setTitle("Hello There Event!");
-            p0.setDate(new DateTime());
-            p0.setDescription("some long description. some long description. some long description. some long description. some long description. some long description. some long description. some long description. some long description. some long description. some long description. some long description. some long description. some long description. some long description. some long description. \nsome long description. some long description. some long description. some long description. some long description. some long description. some long description. some long description. some long description. some long description. some long description. some long description. some long description. some long description. some long description. ");
-            p0.setImage("images/Stories/Emma.png");
-            addPoloroidtoList(p0);
-            PoloroidWithText p1 = new PoloroidWithText();
-            p1.setTitle("1");
-            addPoloroidtoList(p1);
-            PoloroidWithText p2 = new PoloroidWithText();
-            p2.setTitle("2");
-            addPoloroidtoList(p2);
-            PoloroidWithText p3 = new PoloroidWithText();
-            p3.setTitle("3");
-            addPoloroidtoList(p3);
-            PoloroidWithText p4 = new PoloroidWithText();
-            p4.setTitle("4");
-            addPoloroidtoList(p4);
+            var temp = XMLUtilities.GetContentFromPage(@"http://www.childcancer.org.nz/News-and-events/"+ this.pageType +".aspx");
+            var n = 1;
+            while (true)
+            {
+                var nodeText = temp.TextList.Where(text => text.node == ""+n).ToList();
+                if (nodeText.Count == 0)
+                    break;
+                var polaroid = new PoloroidWithText();
+                polaroid.setTitle(nodeText.Where(t => t.type == "title").FirstOrDefault().Value);
+                polaroid.setDate(nodeText.Where(t => t.type == "date").FirstOrDefault().Value);
+                polaroid.setDescription(nodeText.Where(t => t.type == "info").FirstOrDefault().Value);
+                if (pageType == "Events")
+                    polaroid.setPlace(nodeText.Where(t => t.type == "place").FirstOrDefault().Value);
+                addPoloroidtoList(polaroid);
+                n++;
+            }
+
+//            PoloroidWithText p0 = new PoloroidWithText();
+//            p0.setTitle("Hello There Event!");
+//            p0.setDate(new DateTime());
+//            p0.setDescription("some long description. some long description. some long description. some long description. some long description. some long description. some long description. some long description. some long description. some long description. some long description. some long description. some long description. some long description. some long description. some long description. \nsome long description. some long description. some long description. some long description. some long description. some long description. some long description. some long description. some long description. some long description. some long description. some long description. some long description. some long description. some long description. ");
+//            p0.setImage("images/Stories/Emma.png");
+//            addPoloroidtoList(p0);
+//            PoloroidWithText p1 = new PoloroidWithText();
+//            p1.setTitle("1");
+//            addPoloroidtoList(p1);
+//            PoloroidWithText p2 = new PoloroidWithText();
+//            p2.setTitle("2");
+//            addPoloroidtoList(p2);
+//            PoloroidWithText p3 = new PoloroidWithText();
+//            p3.setTitle("3");
+//            addPoloroidtoList(p3);
+//            PoloroidWithText p4 = new PoloroidWithText();
+//            p4.setTitle("4");
+//            addPoloroidtoList(p4);
             listView.ScrollIntoView(0);
 
           

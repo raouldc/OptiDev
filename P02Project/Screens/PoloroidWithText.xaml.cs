@@ -24,7 +24,7 @@ namespace P02Project.Screens
             InitializeComponent();
         }
 
-        public PoloroidWithText(String title, String resName, System.DateTime date,String place, String description)
+        public PoloroidWithText(String title, String resName, string date, String place, String description)
         {
             InitializeComponent();
             setImage(resName);
@@ -49,9 +49,9 @@ namespace P02Project.Screens
             Place.Text = place;
         }
 
-        public void setDate(DateTime date)
+        public void setDate(string date)
         {
-            Date.Text = date.ToLongDateString();
+            Date.Text = date;
         }
 
         public void setDescription(String desc)

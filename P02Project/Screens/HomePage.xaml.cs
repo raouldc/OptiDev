@@ -101,7 +101,7 @@ namespace P02Project
         {
             // create a new subscreen and push it into the stack of subscreens
             TopLevelPage nextScreen = new TopLevelPage(ParentWindow, "News");
-            ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("News"), news.colour, new UserControl(), "");
+            ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("News"), news.colour, new ScrollableView("News"), "");
         }
 
 
@@ -116,7 +116,7 @@ namespace P02Project
             // create a new subscreen and push it into the stack of subscreens
             TopLevelPage nextScreen = new TopLevelPage(ParentWindow, "Events");
 
-            ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("Events"), events.colour, new ScrollableView(), "");
+            ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("Events"), events.colour, new ScrollableView("Events"), "");
         }
 
 
