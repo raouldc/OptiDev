@@ -35,7 +35,7 @@ namespace P02Project.Resources.xml
         {
             var pageType = url.Split('/').LastOrDefault().Split('.').FirstOrDefault();
             var path = "Resources/xml/" + pageType + ".xml";//Path.Combine(Path.GetFullPath("."), "Resources/xml/" + pageType + ".xml");
-            if (File.Exists(path) 
+            if (!File.Exists(path) 
                 || File.GetLastWriteTimeUtc(path) > DateTime.UtcNow.Subtract(new TimeSpan(12, 0, 0)))
             {
                 var html = new HtmlWeb();
