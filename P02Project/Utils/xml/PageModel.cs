@@ -32,6 +32,8 @@ public partial class PageModel {
     
     private string idField;
     
+    private string pageTypeField;
+    
     /// <remarks/>
     [System.Xml.Serialization.XmlArrayAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
     [System.Xml.Serialization.XmlArrayItemAttribute("Text", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
@@ -76,6 +78,17 @@ public partial class PageModel {
         }
         set {
             this.idField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlAttributeAttribute()]
+    public string pageType {
+        get {
+            return this.pageTypeField;
+        }
+        set {
+            this.pageTypeField = value;
         }
     }
 }
