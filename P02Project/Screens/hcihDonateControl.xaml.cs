@@ -62,6 +62,11 @@ namespace P02Project
             Storyboard.SetTargetProperty(stackIn, new PropertyPath(StackPanel.MarginProperty));
             }
 
+            DoubleAnimation opa = new DoubleAnimation(0.0, 1.0, new Duration(TimeSpan.FromMilliseconds(200)));
+            sbIn.Children.Add(opa);
+
+            Storyboard.SetTarget(opa, text);
+            Storyboard.SetTargetProperty(opa, new PropertyPath(PoloroidControl.OpacityProperty));
 
 		}
 
@@ -388,6 +393,7 @@ namespace P02Project
         public void AnimateIn()
         {
             sbIn.Begin(this);
+            donate.AnimateIn();
         }
 
         public void AnimateOut()

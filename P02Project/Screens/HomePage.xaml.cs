@@ -29,6 +29,8 @@ namespace P02Project
         private List<Animatiable> components;
         DispatcherTimer dt;
 
+        Storyboard sbOut;
+
         public HomePage(TopWindow parentWindow) : base(parentWindow)
         {
             this.InitializeComponent();
@@ -90,22 +92,34 @@ namespace P02Project
 
             dt = new DispatcherTimer();
             dt.Interval = new TimeSpan(0, 0, 0, 0, 200);
+
+            sbOut = new Storyboard();
+
+            foreach (UserControl uc in components)
+            {
+                ThicknessAnimation panRight = new ThicknessAnimation();
+                panRight.From = uc.Margin;
+                panRight.To = new Thickness(1920, uc.Margin.Top, 0, uc.Margin.Bottom);
+                panRight.Duration = new Duration(TimeSpan.FromMilliseconds(300));
+
+                sbOut.Children.Add(panRight);
+
+                Storyboard.SetTarget(panRight, uc);
+                Storyboard.SetTargetProperty(panRight, new PropertyPath(UserControl.MarginProperty));
+            }
         }
 
         public void AnimateOut()
         {
-            foreach (Animatiable a in components)
-            {
-                a.AnimateOut();
-            }
+            sbOut.AutoReverse = false;
+            sbOut.Begin(this);
         }
 
         public void AnimateIn()
         {
-            foreach (Animatiable a in components)
-            {
-                a.AnimateIn();
-            }
+            sbOut.AutoReverse = true;
+            sbOut.Begin(this, true);
+            sbOut.Seek(this, new TimeSpan(0, 0, 0), TimeSeekOrigin.Duration);
         }
 
         /// <summary>

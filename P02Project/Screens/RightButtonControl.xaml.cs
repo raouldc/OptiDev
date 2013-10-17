@@ -72,7 +72,7 @@ namespace P02Project
                 ThicknessAnimation pan = new ThicknessAnimation();
                 pan.From = new Thickness(300, 0, 15, 15);
                 pan.To = new Thickness(0, 0, 15, 15);
-                pan.Duration = new Duration(TimeSpan.FromMilliseconds(200 + 50 * (count++)));
+                pan.Duration = new Duration(TimeSpan.FromMilliseconds(100 + 50 * (count++)));
 
                 sbIn.Children.Add(pan);
                 Storyboard.SetTarget(pan, button);
