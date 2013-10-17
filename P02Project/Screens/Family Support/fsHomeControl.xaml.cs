@@ -141,6 +141,7 @@ namespace P02Project
             StackPanel contentStackPanel = new StackPanel();
 
             TextBlock scholarshipText = new TextBlock();
+            scholarshipText.TextWrapping = TextWrapping.Wrap;
             scholarshipText.TextAlignment = TextAlignment.Left;
             scholarshipText.FontSize = Util.contentTextSize;
             //scholarship.FontFamily = Util.contentTextFont;
@@ -425,6 +426,7 @@ namespace P02Project
 
 
             TextBlock prompt = new TextBlock();
+            prompt.TextWrapping = TextWrapping.Wrap;
             prompt.TextAlignment = TextAlignment.Center;
             prompt.FontSize = Util.contentTextSize;
             prompt.Margin = new Thickness(10);
@@ -522,12 +524,14 @@ namespace P02Project
             StackPanel contentStackPanel = new StackPanel();
             
             TextBlock pResourcesText1 = new TextBlock();
+            pResourcesText1.TextWrapping = TextWrapping.Wrap;
             pResourcesText1.TextAlignment = TextAlignment.Left;
             pResourcesText1.FontSize = Util.contentTextSize;
             pResourcesText1.FontFamily = Util.contentTextFont;
             pResourcesText1.Margin = new Thickness(10);
 
             TextBlock pResourcesText2 = new TextBlock();
+            pResourcesText2.TextWrapping = TextWrapping.Wrap;
             pResourcesText2.TextAlignment = TextAlignment.Left;
             pResourcesText2.FontSize = 32;
             pResourcesText2.FontFamily = Util.contentTextFont;
@@ -583,6 +587,7 @@ namespace P02Project
 
             
             TextBlock prompt = new TextBlock();
+            prompt.TextWrapping = TextWrapping.Wrap;
             prompt.TextAlignment = TextAlignment.Center;
             prompt.FontSize = Util.contentTextSize;
             prompt.Margin = new Thickness(10);
@@ -632,6 +637,7 @@ namespace P02Project
             StackPanel contentStackPanel = new StackPanel();
 
             TextBlock taupoText = new TextBlock();
+            taupoText.TextWrapping = TextWrapping.Wrap;
             taupoText.TextAlignment = TextAlignment.Left;
             taupoText.FontSize = Util.contentTextSize;
             //taupoText.FontFamily = Util.contentTextFont;
@@ -649,6 +655,7 @@ namespace P02Project
             StackPanel contentStackPanel = new StackPanel();
 
             TextBlock taupoText = new TextBlock();
+            taupoText.TextWrapping = TextWrapping.Wrap;
             taupoText.TextAlignment = TextAlignment.Left;
             taupoText.FontSize = Util.contentTextSize;
             //taupoText.FontFamily = Util.contentTextFont;
@@ -666,6 +673,7 @@ namespace P02Project
             StackPanel contentStackPanel = new StackPanel();
 
             TextBlock taupoText = new TextBlock();
+            taupoText.TextWrapping = TextWrapping.Wrap;
             taupoText.TextAlignment = TextAlignment.Left;
             taupoText.FontSize = Util.contentTextSize;
             //taupoText.FontFamily = Util.contentTextFont;
@@ -684,6 +692,7 @@ namespace P02Project
             StackPanel contentStackPanel = new StackPanel();
 
             TextBlock taupoText = new TextBlock();
+            taupoText.TextWrapping = TextWrapping.Wrap;
             taupoText.TextAlignment = TextAlignment.Left;
             taupoText.FontSize = Util.contentTextSize;
            // taupoText.FontFamily = Util.contentTextFont;
@@ -700,6 +709,7 @@ namespace P02Project
             StackPanel contentStackPanel = new StackPanel();
 
             TextBlock taupoText = new TextBlock();
+            taupoText.TextWrapping = TextWrapping.Wrap;
             taupoText.TextAlignment = TextAlignment.Left;
             taupoText.FontSize = Util.contentTextSize;
             //taupoText.FontFamily = Util.contentTextFont;
@@ -716,6 +726,7 @@ namespace P02Project
             StackPanel contentStackPanel = new StackPanel();
 
             TextBlock taupoText = new TextBlock();
+            taupoText.TextWrapping = TextWrapping.Wrap;
             taupoText.TextAlignment = TextAlignment.Left;
             taupoText.FontSize = Util.contentTextSize;
            // taupoText.FontFamily = Util.contentTextFont;
@@ -732,6 +743,7 @@ namespace P02Project
             StackPanel contentStackPanel = new StackPanel();
 
             TextBlock taupoText = new TextBlock();
+            taupoText.TextWrapping = TextWrapping.Wrap;
             taupoText.TextAlignment = TextAlignment.Left;
             taupoText.FontSize = Util.contentTextSize;
            // taupoText.FontFamily = Util.contentTextFont;
