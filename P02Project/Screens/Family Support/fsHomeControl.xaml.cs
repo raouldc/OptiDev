@@ -74,7 +74,7 @@ namespace P02Project
 
             fsPol.removeTouch();
             fsPol.setShadow(10,0.3,(Color)ColorConverter.ConvertFromString("#ff7f7f7f"));
-            fsPol.removeBorder();
+            //fsPol.removeBorder();
 		}
 
         private void ResetBtnEffects()
@@ -147,8 +147,8 @@ namespace P02Project
             scholarshipText.Margin = new Thickness(10);
             scholarshipText.Foreground = new SolidColorBrush(Util.contentTextColor);
             scholarshipText.Inlines.Add(new Bold(new Run("Scholarships \n")));
-            scholarshipText.Inlines.Add(new Run("The Child Cancer Foundation Scholarship Fund aims to assist children aged 0 to 12 years with cancer, their siblings aged 0 to 12 years, or parents, achieve their personal education and developmental goals. Any activity that has the potential to educationally or developmentally benefit the applicant will be considered.\n"));
-            scholarshipText.Inlines.Add(new Run("The Scholarship sub-committee, which meets four times a year, receives and considers all applications. Allocations made depend on the funds available and are made according to the policy guidelines of the Child Cancer Foundation.\n"));
+            scholarshipText.Inlines.Add(new Run("The Child Cancer Foundation Scholarship Fund aims to assist children aged 0 to 12 years with cancer, their siblings aged 0 to 12 years, or parents, achieve their personal education and developmental goals. Any activity that has the potential to educationally or developmentally benefit the applicant will be considered.\n\n"));
+            scholarshipText.Inlines.Add(new Run("The Scholarship sub-committee, which meets four times a year, receives and considers all applications. Allocations made depend on the funds available and are made according to the policy guidelines of the Child Cancer Foundation.\n\n"));
             scholarshipText.Inlines.Add(new Run("All application enquiries should be directed to your local Family Support Coordinator.\nFor administration support please contact:\n"));
             scholarshipText.Inlines.Add(new Bold(new Run("Alison O'Connor  PHN ")));
             scholarshipText.Inlines.Add(new Run("(04) 389 2620 or "));
