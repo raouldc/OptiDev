@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.Net;
 using System.Reflection;
@@ -32,7 +34,7 @@ namespace P02Project.Resources.xml
         public static PageModel GetContentFromPage(string url)
         {
             var pageType = url.Split('/').LastOrDefault().Split('.').FirstOrDefault();
-            var path = Path.Combine(Path.GetFullPath("."), "Resources/xml/" + pageType + ".xml");
+            var path = "Resources/xml/" + pageType + ".xml";//Path.Combine(Path.GetFullPath("."), "Resources/xml/" + pageType + ".xml");
             if (File.Exists(path) 
                 || File.GetLastWriteTimeUtc(path) > DateTime.UtcNow.Subtract(new TimeSpan(12, 0, 0)))
             {
@@ -65,17 +67,16 @@ namespace P02Project.Resources.xml
                         textList += "<Text node=\"" + n + "\" type=\"date\">" +
                                     node.Descendants("small").FirstOrDefault().InnerText + "</Text>\n";
                     }
-                    var imagePath = "Resources/images/"+ pageType + "/" + node.Descendants("a").FirstOrDefault().InnerText + ".jpg";
-                    
-//                    if(!File.Exists(imagePath))
-//                    {
-//                        File.Create(imagePath);
-//                        using(var client = new WebClient())
-//                        {
-//                            client.DownloadFile("http://www.childcancer.org.nz/" + node.Descendants("img").FirstOrDefault().Attributes["src"].Value, imagePath);
-//                        }
-//                    }
-//                    imageList += "<Image node=\"" + n + "\">" + imagePath + "</image>\n";
+                    var imagePath = "images/" + pageType + "/" + node.Descendants("a").FirstOrDefault().InnerText.Replace("/", "-").Replace("\\", "-").Replace(" ", "") + ".jpg";
+                    imagePath = imagePath.Replace(":", " -");
+                    if(!File.Exists("Resources/" + imagePath))
+                    {
+                        using(var client = new WebClient())
+                        {
+                            client.DownloadFile("http://www.childcancer.org.nz" + node.Descendants("img").FirstOrDefault().Attributes["src"].Value, "Resources/" + imagePath);
+                        }
+                    }
+                    imageList += "<Image node=\"" + n + "\">" + imagePath + "</Image>\n";
                     n++;
                 }
                 textList += "</TextList>\n";

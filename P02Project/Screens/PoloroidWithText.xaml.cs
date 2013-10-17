@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows;
@@ -37,8 +38,9 @@ namespace P02Project.Screens
         public void setImage(String resName)
         {
             BitmapImage src = new BitmapImage();
+            var a = AppDomain.CurrentDomain.BaseDirectory;
             src.BeginInit();
-            src.UriSource = new Uri("pack://application:,,/Resources/" + resName);
+            src.UriSource = new Uri("/Resources/" + resName,UriKind.Relative);
             src.EndInit();
 
             Image.Source = src;
