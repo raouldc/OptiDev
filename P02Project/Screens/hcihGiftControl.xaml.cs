@@ -84,6 +84,7 @@ namespace P02Project
             tb.FontSize = 24;
             tb.Margin = new Thickness(10);
             tb.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#ffffffff"));
+            tb.TextWrapping = TextWrapping.Wrap;
 
             return tb;
         }

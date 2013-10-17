@@ -253,6 +253,7 @@ namespace P02Project
             oneOffText1.Inlines.Add(new Bold(new Run("Donate Online \n")));
             oneOffText1.Inlines.Add(new Run("You can make an online one-off donation through your credit card, it is simple, secure and super rewarding!\n"));
             oneOffText1.Inlines.Add(new Run("To donate online, go to https://support.childcancer.org.nz or scan the QR code below\n"));
+            oneOffText1.TextWrapping = TextWrapping.Wrap;
 
             TextBlock oneOffText2 = new TextBlock();
             oneOffText2.TextAlignment = TextAlignment.Left;
@@ -263,6 +264,7 @@ namespace P02Project
             oneOffText2.Inlines.Add(new Run("Enter a whole dollar amount only containing no decimal points."));
             oneOffText2.Inlines.Add(new Bold(new Run("\n\nDonate By Text \n")));
             oneOffText2.Inlines.Add(new Run("Please text 'bead' to 206 to make a $3 donation"));
+            oneOffText2.TextWrapping = TextWrapping.Wrap;
 
             contentStackPanel.Children.Add(oneOffText1);
             contentStackPanel.Children.Add(qrCode);
@@ -295,6 +297,7 @@ namespace P02Project
             onGoingText1.Inlines.Add(new Run("09 303 9972 | "));
             onGoingText1.Inlines.Add(new Bold(new Run("EML ")));
             onGoingText1.Inlines.Add(new Run("sarmitage@childcancer.org.nz\n"));
+            onGoingText1.TextWrapping = TextWrapping.Wrap;
 
             contentStackPanel.Children.Add(onGoingText1);
             return contentStackPanel;
@@ -326,6 +329,7 @@ namespace P02Project
             lastinLegacyText1.Inlines.Add(new Run("- Contribute towards research\n"));
             lastinLegacyText1.Inlines.Add(new Run("- Protect the future of Child Cancer Foundation\n\n"));
             lastinLegacyText1.Inlines.Add(new Run("If you have already decided on leaving a bequest, making a will is the only way to ensure your wishes will be met in relation to the distribution of your assets or estate. A will also helps to avoid confusion over your intentions and gives you peace of mind.\n"));
+            lastinLegacyText1.TextWrapping = TextWrapping.Wrap;
 
             contentStackPanel.Children.Add(lastinLegacyText1);
             return contentStackPanel;
@@ -355,6 +359,7 @@ namespace P02Project
             workplaceGivingText1.Inlines.Add(new Run("09 303 9972 | "));
             workplaceGivingText1.Inlines.Add(new Bold(new Run("EML ")));
             workplaceGivingText1.Inlines.Add(new Run("sarmitage@childcancer.org.nz\n"));
+            workplaceGivingText1.TextWrapping = TextWrapping.Wrap;
 
             contentStackPanel.Children.Add(workplaceGivingText1);
             return contentStackPanel;
@@ -385,6 +390,7 @@ namespace P02Project
             onGoingText1.Inlines.Add(new Run("09 303 9882 | "));
             onGoingText1.Inlines.Add(new Bold(new Run("EML ")));
             onGoingText1.Inlines.Add(new Run("doriordan@childcancer.org.nz\n"));
+            onGoingText1.TextWrapping = TextWrapping.Wrap;
 
             contentStackPanel.Children.Add(onGoingText1);
             return contentStackPanel;
