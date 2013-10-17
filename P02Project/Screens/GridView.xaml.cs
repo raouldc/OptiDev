@@ -110,7 +110,7 @@ namespace P02Project
                 p.RenderTransform = new RotateTransform(rotation);
                 rotation = rotation * -1;
                 p.MouseUp += new MouseButtonEventHandler(Polaroid_MouseUp);
-                if (isFunky && i == 3)
+                if (isFunky && i == 2)
                 {
                     Grid.SetColumn(p, 1);
                     Grid.SetRow(p, 1);
