@@ -1,64 +1,126 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<xs:schema id="NewDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-  <xs:element name="PageModel">
+<xs:schema id="NewDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="PageModel" msprop:Generator_TableClassName="PageModelDataTable" msprop:Generator_TableVarName="tablePageModel" msprop:Generator_TablePropName="PageModel" msprop:Generator_RowDeletingName="PageModelRowDeleting" msprop:Generator_RowChangingName="PageModelRowChanging" msprop:Generator_RowEvHandlerName="PageModelRowChangeEventHandler" msprop:Generator_RowDeletedName="PageModelRowDeleted" msprop:Generator_UserTableName="PageModel" msprop:Generator_RowChangedName="PageModelRowChanged" msprop:Generator_RowEvArgName="PageModelRowChangeEvent" msprop:Generator_RowClassName="PageModelRow">
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="TextList" minOccurs="0" maxOccurs="1">
+        <xs:element name="TextList" msprop:Generator_TableClassName="TextListDataTable" msprop:Generator_TableVarName="tableTextList" msprop:Generator_TablePropName="TextList" msprop:Generator_RowDeletingName="TextListRowDeleting" msprop:Generator_RowChangingName="TextListRowChanging" msprop:Generator_RowEvHandlerName="TextListRowChangeEventHandler" msprop:Generator_RowDeletedName="TextListRowDeleted" msprop:Generator_UserTableName="TextList" msprop:Generator_RowChangedName="TextListRowChanged" msprop:Generator_RowEvArgName="TextListRowChangeEvent" msprop:Generator_RowClassName="TextListRow" minOccurs="0" maxOccurs="unbounded">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="Text" nillable="true" minOccurs="0" maxOccurs="unbounded">
+              <xs:element name="Text" nillable="true" msprop:Generator_TableClassName="TextDataTable" msprop:Generator_TableVarName="tableText" msprop:Generator_TablePropName="Text" msprop:Generator_RowDeletingName="TextRowDeleting" msprop:Generator_RowChangingName="TextRowChanging" msprop:Generator_RowEvHandlerName="TextRowChangeEventHandler" msprop:Generator_RowDeletedName="TextRowDeleted" msprop:Generator_UserTableName="Text" msprop:Generator_RowChangedName="TextRowChanged" msprop:Generator_RowEvArgName="TextRowChangeEvent" msprop:Generator_RowClassName="TextRow" minOccurs="0" maxOccurs="unbounded">
                 <xs:complexType>
-                  <xs:simpleContent msdata:ColumnName="Text_Text" msdata:Ordinal="1">
+                  <xs:simpleContent msprop:Generator_ColumnVarNameInTable="columnText_Text" msprop:Generator_ColumnPropNameInRow="Text_Text" msprop:Generator_ColumnPropNameInTable="Text_TextColumn" msprop:Generator_UserColumnName="Text_Text" msdata:ColumnName="Text_Text" msdata:Ordinal="1">
                     <xs:extension base="xs:string">
-                      <xs:attribute name="id" type="xs:string" />
+                      <xs:sequence>
+                        <xs:element name="DataColumn1" type="xs:string" minOccurs="0" msdata:Ordinal="3" />
+                      </xs:sequence>
+                      <xs:attribute name="id" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:string" />
+                      <xs:attribute name="TextList_Id" msprop:Generator_ColumnVarNameInTable="columnTextList_Id" msprop:Generator_ColumnPropNameInRow="TextList_Id" msprop:Generator_ColumnPropNameInTable="TextList_IdColumn" msprop:Generator_UserColumnName="TextList_Id" type="xs:int" use="prohibited" />
                     </xs:extension>
                   </xs:simpleContent>
                 </xs:complexType>
               </xs:element>
             </xs:sequence>
+            <xs:attribute name="TextList_Id" msdata:AutoIncrement="true" msprop:Generator_ColumnVarNameInTable="columnTextList_Id" msprop:Generator_ColumnPropNameInRow="TextList_Id" msprop:Generator_ColumnPropNameInTable="TextList_IdColumn" msprop:Generator_UserColumnName="TextList_Id" type="xs:int" msdata:AllowDBNull="false" use="prohibited" />
+            <xs:attribute name="PageModel_Id" msprop:Generator_ColumnVarNameInTable="columnPageModel_Id" msprop:Generator_ColumnPropNameInRow="PageModel_Id" msprop:Generator_ColumnPropNameInTable="PageModel_IdColumn" msprop:Generator_UserColumnName="PageModel_Id" type="xs:int" use="prohibited" />
           </xs:complexType>
         </xs:element>
-        <xs:element name="ImageList" minOccurs="0" maxOccurs="1">
+        <xs:element name="ImageList" msprop:Generator_TableClassName="ImageListDataTable" msprop:Generator_TableVarName="tableImageList" msprop:Generator_TablePropName="ImageList" msprop:Generator_RowDeletingName="ImageListRowDeleting" msprop:Generator_RowChangingName="ImageListRowChanging" msprop:Generator_RowEvHandlerName="ImageListRowChangeEventHandler" msprop:Generator_RowDeletedName="ImageListRowDeleted" msprop:Generator_UserTableName="ImageList" msprop:Generator_RowChangedName="ImageListRowChanged" msprop:Generator_RowEvArgName="ImageListRowChangeEvent" msprop:Generator_RowClassName="ImageListRow" minOccurs="0" maxOccurs="unbounded">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="Image" nillable="true" minOccurs="0" maxOccurs="unbounded">
+              <xs:element name="Image" nillable="true" msprop:Generator_TableClassName="ImageDataTable" msprop:Generator_TableVarName="tableImage" msprop:Generator_TablePropName="Image" msprop:Generator_RowDeletingName="ImageRowDeleting" msprop:Generator_RowChangingName="ImageRowChanging" msprop:Generator_RowEvHandlerName="ImageRowChangeEventHandler" msprop:Generator_RowDeletedName="ImageRowDeleted" msprop:Generator_UserTableName="Image" msprop:Generator_RowChangedName="ImageRowChanged" msprop:Generator_RowEvArgName="ImageRowChangeEvent" msprop:Generator_RowClassName="ImageRow" minOccurs="0" maxOccurs="unbounded">
                 <xs:complexType>
-                  <xs:simpleContent msdata:ColumnName="Image_Text" msdata:Ordinal="3">
+                  <xs:simpleContent msprop:Generator_ColumnVarNameInTable="columnImage_Text" msprop:Generator_ColumnPropNameInRow="Image_Text" msprop:Generator_ColumnPropNameInTable="Image_TextColumn" msprop:Generator_UserColumnName="Image_Text" msdata:ColumnName="Image_Text" msdata:Ordinal="3">
                     <xs:extension base="xs:string">
-                      <xs:attribute name="id" type="xs:string" />
-                      <xs:attribute name="caption" type="xs:string" />
-                      <xs:attribute name="link" type="xs:string" />
+                      <xs:attribute name="id" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:string" />
+                      <xs:attribute name="caption" msprop:Generator_ColumnVarNameInTable="columncaption" msprop:Generator_ColumnPropNameInRow="caption" msprop:Generator_ColumnPropNameInTable="captionColumn" msprop:Generator_UserColumnName="caption" type="xs:string" />
+                      <xs:attribute name="link" msprop:Generator_ColumnVarNameInTable="columnlink" msprop:Generator_ColumnPropNameInRow="link" msprop:Generator_ColumnPropNameInTable="linkColumn" msprop:Generator_UserColumnName="link" type="xs:string" />
+                      <xs:attribute name="ImageList_Id" msprop:Generator_ColumnVarNameInTable="columnImageList_Id" msprop:Generator_ColumnPropNameInRow="ImageList_Id" msprop:Generator_ColumnPropNameInTable="ImageList_IdColumn" msprop:Generator_UserColumnName="ImageList_Id" type="xs:int" use="prohibited" />
                     </xs:extension>
                   </xs:simpleContent>
                 </xs:complexType>
               </xs:element>
             </xs:sequence>
+            <xs:attribute name="ImageList_Id" msdata:AutoIncrement="true" msprop:Generator_ColumnVarNameInTable="columnImageList_Id" msprop:Generator_ColumnPropNameInRow="ImageList_Id" msprop:Generator_ColumnPropNameInTable="ImageList_IdColumn" msprop:Generator_UserColumnName="ImageList_Id" type="xs:int" msdata:AllowDBNull="false" use="prohibited" />
+            <xs:attribute name="PageModel_Id" msprop:Generator_ColumnVarNameInTable="columnPageModel_Id" msprop:Generator_ColumnPropNameInRow="PageModel_Id" msprop:Generator_ColumnPropNameInTable="PageModel_IdColumn" msprop:Generator_UserColumnName="PageModel_Id" type="xs:int" use="prohibited" />
           </xs:complexType>
         </xs:element>
-        <xs:element name="LinksList" minOccurs="0" maxOccurs="1">
+        <xs:element name="LinksList" msprop:Generator_TableClassName="LinksListDataTable" msprop:Generator_TableVarName="tableLinksList" msprop:Generator_TablePropName="LinksList" msprop:Generator_RowDeletingName="LinksListRowDeleting" msprop:Generator_RowChangingName="LinksListRowChanging" msprop:Generator_RowEvHandlerName="LinksListRowChangeEventHandler" msprop:Generator_RowDeletedName="LinksListRowDeleted" msprop:Generator_UserTableName="LinksList" msprop:Generator_RowChangedName="LinksListRowChanged" msprop:Generator_RowEvArgName="LinksListRowChangeEvent" msprop:Generator_RowClassName="LinksListRow" minOccurs="0" maxOccurs="unbounded">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="Link" nillable="true" minOccurs="0" maxOccurs="unbounded">
+              <xs:element name="Link" nillable="true" msprop:Generator_TableClassName="LinkDataTable" msprop:Generator_TableVarName="tableLink" msprop:Generator_TablePropName="Link" msprop:Generator_RowDeletingName="LinkRowDeleting" msprop:Generator_RowChangingName="LinkRowChanging" msprop:Generator_RowEvHandlerName="LinkRowChangeEventHandler" msprop:Generator_RowDeletedName="LinkRowDeleted" msprop:Generator_UserTableName="Link" msprop:Generator_RowChangedName="LinkRowChanged" msprop:Generator_RowEvArgName="LinkRowChangeEvent" msprop:Generator_RowClassName="LinkRow" minOccurs="0" maxOccurs="unbounded">
                 <xs:complexType>
-                  <xs:simpleContent msdata:ColumnName="Link_Text" msdata:Ordinal="1">
+                  <xs:simpleContent msprop:Generator_ColumnVarNameInTable="columnLink_Text" msprop:Generator_ColumnPropNameInRow="Link_Text" msprop:Generator_ColumnPropNameInTable="Link_TextColumn" msprop:Generator_UserColumnName="Link_Text" msdata:ColumnName="Link_Text" msdata:Ordinal="1">
                     <xs:extension base="xs:string">
-                      <xs:attribute name="id" type="xs:string" />
+                      <xs:attribute name="id" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:string" />
+                      <xs:attribute name="LinksList_Id" msprop:Generator_ColumnVarNameInTable="columnLinksList_Id" msprop:Generator_ColumnPropNameInRow="LinksList_Id" msprop:Generator_ColumnPropNameInTable="LinksList_IdColumn" msprop:Generator_UserColumnName="LinksList_Id" type="xs:int" use="prohibited" />
                     </xs:extension>
                   </xs:simpleContent>
                 </xs:complexType>
               </xs:element>
             </xs:sequence>
+            <xs:attribute name="LinksList_Id" msdata:AutoIncrement="true" msprop:Generator_ColumnVarNameInTable="columnLinksList_Id" msprop:Generator_ColumnPropNameInRow="LinksList_Id" msprop:Generator_ColumnPropNameInTable="LinksList_IdColumn" msprop:Generator_UserColumnName="LinksList_Id" type="xs:int" msdata:AllowDBNull="false" use="prohibited" />
+            <xs:attribute name="PageModel_Id" msprop:Generator_ColumnVarNameInTable="columnPageModel_Id" msprop:Generator_ColumnPropNameInRow="PageModel_Id" msprop:Generator_ColumnPropNameInTable="PageModel_IdColumn" msprop:Generator_UserColumnName="PageModel_Id" type="xs:int" use="prohibited" />
           </xs:complexType>
         </xs:element>
       </xs:sequence>
-      <xs:attribute name="id" type="xs:string" />
+      <xs:attribute name="id" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:string" />
+      <xs:attribute name="PageModel_Id" msdata:AutoIncrement="true" msprop:Generator_ColumnVarNameInTable="columnPageModel_Id" msprop:Generator_ColumnPropNameInRow="PageModel_Id" msprop:Generator_ColumnPropNameInTable="PageModel_IdColumn" msprop:Generator_UserColumnName="PageModel_Id" type="xs:int" msdata:AllowDBNull="false" use="prohibited" />
     </xs:complexType>
   </xs:element>
-  <xs:element name="NewDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+  <xs:element name="NewDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_DataSetName="NewDataSet" msprop:Generator_UserDSName="NewDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
         <xs:element ref="PageModel" />
       </xs:choice>
     </xs:complexType>
+    <xs:unique name="TextList_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//TextList" />
+      <xs:field xpath="@TextList_Id" />
+    </xs:unique>
+    <xs:unique name="ImageList_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//ImageList" />
+      <xs:field xpath="@ImageList_Id" />
+    </xs:unique>
+    <xs:unique name="LinksList_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//LinksList" />
+      <xs:field xpath="@LinksList_Id" />
+    </xs:unique>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//PageModel" />
+      <xs:field xpath="@PageModel_Id" />
+    </xs:unique>
+    <xs:keyref name="PageModel_LinksList" refer="Constraint1" msdata:IsNested="true" msprop:rel_Generator_UserChildTable="LinksList" msprop:rel_Generator_ChildPropName="GetLinksListRows" msprop:rel_Generator_UserRelationName="PageModel_LinksList" msprop:rel_Generator_ParentPropName="PageModelRow" msprop:rel_Generator_RelationVarName="relationPageModel_LinksList" msprop:rel_Generator_UserParentTable="PageModel">
+      <xs:selector xpath=".//LinksList" />
+      <xs:field xpath="@PageModel_Id" />
+    </xs:keyref>
+    <xs:keyref name="LinksList_Link" refer="LinksList_Constraint1" msdata:IsNested="true" msprop:rel_Generator_UserChildTable="Link" msprop:rel_Generator_ChildPropName="GetLinkRows" msprop:rel_Generator_UserRelationName="LinksList_Link" msprop:rel_Generator_ParentPropName="LinksListRow" msprop:rel_Generator_RelationVarName="relationLinksList_Link" msprop:rel_Generator_UserParentTable="LinksList">
+      <xs:selector xpath=".//Link" />
+      <xs:field xpath="@LinksList_Id" />
+    </xs:keyref>
+    <xs:keyref name="PageModel_ImageList" refer="Constraint1" msdata:IsNested="true" msprop:rel_Generator_UserChildTable="ImageList" msprop:rel_Generator_ChildPropName="GetImageListRows" msprop:rel_Generator_UserRelationName="PageModel_ImageList" msprop:rel_Generator_ParentPropName="PageModelRow" msprop:rel_Generator_RelationVarName="relationPageModel_ImageList" msprop:rel_Generator_UserParentTable="PageModel">
+      <xs:selector xpath=".//ImageList" />
+      <xs:field xpath="@PageModel_Id" />
+    </xs:keyref>
+    <xs:keyref name="ImageList_Image" refer="ImageList_Constraint1" msdata:IsNested="true" msprop:rel_Generator_UserChildTable="Image" msprop:rel_Generator_ChildPropName="GetImageRows" msprop:rel_Generator_UserRelationName="ImageList_Image" msprop:rel_Generator_ParentPropName="ImageListRow" msprop:rel_Generator_RelationVarName="relationImageList_Image" msprop:rel_Generator_UserParentTable="ImageList">
+      <xs:selector xpath=".//Image" />
+      <xs:field xpath="@ImageList_Id" />
+    </xs:keyref>
+    <xs:keyref name="PageModel_TextList" refer="Constraint1" msdata:IsNested="true" msprop:rel_Generator_UserChildTable="TextList" msprop:rel_Generator_ChildPropName="GetTextListRows" msprop:rel_Generator_UserRelationName="PageModel_TextList" msprop:rel_Generator_ParentPropName="PageModelRow" msprop:rel_Generator_RelationVarName="relationPageModel_TextList" msprop:rel_Generator_UserParentTable="PageModel">
+      <xs:selector xpath=".//TextList" />
+      <xs:field xpath="@PageModel_Id" />
+    </xs:keyref>
+    <xs:keyref name="TextList_Text" refer="TextList_Constraint1" msdata:IsNested="true" msprop:rel_Generator_UserChildTable="Text" msprop:rel_Generator_ChildPropName="GetTextRows" msprop:rel_Generator_UserRelationName="TextList_Text" msprop:rel_Generator_ParentPropName="TextListRow" msprop:rel_Generator_RelationVarName="relationTextList_Text" msprop:rel_Generator_UserParentTable="TextList">
+      <xs:selector xpath=".//Text" />
+      <xs:field xpath="@TextList_Id" />
+    </xs:keyref>
   </xs:element>
 </xs:schema>

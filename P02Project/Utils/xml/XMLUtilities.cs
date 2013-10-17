@@ -1,9 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
+using System.Text.RegularExpressions;
+using System.Windows.Controls;
+using System.Xml.Linq;
 using System.Xml.Serialization;
 using System.IO;
+using System.Web;
+using HtmlAgilityPack;
 
 namespace P02Project.Resources.xml
 {
@@ -30,6 +36,48 @@ namespace P02Project.Resources.xml
 
             return xmlContent;
 
+        }
+
+        public static PageModel GetContentFromPage(string url)
+        {
+            //var xmlContent = new XDocument();
+            var pageType = url.Split('/').LastOrDefault().Split('.').FirstOrDefault();
+            var page = new HtmlDocument();
+            var html = new HtmlWeb();
+            page = html.Load(url);
+            var itemList = page.GetElementbyId("contentPrimary").Elements("div").Where(node => node.Attributes["class"].Value == "item").ToList();
+//            xmlContent.Add("<?xml version=\"1.0\" encoding=\"utf-8\" ?>");
+            
+            var textList = "<TextList>\n";
+            var imageList = "<ImageList>\n";
+            var linksList = "<LinksList>\n";
+            var n = 1;
+            foreach (var node in itemList)
+            {
+                textList += "<Text node=\"" + n + "\" type=\"title\">" + node.Descendants("a").FirstOrDefault().InnerText + "</Text>\n";
+                textList += "<Text node=\"" + n + "\" type=\"info\">" + node.Descendants("p").FirstOrDefault().InnerText + "</Text>\n";
+                if (pageType == "Events")
+                {
+                    var content = node.Descendants("small").FirstOrDefault().InnerText;
+                    textList += "<Text node=\"" + n + "\" type=\"date\">" + content.Substring(6, content.IndexOf("Where: ")-6) + "</Text>\n";
+                    textList += "<Text node=\"" + n + "\" type=\"place\">" + content.Substring(content.IndexOf("Where: ") + 7) + "</Text>\n";
+                } else
+                {
+                    textList += "<Text node=\"" + n + "\" type=\"date\">" + node.Descendants("small").FirstOrDefault().InnerText + "</Text>\n";
+                }
+                n++;
+            }
+            textList += "</TextList>\n";
+            imageList += "</ImageList>\n";
+            linksList += "</LinksList>\n";
+            var xml = "<?xml version=\"1.0\" encoding=\"utf-8\" ?>\n"
+                      + "<PageModel id =\"" + pageType + "\">\n"
+                      + textList + "\n"
+                      + imageList + "\n"
+                      + linksList + "\n"
+                      + "</PageModel>";
+            File.WriteAllText(Path.Combine(Path.GetFullPath("."), "Resources/xml/" + pageType + ".xml"),xml);
+            return null;
         }
     }
 
