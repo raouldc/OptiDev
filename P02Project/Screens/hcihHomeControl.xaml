@@ -10,7 +10,29 @@
 	d:DesignWidth="1630" d:DesignHeight="900" Width="1630" Height="900">
 
     <Grid x:Name="LayoutRoot">
-        <Grid Margin="8,0,-8,0">
+        <Grid Margin="8,8,-8,-8">
+
+            <!-- set the polaroid photos-->
+            <view:PoloroidControl x:Name="campaings" Height="292.5" Margin="593.5,0,729,30" VerticalAlignment="Bottom" RenderTransformOrigin="0.5,0.5" MouseUp="campaings_MouseUp">
+            	<view:PoloroidControl.RenderTransform>
+            		<TransformGroup>
+            			<ScaleTransform/>
+            			<SkewTransform/>
+            			<RotateTransform Angle="-6.458"/>
+            			<TranslateTransform/>
+            		</TransformGroup>
+            	</view:PoloroidControl.RenderTransform>
+            </view:PoloroidControl>
+            <view:PoloroidControl x:Name="shop" HorizontalAlignment="Right" Margin="0,248,428,314" Width="370" RenderTransformOrigin="0.5,0.5">
+            	<view:PoloroidControl.RenderTransform>
+            		<TransformGroup>
+            			<ScaleTransform/>
+            			<SkewTransform/>
+            			<RotateTransform Angle="-2.259"/>
+            			<TranslateTransform/>
+            		</TransformGroup>
+            	</view:PoloroidControl.RenderTransform>
+            </view:PoloroidControl>
 
             <!-- set the polaroid photos-->
             <view:PoloroidControl x:Name="donate" VerticalAlignment="Top" Height="316" RenderTransformOrigin="0.5,0.5" MouseUp="donate_MouseUp" Margin="522.5,22,777.5,0">

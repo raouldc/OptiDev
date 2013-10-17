@@ -46,11 +46,16 @@ namespace P02Project
             volunteer.setCaption("Volunteer");
             volunteer.setColour(colour);
 
+            campaings.setImage("images\\HowCanIHelp\\camp.png");
+            campaings.setCaption("Campaings");
+            campaings.setColour(colour);
+
             components = new List<Animatiable>();
             components.Add(donate);
             components.Add(beadsOfCourage);
             components.Add(schools);
             components.Add(volunteer);
+            components.Add(campaings);
         }
 
 
@@ -98,6 +103,14 @@ namespace P02Project
 
         public void AnimateOut()
         {
+        }
+
+        private void campaings_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            hcihCampControl hcih = new hcihCampControl();
+            topLevelPage.setContent(hcih);
+            topLevelPage.setSubtitle("Campaings");
+            (hcih as Animatiable).AnimateIn();
         }
     }
 }
