@@ -21,6 +21,7 @@ namespace P02Project.Screens
     public partial class ScrollableView : UserControl
     {
         private List<PoloroidWithText> listOfObjects;
+        int listItemInFocus;
         public ScrollableView()
         {
             InitializeComponent();
@@ -41,7 +42,8 @@ namespace P02Project.Screens
             PoloroidWithText p4 = new PoloroidWithText();
             p4.setTitle("4");
             addPoloroidtoList(p4);
-            listView.ScrollIntoView(p4);
+            listView.ScrollIntoView(0);
+            listItemInFocus = 0;
             
 
         }
@@ -63,12 +65,23 @@ namespace P02Project.Screens
 
         private void left_Clicked(object sender, System.Windows.RoutedEventArgs e)
         {
-            listView.ScrollIntoView(listOfObjects[0]);
+            if (listItemInFocus > 0)
+            {
+                PoloroidWithText previousPoloroid = listOfObjects[listItemInFocus-1];
+                listView.ScrollIntoView(previousPoloroid);
+                listItemInFocus--;
+            }
         }
 
         private void right_clicked(object sender, System.Windows.RoutedEventArgs e)
         {
-            listView.ScrollIntoView(listOfObjects[4]);
+            if (listItemInFocus < listOfObjects.Count - 1)
+            {
+                PoloroidWithText nextPoloroid = listOfObjects[listItemInFocus + 1];
+                listView.ScrollIntoView(nextPoloroid);
+                listItemInFocus++;
+            }
+            
         }
     }
 }
