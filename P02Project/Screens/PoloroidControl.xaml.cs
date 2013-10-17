@@ -11,34 +11,63 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Media.Animation;
+using P02Project.Utils;
 
 namespace P02Project
 {
-    /// <summary>
-    /// Interaction logic for PoloroidControl.xaml
-    /// </summary>
-    public partial class PoloroidControl : UserControl
-    {
+	/// <summary>
+	/// Interaction logic for PoloroidControl.xaml
+	/// </summary>
+	public partial class PoloroidControl : UserControl, Animatiable
+	{
+        protected DoubleAnimation dblAnimationIn = new DoubleAnimation();
+        protected DoubleAnimation dblAnimationOut = new DoubleAnimation();
+
+        protected Storyboard sbIn = new Storyboard();
+        protected Storyboard sbOut = new Storyboard();
+
         /// <summary>
         /// Constructor
         /// </summary>
         /// <value><c>true</c> if this instance is unclickable; otherwise, <c>false</c>.</value>
-
         public bool IsUnclickable { private get; set; }
-
-        public PoloroidControl()
-        {
-            this.InitializeComponent();
-        }
+		public PoloroidControl()
+		{
+			this.InitializeComponent();
 
 
+            //Inward Animations
+            dblAnimationIn.From = 0.0;
+            dblAnimationIn.To = 1.0;
+            dblAnimationIn.Duration = new Duration(TimeSpan.FromMilliseconds(200));
+
+
+            sbIn.Children.Add(dblAnimationIn);
+
+
+
+
+            Storyboard.SetTargetName(dblAnimationIn, this.Name);
+            Storyboard.SetTargetProperty(dblAnimationIn, new PropertyPath(UserControl.OpacityProperty));
+
+            //Outward Animations
+            dblAnimationOut.From = 1.0;
+            dblAnimationOut.To = 0.0;
+            dblAnimationOut.Duration = new Duration(TimeSpan.FromMilliseconds(200));
+
+            sbOut.Children.Add(dblAnimationOut);
+
+            Storyboard.SetTargetName(dblAnimationOut, this.Name);
+            Storyboard.SetTargetProperty(dblAnimationOut, new PropertyPath(UserControl.OpacityProperty));
+		}
 
         /// <summary>
         /// Constructor
         /// </summary>
-        /// <param name="resName"></param>
-        /// <param name="caption"></param>
-        /// <param name="colour"></param>
+        /// <param name="resName">The name of the image in the resources folder</param>
+        /// <param name="caption">The caption to go on the polaroid</param>
+        /// <param name="colour">The colour of the backgroud of the text</param>
         public PoloroidControl(String resName, String caption, Color colour)
         {
             this.InitializeComponent();
@@ -48,7 +77,6 @@ namespace P02Project
             setColour(colour);
             UpdateLayout();
         }
-
 
 
         /// <summary>
@@ -187,6 +215,48 @@ namespace P02Project
         private void Poloroid_TouchUp(object sender, TouchEventArgs e)
         {
             showShadow();
+        }
+
+        public void setGlow() {
+            removeTouch();
+
+            setShadow(10,0.7,(Color)ColorConverter.ConvertFromString("#fff2df11"));
+        }
+
+        public void removeGlow() {
+            removeTouch();
+            
+            setShadow(10,0.365,(Color)ColorConverter.ConvertFromString("#ff000000"));
+        }
+        
+        public void AnimateIn()
+        {
+            sbIn.Begin(this);
+        }
+
+        public void AnimateOut()
+        {
+            sbOut.Begin(this);
+        }
+
+        public void removeTouch()
+        {
+            this.RemoveHandler(UIElement.TouchUpEvent, new EventHandler<TouchEventArgs>(Poloroid_TouchUp));
+            this.RemoveHandler(UIElement.MouseUpEvent, new MouseButtonEventHandler(Poloroid_MouseUp));
+            this.RemoveHandler(UIElement.TouchDownEvent, new EventHandler<TouchEventArgs>(Poloroid_TouchDown));
+            this.RemoveHandler(UIElement.MouseDownEvent, new MouseButtonEventHandler(Poloroid_MouseDown));
+        }
+
+        public void setShadow(double blur, double opacity, Color col) {
+            DropShadowEffect dShdow = new DropShadowEffect();
+            dShdow.BlurRadius = blur;
+            dShdow.Opacity = opacity;
+            dShdow.Color = col;
+            Canvas.Effect = dShdow;
+        }
+
+        public void removeBorder() {
+            Canvas.Stroke = null;
         }
     }
 

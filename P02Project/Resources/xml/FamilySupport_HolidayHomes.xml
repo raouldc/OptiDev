@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<!--Can store information regarding, text images, links-->
+
+<PageModel id ="FamilySupport-HolidayHomes">
+
+
+  <TextList>
+
+    <Text id="P1">
+      Long months of treatment can take a significant financial toll on families, and finding funds for a much needed holiday can be very difficult.
+    </Text>
+    <Text id="P2">
+      Child Cancer Foundation has three holiday homes available to our children with cancer and their families. We have homes in Taupo, Arrowtown and Hawkes Bay. All our houses can be booked rent free for one week. The homes are well-resourced and provide families with the opportunity to spend time together in a relaxing setting.
+
+      Long months of treatment can take a significant financial and emotional toll on families, and finding funds for a much-needed holiday can be very difficult. Child Cancer Foundation Holiday Homes help overcome this barrier.
+
+      Families have opportunity to spend time together in a relaxing setting away from normal stressors. The holiday homes provide the perfect place for families to take time out and find strength to continue their journey.
+
+      Other families use the facilities to celebrate milestones or honour their deceased child.
+    </Text>
+    <Text>
+      Arrowtown
+
+      The new Child Cancer Foundation Arrowtown Holiday Home was officially opened in June, 2012.The new Arrowfield Mews property is a three bedroom, two bathroom, two storey, well insulated and sunny house, well suited to the requirement of CCF families. The house is walking distance from the main Arrowtown shopping / entertainment area, close to public transport and opposite the Millbrook golf course.
+
+      The house is owned by Child Cancer Foundation Otago/Southland Accommodation Trust, (OSAT). The trust was set up in the 1980s to provide accommodation for Otago and Southland children with cancer and their families. Funds provided for the house have been donated by individuals and businesses throughout Otago/Southland over a long period of time.
+
+      Thank you to Otago/Southland Accommodation Trust members, our Child Cancer Foundation branches, Professionals Real Estate Group and the local suppliers whose contributions and support have helped make this service possible.
+
+      This home is not the first house in the Queenstown region – there was an earlier one in Sunshine Bay purchased 17 years ago from funds raised by all offices of the Professionals Real Estate Group. The Professionals continue to be very active in raising significant funds for Child Cancer Foundation, which we are very grateful for.
+
+
+
+      Taupo Sunshine Lodge Holiday Home
+
+      Child Cancer Foundation has a Sunshine Lodge holiday home in Taupo.The Lockwood house offers three-bedrooms, a bathroom and is fully furnished.
+
+      The Foundation has been able to provide families with this opportunity through the generosity of the Professionals Real Estate Group who have funded and maintained the Taupo home. The Foundation is grateful for the ongoing partnership with the Professionals in working together to meet the needs of children with cancer and their families. The Professionals are a Gold Star sponsor supporting our nationwide holiday service. Professionals have supported The Child Cancer Foundation for 16 years, raising over $3.4 million.
+
+
+      Hawkes Bay Little Elms
+
+      The Trucking for Hawkes Bay Child Cancer Trust owns and manages the Little Elms complex in Orchard Road, Hastings, Hawkes Bay. Families of child cancer patients from around the country are able to use the holiday house to have some much needed “time out”. The Holiday house offers three-bedrooms, two-bathrooms and is fully furnished.
+
+      Child Cancer Foundation is grateful to the dedicated truckers and sponsors in the Hawkes Bay region for providing this facility.
+
+      
+      If your family would like to book a holiday home please contact:
+
+      Melissa Walker | PHN 03 365 1485 | EML mwalker@childcancer.org.nz
+    </Text>
+  </TextList>
+
+
+  <ImageList>
+    <Image id="Bottom">images/SmilingRelative.png</Image>
+  </ImageList>
+
+  <LinksList>
+  </LinksList>
+
+
+
+</PageModel>

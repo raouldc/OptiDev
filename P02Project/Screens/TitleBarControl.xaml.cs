@@ -11,6 +11,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using P02Project.Screens;
+using System.Windows.Threading;
 
 namespace P02Project
 {
@@ -22,7 +23,7 @@ namespace P02Project
 
         // topLevelPage is the main screen
         private TopLevelPage topLevelPage;
-
+        private DispatcherTimer dt;
 
 
         /// <summary>
@@ -31,7 +32,16 @@ namespace P02Project
 		public TitleBarControl()
 		{
 			this.InitializeComponent();
+            dt = new DispatcherTimer();
+            dt.Interval = TimeSpan.FromMilliseconds(300);
+            dt.Tick += new EventHandler(dt_Tick);
 		}
+
+        void dt_Tick(object sender, EventArgs e)
+        {
+            dt.Stop();
+            topLevelPage.BackButton_Click(sender, null);
+        }
 
 
 
@@ -66,6 +76,8 @@ namespace P02Project
         /// <param name="e"></param>
         private void Back_Click(object sender, RoutedEventArgs e)
         {
+            //topLevelPage.AnimateOut();
+            //dt.Start();
             topLevelPage.BackButton_Click(sender, e);
         }
 

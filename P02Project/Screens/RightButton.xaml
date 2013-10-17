@@ -9,7 +9,7 @@
 	d:DesignWidth="219" d:DesignHeight="130.5" BorderThickness="0" Margin="0">
 
 	<Grid x:Name="LayoutRoot">
-		<Rectangle x:Name="Canvas" Fill="#FF4D58FF" Stroke="Black" MouseDown="Background_MouseDown" MouseUp="Background_MouseUp" RadiusX="1" RadiusY="1">
+		<Rectangle x:Name="Canvas" Fill="#FF4D58FF" MouseDown="Background_MouseDown" MouseUp="Background_MouseUp" RadiusX="1" RadiusY="1">
 			<Rectangle.Effect>
 				<DropShadowEffect BlurRadius="10" Opacity="0.365"/>
 			</Rectangle.Effect>

@@ -51,9 +51,25 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Hammock.ClientProfile">
+      <HintPath>..\packages\TweetSharp.2.3.1\lib\4.0\Hammock.ClientProfile.dll</HintPath>
+    </Reference>
+    <Reference Include="J832.Common, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\J832.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="J832.Wpf.BagOTricksLib, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\J832.Wpf.BagOTricksLib.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Maps.MapControl.WPF">
       <HintPath>References\Microsoft.Maps.MapControl.WPF.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\TweetSharp.2.3.1\lib\4.0\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+	<Reference Include="PresentationFramework.Royale" />
+    <Reference Include="PresentationFramework.Aero" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -66,6 +82,10 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
+    <Reference Include="TweetSharp">
+      <HintPath>..\packages\TweetSharp.2.3.1\lib\4.0\TweetSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="UIAutomationProvider" />
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -78,6 +98,33 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Screens\Family Support\MapControl.xaml.cs">
+      <DependentUpon>MapControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\Family Support\fsHomeControl.xaml.cs">
+      <DependentUpon>fsHomeControl.xaml</DependentUpon>
+    </Compile>
+     <Compile Include="Screens\hcihGiftControl.xaml.cs">
+      <DependentUpon>hcihGiftControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\hcihFundraiseControl.xaml.cs">
+      <DependentUpon>hcihFundraiseControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\hcihShopControl.xaml.cs">
+      <DependentUpon>hcihShopControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\hcihCampControl.xaml.cs">
+      <DependentUpon>hcihCampControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\hcihVolunteerControl.xaml.cs">
+      <DependentUpon>hcihVolunteerControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\hcihSchoolsControl.xaml.cs">
+      <DependentUpon>hcihSchoolsControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\hcihBeads.xaml.cs">
+      <DependentUpon>hcihBeads.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Screens\hcihDonateControl.xaml.cs">
       <DependentUpon>hcihDonateControl.xaml</DependentUpon>
     </Compile>
@@ -96,6 +143,14 @@
     <Compile Include="Screens\SplitGridView.xaml.cs">
       <DependentUpon>SplitGridView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Utils\Animatiable.cs" />
+    <Compile Include="Screens\TwitterBlock.xaml.cs">
+      <DependentUpon>TwitterBlock.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\Webcam.xaml.cs">
+      <DependentUpon>Webcam.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\Twitter.cs" />
     <Compile Include="Utils\Util.cs" />
     <Compile Include="Screens\RightButtonControl.xaml.cs">
       <DependentUpon>RightButtonControl.xaml</DependentUpon>
@@ -120,6 +175,55 @@
       <DependentUpon>PageModel.cs</DependentUpon>
     </Compile>
     <Compile Include="Utils\xml\XMLUtilities.cs" />
+    <Page Include="Screens\Family Support\MapControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Screens\Family Support\fsHomeControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="WebcamPlayer\CapDevice.cs" />
+    <Compile Include="WebcamPlayer\CapGrabber.cs" />
+    <Compile Include="WebcamPlayer\CapHelper.cs" />
+    <Compile Include="WebcamPlayer\CapInterfaces.cs" />
+    <Compile Include="WebcamPlayer\CapPlayer.cs" />
+    <Compile Include="WebcamPlayer\CapStructures.cs" />
+    <Compile Include="WebcamPlayer\Input\CaptureImageCommands.cs" />
+    <Compile Include="WebcamPlayer\FilterInfo.cs" />
+    <Compile Include="WebcamPlayer\Converters\ThreeFourthConverter.cs" />
+    <Page Include="Resources\themes\WebcamPlayer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Screens\hcihGiftControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Screens\hcihFundraiseControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Screens\hcihShopControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Screens\hcihCampControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Screens\hcihVolunteerControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Screens\hcihSchoolsControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Screens\hcihBeads.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Screens\hcihDonateControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -164,6 +268,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Screens\TwitterBlock.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Screens\Webcam.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="TopWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -196,11 +308,13 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="app.config" />
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <Resource Include="Resources\images\HowCanIHelp\kidsForCourage.png" />
     <Resource Include="Resources\Fonts\seguisym.ttf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
@@ -216,6 +330,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\bead background3.png" />
+    <Resource Include="Resources\images\HowCanIHelp\qr_shop.png" />
+    <Resource Include="Resources\images\HowCanIHelp\qr_volunteer.png" />
     <Resource Include="Utils\xml\PageModel.xml" />
     <Resource Include="Resources\images\Ambassadors\Amanda.png" />
     <Resource Include="Resources\images\Ambassadors\Bernadine.png" />
@@ -242,6 +359,34 @@
     <Resource Include="Resources\images\Stories\Kavahn.png" />
     <Resource Include="Resources\images\Stories\Kavahn2.png" />
     <Resource Include="Resources\images\Stories\Manu.png" />
+    <Resource Include="Resources\images\Beads1.png" />
+    <Resource Include="Resources\images\Beads2.png" />
+    <Resource Include="Resources\images\MotherandChild.png" />
+    <Resource Include="Resources\images\SmilingRelative.png" />
+    <Resource Include="Resources\images\TigerFacePaint.png" />
+    <Resource Include="Resources\images\TwoGirls.png" />
+    <Resource Include="Resources\images\KidWithHat.png" />
+    <Resource Include="Resources\images\arrowtown.JPG" />
+    <Resource Include="Resources\images\hawkesBay.JPG" />
+    <Resource Include="Resources\images\taupo.jpg" />
+    <Resource Include="Resources\images\HowCanIHelp\beads.png" />
+    <Resource Include="Resources\images\HowCanIHelp\schools.png" />
+    <Resource Include="Resources\CaptureImageNow.png" />
+    <Resource Include="Resources\twitter-bird-light-bgs.png" />
+    <Resource Include="Resources\images\HowCanIHelp\camp.png" />
+    <Resource Include="Resources\images\HowCanIHelp\dayOfC.png" />
+    <Resource Include="Resources\images\HowCanIHelp\funrazor.png" />
+    <Resource Include="Resources\images\HowCanIHelp\mam.png" />
+    <Resource Include="Resources\images\HowCanIHelp\oneDay.png" />
+    <Resource Include="Resources\images\HowCanIHelp\qr_camp.png" />
+    <Resource Include="Resources\images\HowCanIHelp\bb.png" />
+    <Resource Include="Resources\images\HowCanIHelp\ff.png" />
+    <Resource Include="Resources\images\HowCanIHelp\kagi.png" />
+    <Resource Include="Resources\images\HowCanIHelp\sb.png" />
+    <Resource Include="Resources\images\HowCanIHelp\fundraise.png" />
+    <Resource Include="Resources\images\HowCanIHelp\gift.png" />
+    <Resource Include="Resources\images\HowCanIHelp\qr_soc.png" />
+    <Resource Include="Resources\images\HowCanIHelp\qr_boc.png" />
     <Content Include="Resources\xml\About.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>
@@ -260,6 +405,26 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\xml\OurStories.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\xml\FamilySupport.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\xml\FamilySupport_SupportServices.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\xml\FamilySupport_HolidayHomes.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\xml\FamilySupport_ParentResources.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Resources\xml\FamilySupport_Scholarships.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Resources\xml\FamilySupport_ContactList.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\xml\Profiles\Amanda.xml">

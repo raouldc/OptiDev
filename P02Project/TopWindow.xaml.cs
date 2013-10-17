@@ -18,6 +18,7 @@ using Microsoft.Surface.Presentation.Input;
 using System.Windows.Media.Animation;
 using P02Project.Resources.xml;
 using P02Project.Screens;
+using P02Project.Utils;
 
 
 namespace P02Project
@@ -133,6 +134,8 @@ namespace P02Project
                 this.Content = stackOfScreens.Peek();
                 this.WindowState = WindowState.Maximized;
                 this.WindowStyle = WindowStyle.None;
+
+                (this.Content as Animatiable).AnimateIn();
             }
         }
         public void pushScreen(Screen screen)

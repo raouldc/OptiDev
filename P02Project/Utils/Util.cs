@@ -49,7 +49,14 @@ namespace P02Project
             { "extraUnSelected",    (Color)ColorConverter.ConvertFromString("#FF4899c8")}
         };
 
+        public static readonly FontFamily contentTextFont = new FontFamily("Century Gothic");
+        public static readonly Color contentTextColor = (Color)ColorConverter.ConvertFromString("#FFffffff");
+        public static readonly Color contentBgColor = (Color)ColorConverter.ConvertFromString("#7F525252");
+        public static readonly double contentTextSize = 24;
 
+        public static readonly FontFamily buttonTextFont = new FontFamily("Andy");
+        public static readonly Color buttonTextColor = (Color)ColorConverter.ConvertFromString("#FFffffff");
+        public static readonly double buttonTextSize = 48;
 
         /// <summary>
         /// return the list of the links of the buttons
@@ -58,10 +65,10 @@ namespace P02Project
         /// <returns></returns>
         public static String[] getLinks(String exclude)
         {
-            List<String> links = new List<string>( new String[]{ "About", "Family Support", "How Can I Help?", "News", "Events", "Play Beads", "Contact Us" });
+            List<String> links = new List<string>(new String[] { "About", "Family Support", "How Can I Help?", "News", "Events", "Play Beads", "Contact Us" });
 
             links.Remove(exclude);
-            return links.ToArray();   
+            return links.ToArray();
         }
             
     }
