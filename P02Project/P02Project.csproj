@@ -79,6 +79,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="DataFetcher\DataItem.cs" />
+    <Compile Include="Screens\CustomListView.cs" />
     <Compile Include="Screens\hcihDonateControl.xaml.cs">
       <DependentUpon>hcihDonateControl.xaml</DependentUpon>
     </Compile>
@@ -280,6 +281,7 @@
     </Content>
     <Content Include="Resources\xml\About_OurStories.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="Resources\xml\Profiles\Amanda.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

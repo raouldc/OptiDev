@@ -21,7 +21,6 @@ namespace P02Project.Screens
     public partial class ScrollableView : UserControl
     {
         private List<PoloroidWithText> listOfObjects;
-        int listItemInFocus;
         public ScrollableView()
         {
             InitializeComponent();
@@ -46,11 +45,11 @@ namespace P02Project.Screens
             p4.setTitle("4");
             addPoloroidtoList(p4);
             listView.ScrollIntoView(0);
-            listItemInFocus = 0;
-           
-            
+
+          
 
         }
+     
 
         private void addPoloroidtoList(PoloroidWithText pol)
         {
@@ -64,28 +63,38 @@ namespace P02Project.Screens
 
         private void listView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            
         }
 
         private void left_Clicked(object sender, System.Windows.RoutedEventArgs e)
         {
-            if (listItemInFocus > 0)
-            {
-                PoloroidWithText previousPoloroid = listOfObjects[listItemInFocus-1];
-                listView.ScrollIntoView(previousPoloroid);
-                listItemInFocus--;
-            }
+
+            double horiz = listView.ScrollViewer.HorizontalOffset;
+            listView.ScrollViewer.ScrollToHorizontalOffset((int)horiz - 1);
+
         }
 
         private void right_clicked(object sender, System.Windows.RoutedEventArgs e)
         {
-            if (listItemInFocus < listOfObjects.Count - 1)
-            {
-                PoloroidWithText nextPoloroid = listOfObjects[listItemInFocus + 1];
-                listView.ScrollIntoView(nextPoloroid);
-                listItemInFocus++;
-            }
-            
+           
+                double horiz = listView.ScrollViewer.HorizontalOffset;
+                listView.ScrollViewer.ScrollToHorizontalOffset((int)horiz+1);
         }
+        /*resizes elements as you switch between polaroids 
+         * unused so far
+         * implementation not fully correct
+         */
+        private void resizeAllUnusedElements(int prevSelectedIndex, int currentSelectedIndex)
+        {
+            //scale the previous one down
+            double scaleUpValue = 1.05;
+            ScaleTransform scaleUp = new ScaleTransform(scaleUpValue, scaleUpValue);
+            
+            double scaleDownvalue = 1 / scaleUpValue;
+            ScaleTransform scaleDown = new ScaleTransform(scaleDownvalue, scaleDownvalue);
+            listOfObjects[prevSelectedIndex].RenderTransform=scaleDown;
+            listOfObjects[currentSelectedIndex].RenderTransform = scaleUp;
+            //scale the current one up
+        }
+
     }
 }
