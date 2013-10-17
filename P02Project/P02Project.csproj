@@ -78,6 +78,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Screens\hcihFundraiseControl.xaml.cs">
+      <DependentUpon>hcihFundraiseControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Screens\hcihShopControl.xaml.cs">
       <DependentUpon>hcihShopControl.xaml</DependentUpon>
     </Compile>
@@ -139,6 +142,10 @@
       <DependentUpon>PageModel.cs</DependentUpon>
     </Compile>
     <Compile Include="Utils\xml\XMLUtilities.cs" />
+    <Page Include="Screens\hcihFundraiseControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Screens\hcihShopControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -298,6 +305,7 @@
     <Resource Include="Resources\images\HowCanIHelp\ff.png" />
     <Resource Include="Resources\images\HowCanIHelp\kagi.png" />
     <Resource Include="Resources\images\HowCanIHelp\sb.png" />
+    <Resource Include="Resources\images\HowCanIHelp\fundraise.png" />
     <Content Include="Resources\xml\About.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>
