@@ -32,7 +32,7 @@ namespace P02Project
             this.InitializeComponent();
 
             dt = new DispatcherTimer();
-            dt.Interval = TimeSpan.FromSeconds(2);
+            dt.Interval = TimeSpan.FromSeconds(7);
             dt.Tick += new EventHandler(dt_Tick);
 
             if (tweets.Count == 0)
