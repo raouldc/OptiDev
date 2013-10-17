@@ -19,15 +19,98 @@
                 </Grid.Background>
                 
                 <Grid.RowDefinitions>
-                    <RowDefinition x:Name="_gridRow0" Height="120"/>
-                    <RowDefinition x:Name="_gridRow1"/>
+                    <RowDefinition x:Name="_gridRow0"/>
                 </Grid.RowDefinitions>
 
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition x:Name="_gridCol0" />
-                    <ColumnDefinition x:Name="_gridCol1"  Width="50" />
-                    <ColumnDefinition x:Name="_gridCol2" Width="240" />
                 </Grid.ColumnDefinitions>
+<!-- set title bar -->
+            	<s:ScatterView x:Name="_title" Grid.Row="0" Grid.Column="0" Background="#FF5E99E9" Height="120" Margin="0,0,290,0" VerticalAlignment="Top">
+            		<s:ScatterViewItem Background="Transparent" Width="300" Height="100" Orientation="0" CanRotate="False" CanScale="False" Center="150,50">
+            			<Image Stretch="Uniform"  Source="/P02Project;component/Resources/logoCCF-transparentaltered.png"/>
+            		</s:ScatterViewItem>
+            	</s:ScatterView>
+        <!-- title bar extentions-->
+            	<s:ScatterView x:Name="_titleExtension1" Grid.Row="0" Background="#FF5E99E9" HorizontalAlignment="Right" Height="120" Margin="0,0,240,0" VerticalAlignment="Top" Width="50" />
+            	<s:ScatterView x:Name="_titleExtension2" Grid.Row="0" Background="#FF5E99E9" HorizontalAlignment="Right" Height="120" VerticalAlignment="Top" Width="240" />
+        <!-- set polaroid for Family Support-->
+            	<view:PoloroidControl x:Name="familySupport" Height="316.546" Margin="0,0,565.697,135.227" VerticalAlignment="Bottom" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Right" Width="332.606" MouseUp="familySupport_MouseUp">
+            		<view:PoloroidControl.RenderTransform>
+            			<TransformGroup>
+            				<ScaleTransform/>
+            				<SkewTransform/>
+            				<RotateTransform Angle="5.382"/>
+            				<TranslateTransform/>
+            			</TransformGroup>
+            		</view:PoloroidControl.RenderTransform>
+            	</view:PoloroidControl>
+        <!-- set polaroid for About-->
+            	<view:PoloroidControl x:Name="about" Height="316.546" Margin="184.697,220.227,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" Width="332.606" MouseUp="about_MouseUp">
+            		<view:PoloroidControl.RenderTransform>
+            			<TransformGroup>
+            				<ScaleTransform/>
+            				<SkewTransform/>
+            				<RotateTransform Angle="-5.152"/>
+            				<TranslateTransform/>
+            			</TransformGroup>
+            		</view:PoloroidControl.RenderTransform>
+            	</view:PoloroidControl>
+        <!-- set polaroid for Contact Us -->
+            	<view:PoloroidControl x:Name="contactUs" Margin="91.697,0,0,132.227" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" Width="332.606" Height="316.546" VerticalAlignment="Bottom" MouseUp="contactUs_MouseUp">
+            		<view:PoloroidControl.RenderTransform>
+            			<TransformGroup>
+            				<ScaleTransform/>
+            				<SkewTransform/>
+            				<RotateTransform Angle="1.162"/>
+            				<TranslateTransform/>
+            			</TransformGroup>
+            		</view:PoloroidControl.RenderTransform>
+            	</view:PoloroidControl>
+        <!-- set polaroid for Events-->
+            	<view:PoloroidControl x:Name="events" Height="316.546" Margin="0,190.227,178.697,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" MouseUp="events_MouseUp" HorizontalAlignment="Right" Width="332.606">
+            		<view:PoloroidControl.RenderTransform>
+            			<TransformGroup>
+            				<ScaleTransform/>
+            				<SkewTransform/>
+            				<RotateTransform Angle="5.382"/>
+            				<TranslateTransform/>
+            			</TransformGroup>
+            		</view:PoloroidControl.RenderTransform>
+            	</view:PoloroidControl>
+        <!-- set polaroid for How Can I Help-->
+            	<view:PoloroidControl x:Name="howCanIHelp" Margin="559.697,0,0,117.227" RenderTransformOrigin="0.5,0.5" Height="316.546" VerticalAlignment="Bottom" MouseUp="howCanIHelp_MouseUp" HorizontalAlignment="Left" Width="332.606">
+            		<view:PoloroidControl.RenderTransform>
+            			<TransformGroup>
+            				<ScaleTransform/>
+            				<SkewTransform/>
+            				<RotateTransform Angle="-1.749"/>
+            				<TranslateTransform/>
+            			</TransformGroup>
+            		</view:PoloroidControl.RenderTransform>
+            	</view:PoloroidControl>
+        <!-- set polaroid for News-->
+            	<view:PoloroidControl x:Name="news" Margin="721.697,190.227,0,0" RenderTransformOrigin="0.5,0.5" Height="316.546" VerticalAlignment="Top" MouseUp="news_MouseUp" Width="347.485" HorizontalAlignment="Left">
+            		<view:PoloroidControl.RenderTransform>
+            			<TransformGroup>
+            				<ScaleTransform/>
+            				<SkewTransform/>
+            				<RotateTransform Angle="3.093"/>
+            				<TranslateTransform/>
+            			</TransformGroup>
+            		</view:PoloroidControl.RenderTransform>
+            	</view:PoloroidControl>
+        <!-- set polaroid for Play Beads-->
+            	<view:PoloroidControl x:Name="playBeads" Margin="0,0,118.697,102.227" RenderTransformOrigin="0.5,0.5" Height="316.546" VerticalAlignment="Bottom" MouseUp="playBeads_MouseUp" HorizontalAlignment="Right" Width="332.606">
+            		<view:PoloroidControl.RenderTransform>
+            			<TransformGroup>
+            				<ScaleTransform/>
+            				<SkewTransform/>
+            				<RotateTransform Angle="-5.855"/>
+            				<TranslateTransform/>
+            			</TransformGroup>
+            		</view:PoloroidControl.RenderTransform>
+            	</view:PoloroidControl>
 <!-- set title bar -->
 
                 <!-- title bar extentions-->
@@ -52,82 +135,5 @@
             
             </Grid>
         </Viewbox>
-        <s:ScatterView x:Name="_title" Grid.Row="0" Grid.Column="0" Background="#FF5E99E9" Height="120" Margin="0,0,290,0" VerticalAlignment="Top">
-        	<s:ScatterViewItem Background="Transparent" Width="300" Height="100" Orientation="0" CanRotate="False" CanScale="False" Center="150,50">
-        		<Image Stretch="Uniform"  Source="/P02Project;component/Resources/logoCCF-transparentaltered.png"/>
-        	</s:ScatterViewItem>
-        </s:ScatterView>
-        <s:ScatterView x:Name="_titleExtension1" Grid.Row="0" Background="#FF5E99E9" HorizontalAlignment="Right" Height="120" Margin="0,0,240,0" VerticalAlignment="Top" Width="50" />
-        <s:ScatterView x:Name="_titleExtension2" Grid.Row="0" Background="#FF5E99E9" HorizontalAlignment="Right" Height="120" VerticalAlignment="Top" Width="240" />
-        <view:PoloroidControl x:Name="familySupport" Height="316.546" Margin="0,0,565.697,135.227" VerticalAlignment="Bottom" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Right" Width="332.606" MouseUp="familySupport_MouseUp">
-        	<view:PoloroidControl.RenderTransform>
-        		<TransformGroup>
-        			<ScaleTransform/>
-        			<SkewTransform/>
-        			<RotateTransform Angle="5.382"/>
-        			<TranslateTransform/>
-        		</TransformGroup>
-        	</view:PoloroidControl.RenderTransform>
-        </view:PoloroidControl>
-        <view:PoloroidControl x:Name="about" Height="316.546" Margin="184.697,220.227,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" Width="332.606" MouseUp="about_MouseUp">
-        	<view:PoloroidControl.RenderTransform>
-        		<TransformGroup>
-        			<ScaleTransform/>
-        			<SkewTransform/>
-        			<RotateTransform Angle="-5.152"/>
-        			<TranslateTransform/>
-        		</TransformGroup>
-        	</view:PoloroidControl.RenderTransform>
-        </view:PoloroidControl>
-        <view:PoloroidControl x:Name="contactUs" Margin="91.697,0,0,132.227" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" Width="332.606" Height="316.546" VerticalAlignment="Bottom" MouseUp="contactUs_MouseUp">
-        	<view:PoloroidControl.RenderTransform>
-        		<TransformGroup>
-        			<ScaleTransform/>
-        			<SkewTransform/>
-        			<RotateTransform Angle="1.162"/>
-        			<TranslateTransform/>
-        		</TransformGroup>
-        	</view:PoloroidControl.RenderTransform>
-        </view:PoloroidControl>
-        <view:PoloroidControl x:Name="events" Height="316.546" Margin="0,190.227,178.697,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" MouseUp="events_MouseUp" HorizontalAlignment="Right" Width="332.606">
-        	<view:PoloroidControl.RenderTransform>
-        		<TransformGroup>
-        			<ScaleTransform/>
-        			<SkewTransform/>
-        			<RotateTransform Angle="5.382"/>
-        			<TranslateTransform/>
-        		</TransformGroup>
-        	</view:PoloroidControl.RenderTransform>
-        </view:PoloroidControl>
-        <view:PoloroidControl x:Name="howCanIHelp" Margin="559.697,0,0,117.227" RenderTransformOrigin="0.5,0.5" Height="316.546" VerticalAlignment="Bottom" MouseUp="howCanIHelp_MouseUp" HorizontalAlignment="Left" Width="332.606">
-        	<view:PoloroidControl.RenderTransform>
-        		<TransformGroup>
-        			<ScaleTransform/>
-        			<SkewTransform/>
-        			<RotateTransform Angle="-1.749"/>
-        			<TranslateTransform/>
-        		</TransformGroup>
-        	</view:PoloroidControl.RenderTransform>
-        </view:PoloroidControl>
-        <view:PoloroidControl x:Name="news" Margin="721.697,190.227,0,0" RenderTransformOrigin="0.5,0.5" Height="316.546" VerticalAlignment="Top" MouseUp="news_MouseUp" Width="347.485" HorizontalAlignment="Left">
-        	<view:PoloroidControl.RenderTransform>
-        		<TransformGroup>
-        			<ScaleTransform/>
-        			<SkewTransform/>
-        			<RotateTransform Angle="3.093"/>
-        			<TranslateTransform/>
-        		</TransformGroup>
-        	</view:PoloroidControl.RenderTransform>
-        </view:PoloroidControl>
-        <view:PoloroidControl x:Name="playBeads" Margin="0,0,118.697,102.227" RenderTransformOrigin="0.5,0.5" Height="316.546" VerticalAlignment="Bottom" MouseUp="playBeads_MouseUp" HorizontalAlignment="Right" Width="332.606">
-        	<view:PoloroidControl.RenderTransform>
-        		<TransformGroup>
-        			<ScaleTransform/>
-        			<SkewTransform/>
-        			<RotateTransform Angle="-5.855"/>
-        			<TranslateTransform/>
-        		</TransformGroup>
-        	</view:PoloroidControl.RenderTransform>
-        </view:PoloroidControl>
     </Grid>
 </view:Screen>
