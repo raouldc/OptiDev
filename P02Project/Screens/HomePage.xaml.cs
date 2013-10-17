@@ -96,7 +96,7 @@ namespace P02Project
             tb.Foreground = new SolidColorBrush(Colors.Black);
             
             Thickness t = tb.Margin;
-            t.Bottom = 30;
+            t.Bottom = -15;
             t.Right = 30;
             tb.Margin = t;
             
