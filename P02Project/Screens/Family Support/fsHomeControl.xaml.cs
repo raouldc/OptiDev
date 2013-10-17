@@ -50,10 +50,10 @@ namespace P02Project
             sel = new SolidColorBrush(Util._pageColDict["fsSelected"]);
             unsel = new SolidColorBrush(Util._pageColDict["fsUnSelected"]);
 
-            scholarship.FontFamily = Util.buttonTextFont;
-            pResources.FontFamily = Util.buttonTextFont;
-            cList.FontFamily = Util.buttonTextFont;
-            hHomes.FontFamily = Util.buttonTextFont;
+            //scholarship.FontFamily = Util.buttonTextFont;
+            //pResources.FontFamily = Util.buttonTextFont;
+            //cList.FontFamily = Util.buttonTextFont;
+            //hHomes.FontFamily = Util.buttonTextFont;
 
             scholarship.Foreground = new SolidColorBrush(Util.buttonTextColor);
             pResources.Foreground = new SolidColorBrush(Util.buttonTextColor);
@@ -143,7 +143,7 @@ namespace P02Project
             TextBlock scholarshipText = new TextBlock();
             scholarshipText.TextAlignment = TextAlignment.Left;
             scholarshipText.FontSize = Util.contentTextSize;
-            scholarship.FontFamily = Util.contentTextFont;
+            //scholarship.FontFamily = Util.contentTextFont;
             scholarshipText.Margin = new Thickness(10);
             scholarshipText.Foreground = new SolidColorBrush(Util.contentTextColor);
             scholarshipText.Inlines.Add(new Bold(new Run("Scholarships \n")));
@@ -226,7 +226,7 @@ namespace P02Project
             hHomes.Effect = dShdow; 
 
             // set the content of the textbox
-            text.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#00000000"));
+            text.Background = new SolidColorBrush(Util.contentBgColor);
             text.Content = hHomesContent();
             text.VerticalScrollBarVisibility = ScrollBarVisibility.Disabled;
         }
@@ -247,7 +247,7 @@ namespace P02Project
             hHomes.Effect = dShdow;
 
             // set the content of the textbox
-            text.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#00000000"));
+            text.Background = new SolidColorBrush(Util.contentBgColor);
             text.Content = hHomesContent();
             text.VerticalScrollBarVisibility = ScrollBarVisibility.Disabled;
         }
@@ -260,6 +260,19 @@ namespace P02Project
             ((PoloroidControl)arrowtown.Content).removeGlow();
             ((PoloroidControl)taupo.Content).setGlow();
 
+            hawkesbay.Height = 200;
+            hawkesbay.Width = 300;
+            arrowtown.Height = 200;
+            arrowtown.Width = 300;
+            taupo.Height = 400;
+            taupo.Width = 600;
+
+
+            taupo.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
+            taupo.VerticalAlignment = System.Windows.VerticalAlignment.Center;
+            //hawkesbay.Orientation = 0;
+            //arrowtown.Orientation = 0;
+           // taupo.Orientation = 0;
         }
 
         private void arrowtown_MouseUp(object sender, MouseButtonEventArgs e)
@@ -270,7 +283,18 @@ namespace P02Project
             ((PoloroidControl)arrowtown.Content).setGlow();
             ((PoloroidControl)taupo.Content).removeGlow();
 
+            hawkesbay.Height = 200;
+            hawkesbay.Width = 300;
+            arrowtown.Height = 400;
+            arrowtown.Width = 600;
+            taupo.Height = 200;
+            taupo.Width = 300;
 
+            arrowtown.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
+            arrowtown.VerticalAlignment = System.Windows.VerticalAlignment.Center;
+           // hawkesbay.Orientation = 0;
+            //arrowtown.Orientation = 0;
+            //taupo.Orientation = 0;
         }
 
         private void hawkesBay_MouseUp(object sender, MouseButtonEventArgs e)
@@ -280,7 +304,18 @@ namespace P02Project
             ((PoloroidControl)hawkesbay.Content).setGlow();
             ((PoloroidControl)arrowtown.Content).removeGlow();
             ((PoloroidControl)taupo.Content).removeGlow();
+            hawkesbay.Height = 400;
+            hawkesbay.Width = 600;
+            arrowtown.Height = 200;
+            arrowtown.Width = 300;
+            taupo.Height = 200;
+            taupo.Width = 300;
 
+            hawkesbay.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
+            hawkesbay.VerticalAlignment = System.Windows.VerticalAlignment.Center;
+            //hawkesbay.Orientation = 0;
+            //arrowtown.Orientation = 0;
+            //taupo.Orientation = 0;
         }
 
         /// <summary>
@@ -386,15 +421,15 @@ namespace P02Project
             mscroll = new SurfaceScrollViewer();
             //scroll.Width = 850;
             mscroll.Height = 300;
-            mscroll.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#4fffffff"));
+            mscroll.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#00000000"));
 
 
             TextBlock prompt = new TextBlock();
             prompt.TextAlignment = TextAlignment.Center;
             prompt.FontSize = Util.contentTextSize;
             prompt.Margin = new Thickness(10);
-            prompt.FontFamily = Util.contentTextFont;
-            prompt.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#ff707070"));
+            //prompt.FontFamily = Util.contentTextFont;
+            prompt.Foreground = new SolidColorBrush(Util.contentTextColor);
             prompt.Inlines.Add(new Run("Click on the pins to see their contact information\n"));
 
             mscroll.Content = prompt;
@@ -404,24 +439,6 @@ namespace P02Project
 
             mscroll.HorizontalScrollBarVisibility = ScrollBarVisibility.Disabled;
             mscroll.VerticalScrollBarVisibility = ScrollBarVisibility.Auto;
-
-            
-            //TextBlock pResourcesText1 = new TextBlock();
-            //pResourcesText1.TextAlignment = TextAlignment.Left;
-            //pResourcesText1.FontSize = Util.contentTextSize;
-            //pResourcesText1.Margin = new Thickness(10);
-            //pResourcesText1.FontFamily = Util.contentTextFont;
-            //pResourcesText1.Foreground = new SolidColorBrush(Util.contentTextColor);
-            //pResourcesText1.Inlines.Add(new Bold(new Run("More Information \n")));
-            //pResourcesText1.Inlines.Add(new Run("If you are ready to write your will, visit http://www.childcancer.org.nz/getattachment/How-you-can-help/fsPol/Bequest.pdf.aspx for some official wording to assist you. \n\n"));
-            //pResourcesText1.Inlines.Add(new Run("Thank you so much for considering leaving a gift to Child Cancer Foundation in your will. If you do decide to leave a legacy or bequest to help support our Child Cancer services, please let us know as this will allow us to thank you for your gift and offer you a closer relationship with us. It does not, however, legally bind you to support us in any way and the information will be treated in the strictest of confidence. \n\n"));
-
-            //pResourcesText1.Inlines.Add(new Run("For more information please contact:  \n\n"));
-            //pResourcesText1.Inlines.Add(new Bold(new Run("Darragh O'Riordan PHN ")));
-            //pResourcesText1.Inlines.Add(new Run("09 303 9882 | "));
-            //pResourcesText1.Inlines.Add(new Bold(new Run("EML ")));
-            //pResourcesText1.Inlines.Add(new Run("doriordan@childcancer.org.nz\n"));
-            // Load the application Id credentials required for the Bing map
             
             return contentStackPanel;
         }
@@ -437,20 +454,21 @@ namespace P02Project
             //Get the touch down coordinates
             TouchPoint touchPosition = e.GetTouchPoint(this);
             //Convert the mouse coordinates to a location on the map
+            //pinlocation longitude is comingout as negative so reversing
             Location pinLocation = map.ViewportPointToLocation(touchPosition.Position);
-            double auckdist = Math.Sqrt(Math.Pow(aucklandPin.Location.Latitude - pinLocation.Latitude, 2) + Math.Pow(aucklandPin.Location.Longitude - pinLocation.Longitude, 2));
-            double chchdist = Math.Sqrt(Math.Pow(christchurchPin.Location.Latitude - pinLocation.Latitude, 2) + Math.Pow(christchurchPin.Location.Longitude - pinLocation.Longitude, 2));
-            double dundist = Math.Sqrt(Math.Pow(dunedinPin.Location.Latitude - pinLocation.Latitude, 2) + Math.Pow(dunedinPin.Location.Longitude - pinLocation.Longitude, 2));
-            double welldist = Math.Sqrt(Math.Pow(wellingtonPin.Location.Latitude - pinLocation.Latitude, 2) + Math.Pow(wellingtonPin.Location.Longitude - pinLocation.Longitude, 2));
-            if (auckdist > -1 && auckdist < 1)
+            double auckdist = Math.Sqrt(Math.Pow(aucklandPin.Location.Latitude - pinLocation.Latitude, 2) + Math.Pow(aucklandPin.Location.Longitude - -pinLocation.Longitude, 2));
+            double chchdist = Math.Sqrt(Math.Pow(christchurchPin.Location.Latitude - pinLocation.Latitude, 2) + Math.Pow(christchurchPin.Location.Longitude - -pinLocation.Longitude, 2));
+            double dundist = Math.Sqrt(Math.Pow(dunedinPin.Location.Latitude - pinLocation.Latitude, 2) + Math.Pow(dunedinPin.Location.Longitude - -pinLocation.Longitude, 2));
+            double welldist = Math.Sqrt(Math.Pow(wellingtonPin.Location.Latitude - pinLocation.Latitude, 2) + Math.Pow(wellingtonPin.Location.Longitude - -pinLocation.Longitude, 2));
+            if (auckdist > -2 && auckdist < 2)
             {
                 mscroll.Content = aucklandContent();
-            }else if(chchdist > -1 && chchdist < 1){
+            }else if(chchdist > -2 && chchdist < 2){
                 mscroll.Content = christchurchContent();
-            }else if(dundist > -1 && dundist < 1){
+            }else if(dundist > -2 && dundist < 2){
                 mscroll.Content = dunedinContent();
             }
-            else if (welldist > -1 && welldist < 1)
+            else if (welldist > -2 && welldist < 2)
             {
                 mscroll.Content = wellingtonContent();
             }
@@ -470,23 +488,23 @@ namespace P02Project
             Point touchPosition = e.GetPosition(this);
             //Convert the mouse coordinates to a location on the map
             Location pinLocation = map.ViewportPointToLocation(touchPosition);
-            double auckdist = Math.Sqrt(Math.Pow(aucklandPin.Location.Latitude - pinLocation.Latitude, 2) + Math.Pow(aucklandPin.Location.Longitude - pinLocation.Longitude, 2));
-            double chchdist = Math.Sqrt(Math.Pow(christchurchPin.Location.Latitude - pinLocation.Latitude, 2) + Math.Pow(christchurchPin.Location.Longitude - pinLocation.Longitude, 2));
-            double dundist = Math.Sqrt(Math.Pow(dunedinPin.Location.Latitude - pinLocation.Latitude, 2) + Math.Pow(dunedinPin.Location.Longitude - pinLocation.Longitude, 2));
-            double welldist = Math.Sqrt(Math.Pow(wellingtonPin.Location.Latitude - pinLocation.Latitude, 2) + Math.Pow(wellingtonPin.Location.Longitude - pinLocation.Longitude, 2));
-            if (auckdist > -10 && auckdist < 10)
+            double auckdist = Math.Sqrt(Math.Pow(aucklandPin.Location.Latitude - pinLocation.Latitude, 2) + Math.Pow(aucklandPin.Location.Longitude - -pinLocation.Longitude, 2));
+            double chchdist = Math.Sqrt(Math.Pow(christchurchPin.Location.Latitude - pinLocation.Latitude, 2) + Math.Pow(christchurchPin.Location.Longitude - -pinLocation.Longitude, 2));
+            double dundist = Math.Sqrt(Math.Pow(dunedinPin.Location.Latitude - pinLocation.Latitude, 2) + Math.Pow(dunedinPin.Location.Longitude - -pinLocation.Longitude, 2));
+            double welldist = Math.Sqrt(Math.Pow(wellingtonPin.Location.Latitude - pinLocation.Latitude, 2) + Math.Pow(wellingtonPin.Location.Longitude - -pinLocation.Longitude, 2));
+            if (auckdist > -2 && auckdist < 2)
             {
                 mscroll.Content = aucklandContent();
             }
-            else if (chchdist > -10 && chchdist < 10)
+            else if (chchdist > -2 && chchdist < 2)
             {
                 mscroll.Content = christchurchContent();
             }
-            else if (dundist > -10 && dundist < 10)
+            else if (dundist > -2 && dundist < 2)
             {
                 mscroll.Content = dunedinContent();
             }
-            else if (welldist > -10 && welldist < 10)
+            else if (welldist > -2 && welldist < 2)
             {
                 mscroll.Content = wellingtonContent();
             }
@@ -508,9 +526,15 @@ namespace P02Project
             pResourcesText1.FontSize = Util.contentTextSize;
             pResourcesText1.FontFamily = Util.contentTextFont;
             pResourcesText1.Margin = new Thickness(10);
-            pResourcesText1.Foreground = new SolidColorBrush(Util.contentTextColor);
-            pResourcesText1.Inlines.Add(new Bold(new Run("Parent Resources \n")));
-            pResourcesText1.Inlines.Add(new Run("Child Cancer Foundation aims to provide up-to-date information for families. Below is a list of websites providing additional information, research documents and details about child cancer from around the world.\n\n"));
+
+            TextBlock pResourcesText2 = new TextBlock();
+            pResourcesText2.TextAlignment = TextAlignment.Left;
+            pResourcesText2.FontSize = 32;
+            pResourcesText2.FontFamily = Util.contentTextFont;
+            pResourcesText2.Margin = new Thickness(10);
+            pResourcesText2.Foreground = new SolidColorBrush(Util.contentTextColor);
+            pResourcesText2.Inlines.Add(new Bold(new Run("Parent Resources \n")));
+            pResourcesText2.Inlines.Add(new Run("Child Cancer Foundation aims to provide up-to-date information for families. Below is a list of websites providing additional information, research documents and details about child cancer from around the world.\n"));
 
             pResourcesText1.Inlines.Add(new Bold(new Run("Kidscope\n")));
             pResourcesText1.Inlines.Add(new Run("www.kidscope.org\nAn organization which has been formed to help families and children better understand the effects of cancer and chemotherapy.\n\n"));
@@ -532,7 +556,8 @@ namespace P02Project
 
             pResourcesText1.Inlines.Add(new Bold(new Run("Action for Children and Youth in Aotearoa\n")));
             pResourcesText1.Inlines.Add(new Run("www.acya.org.nz \nThis site has many excellent documents relating to areas of rights of children and youth.\n\n"));
-            
+
+            contentStackPanel.Children.Add(pResourcesText2);
             contentStackPanel.Children.Add(pResourcesText1);
             return contentStackPanel;
         }
@@ -549,20 +574,20 @@ namespace P02Project
             scatter = new ScatterView();
             //scatter.Width = 850;
             scatter.Height = 500;
-            scatter.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#7fffffff"));
+            scatter.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#00000000"));
 
             hhscroll = new SurfaceScrollViewer();
             //scroll.Width = 850;
             hhscroll.Height = 300;
-            hhscroll.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#4fffffff"));
+            hhscroll.Background = new SolidColorBrush(Util.contentBgColor);
 
             
             TextBlock prompt = new TextBlock();
             prompt.TextAlignment = TextAlignment.Center;
             prompt.FontSize = Util.contentTextSize;
             prompt.Margin = new Thickness(10);
-            prompt.FontFamily = Util.contentTextFont;
-            prompt.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#ff707070"));
+           // prompt.FontFamily = Util.contentTextFont;
+            prompt.Foreground = new SolidColorBrush(Util.contentTextColor);
             prompt.Inlines.Add(new Run("Click on the images below to see information or use two fingers to zoom\n"));
     
             contentStackPanel.Children.Add(prompt);
@@ -573,24 +598,27 @@ namespace P02Project
             hhscroll.VerticalScrollBarVisibility = ScrollBarVisibility.Auto;
 
             arrowtown = new ScatterViewItem();
-            arrowtown.Content = new PoloroidControl("images/arrowtown.jpg","",(Color)ColorConverter.ConvertFromString("#00000000"));
+            arrowtown.Content = new PoloroidControl("images/arrowtown.jpg","Arrowtown",(Color)ColorConverter.ConvertFromString("#ffffffff"));
             (arrowtown.Content as PoloroidControl).removeBorder();
+            arrowtown.Orientation = 0;
             arrowtown.Height = 200;
             arrowtown.Width = 300;
             arrowtown.AddHandler(UIElement.MouseUpEvent, new MouseButtonEventHandler(arrowtown_MouseUp),true);
             scatter.Items.Add(arrowtown);
 
             taupo = new ScatterViewItem();
-            taupo.Content = new PoloroidControl("images/taupo.jpg", "", (Color)ColorConverter.ConvertFromString("#00000000"));
+            taupo.Content = new PoloroidControl("images/taupo.jpg", "Taupo", (Color)ColorConverter.ConvertFromString("#ffffffff"));
             (taupo.Content as PoloroidControl).removeBorder();
+            taupo.Orientation = 0;
             taupo.Height = 200;
             taupo.Width = 300;
             taupo.AddHandler(UIElement.MouseUpEvent, new MouseButtonEventHandler(taupo_MouseUp), true);
             scatter.Items.Add(taupo);
 
             hawkesbay = new ScatterViewItem();
-            hawkesbay.Content = new PoloroidControl("images/hawkesBay.jpg", "", (Color)ColorConverter.ConvertFromString("#00000000"));
+            hawkesbay.Content = new PoloroidControl("images/hawkesBay.jpg", "Hawkes Bay", (Color)ColorConverter.ConvertFromString("#00ffffff"));
             (hawkesbay.Content as PoloroidControl).removeBorder();
+            hawkesbay.Orientation = 0;
             hawkesbay.Height = 200;
             hawkesbay.Width = 300;
             hawkesbay.AddHandler(UIElement.MouseUpEvent, new MouseButtonEventHandler(hawkesBay_MouseUp), true);
@@ -606,7 +634,7 @@ namespace P02Project
             TextBlock taupoText = new TextBlock();
             taupoText.TextAlignment = TextAlignment.Left;
             taupoText.FontSize = Util.contentTextSize;
-            taupoText.FontFamily = Util.contentTextFont;
+            //taupoText.FontFamily = Util.contentTextFont;
             taupoText.Margin = new Thickness(10);
             taupoText.Foreground = new SolidColorBrush(Util.contentTextColor);
             taupoText.Inlines.Add(new Bold(new Run("Taupo Sunshine Lodge Holiday Home \n")));
@@ -623,7 +651,7 @@ namespace P02Project
             TextBlock taupoText = new TextBlock();
             taupoText.TextAlignment = TextAlignment.Left;
             taupoText.FontSize = Util.contentTextSize;
-            taupoText.FontFamily = Util.contentTextFont;
+            //taupoText.FontFamily = Util.contentTextFont;
             taupoText.Margin = new Thickness(10);
             taupoText.Foreground = new SolidColorBrush(Util.contentTextColor);
             taupoText.Inlines.Add(new Bold(new Run("Arrowtown \n")));
@@ -640,7 +668,7 @@ namespace P02Project
             TextBlock taupoText = new TextBlock();
             taupoText.TextAlignment = TextAlignment.Left;
             taupoText.FontSize = Util.contentTextSize;
-            taupoText.FontFamily = Util.contentTextFont;
+            //taupoText.FontFamily = Util.contentTextFont;
             taupoText.Margin = new Thickness(10);
             taupoText.Foreground = new SolidColorBrush(Util.contentTextColor);
             taupoText.Inlines.Add(new Bold(new Run("Hawkes Bay Little Elms \n")));
@@ -658,7 +686,7 @@ namespace P02Project
             TextBlock taupoText = new TextBlock();
             taupoText.TextAlignment = TextAlignment.Left;
             taupoText.FontSize = Util.contentTextSize;
-            taupoText.FontFamily = Util.contentTextFont;
+           // taupoText.FontFamily = Util.contentTextFont;
             taupoText.Margin = new Thickness(10);
             taupoText.Foreground = new SolidColorBrush(Util.contentTextColor);
             taupoText.Inlines.Add(new Bold(new Run("Family Support - Auckland﻿ \n")));
@@ -674,7 +702,7 @@ namespace P02Project
             TextBlock taupoText = new TextBlock();
             taupoText.TextAlignment = TextAlignment.Left;
             taupoText.FontSize = Util.contentTextSize;
-            taupoText.FontFamily = Util.contentTextFont;
+            //taupoText.FontFamily = Util.contentTextFont;
             taupoText.Margin = new Thickness(10);
             taupoText.Foreground = new SolidColorBrush(Util.contentTextColor);
             taupoText.Inlines.Add(new Bold(new Run("Family Support - Dunedin﻿ \n")));
@@ -690,7 +718,7 @@ namespace P02Project
             TextBlock taupoText = new TextBlock();
             taupoText.TextAlignment = TextAlignment.Left;
             taupoText.FontSize = Util.contentTextSize;
-            taupoText.FontFamily = Util.contentTextFont;
+           // taupoText.FontFamily = Util.contentTextFont;
             taupoText.Margin = new Thickness(10);
             taupoText.Foreground = new SolidColorBrush(Util.contentTextColor);
             taupoText.Inlines.Add(new Bold(new Run("Family Support - Christchurch \n")));
@@ -706,7 +734,7 @@ namespace P02Project
             TextBlock taupoText = new TextBlock();
             taupoText.TextAlignment = TextAlignment.Left;
             taupoText.FontSize = Util.contentTextSize;
-            taupoText.FontFamily = Util.contentTextFont;
+           // taupoText.FontFamily = Util.contentTextFont;
             taupoText.Margin = new Thickness(10);
             taupoText.Foreground = new SolidColorBrush(Util.contentTextColor);
             taupoText.Inlines.Add(new Bold(new Run("Family Support - Wellington \n")));

@@ -71,10 +71,9 @@
 			<ColumnDefinition x:Name="_gridCol0" />
 			<ColumnDefinition x:Name="_gridCol1" />
 			<ColumnDefinition x:Name="_gridCol2" />
-			<ColumnDefinition x:Name="_gridCol3" />
 		</Grid.ColumnDefinitions>
-        
-		<my:SurfaceScrollViewer x:Name="text" Grid.Column="1" Margin="20" Grid.RowSpan="3" Grid.ColumnSpan="3" Background="#33D8D8D8" HorizontalScrollBarVisibility="Disabled" />
+
+        <my:SurfaceScrollViewer x:Name="text" Grid.Column="1" Margin="20" Grid.RowSpan="3" Grid.ColumnSpan="2" Background="#7F525252" HorizontalScrollBarVisibility="Disabled" />
 
 		<!-- Set the option buttons at the left-->
 		<StackPanel Margin="20" Grid.RowSpan="2">
