@@ -93,9 +93,6 @@
     <Compile Include="Screens\RightButton.xaml.cs">
       <DependentUpon>RightButton.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Screens\FunkyGrid.xaml.cs">
-      <DependentUpon>FunkyGrid.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Screens\SplitGridView.xaml.cs">
       <DependentUpon>SplitGridView.xaml</DependentUpon>
     </Compile>
@@ -144,10 +141,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Screens\ContactUs.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Screens\FunkyGrid.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
