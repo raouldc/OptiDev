@@ -43,6 +43,7 @@ namespace P02Project.Screens
                 polaroid.setDescription(nodeText.Where(t => t.type == "info").FirstOrDefault().Value);
                 if (pageType == "Events")
                     polaroid.setPlace(nodeText.Where(t => t.type == "place").FirstOrDefault().Value);
+                polaroid.setImage(temp.ImageList.Where(img => img.node == "" + n).FirstOrDefault().Value);
                 addPoloroidtoList(polaroid);
                 n++;
             }

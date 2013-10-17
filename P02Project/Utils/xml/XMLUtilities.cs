@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Controls;
@@ -13,26 +14,16 @@ using HtmlAgilityPack;
 
 namespace P02Project.Resources.xml
 {
-
-
-  
-
-
     class XMLUtilities
     {
-
-
-
-
         public static PageModel GetContentFromFile(String filePath)
         {
-            PageModel xmlContent;
-            XmlSerializer mySerializer = new XmlSerializer(typeof(PageModel));
-           
-            FileStream myFileStream = new FileStream(filePath, FileMode.Open);
+            var mySerializer = new XmlSerializer(typeof(PageModel));
 
-            xmlContent = (PageModel)mySerializer.Deserialize(myFileStream);
-            myFileStream.Close();
+            PageModel xmlContent;
+            using (var myFileStream = new FileStream(filePath, FileMode.Open)) {
+                xmlContent = (PageModel) mySerializer.Deserialize(myFileStream);
+            }
 
             return xmlContent;
 
@@ -42,7 +33,7 @@ namespace P02Project.Resources.xml
         {
             var pageType = url.Split('/').LastOrDefault().Split('.').FirstOrDefault();
             var path = Path.Combine(Path.GetFullPath("."), "Resources/xml/" + pageType + ".xml");
-            if (!File.Exists(path) 
+            if (File.Exists(path) 
                 || File.GetLastWriteTimeUtc(path) > DateTime.UtcNow.Subtract(new TimeSpan(12, 0, 0)))
             {
                 var html = new HtmlWeb();
@@ -74,6 +65,17 @@ namespace P02Project.Resources.xml
                         textList += "<Text node=\"" + n + "\" type=\"date\">" +
                                     node.Descendants("small").FirstOrDefault().InnerText + "</Text>\n";
                     }
+                    var imagePath = "Resources/images/"+ pageType + "/" + node.Descendants("a").FirstOrDefault().InnerText + ".jpg";
+                    
+                    if(!File.Exists(imagePath))
+                    {
+                        File.Create(imagePath);
+                        using(var client = new WebClient())
+                        {
+                            client.DownloadFile("http://www.childcancer.org.nz/" + node.Descendants("img").FirstOrDefault().Attributes["src"].Value, imagePath);
+                        }
+                    }
+                    imageList += "<Image node=\"" + n + "\">" + imagePath + "</image>\n";
                     n++;
                 }
                 textList += "</TextList>\n";
@@ -91,8 +93,4 @@ namespace P02Project.Resources.xml
             return GetContentFromFile(path);
         }
     }
-
-
-   
-    
 }
