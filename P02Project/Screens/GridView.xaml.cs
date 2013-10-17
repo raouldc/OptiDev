@@ -110,8 +110,13 @@ namespace P02Project
                 p.RenderTransform = new RotateTransform(rotation);
                 rotation = rotation * -1;
                 p.MouseUp += new MouseButtonEventHandler(Polaroid_MouseUp);
+                //Make the middle element larger
                 if (isFunky && i == 2)
                 {
+                    Thickness margin = p.Margin;
+                    margin.Left = 200;
+                    margin.Right = 200;
+                    p.Margin = margin;
                     Grid.SetColumn(p, 1);
                     Grid.SetRow(p, 1);
                     Grid.SetColumnSpan(p, 2);
