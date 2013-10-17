@@ -14,6 +14,8 @@ using Microsoft.Surface;
 using Microsoft.Surface.Presentation;
 using Microsoft.Surface.Presentation.Controls;
 using P02Project.Screens;
+using P02Project.Utils;
+using System.Windows.Media.Animation;
 
 namespace P02Project
 {
@@ -21,8 +23,9 @@ namespace P02Project
     /// This class is responsible for laying out the buttons on the right side of the screen
     /// The colours for these buttons comes from the Util class
     /// </summary>
-    public partial class RightButtonControl : UserControl
+    public partial class RightButtonControl : UserControl,Animatiable
     {
+        private Storyboard sbIn;
         /// <summary>
         /// constructor
         /// </summary>
@@ -40,17 +43,22 @@ namespace P02Project
         public void setButtons(String[] bNames)
         {
             ButtonStack.Children.Clear();
+            sbIn = new Storyboard();
+            int count = 0;
 
             // set every give name into the right button
             foreach(String name in bNames)
             {
                 RightButton button = new RightButton();
 
-                button.Width = Width;
-                button.Height = 160;
+                button.Width = 197;
+                button.Height = 155;
+
+                //button.Name = "but" + name.Replace(" ", "");
 
                 //Need ot set a 15 margin on the right to make the shadow visible
                 button.Margin = new Thickness(0, 0, 15, 15);
+                button.HorizontalAlignment = System.Windows.HorizontalAlignment.Left;
 
                 button.Colour = Util._pageColDict[name];
                 button.Caption = name;
@@ -60,7 +68,16 @@ namespace P02Project
                 button.MouseUp += new MouseButtonEventHandler(Button_Click);
 
                 ButtonStack.Children.Add(button);
-            }            
+
+                ThicknessAnimation pan = new ThicknessAnimation();
+                pan.From = new Thickness(300, 0, 15, 15);
+                pan.To = new Thickness(0, 0, 15, 15);
+                pan.Duration = new Duration(TimeSpan.FromMilliseconds(200 + 50 * (count++)));
+
+                sbIn.Children.Add(pan);
+                Storyboard.SetTarget(pan, button);
+                Storyboard.SetTargetProperty(pan, new PropertyPath(RightButton.MarginProperty));
+            }
         }
 
 
@@ -125,5 +142,14 @@ namespace P02Project
         }
 
 
+
+        public void AnimateIn()
+        {
+            sbIn.Begin();
+        }
+
+        public void AnimateOut()
+        {
+        }
     }
 }

@@ -63,8 +63,10 @@ namespace P02Project
         private void donate_MouseUp(object sender, MouseButtonEventArgs e)
         {
             // create the donation content and set the subtitle of the view
-            topLevelPage.setContent(new hcihDonateControl());
+            UserControl don = new hcihDonateControl();
+            topLevelPage.setContent(don);
             topLevelPage.setSubtitle("Donate");
+            (don as Animatiable).AnimateIn();
 
         }
 

@@ -11,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using P02Project.Utils;
 
 namespace P02Project.Screens
 {
@@ -22,6 +23,7 @@ namespace P02Project.Screens
         // stach of the screens and the subtitle
         private Stack<UIElement> stackOfContent;
         private Stack<String> stackSubtitle;
+        protected List<Animatiable> components;
 
 
 
@@ -41,9 +43,28 @@ namespace P02Project.Screens
             TitleBar.Title.Content = title;
             TitleBar.setTopPage(this);
             stackSubtitle = new Stack<String>();
+            RightButtons.setButtons(Util.getLinks(title));
+
+            components = new List<Animatiable>();
+
+            components.Add(RightButtons);
         }
 
-        
+        public void AnimateOut()
+        {
+            foreach (Animatiable a in components)
+            {
+                a.AnimateOut();
+            }
+        }
+
+        public void AnimateIn()
+        {
+            foreach (Animatiable a in components)
+            {
+                a.AnimateIn();
+            }
+        }
 
         /// <summary>
         /// Set the content part of the grid
@@ -131,11 +152,28 @@ namespace P02Project.Screens
             {
                 //pop the top control off the stack
                 UIElement old = stackOfContent.Pop();
+
+                try
+                {
+                    (old as Animatiable).AnimateOut();
+                }
+                catch (NullReferenceException exp)
+                {
+                }
+
                 //remove it from the view
                 pageGrid.Children.Remove(old);
                 //set next control to be the content
                 UIElement newContent = stackOfContent.Pop();
                 this.setContent(newContent);
+
+                try
+                {
+                    (newContent as Animatiable).AnimateIn();
+                }
+                catch (NullReferenceException exp)
+                {
+                }
                
                 stackSubtitle.Pop();
 
