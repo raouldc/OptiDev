@@ -5,7 +5,7 @@ using System.Text;
 
 namespace P02Project.Utils
 {
-    interface Animatiable
+    public interface Animatiable
     {
         void AnimateIn();
         void AnimateOut();

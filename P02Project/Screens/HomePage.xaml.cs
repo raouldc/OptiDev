@@ -17,6 +17,7 @@ using Microsoft.Surface.Presentation.Input;
 using System.Windows.Media.Animation;
 using P02Project.Screens;
 using P02Project.Utils;
+using System.Windows.Threading;
 
 namespace P02Project
 {
@@ -26,6 +27,7 @@ namespace P02Project
     public partial class HomePage : Screen, Animatiable
     {
         private List<Animatiable> components;
+        DispatcherTimer dt;
 
         public HomePage(TopWindow parentWindow) : base(parentWindow)
         {
@@ -85,18 +87,25 @@ namespace P02Project
             components.Add(events);
             components.Add(contactUs);
             components.Add(playBeads);
+
+            dt = new DispatcherTimer();
+            dt.Interval = new TimeSpan(0, 0, 0, 0, 200);
         }
 
         public void AnimateOut()
         {
             foreach (Animatiable a in components)
             {
-                a.AnimateIn();
+                a.AnimateOut();
             }
         }
 
         public void AnimateIn()
         {
+            foreach (Animatiable a in components)
+            {
+                a.AnimateIn();
+            }
         }
 
         /// <summary>
@@ -165,13 +174,21 @@ namespace P02Project
             //Do out animation
             AnimateOut();
 
+            dt.Tick += new EventHandler(pushHCIH);
+            dt.Start();
+        }
+
+        private void pushHCIH(object sender, EventArgs e)
+        {
             // create a new subscreen and push it into the stack of subscreens
             TopLevelPage nextScreen = new TopLevelPage(ParentWindow, "How Can I Help?");
             hcihHomeControl hcih = new hcihHomeControl(nextScreen);
             ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("How Can I Help?"), howCanIHelp.colour, hcih, "");
+            nextScreen.AnimateIn();
             hcih.AnimateIn();
-        }
 
+            dt.Stop();
+        }
 
 
         /// <summary>
