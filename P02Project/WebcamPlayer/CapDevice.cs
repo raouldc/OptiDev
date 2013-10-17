@@ -101,7 +101,6 @@ namespace CatenaLogic.Windows.Presentation.WebcamPlayer
         private static CapGrabber CapGrabber = null;
         private static IntPtr Map = IntPtr.Zero;
         private static IntPtr Section = IntPtr.Zero;
-
         private static System.Diagnostics.Stopwatch Timer = System.Diagnostics.Stopwatch.StartNew();
         private static double Frames = 0.0;
         private static string _monikerString = "";
