@@ -44,6 +44,7 @@ namespace P02Project.Screens
             addPoloroidtoList(p4);
             listView.ScrollIntoView(0);
             listItemInFocus = 0;
+           
             
 
         }
