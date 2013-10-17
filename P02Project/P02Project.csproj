@@ -295,6 +295,7 @@
     <Resource Include="Resources\images\Stories\Kavahn2.png" />
     <Resource Include="Resources\images\Stories\Manu.png" />
     <Resource Include="Resources\CaptureImageNow.png" />
+    <Resource Include="Resources\twitter-bird-light-bgs.png" />
     <Content Include="Resources\xml\About.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>

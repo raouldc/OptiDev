@@ -6,8 +6,13 @@
 	mc:Ignorable="d"
 	x:Class="P02Project.TwitterBlock"
 	x:Name="TwitterMessage" d:DesignHeight="78" d:DesignWidth="330">
-
+    
 	<Grid x:Name="LayoutRoot">
-        <TextBlock FontSize="16" TextWrapping="Wrap" Text="CCF are at the Massey High @Hurricane_Kids gig today. They are rocking out  supporting kids with cancer! pic.twitter.com/1e2HvbKTIw" d:LayoutOverrides="VerticalAlignment" Name="msg" />
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.2*"/>
+            <ColumnDefinition Width="0.8*"/>
+        </Grid.ColumnDefinitions>
+        <Image Source="/P02Project;component/Resources/twitter-bird-light-bgs.png" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="0" />
+        <TextBlock FontSize="16" Grid.Column="1" TextWrapping="Wrap" Text="CCF are at the Massey High @Hurricane_Kids gig today. They are rocking out  supporting kids with cancer! pic.twitter.com/1e2HvbKTIw" Name="msg"  TextAlignment="Left" />
 	</Grid>
 </UserControl>
