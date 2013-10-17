@@ -78,6 +78,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Screens\hcihGiftControl.xaml.cs">
+      <DependentUpon>hcihGiftControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Screens\hcihFundraiseControl.xaml.cs">
       <DependentUpon>hcihFundraiseControl.xaml</DependentUpon>
     </Compile>
@@ -142,6 +145,10 @@
       <DependentUpon>PageModel.cs</DependentUpon>
     </Compile>
     <Compile Include="Utils\xml\XMLUtilities.cs" />
+    <Page Include="Screens\hcihGiftControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Screens\hcihFundraiseControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -266,7 +273,6 @@
   <ItemGroup>
     <Resource Include="Resources\images\HowCanIHelp\qr_shop.png" />
     <Resource Include="Resources\images\HowCanIHelp\qr_volunteer.png" />
-    <Resource Include="Screens\kidsForCourage.png" />
     <Resource Include="Utils\xml\PageModel.xml" />
     <Resource Include="Resources\images\Ambassadors\Amanda.png" />
     <Resource Include="Resources\images\Ambassadors\Bernadine.png" />
@@ -306,6 +312,9 @@
     <Resource Include="Resources\images\HowCanIHelp\kagi.png" />
     <Resource Include="Resources\images\HowCanIHelp\sb.png" />
     <Resource Include="Resources\images\HowCanIHelp\fundraise.png" />
+    <Resource Include="Resources\images\HowCanIHelp\gift.png" />
+    <Resource Include="Resources\images\HowCanIHelp\qr_soc.png" />
+    <Resource Include="Resources\images\HowCanIHelp\qr_boc.png" />
     <Content Include="Resources\xml\About.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>

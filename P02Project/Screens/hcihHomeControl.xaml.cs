@@ -58,6 +58,10 @@ namespace P02Project
             fundraise.setCaption("Fundraise");
             fundraise.setColour(colour);
 
+            gift.setImage("images\\HowCanIHelp\\gift.png");
+            gift.setCaption("Make a Gift");
+            gift.setColour(colour);
+
             components = new List<Animatiable>();
             components.Add(donate);
             components.Add(beadsOfCourage);
@@ -66,6 +70,7 @@ namespace P02Project
             components.Add(campaings);
             components.Add(shop);
             components.Add(fundraise);
+            components.Add(gift);
         }
 
 
@@ -136,6 +141,14 @@ namespace P02Project
             hcihFundraiseControl hcih = new hcihFundraiseControl();
             topLevelPage.setContent(hcih);
             topLevelPage.setSubtitle("Fundraise");
+            (hcih as Animatiable).AnimateIn();
+        }
+
+        private void gift_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            hcihGiftControl hcih = new hcihGiftControl();
+            topLevelPage.setContent(hcih);
+            topLevelPage.setSubtitle("Make a Gift");
             (hcih as Animatiable).AnimateIn();
         }
     }

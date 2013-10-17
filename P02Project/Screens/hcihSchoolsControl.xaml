@@ -22,7 +22,7 @@
             <ColumnDefinition x:Name="_gridCol1" Width="0.333*" />
             <ColumnDefinition x:Name="_gridCol2" Width="0.333*" />
         </Grid.ColumnDefinitions>
-    	<Image Margin="60" Source="kidsForCourage.png" d:LayoutOverrides="Width" Grid.RowSpan="3" Grid.ColumnSpan="3"/>
+    	<Image Margin="60" Source="..\Resources\Images\HowCanIHelp\kidsForCourage.png" d:LayoutOverrides="Width" Grid.RowSpan="3" Grid.ColumnSpan="3"/>
         
         <!-- textbox used for the content of each subsection-->
         <!-- Set the option buttons at the left-->
