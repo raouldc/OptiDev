@@ -69,8 +69,6 @@ namespace P02Project
                 }
                 numberOfCols = (int)Math.Ceiling((double)numberOfItems / (double)numberOfRows);
             }
-            int cos = numberOfCols;
-            int ros = numberOfRows;
             if (!isFunky && ((numberOfCols > MAXCOLS) || (numberOfRows > MAXROWS)))
             {
                 throw new Exception("There are too many rows or columns");
