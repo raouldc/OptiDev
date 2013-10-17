@@ -25,7 +25,6 @@ Generated_Code
 ###################
 *.com
 *.class
-# *.dll
 *.exe
 *.o
 *.so
@@ -214,8 +213,6 @@ App_Data/*.ldf
 # Windows detritus
 # =========================
 
-packages/
-*/packages.config
 
 # Windows image file caches
 Thumbs.db

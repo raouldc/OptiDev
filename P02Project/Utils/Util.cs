@@ -65,10 +65,10 @@ namespace P02Project
         /// <returns></returns>
         public static String[] getLinks(String exclude)
         {
-            List<String> links = new List<string>( new String[]{ "About", "Family Support", "How Can I Help?", "News", "Events", "Play Beads", "Contact Us" });
+            List<String> links = new List<string>(new String[] { "About", "Family Support", "How Can I Help?", "News", "Events", "Play Beads", "Contact Us" });
 
             links.Remove(exclude);
-            return links.ToArray();   
+            return links.ToArray();
         }
             
     }
