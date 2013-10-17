@@ -11,14 +11,18 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Media.Effects;
+using System.Windows.Media.Animation;
+using P02Project.Utils;
 
 namespace P02Project
 {
 	/// <summary>
 	/// Interaction logic for hcihDonateControl.xaml
 	/// </summary>
-	public partial class hcihDonateControl : UserControl
+	public partial class hcihDonateControl : UserControl, Animatiable
 	{
+        private Storyboard sbIn;
+
         /// <summary>
         /// Constructor
         /// </summary>
@@ -39,6 +43,26 @@ namespace P02Project
 
             //set content
             text.Content = oneOffContent();
+            sbIn = new Storyboard();
+
+            int count = 0;
+
+            //Set the animations
+            foreach(Button b in buttons.Children)
+            {
+            ThicknessAnimation stackIn;
+            stackIn = new ThicknessAnimation();
+            stackIn.From = new Thickness(-1000, 20, 20, 20);
+            stackIn.To = new Thickness(20, 20, 20, 20);
+            stackIn.Duration = new Duration(TimeSpan.FromMilliseconds(200 + 50*(count++)));
+
+            sbIn.Children.Add(stackIn);
+
+            Storyboard.SetTargetName(stackIn, b.Name);
+            Storyboard.SetTargetProperty(stackIn, new PropertyPath(StackPanel.MarginProperty));
+            }
+
+
 		}
 
 
@@ -360,5 +384,14 @@ namespace P02Project
             contentStackPanel.Children.Add(onGoingText1);
             return contentStackPanel;
         }
-	}
+
+        public void AnimateIn()
+        {
+            sbIn.Begin(this);
+        }
+
+        public void AnimateOut()
+        {
+        }
+    }
 }
