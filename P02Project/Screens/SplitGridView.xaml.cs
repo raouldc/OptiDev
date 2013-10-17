@@ -49,6 +49,7 @@ namespace P02Project.Screens
                 p.Margin = new Thickness(25);
                 p.RenderTransformOrigin.Offset(0.5,0.5);
                 p.RenderTransform = new RotateTransform(rotation);
+                p.IsUnclickable = true;
                 rotation = rotation * -1;
                 Grid.SetColumn(p, 0);
                 Grid.SetRow(p, count);
