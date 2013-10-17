@@ -106,7 +106,7 @@ namespace P02Project
 
                 case "News":
                     nextScreen = new TopLevelPage(ParentWindow, "News");
-                    ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("News"), colour, new UserControl(), "");
+                    ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("News"), colour, new ScrollableView("News"), "");
                     break;
 
                 case "How Can I Help?":
@@ -117,7 +117,7 @@ namespace P02Project
 
                 case "Events":
                     nextScreen = new TopLevelPage(ParentWindow, "Events");
-                    ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("Events"), colour, new UserControl(), "");
+                    ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("Events"), colour, new ScrollableView("Events"), "");
                     break;
 
                 case "Family Support":

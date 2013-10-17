@@ -6,7 +6,7 @@
 
 
   <TextList>
-    <Text id="First Paragraph">
+    <Text id="First Paragraph" class="typeOfText" node="nodeGroup">
       hello world
       hello world
 
