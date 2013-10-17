@@ -28,7 +28,10 @@ namespace P02Project.Screens
             listOfObjects = new List<PoloroidWithText>();
             //add new poloroidWithTexts with all the data specified
             PoloroidWithText p0 = new PoloroidWithText();
-            p0.setTitle("0");
+            p0.setTitle("Hello There Event!");
+            p0.setDate(new DateTime());
+            p0.setDescription("some long description. some long description. some long description. some long description. some long description. some long description. some long description. some long description. some long description. some long description. some long description. some long description. some long description. some long description. some long description. some long description. \nsome long description. some long description. some long description. some long description. some long description. some long description. some long description. some long description. some long description. some long description. some long description. some long description. some long description. some long description. some long description. ");
+            p0.setImage("images/Stories/Emma.png");
             addPoloroidtoList(p0);
             PoloroidWithText p1 = new PoloroidWithText();
             p1.setTitle("1");
@@ -61,7 +64,7 @@ namespace P02Project.Screens
 
         private void listView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            
         }
 
         private void left_Clicked(object sender, System.Windows.RoutedEventArgs e)
