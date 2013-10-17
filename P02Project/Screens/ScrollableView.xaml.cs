@@ -67,7 +67,7 @@ namespace P02Project.Screens
 //            PoloroidWithText p4 = new PoloroidWithText();
 //            p4.setTitle("4");
 //            addPoloroidtoList(p4);
-            listView.ScrollIntoView(0);
+           // listView.ScrollIntoView(0);
 
           
 
@@ -77,7 +77,8 @@ namespace P02Project.Screens
         private void addPoloroidtoList(PoloroidWithText pol)
         {
             listOfObjects.Add(pol);
-            listView.Items.Add(pol);
+            //listView.
+            listView.addContent(pol);
         }
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
@@ -91,16 +92,16 @@ namespace P02Project.Screens
         private void left_Clicked(object sender, System.Windows.RoutedEventArgs e)
         {
 
-            double horiz = listView.ScrollViewer.HorizontalOffset;
-            listView.ScrollViewer.ScrollToHorizontalOffset((int)horiz - 1);
+           // double horiz = listView.ScrollViewer.HorizontalOffset;
+            //listView.ScrollViewer.ScrollToHorizontalOffset((int)horiz - 1);
 
         }
 
         private void right_clicked(object sender, System.Windows.RoutedEventArgs e)
         {
            
-                double horiz = listView.ScrollViewer.HorizontalOffset;
-                listView.ScrollViewer.ScrollToHorizontalOffset((int)horiz+1);
+                //double horiz = listView.ScrollViewer.HorizontalOffset;
+                //listView.ScrollViewer.ScrollToHorizontalOffset((int)horiz+1);
         }
         /*resizes elements as you switch between polaroids 
          * unused so far

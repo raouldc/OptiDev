@@ -38,9 +38,8 @@ namespace P02Project.Screens
         public void setImage(String resName)
         {
             BitmapImage src = new BitmapImage();
-            var a = AppDomain.CurrentDomain.BaseDirectory;
             src.BeginInit();
-            src.UriSource = new Uri("/Resources/" + resName,UriKind.Relative);
+            src.UriSource = new Uri(Directory.GetCurrentDirectory() + "/Resources/" + resName);
             src.EndInit();
 
             Image.Source = src;
