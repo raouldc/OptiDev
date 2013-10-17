@@ -100,6 +100,9 @@
     <Compile Include="Screens\FunkyGrid.xaml.cs">
       <DependentUpon>FunkyGrid.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Screens\ScrollableView.xaml.cs">
+      <DependentUpon>ScrollableView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Screens\SplitGridView.xaml.cs">
       <DependentUpon>SplitGridView.xaml</DependentUpon>
     </Compile>
@@ -166,6 +169,10 @@
     <Page Include="Screens\PoloroidControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Screens\ScrollableView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Screens\SplitGridView.xaml">
       <Generator>MSBuild:Compile</Generator>

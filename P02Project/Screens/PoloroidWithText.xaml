@@ -24,12 +24,13 @@
     			<DropShadowEffect BlurRadius="20" ShadowDepth="8"/>
     		</Rectangle.Effect>
     	</Rectangle>
-    	<Image x:Name="Image" Stretch="Fill" Grid.IsSharedSizeScope="True" ImageFailed="Image_ImageFailed" Margin="15" />
-        <TextBlock x:Name="Description" Foreground="Black" Margin="15,0,15,15" TextWrapping="Wrap" Grid.Row="1" Grid.ColumnSpan="2" VerticalAlignment="Top" HorizontalAlignment="Left"><Run Language="en-nz" Text="Description"/></TextBlock>
-        <StackPanel x:Name="panel" Margin="0,15,15,15" Grid.Column="1">
+    	<Image x:Name="Image" Stretch="Fill" Grid.IsSharedSizeScope="True" ImageFailed="Image_ImageFailed" Margin="15" Grid.RowSpan="2" />
+        <StackPanel x:Name="panel" Margin="0,15,15,15" Grid.Column="1" Grid.RowSpan="2">
         	<TextBlock x:Name="Title" Foreground="Black" HorizontalAlignment="Left" TextWrapping="Wrap" Width="Auto" FontSize="26.667" Height="Auto"><Run Language="en-nz" Text="Title"/></TextBlock>
         	<TextBlock x:Name="Date" Foreground="Black" HorizontalAlignment="Left" Height="Auto" TextWrapping="Wrap" VerticalAlignment="Top" Width="Auto" Margin="0,15" FontSize="16"><Run Language="en-nz" Text="Date"/></TextBlock>
-        	<TextBlock x:Name="Place" Foreground="Black" HorizontalAlignment="Left" Height="Auto" TextWrapping="Wrap" VerticalAlignment="Top" Width="Auto" d:LayoutOverrides="HorizontalAlignment" FontSize="16"><Run Language="en-nz" Text="Place"/></TextBlock>
+        	<TextBlock x:Name="Place" Foreground="Black" HorizontalAlignment="Left" Height="Auto" TextWrapping="Wrap" VerticalAlignment="Top" Width="Auto" d:LayoutOverrides="HorizontalAlignment" FontSize="16" Margin="0,0,0,15"><Run Language="en-nz" Text="Place"/></TextBlock>
+        	<TextBlock x:Name="DescriptionTitle" Foreground="Black" TextWrapping="Wrap" HorizontalAlignment="Left" FontSize="16"><Run Language="en-nz" Text="Info"/></TextBlock>
+        	<TextBlock x:Name="Description" Foreground="Black" TextWrapping="Wrap" HorizontalAlignment="Left" d:LayoutOverrides="GridBox"><Run Language="en-nz" Text="Description"/></TextBlock>
         </StackPanel>
             
     </Grid>
