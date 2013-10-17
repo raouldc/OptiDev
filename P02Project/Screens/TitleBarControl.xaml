@@ -6,7 +6,7 @@
 	mc:Ignorable="d"
 	x:Class="P02Project.TitleBarControl"
 	x:Name="UserControl"
-	d:DesignWidth="1630" d:DesignHeight="120">
+	d:DesignWidth="1630" Height="159.333">
     
     <!-- configure CCF Logo -->
     <UserControl.Resources>
@@ -37,11 +37,12 @@
             <ColumnDefinition x:Name="Col0" />
             <ColumnDefinition x:Name="Col1" Width="200"/>
         </Grid.ColumnDefinitions>
-        <Rectangle x:Name="lRect" Margin="0" Stroke="#00000000"/>
-        <Button x:Name="Back" Content="Back" HorizontalAlignment="Left" Margin="8,8,0,8" Width="100" BorderThickness="0" Background="#FFED2121" OpacityMask="#FFE90C0C" Height="100" VerticalAlignment="Center" Click="Back_Click"/>
-        <Button x:Name="CCF_Button" Content="" HorizontalAlignment="Left" Margin="125,8,0,8" Style="{DynamicResource CCF_Logo_Button}" Width="137" Height="104" VerticalAlignment="Center"/>
-        <Label x:Name="Title" Content="Page Title" Margin="300,0,0,0" FontSize="40" Foreground="Red" VerticalAlignment="Center" FontFamily="Verdana" FontWeight="Bold" Background="#00000000"/>
-        <Label x:Name="SubTitle" Content="SubTitle" Margin="300,0,0,0" FontSize="29.333" Foreground="Red" VerticalAlignment="Bottom" FontFamily="Verdana"/>
-        <Rectangle x:Name="rRect" Grid.Column="1" Margin="-2,0,0,0" Stroke="#00FDFDFD"/>
+        <Rectangle x:Name="lRect" Stroke="#00000000"/>
+        <Button x:Name="Back" Content="" HorizontalAlignment="Left" Margin="37.832,40.081,0,0" BorderThickness="0" Background="#FFED2121" OpacityMask="#FFE90C0C" Click="Back_Click" Template="{DynamicResource BackButtonTemplate}" VerticalAlignment="Top" Height="149.753" Width="100"/>
+        <Button x:Name="CCF_Button" Content="" HorizontalAlignment="Left" Margin="162.334,20.957,0,32.336" Style="{DynamicResource CCF_Logo_Button}" Width="137"
+                Click="CCF_Button_Click" />
+        <Label x:Name="Title" Content="Page Title" Margin="335.333,34.735,-35.333,5.958" FontSize="40" Foreground="Red" FontFamily="Verdana" FontWeight="Bold" Background="#00000000" d:LayoutOverrides="Height"/>
+        <Label x:Name="SubTitle" Content="SubTitle" Margin="336.333,79.012,-36.333,34.67" FontSize="29.333" Foreground="Red" FontFamily="Verdana" d:LayoutOverrides="Height"/>
+        <Rectangle x:Name="rRect" Grid.Column="1" Margin="-2,0,0,-20.667" Stroke="#00FDFDFD"/>
     </Grid>
 </UserControl>

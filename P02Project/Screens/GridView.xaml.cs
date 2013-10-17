@@ -29,31 +29,47 @@ namespace P02Project
         private readonly int MAXCOLS = 6;
         private readonly int MAXROWS = 2;
 
+        private bool isFunky = false;
+
+
+        private PageModelImage[] _pageModelArray;
 
 
         /// <summary>
-        /// constructor
+        /// Initializes a new instance of the <see cref="GridView"/> class.
         /// </summary>
-        /// <param name="Xpath"></param>
-        public GridView(String Xpath)
+        /// <param name="_pageModelArray">The page model array.</param>
+        /// <param name="isF">if set to <c>true</c> [is f].</param>
+        /// <exception cref="System.Exception">There are too many rows or columns</exception>
+        public GridView(PageModel pageModelArray)
         {
             this.InitializeComponent();
+
+
+            isFunky = pageModelArray.pageType.ToLower().Equals("funkygridview")?true:false;
+            PageModelImage[] _pageModelImageArray = pageModelArray.ImageList;
             /*first we need to bind the xml and create a grid Layout for that*/
             //dummy data
-            String path = System.IO.Path.Combine(System.IO.Path.GetFullPath("."), Xpath);
-            
-            PageModelImage[] temp = XMLUtilities.GetContentFromFile(path).ImageList;
-           
-            numberOfItems  = temp.Count();
+            //String path = System.IO.Path.Combine(System.IO.Path.GetFullPath("."),"Resources/"+ Xpath);
 
-            if (numberOfItems >= 4)
+            //_pageModelArray = XMLUtilities.GetContentFromFile(path).ImageList;
+
+            numberOfItems = _pageModelImageArray.Count();
+
+            if (isFunky && numberOfItems == 5)
             {
-                numberOfRows++;
+                numberOfRows = 4;
+                numberOfCols = 4;
             }
-            numberOfCols = (int)Math.Ceiling((double)numberOfItems / (double)numberOfRows);
-            int cos = numberOfCols;
-            int ros = numberOfRows;
-            if ((numberOfCols > MAXCOLS) || (numberOfRows > MAXROWS))
+            else
+            {
+                if (numberOfItems >= 4)
+                {
+                    numberOfRows++;
+                }
+                numberOfCols = (int)Math.Ceiling((double)numberOfItems / (double)numberOfRows);
+            }
+            if (!isFunky && ((numberOfCols > MAXCOLS) || (numberOfRows > MAXROWS)))
             {
                 throw new Exception("There are too many rows or columns");
             }
@@ -83,32 +99,54 @@ namespace P02Project
             {
                 if (colNum >= numberOfCols)
                 {
-                    rowNum++;
+                    rowNum = isFunky ? rowNum + 2 : rowNum + 1;
                     colNum = 0;
                 }
                 PoloroidControl p = new PoloroidControl();
-                p.setCaption(temp[i].caption);
-                p.setImage(temp[i].Value);
+                p.setCaption(_pageModelImageArray[i].caption);
+                p.setImage(_pageModelImageArray[i].Value);
                 p.setColour(Util._pageColDict["About"]);
                 p.Margin = new Thickness(30);
                 p.RenderTransform = new RotateTransform(rotation);
                 rotation = rotation * -1;
-                p.MouseUp+=new MouseButtonEventHandler(Polaroid_MouseUp);
-                Grid.SetColumn(p, colNum);
-                Grid.SetRow(p, rowNum);
+                p.MouseUp += new MouseButtonEventHandler(Polaroid_MouseUp);
+                //Make the middle element larger
+                if (isFunky && i == 2)
+                {
+                    Thickness margin = p.Margin;
+                    margin.Left = 200;
+                    margin.Right = 200;
+                    p.Margin = margin;
+                    Grid.SetColumn(p, 1);
+                    Grid.SetRow(p, 1);
+                    Grid.SetColumnSpan(p, 2);
+                    Grid.SetRowSpan(p, 2);
+                    g.Children.Add(p);
+                    continue;
+                }
+                else
+                {
+                    Grid.SetColumn(p, colNum);
+                    Grid.SetRow(p, rowNum);
+                }
 
                 /*if there are an add number of things, we must span the last picture in the firstRow for 2 columns */
                 //if we are in the second last row and first column
-                if ((colNum == numberOfCols - 2) && (rowNum == 0) && ((numberOfItems % 2) == 1))
+                if (!isFunky && (colNum == numberOfCols - 2) && (rowNum == 0) && ((numberOfItems % 2) == 1))
                 {
                     //make the picture span 2 columns
                     Grid.SetColumnSpan(p, 2);
                     colNum++;
                 }
+                if (isFunky)
+                {
+                    Grid.SetRowSpan(p, 2);
+                }
                 g.Children.Add(p);
-                colNum++;
+
+                colNum = isFunky ? colNum + 3 : colNum + 1;
             }
-            
+
             mainGrid.Children.Add(g);
             UpdateLayout();
         }
@@ -129,12 +167,52 @@ namespace P02Project
                 objParent = (FrameworkElement)objParent.Parent;
             }
             TopLevelPage levelpage = (TopLevelPage)objParent;
-            String fullname = (sender as PoloroidControl).text ;
-            String firstName = fullname.Split(' ')[0];
-
+            String fulltext = (sender as PoloroidControl).text;
+            String filename;
+            if (isFunky)
+            {
+                filename = fulltext.Replace(" ", "");
+            }
+            else
+            {
+                filename = fulltext.Split(' ')[0];
+            }
             // set the content and the subtitle
-            levelpage.setContent(new SplitGridView("xml/Profiles/"+firstName+".xml"));
-            levelpage.setSubtitle(levelpage.getSubtitle() + ": " + firstName);
+            String path;
+
+            //TO DO: Set a property in the xmls to read the paths from
+            if (isFunky)
+            {
+                path =System.IO.Path.Combine(System.IO.Path.GetFullPath("."), "Resources/xml/" + filename + ".xml");
+                
+            }
+            else
+            {
+                path = System.IO.Path.Combine(System.IO.Path.GetFullPath("."),"Resources/xml/Profiles/" + filename + ".xml");
+            }
+
+            PageModel pModel = XMLUtilities.GetContentFromFile(path);
+
+            switch (pModel.pageType.ToLower())
+            {
+                case "funkygridview":
+                    levelpage.setContent(new GridView(pModel));
+                    break;
+                case "splitgridview":
+                    levelpage.setContent(new SplitGridView(pModel));
+                    break;
+                case "gridview":
+                    levelpage.setContent(new GridView(pModel));
+                    break;
+            }
+            if (levelpage.getSubtitle().Equals(""))
+            {
+                levelpage.setSubtitle(fulltext);
+            }
+            else
+            {
+                levelpage.setSubtitle(levelpage.getSubtitle()+": " + fulltext);
+            }
 
 
         }

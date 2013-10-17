@@ -2,7 +2,7 @@
 
 <!--Can store information regarding, text images, links-->
 
-<PageModel id ="About-Our Stories">
+<PageModel id ="About-Our Stories" pageType="GridView">
 
 
   <TextList>

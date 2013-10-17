@@ -2,7 +2,7 @@
 
 <!--Can store information regarding, text images, links-->
 
-<PageModel id ="About">
+<PageModel id ="About" pageType="FunkyGridView">
 
 
   <TextList>
