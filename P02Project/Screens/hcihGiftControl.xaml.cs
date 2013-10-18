@@ -56,7 +56,7 @@ namespace P02Project
                 stackIn.Duration = new Duration(TimeSpan.FromMilliseconds(200 + 50 * (count++)));
 
                 sbIn.Children.Add(stackIn);
-
+                //storyboard animations
                 Storyboard.SetTarget(stackIn, b);
                 Storyboard.SetTargetProperty(stackIn, new PropertyPath(StackPanel.MarginProperty));
             }
@@ -67,7 +67,9 @@ namespace P02Project
             Storyboard.SetTarget(opa, text);
             Storyboard.SetTargetProperty(opa, new PropertyPath(PoloroidControl.OpacityProperty));
 		}
-
+        /// <summary>
+        /// unselect all giftControl items
+        /// </summary>
         private void SetAllUnsel()
         {
             soc.Background = unsel;
@@ -77,6 +79,12 @@ namespace P02Project
             boc.Effect = null;
         }
 
+        /// <summary>
+        /// create a new text block
+        /// </summary>
+        /// <returns>
+        /// new textblock with required formatting
+        /// </returns>
         private TextBlock TextBlockFactory()
         {
             TextBlock tb = new TextBlock();
@@ -88,7 +96,12 @@ namespace P02Project
 
             return tb;
         }
-
+        /// <summary>
+        /// add content to the page
+        /// </summary>
+        /// <returns>
+        /// stackpanel with required content
+        /// </returns>
         private StackPanel socContent()
         {
             StackPanel content = new StackPanel();
@@ -106,6 +119,7 @@ namespace P02Project
             qrCode.Margin = new Thickness(10);
 
             TextBlock tb = TextBlockFactory();
+            //TODO - put into xml
             tb.Inlines.Add(new Run("Make a $500 donation and gift a star to directly support a child’s cancer journey."
                                     + "\n\nStars of Courage is a unique programme which will see each child diagnosed "
                                     + "with cancer offered a dedicated star.\n\nEach child will receive the name of th"
@@ -163,7 +177,11 @@ namespace P02Project
         void Animatiable.AnimateOut()
         {
         }
-
+        /// <summary>
+        /// handler for soc control
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void soc_Click(object sender, RoutedEventArgs e)
         {
             SetAllUnsel();
@@ -172,7 +190,11 @@ namespace P02Project
 
             text.Content = socContent();
         }
-
+        /// <summary>
+        /// handler for boc control
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void boc_Click(object sender, RoutedEventArgs e)
         {
             SetAllUnsel();

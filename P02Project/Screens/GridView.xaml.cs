@@ -28,10 +28,9 @@ namespace P02Project
         //set the max rows and max cols
         private readonly int MAXCOLS = 6;
         private readonly int MAXROWS = 2;
-
         private bool isFunky = false;
 
-
+        //a list of all pageModels
         private PageModelImage[] _pageModelArray;
 
 
@@ -48,14 +47,9 @@ namespace P02Project
 
             isFunky = pageModelArray.pageType.ToLower().Equals("funkygridview")?true:false;
             PageModelImage[] _pageModelImageArray = pageModelArray.ImageList;
-            /*first we need to bind the xml and create a grid Layout for that*/
-            //dummy data
-            //String path = System.IO.Path.Combine(System.IO.Path.GetFullPath("."),"Resources/"+ Xpath);
-
-            //_pageModelArray = XMLUtilities.GetContentFromFile(path).ImageList;
-
+            /*first we need to bind the xml and create a grid Layout for that*/            
             numberOfItems = _pageModelImageArray.Count();
-
+          
             if (isFunky && numberOfItems == 5)
             {
                 numberOfRows = 4;
@@ -63,6 +57,7 @@ namespace P02Project
             }
             else
             {
+                //if we have 4 or more items, we can show a grid of more than  1 row high
                 if (numberOfItems >= 4)
                 {
                     numberOfRows++;
@@ -73,7 +68,7 @@ namespace P02Project
             {
                 throw new Exception("There are too many rows or columns");
             }
-            Console.WriteLine(numberOfCols);
+
             //create a gridView
             mainGrid.Height = 870;
             mainGrid.Width = 1600;
@@ -94,6 +89,7 @@ namespace P02Project
 
             int colNum = 0;
             int rowNum = 0;
+            //base rotation value
             double rotation = 1.5;
             for (int i = 0; i < numberOfItems; i++)
             {
@@ -102,13 +98,16 @@ namespace P02Project
                     rowNum = isFunky ? rowNum + 2 : rowNum + 1;
                     colNum = 0;
                 }
+                //create a new poloroid
                 PoloroidControl p = new PoloroidControl();
+                //add info to the poloroid
                 p.setCaption(_pageModelImageArray[i].caption);
                 p.setImage(_pageModelImageArray[i].Value);
                 p.setColour(Util._pageColDict["About"]);
                 p.Margin = new Thickness(30);
                 p.RenderTransform = new RotateTransform(rotation);
                 rotation = rotation * -1;
+                //event handler
                 p.MouseUp += new MouseButtonEventHandler(Polaroid_MouseUp);
                 //Make the middle element larger
                 if (isFunky && i == 2)
@@ -143,7 +142,7 @@ namespace P02Project
                     Grid.SetRowSpan(p, 2);
                 }
                 g.Children.Add(p);
-
+                //increase the colNum depending on whether or not this instance is a funkygrid
                 colNum = isFunky ? colNum + 3 : colNum + 1;
             }
 
@@ -194,7 +193,8 @@ namespace P02Project
             PageModel pModel = XMLUtilities.GetContentFromFile(path);
 
             switch (pModel.pageType.ToLower())
-            {
+            { 
+                //add page models depending on which view we are using
                 case "funkygridview":
                     levelpage.setContent(new GridView(pModel));
                     break;
@@ -205,6 +205,7 @@ namespace P02Project
                     levelpage.setContent(new GridView(pModel));
                     break;
             }
+            //add the captions to the parent page
             if (levelpage.getSubtitle().Equals(""))
             {
                 levelpage.setSubtitle(fulltext);

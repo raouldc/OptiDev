@@ -56,13 +56,19 @@ namespace P02Project
 
             return tb;
         }
-
+        /// <summary>
+        /// genreate all the content needed for this view
+        /// </summary>
+        /// <returns>
+        /// stackpanel with required content
+        /// </returns>
         private StackPanel GenerateContent()
         {
             StackPanel content = new StackPanel();
 
             TextBlock tb = TextBlockFactory();
-
+            //data
+            //TODO - move to xml
             tb.Inlines.Add(new Run("Holding a fundraising event is making a difference!\n\n"));
             tb.Inlines.Add(new Bold(new Run("FUN")));
             tb.Inlines.Add(new Run("draising is about having fun and finding a way to raise money for "
@@ -84,7 +90,9 @@ namespace P02Project
             content.Children.Add(tb);
             return content;
         }
-
+        /// <summary>
+        /// begin the animation
+        /// </summary>
         void Animatiable.AnimateIn()
         {
             donate.AnimateIn();

@@ -57,7 +57,7 @@ namespace P02Project
             stackIn.Duration = new Duration(TimeSpan.FromMilliseconds(200 + 50*(count++)));
 
             sbIn.Children.Add(stackIn);
-
+            //add animations to the storyboard
             Storyboard.SetTargetName(stackIn, b.Name);
             Storyboard.SetTargetProperty(stackIn, new PropertyPath(StackPanel.MarginProperty));
             }

@@ -43,7 +43,9 @@ namespace P02Project
             }
 		}
 
-
+        /// <summary>
+        /// begin the animation
+        /// </summary>
         void Animatiable.AnimateIn()
         {
             sbIn.Begin();

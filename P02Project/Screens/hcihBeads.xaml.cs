@@ -39,7 +39,9 @@ namespace P02Project
             //set content
             abtBeads_Click(this, null);
 		}
-
+        /// <summary>
+        /// set all the items in the background to unselected
+        /// </summary>
         private void SetAllUnsel()
         {
             abtBeads.Background = unsel;
@@ -52,7 +54,10 @@ namespace P02Project
             aocBeads.Effect = null;
             contact.Effect = null;
         }
-
+        /// <summary>
+        /// create a new textblock
+        /// </summary>
+        /// <returns></returns>
         private TextBlock TextBlockFactory()
         {
             TextBlock tb = new TextBlock();
@@ -64,12 +69,16 @@ namespace P02Project
 
             return tb;
         }
-
+        /// <summary>
+        /// add the data to the content about beads
+        /// </summary>
+        /// <returns></returns>
         private StackPanel abtBeadsContent()
         {
             StackPanel content = new StackPanel();
 
             TextBlock tb = TextBlockFactory();
+            //data TODO place into XMl
             tb.Inlines.Add(new Run("The Beads of Courage® programme helps children cope by decreasing their illness-related distress," +
                                    "increases the use of positive coping strategies, helps them to find meaning in their illness and " +
                                    "helps to restore their sense of self through creativity.\n\nThe programme also provides something t" +
@@ -83,8 +92,13 @@ namespace P02Project
             return content;
         }
 
+        /// <summary>
+        /// add more of the data to the content
+        /// </summary>
+        /// <returns></returns>
         private StackPanel PgrmBeadsContent()
         {
+            //TODO - move to xml
             StackPanel content = new StackPanel();
 
             TextBlock tb = TextBlockFactory();
@@ -95,9 +109,13 @@ namespace P02Project
             content.Children.Add(tb);
             return content;
         }
-
+        /// <summary>
+        /// mode data addition
+        /// </summary>
+        /// <returns></returns>
         private StackPanel AocBeadsContent()
         {
+            //TODO - move to xml
             StackPanel content = new StackPanel();
 
             TextBlock tb = TextBlockFactory();
@@ -132,9 +150,13 @@ namespace P02Project
             content.Children.Add(tb);
             return content;
         }
-
+        /// <summary>
+        /// add contact data
+        /// </summary>
+        /// <returns></returns>
         private StackPanel ConactContent()
         {
+            //TODO - move to xml
             StackPanel content = new StackPanel();
 
             TextBlock tb = TextBlockFactory();
@@ -145,7 +167,11 @@ namespace P02Project
             content.Children.Add(tb);
             return content;
         }
-
+        /// <summary>
+        /// handler for the about beads button click
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void abtBeads_Click(object sender, RoutedEventArgs e)
         {
             SetAllUnsel();
@@ -154,7 +180,11 @@ namespace P02Project
 
             text.Content = abtBeadsContent();
         }
-
+        /// <summary>
+        /// handler for the prgm Beads button click
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void prgmBeads_Click(object sender, RoutedEventArgs e)
         {
             SetAllUnsel();
@@ -163,7 +193,11 @@ namespace P02Project
 
             text.Content = PgrmBeadsContent();
         }
-
+        /// <summary>
+        /// handler for the aocBeads button click
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void aocBeads_Click(object sender, RoutedEventArgs e)
         {
             SetAllUnsel();
@@ -172,7 +206,11 @@ namespace P02Project
 
             text.Content = AocBeadsContent();
         }
-
+        /// <summary>
+        /// handler for the contact lick
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void contact_Click(object sender, RoutedEventArgs e)
         {
             SetAllUnsel();
