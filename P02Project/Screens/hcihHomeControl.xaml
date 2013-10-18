@@ -13,7 +13,7 @@
         <Grid Margin="8,8,-8,-8">
 
             <!-- set the polaroid photos-->
-            <view:PoloroidControl x:Name="campaings" Height="292.5" Margin="626.5,0,696,37.5" VerticalAlignment="Bottom" RenderTransformOrigin="0.5,0.5" MouseUp="campaings_MouseUp">
+            <view:PoloroidControl x:Name="campaigns" Height="292.5" Margin="626.5,0,696,37.5" VerticalAlignment="Bottom" RenderTransformOrigin="0.5,0.5" MouseUp="campaigns_MouseUp">
             	<view:PoloroidControl.RenderTransform>
             		<TransformGroup>
             			<ScaleTransform/>
