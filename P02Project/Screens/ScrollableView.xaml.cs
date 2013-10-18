@@ -22,15 +22,13 @@ namespace P02Project.Screens
     public partial class ScrollableView : UserControl
     {
         private List<PoloroidWithText> listOfObjects;
-        private string pageType;
         public ScrollableView(string pageType)
         {
             InitializeComponent();
-            this.pageType = pageType;
             listOfObjects = new List<PoloroidWithText>();
 
             //add new poloroidWithTexts with all the data specified
-            var temp = XMLUtilities.GetContentFromPage(@"http://www.childcancer.org.nz/News-and-events/"+ this.pageType +".aspx");
+            var temp = XMLUtilities.GetContentFromPage(@"http://www.childcancer.org.nz/News-and-events/"+ pageType +".aspx");
             var n = 1;
             while (true)
             {
@@ -44,32 +42,12 @@ namespace P02Project.Screens
                 polaroid.setPlace(pageType == "Events"
                                       ? nodeText.Where(t => t.type == "place").FirstOrDefault().Value
                                       : "");
-                polaroid.setImage(temp.ImageList.Where(img => img.node == "" + n).FirstOrDefault().Value);
+                var image = temp.ImageList.Where(img => img.node == "" + n).FirstOrDefault();
+                if (image != null)
+                    polaroid.setImage(image.Value);
                 addPoloroidtoList(polaroid);
                 n++;
             }
-
-//            PoloroidWithText p0 = new PoloroidWithText();
-//            p0.setTitle("Hello There Event!");
-//            p0.setDate(new DateTime());
-//            p0.setDescription("some long description. some long description. some long description. some long description. some long description. some long description. some long description. some long description. some long description. some long description. some long description. some long description. some long description. some long description. some long description. some long description. \nsome long description. some long description. some long description. some long description. some long description. some long description. some long description. some long description. some long description. some long description. some long description. some long description. some long description. some long description. some long description. ");
-//            p0.setImage("images/Stories/Emma.png");
-//            addPoloroidtoList(p0);
-//            PoloroidWithText p1 = new PoloroidWithText();
-//            p1.setTitle("1");
-//            addPoloroidtoList(p1);
-//            PoloroidWithText p2 = new PoloroidWithText();
-//            p2.setTitle("2");
-//            addPoloroidtoList(p2);
-//            PoloroidWithText p3 = new PoloroidWithText();
-//            p3.setTitle("3");
-//            addPoloroidtoList(p3);
-//            PoloroidWithText p4 = new PoloroidWithText();
-//            p4.setTitle("4");
-//            addPoloroidtoList(p4);
-           // listView.ScrollIntoView(0);
-
-          
 
         }
      
@@ -77,7 +55,6 @@ namespace P02Project.Screens
         private void addPoloroidtoList(PoloroidWithText pol)
         {
             listOfObjects.Add(pol);
-            //listView.
             listView.addContent(pol);
         }
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
@@ -110,11 +87,11 @@ namespace P02Project.Screens
         private void resizeAllUnusedElements(int prevSelectedIndex, int currentSelectedIndex)
         {
             //scale the previous one down
-            double scaleUpValue = 1.05;
-            ScaleTransform scaleUp = new ScaleTransform(scaleUpValue, scaleUpValue);
+            var scaleUpValue = 1.05;
+            var scaleUp = new ScaleTransform(scaleUpValue, scaleUpValue);
             
-            double scaleDownvalue = 1 / scaleUpValue;
-            ScaleTransform scaleDown = new ScaleTransform(scaleDownvalue, scaleDownvalue);
+            var scaleDownvalue = 1 / scaleUpValue;
+            var scaleDown = new ScaleTransform(scaleDownvalue, scaleDownvalue);
             listOfObjects[prevSelectedIndex].RenderTransform=scaleDown;
             listOfObjects[currentSelectedIndex].RenderTransform = scaleUp;
             //scale the current one up
