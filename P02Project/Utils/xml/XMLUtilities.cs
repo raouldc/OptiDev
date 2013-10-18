@@ -1,17 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Drawing.Imaging;
 using System.Linq;
 using System.Net;
-using System.Reflection;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Windows.Controls;
-using System.Xml.Linq;
 using System.Xml.Serialization;
 using System.IO;
-using System.Web;
 using HtmlAgilityPack;
 
 namespace P02Project.Resources.xml

@@ -1,13 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Net;
 using System.IO;
 using TweetSharp;
-
-using System.Security.Cryptography;
-
 using System.Drawing;
 using System.Windows.Media.Imaging;
 using System.Drawing.Imaging;
@@ -96,7 +90,7 @@ namespace P02Project
 
          private System.Drawing.Bitmap BitmapFromSource(BitmapSource bitmapsource)
          {
-             System.Drawing.Bitmap bitmap;
+             Bitmap bitmap;
              using (MemoryStream outStream = new MemoryStream())
              {
                  BitmapEncoder enc = new BmpBitmapEncoder();

@@ -1,12 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using Microsoft.Surface.Presentation.Controls;
-using System.Windows.Controls;
 using System.Windows.Media;
-using System.Windows;
 
 namespace P02Project
 {
