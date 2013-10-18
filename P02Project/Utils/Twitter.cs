@@ -9,7 +9,9 @@ using System.Drawing.Imaging;
 namespace P02Project
 {
    
-
+    /// <summary>
+    /// create a new twitter dispatcher
+    /// </summary>
     public class Twitter
     {
 
@@ -26,7 +28,7 @@ namespace P02Project
         /// <param name="queryParameters">e.g., count=5&trim_user=true</param>
         /// <returns></returns>
 
-
+        //get all tweets
         public IEnumerable<TwitterStatus> getTweets()
         {
             var service = new TwitterService(OAuthConsumerKey, OAuthConsumerSecret);
@@ -39,6 +41,7 @@ namespace P02Project
             return tweets;
 
         }
+        //post all tweets
          public  void postTweet(String message, BitmapSource bitsource)
         {
             
@@ -47,6 +50,7 @@ namespace P02Project
             
 
 
+            //twiter service
             var service = new TwitterService(OAuthConsumerKey, OAuthConsumerSecret);
             service.AuthenticateWith(OAuthToken, OAuthTokenSecret);
             SendTweetWithMediaOptions options = new SendTweetWithMediaOptions();
@@ -73,21 +77,13 @@ namespace P02Project
 
             
 
-            
-
-
-            //service.SendTweet(options);
-            //var tweets = service.ListTweetsOnHomeTimeline(new ListTweetsOnHomeTimelineOptions());
-            //foreach (var tweet in tweets)
-            //{
-            //    Console.WriteLine("{0} says '{1}'", tweet.User.ScreenName, tweet.Text);
-            //}
             // OAuth keys generated at http://dev.twitter.com/apps. For security purposes would be better to put these in web.config.
 
           
 
         }
 
+        //get a bitmap of images to write out
          private System.Drawing.Bitmap BitmapFromSource(BitmapSource bitmapsource)
          {
              Bitmap bitmap;

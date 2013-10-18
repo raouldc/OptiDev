@@ -15,12 +15,15 @@ namespace P02Project
         Twitter service = new Twitter();
         Random r = new Random();
         List<TwitterStatus> tweets = new List<TwitterStatus>();
+        /// <summary>
+        /// create a new twitter block
+        /// </summary>
         public TwitterBlock()
         {
 
 
             this.InitializeComponent();
-
+            //create a new dispatcher
             dt = new DispatcherTimer();
             dt.Interval = TimeSpan.FromSeconds(7);
             dt.Tick += new EventHandler(dt_Tick);
@@ -38,8 +41,6 @@ namespace P02Project
                     }
                 }
               
-
-                //msg.Text = "CCF are at the Massey High @Hurricane_Kids gig today. They are rocking out & supporting kids with cancer! pic.twitter.com/1e2HvbKTIw";
             }
 
             dt.Start();

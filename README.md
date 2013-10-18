@@ -1,5 +1,8 @@
 OptiDev
 ========
+##Note: 
+Events and News Fetcher may take some time to load the first time you run the application.  
+We are working to solve this issue.
 
 ## User Guide
 
