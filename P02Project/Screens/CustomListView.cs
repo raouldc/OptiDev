@@ -13,10 +13,6 @@ namespace P02Project.Screens
 {
     class CustomListView : SurfaceScrollViewer
     {
-        private TouchPoint TouchStart;
-        private Point PointStart;
-        private bool AlreadySwiped;
-        private ScrollViewer _scrollViewer;
         private StackPanel panel;
         public CustomListView()
             : base()
@@ -30,6 +26,7 @@ namespace P02Project.Screens
 
         public void addContent(PoloroidWithText pol)
         {
+            pol.Margin = new Thickness(30);
             panel.Children.Add(pol);
         }
     }
