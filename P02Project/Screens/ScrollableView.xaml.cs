@@ -32,10 +32,13 @@ namespace P02Project.Screens
             var n = 1;
             while (true)
             {
+                //go throug the templist
                 var nodeText = temp.TextList.Where(text => text.node == ""+n).ToList();
                 if (nodeText.Count == 0)
                     break;
+                //create new poloroids for each item in temp
                 var polaroid = new PoloroidWithText();
+                //set date for poloroid
                 polaroid.setTitle(nodeText.Where(t => t.type == "title").FirstOrDefault().Value);
                 polaroid.setDate(nodeText.Where(t => t.type == "date").FirstOrDefault().Value);
                 polaroid.setDescription(nodeText.Where(t => t.type == "info").FirstOrDefault().Value);
@@ -52,6 +55,10 @@ namespace P02Project.Screens
         }
      
 
+        /// <summary>
+        /// add poloroids to the stackpanel
+        /// </summary>
+        /// <param name="pol"></param>
         private void addPoloroidtoList(PoloroidWithText pol)
         {
             listOfObjects.Add(pol);
@@ -65,25 +72,32 @@ namespace P02Project.Screens
         private void listView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
         }
-
+        /// <summary>
+        /// left click button handler
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void left_Clicked(object sender, System.Windows.RoutedEventArgs e)
         {
-
-           // double horiz = listView.ScrollViewer.HorizontalOffset;
-            //listView.ScrollViewer.ScrollToHorizontalOffset((int)horiz - 1);
-
+            //todo
         }
-
+        /// <summary>
+        /// right click button handler
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void right_clicked(object sender, System.Windows.RoutedEventArgs e)
         {
            
-                //double horiz = listView.ScrollViewer.HorizontalOffset;
-                //listView.ScrollViewer.ScrollToHorizontalOffset((int)horiz+1);
+               //TODO
         }
-        /*resizes elements as you switch between polaroids 
-         * unused so far
-         * implementation not fully correct
-         */
+
+
+        /// <summary>
+        /// resizes elements as you switch between polaroids. unused so far. implementation not fully correct
+        /// </summary>
+        /// <param name="prevSelectedIndex"></param>
+        /// <param name="currentSelectedIndex"></param>
         private void resizeAllUnusedElements(int prevSelectedIndex, int currentSelectedIndex)
         {
             //scale the previous one down

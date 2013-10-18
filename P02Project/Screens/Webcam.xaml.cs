@@ -46,6 +46,9 @@ namespace P02Project
         private readonly String MYDOC_PATH = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
         #endregion
 
+        /// <summary>
+        /// create a new webcam event
+        /// </summary>
         #region Constructor & destructor
         public Webcam()
 		{
