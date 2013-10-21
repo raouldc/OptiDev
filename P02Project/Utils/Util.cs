@@ -18,9 +18,9 @@ namespace P02Project
             { "abtSelected",        (Color)ColorConverter.ConvertFromString("#FF920711")},
             { "abtUnSelected",      (Color)ColorConverter.ConvertFromString("#FFee4c58")},
 
-            { "Family Support",     (Color)ColorConverter.ConvertFromString("#ff381f9c")},
-            { "fsSelected",         (Color)ColorConverter.ConvertFromString("#FF1d0b68")},
-            { "fsUnSelected",       (Color)ColorConverter.ConvertFromString("#FF6b53ce")},
+            { "Family Support",     (Color)ColorConverter.ConvertFromString("#ff381f9c")}, //(Color)ColorConverter.ConvertFromString("#ff381f9c")},
+            { "fsSelected",         (Color)ColorConverter.ConvertFromString("#FF4679f0")}, //(Color)ColorConverter.ConvertFromString("#FF1d0b68")},
+            { "fsUnSelected",       (Color)ColorConverter.ConvertFromString("#FF9ebbff")}, //(Color)ColorConverter.ConvertFromString("#FF6b53ce")},
 
             { "How Can I Help?",    (Color)ColorConverter.ConvertFromString("#ffe2bb15")},
             { "hcihSelected",       (Color)ColorConverter.ConvertFromString("#FF967b07")},
