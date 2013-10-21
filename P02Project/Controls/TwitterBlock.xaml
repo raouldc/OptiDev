@@ -8,6 +8,9 @@
 	x:Name="TwitterMessage" d:DesignHeight="78" d:DesignWidth="330">
     
 	<Grid x:Name="LayoutRoot" Background="#FF9AE4E8" Height="47">
+		<Grid.Effect>
+			<DropShadowEffect/>
+		</Grid.Effect>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.2*"/>
             <ColumnDefinition Width="0.8*"/>
