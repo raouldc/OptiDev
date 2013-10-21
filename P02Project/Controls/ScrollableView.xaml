@@ -11,7 +11,19 @@
     VirtualizingStackPanel.VirtualizationMode="Recycling"
                    BorderThickness="0" Background="Transparent" Margin="90,0,84,0" >
         </custom:CustomListView>
-        <Button x:Name="Left" Content="&lt;&lt;" Height="42" Width="71" HorizontalAlignment="Left" VerticalAlignment="Center" Click="left_Clicked" Margin="15,0,0,0" />
-        <Button x:Name="Right" Content=">>" Height="43" Width="79" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0" Click="right_clicked"/>
+		
+		<TextBlock Margin="10,0,1,-16"
+                               TextWrapping="Wrap"
+                               FontSize="96"
+                               Grid.ColumnSpan="2"
+                               VerticalAlignment="Center"
+                               Foreground="DarkGray" HorizontalAlignment="Left"><Run FontFamily="./resources/fonts/#Segoe UI Symbol" Text="❮"/></TextBlock>
+							   
+							   <TextBlock Margin="-1,0,11,-16"
+                               TextWrapping="Wrap"
+                               FontSize="96"
+                               Grid.ColumnSpan="2"
+                               VerticalAlignment="Center"
+                               Foreground="DarkGray" HorizontalAlignment="Right"><Run FontFamily="./resources/fonts/#Segoe UI Symbol" Text="❯"/></TextBlock>
     </Grid>
 </UserControl>

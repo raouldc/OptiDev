@@ -47,6 +47,7 @@ namespace P02Project
             { "extraSelected",      (Color)ColorConverter.ConvertFromString("#FF073f60")},
             { "extraUnSelected",    (Color)ColorConverter.ConvertFromString("#FF4899c8")}
         };
+
         ///////////////////
         //Text attributes
 
