@@ -14,6 +14,7 @@ using P02Project.Screens;
 using P02Project.Utils;
 using P02Project.Resources.xml;
 using System.Windows.Threading;
+using TweetSharp;
 
 
 
@@ -24,11 +25,48 @@ namespace P02Project
 	/// </summary>
 	public partial class TwitterList : UserControl
 	{
+
+
+
         private TopLevelPage _topLevelPage;
-		public TwitterList(TopLevelPage top)
+
+        
+        public TwitterList(TopLevelPage top)
 		{
+
+
 			this.InitializeComponent();
             _topLevelPage = top;
+
+
+
+
+            // iterate over the twitter list
+            for (int i = 0; i < 50; i++)
+            {
+                TextBlock txtb = Util.TextBlockFactory();
+
+                txtb.TextWrapping = TextWrapping.Wrap;
+                BrushConverter bc = new BrushConverter();
+                txtb.Background = i % 2 == 0 ? (Brush)bc.ConvertFrom("#FF073f60") : (Brush)bc.ConvertFrom("#FF4899c8");
+                txtb.Foreground = (Brush)bc.ConvertFrom("#FFFFFFFF");
+                txtb.Margin = new Thickness(0, 5, 0, 0);
+                txtb.Padding = new Thickness(20, 20, 20, 20);
+
+                txtb.Height = 110;
+                txtb.FontSize = 20;
+                
+                // put the twitter text in this variable
+                String twitterText = "hello world hello world hello world hello world hello world hello world hello world hello world hello world hello world hello world hello world hello world hello world" + i;
+                
+                txtb.Inlines.Add(new Run(twitterText));
+                _tweetsList.Children.Add(txtb);
+
+            }
+            
+
+
+
 		}
 
 
