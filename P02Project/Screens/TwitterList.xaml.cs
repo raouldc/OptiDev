@@ -15,6 +15,7 @@ using P02Project.Utils;
 using P02Project.Resources.xml;
 using System.Windows.Threading;
 using TweetSharp;
+using System.Windows.Media.Animation;
 
 
 
@@ -23,12 +24,13 @@ namespace P02Project
 	/// <summary>
 	/// Interaction logic for TwitterList.xaml
 	/// </summary>
-	public partial class TwitterList : UserControl
+	public partial class TwitterList : UserControl, Animatiable
 	{
 
 
 
         private TopLevelPage _topLevelPage;
+        private Storyboard _sbIn;
 
         
         public TwitterList(TopLevelPage top)
@@ -63,11 +65,16 @@ namespace P02Project
                 _tweetsList.Children.Add(txtb);
 
             }
+
+
+            _sbIn = new Storyboard();
             
+            Util.FadeIn(_sbIn, _tweetsListScrollViewer);
+            Util.StackAnimationDefault(_sbIn, _buttons.Children);
+            Util.FadeIn(_sbIn, _ccfTwitterHome);
+            Util.FadeIn(_sbIn, _ccfTwitterQR);
 
-
-
-		}
+		} 
 
 
 
@@ -89,6 +96,23 @@ namespace P02Project
             _topLevelPage.setContent(webcam);
             _topLevelPage.setSubtitle("Support Us On Twitter");
         }
+
+
+
+
+
+        public void AnimateIn()
+        {
+            _sbIn.Begin(this);
+        }
+
+        public void AnimateOut()
+        {
+        }
+
+
+
+
 	}
 
 

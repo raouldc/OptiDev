@@ -24,11 +24,15 @@
 
 
     <Grid x:Name="LayoutRoot">
-        <Button Content="Tweet Us" Margin="60,0,0,327" FontSize="48" FontFamily="Andy" BorderThickness="0" Background="#ff146290" BorderBrush="#00707070" Foreground="White" Width="666.25" HorizontalAlignment="Left" Click="openWebcam" Height="62" VerticalAlignment="Bottom"/>
-        <Image HorizontalAlignment="Left" Margin="60,72,0,393" Width="666.25" Source="/P02Project;component/Resources/images/Twitter/ChildCanerTwitterHome.png"/>
-		<Image HorizontalAlignment="Left" Height="178.5" Margin="330.5,0,0,76" VerticalAlignment="Bottom" Width="154.5" Source="/P02Project;component/Resources/images/Twitter/ChilCancerTwitterQR.png" RenderTransformOrigin="0.535,0.933"/>
+         
+        <StackPanel x:Name="_buttons" HorizontalAlignment="Left" Height="95.5" Width="666.25" Margin="60,511,0,293.5" >
+        	<Button x:Name="_tweetUsBtn"  Content="Tweet Us" FontSize="48" FontFamily="Andy" BorderThickness="0" Background="#ff146290" BorderBrush="#00707070" Foreground="White" Width="666.25" HorizontalAlignment="Left" Click="openWebcam" Height="62" VerticalAlignment="Bottom"/>
+        </StackPanel>
         
-        <Custom:SurfaceScrollViewer Margin="0,72,21,8" HorizontalScrollBarVisibility="Disabled"  HorizontalAlignment="Right" Width="793">
+        <Image x:Name="_ccfTwitterHome" HorizontalAlignment="Left" Margin="60,72,0,393" Width="666.25" Source="/P02Project;component/Resources/images/Twitter/ChildCanerTwitterHome.png"/>
+        <Image x:Name="_ccfTwitterQR" HorizontalAlignment="Left" Height="178.5" Margin="330.5,0,0,76" VerticalAlignment="Bottom" Width="154.5" Source="/P02Project;component/Resources/images/Twitter/ChilCancerTwitterQR.png" RenderTransformOrigin="0.535,0.933"/>
+        
+        <Custom:SurfaceScrollViewer x:Name="_tweetsListScrollViewer" Margin="0,72,21,8" HorizontalScrollBarVisibility="Disabled"  HorizontalAlignment="Right" Width="793">
             <StackPanel x:Name="_tweetsList" Width="781.5">
                 <!-- label showing each tweet goes here programmatically  -->
             </StackPanel>
