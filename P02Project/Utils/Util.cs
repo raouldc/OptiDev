@@ -51,10 +51,22 @@ namespace P02Project
         public static readonly Color contentTextColor = (Color)ColorConverter.ConvertFromString("#FF000000");
         public static readonly Color contentBgColor = (Color)ColorConverter.ConvertFromString("#7Fffffff");
         public static readonly double contentTextSize = 24;
-
+        public static readonly Thickness contentMargin = new Thickness(30);
         public static readonly FontFamily buttonTextFont = new FontFamily("Andy");
         public static readonly Color buttonTextColor = (Color)ColorConverter.ConvertFromString("#FF000000");
         public static readonly double buttonTextSize = 48;
+
+        public static TextBlock TextBlockFactory()
+        {
+            TextBlock textB = new TextBlock();
+            textB.TextWrapping = TextWrapping.Wrap;
+            textB.TextAlignment = TextAlignment.Left;
+            textB.FontSize = contentTextSize;
+            textB.FontFamily = contentTextFont;
+            textB.Margin = contentMargin;
+            textB.Foreground = new SolidColorBrush(contentTextColor);
+            return textB;
+        }
 
         /// <summary>
         /// return the list of the links of the buttons

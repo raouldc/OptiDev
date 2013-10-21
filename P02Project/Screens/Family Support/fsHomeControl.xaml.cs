@@ -133,13 +133,7 @@ namespace P02Project
             //Set content to one off donation
             StackPanel contentStackPanel = new StackPanel();
 
-            TextBlock scholarshipText = new TextBlock();
-            scholarshipText.TextWrapping = TextWrapping.Wrap;
-            scholarshipText.TextAlignment = TextAlignment.Left;
-            scholarshipText.FontSize = Util.contentTextSize;
-            //scholarship.FontFamily = Util.contentTextFont;
-            scholarshipText.Margin = new Thickness(30);
-            scholarshipText.Foreground = new SolidColorBrush(Util.contentTextColor);
+            TextBlock scholarshipText = Util.TextBlockFactory();
             scholarshipText.Inlines.Add(new Bold(new Run("Scholarships \n")));
             scholarshipText.Inlines.Add(new Run("The Child Cancer Foundation Scholarship Fund aims to assist children aged 0 to 12 years with cancer, their siblings aged 0 to 12 years, or parents, achieve their personal education and developmental goals. Any activity that has the potential to educationally or developmentally benefit the applicant will be considered.\n\n"));
             scholarshipText.Inlines.Add(new Run("The Scholarship sub-committee, which meets four times a year, receives and considers all applications. Allocations made depend on the funds available and are made according to the policy guidelines of the Child Cancer Foundation.\n\n"));
@@ -418,13 +412,8 @@ namespace P02Project
             mscroll.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#00000000"));
 
 
-            TextBlock prompt = new TextBlock();
-            prompt.TextWrapping = TextWrapping.Wrap;
+            TextBlock prompt = Util.TextBlockFactory();
             prompt.TextAlignment = TextAlignment.Center;
-            prompt.FontSize = Util.contentTextSize;
-            prompt.Margin = new Thickness(30);
-            //prompt.FontFamily = Util.contentTextFont;
-            prompt.Foreground = new SolidColorBrush(Util.contentTextColor);
             prompt.Inlines.Add(new Run("Click on the pins to see their contact information\n"));
 
             mscroll.Content = prompt;
@@ -515,21 +504,11 @@ namespace P02Project
         {
             //Set content to on going donation
             StackPanel contentStackPanel = new StackPanel();
-            
-            TextBlock pResourcesText1 = new TextBlock();
-            pResourcesText1.TextWrapping = TextWrapping.Wrap;
-            pResourcesText1.TextAlignment = TextAlignment.Left;
-            pResourcesText1.FontSize = Util.contentTextSize;
-            pResourcesText1.FontFamily = Util.contentTextFont;
-            pResourcesText1.Margin = new Thickness(30);
 
-            TextBlock pResourcesText2 = new TextBlock();
-            pResourcesText2.TextWrapping = TextWrapping.Wrap;
-            pResourcesText2.TextAlignment = TextAlignment.Left;
+            TextBlock pResourcesText1 = Util.TextBlockFactory();
+
+            TextBlock pResourcesText2 = Util.TextBlockFactory();
             pResourcesText2.FontSize = 32;
-            pResourcesText2.FontFamily = Util.contentTextFont;
-            pResourcesText2.Margin = new Thickness(30);
-            pResourcesText2.Foreground = new SolidColorBrush(Util.contentTextColor);
             pResourcesText2.Inlines.Add(new Bold(new Run("Parent Resources \n")));
             pResourcesText2.Inlines.Add(new Run("Child Cancer Foundation aims to provide up-to-date information for families. Below is a list of websites providing additional information, research documents and details about child cancer from around the world.\n"));
 
@@ -578,14 +557,9 @@ namespace P02Project
             hhscroll.Height = 300;
             hhscroll.Background = new SolidColorBrush(Util.contentBgColor);
 
-            
-            TextBlock prompt = new TextBlock();
-            prompt.TextWrapping = TextWrapping.Wrap;
+
+            TextBlock prompt = Util.TextBlockFactory();
             prompt.TextAlignment = TextAlignment.Center;
-            prompt.FontSize = Util.contentTextSize;
-            prompt.Margin = new Thickness(30);
-           // prompt.FontFamily = Util.contentTextFont;
-            prompt.Foreground = new SolidColorBrush(Util.contentTextColor);
             prompt.Inlines.Add(new Run("Click on the images below to see information or use two fingers to zoom\n"));
     
             contentStackPanel.Children.Add(prompt);
@@ -629,13 +603,7 @@ namespace P02Project
         private StackPanel taupoContent() {
             StackPanel contentStackPanel = new StackPanel();
 
-            TextBlock taupoText = new TextBlock();
-            taupoText.TextWrapping = TextWrapping.Wrap;
-            taupoText.TextAlignment = TextAlignment.Left;
-            taupoText.FontSize = Util.contentTextSize;
-            //taupoText.FontFamily = Util.contentTextFont;
-            taupoText.Margin = new Thickness(30);
-            taupoText.Foreground = new SolidColorBrush(Util.contentTextColor);
+            TextBlock taupoText = Util.TextBlockFactory();
             taupoText.Inlines.Add(new Bold(new Run("Taupo Sunshine Lodge Holiday Home \n")));
             taupoText.Inlines.Add(new Run("Child Cancer Foundation has a Sunshine Lodge holiday home in Taupo.The Lockwood house offers three-bedrooms, a bathroom and is fully furnished.\n\n"));
             //taupoText.Inlines.Add(new Run("The Foundation has been able to provide families with this opportunity through the generosity of the Professionals Real Estate Group who have funded and maintained the Taupo home. The Foundation is grateful for the ongoing partnership with the Professionals in working together to meet the needs of children with cancer and their families. The Professionals are a Gold Star sponsor supporting our nationwide holiday service. Professionals have supported The Child Cancer Foundation for 16 years, raising over $3.4 million.\n\n"));
@@ -647,13 +615,7 @@ namespace P02Project
         private StackPanel arrowtownContent() {
             StackPanel contentStackPanel = new StackPanel();
 
-            TextBlock taupoText = new TextBlock();
-            taupoText.TextWrapping = TextWrapping.Wrap;
-            taupoText.TextAlignment = TextAlignment.Left;
-            taupoText.FontSize = Util.contentTextSize;
-            //taupoText.FontFamily = Util.contentTextFont;
-            taupoText.Margin = new Thickness(30);
-            taupoText.Foreground = new SolidColorBrush(Util.contentTextColor);
+            TextBlock taupoText = Util.TextBlockFactory();
             taupoText.Inlines.Add(new Bold(new Run("Arrowtown \n")));
             taupoText.Inlines.Add(new Run("The new Child Cancer Foundation Arrowtown Holiday Home was officially opened in June, 2012.The new Arrowfield Mews property is a three bedroom, two bathroom, two storey, well insulated and sunny house, well suited to the requirement of CCF families. The house is walking distance from the main Arrowtown shopping / entertainment area, close to public transport and opposite the Millbrook golf course.\n\n"));
             //taupoText.Inlines.Add(new Run("The house is owned by Child Cancer Foundation Otago/Southland Accommodation Trust, (OSAT). The trust was set up in the 1980s to provide accommodation for Otago and Southland children with cancer and their families. Funds provided for the house have been donated by individuals and businesses throughout Otago/Southland over a long period of time. \n\n"));
@@ -665,13 +627,7 @@ namespace P02Project
         private StackPanel hawkesBayContent() {
             StackPanel contentStackPanel = new StackPanel();
 
-            TextBlock taupoText = new TextBlock();
-            taupoText.TextWrapping = TextWrapping.Wrap;
-            taupoText.TextAlignment = TextAlignment.Left;
-            taupoText.FontSize = Util.contentTextSize;
-            //taupoText.FontFamily = Util.contentTextFont;
-            taupoText.Margin = new Thickness(30);
-            taupoText.Foreground = new SolidColorBrush(Util.contentTextColor);
+            TextBlock taupoText = Util.TextBlockFactory();
             taupoText.Inlines.Add(new Bold(new Run("Hawkes Bay Little Elms \n")));
             taupoText.Inlines.Add(new Run("The Trucking for Hawkes Bay Child Cancer Trust owns and manages the Little Elms complex in Orchard Road, Hastings, Hawkes Bay. Families of child cancer patients from around the country are able to use the holiday house to have some much needed “time out”. The Holiday house offers three-bedrooms, two-bathrooms and is fully furnished.\n\n"));
             //taupoText.Inlines.Add(new Run("Child Cancer Foundation is grateful to the dedicated truckers and sponsors in the Hawkes Bay region for providing this facility.\n\n"));
@@ -684,13 +640,7 @@ namespace P02Project
         {
             StackPanel contentStackPanel = new StackPanel();
 
-            TextBlock taupoText = new TextBlock();
-            taupoText.TextWrapping = TextWrapping.Wrap;
-            taupoText.TextAlignment = TextAlignment.Left;
-            taupoText.FontSize = Util.contentTextSize;
-           // taupoText.FontFamily = Util.contentTextFont;
-            taupoText.Margin = new Thickness(30);
-            taupoText.Foreground = new SolidColorBrush(Util.contentTextColor);
+            TextBlock taupoText = Util.TextBlockFactory();
             taupoText.Inlines.Add(new Bold(new Run("Family Support - Auckland﻿ \n")));
             taupoText.Inlines.Add(new Run("Janet Masina	 \n(09) 303 9885	jmasina@childcancer.org.nz\n\nMary Mangan	 \n(09) 303 9971	mmangan@childcancer.org.nz\n"));
             contentStackPanel.Children.Add(taupoText);
@@ -701,13 +651,7 @@ namespace P02Project
         {
             StackPanel contentStackPanel = new StackPanel();
 
-            TextBlock taupoText = new TextBlock();
-            taupoText.TextWrapping = TextWrapping.Wrap;
-            taupoText.TextAlignment = TextAlignment.Left;
-            taupoText.FontSize = Util.contentTextSize;
-            //taupoText.FontFamily = Util.contentTextFont;
-            taupoText.Margin = new Thickness(30);
-            taupoText.Foreground = new SolidColorBrush(Util.contentTextColor);
+            TextBlock taupoText = Util.TextBlockFactory();
             taupoText.Inlines.Add(new Bold(new Run("Family Support - Dunedin﻿ \n")));
             taupoText.Inlines.Add(new Run("Christine Donovan	\n(03) 471 7258	cdonovan@childcancer.org.nz\n"));
             contentStackPanel.Children.Add(taupoText);
@@ -718,13 +662,7 @@ namespace P02Project
         {
             StackPanel contentStackPanel = new StackPanel();
 
-            TextBlock taupoText = new TextBlock();
-            taupoText.TextWrapping = TextWrapping.Wrap;
-            taupoText.TextAlignment = TextAlignment.Left;
-            taupoText.FontSize = Util.contentTextSize;
-           // taupoText.FontFamily = Util.contentTextFont;
-            taupoText.Margin = new Thickness(30);
-            taupoText.Foreground = new SolidColorBrush(Util.contentTextColor);
+            TextBlock taupoText = Util.TextBlockFactory();
             taupoText.Inlines.Add(new Bold(new Run("Family Support - Christchurch \n")));
             taupoText.Inlines.Add(new Run("Christine Graham	 \n(03) 365 1485	cgraham@childcancer.org.nz\n\nDiane Kerr\n021 838 142	dkerr@childcancer.org.nz\n"));
             contentStackPanel.Children.Add(taupoText);
@@ -735,18 +673,13 @@ namespace P02Project
         {
             StackPanel contentStackPanel = new StackPanel();
 
-            TextBlock taupoText = new TextBlock();
-            taupoText.TextWrapping = TextWrapping.Wrap;
-            taupoText.TextAlignment = TextAlignment.Left;
-            taupoText.FontSize = Util.contentTextSize;
-           // taupoText.FontFamily = Util.contentTextFont;
-            taupoText.Margin = new Thickness(30);
-            taupoText.Foreground = new SolidColorBrush(Util.contentTextColor);
+            TextBlock taupoText = Util.TextBlockFactory();
             taupoText.Inlines.Add(new Bold(new Run("Family Support - Wellington \n")));
             taupoText.Inlines.Add(new Run("Sally Black\n(04) 389 2620	sblack@childcancer.org.nz\n\nTracy Ward	 \n(04) 389 2620	tward@childcancer.org.nz\n"));
             contentStackPanel.Children.Add(taupoText);
             return contentStackPanel;
         }
+
 
 	}
 }
