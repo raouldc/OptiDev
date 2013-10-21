@@ -5,6 +5,7 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Media.Effects;
 using System.Windows.Controls;
+using Microsoft.Maps.MapControl.WPF;
 
 namespace P02Project
 {
@@ -17,9 +18,9 @@ namespace P02Project
             { "abtSelected",        (Color)ColorConverter.ConvertFromString("#FF920711")},
             { "abtUnSelected",      (Color)ColorConverter.ConvertFromString("#FFee4c58")},
 
-            { "Family Support",     (Color)ColorConverter.ConvertFromString("#ff381f9c")},
-            { "fsSelected",         (Color)ColorConverter.ConvertFromString("#FF1d0b68")},
-            { "fsUnSelected",       (Color)ColorConverter.ConvertFromString("#FF6b53ce")},
+            { "Family Support",     (Color)ColorConverter.ConvertFromString("#ff381f9c")}, //(Color)ColorConverter.ConvertFromString("#ff381f9c")},
+            { "fsSelected",         (Color)ColorConverter.ConvertFromString("#FF4679f0")}, //(Color)ColorConverter.ConvertFromString("#FF1d0b68")},
+            { "fsUnSelected",       (Color)ColorConverter.ConvertFromString("#FF9ebbff")}, //(Color)ColorConverter.ConvertFromString("#FF6b53ce")},
 
             { "How Can I Help?",    (Color)ColorConverter.ConvertFromString("#ffe2bb15")},
             { "hcihSelected",       (Color)ColorConverter.ConvertFromString("#FF967b07")},
@@ -46,16 +47,23 @@ namespace P02Project
             { "extraSelected",      (Color)ColorConverter.ConvertFromString("#FF073f60")},
             { "extraUnSelected",    (Color)ColorConverter.ConvertFromString("#FF4899c8")}
         };
+        ///////////////////
+        //Text attributes
 
+        //Content
         public static readonly FontFamily contentTextFont = new FontFamily("Century Gothic");
         public static readonly Color contentTextColor = (Color)ColorConverter.ConvertFromString("#FF000000");
         public static readonly Color contentBgColor = (Color)ColorConverter.ConvertFromString("#7Fffffff");
-        public static readonly double contentTextSize = 24;
         public static readonly Thickness contentMargin = new Thickness(30);
+        public static readonly double contentTextSize = 24;
+        public static readonly double headingTextSize = 32;
+        
+        //left Buttons
         public static readonly FontFamily buttonTextFont = new FontFamily("Andy");
         public static readonly Color buttonTextColor = (Color)ColorConverter.ConvertFromString("#FF000000");
         public static readonly double buttonTextSize = 48;
 
+        //Creates content text blocks
         public static TextBlock TextBlockFactory()
         {
             TextBlock textB = new TextBlock();
@@ -67,6 +75,10 @@ namespace P02Project
             textB.Foreground = new SolidColorBrush(contentTextColor);
             return textB;
         }
+
+        //////////////
+        //Map 
+        public static readonly ApplicationIdCredentialsProvider MapProvider = new ApplicationIdCredentialsProvider("AtabbySpgE9zdS1c5C4Pp1FHWjbxM_nHqIBmfZ--pFwtM0Vddbw7-bfUMBW-FBao");
 
         /// <summary>
         /// return the list of the links of the buttons
