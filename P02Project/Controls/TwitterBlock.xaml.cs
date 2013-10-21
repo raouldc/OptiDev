@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Windows.Controls;
 using System.Windows.Threading;
 using TweetSharp;
+using System.Windows;
 
 namespace P02Project
 {
@@ -15,14 +16,17 @@ namespace P02Project
         Twitter service = new Twitter();
         Random r = new Random();
         List<TwitterStatus> tweets = new List<TwitterStatus>();
+        private HomePage _parentHome;
+
         /// <summary>
         /// create a new twitter block
         /// </summary>
-        public TwitterBlock()
+        public TwitterBlock(HomePage parent)
         {
-
-
             this.InitializeComponent();
+
+            _parentHome = parent;
+
             //create a new dispatcher
             dt = new DispatcherTimer();
             dt.Interval = TimeSpan.FromSeconds(7);
@@ -50,6 +54,17 @@ namespace P02Project
         {
             int index = r.Next() % tweets.Count;
             msg.Text = tweets[index].TextDecoded;
+        }
+
+
+        /// <summary>
+        /// This method get called when the twitter button has been clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void twitterBoxClicked(Object sender, RoutedEventArgs e)
+        {
+            _parentHome.twitterBoxClickedHelper();
         }
     }
 }

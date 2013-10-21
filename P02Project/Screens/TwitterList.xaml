@@ -3,6 +3,7 @@
 	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:Custom="http://schemas.microsoft.com/surface/2008"
 	mc:Ignorable="d"
 	x:Class="P02Project.TwitterList"
 	x:Name="UserControl"
@@ -12,6 +13,9 @@
 	
 	
 	<Grid x:Name="LayoutRoot">
+        <Button Content="Support Us" Margin="60,424,0,414" FontSize="48" FontFamily="Andy" BorderThickness="0" Background="#ff146290" BorderBrush="#00707070" Foreground="White" Width="510.25" HorizontalAlignment="Left" Click="openWebcam"/>
         <Image HorizontalAlignment="Left" Height="314" Margin="60,72,0,0" VerticalAlignment="Top" Width="510.25" Source="/P02Project;component/Resources/images/Twitter/ChildCanerTwitterHome.png"/>
+		<Image HorizontalAlignment="Left" Height="178.5" Margin="216.5,0,0,100" VerticalAlignment="Bottom" Width="208.5" Source="/P02Project;component/Resources/images/Twitter/ChilCancerTwitterQR.png" RenderTransformOrigin="0.535,0.933"/>
+		<Custom:SurfaceListBox x:Name="_tweetScrollList" Margin="714,72,106,72"/>
 	</Grid>
 </UserControl>

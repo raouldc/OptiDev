@@ -83,7 +83,7 @@ namespace P02Project
             components.Add(contactUs);
             components.Add(playBeads);
 
-            TwitterBlock tb = new TwitterBlock();
+            TwitterBlock tb = new TwitterBlock(this);
             tb.Foreground = new SolidColorBrush(Colors.Black);
             
             Thickness t = tb.Margin;
@@ -331,6 +331,18 @@ namespace P02Project
             //*********************************************************************\\
             // need to change the Util.getLinks("About") to a correct one \\
             ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("About"), Util._pageColDict["Extra"], new Webcam(), "Support Us On Twitter");
+        }
+
+
+        /// <summary>
+        /// Helper method which is invoked from the twitterBox object
+        /// </summary>
+        public void twitterBoxClickedHelper()
+        {
+            // create a new subscreen and push it into the stack of subscreens
+            TopLevelPage nextScreen = new TopLevelPage(ParentWindow, "Twitter");
+
+            ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("About"), Util._pageColDict["Extra"], new TwitterList(nextScreen), "Our Tweets");
         }
     }
 }
