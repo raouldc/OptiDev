@@ -1,6 +1,10 @@
 ﻿using System;
+using System.Windows;
 using System.Collections.Generic;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
+using System.Windows.Media.Effects;
+using System.Windows.Controls;
 
 namespace P02Project
 {
@@ -63,6 +67,37 @@ namespace P02Project
 
             links.Remove(exclude);
             return links.ToArray();
+        }
+
+        public static readonly int animationMilisecs = 200;
+        public static readonly int animationDelay = 50;
+
+        public static void StackAnimation(Storyboard sbIn, UIElementCollection buttons, Thickness from, Thickness to)
+        {
+            int count = 0;
+
+            foreach (Button b in buttons)
+            {
+                ThicknessAnimation stackIn;
+                stackIn = new ThicknessAnimation();
+                stackIn.From = from;
+                stackIn.To = to;
+                stackIn.Duration = new Duration(TimeSpan.FromMilliseconds(animationMilisecs + animationDelay * (count++)));
+
+                sbIn.Children.Add(stackIn);
+                //add animations to the storyboard
+                Storyboard.SetTargetName(stackIn, b.Name);
+                Storyboard.SetTargetProperty(stackIn, new PropertyPath(StackPanel.MarginProperty));
+            }
+        }
+
+        public static void FadeIn(Storyboard sb, UIElement element)
+        {
+            DoubleAnimation opa = new DoubleAnimation(0.0, 1.0, new Duration(TimeSpan.FromMilliseconds(animationMilisecs)));
+            sb.Children.Add(opa);
+
+            Storyboard.SetTarget(opa, element);
+            Storyboard.SetTargetProperty(opa, new PropertyPath(UIElement.OpacityProperty));
         }
             
     }

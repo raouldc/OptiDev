@@ -10,20 +10,20 @@ using P02Project.Utils;
 
 namespace P02Project
 {
-	/// <summary>
-	/// Interaction logic for hcihDonateControl.xaml
-	/// </summary>
-	public partial class hcihDonateControl : UserControl, Animatiable
-	{
+    /// <summary>
+    /// Interaction logic for hcihDonateControl.xaml
+    /// </summary>
+    public partial class hcihDonateControl : UserControl, Animatiable
+    {
         private Storyboard sbIn;
 
         /// <summary>
         /// Constructor
         /// </summary>
-		public hcihDonateControl()
-		{
-			this.InitializeComponent();
-            
+        public hcihDonateControl()
+        {
+            this.InitializeComponent();
+
             // set image
             donate.setImage("images\\HowCanIHelp\\donate.png");
 
@@ -38,31 +38,9 @@ namespace P02Project
             //set content
             text.Content = oneOffContent();
             sbIn = new Storyboard();
-
-            int count = 0;
-
-            //Set the animations
-            foreach(Button b in buttons.Children)
-            {
-            ThicknessAnimation stackIn;
-            stackIn = new ThicknessAnimation();
-            stackIn.From = new Thickness(-1000, 20, 20, 20);
-            stackIn.To = new Thickness(20, 20, 20, 20);
-            stackIn.Duration = new Duration(TimeSpan.FromMilliseconds(200 + 50*(count++)));
-
-            sbIn.Children.Add(stackIn);
-            //add animations to the storyboard
-            Storyboard.SetTargetName(stackIn, b.Name);
-            Storyboard.SetTargetProperty(stackIn, new PropertyPath(StackPanel.MarginProperty));
-            }
-
-            DoubleAnimation opa = new DoubleAnimation(0.0, 1.0, new Duration(TimeSpan.FromMilliseconds(200)));
-            sbIn.Children.Add(opa);
-
-            Storyboard.SetTarget(opa, text);
-            Storyboard.SetTargetProperty(opa, new PropertyPath(PoloroidControl.OpacityProperty));
-
-		}
+            Util.StackAnimation(sbIn, buttons.Children, new Thickness(-1000, 20, 20, 20), new Thickness(20, 20, 20, 20));
+            Util.FadeIn(sbIn, text);
+        }
 
 
 
@@ -89,7 +67,7 @@ namespace P02Project
             moreInfo.Effect = null;
 
             //add drop shadow
-            oneOff.Effect = new DropShadowEffect(); 
+            oneOff.Effect = new DropShadowEffect();
 
             text.Content = oneOffContent();
         }
@@ -119,7 +97,7 @@ namespace P02Project
             moreInfo.Effect = null;
 
             //add drop shadow
-            onGoing.Effect = new DropShadowEffect(); 
+            onGoing.Effect = new DropShadowEffect();
 
             // set the content of the textbox
             text.Content = onGoingContent();
@@ -150,7 +128,7 @@ namespace P02Project
             moreInfo.Effect = null;
 
             //add drop shadow
-            lastingLegacy.Effect = new DropShadowEffect(); 
+            lastingLegacy.Effect = new DropShadowEffect();
 
             // set the content of the text box
             text.Content = lastingLegacyContent();
@@ -170,9 +148,9 @@ namespace P02Project
             oneOff.Background = unsel;
             onGoing.Background = unsel;
             lastingLegacy.Background = unsel;
-            workplaceGiving.Background = new SolidColorBrush(Util._pageColDict["hcihSelected"]); 
+            workplaceGiving.Background = new SolidColorBrush(Util._pageColDict["hcihSelected"]);
             moreInfo.Background = unsel;
-            
+
             //remove drop shadow from other buttons
             oneOff.Effect = null;
             onGoing.Effect = null;
@@ -181,7 +159,7 @@ namespace P02Project
             moreInfo.Effect = null;
 
             //add drop shadow
-            workplaceGiving.Effect = new DropShadowEffect(); 
+            workplaceGiving.Effect = new DropShadowEffect();
 
             // set the content of the textbox
             text.Content = workplaceGivingContent();
@@ -203,7 +181,7 @@ namespace P02Project
             lastingLegacy.Background = unsel;
             workplaceGiving.Background = unsel;
             moreInfo.Background = new SolidColorBrush(Util._pageColDict["hcihSelected"]);
-            
+
             //remove drop shadow from other buttons
             oneOff.Effect = null;
             onGoing.Effect = null;
@@ -224,7 +202,8 @@ namespace P02Project
         /// the helper method to generate the content when the "One Off Donation" has been clicked
         /// </summary>
         /// <returns></returns>
-        private StackPanel oneOffContent() {
+        private StackPanel oneOffContent()
+        {
             //Set content to one off donation
             StackPanel contentStackPanel = new StackPanel();
             Image qrCode = new Image();
@@ -276,7 +255,7 @@ namespace P02Project
         {
             //Set content to on going donation
             StackPanel contentStackPanel = new StackPanel();
-            
+
             TextBlock onGoingText1 = new TextBlock();
             onGoingText1.TextAlignment = TextAlignment.Left;
             onGoingText1.FontSize = 24;
@@ -378,7 +357,7 @@ namespace P02Project
             onGoingText1.Inlines.Add(new Bold(new Run("More Information \n")));
             onGoingText1.Inlines.Add(new Run("If you are ready to write your will, visit http://www.childcancer.org.nz/getattachment/How-you-can-help/Donate/Bequest.pdf.aspx for some official wording to assist you. \n\n"));
             onGoingText1.Inlines.Add(new Run("Thank you so much for considering leaving a gift to Child Cancer Foundation in your will. If you do decide to leave a legacy or bequest to help support our Child Cancer services, please let us know as this will allow us to thank you for your gift and offer you a closer relationship with us. It does not, however, legally bind you to support us in any way and the information will be treated in the strictest of confidence. \n\n"));
-            
+
             onGoingText1.Inlines.Add(new Run("For more information please contact:  \n\n"));
             onGoingText1.Inlines.Add(new Bold(new Run("Darragh O'Riordan PHN ")));
             onGoingText1.Inlines.Add(new Run("09 303 9882 | "));
