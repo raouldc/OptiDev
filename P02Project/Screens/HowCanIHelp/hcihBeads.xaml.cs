@@ -37,7 +37,7 @@ namespace P02Project
 
             //Animations 
             sbIn = new Storyboard();
-            Util.StackAnimation(sbIn, buttons.Children, new Thickness(-1000, 20, 20, 20), new Thickness(20, 20, 20, 20));
+            Util.StackAnimationDefault(sbIn, buttons.Children);
             Util.FadeIn(sbIn, text);
         }
         /// <summary>

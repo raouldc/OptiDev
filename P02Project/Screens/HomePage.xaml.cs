@@ -100,7 +100,7 @@ namespace P02Project
             poGrid.Children.Add(tb);
 
             dt = new DispatcherTimer();
-            dt.Interval = new TimeSpan(0, 0, 0, 0, 200);
+            dt.Interval = new TimeSpan(0, 0, 0, 0, Util.animationMilisecs);
             sbOut = new Storyboard();
 
             foreach (UserControl uc in components)
@@ -138,9 +138,20 @@ namespace P02Project
         private void about_MouseUp(object sender, MouseButtonEventArgs e)
         {
             // create a new subscreen and push it into the stack of subscreens
+            AnimateOut();
+
+            dt.Tick += new EventHandler(pushAbout);
+            dt.Start();
+        }
+
+        private void pushAbout(object sender, EventArgs e)
+        {
             TopLevelPage nextScreen = new TopLevelPage(ParentWindow, "About");
             String path = System.IO.Path.Combine(System.IO.Path.GetFullPath("."), "Resources/xml/About.xml");
             ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("About"), about.colour, new GridView(XMLUtilities.GetContentFromFile(path)), "");
+            nextScreen.AnimateIn();
+
+            dt.Stop();
         }
 
 
@@ -152,9 +163,20 @@ namespace P02Project
         /// <param name="e"></param>
         private void news_MouseUp(object sender, MouseButtonEventArgs e)
         {
+            AnimateOut();
+
+            dt.Tick += new EventHandler(pushNews);
+            dt.Start();
+        }
+
+        private void pushNews(object sender, EventArgs e)
+        {
             // create a new subscreen and push it into the stack of subscreens
             TopLevelPage nextScreen = new TopLevelPage(ParentWindow, "News");
             ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("News"), news.colour, new ScrollableView("News"), "");
+            nextScreen.AnimateIn();
+
+            dt.Stop();
         }
 
 
@@ -166,10 +188,20 @@ namespace P02Project
         /// <param name="e"></param>
         private void events_MouseUp(object sender, MouseButtonEventArgs e)
         {
+            AnimateOut();
+            
+            dt.Tick += new EventHandler(pushEvents);
+            dt.Start();
+        }
+
+        private void pushEvents(object sender, EventArgs e)
+        {
             // create a new subscreen and push it into the stack of subscreens
             TopLevelPage nextScreen = new TopLevelPage(ParentWindow, "Events");
-
             ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("Events"), events.colour, new ScrollableView("Events"), "");
+            nextScreen.AnimateIn();
+
+            dt.Stop();
         }
 
 
@@ -181,9 +213,20 @@ namespace P02Project
         /// <param name="e"></param>
         private void contactUs_MouseUp(object sender, MouseButtonEventArgs e)
         {
+            AnimateOut();
+
+            dt.Tick += new EventHandler(pushCU);
+            dt.Start();
+        }
+
+        private void pushCU(object sender, EventArgs e)
+        {
             // create a new subscreen and push it into the stack of subscreens
             TopLevelPage nextScreen = new TopLevelPage(ParentWindow, "Contact Us");
             ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("Contact Us"), contactUs.colour, new ContactUs(), "");
+            nextScreen.AnimateIn();
+
+            dt.Stop();
         }
 
 
@@ -206,10 +249,8 @@ namespace P02Project
         {
             // create a new subscreen and push it into the stack of subscreens
             TopLevelPage nextScreen = new TopLevelPage(ParentWindow, "How Can I Help?");
-            hcihHomeControl hcih = new hcihHomeControl(nextScreen);
-            ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("How Can I Help?"), howCanIHelp.colour, hcih, "");
+            ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("How Can I Help?"), howCanIHelp.colour, new hcihHomeControl(nextScreen), "");
             nextScreen.AnimateIn();
-            hcih.AnimateIn();
 
             dt.Stop();
         }
@@ -222,9 +263,21 @@ namespace P02Project
         /// <param name="e"></param>
         private void familySupport_MouseUp(object sender, MouseButtonEventArgs e)
         {
+            //Do animation
+            AnimateOut();
+
+            dt.Tick += new EventHandler(pushFS);
+            dt.Start();
+        }
+
+        private void pushFS(object sender, EventArgs e)
+        {
             // create a new subscreen and push it into the stack of subscreens
             TopLevelPage nextScreen = new TopLevelPage(ParentWindow, "Family Support");
             ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("Family Support"), familySupport.colour, new fsHomeControl(), "");
+            nextScreen.AnimateIn();
+
+            dt.Stop();
         }
 
 
@@ -236,10 +289,20 @@ namespace P02Project
         /// <param name="e"></param>
         private void playBeads_MouseUp(object sender, MouseButtonEventArgs e)
         {
+            AnimateOut();
+
+            dt.Tick +=new EventHandler(pushBeads);
+            dt.Start();
+        }
+
+        private void pushBeads(object sender, EventArgs e)
+        {
             // create a new subscreen and push it into the stack of subscreens
             TopLevelPage nextScreen = new TopLevelPage(ParentWindow, "Play Beads");
             ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("Play Beads"), playBeads.colour, new UserControl(), "");
+            nextScreen.AnimateIn();
 
+            dt.Stop();
         }
 
 

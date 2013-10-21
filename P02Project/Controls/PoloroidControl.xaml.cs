@@ -24,7 +24,7 @@ namespace P02Project
         /// <summary>
         /// Constructor
         /// </summary>
-        /// <value><c>true</c> if this instance is unclickable; otherwise, <c>false</c>.</value>
+        /// <value><fElement>true</fElement> if this instance is unclickable; otherwise, <fElement>false</fElement>.</value>
         public bool IsUnclickable { private get; set; }
 		public PoloroidControl()
 		{

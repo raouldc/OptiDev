@@ -4,14 +4,19 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using P02Project.Resources.xml;
+using System.Windows.Media.Animation;
+using P02Project.Utils;
 
 namespace P02Project.Screens
 {
     /// <summary>
     /// Interaction logic for ScrollableView.xaml
     /// </summary>
-    public partial class ScrollableView : UserControl
+    public partial class ScrollableView : UserControl, Animatiable
     {
+        //Animations
+        private Storyboard sbIn;
+
         private List<PoloroidWithText> listOfObjects;
         public ScrollableView(string pageType)
         {
@@ -41,6 +46,12 @@ namespace P02Project.Screens
                     polaroid.setImage(image.Value);
                 addPoloroidtoList(polaroid);
                 n++;
+            }
+
+            sbIn = new Storyboard();
+            foreach (FrameworkElement fElement in listOfObjects)
+            {
+                Util.FadeIn(sbIn, fElement);
             }
 
         }
@@ -102,5 +113,14 @@ namespace P02Project.Screens
             //scale the current one up
         }
 
+
+        public void AnimateIn()
+        {
+            sbIn.Begin(this);
+        }
+
+        public void AnimateOut()
+        {
+        }
     }
 }

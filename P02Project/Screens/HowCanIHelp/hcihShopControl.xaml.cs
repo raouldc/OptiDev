@@ -26,16 +26,8 @@ namespace P02Project
 
             sbIn = new Storyboard();
 
-            DoubleAnimation da = new DoubleAnimation(0.0, 1.0, new Duration(TimeSpan.FromMilliseconds(200)));
-            DoubleAnimation da2 = new DoubleAnimation(0.0, 1.0, new Duration(TimeSpan.FromMilliseconds(200)));
-
-            sbIn.Children.Add(da);
-            sbIn.Children.Add(da2);
-
-            Storyboard.SetTarget(da, QRText);
-            Storyboard.SetTarget(da2, qr);
-            Storyboard.SetTargetProperty(da, new PropertyPath(FrameworkElement.OpacityProperty));
-            Storyboard.SetTargetProperty(da2, new PropertyPath(Image.OpacityProperty));
+            Util.FadeIn(sbIn, qr);
+            Util.FadeIn(sbIn, QRText);
 
             eb.setImage("images\\HowCanIhelp\\sb.png");
             eb.setCaption("$65 Entertainmaint Booklet");

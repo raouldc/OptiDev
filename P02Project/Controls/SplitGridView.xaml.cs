@@ -2,14 +2,17 @@
 using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
+using P02Project.Utils;
 
 namespace P02Project.Screens
 {
     /// <summary>
     /// Interaction logic for SplitGridView.xaml
     /// </summary>
-    public partial class SplitGridView : UserControl
+    public partial class SplitGridView : UserControl, Animatiable
     {
+        private Storyboard sbIn;
 
         /// <summary>
         /// Constructor
@@ -73,7 +76,29 @@ namespace P02Project.Screens
             contentStackPanel.Children.Add(tb);
                         
             splitContentScrollViewer.Content = contentStackPanel;
+
+            sbIn = new Storyboard();
+
+            foreach (FrameworkElement fElement in contentStackPanel.Children)
+            {
+                Util.FadeIn(sbIn, fElement);
+            }
+
+            foreach (FrameworkElement fElement in PageContent.Children)
+            {
+                Util.FadeIn(sbIn, fElement);
+            }
   
+        }
+
+        public void AnimateIn()
+        {
+            sbIn.Begin(this);
+        }
+
+        public void AnimateOut()
+        {
+            
         }
     }
 }
