@@ -43,10 +43,23 @@ namespace P02Project
             sel = new SolidColorBrush(Util._pageColDict["fsSelected"]);
             unsel = new SolidColorBrush(Util._pageColDict["fsUnSelected"]);
 
-            //scholarship.FontFamily = Util.buttonTextFont;
-            //pResources.FontFamily = Util.buttonTextFont;
-            //cList.FontFamily = Util.buttonTextFont;
-            //hHomes.FontFamily = Util.buttonTextFont;
+            //Set the background of the scrollviewer
+            text.Background = new SolidColorBrush(Util.contentBgColor);
+            SetButtonStyles();
+
+            scholarship_Click(null, null);
+
+            fsPol.removeTouch();
+            fsPol.setShadow(10,0.3,(Color)ColorConverter.ConvertFromString("#ff7f7f7f"));
+            //fsPol.removeBorder();
+		}
+
+        private void SetButtonStyles()
+        {
+            scholarship.FontFamily = Util.buttonTextFont;
+            pResources.FontFamily = Util.buttonTextFont;
+            cList.FontFamily = Util.buttonTextFont;
+            hHomes.FontFamily = Util.buttonTextFont;
 
             scholarship.Foreground = new SolidColorBrush(Util.buttonTextColor);
             pResources.Foreground = new SolidColorBrush(Util.buttonTextColor);
@@ -62,13 +75,7 @@ namespace P02Project
             pResources.HorizontalContentAlignment = System.Windows.HorizontalAlignment.Center;
             cList.HorizontalContentAlignment = System.Windows.HorizontalAlignment.Center;
             hHomes.HorizontalContentAlignment = System.Windows.HorizontalAlignment.Center;
-
-            scholarship_Click(null, null);
-
-            fsPol.removeTouch();
-            fsPol.setShadow(10,0.3,(Color)ColorConverter.ConvertFromString("#ff7f7f7f"));
-            //fsPol.removeBorder();
-		}
+        }
 
         private void ResetBtnEffects()
         {
