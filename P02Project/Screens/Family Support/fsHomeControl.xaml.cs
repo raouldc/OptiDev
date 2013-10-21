@@ -243,7 +243,7 @@ namespace P02Project
         private void taupo_MouseUp(object sender, MouseButtonEventArgs e)
         {
 
-            hhscroll.Content = taupoContent();
+            hhscroll.Content = taupoHomeContent();
             ((PoloroidControl)hawkesbay.Content).removeGlow();
             ((PoloroidControl)arrowtown.Content).removeGlow();
             ((PoloroidControl)taupo.Content).setGlow();
@@ -265,7 +265,7 @@ namespace P02Project
 
         private void arrowtown_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            hhscroll.Content = arrowtownContent();
+            hhscroll.Content = arrowtownHomeContent();
 
             ((PoloroidControl)hawkesbay.Content).removeGlow();
             ((PoloroidControl)arrowtown.Content).setGlow();
@@ -288,7 +288,7 @@ namespace P02Project
         private void hawkesBay_MouseUp(object sender, MouseButtonEventArgs e)
         {
             
-            hhscroll.Content = hawkesBayContent();
+            hhscroll.Content = hawkesBayHomeContent();
             ((PoloroidControl)hawkesbay.Content).setGlow();
             ((PoloroidControl)arrowtown.Content).removeGlow();
             ((PoloroidControl)taupo.Content).removeGlow();
@@ -351,7 +351,7 @@ namespace P02Project
             text.Content = cListContent();
         }
         /// <summary>
-        /// the helper method to generate the content when the "More Information" has been clicked
+        /// the helper method to generate the content when "contact list" has been clicked
         /// </summary>
         /// <returns></returns>
         private StackPanel cListContent()
@@ -360,19 +360,14 @@ namespace P02Project
             StackPanel contentStackPanel = new StackPanel();
 
 
-            var provider = new ApplicationIdCredentialsProvider("AtabbySpgE9zdS1c5C4Pp1FHWjbxM_nHqIBmfZ--pFwtM0Vddbw7-bfUMBW-FBao");
-
             // Set up the Bing map control
             map = new Map();
             map.Mode = new AerialMode(labels: true);
-            map.CredentialsProvider = provider;
+            map.CredentialsProvider = Util.MapProvider;
             map.HorizontalAlignment = HorizontalAlignment.Stretch;
             map.VerticalAlignment = VerticalAlignment.Stretch;
             map.Center = new Location(-41, 174);
             map.ZoomLevel = 6.0;
-            // Render the map control over the top of the loading text in the map panel
-            //MapPanel.Children.Add(map);
-            //MapControl map = new MapControl();
             map.Height = 550;
 
             // The pushpin to add to the map.
@@ -402,12 +397,10 @@ namespace P02Project
             // Adds the pushpin to the map.
             map.Children.Add(wellingtonPin);
 
-
             map.AddHandler(UIElement.TouchDownEvent, new EventHandler<TouchEventArgs>(MapWithPushpins_TouchDown), true);
             map.AddHandler(UIElement.MouseDownEvent, new MouseButtonEventHandler(MapWithPushpins_MouseDown), true);
             
             mscroll = new SurfaceScrollViewer();
-            //scroll.Width = 850;
             mscroll.Height = 300;
             mscroll.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#00000000"));
 
@@ -433,17 +426,19 @@ namespace P02Project
             // Disables the default touch down behavior.
             e.Handled = true;
 
-            // Determine the location to place the pushpin at on the map.
-
             //Get the touch down coordinates
             TouchPoint touchPosition = e.GetTouchPoint(this);
             //Convert the mouse coordinates to a location on the map
             //pinlocation longitude is comingout as negative so reversing
             Location pinLocation = map.ViewportPointToLocation(touchPosition.Position);
+
+            //Calculate the distance to the other pushpins
             double auckdist = Math.Sqrt(Math.Pow(aucklandPin.Location.Latitude - pinLocation.Latitude, 2) + Math.Pow(aucklandPin.Location.Longitude - -pinLocation.Longitude, 2));
             double chchdist = Math.Sqrt(Math.Pow(christchurchPin.Location.Latitude - pinLocation.Latitude, 2) + Math.Pow(christchurchPin.Location.Longitude - -pinLocation.Longitude, 2));
             double dundist = Math.Sqrt(Math.Pow(dunedinPin.Location.Latitude - pinLocation.Latitude, 2) + Math.Pow(dunedinPin.Location.Longitude - -pinLocation.Longitude, 2));
             double welldist = Math.Sqrt(Math.Pow(wellingtonPin.Location.Latitude - pinLocation.Latitude, 2) + Math.Pow(wellingtonPin.Location.Longitude - -pinLocation.Longitude, 2));
+
+            //If within 2 latitude/longitude then show content
             if (auckdist > -2 && auckdist < 2)
             {
                 mscroll.Content = aucklandContent();
@@ -466,16 +461,19 @@ namespace P02Project
             // Disables the default touch down behavior.
             e.Handled = true;
 
-            // Determine the location to place the pushpin at on the map.
-
             //Get the touch down coordinates
             Point touchPosition = e.GetPosition(this);
+
             //Convert the mouse coordinates to a location on the map
             Location pinLocation = map.ViewportPointToLocation(touchPosition);
+
+            //Calculate the distance to the other pushpins
             double auckdist = Math.Sqrt(Math.Pow(aucklandPin.Location.Latitude - pinLocation.Latitude, 2) + Math.Pow(aucklandPin.Location.Longitude - -pinLocation.Longitude, 2));
             double chchdist = Math.Sqrt(Math.Pow(christchurchPin.Location.Latitude - pinLocation.Latitude, 2) + Math.Pow(christchurchPin.Location.Longitude - -pinLocation.Longitude, 2));
             double dundist = Math.Sqrt(Math.Pow(dunedinPin.Location.Latitude - pinLocation.Latitude, 2) + Math.Pow(dunedinPin.Location.Longitude - -pinLocation.Longitude, 2));
             double welldist = Math.Sqrt(Math.Pow(wellingtonPin.Location.Latitude - pinLocation.Latitude, 2) + Math.Pow(wellingtonPin.Location.Longitude - -pinLocation.Longitude, 2));
+            
+            //If within 2 latitude/longitude then show content
             if (auckdist > -2 && auckdist < 2)
             {
                 mscroll.Content = aucklandContent();
@@ -493,13 +491,13 @@ namespace P02Project
                 mscroll.Content = wellingtonContent();
             }
 
-            // Adds the pushpin to the map.
-            //map.Children.Add(pin);
         }
+
+
         /// <summary>
-        /// the helper method to generate the content when the "On Going Donation" has been clicked
+        /// Content to be displayed on the parent resources page
         /// </summary>
-        /// <returns></returns>
+        /// <returns>A stack panel containing the parent resources content</returns>
         private StackPanel pResourcesContent()
         {
             //Set content to on going donation
@@ -508,11 +506,11 @@ namespace P02Project
             TextBlock pResourcesText1 = Util.TextBlockFactory();
 
             TextBlock pResourcesText2 = Util.TextBlockFactory();
-            pResourcesText2.FontSize = 32;
+            pResourcesText2.FontSize = Util.headingTextSize;
             pResourcesText2.Inlines.Add(new Bold(new Run("Parent Resources \n")));
-            pResourcesText2.Inlines.Add(new Run("Child Cancer Foundation aims to provide up-to-date information for families. Below is a list of websites providing additional information, research documents and details about child cancer from around the world.\n"));
+            pResourcesText2.Inlines.Add(new Run("Child Cancer Foundation aims to provide up-to-date information for families. Below is a list of websites providing additional information, research documents and details about child cancer from around the world."));
 
-            pResourcesText1.Inlines.Add(new Bold(new Run("Kidscope\n")));
+            pResourcesText1.Inlines.Add(new Bold(new Run("\nKidscope\n")));
             pResourcesText1.Inlines.Add(new Run("www.kidscope.org\nAn organization which has been formed to help families and children better understand the effects of cancer and chemotherapy.\n\n"));
 
             pResourcesText1.Inlines.Add(new Bold(new Run("CancerCare, Inc.\n")));
@@ -539,25 +537,24 @@ namespace P02Project
         }
 
         /// <summary>
-        /// the helper method to generate the content when the "Workplac Giving" has been clicked
+        /// Content to be displayed on the holiday homes page
         /// </summary>
-        /// <returns></returns>
+        /// <returns>A stackpanel with the holida home content</returns>
         private StackPanel hHomesContent()
         {
-            //h = 1046, w = 860
-            //Set content to on going donation
+
             StackPanel contentStackPanel = new StackPanel();
+            //Create a scatter view for the holiday home pictures
             scatter = new ScatterView();
-            //scatter.Width = 850;
             scatter.Height = 500;
             scatter.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#00000000"));
 
+            //Create a scrollviewer for the details about the homes
             hhscroll = new SurfaceScrollViewer();
-            //scroll.Width = 850;
             hhscroll.Height = 300;
             hhscroll.Background = new SolidColorBrush(Util.contentBgColor);
 
-
+            //Create a prompt to show the user that they can move/zoom the pictures
             TextBlock prompt = Util.TextBlockFactory();
             prompt.TextAlignment = TextAlignment.Center;
             prompt.Inlines.Add(new Run("Click on the images below to see information or use two fingers to zoom\n"));
@@ -566,9 +563,11 @@ namespace P02Project
             contentStackPanel.Children.Add(scatter);
             contentStackPanel.Children.Add(hhscroll);
 
+            //Don't allow horizontal scrolling
             hhscroll.HorizontalScrollBarVisibility = ScrollBarVisibility.Disabled;
             hhscroll.VerticalScrollBarVisibility = ScrollBarVisibility.Auto;
 
+            //Create new scatterview item for the arrowwtown home
             arrowtown = new ScatterViewItem();
             arrowtown.Content = new PoloroidControl("images/FamilySupport/arrowtown.jpg","Arrowtown",(Color)ColorConverter.ConvertFromString("#ffffffff"));
             (arrowtown.Content as PoloroidControl).removeBorder();
@@ -578,6 +577,7 @@ namespace P02Project
             arrowtown.AddHandler(UIElement.MouseUpEvent, new MouseButtonEventHandler(arrowtown_MouseUp),true);
             scatter.Items.Add(arrowtown);
 
+            //Create new scatterview item for the taupo home
             taupo = new ScatterViewItem();
             taupo.Content = new PoloroidControl("images/FamilySupport/taupo.jpg", "Taupo", (Color)ColorConverter.ConvertFromString("#ffffffff"));
             (taupo.Content as PoloroidControl).removeBorder();
@@ -587,6 +587,7 @@ namespace P02Project
             taupo.AddHandler(UIElement.MouseUpEvent, new MouseButtonEventHandler(taupo_MouseUp), true);
             scatter.Items.Add(taupo);
 
+            //Create new scatterview item for the hawkes bay home
             hawkesbay = new ScatterViewItem();
             hawkesbay.Content = new PoloroidControl("images/FamilySupport/hawkesBay.jpg", "Hawkes Bay", (Color)ColorConverter.ConvertFromString("#00ffffff"));
             (hawkesbay.Content as PoloroidControl).removeBorder();
@@ -600,83 +601,111 @@ namespace P02Project
             return contentStackPanel;
         }
 
-        private StackPanel taupoContent() {
+        /// <summary>
+        /// Content about the Taupo holiday home
+        /// </summary>
+        /// <returns> A stack panel containing the content</returns>
+        private StackPanel taupoHomeContent() {
             StackPanel contentStackPanel = new StackPanel();
 
             TextBlock taupoText = Util.TextBlockFactory();
             taupoText.Inlines.Add(new Bold(new Run("Taupo Sunshine Lodge Holiday Home \n")));
             taupoText.Inlines.Add(new Run("Child Cancer Foundation has a Sunshine Lodge holiday home in Taupo.The Lockwood house offers three-bedrooms, a bathroom and is fully furnished.\n\n"));
-            //taupoText.Inlines.Add(new Run("The Foundation has been able to provide families with this opportunity through the generosity of the Professionals Real Estate Group who have funded and maintained the Taupo home. The Foundation is grateful for the ongoing partnership with the Professionals in working together to meet the needs of children with cancer and their families. The Professionals are a Gold Star sponsor supporting our nationwide holiday service. Professionals have supported The Child Cancer Foundation for 16 years, raising over $3.4 million.\n\n"));
             taupoText.Inlines.Add(new Run("If your family would like to book a holiday home please contact:\nMelissa Walker | PHN 03 365 1485 | EML mwalker@childcancer.org.nz\n"));
             contentStackPanel.Children.Add(taupoText);
             return contentStackPanel;
         }
 
-        private StackPanel arrowtownContent() {
+        /// <summary>
+        /// Content about the Arrowtown holiday home
+        /// </summary>
+        /// <returns> A stack panel containing the content</returns>
+        private StackPanel arrowtownHomeContent() {
             StackPanel contentStackPanel = new StackPanel();
 
-            TextBlock taupoText = Util.TextBlockFactory();
-            taupoText.Inlines.Add(new Bold(new Run("Arrowtown \n")));
-            taupoText.Inlines.Add(new Run("The new Child Cancer Foundation Arrowtown Holiday Home was officially opened in June, 2012.The new Arrowfield Mews property is a three bedroom, two bathroom, two storey, well insulated and sunny house, well suited to the requirement of CCF families. The house is walking distance from the main Arrowtown shopping / entertainment area, close to public transport and opposite the Millbrook golf course.\n\n"));
-            //taupoText.Inlines.Add(new Run("The house is owned by Child Cancer Foundation Otago/Southland Accommodation Trust, (OSAT). The trust was set up in the 1980s to provide accommodation for Otago and Southland children with cancer and their families. Funds provided for the house have been donated by individuals and businesses throughout Otago/Southland over a long period of time. \n\n"));
-            taupoText.Inlines.Add(new Run("If your family would like to book a holiday home please contact:\nMelissa Walker | PHN 03 365 1485 | EML mwalker@childcancer.org.nz\n"));
-            contentStackPanel.Children.Add(taupoText);
+            TextBlock arrowText = Util.TextBlockFactory();
+            arrowText.Inlines.Add(new Bold(new Run("Arrowtown \n")));
+            arrowText.Inlines.Add(new Run("The new Child Cancer Foundation Arrowtown Holiday Home was officially opened in June, 2012.The new Arrowfield Mews property is a three bedroom, two bathroom, two storey, well insulated and sunny house, well suited to the requirement of CCF families. The house is walking distance from the main Arrowtown shopping / entertainment area, close to public transport and opposite the Millbrook golf course.\n\n"));
+            arrowText.Inlines.Add(new Run("If your family would like to book a holiday home please contact:\nMelissa Walker | PHN 03 365 1485 | EML mwalker@childcancer.org.nz\n"));
+            contentStackPanel.Children.Add(arrowText);
             return contentStackPanel;
         }
 
-        private StackPanel hawkesBayContent() {
+        /// <summary>
+        /// Content about the Hawkes Bay holiday home
+        /// </summary>
+        /// <returns> A stack panel containing the content</returns>
+        private StackPanel hawkesBayHomeContent() {
             StackPanel contentStackPanel = new StackPanel();
 
-            TextBlock taupoText = Util.TextBlockFactory();
-            taupoText.Inlines.Add(new Bold(new Run("Hawkes Bay Little Elms \n")));
-            taupoText.Inlines.Add(new Run("The Trucking for Hawkes Bay Child Cancer Trust owns and manages the Little Elms complex in Orchard Road, Hastings, Hawkes Bay. Families of child cancer patients from around the country are able to use the holiday house to have some much needed “time out”. The Holiday house offers three-bedrooms, two-bathrooms and is fully furnished.\n\n"));
-            //taupoText.Inlines.Add(new Run("Child Cancer Foundation is grateful to the dedicated truckers and sponsors in the Hawkes Bay region for providing this facility.\n\n"));
-            taupoText.Inlines.Add(new Run("If your family would like to book a holiday home please contact:\nMelissa Walker | PHN 03 365 1485 | EML mwalker@childcancer.org.nz\n"));
-            contentStackPanel.Children.Add(taupoText);
+            TextBlock hbText = Util.TextBlockFactory();
+            hbText.Inlines.Add(new Bold(new Run("Hawkes Bay Little Elms \n")));
+            hbText.Inlines.Add(new Run("The Trucking for Hawkes Bay Child Cancer Trust owns and manages the Little Elms complex in Orchard Road, Hastings, Hawkes Bay. Families of child cancer patients from around the country are able to use the holiday house to have some much needed “time out”. The Holiday house offers three-bedrooms, two-bathrooms and is fully furnished.\n\n"));
+            hbText.Inlines.Add(new Run("If your family would like to book a holiday home please contact:\nMelissa Walker | PHN 03 365 1485 | EML mwalker@childcancer.org.nz\n"));
+            contentStackPanel.Children.Add(hbText);
             return contentStackPanel;
         }
 
+        ///////////////////////////
+        //Conact list info for map pushpins
+
+        /// <summary>
+        /// Content about the Auckland family support contacts
+        /// </summary>
+        /// <returns> A stack panel containing the content</returns>
         private StackPanel aucklandContent()
         {
             StackPanel contentStackPanel = new StackPanel();
 
-            TextBlock taupoText = Util.TextBlockFactory();
-            taupoText.Inlines.Add(new Bold(new Run("Family Support - Auckland﻿ \n")));
-            taupoText.Inlines.Add(new Run("Janet Masina	 \n(09) 303 9885	jmasina@childcancer.org.nz\n\nMary Mangan	 \n(09) 303 9971	mmangan@childcancer.org.nz\n"));
-            contentStackPanel.Children.Add(taupoText);
+            TextBlock auckText = Util.TextBlockFactory();
+            auckText.Inlines.Add(new Bold(new Run("Family Support - Auckland﻿ \n")));
+            auckText.Inlines.Add(new Run("Janet Masina	 \n(09) 303 9885	jmasina@childcancer.org.nz\n\nMary Mangan	 \n(09) 303 9971	mmangan@childcancer.org.nz\n"));
+            contentStackPanel.Children.Add(auckText);
             return contentStackPanel;
         }
 
+        /// <summary>
+        /// Content about the Dunedin family support contacts
+        /// </summary>
+        /// <returns> A stack panel containing the content</returns>
         private StackPanel dunedinContent()
         {
             StackPanel contentStackPanel = new StackPanel();
 
-            TextBlock taupoText = Util.TextBlockFactory();
-            taupoText.Inlines.Add(new Bold(new Run("Family Support - Dunedin﻿ \n")));
-            taupoText.Inlines.Add(new Run("Christine Donovan	\n(03) 471 7258	cdonovan@childcancer.org.nz\n"));
-            contentStackPanel.Children.Add(taupoText);
+            TextBlock dunText = Util.TextBlockFactory();
+            dunText.Inlines.Add(new Bold(new Run("Family Support - Dunedin﻿ \n")));
+            dunText.Inlines.Add(new Run("Christine Donovan	\n(03) 471 7258	cdonovan@childcancer.org.nz\n"));
+            contentStackPanel.Children.Add(dunText);
             return contentStackPanel;
         }
 
+        /// <summary>
+        /// Content about the Christchurch family support contacts
+        /// </summary>
+        /// <returns> A stack panel containing the content</returns>
         private StackPanel christchurchContent()
         {
             StackPanel contentStackPanel = new StackPanel();
 
-            TextBlock taupoText = Util.TextBlockFactory();
-            taupoText.Inlines.Add(new Bold(new Run("Family Support - Christchurch \n")));
-            taupoText.Inlines.Add(new Run("Christine Graham	 \n(03) 365 1485	cgraham@childcancer.org.nz\n\nDiane Kerr\n021 838 142	dkerr@childcancer.org.nz\n"));
-            contentStackPanel.Children.Add(taupoText);
+            TextBlock chchText = Util.TextBlockFactory();
+            chchText.Inlines.Add(new Bold(new Run("Family Support - Christchurch \n")));
+            chchText.Inlines.Add(new Run("Christine Graham	 \n(03) 365 1485	cgraham@childcancer.org.nz\n\nDiane Kerr\n021 838 142	dkerr@childcancer.org.nz\n"));
+            contentStackPanel.Children.Add(chchText);
             return contentStackPanel;
         }
 
+        /// <summary>
+        /// Content about the Wellington family support contacts
+        /// </summary>
+        /// <returns> A stack panel containing the content</returns>
         private StackPanel wellingtonContent()
         {
             StackPanel contentStackPanel = new StackPanel();
 
-            TextBlock taupoText = Util.TextBlockFactory();
-            taupoText.Inlines.Add(new Bold(new Run("Family Support - Wellington \n")));
-            taupoText.Inlines.Add(new Run("Sally Black\n(04) 389 2620	sblack@childcancer.org.nz\n\nTracy Ward	 \n(04) 389 2620	tward@childcancer.org.nz\n"));
-            contentStackPanel.Children.Add(taupoText);
+            TextBlock wellyText = Util.TextBlockFactory();
+            wellyText.Inlines.Add(new Bold(new Run("Family Support - Wellington \n")));
+            wellyText.Inlines.Add(new Run("Sally Black\n(04) 389 2620	sblack@childcancer.org.nz\n\nTracy Ward	 \n(04) 389 2620	tward@childcancer.org.nz\n"));
+            contentStackPanel.Children.Add(wellyText);
             return contentStackPanel;
         }
 
