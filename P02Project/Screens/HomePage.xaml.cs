@@ -138,9 +138,20 @@ namespace P02Project
         private void about_MouseUp(object sender, MouseButtonEventArgs e)
         {
             // create a new subscreen and push it into the stack of subscreens
+            AnimateOut();
+
+            dt.Tick += new EventHandler(pushAbout);
+            dt.Start();
+        }
+
+        private void pushAbout(object sender, EventArgs e)
+        {
             TopLevelPage nextScreen = new TopLevelPage(ParentWindow, "About");
             String path = System.IO.Path.Combine(System.IO.Path.GetFullPath("."), "Resources/xml/About.xml");
             ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("About"), about.colour, new GridView(XMLUtilities.GetContentFromFile(path)), "");
+            nextScreen.AnimateIn();
+
+            dt.Stop();
         }
 
 
@@ -155,6 +166,7 @@ namespace P02Project
             // create a new subscreen and push it into the stack of subscreens
             TopLevelPage nextScreen = new TopLevelPage(ParentWindow, "News");
             ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("News"), news.colour, new ScrollableView("News"), "");
+            nextScreen.AnimateIn();
         }
 
 
@@ -168,8 +180,8 @@ namespace P02Project
         {
             // create a new subscreen and push it into the stack of subscreens
             TopLevelPage nextScreen = new TopLevelPage(ParentWindow, "Events");
-
             ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("Events"), events.colour, new ScrollableView("Events"), "");
+            nextScreen.AnimateIn();
         }
 
 
@@ -181,9 +193,20 @@ namespace P02Project
         /// <param name="e"></param>
         private void contactUs_MouseUp(object sender, MouseButtonEventArgs e)
         {
+            AnimateOut();
+
+            dt.Tick += new EventHandler(pushCU);
+            dt.Start();
+        }
+
+        private void pushCU(object sender, EventArgs e)
+        {
             // create a new subscreen and push it into the stack of subscreens
             TopLevelPage nextScreen = new TopLevelPage(ParentWindow, "Contact Us");
             ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("Contact Us"), contactUs.colour, new ContactUs(), "");
+            nextScreen.AnimateIn();
+
+            dt.Stop();
         }
 
 
@@ -206,10 +229,8 @@ namespace P02Project
         {
             // create a new subscreen and push it into the stack of subscreens
             TopLevelPage nextScreen = new TopLevelPage(ParentWindow, "How Can I Help?");
-            hcihHomeControl hcih = new hcihHomeControl(nextScreen);
-            ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("How Can I Help?"), howCanIHelp.colour, hcih, "");
+            ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("How Can I Help?"), howCanIHelp.colour, new hcihHomeControl(nextScreen), "");
             nextScreen.AnimateIn();
-            hcih.AnimateIn();
 
             dt.Stop();
         }
@@ -233,10 +254,8 @@ namespace P02Project
         {
             // create a new subscreen and push it into the stack of subscreens
             TopLevelPage nextScreen = new TopLevelPage(ParentWindow, "Family Support");
-            fsHomeControl fsh = new fsHomeControl();
-            ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("Family Support"), familySupport.colour, fsh, "");
+            ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("Family Support"), familySupport.colour, new fsHomeControl(), "");
             nextScreen.AnimateIn();
-            fsh.AnimateIn();
 
             dt.Stop();
         }

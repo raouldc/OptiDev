@@ -156,6 +156,15 @@ namespace P02Project
             nextScreen.setSubtitle(Subtitle);
             popAll();
             pushScreen(nextScreen);
+
+            try
+            {
+                (content as Animatiable).AnimateIn();
+            }
+            catch (NullReferenceException exp)
+            {
+                //Do nothing with this
+            }
         }
     
     }

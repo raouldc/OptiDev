@@ -115,7 +115,7 @@ namespace P02Project
 
                 case "Family Support":
                     nextScreen = new TopLevelPage(ParentWindow, "Family Support");
-                    ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("Family Support"), colour, new UserControl(), "");
+                    ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("Family Support"), colour, new fsHomeControl(), "");
                     break;
 
                 case "Play Beads":
