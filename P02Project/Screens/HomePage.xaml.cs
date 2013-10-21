@@ -100,7 +100,7 @@ namespace P02Project
             poGrid.Children.Add(tb);
 
             dt = new DispatcherTimer();
-            dt.Interval = new TimeSpan(0, 0, 0, 0, 200);
+            dt.Interval = new TimeSpan(0, 0, 0, 0, Util.animationMilisecs);
             sbOut = new Storyboard();
 
             foreach (UserControl uc in components)
@@ -163,10 +163,20 @@ namespace P02Project
         /// <param name="e"></param>
         private void news_MouseUp(object sender, MouseButtonEventArgs e)
         {
+            AnimateOut();
+
+            dt.Tick += new EventHandler(pushNews);
+            dt.Start();
+        }
+
+        private void pushNews(object sender, EventArgs e)
+        {
             // create a new subscreen and push it into the stack of subscreens
             TopLevelPage nextScreen = new TopLevelPage(ParentWindow, "News");
             ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("News"), news.colour, new ScrollableView("News"), "");
             nextScreen.AnimateIn();
+
+            dt.Stop();
         }
 
 
@@ -178,10 +188,20 @@ namespace P02Project
         /// <param name="e"></param>
         private void events_MouseUp(object sender, MouseButtonEventArgs e)
         {
+            AnimateOut();
+            
+            dt.Tick += new EventHandler(pushEvents);
+            dt.Start();
+        }
+
+        private void pushEvents(object sender, EventArgs e)
+        {
             // create a new subscreen and push it into the stack of subscreens
             TopLevelPage nextScreen = new TopLevelPage(ParentWindow, "Events");
             ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("Events"), events.colour, new ScrollableView("Events"), "");
             nextScreen.AnimateIn();
+
+            dt.Stop();
         }
 
 
@@ -269,10 +289,20 @@ namespace P02Project
         /// <param name="e"></param>
         private void playBeads_MouseUp(object sender, MouseButtonEventArgs e)
         {
+            AnimateOut();
+
+            dt.Tick +=new EventHandler(pushBeads);
+            dt.Start();
+        }
+
+        private void pushBeads(object sender, EventArgs e)
+        {
             // create a new subscreen and push it into the stack of subscreens
             TopLevelPage nextScreen = new TopLevelPage(ParentWindow, "Play Beads");
             ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("Play Beads"), playBeads.colour, new UserControl(), "");
+            nextScreen.AnimateIn();
 
+            dt.Stop();
         }
 
 
