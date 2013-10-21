@@ -98,9 +98,14 @@ namespace P02Project
 
                 sbIn.Children.Add(stackIn);
                 //add animations to the storyboard
-                Storyboard.SetTargetName(stackIn, b.Name);
+                Storyboard.SetTarget(stackIn, b);
                 Storyboard.SetTargetProperty(stackIn, new PropertyPath(StackPanel.MarginProperty));
             }
+        }
+
+        public static void StackAnimationDefault(Storyboard sbIn, UIElementCollection buttons)
+        {
+            StackAnimation(sbIn, buttons, new Thickness(-1000, 20, 20, 20), new Thickness(20, 20, 20, 20));
         }
 
         public static void FadeIn(Storyboard sb, UIElement element)

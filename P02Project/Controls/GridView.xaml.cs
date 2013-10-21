@@ -31,7 +31,7 @@ namespace P02Project
         /// Initializes a new instance of the <see cref="GridView"/> class.
         /// </summary>
         /// <param name="_pageModelArray">The page model array.</param>
-        /// <param name="isF">if set to <c>true</c> [is f].</param>
+        /// <param name="isF">if set to <fElement>true</fElement> [is f].</param>
         /// <exception cref="System.Exception">There are too many rows or columns</exception>
         public GridView(PageModel pageModelArray)
         {

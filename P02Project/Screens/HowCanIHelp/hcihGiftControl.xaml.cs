@@ -37,29 +37,9 @@ namespace P02Project
             //set content
             soc_Click(this, null);
 
-            int count = 0;
-
             sbIn = new Storyboard();
-
-            foreach (Button b in buttons.Children)
-            {
-                ThicknessAnimation stackIn;
-                stackIn = new ThicknessAnimation();
-                stackIn.From = new Thickness(-1000, 20, 20, 20);
-                stackIn.To = new Thickness(20, 20, 20, 20);
-                stackIn.Duration = new Duration(TimeSpan.FromMilliseconds(200 + 50 * (count++)));
-
-                sbIn.Children.Add(stackIn);
-                //storyboard animations
-                Storyboard.SetTarget(stackIn, b);
-                Storyboard.SetTargetProperty(stackIn, new PropertyPath(StackPanel.MarginProperty));
-            }
-
-            DoubleAnimation opa = new DoubleAnimation(0.0, 1.0, new Duration(TimeSpan.FromMilliseconds(200)));
-            sbIn.Children.Add(opa);
-
-            Storyboard.SetTarget(opa, text);
-            Storyboard.SetTargetProperty(opa, new PropertyPath(PoloroidControl.OpacityProperty));
+            Util.StackAnimationDefault(sbIn, buttons.Children);
+            Util.FadeIn(sbIn, text);
 		}
         /// <summary>
         /// unselect all giftControl items

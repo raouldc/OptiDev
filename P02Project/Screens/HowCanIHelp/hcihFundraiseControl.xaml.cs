@@ -28,13 +28,7 @@ namespace P02Project
             text.Content = GenerateContent();
 
             sbIn = new Storyboard();
-
-            DoubleAnimation da = new DoubleAnimation(0.0, 1.0, new Duration(TimeSpan.FromMilliseconds(200)));
-
-            sbIn.Children.Add(da);
-
-            Storyboard.SetTarget(da, text);
-            Storyboard.SetTargetProperty(da, new PropertyPath(FrameworkElement.OpacityProperty));
+            Util.FadeIn(sbIn, text);
 		}
 
         private TextBlock TextBlockFactory()
