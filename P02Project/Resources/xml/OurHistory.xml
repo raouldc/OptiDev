@@ -20,8 +20,8 @@
 
 
   <ImageList>
-    <Image id="Top">images/Sisters.png</Image>
-    <Image id="Bottom">images/LittleBaby1.png</Image>
+    <Image id="Top">images/About/Sisters.png</Image>
+    <Image id="Bottom">images/About/LittleBaby1.png</Image>
   </ImageList>
 
   <LinksList>

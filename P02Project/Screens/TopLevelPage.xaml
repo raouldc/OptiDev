@@ -20,7 +20,7 @@
 
                 <!-- set the bead background-->
                 <Grid.Background>
-    				<ImageBrush ImageSource="/P02Project;component/Resources/bead background2.png"/>
+    				<ImageBrush ImageSource="/P02Project;component/Resources/images/beadBackground.png"/>
     			</Grid.Background>
                 
     			<Grid.RowDefinitions>

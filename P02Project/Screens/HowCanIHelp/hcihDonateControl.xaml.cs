@@ -25,7 +25,7 @@ namespace P02Project
 			this.InitializeComponent();
             
             // set image
-            donate.setImage("donate.png");
+            donate.setImage("images\\HowCanIHelp\\donate.png");
 
             //Set button cols
             SolidColorBrush unsel = new SolidColorBrush(Util._pageColDict["hcihUnSelected"]);
@@ -230,7 +230,7 @@ namespace P02Project
             Image qrCode = new Image();
             BitmapImage src = new BitmapImage();
             src.BeginInit();
-            src.UriSource = new Uri("pack://application:,,/Resources/qrcode_Donate.png");
+            src.UriSource = new Uri("pack://application:,,/Resources/images/HowCanIHelp/qrcode_Donate.png");
             src.EndInit();
 
             qrCode.Source = src;

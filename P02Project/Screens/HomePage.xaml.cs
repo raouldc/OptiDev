@@ -40,37 +40,37 @@ namespace P02Project
             base.OnInitialized(e);
 
             // set image and color for About polaroid
-            about.setImage("abt.png");
+            about.setImage("images\\Home\\abt.png");
             about.setCaption("About");
             about.setColour(Util._pageColDict["About"]);
 
             // set image and color for Family Support polaroid
-            familySupport.setImage("FS.png");
+            familySupport.setImage("images\\Home\\FS.png");
             familySupport.setCaption("Family Support");
             familySupport.setColour(Util._pageColDict["Family Support"]);
 
             // set image and color for How Can I Help polaroid
-            howCanIHelp.setImage("howCanIHelp.png");
+            howCanIHelp.setImage("images\\Home\\howCanIHelp.png");
             howCanIHelp.setCaption("How Can I Help?");
             howCanIHelp.setColour(Util._pageColDict["How Can I Help?"]);
 
             // set image and color for News polaroid
-            news.setImage("news.png");
+            news.setImage("images\\Home\\news.png");
             news.setCaption("News");
             news.setColour(Util._pageColDict["News"]);
 
             // set image and color for Events polaroid
-            events.setImage("events.png");
+            events.setImage("images\\Home\\events.png");
             events.setCaption("Events");
             events.setColour(Util._pageColDict["Events"]);
 
             // set image and color for Contact Us polaroid
-            contactUs.setImage("contact.png");
+            contactUs.setImage("images\\Home\\contact.png");
             contactUs.setCaption("Contact Us");
             contactUs.setColour(Util._pageColDict["Contact Us"]);
 
             // set image and color for Play Beads polaroid
-            playBeads.setImage("beads.png");
+            playBeads.setImage("images\\Home\\beads.png");
             playBeads.setCaption("Play Beads");
             playBeads.setColour(Util._pageColDict["Play Beads"]);
 

@@ -11,7 +11,7 @@ instructions.
     <ExecutableFile>P02Project.exe</ExecutableFile>
     <Arguments>
     </Arguments>
-    <IconImageFile>Resources\icon.png</IconImageFile>
+    <IconImageFile>Resources\images\icon.png</IconImageFile>
     <Tags>
       <!--
       If your application uses tagged objects, please uncomment this section to register the tags with the Shell. 

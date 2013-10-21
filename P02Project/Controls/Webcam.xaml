@@ -106,7 +106,7 @@
             <Button x:Name="captureImageNowButton" Command="localinput:CaptureImageCommands.CaptureImage"
 				ToolTip="{Binding Command.Text, RelativeSource={RelativeSource Self}}"
 				Style="{StaticResource RightAlignedImageButton}" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="64.667" Width="64.666" Margin="0,0,0,0">
-                <Image Source="/Resources/CaptureImageNow.png" />
+                <Image Source="/Resources/images/Twitter/CaptureImageNow.png" />
             </Button>
 
 
@@ -130,7 +130,7 @@
         </Grid>
 
         <!-- Selected Image for tweeting -->
-        <Image Grid.Column="1" x:Name="_selectedImg" Margin="-217,23.49,16,203.49" Source="/P02Project;component/Resources/beads.png" Stretch="Fill" OpacityMask="Black"/>
+        <Image Grid.Column="1" x:Name="_selectedImg" Margin="-217,23.49,16,203.49" Source="/P02Project;component/Resources/images/Home/beads.png" Stretch="Fill" OpacityMask="Black"/>
         <Border BorderBrush="Black" BorderThickness="3,3,5,5" Grid.Column="1" Margin="-219,23.49,18,203.49"/>
 
         <!-- Textbox to store the tweet message-->

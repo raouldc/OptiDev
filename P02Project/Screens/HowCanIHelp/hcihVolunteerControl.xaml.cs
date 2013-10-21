@@ -18,7 +18,7 @@ namespace P02Project
 			this.InitializeComponent();
             
             // set image
-            donate.setImage("howCanIHelp.png");
+            donate.setImage("images/Home/howCanIHelp.png");
 
             //set text
             text.Content = GenerateContent();

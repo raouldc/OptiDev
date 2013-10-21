@@ -22,7 +22,7 @@ namespace P02Project
             topLevelPage = tlpage;
             Color colour = Util._pageColDict["How Can I Help?"];
 
-            donate.setImage("donate.png");
+            donate.setImage("images\\HowCanIHelp\\donate.png");
             donate.setCaption("Donate");
             donate.setColour(colour);
 
@@ -34,7 +34,7 @@ namespace P02Project
             schools.setCaption("Schools");
             schools.setColour(colour);
 
-            volunteer.setImage("howCanIHelp.png");
+            volunteer.setImage("images/Home/howCanIHelp.png");
             volunteer.setCaption("Volunteer");
             volunteer.setColour(colour);
 

@@ -10,12 +10,12 @@
 
 
   <ImageList>
-    <Image id="1" caption="Dequaran Harrison" link="?">images/Stories/Dequarn.png</Image>
-    <Image id="2" caption="Emma Watson">images/Stories/Emma.png</Image>
-    <Image id="3" caption="Kavahn Taumatauka">images/Stories/Kavahn.png</Image>
-    <Image id="4" caption="Manuaitu Haggie">images/Stories/Manu.png</Image>
-    <Image id="5" caption="Hana Ellis-Kaa">images/Stories/Hana.png</Image>
-    <Image id="6" caption="Joyce Singh">images/Stories/Joyce.png</Image>
+    <Image id="1" caption="Dequaran Harrison" link="?">images/About/Stories/Dequarn.png</Image>
+    <Image id="2" caption="Emma Watson">images/About/Stories/Emma.png</Image>
+    <Image id="3" caption="Kavahn Taumatauka">images/About/Stories/Kavahn.png</Image>
+    <Image id="4" caption="Manuaitu Haggie">images/About/Stories/Manu.png</Image>
+    <Image id="5" caption="Hana Ellis-Kaa">images/About/Stories/Hana.png</Image>
+    <Image id="6" caption="Joyce Singh">images/About/Stories/Joyce.png</Image>
   </ImageList>
 
   <LinksList>

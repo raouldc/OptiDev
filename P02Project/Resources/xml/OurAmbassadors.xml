@@ -10,15 +10,15 @@
 
 
   <ImageList>
-    <Image id="Amanda" caption="Amanda Billing">images/Ambassadors/Amanda.png</Image>
-    <Image id="Steve" caption="Steve Price">images/Ambassadors/Steve.png</Image>
-    <Image id="Jerome" caption="Jerome Kaino">images/Ambassadors/Jerome.png</Image>
-    <Image id="HamishEric" caption="Hamish and Eric">images/Ambassadors/HamishEric.png</Image>
-    <Image id="Lorraine" caption="Lorraine Downes">images/Ambassadors/Lorraine.png</Image>
-    <Image id="Megan" caption="Megan Alotini">images/Ambassadors/Megan.png</Image>
-    <Image id="Bernadine" caption="Bernadine Kerby">images/Ambassadors/Bernadine.png</Image>
-    <Image id="Chris" caption="Chris Jack">images/Ambassadors/Chris.png</Image>
-    <Image id="Kieran" caption="Kieran Read">images/Ambassadors/Kieran.png</Image>
+    <Image id="Amanda" caption="Amanda Billing">images/About/Ambassadors/Amanda.png</Image>
+    <Image id="Steve" caption="Steve Price">images/About/Ambassadors/Steve.png</Image>
+    <Image id="Jerome" caption="Jerome Kaino">images/About/Ambassadors/Jerome.png</Image>
+    <Image id="HamishEric" caption="Hamish and Eric">images/About/Ambassadors/HamishEric.png</Image>
+    <Image id="Lorraine" caption="Lorraine Downes">images/About/Ambassadors/Lorraine.png</Image>
+    <Image id="Megan" caption="Megan Alotini">images/About/Ambassadors/Megan.png</Image>
+    <Image id="Bernadine" caption="Bernadine Kerby">images/About/Ambassadors/Bernadine.png</Image>
+    <Image id="Chris" caption="Chris Jack">images/About/Ambassadors/Chris.png</Image>
+    <Image id="Kieran" caption="Kieran Read">images/About/Ambassadors/Kieran.png</Image>
   </ImageList>
 
   <LinksList>
