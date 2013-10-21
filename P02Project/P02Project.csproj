@@ -151,6 +151,9 @@
     <Compile Include="Controls\SplitGridView.xaml.cs">
       <DependentUpon>SplitGridView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Screens\TwitterList.xaml.cs">
+      <DependentUpon>TwitterList.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Utils\Animatiable.cs" />
     <Compile Include="Controls\TwitterBlock.xaml.cs">
       <DependentUpon>TwitterBlock.xaml</DependentUpon>
@@ -288,6 +291,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Screens\TwitterList.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="TopWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -398,6 +405,8 @@
     <Resource Include="Resources\images\HowCanIHelp\gift.png" />
     <Resource Include="Resources\images\HowCanIHelp\qr_soc.png" />
     <Resource Include="Resources\images\HowCanIHelp\qr_boc.png" />
+    <Resource Include="Resources\images\Twitter\ChilCancerTwitterQR.png" />
+    <Resource Include="Resources\images\Twitter\ChildCanerTwitterHome.png" />
     <Content Include="Resources\xml\About.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>

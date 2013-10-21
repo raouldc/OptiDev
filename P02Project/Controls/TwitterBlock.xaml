@@ -17,5 +17,6 @@
         </Grid.ColumnDefinitions>
         <Image Source="/P02Project;component/Resources/images/Twitter/twitter-bird-light-bgs.png" HorizontalAlignment="Right" Width="84.333" Margin="0,-14.75,4,-11.651" />
         <TextBlock FontSize="16" Grid.Column="1" TextWrapping="Wrap" Text="CCF are at the Massey High @Hurricane_Kids gig today. They are rocking out  supporting kids with cancer! pic.twitter.com/1e2HvbKTIw" Name="msg"  TextAlignment="Left" Margin="-15.25,0,15.25,0" />
+        <Button Grid.ColumnSpan="2" Content="Button" Margin="-3,0,0,0" Opacity="0"/>
 	</Grid>
 </UserControl>
