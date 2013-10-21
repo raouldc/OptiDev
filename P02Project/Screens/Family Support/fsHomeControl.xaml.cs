@@ -7,13 +7,15 @@ using System.Windows.Media;
 using System.Windows.Media.Effects;
 using Microsoft.Surface.Presentation.Controls;
 using Microsoft.Maps.MapControl.WPF;
+using System.Windows.Media.Animation;
+using P02Project.Utils;
 
 namespace P02Project
 {
 	/// <summary>
 	/// Interaction logic for fsHomeControl.xaml
 	/// </summary>
-	public partial class fsHomeControl : UserControl
+	public partial class fsHomeControl : UserControl,Animatiable
 	{
         private SolidColorBrush unsel;
         private SolidColorBrush sel;
@@ -26,6 +28,8 @@ namespace P02Project
         private ScatterViewItem arrowtown;
         private ScatterViewItem taupo;
         private ScatterViewItem hawkesbay;
+
+        private Storyboard sbIn;
 
         Map map;
         Pushpin aucklandPin;
@@ -68,6 +72,10 @@ namespace P02Project
             fsPol.removeTouch();
             fsPol.setShadow(10,0.3,(Color)ColorConverter.ConvertFromString("#ff7f7f7f"));
             //fsPol.removeBorder();
+
+            sbIn = new Storyboard();
+            Util.StackAnimationDefault(sbIn, buttons.Children);
+            Util.FadeIn(sbIn, text);
 		}
 
         private void ResetBtnEffects()
@@ -680,6 +688,14 @@ namespace P02Project
             return contentStackPanel;
         }
 
+        public void AnimateIn()
+        {
+            sbIn.Begin(this);
+            fsPol.AnimateIn();
+        }
 
-	}
+        public void AnimateOut()
+        {
+        }
+    }
 }

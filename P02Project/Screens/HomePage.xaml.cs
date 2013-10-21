@@ -222,9 +222,23 @@ namespace P02Project
         /// <param name="e"></param>
         private void familySupport_MouseUp(object sender, MouseButtonEventArgs e)
         {
+            //Do animation
+            AnimateOut();
+
+            dt.Tick += new EventHandler(pushFS);
+            dt.Start();
+        }
+
+        private void pushFS(object sender, EventArgs e)
+        {
             // create a new subscreen and push it into the stack of subscreens
             TopLevelPage nextScreen = new TopLevelPage(ParentWindow, "Family Support");
-            ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("Family Support"), familySupport.colour, new fsHomeControl(), "");
+            fsHomeControl fsh = new fsHomeControl();
+            ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("Family Support"), familySupport.colour, fsh, "");
+            nextScreen.AnimateIn();
+            fsh.AnimateIn();
+
+            dt.Stop();
         }
 
 
