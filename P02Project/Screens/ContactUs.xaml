@@ -25,23 +25,20 @@
         </Grid.ColumnDefinitions>
 
         <!-- set all the option buttons at the left-->
-        <StackPanel Margin="20" Grid.RowSpan="2">
-            <Button x:Name="_fmlPlcs" Content="Family Places" Margin="20" FontSize="48" FontFamily="Andy" Background="#ff710b7e" BorderThickness="0" BorderBrush="#00707070" Foreground="White" Click="fmlPlClicked">
+        <StackPanel x:Name="buttons" Margin="20" Grid.RowSpan="2">
+            <Button x:Name="_fmlPlcs" Content="Family Places" Margin="20" FontSize="48" FontFamily="Andy" Background="#ff710b7e" BorderThickness="0" BorderBrush="#00707070" Foreground="White" Click="fmlPlClicked" Width="460" HorizontalAlignment="Left">
                 <Button.Effect>
                     <DropShadowEffect/>
                 </Button.Effect>
             </Button>
-            <Button x:Name="_mainOff" Content="Main Office" Margin="20" FontSize="48" FontFamily="Andy" BorderThickness="0" Background="#ffe411ff" BorderBrush="#00707070" Foreground="White"  Click="mainOffClicked" />
-            <Button x:Name="_fndrsOff" Content="Fundraising Offices" Margin="20" FontSize="48" FontFamily="Andy" BorderThickness="0" Background="#ffe411ff" BorderBrush="#00707070" Foreground="White"  Click="fndrsClicked" />
-            <Button x:Name="_fmlSptBrns" Content="Family Support Branches" Margin="20" FontSize="48" FontFamily="Andy" BorderThickness="0" Background="#ffe411ff" BorderBrush="#00707070" Foreground="White" Click="fmlSptBrsClicked" />
+            <Button x:Name="_mainOff" Content="Main Office" Margin="20" FontSize="48" FontFamily="Andy" BorderThickness="0" Background="#ffe411ff" BorderBrush="#00707070" Foreground="White"  Click="mainOffClicked" Width="460" HorizontalAlignment="Left" />
+            <Button x:Name="_fndrsOff" Content="Fundraising Offices" Margin="20" FontSize="48" FontFamily="Andy" BorderThickness="0" Background="#ffe411ff" BorderBrush="#00707070" Foreground="White"  Click="fndrsClicked" Width="460" HorizontalAlignment="Left" />
+            <Button x:Name="_fmlSptBrns" Content="Family Support Branches" Margin="20" FontSize="48" FontFamily="Andy" BorderThickness="0" Background="#ffe411ff" BorderBrush="#00707070" Foreground="White" Click="fmlSptBrsClicked" Width="460" HorizontalAlignment="Left" />
 
         </StackPanel>
 
 
         <!-- QR image-->
-        <Custom:ScatterViewItem HorizontalAlignment="Left" Background="White" Height="228" Margin="138,0,0,46.667" VerticalAlignment="Bottom" Width="228" Grid.Row="2" CanMove="False" CanRotate="False" CanScale="False">
-            <Image Source="/P02Project;component/Resources/images/Contact/ContactUSQR.png"/>
-        </Custom:ScatterViewItem>
 
         <!-- the contents of the contacts of Family Places-->
         <!-- Family Place in Auckland-->
@@ -657,6 +654,7 @@
                 </Paragraph>
             </FlowDocument>
         </RichTextBox>
+        <Image x:Name="qRCode" Source="/P02Project;component/Resources/images/Contact/ContactUSQR.png" Margin="157.5,25.333,157.5,46.667" Grid.Row="2" d:LayoutOverrides="Width, Height"/>
 
     </Grid>
 </UserControl>
