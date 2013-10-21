@@ -3,24 +3,28 @@ using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Media;
 using System.Windows.Media.Effects;
+using System.Windows.Media.Animation;
+using P02Project.Utils;
 
 namespace P02Project
 {
-	/// <summary>
-	/// Interaction logic for hcihBeads.xaml
-	/// </summary>
-	public partial class hcihBeads : UserControl
-	{
+    /// <summary>
+    /// Interaction logic for hcihBeads.xaml
+    /// </summary>
+    public partial class hcihBeads : UserControl, Animatiable
+    {
         private SolidColorBrush unsel;
         private SolidColorBrush sel;
+
+        private Storyboard sbIn;
 
         /// <summary>
         /// Constructor
         /// </summary>
         public hcihBeads()
-		{
-			this.InitializeComponent();
-            
+        {
+            this.InitializeComponent();
+
             // set image
             donate.setImage("images\\HowCanIHelp\\beads.png");
 
@@ -30,7 +34,12 @@ namespace P02Project
 
             //set content
             abtBeads_Click(this, null);
-		}
+
+            //Animations 
+            sbIn = new Storyboard();
+            Util.StackAnimation(sbIn, buttons.Children, new Thickness(-1000, 20, 20, 20), new Thickness(20, 20, 20, 20));
+            Util.FadeIn(sbIn, text);
+        }
         /// <summary>
         /// set all the items in the background to unselected
         /// </summary>
@@ -210,5 +219,15 @@ namespace P02Project
             contact.Effect = new DropShadowEffect();
             text.Content = ConactContent();
         }
-	}
+
+        public void AnimateIn()
+        {
+            sbIn.Begin(this);
+            donate.AnimateIn();
+        }
+
+        public void AnimateOut()
+        {
+        }
+    }
 }

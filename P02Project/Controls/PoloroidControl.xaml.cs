@@ -34,7 +34,7 @@ namespace P02Project
             //Inward Animations
             dblAnimationIn.From = 0.0;
             dblAnimationIn.To = 1.0;
-            dblAnimationIn.Duration = new Duration(TimeSpan.FromMilliseconds(200));
+            dblAnimationIn.Duration = new Duration(TimeSpan.FromMilliseconds(Util.animationMilisecs));
 
 
             sbIn.Children.Add(dblAnimationIn);
@@ -48,7 +48,7 @@ namespace P02Project
             //Outward Animations
             dblAnimationOut.From = 1.0;
             dblAnimationOut.To = 0.0;
-            dblAnimationOut.Duration = new Duration(TimeSpan.FromMilliseconds(200));
+            dblAnimationOut.Duration = new Duration(TimeSpan.FromMilliseconds(Util.animationMilisecs));
 
             sbOut.Children.Add(dblAnimationOut);
 

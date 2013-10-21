@@ -2,14 +2,17 @@
 using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
+using P02Project.Utils;
 
 namespace P02Project
 {
 	/// <summary>
 	/// Interaction logic for hcihBeads.xaml
 	/// </summary>
-	public partial class hcihVolunteerControl : UserControl
+	public partial class hcihVolunteerControl : UserControl, Animatiable
 	{
+        private Storyboard sbIn;
         /// <summary>
         /// Constructor
         /// </summary>
@@ -22,6 +25,12 @@ namespace P02Project
 
             //set text
             text.Content = GenerateContent();
+
+            //animate
+            sbIn = new Storyboard();
+            Util.FadeIn(sbIn, text);
+            Util.FadeIn(sbIn, QRCode);
+            Util.FadeIn(sbIn, QRText);
 		}
 
         private TextBlock TextBlockFactory()
@@ -65,6 +74,16 @@ namespace P02Project
 
             content.Children.Add(tb);
             return content;
+        }
+
+        public void AnimateIn()
+        {
+            sbIn.Begin(this);
+            donate.AnimateIn();
+        }
+
+        public void AnimateOut()
+        {
         }
 	}
 }

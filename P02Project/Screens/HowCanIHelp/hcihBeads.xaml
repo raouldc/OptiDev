@@ -28,14 +28,14 @@
 
         <!-- Set the option buttons at the left-->
         <StackPanel x:Name="buttons" Margin="20,20,20,146" Grid.RowSpan="2">
-            <Button x:Name="abtBeads" Content="About Beads" Margin="20" FontSize="48" FontFamily="Andy" Background="#FFD47C1E" BorderThickness="0" BorderBrush="#00707070" Foreground="White" Click="abtBeads_Click">
+            <Button x:Name="abtBeads" Content="About Beads" Margin="20" FontSize="48" FontFamily="Andy" Background="#FFD47C1E" BorderThickness="0" BorderBrush="#00707070" Foreground="White" Click="abtBeads_Click" HorizontalAlignment="Left" Width="460">
                 <Button.Effect>
                     <DropShadowEffect/>
                 </Button.Effect>
             </Button>
-            <Button x:Name="prgmBeads" Content="Program Beads" Margin="20" FontSize="48" FontFamily="Andy" BorderThickness="0" Background="#FFD4A339" BorderBrush="#00707070" Foreground="White" Click="prgmBeads_Click" />
-            <Button x:Name="aocBeads" Content="Act of Courage Beads" Margin="20" FontSize="48" FontFamily="Andy" BorderThickness="0" Background="#FFD4A339" BorderBrush="#00707070" Foreground="White" Click="aocBeads_Click" />
-            <Button x:Name="contact" Content="Contact Us" Margin="20" FontSize="48" FontFamily="Andy" BorderThickness="0" Background="#FFD4A339" BorderBrush="#00707070" Foreground="White" Click="contact_Click" />
+            <Button x:Name="prgmBeads" Content="Program Beads" Margin="20" FontSize="48" FontFamily="Andy" BorderThickness="0" Background="#FFD4A339" BorderBrush="#00707070" Foreground="White" Click="prgmBeads_Click" HorizontalAlignment="Left" Width="460" />
+            <Button x:Name="aocBeads" Content="Act of Courage Beads" Margin="20" FontSize="48" FontFamily="Andy" BorderThickness="0" Background="#FFD4A339" BorderBrush="#00707070" Foreground="White" Click="aocBeads_Click" HorizontalAlignment="Left" Width="460" />
+            <Button x:Name="contact" Content="Contact Us" Margin="20" FontSize="48" FontFamily="Andy" BorderThickness="0" Background="#FFD4A339" BorderBrush="#00707070" Foreground="White" Click="contact_Click" HorizontalAlignment="Left" Width="460" />
         </StackPanel>
 
         <!-- set the polaroid at bottom left-->
