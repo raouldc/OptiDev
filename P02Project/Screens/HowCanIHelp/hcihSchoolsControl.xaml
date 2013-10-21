@@ -13,16 +13,12 @@
         
         <Grid.RowDefinitions>
             <RowDefinition x:Name="_gridRow0" />
-            <RowDefinition x:Name="_gridRow1"/>
-            <RowDefinition x:Name="_gridRow2"/>
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition x:Name="_gridCol0" Width="0.333*" />
-            <ColumnDefinition x:Name="_gridCol1" Width="0.333*" />
-            <ColumnDefinition x:Name="_gridCol2" Width="0.333*" />
         </Grid.ColumnDefinitions>
-    	<Image Margin="60" Source="..\Resources\Images\HowCanIHelp\kidsForCourage.png" d:LayoutOverrides="Width" Grid.RowSpan="3" Grid.ColumnSpan="3"/>
+    	<Image Margin="100" Source="/P02Project;component/Resources/images/HowCanIHelp/kidsForCourage.png" Stretch="Fill" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         
         <!-- textbox used for the content of each subsection-->
         <!-- Set the option buttons at the left-->
