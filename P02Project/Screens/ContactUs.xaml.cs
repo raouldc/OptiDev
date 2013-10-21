@@ -72,10 +72,10 @@ namespace P02Project
             sbIn = new Storyboard();
             Util.StackAnimationDefault(sbIn, buttons.Children);
 
-            //foreach (FrameworkElement fElement in _fmlPlcList)
-            //{
-            //    Util.FadeIn(sbIn, fElement);
-            //}
+            foreach (FrameworkElement fElement in _fmlPlcList)
+            {
+                Util.FadeIn(sbIn, fElement);
+            }
 
         }
 
@@ -105,22 +105,22 @@ namespace P02Project
             // set the visibility of the contents according to the button clicked
             foreach (RichTextBox rtb in _fmlPlcList)
             {
-                rtb.Opacity = 100;
+                rtb.Visibility = System.Windows.Visibility.Visible;
             }
 
             foreach (RichTextBox rtb in _mnOffList)
             {
-                rtb.Opacity = 0;
+                rtb.Visibility = System.Windows.Visibility.Hidden;
             }
 
             foreach (RichTextBox rtb in _fndrsOffList)
             {
-                rtb.Opacity = 0;
+                rtb.Visibility = System.Windows.Visibility.Hidden;
             }
 
             foreach (RichTextBox rtb in _fmlSptList)
             {
-                rtb.Opacity = 0;
+                rtb.Visibility = System.Windows.Visibility.Hidden;
             }
         }
 
@@ -150,22 +150,22 @@ namespace P02Project
             // set the visibility of the contents according to the button clicked
             foreach (RichTextBox rtb in _fmlPlcList)
             {
-                rtb.Opacity = 0;
+                rtb.Visibility = System.Windows.Visibility.Hidden;
             }
 
             foreach (RichTextBox rtb in _mnOffList)
             {
-                rtb.Opacity = 100;
+                rtb.Visibility = System.Windows.Visibility.Visible;
             }
 
             foreach (RichTextBox rtb in _fndrsOffList)
             {
-                rtb.Opacity = 0;
+                rtb.Visibility = System.Windows.Visibility.Hidden;
             }
 
             foreach (RichTextBox rtb in _fmlSptList)
             {
-                rtb.Opacity = 0;
+                rtb.Visibility = System.Windows.Visibility.Hidden;
             }
         }
 
@@ -194,22 +194,22 @@ namespace P02Project
             // set the visibility of the contents according to the button clicked
             foreach (RichTextBox rtb in _fmlPlcList)
             {
-                rtb.Opacity = 0;
+                rtb.Visibility = System.Windows.Visibility.Hidden;
             }
 
             foreach (RichTextBox rtb in _mnOffList)
             {
-                rtb.Opacity = 0;
+                rtb.Visibility = System.Windows.Visibility.Hidden;
             }
 
             foreach (RichTextBox rtb in _fndrsOffList)
             {
-                rtb.Opacity = 100;
+                rtb.Visibility = System.Windows.Visibility.Visible;
             }
 
             foreach (RichTextBox rtb in _fmlSptList)
             {
-                rtb.Opacity = 0;
+                rtb.Visibility = System.Windows.Visibility.Hidden;
             }
         }
 
@@ -239,22 +239,22 @@ namespace P02Project
             // set the visibility of the contents according to the button clicked
             foreach (RichTextBox rtb in _fmlPlcList)
             {
-                rtb.Opacity = 0;
+                rtb.Visibility = System.Windows.Visibility.Hidden;
             }
 
             foreach (RichTextBox rtb in _mnOffList)
             {
-                rtb.Opacity = 0;
+                rtb.Visibility = System.Windows.Visibility.Hidden;
             }
 
             foreach (RichTextBox rtb in _fndrsOffList)
             {
-                rtb.Opacity = 0;
+                rtb.Visibility = System.Windows.Visibility.Hidden;
             }
 
             foreach (RichTextBox rtb in _fmlSptList)
             {
-                rtb.Opacity = 100;
+                rtb.Visibility = System.Windows.Visibility.Visible;
             }
         }
 
