@@ -65,10 +65,6 @@ namespace P02Project.Resources.xml
                         if (!File.Exists("Resources/" + imagePath)) {
                             if (!Directory.Exists("Resources/images/" + pageType))
                                 Directory.CreateDirectory("Resources/images/" + pageType);
-                            //using (var client = new WebClient()) {
-                              //  client.DownloadFile("http://www.childcancer.org.nz" + node.Descendants("img").FirstOrDefault().Attributes["src"].Value, "Resources/" + imagePath);
-                            //}
-                            //create a new threadedDataFetcher to download all the images
                             ThreadedDataFetcher fetcer = new ThreadedDataFetcher(new Uri("http://www.childcancer.org.nz" + node.Descendants("img").FirstOrDefault().Attributes["src"].Value), "Resources/" + imagePath);
                             Thread th = new Thread(new ThreadStart(fetcer.downloadFile));
                             threadList.Add(th);
