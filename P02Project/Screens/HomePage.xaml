@@ -15,7 +15,7 @@
                 
                 <!-- set the background -->
                 <Grid.Background>
-                    <ImageBrush ImageSource="/P02Project;component/Resources/bead background2.png"/>
+                    <ImageBrush ImageSource="/P02Project;component/Resources/images/beadBackground.png"/>
                 </Grid.Background>
                 
                 <Grid.RowDefinitions>
@@ -28,7 +28,7 @@
 <!-- set title bar -->
             	<s:ScatterView x:Name="_title" Grid.Row="0" Grid.Column="0" Background="#FF5E99E9" Height="120" Margin="0,0,290,0" VerticalAlignment="Top">
             		<s:ScatterViewItem Background="Transparent" Width="300" Height="100" Orientation="0" CanRotate="False" CanScale="False" Center="150,50">
-            			<Image Stretch="Uniform"  Source="/P02Project;component/Resources/logoCCF-transparentaltered.png"/>
+            			<Image Stretch="Uniform"  Source="/P02Project;component/Resources/images/logoCCF.png"/>
             		</s:ScatterViewItem>
             	</s:ScatterView>
         <!-- title bar extentions-->

@@ -1,5 +1,9 @@
 OptiDev
 ========
+##Note: 
+Internet connectivity required.  
+Events and News Fetcher may take some time to load the first time you run the application.  
+We are working to solve these issues.
 
 ## User Guide
 

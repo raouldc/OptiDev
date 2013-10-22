@@ -1,19 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using System.Windows.Media.Effects;
 using Microsoft.Surface.Presentation.Controls;
 using Microsoft.Maps.MapControl.WPF;
-using P02Project.Screens;
 
 namespace P02Project
 {
@@ -99,7 +92,7 @@ namespace P02Project
         {
 
             // set image
-            fsPol.setImage("images\\KidWithHat.png");
+            fsPol.setImage("images\\FamilySupport\\KidWithHat.png");
 
             //remove drop shadow from other buttons
             ResetBtnEffects();
@@ -117,7 +110,7 @@ namespace P02Project
         private void schol_TouchDown(object sender, TouchEventArgs e)
         {
             // set image
-            fsPol.setImage("images\\KidWithHat.png");
+            fsPol.setImage("images\\FamilySupport\\KidWithHat.png");
 
             //remove drop shadow from other buttons
             ResetBtnEffects();
@@ -145,7 +138,7 @@ namespace P02Project
             scholarshipText.TextAlignment = TextAlignment.Left;
             scholarshipText.FontSize = Util.contentTextSize;
             //scholarship.FontFamily = Util.contentTextFont;
-            scholarshipText.Margin = new Thickness(10);
+            scholarshipText.Margin = new Thickness(30);
             scholarshipText.Foreground = new SolidColorBrush(Util.contentTextColor);
             scholarshipText.Inlines.Add(new Bold(new Run("Scholarships \n")));
             scholarshipText.Inlines.Add(new Run("The Child Cancer Foundation Scholarship Fund aims to assist children aged 0 to 12 years with cancer, their siblings aged 0 to 12 years, or parents, achieve their personal education and developmental goals. Any activity that has the potential to educationally or developmentally benefit the applicant will be considered.\n\n"));
@@ -170,7 +163,7 @@ namespace P02Project
         private void pResources_Click(object sender, RoutedEventArgs e)
         {
             // set image
-            fsPol.setImage("images\\MotherandChild.png");
+            fsPol.setImage("images\\FamilySupport\\MotherandChild.png");
 
             //Set the background colours of the buttons
             ResetBtnEffects();
@@ -189,7 +182,7 @@ namespace P02Project
         private void pRes_TouchDown(object sender, TouchEventArgs e)
         {
             // set image
-            fsPol.setImage("images\\MotherandChild.png");
+            fsPol.setImage("images\\FamilySupport\\MotherandChild.png");
 
             //Set the background colours of the buttons
             ResetBtnEffects();
@@ -213,7 +206,7 @@ namespace P02Project
         private void hHomes_Click(object sender, RoutedEventArgs e)
         {
             // set image
-            fsPol.setImage("images\\SmilingRelative.png");
+            fsPol.setImage("images\\FamilySupport\\SmilingRelative.png");
 
             //Set the background colours of the buttons
             ResetBtnEffects();
@@ -234,7 +227,7 @@ namespace P02Project
 
         private void hHomes_TouchDown(object sender, TouchEventArgs e)
         {
-            fsPol.setImage("images\\SmilingRelative.png");
+            fsPol.setImage("images\\FamilySupport\\SmilingRelative.png");
 
             //Set the background colours of the buttons
             ResetBtnEffects();
@@ -327,7 +320,7 @@ namespace P02Project
         private void cList_Click(object sender, RoutedEventArgs e)
         {
             // set image
-            fsPol.setImage("images\\TwoGirls.png");
+            fsPol.setImage("images\\FamilySupport\\TwoGirls.png");
 
             //Set the background colours of the buttons
             ResetBtnEffects();
@@ -347,7 +340,7 @@ namespace P02Project
         private void cList_TouchDown(object sender, TouchEventArgs e)
         {
             // set image
-            fsPol.setImage("images\\TwoGirls.png");
+            fsPol.setImage("images\\FamilySupport\\TwoGirls.png");
 
             //Set the background colours of the buttons
             ResetBtnEffects();
@@ -429,7 +422,7 @@ namespace P02Project
             prompt.TextWrapping = TextWrapping.Wrap;
             prompt.TextAlignment = TextAlignment.Center;
             prompt.FontSize = Util.contentTextSize;
-            prompt.Margin = new Thickness(10);
+            prompt.Margin = new Thickness(30);
             //prompt.FontFamily = Util.contentTextFont;
             prompt.Foreground = new SolidColorBrush(Util.contentTextColor);
             prompt.Inlines.Add(new Run("Click on the pins to see their contact information\n"));
@@ -528,14 +521,14 @@ namespace P02Project
             pResourcesText1.TextAlignment = TextAlignment.Left;
             pResourcesText1.FontSize = Util.contentTextSize;
             pResourcesText1.FontFamily = Util.contentTextFont;
-            pResourcesText1.Margin = new Thickness(10);
+            pResourcesText1.Margin = new Thickness(30);
 
             TextBlock pResourcesText2 = new TextBlock();
             pResourcesText2.TextWrapping = TextWrapping.Wrap;
             pResourcesText2.TextAlignment = TextAlignment.Left;
             pResourcesText2.FontSize = 32;
             pResourcesText2.FontFamily = Util.contentTextFont;
-            pResourcesText2.Margin = new Thickness(10);
+            pResourcesText2.Margin = new Thickness(30);
             pResourcesText2.Foreground = new SolidColorBrush(Util.contentTextColor);
             pResourcesText2.Inlines.Add(new Bold(new Run("Parent Resources \n")));
             pResourcesText2.Inlines.Add(new Run("Child Cancer Foundation aims to provide up-to-date information for families. Below is a list of websites providing additional information, research documents and details about child cancer from around the world.\n"));
@@ -590,7 +583,7 @@ namespace P02Project
             prompt.TextWrapping = TextWrapping.Wrap;
             prompt.TextAlignment = TextAlignment.Center;
             prompt.FontSize = Util.contentTextSize;
-            prompt.Margin = new Thickness(10);
+            prompt.Margin = new Thickness(30);
            // prompt.FontFamily = Util.contentTextFont;
             prompt.Foreground = new SolidColorBrush(Util.contentTextColor);
             prompt.Inlines.Add(new Run("Click on the images below to see information or use two fingers to zoom\n"));
@@ -603,7 +596,7 @@ namespace P02Project
             hhscroll.VerticalScrollBarVisibility = ScrollBarVisibility.Auto;
 
             arrowtown = new ScatterViewItem();
-            arrowtown.Content = new PoloroidControl("images/arrowtown.jpg","Arrowtown",(Color)ColorConverter.ConvertFromString("#ffffffff"));
+            arrowtown.Content = new PoloroidControl("images/FamilySupport/arrowtown.jpg","Arrowtown",(Color)ColorConverter.ConvertFromString("#ffffffff"));
             (arrowtown.Content as PoloroidControl).removeBorder();
             arrowtown.Orientation = 0;
             arrowtown.Height = 200;
@@ -612,7 +605,7 @@ namespace P02Project
             scatter.Items.Add(arrowtown);
 
             taupo = new ScatterViewItem();
-            taupo.Content = new PoloroidControl("images/taupo.jpg", "Taupo", (Color)ColorConverter.ConvertFromString("#ffffffff"));
+            taupo.Content = new PoloroidControl("images/FamilySupport/taupo.jpg", "Taupo", (Color)ColorConverter.ConvertFromString("#ffffffff"));
             (taupo.Content as PoloroidControl).removeBorder();
             taupo.Orientation = 0;
             taupo.Height = 200;
@@ -621,7 +614,7 @@ namespace P02Project
             scatter.Items.Add(taupo);
 
             hawkesbay = new ScatterViewItem();
-            hawkesbay.Content = new PoloroidControl("images/hawkesBay.jpg", "Hawkes Bay", (Color)ColorConverter.ConvertFromString("#00ffffff"));
+            hawkesbay.Content = new PoloroidControl("images/FamilySupport/hawkesBay.jpg", "Hawkes Bay", (Color)ColorConverter.ConvertFromString("#00ffffff"));
             (hawkesbay.Content as PoloroidControl).removeBorder();
             hawkesbay.Orientation = 0;
             hawkesbay.Height = 200;
@@ -641,7 +634,7 @@ namespace P02Project
             taupoText.TextAlignment = TextAlignment.Left;
             taupoText.FontSize = Util.contentTextSize;
             //taupoText.FontFamily = Util.contentTextFont;
-            taupoText.Margin = new Thickness(10);
+            taupoText.Margin = new Thickness(30);
             taupoText.Foreground = new SolidColorBrush(Util.contentTextColor);
             taupoText.Inlines.Add(new Bold(new Run("Taupo Sunshine Lodge Holiday Home \n")));
             taupoText.Inlines.Add(new Run("Child Cancer Foundation has a Sunshine Lodge holiday home in Taupo.The Lockwood house offers three-bedrooms, a bathroom and is fully furnished.\n\n"));
@@ -659,7 +652,7 @@ namespace P02Project
             taupoText.TextAlignment = TextAlignment.Left;
             taupoText.FontSize = Util.contentTextSize;
             //taupoText.FontFamily = Util.contentTextFont;
-            taupoText.Margin = new Thickness(10);
+            taupoText.Margin = new Thickness(30);
             taupoText.Foreground = new SolidColorBrush(Util.contentTextColor);
             taupoText.Inlines.Add(new Bold(new Run("Arrowtown \n")));
             taupoText.Inlines.Add(new Run("The new Child Cancer Foundation Arrowtown Holiday Home was officially opened in June, 2012.The new Arrowfield Mews property is a three bedroom, two bathroom, two storey, well insulated and sunny house, well suited to the requirement of CCF families. The house is walking distance from the main Arrowtown shopping / entertainment area, close to public transport and opposite the Millbrook golf course.\n\n"));
@@ -677,7 +670,7 @@ namespace P02Project
             taupoText.TextAlignment = TextAlignment.Left;
             taupoText.FontSize = Util.contentTextSize;
             //taupoText.FontFamily = Util.contentTextFont;
-            taupoText.Margin = new Thickness(10);
+            taupoText.Margin = new Thickness(30);
             taupoText.Foreground = new SolidColorBrush(Util.contentTextColor);
             taupoText.Inlines.Add(new Bold(new Run("Hawkes Bay Little Elms \n")));
             taupoText.Inlines.Add(new Run("The Trucking for Hawkes Bay Child Cancer Trust owns and manages the Little Elms complex in Orchard Road, Hastings, Hawkes Bay. Families of child cancer patients from around the country are able to use the holiday house to have some much needed “time out”. The Holiday house offers three-bedrooms, two-bathrooms and is fully furnished.\n\n"));
@@ -696,7 +689,7 @@ namespace P02Project
             taupoText.TextAlignment = TextAlignment.Left;
             taupoText.FontSize = Util.contentTextSize;
            // taupoText.FontFamily = Util.contentTextFont;
-            taupoText.Margin = new Thickness(10);
+            taupoText.Margin = new Thickness(30);
             taupoText.Foreground = new SolidColorBrush(Util.contentTextColor);
             taupoText.Inlines.Add(new Bold(new Run("Family Support - Auckland﻿ \n")));
             taupoText.Inlines.Add(new Run("Janet Masina	 \n(09) 303 9885	jmasina@childcancer.org.nz\n\nMary Mangan	 \n(09) 303 9971	mmangan@childcancer.org.nz\n"));
@@ -713,7 +706,7 @@ namespace P02Project
             taupoText.TextAlignment = TextAlignment.Left;
             taupoText.FontSize = Util.contentTextSize;
             //taupoText.FontFamily = Util.contentTextFont;
-            taupoText.Margin = new Thickness(10);
+            taupoText.Margin = new Thickness(30);
             taupoText.Foreground = new SolidColorBrush(Util.contentTextColor);
             taupoText.Inlines.Add(new Bold(new Run("Family Support - Dunedin﻿ \n")));
             taupoText.Inlines.Add(new Run("Christine Donovan	\n(03) 471 7258	cdonovan@childcancer.org.nz\n"));
@@ -730,7 +723,7 @@ namespace P02Project
             taupoText.TextAlignment = TextAlignment.Left;
             taupoText.FontSize = Util.contentTextSize;
            // taupoText.FontFamily = Util.contentTextFont;
-            taupoText.Margin = new Thickness(10);
+            taupoText.Margin = new Thickness(30);
             taupoText.Foreground = new SolidColorBrush(Util.contentTextColor);
             taupoText.Inlines.Add(new Bold(new Run("Family Support - Christchurch \n")));
             taupoText.Inlines.Add(new Run("Christine Graham	 \n(03) 365 1485	cgraham@childcancer.org.nz\n\nDiane Kerr\n021 838 142	dkerr@childcancer.org.nz\n"));
@@ -747,7 +740,7 @@ namespace P02Project
             taupoText.TextAlignment = TextAlignment.Left;
             taupoText.FontSize = Util.contentTextSize;
            // taupoText.FontFamily = Util.contentTextFont;
-            taupoText.Margin = new Thickness(10);
+            taupoText.Margin = new Thickness(30);
             taupoText.Foreground = new SolidColorBrush(Util.contentTextColor);
             taupoText.Inlines.Add(new Bold(new Run("Family Support - Wellington \n")));
             taupoText.Inlines.Add(new Run("Sally Black\n(04) 389 2620	sblack@childcancer.org.nz\n\nTracy Ward	 \n(04) 389 2620	tward@childcancer.org.nz\n"));

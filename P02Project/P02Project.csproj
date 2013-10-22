@@ -71,7 +71,7 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\TweetSharp.2.3.1\lib\4.0\Newtonsoft.Json.dll</HintPath>
     </Reference>
-	<Reference Include="PresentationFramework.Royale" />
+    <Reference Include="PresentationFramework.Royale" />
     <Reference Include="PresentationFramework.Aero" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -107,73 +107,73 @@
     <Compile Include="Screens\Family Support\fsHomeControl.xaml.cs">
       <DependentUpon>fsHomeControl.xaml</DependentUpon>
     </Compile>
-     <Compile Include="Screens\hcihGiftControl.xaml.cs">
+    <Compile Include="Screens\HowCanIHelp\hcihGiftControl.xaml.cs">
       <DependentUpon>hcihGiftControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Screens\hcihFundraiseControl.xaml.cs">
+    <Compile Include="Screens\HowCanIHelp\hcihFundraiseControl.xaml.cs">
       <DependentUpon>hcihFundraiseControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Screens\hcihShopControl.xaml.cs">
+    <Compile Include="Screens\HowCanIHelp\hcihShopControl.xaml.cs">
       <DependentUpon>hcihShopControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Screens\hcihCampControl.xaml.cs">
+    <Compile Include="Screens\HowCanIHelp\hcihCampControl.xaml.cs">
       <DependentUpon>hcihCampControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Screens\hcihVolunteerControl.xaml.cs">
+    <Compile Include="Screens\HowCanIHelp\hcihVolunteerControl.xaml.cs">
       <DependentUpon>hcihVolunteerControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Screens\hcihSchoolsControl.xaml.cs">
+    <Compile Include="Screens\HowCanIHelp\hcihSchoolsControl.xaml.cs">
       <DependentUpon>hcihSchoolsControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Screens\hcihBeads.xaml.cs">
+    <Compile Include="Screens\HowCanIHelp\hcihBeads.xaml.cs">
       <DependentUpon>hcihBeads.xaml</DependentUpon>
     </Compile>
     <Compile Include="DataFetcher\DataItem.cs" />
-    <Compile Include="Screens\CustomListView.cs" />
-    <Compile Include="Screens\hcihDonateControl.xaml.cs">
+    <Compile Include="Controls\CustomListView.cs" />
+    <Compile Include="Screens\HowCanIHelp\hcihDonateControl.xaml.cs">
       <DependentUpon>hcihDonateControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Screens\ContactUs.xaml.cs">
       <DependentUpon>ContactUs.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Screens\hcihHomeControl.xaml.cs">
+    <Compile Include="Screens\HowCanIHelp\hcihHomeControl.xaml.cs">
       <DependentUpon>hcihHomeControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Screens\GridView.xaml.cs">
+    <Compile Include="Controls\GridView.xaml.cs">
       <DependentUpon>GridView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Screens\PoloroidWithText.xaml.cs">
+    <Compile Include="Controls\PoloroidWithText.xaml.cs">
       <DependentUpon>PoloroidWithText.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Screens\RightButton.xaml.cs">
+    <Compile Include="Controls\RightButton.xaml.cs">
       <DependentUpon>RightButton.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Screens\ScrollableView.xaml.cs">
+    <Compile Include="Controls\ScrollableView.xaml.cs">
       <DependentUpon>ScrollableView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Screens\SplitGridView.xaml.cs">
+    <Compile Include="Controls\SplitGridView.xaml.cs">
       <DependentUpon>SplitGridView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Utils\Animatiable.cs" />
-    <Compile Include="Screens\TwitterBlock.xaml.cs">
+    <Compile Include="Controls\TwitterBlock.xaml.cs">
       <DependentUpon>TwitterBlock.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Screens\Webcam.xaml.cs">
+    <Compile Include="Controls\Webcam.xaml.cs">
       <DependentUpon>Webcam.xaml</DependentUpon>
     </Compile>
     <Compile Include="Utils\Twitter.cs" />
     <Compile Include="Utils\Util.cs" />
-    <Compile Include="Screens\RightButtonControl.xaml.cs">
+    <Compile Include="Controls\RightButtonControl.xaml.cs">
       <DependentUpon>RightButtonControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Screens\Screen.cs" />
     <Compile Include="Screens\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Screens\PoloroidControl.xaml.cs">
+    <Compile Include="Controls\PoloroidControl.xaml.cs">
       <DependentUpon>PoloroidControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Screens\TitleBarControl.xaml.cs">
+    <Compile Include="Controls\TitleBarControl.xaml.cs">
       <DependentUpon>TitleBarControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Screens\TopLevelPage.xaml.cs">
@@ -207,55 +207,55 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Screens\hcihGiftControl.xaml">
+    <Page Include="Screens\HowCanIHelp\hcihGiftControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Screens\hcihFundraiseControl.xaml">
+    <Page Include="Screens\HowCanIHelp\hcihFundraiseControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Screens\hcihShopControl.xaml">
+    <Page Include="Screens\HowCanIHelp\hcihShopControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Screens\hcihCampControl.xaml">
+    <Page Include="Screens\HowCanIHelp\hcihCampControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Screens\hcihVolunteerControl.xaml">
+    <Page Include="Screens\HowCanIHelp\hcihVolunteerControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Screens\hcihSchoolsControl.xaml">
+    <Page Include="Screens\HowCanIHelp\hcihSchoolsControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Screens\hcihBeads.xaml">
+    <Page Include="Screens\HowCanIHelp\hcihBeads.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Screens\hcihDonateControl.xaml">
+    <Page Include="Screens\HowCanIHelp\hcihDonateControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Screens\hcihHomeControl.xaml">
+    <Page Include="Screens\HowCanIHelp\hcihHomeControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Screens\GridView.xaml">
+    <Page Include="Controls\GridView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Screens\PoloroidWithText.xaml">
+    <Page Include="Controls\PoloroidWithText.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Screens\RightButton.xaml">
+    <Page Include="Controls\RightButton.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Screens\RightButtonControl.xaml">
+    <Page Include="Controls\RightButtonControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -267,19 +267,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Screens\PoloroidControl.xaml">
+    <Page Include="Controls\PoloroidControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Screens\ScrollableView.xaml">
+    <Page Include="Controls\ScrollableView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Screens\SplitGridView.xaml">
+    <Page Include="Controls\SplitGridView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Screens\TitleBarControl.xaml">
+    <Page Include="Controls\TitleBarControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -287,11 +287,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Screens\TwitterBlock.xaml">
+    <Page Include="Controls\TwitterBlock.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Screens\Webcam.xaml">
+    <Page Include="Controls\Webcam.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -349,49 +349,48 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\bead background3.png" />
     <Resource Include="Resources\images\HowCanIHelp\qr_shop.png" />
     <Resource Include="Resources\images\HowCanIHelp\qr_volunteer.png" />
     <Resource Include="Utils\xml\PageModel.xml" />
-    <Resource Include="Resources\images\Ambassadors\Amanda.png" />
-    <Resource Include="Resources\images\Ambassadors\Bernadine.png" />
-    <Resource Include="Resources\images\Ambassadors\Chris.png" />
-    <Resource Include="Resources\images\Ambassadors\HamishEric.png" />
-    <Resource Include="Resources\images\Ambassadors\Jerome.png" />
-    <Resource Include="Resources\images\Ambassadors\Kieran.png" />
-    <Resource Include="Resources\images\Ambassadors\Lorraine.png" />
-    <Resource Include="Resources\images\Ambassadors\Megan.png" />
-    <Resource Include="Resources\images\Ambassadors\Steve.png" />
-    <Resource Include="Resources\images\LittleBaby1.png" />
-    <Resource Include="Resources\images\LittleBaby2.png" />
-    <Resource Include="Resources\images\LittleBaby3.png" />
-    <Resource Include="Resources\images\OurAmbassador.png" />
-    <Resource Include="Resources\images\Sisters.png" />
-    <Resource Include="Resources\images\Stories\Dequarn.png" />
-    <Resource Include="Resources\images\Stories\Dequarn2.png" />
-    <Resource Include="Resources\images\Stories\Emma.png" />
-    <Resource Include="Resources\images\Stories\Emma2.png" />
-    <Resource Include="Resources\images\Stories\Hana.png" />
-    <Resource Include="Resources\images\Stories\Hana2.png" />
-    <Resource Include="Resources\images\Stories\Joyce.png" />
-    <Resource Include="Resources\images\Stories\Joyce2.png" />
-    <Resource Include="Resources\images\Stories\Kavahn.png" />
-    <Resource Include="Resources\images\Stories\Kavahn2.png" />
-    <Resource Include="Resources\images\Stories\Manu.png" />
-    <Resource Include="Resources\images\Beads1.png" />
-    <Resource Include="Resources\images\Beads2.png" />
-    <Resource Include="Resources\images\MotherandChild.png" />
-    <Resource Include="Resources\images\SmilingRelative.png" />
-    <Resource Include="Resources\images\TigerFacePaint.png" />
-    <Resource Include="Resources\images\TwoGirls.png" />
-    <Resource Include="Resources\images\KidWithHat.png" />
-    <Resource Include="Resources\images\arrowtown.JPG" />
-    <Resource Include="Resources\images\hawkesBay.JPG" />
-    <Resource Include="Resources\images\taupo.jpg" />
+    <Resource Include="Resources\images\About\Ambassadors\Amanda.png" />
+    <Resource Include="Resources\images\About\Ambassadors\Bernadine.png" />
+    <Resource Include="Resources\images\About\Ambassadors\Chris.png" />
+    <Resource Include="Resources\images\About\Ambassadors\HamishEric.png" />
+    <Resource Include="Resources\images\About\Ambassadors\Jerome.png" />
+    <Resource Include="Resources\images\About\Ambassadors\Kieran.png" />
+    <Resource Include="Resources\images\About\Ambassadors\Lorraine.png" />
+    <Resource Include="Resources\images\About\Ambassadors\Megan.png" />
+    <Resource Include="Resources\images\About\Ambassadors\Steve.png" />
+    <Resource Include="Resources\images\About\LittleBaby1.png" />
+    <Resource Include="Resources\images\About\LittleBaby2.png" />
+    <Resource Include="Resources\images\About\LittleBaby3.png" />
+    <Resource Include="Resources\images\About\OurAmbassador.png" />
+    <Resource Include="Resources\images\About\Sisters.png" />
+    <Resource Include="Resources\images\About\Stories\Dequarn.png" />
+    <Resource Include="Resources\images\About\Stories\Dequarn2.png" />
+    <Resource Include="Resources\images\About\Stories\Emma.png" />
+    <Resource Include="Resources\images\About\Stories\Emma2.png" />
+    <Resource Include="Resources\images\About\Stories\Hana.png" />
+    <Resource Include="Resources\images\About\Stories\Hana2.png" />
+    <Resource Include="Resources\images\About\Stories\Joyce.png" />
+    <Resource Include="Resources\images\About\Stories\Joyce2.png" />
+    <Resource Include="Resources\images\About\Stories\Kavahn.png" />
+    <Resource Include="Resources\images\About\Stories\Kavahn2.png" />
+    <Resource Include="Resources\images\About\Stories\Manu.png" />
+    <Resource Include="Resources\images\FamilySupport\Beads1.png" />
+    <Resource Include="Resources\images\FamilySupport\Beads2.png" />
+    <Resource Include="Resources\images\FamilySupport\MotherandChild.png" />
+    <Resource Include="Resources\images\FamilySupport\SmilingRelative.png" />
+    <Resource Include="Resources\images\FamilySupport\TigerFacePaint.png" />
+    <Resource Include="Resources\images\FamilySupport\TwoGirls.png" />
+    <Resource Include="Resources\images\FamilySupport\KidWithHat.png" />
+    <Resource Include="Resources\images\FamilySupport\arrowtown.JPG" />
+    <Resource Include="Resources\images\FamilySupport\hawkesBay.JPG" />
+    <Resource Include="Resources\images\FamilySupport\taupo.jpg" />
     <Resource Include="Resources\images\HowCanIHelp\beads.png" />
     <Resource Include="Resources\images\HowCanIHelp\schools.png" />
-    <Resource Include="Resources\CaptureImageNow.png" />
-    <Resource Include="Resources\twitter-bird-light-bgs.png" />
+    <Resource Include="Resources\images\Twitter\CaptureImageNow.png" />
+    <Resource Include="Resources\images\Twitter\twitter-bird-light-bgs.png" />
     <Resource Include="Resources\images\HowCanIHelp\camp.png" />
     <Resource Include="Resources\images\HowCanIHelp\dayOfC.png" />
     <Resource Include="Resources\images\HowCanIHelp\funrazor.png" />
@@ -426,26 +425,6 @@
     <Content Include="Resources\xml\OurStories.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>
-    </Content>
-    <Content Include="Resources\xml\FamilySupport.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\xml\FamilySupport_SupportServices.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\xml\FamilySupport_HolidayHomes.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\xml\FamilySupport_ParentResources.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <SubType>Designer</SubType>
-    </Content>
-    <Content Include="Resources\xml\FamilySupport_Scholarships.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <SubType>Designer</SubType>
-    </Content>
-    <Content Include="Resources\xml\FamilySupport_ContactList.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\xml\Profiles\Amanda.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -496,30 +475,30 @@
     <Content Include="Resources\xml\TemplateDoc.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Resource Include="Resources\qrcode_Donate.png" />
-    <Resource Include="Resources\bead background2.png" />
-    <Resource Include="Resources\donate.png" />
-    <Resource Include="Resources\go-back-icon-NOT_FREE.png" />
-    <Resource Include="Resources\logoCCF-transparentaltered.png" />
-    <Resource Include="Resources\abt.png" />
-    <Resource Include="Resources\beads.png" />
-    <Resource Include="Resources\contact.png" />
-    <Resource Include="Resources\events.png" />
-    <Resource Include="Resources\FS.png" />
-    <Resource Include="Resources\howCanIHelp.png" />
-    <Resource Include="Resources\ContactUsQR.png" />
-    <Content Include="Resources\icon.png">
+    <Resource Include="Resources\images\HowCanIHelp\qrcode_Donate.png" />
+    <Resource Include="Resources\images\beadBackground.png" />
+    <Resource Include="Resources\images\HowCanIHelp\donate.png" />
+    <Resource Include="Resources\images\logoCCF.png" />
+    <Resource Include="Resources\images\Home\abt.png" />
+    <Resource Include="Resources\images\Home\beads.png" />
+    <Resource Include="Resources\images\Home\contact.png" />
+    <Resource Include="Resources\images\Home\events.png" />
+    <Resource Include="Resources\images\Home\FS.png" />
+    <Resource Include="Resources\images\Home\howCanIHelp.png" />
+    <Resource Include="Resources\images\Contact\ContactUsQR.png" />
+    <Content Include="Resources\images\icon.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="P02Project.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Resource Include="Resources\news.png" />
+    <Resource Include="Resources\images\Home\news.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Fonts\" />
     <Folder Include="Resources\images\Events\" />
     <Folder Include="Resources\images\News\" />
+    <Folder Include="Screens\About\" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">

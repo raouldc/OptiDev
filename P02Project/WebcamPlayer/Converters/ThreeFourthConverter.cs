@@ -12,12 +12,8 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Windows.Data;
 using System.Diagnostics;
-using System.Windows;
 
 namespace P02Project.WebcamPlayer.Converters
 {
@@ -30,7 +26,7 @@ namespace P02Project.WebcamPlayer.Converters
         public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
             // Declare variables
-            double width = 0;
+            double width;
 
             try
             {

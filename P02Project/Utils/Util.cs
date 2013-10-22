@@ -1,12 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using Microsoft.Surface.Presentation.Controls;
-using System.Windows.Controls;
 using System.Windows.Media;
-using System.Windows;
 
 namespace P02Project
 {
@@ -50,12 +44,12 @@ namespace P02Project
         };
 
         public static readonly FontFamily contentTextFont = new FontFamily("Century Gothic");
-        public static readonly Color contentTextColor = (Color)ColorConverter.ConvertFromString("#FFffffff");
-        public static readonly Color contentBgColor = (Color)ColorConverter.ConvertFromString("#7F525252");
+        public static readonly Color contentTextColor = (Color)ColorConverter.ConvertFromString("#FF000000");
+        public static readonly Color contentBgColor = (Color)ColorConverter.ConvertFromString("#7Fffffff");
         public static readonly double contentTextSize = 24;
 
         public static readonly FontFamily buttonTextFont = new FontFamily("Andy");
-        public static readonly Color buttonTextColor = (Color)ColorConverter.ConvertFromString("#FFffffff");
+        public static readonly Color buttonTextColor = (Color)ColorConverter.ConvertFromString("#FF000000");
         public static readonly double buttonTextSize = 48;
 
         /// <summary>
