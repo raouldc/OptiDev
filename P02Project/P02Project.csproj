@@ -164,6 +164,7 @@
     <Compile Include="Controls\Webcam.xaml.cs">
       <DependentUpon>Webcam.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Utils\Question.cs" />
     <Compile Include="Utils\Twitter.cs" />
     <Compile Include="Utils\Util.cs" />
     <Compile Include="Controls\RightButtonControl.xaml.cs">
@@ -479,6 +480,7 @@
     <Content Include="Resources\xml\Profiles\Steve.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Resources\xml\Questions.xml" />
     <Content Include="Resources\xml\TemplateDoc.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
