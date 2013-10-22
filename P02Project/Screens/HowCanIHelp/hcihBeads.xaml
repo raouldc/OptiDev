@@ -8,7 +8,35 @@
 	x:Class="P02Project.hcihBeads"
 	x:Name="UserControl"
 	d:DesignWidth="1630" d:DesignHeight="900">
-
+<UserControl.Resources>
+        <!-- This style is used for buttons, to remove the WPF default 'animated' mouse over effect -->
+        <Style x:Key="MyButtonStyle" TargetType="Button">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border" 
+                            BorderThickness="0"
+                            Padding="4,2" 
+                            BorderBrush="DarkGray" 
+                            CornerRadius="0" 
+                            Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="BorderBrush" Value="Black" />
+                            </Trigger>
+                            <Trigger Property="IsFocused" Value="True">
+                                <Setter TargetName="border" Property="BorderBrush" Value="Black" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
     <Grid x:Name="LayoutRoot">
         
         <Grid.RowDefinitions>
@@ -28,14 +56,14 @@
 
         <!-- Set the option buttons at the left-->
         <StackPanel x:Name="buttons" Margin="20,20,20,146" Grid.RowSpan="2">
-            <Button x:Name="abtBeads" Content="About Beads" Margin="20" FontSize="48" FontFamily="Andy" Background="#FFD47C1E" BorderThickness="0" BorderBrush="#00707070" Foreground="White" Click="abtBeads_Click" HorizontalAlignment="Left" Width="460">
+            <Button x:Name="abtBeads" Style="{StaticResource MyButtonStyle}" Content="About Beads" Margin="20" FontSize="48" FontFamily="Andy" Background="#FFD47C1E" BorderThickness="0" BorderBrush="#00707070" Foreground="White" Click="abtBeads_Click" HorizontalAlignment="Left" Width="460">
                 <Button.Effect>
                     <DropShadowEffect/>
                 </Button.Effect>
             </Button>
-            <Button x:Name="prgmBeads" Content="Program Beads" Margin="20" FontSize="48" FontFamily="Andy" BorderThickness="0" Background="#FFD4A339" BorderBrush="#00707070" Foreground="White" Click="prgmBeads_Click" HorizontalAlignment="Left" Width="460" />
-            <Button x:Name="aocBeads" Content="Act of Courage Beads" Margin="20" FontSize="48" FontFamily="Andy" BorderThickness="0" Background="#FFD4A339" BorderBrush="#00707070" Foreground="White" Click="aocBeads_Click" HorizontalAlignment="Left" Width="460" />
-            <Button x:Name="contact" Content="Contact Us" Margin="20" FontSize="48" FontFamily="Andy" BorderThickness="0" Background="#FFD4A339" BorderBrush="#00707070" Foreground="White" Click="contact_Click" HorizontalAlignment="Left" Width="460" />
+            <Button x:Name="prgmBeads" Style="{StaticResource MyButtonStyle}" Content="Program Beads" Margin="20" FontSize="48" FontFamily="Andy" BorderThickness="0" Background="#FFD4A339" BorderBrush="#00707070" Foreground="White" Click="prgmBeads_Click" HorizontalAlignment="Left" Width="460" />
+            <Button x:Name="aocBeads" Style="{StaticResource MyButtonStyle}" Content="Act of Courage Beads" Margin="20" FontSize="48" FontFamily="Andy" BorderThickness="0" Background="#FFD4A339" BorderBrush="#00707070" Foreground="White" Click="aocBeads_Click" HorizontalAlignment="Left" Width="460" />
+            <Button x:Name="contact" Style="{StaticResource MyButtonStyle}" Content="Contact Us" Margin="20" FontSize="48" FontFamily="Andy" BorderThickness="0" Background="#FFD4A339" BorderBrush="#00707070" Foreground="White" Click="contact_Click" HorizontalAlignment="Left" Width="460" />
         </StackPanel>
 
         <!-- set the polaroid at bottom left-->

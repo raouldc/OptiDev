@@ -9,6 +9,36 @@
 	x:Name="UserControl"
 	d:DesignWidth="1630" d:DesignHeight="900">
 
+    <UserControl.Resources>
+        <!-- This style is used for buttons, to remove the WPF default 'animated' mouse over effect -->
+        <Style x:Key="MyButtonStyle" TargetType="Button">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border" 
+                            BorderThickness="0"
+                            Padding="4,2" 
+                            BorderBrush="DarkGray" 
+                            CornerRadius="0" 
+                            Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="BorderBrush" Value="Black" />
+                            </Trigger>
+                            <Trigger Property="IsFocused" Value="True">
+                                <Setter TargetName="border" Property="BorderBrush" Value="Black" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+    
     <Grid x:Name="LayoutRoot">
         
         <Grid.RowDefinitions>
@@ -28,12 +58,12 @@
 
         <!-- Set the option buttons at the left-->
         <StackPanel x:Name="buttons" Margin="20,20,20,146" Grid.RowSpan="2">
-            <Button x:Name="soc" Content="Star of Courage" Margin="20" FontSize="48" FontFamily="Andy" Background="#FFD47C1E" BorderThickness="0" BorderBrush="#00707070" Foreground="White" Click="soc_Click" HorizontalAlignment="Left" Width="460">
+            <Button x:Name="soc" Style="{StaticResource MyButtonStyle}" Content="Star of Courage" Margin="20" FontSize="48" FontFamily="Andy" Background="#FFD47C1E" BorderThickness="0" BorderBrush="#00707070" Foreground="White" Click="soc_Click" HorizontalAlignment="Left" Width="460">
                 <Button.Effect>
                     <DropShadowEffect/>
                 </Button.Effect>
             </Button>
-            <Button x:Name="boc" Content="Beads of Courage" Margin="20" FontSize="48" FontFamily="Andy" BorderThickness="0" Background="#FFD4A339" BorderBrush="#00707070" Foreground="White" HorizontalAlignment="Left" Width="460" Click="boc_Click" />
+            <Button x:Name="boc" Style="{StaticResource MyButtonStyle}" Content="Beads of Courage" Margin="20" FontSize="48" FontFamily="Andy" BorderThickness="0" Background="#FFD4A339" BorderBrush="#00707070" Foreground="White" HorizontalAlignment="Left" Width="460" Click="boc_Click" />
         </StackPanel>
 
         <!-- set the polaroid at bottom left-->

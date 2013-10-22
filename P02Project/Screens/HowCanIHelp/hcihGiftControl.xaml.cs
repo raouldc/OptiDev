@@ -34,6 +34,18 @@ namespace P02Project
             unsel = new SolidColorBrush(Util._pageColDict["hcihUnSelected"]);
             sel = new SolidColorBrush(Util._pageColDict["hcihSelected"]);
 
+            text.Background = new SolidColorBrush(Util.contentBgColor);
+            text.Margin = Util.contentMargin;
+
+            soc.FontFamily = Util.buttonTextFont;
+            boc.FontFamily = Util.buttonTextFont;
+
+            soc.FontSize = Util.buttonTextSize;
+            boc.FontSize = Util.buttonTextSize;
+
+            soc.Foreground = new SolidColorBrush(Util.buttonTextColor);
+            boc.Foreground = new SolidColorBrush(Util.buttonTextColor);
+
             //set content
             soc_Click(this, null);
 
@@ -59,17 +71,17 @@ namespace P02Project
         /// <returns>
         /// new textblock with required formatting
         /// </returns>
-        private TextBlock TextBlockFactory()
-        {
-            TextBlock tb = new TextBlock();
-            tb.TextAlignment = TextAlignment.Left;
-            tb.FontSize = 24;
-            tb.Margin = new Thickness(10);
-            tb.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#ffffffff"));
-            tb.TextWrapping = TextWrapping.Wrap;
+        //private TextBlock TextBlockFactory()
+        //{
+        //    TextBlock tb = new TextBlock();
+        //    tb.TextAlignment = TextAlignment.Left;
+        //    tb.FontSize = 24;
+        //    tb.Margin = new Thickness(10);
+        //    tb.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#ffffffff"));
+        //    tb.TextWrapping = TextWrapping.Wrap;
 
-            return tb;
-        }
+        //    return tb;
+        //}
         /// <summary>
         /// add content to the page
         /// </summary>
@@ -92,7 +104,7 @@ namespace P02Project
             qrCode.HorizontalAlignment = System.Windows.HorizontalAlignment.Left;
             qrCode.Margin = new Thickness(10);
 
-            TextBlock tb = TextBlockFactory();
+            TextBlock tb = Util.TextBlockFactory();
             //TODO - put into xml
             tb.Inlines.Add(new Run("Make a $500 donation and gift a star to directly support a child’s cancer journey."
                                     + "\n\nStars of Courage is a unique programme which will see each child diagnosed "
@@ -125,7 +137,7 @@ namespace P02Project
             qrCode.HorizontalAlignment = System.Windows.HorizontalAlignment.Left;
             qrCode.Margin = new Thickness(10);
 
-            TextBlock tb = TextBlockFactory();
+            TextBlock tb = Util.TextBlockFactory();
             tb.Inlines.Add(new Run("Make a $5 donation and gift a Bead of Courage® to a child with cancer to directly supp"
                                     + "ort a child’s cancer journey.\n\nOn average three children in New Zealand are diagn"
                                     + "osed with cancer each week.  These children undergo an astounding 100,000 treatment"
@@ -160,7 +172,11 @@ namespace P02Project
         {
             SetAllUnsel();
             soc.Background = sel;
-            soc.Effect = new DropShadowEffect();
+            //add drop shadow
+            DropShadowEffect dShdow = new DropShadowEffect();
+            dShdow.BlurRadius = 10;
+            dShdow.Opacity = 0.365;
+            soc.Effect = dShdow;
 
             text.Content = socContent();
         }
@@ -173,7 +189,11 @@ namespace P02Project
         {
             SetAllUnsel();
             boc.Background = sel;
-            boc.Effect = new DropShadowEffect();
+            //add drop shadow
+            DropShadowEffect dShdow = new DropShadowEffect();
+            dShdow.BlurRadius = 10;
+            dShdow.Opacity = 0.365;
+            boc.Effect = dShdow;
 
             text.Content = bocContent();
         }

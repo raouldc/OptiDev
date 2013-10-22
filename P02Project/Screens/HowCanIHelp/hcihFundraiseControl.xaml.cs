@@ -24,6 +24,8 @@ namespace P02Project
             // set image
             donate.setImage("images\\HowCanIHelp\\fundraise.png");
 
+            text.Background = new SolidColorBrush(Util.contentBgColor);
+            text.Margin = Util.contentMargin;
             //set text
             text.Content = GenerateContent();
 
@@ -31,17 +33,17 @@ namespace P02Project
             Util.FadeIn(sbIn, text);
 		}
 
-        private TextBlock TextBlockFactory()
-        {
-            TextBlock tb = new TextBlock();
-            tb.TextAlignment = TextAlignment.Left;
-            tb.FontSize = 24;
-            tb.Margin = new Thickness(10);
-            tb.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#ffffffff"));
-            tb.TextWrapping = TextWrapping.Wrap;
+        //private TextBlock TextBlockFactory()
+        //{
+        //    TextBlock tb = new TextBlock();
+        //    tb.TextAlignment = TextAlignment.Left;
+        //    tb.FontSize = 24;
+        //    tb.Margin = new Thickness(10);
+        //    tb.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#ffffffff"));
+        //    tb.TextWrapping = TextWrapping.Wrap;
 
-            return tb;
-        }
+        //    return tb;
+        //}
         /// <summary>
         /// genreate all the content needed for this view
         /// </summary>
@@ -52,7 +54,7 @@ namespace P02Project
         {
             StackPanel content = new StackPanel();
 
-            TextBlock tb = TextBlockFactory();
+            TextBlock tb = Util.TextBlockFactory();
             //data
             //TODO - move to xml
             tb.Inlines.Add(new Run("Holding a fundraising event is making a difference!\n\n"));

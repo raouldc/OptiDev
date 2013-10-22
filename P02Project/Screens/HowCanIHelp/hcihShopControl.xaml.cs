@@ -32,18 +32,26 @@ namespace P02Project
             eb.setImage("images\\HowCanIhelp\\sb.png");
             eb.setCaption("$65 Entertainmaint Booklet");
             eb.setColour(colour);
+            eb.removeTouch();
+            eb.setShadow(10, 0.365, Colors.Black);
 
             firef.setImage("images\\HowCanIhelp\\ff.png");
             firef.setCaption("$10 Firefighter Calender");
             firef.setColour(colour);
+            firef.removeTouch();
+            firef.setShadow(10, 0.365, Colors.Black);
 
             kagi.setImage("images\\HowCanIhelp\\kagi.png");
             kagi.setCaption("$65 Kagi Friendship Bracelet");
             kagi.setColour(colour);
+            kagi.removeTouch();
+            kagi.setShadow(10, 0.365, Colors.Black);
 
             bb.setImage("images\\HowCanIhelp\\bb.png");
             bb.setCaption("$5 Bead Bracelet");
             bb.setColour(colour);
+            bb.removeTouch();
+            bb.setShadow(10,0.365,Colors.Black);
 
             pols = new List<PoloroidControl>();
             pols.Add(eb);
