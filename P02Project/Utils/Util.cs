@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Media;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace P02Project
 {
-    public class Util
+    public static class Util
     {
         // the dictionary of the color of each section
         public static readonly Dictionary<string, Color> _pageColDict = new Dictionary<string, Color>()
@@ -59,11 +61,16 @@ namespace P02Project
         /// <returns></returns>
         public static String[] getLinks(String exclude)
         {
-            List<String> links = new List<string>(new String[] { "About", "Family Support", "How Can I Help?", "News", "Events", "Play Beads", "Contact Us" });
+            List<string> links = new List<string>(new String[] { "About", "Family Support", "How Can I Help?", "News", "Events", "Play Beads", "Contact Us" });
 
             links.Remove(exclude);
             return links.ToArray();
         }
-            
+
+        public static void WriteXml(this XDocument xml, string path)
+        {
+            using (var writer = XmlWriter.Create(path, new XmlWriterSettings {Indent = true}))
+                xml.WriteTo(writer);
+        }
     }
 }
