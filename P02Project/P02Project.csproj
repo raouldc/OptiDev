@@ -108,7 +108,6 @@
       <DependentUpon>fsHomeControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Screens\HowCanIHelp\hcihGiftControl.xaml.cs">
-    <Compile Include="Screens\hcihGiftControl.xaml.cs">
       <DependentUpon>hcihGiftControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Screens\HowCanIHelp\hcihFundraiseControl.xaml.cs">
