@@ -9,6 +9,7 @@ using P02Project.Resources.xml;
 using P02Project.Screens;
 using P02Project.Utils;
 using System.Windows.Threading;
+using P02Project.Screens.Game;
 
 namespace P02Project
 {
@@ -239,7 +240,11 @@ namespace P02Project
             // create a new subscreen and push it into the stack of subscreens
             TopLevelPage nextScreen = new TopLevelPage(ParentWindow, "Play Beads");
             ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("Play Beads"), playBeads.colour, new UserControl(), "");
-
+            Quiz q = new Quiz();
+            q.Topmost = true;
+            q.Activate();
+            q.Show();
+            
         }
 
 
