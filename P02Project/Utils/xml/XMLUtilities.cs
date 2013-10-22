@@ -34,6 +34,7 @@ namespace P02Project.Resources.xml
             {
 
                 try {
+                    //keep a list of all running threads
                     List<Thread> threadList = new List<Thread>();
                     var html = new HtmlWeb();
                     var page = html.Load(url);
@@ -65,13 +66,15 @@ namespace P02Project.Resources.xml
                         if (!File.Exists("Resources/" + imagePath)) {
                             if (!Directory.Exists("Resources/images/" + pageType))
                                 Directory.CreateDirectory("Resources/images/" + pageType);
+                            //create a new ThreadedDataFetcherObject
                             ThreadedDataFetcher fetcer = new ThreadedDataFetcher(new Uri("http://www.childcancer.org.nz" + node.Descendants("img").FirstOrDefault().Attributes["src"].Value), "Resources/" + imagePath);
+                            //add the downloadFile method to a thread
                             Thread th = new Thread(new ThreadStart(fetcer.downloadFile));
+                            //add the thread to the threadList
                             threadList.Add(th);
                             th.Start();
                             //while downloading is occurring, do everything else you need to do
                             //at the end make sure you join all the threads
-                            //add threads to table of threads;
                         }
                         imageList += "<Image node=\"" + n + "\">" + imagePath + "</Image>\n";
                         n++;
@@ -91,6 +94,7 @@ namespace P02Project.Resources.xml
                     {
                         t.Join();
                     }
+                    //write all text to file
                     File.WriteAllText(path, xml);
                 } catch (Exception)
                 {
@@ -120,12 +124,20 @@ namespace P02Project.Resources.xml
             return GetContentFromFile(path);
         }
     }
-
+    /// <summary>
+    /// This class is used solely for being able to fetch files from a url and save them to a file name very quickly
+    /// Use of multiThreading
+    /// </summary>
     class ThreadedDataFetcher
     {
         private Uri url;
         private String path;
         private static WebClient client = new WebClient();
+        /// <summary>
+        /// create a new ThreadedDataFetcher
+        /// </summary>
+        /// <param name="url"> url the file has to be downloaded from</param>
+        /// <param name="fileName">filename of the resulting file that is created </param>
         public ThreadedDataFetcher(Uri url, String fileName)
         {
             this.url = url;
@@ -135,6 +147,7 @@ namespace P02Project.Resources.xml
         {
             client.DownloadFileAsync(url, path);
         }
+
     }
 
 }
