@@ -266,6 +266,14 @@ namespace P02Project
             BitmapSource bitmap = ((Image)btn.Content).Source as BitmapSource;
 
             _selectedImg.Source = bitmap;
+
+            try
+            {
+                (Window.GetWindow(this) as TopWindow).ResetTimer();
+            }
+            catch (NullReferenceException exp)
+            {
+            }
         }
 
 
@@ -280,6 +288,14 @@ namespace P02Project
             if (_tweetTxt.Text.Equals(DEFAULT_TWEET))
             {
                 _tweetTxt.Text = "";
+            }
+
+            try
+            {
+                (Window.GetWindow(this) as TopWindow).ResetTimer();
+            }
+            catch (NullReferenceException exp)
+            {
             }
         }
 
@@ -307,16 +323,29 @@ namespace P02Project
             Twitter twitter = new Twitter();
 
             twitter.postTweet(newTweet, bitmap);
+
+            try
+            {
+                (Window.GetWindow(this) as TopWindow).ResetTimer();
+            }
+            catch (NullReferenceException exp)
+            {
+            }
+        }
+
+        private void _tweetTxt_KeyDown(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                (Window.GetWindow(this) as TopWindow).ResetTimer();
+            }
+            catch (NullReferenceException exp)
+            {
+            }
         }
         #endregion
 
 
-
-
-
-
-
-        
     }
 	
 }
