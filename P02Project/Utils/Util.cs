@@ -9,8 +9,7 @@ namespace P02Project
     public static class Util
     {
         // the dictionary of the color of each section
-        public static readonly Dictionary<string, Color> _pageColDict = new Dictionary<string, Color>()
-        {
+        public static readonly Dictionary<string, Color> _pageColDict = new Dictionary<string, Color>{
             { "About",              (Color)ColorConverter.ConvertFromString("#ffdc1423")},
             { "abtSelected",        (Color)ColorConverter.ConvertFromString("#FF920711")},
             { "abtUnSelected",      (Color)ColorConverter.ConvertFromString("#FFee4c58")},
@@ -61,7 +60,7 @@ namespace P02Project
         /// <returns></returns>
         public static String[] getLinks(String exclude)
         {
-            List<string> links = new List<string>(new String[] { "About", "Family Support", "How Can I Help?", "News", "Events", "Play Beads", "Contact Us" });
+            var links = new List<string>(new[] { "About", "Family Support", "How Can I Help?", "News", "Events", "Play Beads", "Contact Us" });
 
             links.Remove(exclude);
             return links.ToArray();
