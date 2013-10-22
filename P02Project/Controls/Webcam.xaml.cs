@@ -60,6 +60,7 @@ namespace P02Project
             // Create default device
             SelectedWebcamMonikerString = (CapDevice.DeviceMonikers.Length > 0) ? CapDevice.DeviceMonikers[0].MonikerString : "";
 
+
             _sbIn = new Storyboard();
             Util.FadeIn(_sbIn, _selectedImg);
             Util.FadeIn(_sbIn, _tweetTxt);

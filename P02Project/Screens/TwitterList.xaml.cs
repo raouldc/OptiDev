@@ -63,11 +63,22 @@ namespace P02Project
                     String twitterText = tweet.TextDecoded;
                     twElm.setTweetText(twitterText);
 
-                    // put the twitter image in img variable
+                    // put the default twitter image, for the case that the url is not working.
                     BitmapImage img = new BitmapImage();
                     img.BeginInit();
                     img.UriSource = new Uri("pack://application:,,/Resources/images/logoCCF.png");
                     img.EndInit();
+
+
+                    //Ask Twitter to get url
+                    List<String> urls = service.getImageUrlsForTweet(tweet);
+                    if(urls.Count>0){ 
+                        String imgUrl = urls[0];
+                        img = service.getBitmapImageForUrl(imgUrl);
+
+                    }
+
+
                     twElm.setTweetImg(img);
 
 
@@ -105,15 +116,22 @@ namespace P02Project
         /// <param name="e"></param>
         private void openWebcam(Object sender, RoutedEventArgs e)
         {
+
+            Webcam webcam = new Webcam();
+            _topLevelPage.setContent(webcam);
+            _topLevelPage.setSubtitle("Support Us On Twitter");
+
+            /*
             // create a new subscreen and push it into the stack of subscreens
             AnimateOut();
 
             _dt.Tick += new EventHandler(pusbWebcam);
             _dt.Start();
+             * */
         }
 
 
-
+        /*
         private void pusbWebcam(object sender, EventArgs e)
         {
             Webcam webcam = new Webcam();
@@ -123,7 +141,7 @@ namespace P02Project
 
             _dt.Stop();
         }
-
+        */
 
 
 
