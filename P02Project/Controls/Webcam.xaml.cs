@@ -322,7 +322,7 @@ namespace P02Project
 
             Twitter twitter = new Twitter();
 
-            twitter.postTweet(newTweet, bitmap);
+            twitter.postTweet(newTweet, bitmap, this);
 
             try
             {

@@ -189,6 +189,16 @@ namespace P02Project
             inavtiveTimer.Stop();
             inavtiveTimer.Start();
         }
+
+        public void StopTimer()
+        {
+            inavtiveTimer.Stop();
+        }
+
+        public void StartTimer()
+        {
+            inavtiveTimer.Start();
+        }
     
     }
 }
