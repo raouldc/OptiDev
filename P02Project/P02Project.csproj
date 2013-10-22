@@ -107,6 +107,9 @@
     <Compile Include="Screens\Family Support\fsHomeControl.xaml.cs">
       <DependentUpon>fsHomeControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Screens\Game\Quiz.xaml.cs">
+      <DependentUpon>Quiz.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Screens\HowCanIHelp\hcihGiftControl.xaml.cs">
       <DependentUpon>hcihGiftControl.xaml</DependentUpon>
     </Compile>
@@ -206,6 +209,10 @@
     <Page Include="Resources\themes\WebcamPlayer.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Screens\Game\Quiz.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Screens\HowCanIHelp\hcihGiftControl.xaml">
       <Generator>MSBuild:Compile</Generator>
