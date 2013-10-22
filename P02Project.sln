@@ -4,8 +4,18 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P02Project", "P02Project\P02Project.csproj", "{A73C7620-0F67-4012-A49C-A4BA52B1C5F4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C40568AC-66CF-466E-B339-8FB985AA6408}"
+	ProjectSection(SolutionItems) = preProject
+		Local.testsettings = Local.testsettings
+		P02Project.vsmdi = P02Project.vsmdi
+		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P02ProjectUnitTesting", "P02ProjectUnitTesting\P02ProjectUnitTesting.csproj", "{6C7A554B-4293-4F4B-B235-55C956BD86E7}"
 EndProject
 Global
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = P02Project.vsmdi
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -15,6 +25,10 @@ Global
 		{A73C7620-0F67-4012-A49C-A4BA52B1C5F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A73C7620-0F67-4012-A49C-A4BA52B1C5F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A73C7620-0F67-4012-A49C-A4BA52B1C5F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C7A554B-4293-4F4B-B235-55C956BD86E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C7A554B-4293-4F4B-B235-55C956BD86E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C7A554B-4293-4F4B-B235-55C956BD86E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C7A554B-4293-4F4B-B235-55C956BD86E7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

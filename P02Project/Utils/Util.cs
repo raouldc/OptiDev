@@ -4,7 +4,7 @@ using System.Windows.Media;
 
 namespace P02Project
 {
-    class Util
+    public class Util
     {
         // the dictionary of the color of each section
         public static readonly Dictionary<string, Color> _pageColDict = new Dictionary<string, Color>()
