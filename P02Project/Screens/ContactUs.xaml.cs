@@ -22,17 +22,19 @@ namespace P02Project
         private static readonly Brush SELECTED_COLOR = new SolidColorBrush(Util._pageColDict["cuSelected"]);
         private static readonly Brush UNSELECTED_COLOR = new SolidColorBrush(Util._pageColDict["cuUnSelected"]);
 
+        private Map moMap;
         private Map map;
-        private Pushpin aucklandPin;
-        private Pushpin christchurchPin;
-        private Pushpin dunedinPin;
-        private Pushpin wellingtonPin;
+        private Pushpin auckMOPin;
+        private Pushpin chchPin;
+        private Pushpin dunPin;
+        private Pushpin taurPin;
+        private Pushpin hBPin;
+        private Pushpin wellPin;
 
         private SurfaceScrollViewer familyPlaceScroll;
 
-        // lists storing the contents of each option
-        private List<RichTextBox> _fndrsOffList;
-        private List<RichTextBox> _fmlSptList;
+        private Grid familySupportGrid;
+        private Grid fundOfficeGrid;
 
         //Animations
         private Storyboard sbIn;
@@ -47,17 +49,57 @@ namespace P02Project
             _fndrsOff.Background = UNSELECTED_COLOR;
             _fmlSptBrns.Background = UNSELECTED_COLOR;
 
-            
+            _fmlPlcs.FontFamily = Util.buttonTextFont;
+            _mainOff.FontFamily = Util.buttonTextFont;
+            _fndrsOff.FontFamily = Util.buttonTextFont;
+            _fmlSptBrns.FontFamily = Util.buttonTextFont;
+
+            _fmlPlcs.FontSize = Util.buttonTextSize;
+            _mainOff.FontSize = Util.buttonTextSize;
+            _fndrsOff.FontSize = Util.buttonTextSize;
+            _fmlSptBrns.FontSize = Util.buttonTextSize;
+
+            _fmlPlcs.Foreground = new SolidColorBrush(Util.buttonTextColor);
+            _mainOff.Foreground = new SolidColorBrush(Util.buttonTextColor);
+            _fndrsOff.Foreground = new SolidColorBrush(Util.buttonTextColor);
+            _fmlSptBrns.Foreground = new SolidColorBrush(Util.buttonTextColor);
+
             //Animations
             sbIn = new Storyboard();
             Util.StackAnimationDefault(sbIn, buttons.Children);
 
-            content.Content = familyPlaceContent();
+           
+            //Map
+            map = new Map();
+            map.Mode = new AerialMode(labels: true);
+            map.CredentialsProvider = Util.MapProvider;
+            map.HorizontalAlignment = HorizontalAlignment.Stretch;
+            map.VerticalAlignment = VerticalAlignment.Stretch;
+            map.Center = new Location(-41, 174);
+            map.ZoomLevel = 6.0;
+            map.Height = 550;
+            
+
+            //init pushpins
+            auckMOPin = new Pushpin();
+            chchPin = new Pushpin();
+            dunPin = new Pushpin();
+            taurPin = new Pushpin();
+            hBPin = new Pushpin();
+            wellPin = new Pushpin();
+
+            auckMOPin.Location = new Location(-36.857897, 174.769401);
+            chchPin.Location = new Location(-43.501951, 172.544112);
+            dunPin.Location = new Location(-45.868512, 170.50574);
+            taurPin.Location = new Location(-37.699713, 176.156457);
+            hBPin.Location = new Location(-39.628639, 176.822171);
+            wellPin.Location = new Location(-41.307915, 174.77836);
+
+            fmlPlClicked(null, null);
 
         }
 
-
-
+        
         /// <summary>
         /// this method called when the "Family Places" option button has been clicked
         /// </summary>
@@ -77,7 +119,10 @@ namespace P02Project
             _fmlSptBrns.Effect = null;
 
             //add drop shadow
-            _fmlPlcs.Effect = new DropShadowEffect();
+            DropShadowEffect dShdow = new DropShadowEffect();
+            dShdow.BlurRadius = 10;
+            dShdow.Opacity = 0.365;
+            _fmlPlcs.Effect = dShdow;
 
             content.Content = familyPlaceContent();
         }
@@ -103,7 +148,10 @@ namespace P02Project
             _fmlSptBrns.Effect = null;
 
             //add drop shadow
-            _mainOff.Effect = new DropShadowEffect();
+            DropShadowEffect dShdow = new DropShadowEffect();
+            dShdow.BlurRadius = 10;
+            dShdow.Opacity = 0.365;
+            _mainOff.Effect = dShdow;
 
             content.Content = mainOfficeContent();
         }
@@ -128,7 +176,10 @@ namespace P02Project
             _fmlSptBrns.Effect = null;
 
             //add drop shadow
-            _fndrsOff.Effect = new DropShadowEffect();
+            DropShadowEffect dShdow = new DropShadowEffect();
+            dShdow.BlurRadius = 10;
+            dShdow.Opacity = 0.365;
+            _fndrsOff.Effect = dShdow;
 
             content.Content = fundraisingOfficeContent();
         }
@@ -154,7 +205,10 @@ namespace P02Project
             _fndrsOff.Effect = null;
 
             //add drop shadow
-            _fmlSptBrns.Effect = new DropShadowEffect();
+            DropShadowEffect dShdow = new DropShadowEffect();
+            dShdow.BlurRadius = 10;
+            dShdow.Opacity = 0.365;
+            _fmlSptBrns.Effect = dShdow;
 
             content.Content = familySupportContent();
         }
@@ -171,30 +225,95 @@ namespace P02Project
         }
 
         private Grid fundraisingOfficeContent() {
-            Grid g = new Grid();
-            // Add paragraphs to the FlowDocument.
-            
+            if(fundOfficeGrid == null){
+            fundOfficeGrid = new Grid();
+
+            ColumnDefinition c1 = new ColumnDefinition();
+            ColumnDefinition c2 = new ColumnDefinition();
+            fundOfficeGrid.ColumnDefinitions.Add(c1);
+            fundOfficeGrid.ColumnDefinitions.Add(c2);
+
+            RowDefinition r1 = new RowDefinition();
+            RowDefinition r2 = new RowDefinition();
+            RowDefinition r3 = new RowDefinition();
+            fundOfficeGrid.RowDefinitions.Add(r1);
+            fundOfficeGrid.RowDefinitions.Add(r2);
+            fundOfficeGrid.RowDefinitions.Add(r3);
+
             RichTextBox box1 = new RichTextBox((FlowDocument)FindResource("auckFOFlow"));
             RichTextBox box2 = new RichTextBox((FlowDocument)FindResource("waikatoFOFlow"));
             RichTextBox box3 = new RichTextBox((FlowDocument)FindResource("taurangaFOFlow"));
             RichTextBox box4 = new RichTextBox((FlowDocument)FindResource("wellFOFlow"));
             RichTextBox box5 = new RichTextBox((FlowDocument)FindResource("canterburyFOFlow"));
             RichTextBox box6 = new RichTextBox((FlowDocument)FindResource("otagoFOFlow"));
-            
-            g.Children.Add(box1);
-            g.Children.Add(box2);
-            g.Children.Add(box3);
-            g.Children.Add(box4);
-            g.Children.Add(box5);
-            g.Children.Add(box6);
-            
-            return g;
+
+            setRTBoxStyle(box1);
+            setRTBoxStyle(box2);
+            setRTBoxStyle(box3);
+            setRTBoxStyle(box4);
+            setRTBoxStyle(box5);
+            setRTBoxStyle(box6);
+
+            Grid.SetColumn(box1, 0);
+            Grid.SetRow(box1, 0);
+
+            Grid.SetColumn(box2, 1);
+            Grid.SetRow(box2, 0);
+
+            Grid.SetColumn(box3, 0);
+            Grid.SetRow(box3, 1);
+
+            Grid.SetColumn(box4, 1);
+            Grid.SetRow(box4, 1);
+
+            Grid.SetColumn(box5, 0);
+            Grid.SetRow(box5, 2);
+
+            Grid.SetColumn(box6, 1);
+            Grid.SetRow(box6, 2);
+
+            fundOfficeGrid.Children.Add(box1);
+            fundOfficeGrid.Children.Add(box2);
+            fundOfficeGrid.Children.Add(box3);
+            fundOfficeGrid.Children.Add(box4);
+            fundOfficeGrid.Children.Add(box5);
+            fundOfficeGrid.Children.Add(box6);
+            }
+            return fundOfficeGrid;
+        }
+
+        private static void setRTBoxStyle(RichTextBox box)
+        {
+            box.FontFamily = Util.contentTextFont;
+            box.FontSize = Util.contentTextSize;
+            box.Foreground = new SolidColorBrush(Util.contentTextColor);
+            box.Background = new SolidColorBrush(Util.contentBgColor);
+            box.Margin = new Thickness(10);
+            box.Width = 400;
+            box.Height = 250;
+            //add drop shadow
+            DropShadowEffect dShdow = new DropShadowEffect();
+            dShdow.BlurRadius = 10;
+            dShdow.Opacity = 0.365;
+            box.Effect = dShdow; 
         }
 
         private Grid familySupportContent()
         {
-            Grid g = new Grid();
-            // Add paragraphs to the FlowDocument.
+            if(familySupportGrid == null){
+            familySupportGrid = new Grid();
+           
+            ColumnDefinition c1 = new ColumnDefinition();
+            ColumnDefinition c2 = new ColumnDefinition();
+            familySupportGrid.ColumnDefinitions.Add(c1);
+            familySupportGrid.ColumnDefinitions.Add(c2);
+
+            RowDefinition r1 = new RowDefinition();
+            RowDefinition r2 = new RowDefinition();
+            RowDefinition r3 = new RowDefinition();
+            familySupportGrid.RowDefinitions.Add(r1);
+            familySupportGrid.RowDefinitions.Add(r2);
+            familySupportGrid.RowDefinitions.Add(r3);
 
             RichTextBox box1 = new RichTextBox((FlowDocument)FindResource("auckFSFlow"));
             RichTextBox box2 = new RichTextBox((FlowDocument)FindResource("waikatoFSFlow"));
@@ -203,14 +322,39 @@ namespace P02Project
             RichTextBox box5 = new RichTextBox((FlowDocument)FindResource("chchFSFlow"));
             RichTextBox box6 = new RichTextBox((FlowDocument)FindResource("dunedinFSFlow"));
 
-            g.Children.Add(box1);
-            g.Children.Add(box2);
-            g.Children.Add(box3);
-            g.Children.Add(box4);
-            g.Children.Add(box5);
-            g.Children.Add(box6);
+            setRTBoxStyle(box1);
+            setRTBoxStyle(box2);
+            setRTBoxStyle(box3);
+            setRTBoxStyle(box4);
+            setRTBoxStyle(box5);
+            setRTBoxStyle(box6);
 
-            return g;
+            Grid.SetColumn(box1, 0);
+            Grid.SetRow(box1, 0);
+
+            Grid.SetColumn(box2, 1);
+            Grid.SetRow(box2, 0);
+
+            Grid.SetColumn(box3, 0);
+            Grid.SetRow(box3, 1);
+
+            Grid.SetColumn(box4, 1);
+            Grid.SetRow(box4, 1);
+
+            Grid.SetColumn(box5, 0);
+            Grid.SetRow(box5, 2);
+
+            Grid.SetColumn(box6, 1);
+            Grid.SetRow(box6, 2);
+
+            familySupportGrid.Children.Add(box1);
+            familySupportGrid.Children.Add(box2);
+            familySupportGrid.Children.Add(box3);
+            familySupportGrid.Children.Add(box4);
+            familySupportGrid.Children.Add(box5);
+            familySupportGrid.Children.Add(box6);
+        }
+            return familySupportGrid;
         }
 
         /// <summary>
@@ -339,59 +483,35 @@ namespace P02Project
             //Set content to on going donation
             StackPanel contentStackPanel = new StackPanel();
 
-
-            // Set up the Bing map control
-            map = new Map();
-            map.Mode = new AerialMode(labels: true);
-            map.CredentialsProvider = Util.MapProvider;
-            map.HorizontalAlignment = HorizontalAlignment.Stretch;
-            map.VerticalAlignment = VerticalAlignment.Stretch;
-            map.Center = new Location(-41, 174);
-            map.ZoomLevel = 6.0;
-            map.Height = 550;
-
-            // The pushpin to add to the map.
-            aucklandPin = new Pushpin();
-            aucklandPin.Location = new Location(-36.843880, 174.767746);
-
-            // Adds the pushpin to the map.
-            map.Children.Add(aucklandPin);
-
-            // The pushpin to add to the map.
-            christchurchPin = new Pushpin();
-            christchurchPin.Location = new Location(-43.531010, 172.637787);
-
-            // Adds the pushpin to the map.
-            map.Children.Add(christchurchPin);
-
-            // The pushpin to add to the map.
-            dunedinPin = new Pushpin();
-            dunedinPin.Location = new Location(-45.873489, 170.503967);
-
-            // Adds the pushpin to the map.
-            map.Children.Add(dunedinPin);
-            // The pushpin to add to the map.
-            wellingtonPin = new Pushpin();
-            wellingtonPin.Location = new Location(-41.288940, 174.776276);
-
-            // Adds the pushpin to the map.
-            map.Children.Add(wellingtonPin);
-
+            //Remove all pushpins from the map
+            if (map.Children.Count < 6)
+            {
+                map.Children.Add(auckMOPin);
+                map.Children.Add(chchPin);
+                map.Children.Add(dunPin);
+                map.Children.Add(wellPin);
+                map.Children.Add(taurPin);
+                map.Children.Add(hBPin);
+            } 
+            
             map.AddHandler(UIElement.TouchDownEvent, new EventHandler<TouchEventArgs>(MapWithPushpins_TouchDown), true);
             map.AddHandler(UIElement.MouseDownEvent, new MouseButtonEventHandler(MapWithPushpins_MouseDown), true);
+
+            //List of buttons to zoom in on locations
+            //StackPanel mapBtns = mapButtons();
+
 
             familyPlaceScroll = new SurfaceScrollViewer();
             familyPlaceScroll.Height = 300;
             familyPlaceScroll.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#00000000"));
-
-
+            
             TextBlock prompt = Util.TextBlockFactory();
             prompt.TextAlignment = TextAlignment.Center;
             prompt.Inlines.Add(new Run("Click on the pins to see their contact information\n"));
-
             familyPlaceScroll.Content = prompt;
 
             contentStackPanel.Children.Add(map);
+            //contentStackPanel.Children.Add(mapBtns);
             contentStackPanel.Children.Add(familyPlaceScroll);
 
             familyPlaceScroll.HorizontalScrollBarVisibility = ScrollBarVisibility.Disabled;
@@ -399,6 +519,14 @@ namespace P02Project
 
             return contentStackPanel;
         }
+
+        //private StackPanel mapButtons() { 
+        //    StackPanel stack = new StackPanel();
+        //    stack.Orientation = Orientation.Horizontal;
+        //    Button  
+
+        //    return stack;
+        //}
 
         /// <summary>
         /// the helper method to generate the content when "contact list" has been clicked
@@ -410,8 +538,7 @@ namespace P02Project
             StackPanel contentStackPanel = new StackPanel();
 
 
-            // Set up the Bing map control
-            Map moMap = new Map();
+            moMap = new Map();
             moMap.Mode = new AerialMode(labels: true);
             moMap.CredentialsProvider = Util.MapProvider;
             moMap.HorizontalAlignment = HorizontalAlignment.Stretch;
@@ -420,16 +547,14 @@ namespace P02Project
             moMap.ZoomLevel = 6.0;
             moMap.Height = 550;
 
-            // The pushpin to add to the map.
-            Pushpin moPin = new Pushpin();
-            moPin.Location = new Location(-36.843880, 174.767746);
-
-            // Adds the pushpin to the map.
+            Pushpin moPin = new Pushpin(); 
+            moPin.Location = new Location(-36.857897, 174.769401);
             moMap.Children.Add(moPin);
 
             SurfaceScrollViewer scrollContent = new SurfaceScrollViewer();
             scrollContent.Height = 300;
             scrollContent.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#00000000"));
+            scrollContent.AddHandler(UIElement.TouchUpEvent, new EventHandler<TouchEventArgs>(MainOffice_TouchDown), true);
 
             //Add main office content here
             scrollContent.Content = mainOfficeContent();
@@ -443,6 +568,11 @@ namespace P02Project
             return contentStackPanel;
         }
 
+        private void MainOffice_TouchDown(object sender, TouchEventArgs e)
+        {
+            moMap.Center = auckMOPin.Location;
+            moMap.ZoomLevel = 8.0;
+        }
 
         private void MapWithPushpins_TouchDown(object sender, TouchEventArgs e)
         {
@@ -454,33 +584,54 @@ namespace P02Project
             //Convert the mouse coordinates to a location on the map
             //pinlocation longitude is comingout as negative so reversing
             Location pinLocation = map.ViewportPointToLocation(touchPosition.Position);
-
+            Console.WriteLine("Touched - "+ pinLocation.Latitude +", "+ pinLocation.Longitude);
             //Calculate the distance to the other pushpins
-            double auckdist = Math.Sqrt(Math.Pow(aucklandPin.Location.Latitude - pinLocation.Latitude, 2) + Math.Pow(aucklandPin.Location.Longitude - -pinLocation.Longitude, 2));
-            double chchdist = Math.Sqrt(Math.Pow(christchurchPin.Location.Latitude - pinLocation.Latitude, 2) + Math.Pow(christchurchPin.Location.Longitude - -pinLocation.Longitude, 2));
-            double dundist = Math.Sqrt(Math.Pow(dunedinPin.Location.Latitude - pinLocation.Latitude, 2) + Math.Pow(dunedinPin.Location.Longitude - -pinLocation.Longitude, 2));
-            double welldist = Math.Sqrt(Math.Pow(wellingtonPin.Location.Latitude - pinLocation.Latitude, 2) + Math.Pow(wellingtonPin.Location.Longitude - -pinLocation.Longitude, 2));
+            //Negate longitude if it coems out negative. Unsure of why this is happening - assuming the user is likely to only look at nz
+            if(pinLocation.Longitude < 0){
+                pinLocation.Longitude = -pinLocation.Longitude;
+            }
 
+            double auckdist = Math.Sqrt(Math.Pow(auckMOPin.Location.Latitude - pinLocation.Latitude, 2) + Math.Pow(auckMOPin.Location.Longitude - pinLocation.Longitude, 2));
+            double chchdist = Math.Sqrt(Math.Pow(chchPin.Location.Latitude - pinLocation.Latitude, 2) + Math.Pow(chchPin.Location.Longitude - pinLocation.Longitude, 2));
+            double dundist = Math.Sqrt(Math.Pow(dunPin.Location.Latitude - pinLocation.Latitude, 2) + Math.Pow(dunPin.Location.Longitude - pinLocation.Longitude, 2));
+            double welldist = Math.Sqrt(Math.Pow(wellPin.Location.Latitude - pinLocation.Latitude, 2) + Math.Pow(wellPin.Location.Longitude - pinLocation.Longitude, 2));
+            double taurdist = Math.Sqrt(Math.Pow(taurPin.Location.Latitude - pinLocation.Latitude, 2) + Math.Pow(taurPin.Location.Longitude - pinLocation.Longitude, 2));
+            double hbdist = Math.Sqrt(Math.Pow(hBPin.Location.Latitude - pinLocation.Latitude, 2) + Math.Pow(hBPin.Location.Longitude - pinLocation.Longitude, 2));
+
+
+            Console.WriteLine("Distances a- " + auckdist + ", c-" + chchdist + ", d-" + dundist + ", w-" + welldist + ", t-" + taurdist + ", h-" + hbdist);
              //If within 2 latitude/longitude then show content
-            if (auckdist > -2 && auckdist < 2)
+            if (auckdist > -1 && auckdist < 2)
             {
+                Console.WriteLine("Displaying A content");
                 familyPlaceScroll.Content = auckFPContent();
             }
             else if (chchdist > -2 && chchdist < 2)
             {
+                Console.WriteLine("Displaying C content");
                 familyPlaceScroll.Content = chchFPContent();
             }
             else if (dundist > -2 && dundist < 2)
             {
+                Console.WriteLine("Displaying D content");
                 familyPlaceScroll.Content = dunedinFPContent();
             }
             else if (welldist > -2 && welldist < 2)
             {
+                Console.WriteLine("Displaying W content");
                 familyPlaceScroll.Content = wellFPContent();
             }
-
-            // Adds the pushpin to the map.
-            //map.Children.Add(pin);
+            else if (taurdist > -2 && taurdist < 2)
+            {
+                Console.WriteLine("Displaying T content");
+                familyPlaceScroll.Content = taurangaFPContent();
+            }
+            else if (hbdist > -2 && hbdist < 2)
+            {
+                Console.WriteLine("Displaying H content");
+                familyPlaceScroll.Content = hbFPContent();
+            }
+            
         }
 
         private void MapWithPushpins_MouseDown(object sender, MouseButtonEventArgs e)
@@ -494,30 +645,47 @@ namespace P02Project
             //Convert the mouse coordinates to a location on the map
             Location pinLocation = map.ViewportPointToLocation(touchPosition);
 
+            Console.WriteLine("Touched - " + pinLocation.Latitude + ", " + pinLocation.Longitude);
             //Calculate the distance to the other pushpins
-            double auckdist = Math.Sqrt(Math.Pow(aucklandPin.Location.Latitude - pinLocation.Latitude, 2) + Math.Pow(aucklandPin.Location.Longitude - -pinLocation.Longitude, 2));
-            double chchdist = Math.Sqrt(Math.Pow(christchurchPin.Location.Latitude - pinLocation.Latitude, 2) + Math.Pow(christchurchPin.Location.Longitude - -pinLocation.Longitude, 2));
-            double dundist = Math.Sqrt(Math.Pow(dunedinPin.Location.Latitude - pinLocation.Latitude, 2) + Math.Pow(dunedinPin.Location.Longitude - -pinLocation.Longitude, 2));
-            double welldist = Math.Sqrt(Math.Pow(wellingtonPin.Location.Latitude - pinLocation.Latitude, 2) + Math.Pow(wellingtonPin.Location.Longitude - -pinLocation.Longitude, 2));
+            double auckdist = Math.Sqrt(Math.Pow(auckMOPin.Location.Latitude - pinLocation.Latitude, 2) + Math.Pow(auckMOPin.Location.Longitude - -pinLocation.Longitude, 2));
+            double chchdist = Math.Sqrt(Math.Pow(chchPin.Location.Latitude - pinLocation.Latitude, 2) + Math.Pow(chchPin.Location.Longitude - -pinLocation.Longitude, 2));
+            double dundist = Math.Sqrt(Math.Pow(dunPin.Location.Latitude - pinLocation.Latitude, 2) + Math.Pow(dunPin.Location.Longitude - -pinLocation.Longitude, 2));
+            double welldist = Math.Sqrt(Math.Pow(wellPin.Location.Latitude - pinLocation.Latitude, 2) + Math.Pow(wellPin.Location.Longitude - -pinLocation.Longitude, 2));
+            double taurdist = Math.Sqrt(Math.Pow(taurPin.Location.Latitude - pinLocation.Latitude, 2) + Math.Pow(taurPin.Location.Longitude - -pinLocation.Longitude, 2));
+            double hbdist = Math.Sqrt(Math.Pow(hBPin.Location.Latitude - pinLocation.Latitude, 2) + Math.Pow(hBPin.Location.Longitude - -pinLocation.Longitude, 2));
 
+            Console.WriteLine("Distances a- " + auckdist + ", c-" + chchdist + ", d-" + dundist + ", w-" + welldist + ", t-" + taurdist + ", h-" + hbdist);
             //If within 2 latitude/longitude then show content
-            if (auckdist > -2 && auckdist < 2)
+            if (auckdist > -1 && auckdist < 2)
             {
+                Console.WriteLine("Displaying A content");
                 familyPlaceScroll.Content = auckFPContent();
             }
             else if (chchdist > -2 && chchdist < 2)
             {
+                Console.WriteLine("Displaying C content");
                 familyPlaceScroll.Content = chchFPContent();
             }
             else if (dundist > -2 && dundist < 2)
             {
+                Console.WriteLine("Displaying D content");
                 familyPlaceScroll.Content = dunedinFPContent();
             }
             else if (welldist > -2 && welldist < 2)
             {
+                Console.WriteLine("Displaying W content");
                 familyPlaceScroll.Content = wellFPContent();
             }
-
+            else if (taurdist > -2 && taurdist < 2)
+            {
+                Console.WriteLine("Displaying T content");
+                familyPlaceScroll.Content = taurangaFPContent();
+            }
+            else if (hbdist > -2 && hbdist < 2)
+            {
+                Console.WriteLine("Displaying H content");
+                familyPlaceScroll.Content = hbFPContent();
+            }
         }
     }
 }

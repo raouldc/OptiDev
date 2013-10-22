@@ -522,7 +522,6 @@ namespace P02Project
             TextBlock pResourcesText1 = Util.TextBlockFactory();
 
             TextBlock pResourcesText2 = Util.TextBlockFactory();
-            pResourcesText2.FontSize = Util.headingTextSize;
             pResourcesText2.Inlines.Add(new Bold(new Run("Parent Resources \n")));
             pResourcesText2.Inlines.Add(new Run("Child Cancer Foundation aims to provide up-to-date information for families. Below is a list of websites providing additional information, research documents and details about child cancer from around the world."));
 

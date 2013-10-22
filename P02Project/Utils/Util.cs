@@ -52,17 +52,17 @@ namespace P02Project
         //Text attributes
 
         //Content
-        public static readonly FontFamily contentTextFont = new FontFamily("Century Gothic");
+        public static readonly FontFamily contentTextFont = new FontFamily("Segoe UI");
         public static readonly Color contentTextColor = (Color)ColorConverter.ConvertFromString("#FF000000");
         public static readonly Color contentBgColor = (Color)ColorConverter.ConvertFromString("#7Fffffff");
         public static readonly Thickness contentMargin = new Thickness(30);
         public static readonly double contentTextSize = 24;
-        public static readonly double headingTextSize = 32;
+        public static readonly double headingTextSize = 30;
         
         //left Buttons
-        public static readonly FontFamily buttonTextFont = new FontFamily("Andy");
+        public static readonly FontFamily buttonTextFont = new FontFamily("Segoe UI");
         public static readonly Color buttonTextColor = (Color)ColorConverter.ConvertFromString("#FF000000");
-        public static readonly double buttonTextSize = 48;
+        public static readonly double buttonTextSize = 40;
 
         //Creates content text blocks
         public static TextBlock TextBlockFactory()

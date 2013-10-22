@@ -11,15 +11,43 @@
 	x:Name="UserControl"
 	d:DesignWidth="1630" d:DesignHeight="900">
     <UserControl.Resources>
+        <!-- This style is used for buttons, to remove the WPF default 'animated' mouse over effect -->
+        <Style x:Key="MyButtonStyle" TargetType="Button">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border" 
+                            BorderThickness="0"
+                            Padding="4,2" 
+                            BorderBrush="DarkGray" 
+                            CornerRadius="0" 
+                            Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="BorderBrush" Value="Black" />
+                            </Trigger>
+                            <Trigger Property="IsFocused" Value="True">
+                                <Setter TargetName="border" Property="BorderBrush" Value="Black" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
         <FlowDocument x:Key="auckFOFlow">
             <Paragraph LineHeight="8">
-                <Run FontWeight="Bold" FontSize="40" Language="en-nz" Text="Auckland / Northland"/>
+                <Run FontWeight="Bold" FontSize="30" Language="en-nz" Text="Auckland / Northland"/>
             </Paragraph>
             <Paragraph LineHeight="8">
                 <Run Language="en-nz" Text="Liz Atkinson"/>
             </Paragraph>
             <Paragraph LineHeight="8">
-                <Run FontWeight="Bold" Language="en-nz" Text="Phone:"/>
+                <Run Language="en-nz" Text="Phone:"/>
                 <Run Text=" "/>
                 <Run Language="en-nz" Text=" 09 303 9976  | 021 574 545"/>
             </Paragraph>
@@ -30,7 +58,7 @@
 
         <FlowDocument x:Key="waikatoFOFlow">
             <Paragraph LineHeight="8">
-                <Run FontWeight="Bold" FontSize="40" Text="Waikato"/>
+                <Run FontWeight="Bold" FontSize="30" Text="Waikato"/>
             </Paragraph>
             <Paragraph LineHeight="8">
                 <Run Text="Sharon Robertson"/>
@@ -45,7 +73,7 @@
 
         <FlowDocument x:Key="taurangaFOFlow">
             <Paragraph LineHeight="1">
-                <Run FontWeight="Bold" FontSize="40" Text="Tauranga"/>
+                <Run FontWeight="Bold" FontSize="30" Text="Tauranga"/>
             </Paragraph>
             <Paragraph LineHeight="8">
                 <Run Text="Delwynne Hahunga"/>
@@ -60,7 +88,7 @@
 
         <FlowDocument x:Key="wellFOFlow">
             <Paragraph LineHeight="8">
-                <Run FontWeight="Bold" FontSize="40" Text="Wellington Family Place"/>
+                <Run FontWeight="Bold" FontSize="30" Text="Wellington Family Place"/>
             </Paragraph>
             <Paragraph LineHeight="1">
                 <Run Text="27 Riddiford Street"/>
@@ -78,7 +106,7 @@
 
         <FlowDocument x:Key="canterburyFOFlow">
             <Paragraph LineHeight="8">
-                <Run FontWeight="Bold" FontSize="40" Text="Canterbury/West Coast"/>
+                <Run FontWeight="Bold" FontSize="30" Text="Canterbury/West Coast"/>
             </Paragraph>
             <Paragraph LineHeight="8">
                 <Run Text="Clare Wilkinson"/>
@@ -93,22 +121,20 @@
 
         <FlowDocument x:Key="otagoFOFlow">
             <Paragraph LineHeight="8">
-                <Run FontWeight="Bold" FontSize="40" Language="en-nz" Text="Otago / Southland"/>
+                <Run FontWeight="Bold" FontSize="30" Language="en-nz" Text="Otago / Southland"/>
             </Paragraph>
             <Paragraph LineHeight="8">
                 <Run Text="Elaine Horn"/>
             </Paragraph>
             <Paragraph LineHeight="8">
-                <Run Text="P"/>
-                <Run Text=" "/>
-                <Run Language="en-nz" Text="hone:"/>
+                
+                <Run Language="en-nz" Text="Phone:"/>
                 <Run Text=" "/>
                 <Run Text=" 03 471 7258 | 021 733 671 "/>
             </Paragraph>
             <Paragraph LineHeight="8">
-                <Run Text="E"/>
-                <Run Text=" "/>
-                <Run Language="en-nz" Text="mail:"/>
+                
+                <Run Language="en-nz" Text="Email:"/>
                 <Run Text=" "/>
                 <Run Text=" ehorn@childcancer.org.nz "/>
             </Paragraph>
@@ -116,13 +142,13 @@
 
         <FlowDocument x:Key="auckFSFlow">
             <Paragraph LineHeight="8">
-                <Run FontWeight="Bold" FontSize="40" Language="en-nz" Text="Auckland"/>
+                <Run FontWeight="Bold" FontSize="30" Language="en-nz" Text="Auckland"/>
             </Paragraph>
             <Paragraph LineHeight="8">
                 <Run Language="en-nz" Text="Janet Masina"/>
             </Paragraph>
             <Paragraph LineHeight="8">
-                <Run FontWeight="Bold" Language="en-nz" Text="Phone:"/>
+                <Run Language="en-nz" Text="Phone:"/>
                 <Run Text=" "/>
                 <Run Language="en-nz" Text=" 09 303 9885 "/>
             </Paragraph>
@@ -133,7 +159,7 @@
 
         <FlowDocument x:Key="waikatoFSFlow">
             <Paragraph LineHeight="8">
-                <Run FontWeight="Bold" FontSize="40" Text="Waikato"/>
+                <Run FontWeight="Bold" FontSize="30" Text="Waikato"/>
             </Paragraph>
             <Paragraph LineHeight="8">
                 <Run Text="Robyn Cresswell"/>
@@ -148,7 +174,7 @@
 
         <FlowDocument x:Key="tarawhitiFSFlow">
             <Paragraph LineHeight="1">
-                <Run FontWeight="Bold" FontSize="40" Text="Tarawhiti"/>
+                <Run FontWeight="Bold" FontSize="30" Text="Tarawhiti"/>
             </Paragraph>
             <Paragraph LineHeight="8">
                 <Run Text="Cheryl Scott"/>
@@ -163,7 +189,7 @@
 
         <FlowDocument x:Key="wellFSFlow">
             <Paragraph LineHeight="8">
-                <Run FontWeight="Bold" FontSize="40" Text="Wellington"/>
+                <Run FontWeight="Bold" FontSize="30" Text="Wellington"/>
             </Paragraph>
             <Paragraph LineHeight="1">
                 <Run Text="Tracy Ward"/>
@@ -178,7 +204,7 @@
 
         <FlowDocument x:Key="chchFSFlow">
             <Paragraph LineHeight="8">
-                <Run FontWeight="Bold" FontSize="40" Text="Christchurch"/>
+                <Run FontWeight="Bold" FontSize="30" Text="Christchurch"/>
             </Paragraph>
             <Paragraph LineHeight="8">
                 <Run Text="Robin Furley"/>
@@ -193,20 +219,16 @@
 
         <FlowDocument x:Key="dunedinFSFlow">
             <Paragraph LineHeight="8">
-                <Run FontWeight="Bold" FontSize="40" Language="en-nz" Text="Dunedin"/>
+                <Run FontWeight="Bold" FontSize="30" Language="en-nz" Text="Dunedin"/>
             </Paragraph>
             <Paragraph LineHeight="8">
                 <Run Text="Christine Donovan"/>
             </Paragraph>
             <Paragraph LineHeight="8">
-                <Run Text="P"/>
-                <Run Text=" "/>
-                <Run Language="en-nz" Text="hone: 03 471 7258"/>
+                <Run Language="en-nz" Text="Phone: 03 471 7258"/>
             </Paragraph>
             <Paragraph LineHeight="8">
-                <Run Text="E"/>
-                <Run Text=" "/>
-                <Run Language="en-nz" Text="mail:"/>
+                <Run Language="en-nz" Text="Email:"/>
                 <Run Text=" "/>
                 <Run Text=" cdonovan@childcancer.org.nz"/>
             </Paragraph>
@@ -230,14 +252,14 @@
 
         <!-- set all the option buttons at the left-->
         <StackPanel x:Name="buttons" Margin="20" Grid.RowSpan="2">
-            <Button x:Name="_fmlPlcs" Content="Family Places" Margin="20" FontSize="48" FontFamily="Andy" Background="#ff710b7e" BorderThickness="0" BorderBrush="#00707070" Foreground="White" Click="fmlPlClicked" Width="460" HorizontalAlignment="Left">
+            <Button x:Name="_fmlPlcs" Style="{StaticResource MyButtonStyle}" Content="Family Places" Margin="20" FontSize="48" FontFamily="Andy" Background="#ff710b7e" BorderThickness="0" BorderBrush="#00707070" Foreground="White" Click="fmlPlClicked" Width="460" HorizontalAlignment="Left">
                 <Button.Effect>
                     <DropShadowEffect/>
                 </Button.Effect>
             </Button>
-            <Button x:Name="_mainOff" Content="Main Office" Margin="20" FontSize="48" FontFamily="Andy" BorderThickness="0" Background="#ffe411ff" BorderBrush="#00707070" Foreground="White"  Click="mainOffClicked" Width="460" HorizontalAlignment="Left" />
-            <Button x:Name="_fndrsOff" Content="Fundraising Offices" Margin="20" FontSize="48" FontFamily="Andy" BorderThickness="0" Background="#ffe411ff" BorderBrush="#00707070" Foreground="White"  Click="fndrsClicked" Width="460" HorizontalAlignment="Left" />
-            <Button x:Name="_fmlSptBrns" Content="Family Support Branches" Margin="20" FontSize="48" FontFamily="Andy" BorderThickness="0" Background="#ffe411ff" BorderBrush="#00707070" Foreground="White" Click="fmlSptBrsClicked" Width="460" HorizontalAlignment="Left" />
+            <Button x:Name="_mainOff" Style="{StaticResource MyButtonStyle}" Content="Main Office" Margin="20" FontSize="48" FontFamily="Andy" BorderThickness="0" Background="#ffe411ff" BorderBrush="#00707070" Foreground="White"  Click="mainOffClicked" Width="460" HorizontalAlignment="Left" />
+            <Button x:Name="_fndrsOff" Style="{StaticResource MyButtonStyle}" Content="Fundraising Offices" Margin="20" FontSize="48" FontFamily="Andy" BorderThickness="0" Background="#ffe411ff" BorderBrush="#00707070" Foreground="White"  Click="fndrsClicked" Width="460" HorizontalAlignment="Left" />
+            <Button x:Name="_fmlSptBrns" Style="{StaticResource MyButtonStyle}" Content="Family Support Branches" Margin="20" FontSize="48" FontFamily="Andy" BorderThickness="0" Background="#ffe411ff" BorderBrush="#00707070" Foreground="White" Click="fmlSptBrsClicked" Width="460" HorizontalAlignment="Left" />
 
         </StackPanel>
 
