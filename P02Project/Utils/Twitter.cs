@@ -180,21 +180,7 @@ namespace P02Project
 
             }
 
-
-            try
-            {
-                Stream stream = new MemoryStream(data);
-                picture.Save(stream, ImageFormat.Bmp);
-                //Set the image
-                options.Images.Add(message, stream);
-                //Set the status
-                options.Status = message;
-                service.SendTweetWithMedia(options);
-            }
-            catch (Exception)
-            {
-                throw;
-            }
+            Stream stream = new MemoryStream(data);
 
             options.Status = "Testing with picture";
             var dic = new Dictionary<string, Stream>();
