@@ -32,7 +32,7 @@
         <Image x:Name="_ccfTwitterHome" HorizontalAlignment="Left" Margin="60,72,0,0" Width="502.25" Source="/P02Project;component/Resources/images/Twitter/ChildCanerTwitterHome.png" Height="341" VerticalAlignment="Top"/>
         <Image x:Name="_ccfTwitterQR" HorizontalAlignment="Left" Height="222.5" Margin="196.5,0,0,88" VerticalAlignment="Bottom" Width="226.5" Source="/P02Project;component/Resources/images/Twitter/ChilCancerTwitterQR.png" RenderTransformOrigin="0.535,0.933"/>
         
-        <Custom:SurfaceScrollViewer x:Name="_tweetsListScrollViewer" Margin="645,62,0,18" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Visible">
+        <Custom:SurfaceScrollViewer x:Name="_tweetsListScrollViewer" Height="800" Margin="645,62,0,18" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Visible">
             <StackPanel x:Name="_tweetsList" Width="969.5">
                 <!-- label showing each tweet goes here programmatically  -->
             </StackPanel>
