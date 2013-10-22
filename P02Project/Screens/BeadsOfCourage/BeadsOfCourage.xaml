@@ -4,8 +4,99 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="300" d:DesignWidth="300" Width="1630" Height="900">
     <Grid>
+    	<Image Margin="128.23,71.513,148.975,94.698" Source="/P02Project;component/Resources/images/beads/thread.png" Stretch="Fill"/>
+    	<Image x:Name="beigeBead" Height="165.726" Margin="507.988,0,0,36.112" Source="/P02Project;component/Resources/images/beads/beige.png" Stretch="Fill" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="273.676" RenderTransformOrigin="0.5,0.5">
+    		<Image.RenderTransform>
+    			<TransformGroup>
+    				<ScaleTransform/>
+    				<SkewTransform/>
+    				<RotateTransform Angle="4.789"/>
+    				<TranslateTransform/>
+    			</TransformGroup>
+    		</Image.RenderTransform>
+    	</Image>
+    	<Image x:Name="blackBead" Margin="0,92.946,192.113,0" Source="/P02Project;component/Resources/images/beads/black.png" Stretch="Fill" Height="165.427" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Right" Width="273.182">
+    		<Image.RenderTransform>
+    			<TransformGroup>
+    				<ScaleTransform/>
+    				<SkewTransform/>
+    				<RotateTransform Angle="24.699"/>
+    				<TranslateTransform/>
+    			</TransformGroup>
+    		</Image.RenderTransform>
+    	</Image>
+    	<Image x:Name="blueBead" Height="165.426" Margin="472.978,-0.847,0,0" Source="/P02Project;component/Resources/images/beads/blue.png" Stretch="Fill" VerticalAlignment="Top" HorizontalAlignment="Left" Width="273.182" RenderTransformOrigin="0.5,0.5">
+    		<Image.RenderTransform>
+    			<TransformGroup>
+    				<ScaleTransform/>
+    				<SkewTransform/>
+    				<RotateTransform Angle="-5.381"/>
+    				<TranslateTransform/>
+    			</TransformGroup>
+    		</Image.RenderTransform>
+    	</Image>
+    	<Image x:Name="brownBead" HorizontalAlignment="Right" Margin="0,349.269,46.475,384.549" Source="/P02Project;component/Resources/images/beads/brown.png" Stretch="Fill" Width="255.805" RenderTransformOrigin="0.5,0.5">
+    		<Image.RenderTransform>
+    			<TransformGroup>
+    				<ScaleTransform/>
+    				<SkewTransform/>
+    				<RotateTransform Angle="90.553"/>
+    				<TranslateTransform/>
+    			</TransformGroup>
+    		</Image.RenderTransform>
+    	</Image>
+    	<Image x:Name="limeBead" Height="170.206" Margin="0,0,520.363,0" Source="/P02Project;component/Resources/images/beads/lime.png" Stretch="Fill" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Right" Width="281.074">
+    		<Image.RenderTransform>
+    			<TransformGroup>
+    				<ScaleTransform/>
+    				<SkewTransform/>
+    				<RotateTransform Angle="5.574"/>
+    				<TranslateTransform/>
+    			</TransformGroup>
+    		</Image.RenderTransform>
+    	</Image>
+    	<Image x:Name="magentaBead" Margin="194.544,0,0,117.373" Source="/P02Project;component/Resources/images/beads/magenta.png" Stretch="Fill" HorizontalAlignment="Left" Height="171.213" VerticalAlignment="Bottom" Width="282.739" RenderTransformOrigin="0.5,0.5">
+    		<Image.RenderTransform>
+    			<TransformGroup>
+    				<ScaleTransform/>
+    				<SkewTransform/>
+    				<RotateTransform Angle="31.053"/>
+    				<TranslateTransform/>
+    			</TransformGroup>
+    		</Image.RenderTransform>
+    	</Image>
+    	<Image x:Name="purpleBead" Margin="0,0,523.548,25.827" Source="/P02Project;component/Resources/images/beads/purple.png" Stretch="Fill" Height="171.215" VerticalAlignment="Bottom" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Right" Width="282.739">
+    		<Image.RenderTransform>
+    			<TransformGroup>
+    				<ScaleTransform/>
+    				<SkewTransform/>
+    				<RotateTransform Angle="-2.433"/>
+    				<TranslateTransform/>
+    			</TransformGroup>
+    		</Image.RenderTransform>
+    	</Image>
+    	<Image x:Name="tortoiseBead" Margin="10.509,360.995,0,367.791" Source="/P02Project;component/Resources/images/beads/tortoise.png" Stretch="Fill" HorizontalAlignment="Left" Width="282.738" RenderTransformOrigin="0.5,0.5">
+    		<Image.RenderTransform>
+    			<TransformGroup>
+    				<ScaleTransform/>
+    				<SkewTransform/>
+    				<RotateTransform Angle="74.131"/>
+    				<TranslateTransform/>
+    			</TransformGroup>
+    		</Image.RenderTransform>
+    	</Image>
+    	<Image Margin="0,0,184.934,131.15" Source="/P02Project;component/Resources/images/beads/white.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Right" Height="171.213" VerticalAlignment="Bottom" Width="282.738">
+    		<Image.RenderTransform>
+    			<TransformGroup>
+    				<ScaleTransform/>
+    				<SkewTransform/>
+    				<RotateTransform Angle="-29.689"/>
+    				<TranslateTransform/>
+    			</TransformGroup>
+    		</Image.RenderTransform>
+    	</Image>
             
     </Grid>
 </UserControl>

@@ -101,6 +101,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Screens\BeadsOfCourage\BeadsOfCourage.xaml.cs">
+      <DependentUpon>BeadsOfCourage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Screens\Family Support\MapControl.xaml.cs">
       <DependentUpon>MapControl.xaml</DependentUpon>
     </Compile>
@@ -189,6 +192,10 @@
       <DependentUpon>PageModel.cs</DependentUpon>
     </Compile>
     <Compile Include="Utils\xml\XMLUtilities.cs" />
+    <Page Include="Screens\BeadsOfCourage\BeadsOfCourage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Screens\Family Support\MapControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -412,6 +419,16 @@
     <Resource Include="Resources\images\HowCanIHelp\gift.png" />
     <Resource Include="Resources\images\HowCanIHelp\qr_soc.png" />
     <Resource Include="Resources\images\HowCanIHelp\qr_boc.png" />
+    <Resource Include="Resources\images\beads\beige.png" />
+    <Resource Include="Resources\images\beads\black.png" />
+    <Resource Include="Resources\images\beads\blue.png" />
+    <Resource Include="Resources\images\beads\brown.png" />
+    <Resource Include="Resources\images\beads\lime.png" />
+    <Resource Include="Resources\images\beads\magenta.png" />
+    <Resource Include="Resources\images\beads\purple.png" />
+    <Resource Include="Resources\images\beads\thread.png" />
+    <Resource Include="Resources\images\beads\tortoise.png" />
+    <Resource Include="Resources\images\beads\white.png" />
     <Content Include="Resources\xml\About.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>
