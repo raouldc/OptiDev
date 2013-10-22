@@ -101,8 +101,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Controls\UserControl1.xaml.cs">
-      <DependentUpon>UserControl1.xaml</DependentUpon>
     <Compile Include="Controls\TweetListElement.xaml.cs">
       <DependentUpon>TweetListElement.xaml</DependentUpon>
     </Compile>
@@ -191,7 +189,6 @@
       <DependentUpon>PageModel.cs</DependentUpon>
     </Compile>
     <Compile Include="Utils\xml\XMLUtilities.cs" />
-    <Page Include="Controls\UserControl1.xaml">
     <Page Include="Controls\TweetListElement.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
