@@ -98,9 +98,8 @@ namespace CatenaLogic.Windows.Presentation.WebcamPlayer
         private static CapGrabber CapGrabber = null;
         private static IntPtr Map = IntPtr.Zero;
         private static IntPtr Section = IntPtr.Zero;
-
-        private static System.Diagnostics.Stopwatch _timer = System.Diagnostics.Stopwatch.StartNew();
-        private static double _frames = 0.0;
+        private static System.Diagnostics.Stopwatch Timer = System.Diagnostics.Stopwatch.StartNew();
+        private static double Frames = 0.0;
         private static string _monikerString = "";
         #endregion
 
@@ -379,18 +378,18 @@ namespace CatenaLogic.Windows.Presentation.WebcamPlayer
         private void UpdateFramerate()
         {
             // Increase the frames
-            _frames++;
+            Frames++;
 
             // Check the timer
-            if (_timer.ElapsedMilliseconds >= 1000)
+            if (Timer.ElapsedMilliseconds >= 1000)
             {
                 // Set the framerate
-                Framerate = (float)Math.Round(_frames * 1000 / _timer.ElapsedMilliseconds);
+                Framerate = (float)Math.Round(Frames * 1000 / Timer.ElapsedMilliseconds);
 
                 // Reset the timer again so we can count the framerate again
-                _timer.Reset();
-                _timer.Start();
-                _frames = 0;
+                Timer.Reset();
+                Timer.Start();
+                Frames = 0;
             }
         }
 

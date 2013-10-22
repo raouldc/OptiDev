@@ -112,7 +112,7 @@
             		</view:PoloroidControl.RenderTransform>
             	</view:PoloroidControl>
             	<Label Content="Click here to get more tweets ..." HorizontalAlignment="Right" Height="33" Margin="0,0,222.5,-7" VerticalAlignment="Bottom" Width="280" FontFamily="Andy" FontSize="20"/>
-<!-- set title bar -->
+                <!-- set title bar -->
 
                 <!-- title bar extentions-->
                 
