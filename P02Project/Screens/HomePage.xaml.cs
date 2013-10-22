@@ -73,7 +73,7 @@ namespace P02Project
 
             // set image and color for Play Beads polaroid
             playBeads.setImage("images\\Home\\beads.png");
-            playBeads.setCaption("Play Beads");
+            playBeads.setCaption("Beads of Courage");
             playBeads.setColour(Util._pageColDict["Play Beads"]);
 
             components = new List<Animatiable>();
