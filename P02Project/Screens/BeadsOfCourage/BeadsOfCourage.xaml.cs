@@ -23,5 +23,10 @@ namespace P02Project.Screens.BeadsOfCourage
         {
             InitializeComponent();
         }
+
+        private void Bead_MouseUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+        	// TODO: Add event handler implementation here.
+        }
     }
 }
