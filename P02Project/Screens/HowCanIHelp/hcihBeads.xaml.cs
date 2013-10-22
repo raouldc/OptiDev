@@ -5,6 +5,7 @@ using System.Windows.Media;
 using System.Windows.Media.Effects;
 using System.Windows.Media.Animation;
 using P02Project.Utils;
+using System;
 
 namespace P02Project
 {
@@ -180,6 +181,14 @@ namespace P02Project
             abtBeads.Effect = new DropShadowEffect();
 
             text.Content = abtBeadsContent();
+
+            try
+            {
+                (Window.GetWindow(this) as TopWindow).ResetTimer();
+            }
+            catch (NullReferenceException exp)
+            {
+            }
         }
         /// <summary>
         /// handler for the prgm Beads button click
@@ -193,6 +202,13 @@ namespace P02Project
             prgmBeads.Effect = new DropShadowEffect();
 
             text.Content = PgrmBeadsContent();
+            try
+            {
+                (Window.GetWindow(this) as TopWindow).ResetTimer();
+            }
+            catch (NullReferenceException exp)
+            {
+            }
         }
         /// <summary>
         /// handler for the aocBeads button click
@@ -206,6 +222,14 @@ namespace P02Project
             aocBeads.Effect = new DropShadowEffect();
 
             text.Content = AocBeadsContent();
+
+            try
+            {
+                (Window.GetWindow(this) as TopWindow).ResetTimer();
+            }
+            catch (NullReferenceException exp)
+            {
+            }
         }
         /// <summary>
         /// handler for the contact lick
@@ -218,6 +242,14 @@ namespace P02Project
             contact.Background = sel;
             contact.Effect = new DropShadowEffect();
             text.Content = ConactContent();
+
+            try
+            {
+                (Window.GetWindow(this) as TopWindow).ResetTimer();
+            }
+            catch (NullReferenceException exp)
+            {
+            }
         }
 
         public void AnimateIn()

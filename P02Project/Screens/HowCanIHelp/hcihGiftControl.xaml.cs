@@ -163,6 +163,13 @@ namespace P02Project
             soc.Effect = new DropShadowEffect();
 
             text.Content = socContent();
+            try
+            {
+                (Window.GetWindow(this) as TopWindow).ResetTimer();
+            }
+            catch (NullReferenceException exp)
+            {
+            }
         }
         /// <summary>
         /// handler for boc control
@@ -176,6 +183,14 @@ namespace P02Project
             boc.Effect = new DropShadowEffect();
 
             text.Content = bocContent();
+
+            try
+            {
+                (Window.GetWindow(this) as TopWindow).ResetTimer();
+            }
+            catch (NullReferenceException exp)
+            {
+            }
         }
     }
 }

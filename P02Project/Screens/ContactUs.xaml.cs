@@ -125,6 +125,14 @@ namespace P02Project
             _fmlPlcs.Effect = dShdow;
 
             content.Content = familyPlaceContent();
+
+            try
+            {
+                (Window.GetWindow(this) as TopWindow).ResetTimer();
+            }
+            catch (NullReferenceException exp)
+            {
+            }
         }
 
 
@@ -154,6 +162,14 @@ namespace P02Project
             _mainOff.Effect = dShdow;
 
             content.Content = mainOfficeContent();
+
+            try
+            {
+                (Window.GetWindow(this) as TopWindow).ResetTimer();
+            }
+            catch (NullReferenceException exp)
+            {
+            }
         }
 
 
@@ -182,6 +198,14 @@ namespace P02Project
             _fndrsOff.Effect = dShdow;
 
             content.Content = fundraisingOfficeContent();
+
+            try
+            {
+                (Window.GetWindow(this) as TopWindow).ResetTimer();
+            }
+            catch (NullReferenceException exp)
+            {
+            }
         }
 
 
@@ -211,6 +235,14 @@ namespace P02Project
             _fmlSptBrns.Effect = dShdow;
 
             content.Content = familySupportContent();
+
+            try
+            {
+                (Window.GetWindow(this) as TopWindow).ResetTimer();
+            }
+            catch (NullReferenceException exp)
+            {
+            }
         }
 
 

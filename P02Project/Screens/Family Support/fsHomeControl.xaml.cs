@@ -121,6 +121,14 @@ namespace P02Project
             scholarship.Effect = dShdow; 
 
             text.Content = scholarshipContent();
+            
+            try
+            {
+                (Window.GetWindow(this) as TopWindow).ResetTimer();
+            }
+            catch (NullReferenceException exp)
+            {
+            }
         }
 
         private void schol_TouchDown(object sender, TouchEventArgs e)
@@ -139,6 +147,7 @@ namespace P02Project
             scholarship.Effect = dShdow;
 
             text.Content = scholarshipContent();
+
         }
         /// <summary>
         /// the helper method to generate the content when the "One Off Donation" has been clicked
@@ -187,6 +196,13 @@ namespace P02Project
 
             // set the content of the textbox
             text.Content = pResourcesContent();
+            try
+            {
+                (Window.GetWindow(this) as TopWindow).ResetTimer();
+            }
+            catch (NullReferenceException exp)
+            {
+            }
         }
 
         private void pRes_TouchDown(object sender, TouchEventArgs e)
@@ -233,6 +249,14 @@ namespace P02Project
             text.Background = new SolidColorBrush(Util.contentBgColor);
             text.Content = hHomesContent();
             text.VerticalScrollBarVisibility = ScrollBarVisibility.Disabled;
+
+            try
+            {
+                (Window.GetWindow(this) as TopWindow).ResetTimer();
+            }
+            catch (NullReferenceException exp)
+            {
+            }
         }
 
         private void hHomes_TouchDown(object sender, TouchEventArgs e)
@@ -277,6 +301,13 @@ namespace P02Project
             //hawkesbay.Orientation = 0;
             //arrowtown.Orientation = 0;
            // taupo.Orientation = 0;
+            try
+            {
+                (Window.GetWindow(this) as TopWindow).ResetTimer();
+            }
+            catch (NullReferenceException exp)
+            {
+            }
         }
 
         private void arrowtown_MouseUp(object sender, MouseButtonEventArgs e)
@@ -299,6 +330,13 @@ namespace P02Project
            // hawkesbay.Orientation = 0;
             //arrowtown.Orientation = 0;
             //taupo.Orientation = 0;
+            try
+            {
+                (Window.GetWindow(this) as TopWindow).ResetTimer();
+            }
+            catch (NullReferenceException exp)
+            {
+            }
         }
 
         private void hawkesBay_MouseUp(object sender, MouseButtonEventArgs e)
@@ -320,6 +358,13 @@ namespace P02Project
             //hawkesbay.Orientation = 0;
             //arrowtown.Orientation = 0;
             //taupo.Orientation = 0;
+            try
+            {
+                (Window.GetWindow(this) as TopWindow).ResetTimer();
+            }
+            catch (NullReferenceException exp)
+            {
+            }
         }
 
         /// <summary>
@@ -345,6 +390,13 @@ namespace P02Project
 
             // set the content in the textbox
             text.Content = cListContent();
+            try
+            {
+                (Window.GetWindow(this) as TopWindow).ResetTimer();
+            }
+            catch (NullReferenceException exp)
+            {
+            }
         }
 
         private void cList_TouchDown(object sender, TouchEventArgs e)
@@ -470,6 +522,13 @@ namespace P02Project
           
             // Adds the pushpin to the map.
             //map.Children.Add(pin);
+            try
+            {
+                (Window.GetWindow(this) as TopWindow).ResetTimer();
+            }
+            catch (NullReferenceException exp)
+            {
+            }
         }
 
         private void MapWithPushpins_MouseDown(object sender, MouseButtonEventArgs e)
@@ -505,6 +564,13 @@ namespace P02Project
             else if (welldist > -2 && welldist < 2)
             {
                 mscroll.Content = wellingtonContent();
+            }
+            try
+            {
+                (Window.GetWindow(this) as TopWindow).ResetTimer();
+            }
+            catch (NullReferenceException exp)
+            {
             }
 
         }
