@@ -38,7 +38,7 @@
     				</TransformGroup>
     			</Image.RenderTransform>
     		</Image>
-    		<Image x:Name="blueBead" Margin="472.978,-0.847,0,0" Source="/P02Project;component/Resources/images/beads/blue.png" Stretch="Fill" HorizontalAlignment="Left" Width="273.182" RenderTransformOrigin="0.5,0.5" Height="165.426" VerticalAlignment="Top" MouseUp="blueBead_MouseUp">
+    		<Image x:Name="blueBead" Margin="472.978,-0.847,0,0" Source="/P02Project;component/Resources/images/beads/blue.png" Stretch="Fill" HorizontalAlignment="Left" Width="273.182" RenderTransformOrigin="0.5,0.5" Height="165.426" VerticalAlignment="Top" MouseUp="Bead_MouseUp">
     			<Image.Effect>
     				<DropShadowEffect Direction="180"/>
     			</Image.Effect>

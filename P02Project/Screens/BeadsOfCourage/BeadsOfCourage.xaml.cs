@@ -22,11 +22,54 @@ namespace P02Project.Screens.BeadsOfCourage
         public BeadsOfCourage()
         {
             InitializeComponent();
+            beadList =new List<Bead>();
+            beadList.Add(new Bead("Brown","Loss of hair"));
+            beadList.Add(new Bead("Green", "Loss of hair"));
+            beadList.Add(new Bead("Blue", "Loss of hair"));
+            beadList.Add(new Bead("Purple", "Loss of hair"));
+            beadList.Add(new Bead("Grey", "Loss of hair"));
         }
 
         private void Bead_MouseUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
         	// TODO: Add event handler implementation here.
+            int y = 5;
+            //move beads and thread down
+            //enlarge clicked bead and move to the top
+            if (sender.GetType() != typeof(Image))
+            {
+                return;
+            }
+
+            Image sder = (Image) sender;
+            sder.Visibility = Visibility.Collapsed;
+            //display info about the bead
+            foreach (Image child in threadedBeadGrid.Children)
+            {
+                if (child.Equals(sder))
+                {
+                    continue;
+                }
+                else
+                {
+                    child.Height = child.Height*0.2;
+                    child.Width = child.Width*0.2;
+                }
+            }
+        }
+
+        private List<Bead> beadList;
+
+        private class Bead
+        {
+            String text { get; set; }
+            String name { get; set; }
+
+            public Bead(String name, String text)
+            {
+                this.text = text;
+                this.name = name;
+            }
         }
     }
 }
