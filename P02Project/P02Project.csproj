@@ -107,6 +107,9 @@
     <Compile Include="Screens\Family Support\fsHomeControl.xaml.cs">
       <DependentUpon>fsHomeControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Screens\Game\Quiz.xaml.cs">
+      <DependentUpon>Quiz.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Screens\HowCanIHelp\hcihGiftControl.xaml.cs">
       <DependentUpon>hcihGiftControl.xaml</DependentUpon>
     </Compile>
@@ -128,7 +131,6 @@
     <Compile Include="Screens\HowCanIHelp\hcihBeads.xaml.cs">
       <DependentUpon>hcihBeads.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DataFetcher\DataItem.cs" />
     <Compile Include="Controls\CustomListView.cs" />
     <Compile Include="Screens\HowCanIHelp\hcihDonateControl.xaml.cs">
       <DependentUpon>hcihDonateControl.xaml</DependentUpon>
@@ -164,6 +166,7 @@
     <Compile Include="Controls\Webcam.xaml.cs">
       <DependentUpon>Webcam.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Utils\Question.cs" />
     <Compile Include="Utils\Twitter.cs" />
     <Compile Include="Utils\Util.cs" />
     <Compile Include="Controls\RightButtonControl.xaml.cs">
@@ -209,6 +212,10 @@
     <Page Include="Resources\themes\WebcamPlayer.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Screens\Game\Quiz.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Screens\HowCanIHelp\hcihGiftControl.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -481,6 +488,7 @@
     <Content Include="Resources\xml\Profiles\Steve.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Resources\xml\Questions.xml" />
     <Content Include="Resources\xml\TemplateDoc.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

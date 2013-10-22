@@ -4,16 +4,17 @@ using System.Collections.Generic;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Media.Effects;
+using System.Xml;
+using System.Xml.Linq;
 using System.Windows.Controls;
 using Microsoft.Maps.MapControl.WPF;
 
 namespace P02Project
 {
-    class Util
+    public static class Util
     {
         // the dictionary of the color of each section
-        public static readonly Dictionary<string, Color> _pageColDict = new Dictionary<string, Color>()
-        {
+        public static readonly Dictionary<string, Color> _pageColDict = new Dictionary<string, Color>{
             { "About",              (Color)ColorConverter.ConvertFromString("#ffdc1423")},
             { "abtSelected",        (Color)ColorConverter.ConvertFromString("#FF920711")},
             { "abtUnSelected",      (Color)ColorConverter.ConvertFromString("#FFee4c58")},
@@ -88,7 +89,7 @@ namespace P02Project
         /// <returns></returns>
         public static String[] getLinks(String exclude)
         {
-            List<String> links = new List<string>(new String[] { "About", "Family Support", "How Can I Help?", "News", "Events", "Play Beads", "Contact Us" });
+            var links = new List<string>(new[] { "About", "Family Support", "How Can I Help?", "News", "Events", "Play Beads", "Contact Us" });
 
             links.Remove(exclude);
             return links.ToArray();
@@ -129,6 +130,11 @@ namespace P02Project
             Storyboard.SetTarget(opa, element);
             Storyboard.SetTargetProperty(opa, new PropertyPath(UIElement.OpacityProperty));
         }
-            
+
+        public static void WriteXml(this XDocument xml, string path)
+        {
+            using (var writer = XmlWriter.Create(path, new XmlWriterSettings {Indent = true}))
+                xml.WriteTo(writer);
+        }
     }
 }
