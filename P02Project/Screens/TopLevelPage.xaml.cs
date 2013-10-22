@@ -93,7 +93,7 @@ namespace P02Project.Screens
         /// <param name="sub"></param>
         public void setSubtitle(String sub)
         {
-            TitleBar.SubTitle.Content = sub;
+            TitleBar.setSubtitle(sub);
             stackSubtitle.Push(sub);
         }
 
