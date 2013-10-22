@@ -79,6 +79,10 @@ namespace P02Project.Resources.xml
                         imageList += "<Image node=\"" + n + "\">" + imagePath + "</Image>\n";
                         n++;
                     }
+                    foreach (Thread t in threadList)
+                    {
+                        t.Join();
+                    }
                     textList += "</TextList>\n";
                     imageList += "</ImageList>\n";
                     linksList += "</LinksList>\n";
@@ -90,10 +94,7 @@ namespace P02Project.Resources.xml
                               + "</PageModel>";
                     xml = xml.Replace("&", "and");
                     //join all the threads to make sure they have all finished
-                    foreach (Thread t in threadList)
-                    {
-                        t.Join();
-                    }
+                    
                     //write all text to file
                     File.WriteAllText(path, xml);
                 } catch (Exception)
@@ -132,7 +133,7 @@ namespace P02Project.Resources.xml
     {
         private Uri url;
         private String path;
-        private static WebClient client = new WebClient();
+        private WebClient client;
         /// <summary>
         /// create a new ThreadedDataFetcher
         /// </summary>
@@ -140,12 +141,14 @@ namespace P02Project.Resources.xml
         /// <param name="fileName">filename of the resulting file that is created </param>
         public ThreadedDataFetcher(Uri url, String fileName)
         {
+            this.client = new WebClient();
             this.url = url;
             this.path = fileName;
         }
         public void downloadFile()
         {
-            client.DownloadFileAsync(url, path);
+            client.DownloadFile(url, path);
+            client.Dispose();
         }
 
     }
