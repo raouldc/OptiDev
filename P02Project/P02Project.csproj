@@ -131,7 +131,6 @@
     <Compile Include="Screens\HowCanIHelp\hcihBeads.xaml.cs">
       <DependentUpon>hcihBeads.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DataFetcher\DataItem.cs" />
     <Compile Include="Controls\CustomListView.cs" />
     <Compile Include="Screens\HowCanIHelp\hcihDonateControl.xaml.cs">
       <DependentUpon>hcihDonateControl.xaml</DependentUpon>
