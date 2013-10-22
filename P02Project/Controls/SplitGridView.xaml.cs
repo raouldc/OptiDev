@@ -22,6 +22,8 @@ namespace P02Project.Screens
         {
             InitializeComponent();
 
+            splitContentScrollViewer.Margin = Util.contentMargin;
+            splitContentScrollViewer.Background = new SolidColorBrush(Util.contentBgColor);
             ////TODO: Set title and subtitle
             //String path = System.IO.Path.Combine(System.IO.Path.GetFullPath("."), "Resources/" + filename);
             //PageModel temp = XMLUtilities.GetContentFromFile(path);
@@ -43,6 +45,7 @@ namespace P02Project.Screens
                 p.RenderTransformOrigin.Offset(0.5,0.5);
                 p.RenderTransform = new RotateTransform(rotation);
                 p.IsUnclickable = true;
+                p.setShadow(10, 0.365, Colors.Black);
                 rotation = rotation * -1;
                 Grid.SetColumn(p, 0);
                 Grid.SetRow(p, count);
@@ -52,11 +55,7 @@ namespace P02Project.Screens
             PageModelText[] textList = temp.TextList;
 
             // config all the texts in the page
-            TextBlock tb = new TextBlock();
-            tb.TextAlignment = TextAlignment.Left;
-            tb.FontSize = 24;
-            tb.Margin = new Thickness(10);
-            tb.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#ffffffff"));
+            TextBlock tb = Util.TextBlockFactory();
             foreach (PageModelText txt in textList)
             {
       

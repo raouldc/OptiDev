@@ -68,32 +68,6 @@ namespace P02Project
             sbIn = new Storyboard();
             Util.StackAnimationDefault(sbIn, buttons.Children);
 
-           
-            //Map
-            map = new Map();
-            map.Mode = new AerialMode(labels: true);
-            map.CredentialsProvider = Util.MapProvider;
-            map.HorizontalAlignment = HorizontalAlignment.Stretch;
-            map.VerticalAlignment = VerticalAlignment.Stretch;
-            map.Center = new Location(-41, 174);
-            map.ZoomLevel = 6.0;
-            map.Height = 550;
-            
-
-            //init pushpins
-            auckMOPin = new Pushpin();
-            chchPin = new Pushpin();
-            dunPin = new Pushpin();
-            taurPin = new Pushpin();
-            hBPin = new Pushpin();
-            wellPin = new Pushpin();
-
-            auckMOPin.Location = new Location(-36.857897, 174.769401);
-            chchPin.Location = new Location(-43.501951, 172.544112);
-            dunPin.Location = new Location(-45.868512, 170.50574);
-            taurPin.Location = new Location(-37.699713, 176.156457);
-            hBPin.Location = new Location(-39.628639, 176.822171);
-            wellPin.Location = new Location(-41.307915, 174.77836);
 
             fmlPlClicked(null, null);
 
@@ -516,15 +490,31 @@ namespace P02Project
             StackPanel contentStackPanel = new StackPanel();
 
             //Remove all pushpins from the map
-            if (map.Children.Count < 6)
-            {
-                map.Children.Add(auckMOPin);
-                map.Children.Add(chchPin);
-                map.Children.Add(dunPin);
-                map.Children.Add(wellPin);
-                map.Children.Add(taurPin);
-                map.Children.Add(hBPin);
-            } 
+            //Map
+            map = new Map();
+            map.Mode = new AerialMode(labels: true);
+            map.CredentialsProvider = Util.MapProvider;
+            map.HorizontalAlignment = HorizontalAlignment.Stretch;
+            map.VerticalAlignment = VerticalAlignment.Stretch;
+            map.Center = new Location(-41, 174);
+            map.ZoomLevel = 6.0;
+            map.Height = 550;
+
+
+            //init pushpins
+            auckMOPin = new Pushpin();
+            chchPin = new Pushpin();
+            dunPin = new Pushpin();
+            taurPin = new Pushpin();
+            hBPin = new Pushpin();
+            wellPin = new Pushpin();
+
+            auckMOPin.Location = new Location(-36.857897, 174.769401);
+            chchPin.Location = new Location(-43.501951, 172.544112);
+            dunPin.Location = new Location(-45.868512, 170.50574);
+            taurPin.Location = new Location(-37.699713, 176.156457);
+            hBPin.Location = new Location(-39.628639, 176.822171);
+            wellPin.Location = new Location(-41.307915, 174.77836);
             
             map.AddHandler(UIElement.TouchDownEvent, new EventHandler<TouchEventArgs>(MapWithPushpins_TouchDown), true);
             map.AddHandler(UIElement.MouseDownEvent, new MouseButtonEventHandler(MapWithPushpins_MouseDown), true);

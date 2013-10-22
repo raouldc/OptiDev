@@ -23,6 +23,8 @@ namespace P02Project
             // set image
             donate.setImage("images/Home/howCanIHelp.png");
 
+            text.Background = new SolidColorBrush(Util.contentBgColor);
+            text.Margin = Util.contentMargin;
             //set text
             text.Content = GenerateContent();
 
@@ -33,23 +35,23 @@ namespace P02Project
             Util.FadeIn(sbIn, QRText);
 		}
 
-        private TextBlock TextBlockFactory()
-        {
-            TextBlock tb = new TextBlock();
-            tb.TextAlignment = TextAlignment.Left;
-            tb.FontSize = 24;
-            tb.Margin = new Thickness(10);
-            tb.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#ffffffff"));
-            tb.TextWrapping = TextWrapping.Wrap;
+        //private TextBlock TextBlockFactory()
+        //{
+        //    TextBlock tb = new TextBlock();
+        //    tb.TextAlignment = TextAlignment.Left;
+        //    tb.FontSize = 24;
+        //    tb.Margin = new Thickness(10);
+        //    tb.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#ffffffff"));
+        //    tb.TextWrapping = TextWrapping.Wrap;
 
-            return tb;
-        }
+        //    return tb;
+        //}
 
         private StackPanel GenerateContent()
         {
             StackPanel content = new StackPanel();
 
-            TextBlock tb = TextBlockFactory();
+            TextBlock tb = Util.TextBlockFactory();
 
             tb.Inlines.Add(new Bold(new Run("What is volunteering?")));
             tb.Inlines.Add(new Run("\nVolunteering provides a wonderful opportunity for people to meet, contribute and support a common " +

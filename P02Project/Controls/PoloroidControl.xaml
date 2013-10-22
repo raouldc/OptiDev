@@ -34,6 +34,6 @@
         <Image x:Name="Image" Stretch="Fill" Margin="15,15,15,55"/>
         
         <!-- text at the bottom of the polaroid -->
-        <TextBlock x:Name="Caption" Height="38" Margin="15,0,15,13" TextWrapping="Wrap" VerticalAlignment="Bottom" TextAlignment="Center" FontSize="40" FontFamily="Andy" Background="White" HorizontalAlignment="Stretch" Text="Text"/>
+        <TextBlock x:Name="Caption" Height="38" Margin="15,0,15,13" TextWrapping="Wrap" VerticalAlignment="Bottom" TextAlignment="Center" FontSize="30" FontFamily="Andy" Background="White" HorizontalAlignment="Stretch" Text="Text"/>
     </Grid>
 </UserControl>

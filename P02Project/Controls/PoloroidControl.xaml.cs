@@ -40,7 +40,7 @@ namespace P02Project
             sbIn.Children.Add(dblAnimationIn);
 
 
-
+            Caption.FontFamily = Util.buttonTextFont;
 
             Storyboard.SetTargetName(dblAnimationIn, this.Name);
             Storyboard.SetTargetProperty(dblAnimationIn, new PropertyPath(UserControl.OpacityProperty));
