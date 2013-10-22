@@ -164,11 +164,11 @@ namespace P02Project
             options.Status = message;
 
 
-            Image picture = this.BitmapFromSource(bitsource);
+           
 
             //Create a byte array of the contents of the bitsource. 
             byte[] data;
-            BitmapEncoder encoder = new BmpBitmapEncoder();
+            PngBitmapEncoder encoder = new PngBitmapEncoder();
             encoder.Frames.Add(BitmapFrame.Create(bitsource));
 
 
@@ -181,19 +181,17 @@ namespace P02Project
             }
 
             Stream stream = new MemoryStream(data);
-            picture.Save(stream, ImageFormat.Bmp);
-            //Set the image
-            options.Images.Add(message, stream);
 
-            //Set the status
-            options.Status = message;
-            service.SendTweetWithMedia(options);
+            options.Status = "Testing with picture";
+            var dic = new Dictionary<string, Stream>();
+            dic.Add("some Image", stream);
+            options.Images = dic;
 
 
 
+            var t = service.SendTweetWithMedia(options);
 
-
-
+            int x = 0;
 
 
         }
