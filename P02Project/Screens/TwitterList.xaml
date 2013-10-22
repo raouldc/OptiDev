@@ -9,13 +9,37 @@
 	x:Name="UserControl"
 	d:DesignWidth="1630" d:DesignHeight="900">
 
+    <UserControl.Resources>
 
-	
-	
-	<Grid x:Name="LayoutRoot">
-        <Button Content="Support Us" Margin="60,424,0,414" FontSize="48" FontFamily="Andy" BorderThickness="0" Background="#ff146290" BorderBrush="#00707070" Foreground="White" Width="510.25" HorizontalAlignment="Left" Click="openWebcam"/>
-        <Image HorizontalAlignment="Left" Height="314" Margin="60,72,0,0" VerticalAlignment="Top" Width="510.25" Source="/P02Project;component/Resources/images/Twitter/ChildCanerTwitterHome.png"/>
-		<Image HorizontalAlignment="Left" Height="178.5" Margin="216.5,0,0,100" VerticalAlignment="Bottom" Width="208.5" Source="/P02Project;component/Resources/images/Twitter/ChilCancerTwitterQR.png" RenderTransformOrigin="0.535,0.933"/>
-		<Custom:SurfaceListBox x:Name="_tweetScrollList" Margin="714,72,106,72"/>
-	</Grid>
+        <DataTemplate x:Key="SurfaceListBoxItemDataTemplate">
+            <StackPanel Height="120" Width="190" Background="Gray">
+                <Label 
+                        Content="{Binding}"
+                        HorizontalAlignment="Center" 
+                        VerticalAlignment="Center"
+                        FontSize="20"/>
+            </StackPanel>
+        </DataTemplate>
+    </UserControl.Resources>
+
+
+    <Grid x:Name="LayoutRoot">
+         
+        <StackPanel x:Name="_buttons" HorizontalAlignment="Left" Height="95.5" Width="666.25" Margin="60,511,0,293.5" >
+        	<Button x:Name="_tweetUsBtn"  Content="Tweet Us" FontSize="48" FontFamily="Andy" BorderThickness="0" Background="#ff146290" BorderBrush="#00707070" Foreground="White" Width="666.25" HorizontalAlignment="Left" Click="openWebcam" Height="62" VerticalAlignment="Bottom"/>
+        </StackPanel>
+        
+        <Image x:Name="_ccfTwitterHome" HorizontalAlignment="Left" Margin="60,72,0,393" Width="666.25" Source="/P02Project;component/Resources/images/Twitter/ChildCanerTwitterHome.png"/>
+        <Image x:Name="_ccfTwitterQR" HorizontalAlignment="Left" Height="178.5" Margin="330.5,0,0,76" VerticalAlignment="Bottom" Width="154.5" Source="/P02Project;component/Resources/images/Twitter/ChilCancerTwitterQR.png" RenderTransformOrigin="0.535,0.933"/>
+        
+        <Custom:SurfaceScrollViewer x:Name="_tweetsListScrollViewer" Margin="0,72,21,8" HorizontalScrollBarVisibility="Disabled"  HorizontalAlignment="Right" Width="793">
+            <StackPanel x:Name="_tweetsList" Width="781.5">
+                <!-- label showing each tweet goes here programmatically  -->
+            </StackPanel>
+        </Custom:SurfaceScrollViewer>
+        <Label Content="Our Tweets" Height="49" Margin="808,8,575,0" VerticalAlignment="Top" FontFamily="Andy" FontSize="48"/>
+
+
+
+    </Grid>
 </UserControl>

@@ -4,6 +4,7 @@ using System.Windows.Controls;
 using System.Windows.Threading;
 using TweetSharp;
 using System.Windows;
+using System.Windows.Media.Animation;
 
 namespace P02Project
 {
@@ -17,6 +18,7 @@ namespace P02Project
         Random r = new Random();
         List<TwitterStatus> tweets = new List<TwitterStatus>();
         private HomePage _parentHome;
+
 
         /// <summary>
         /// create a new twitter block

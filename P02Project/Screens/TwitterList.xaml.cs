@@ -14,6 +14,8 @@ using P02Project.Screens;
 using P02Project.Utils;
 using P02Project.Resources.xml;
 using System.Windows.Threading;
+using TweetSharp;
+using System.Windows.Media.Animation;
 
 
 
@@ -22,14 +24,67 @@ namespace P02Project
 	/// <summary>
 	/// Interaction logic for TwitterList.xaml
 	/// </summary>
-	public partial class TwitterList : UserControl
+	public partial class TwitterList : UserControl, Animatiable
 	{
+
+
+
         private TopLevelPage _topLevelPage;
-		public TwitterList(TopLevelPage top)
+        private Storyboard _sbIn;
+        private Twitter service = new Twitter();
+        private DispatcherTimer _dt;
+        
+        public TwitterList(TopLevelPage top)
 		{
+
+
 			this.InitializeComponent();
             _topLevelPage = top;
-		}
+
+            IEnumerable<TwitterStatus> tweets = service.getTweets();
+
+
+            // iterate over the twitter list
+            if (tweets != null)
+            {
+
+                int i = 0;
+                foreach (TwitterStatus tweet in tweets)
+                {
+
+
+                    TextBlock txtb = Util.TextBlockFactory();
+
+                    txtb.TextWrapping = TextWrapping.Wrap;
+                    BrushConverter bc = new BrushConverter();
+                    txtb.Background = i % 2 == 0 ? (Brush)bc.ConvertFrom("#FF073f60") : (Brush)bc.ConvertFrom("#FF4899c8");
+                    txtb.Foreground = (Brush)bc.ConvertFrom("#FFFFFFFF");
+                    txtb.Margin = new Thickness(0, 5, 0, 0);
+                    txtb.Padding = new Thickness(20, 20, 20, 20);
+
+                    txtb.Height = 110;
+                    txtb.FontSize = 20;
+
+                    // put the twitter text in this variable
+                    String twitterText = tweet.TextDecoded;
+
+                    txtb.Inlines.Add(new Run(twitterText));
+                    _tweetsList.Children.Add(txtb);
+                    i++;
+
+                }
+            }
+
+
+            _sbIn = new Storyboard();
+            
+            Util.FadeIn(_sbIn, _tweetsListScrollViewer);
+            _dt = new DispatcherTimer();
+            Util.StackAnimationDefault(_sbIn, _buttons.Children);
+            Util.FadeIn(_sbIn, _ccfTwitterHome);
+            Util.FadeIn(_sbIn, _ccfTwitterQR);
+
+		} 
 
 
 
@@ -47,10 +102,41 @@ namespace P02Project
         /// <param name="e"></param>
         private void openWebcam(Object sender, RoutedEventArgs e)
         {
+            // create a new subscreen and push it into the stack of subscreens
+            AnimateOut();
+
+            _dt.Tick += new EventHandler(pusbWebcam);
+            _dt.Start();
+        }
+
+
+
+        private void pusbWebcam(object sender, EventArgs e)
+        {
             Webcam webcam = new Webcam();
             _topLevelPage.setContent(webcam);
             _topLevelPage.setSubtitle("Support Us On Twitter");
+            _topLevelPage.AnimateIn();
+
+            _dt.Stop();
         }
+
+
+
+
+
+
+        public void AnimateIn()
+        {
+            _sbIn.Begin(this);
+        }
+
+        public void AnimateOut()
+        {
+            
+        }
+
+
 	}
 
 
