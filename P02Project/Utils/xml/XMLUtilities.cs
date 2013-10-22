@@ -72,6 +72,7 @@ namespace P02Project.Resources.xml
                             ThreadedDataFetcher fetcer = new ThreadedDataFetcher(new Uri("http://www.childcancer.org.nz" + node.Descendants("img").FirstOrDefault().Attributes["src"].Value), "Resources/" + imagePath);
                             Thread th = new Thread(new ThreadStart(fetcer.downloadFile));
                             threadList.Add(th);
+                            th.Start();
                             //while downloading is occurring, do everything else you need to do
                             //at the end make sure you join all the threads
                             //add threads to table of threads;
