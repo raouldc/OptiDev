@@ -14,7 +14,7 @@
 			<ColumnDefinition Width="*"/>
 		</Grid.ColumnDefinitions>
 		<Image Grid.Column="0" x:Name="_tweetImg" HorizontalAlignment="Left" Margin="25,10,0,10" Width="150"/>
-		<TextBlock Grid.Column="1" x:Name="_tweetTxt" Margin="20,10" TextWrapping="Wrap" Text="TextBlock" FontSize="26.667" Foreground="White" FontFamily="Century Gothic"/>
+		<TextBlock Grid.Column="1" x:Name="_tweetTxt" Margin="20,10,42.5,10" TextWrapping="Wrap" Text="TextBlock" FontSize="26.667" Foreground="White" FontFamily="Century Gothic"/>
 		
 	</Grid>
 </UserControl>

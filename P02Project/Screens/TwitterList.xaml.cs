@@ -52,24 +52,26 @@ namespace P02Project
                 foreach (TwitterStatus tweet in tweets)
                 {
 
+                    TweetListElement twElm = new TweetListElement();
 
-                    TextBlock txtb = Util.TextBlockFactory();
-
-                    txtb.TextWrapping = TextWrapping.Wrap;
                     BrushConverter bc = new BrushConverter();
-                    txtb.Background = i % 2 == 0 ? (Brush)bc.ConvertFrom("#FF073f60") : (Brush)bc.ConvertFrom("#FF4899c8");
-                    txtb.Foreground = (Brush)bc.ConvertFrom("#FFFFFFFF");
-                    txtb.Margin = new Thickness(0, 5, 0, 0);
-                    txtb.Padding = new Thickness(20, 20, 20, 20);
-
-                    txtb.Height = 110;
-                    txtb.FontSize = 20;
+                    Brush br = i % 2 == 0 ? (Brush)bc.ConvertFrom("#FF073f60") : (Brush)bc.ConvertFrom("#FF4899c8");
+                    twElm.setBackground(br);
+                    twElm.setMargin(0, 5, 0, 0);
 
                     // put the twitter text in this variable
                     String twitterText = tweet.TextDecoded;
+                    twElm.setTweetText(twitterText);
 
-                    txtb.Inlines.Add(new Run(twitterText));
-                    _tweetsList.Children.Add(txtb);
+                    // put the twitter image in img variable
+                    BitmapImage img = new BitmapImage();
+                    img.BeginInit();
+                    img.UriSource = new Uri("pack://application:,,/Resources/images/logoCCF.png");
+                    img.EndInit();
+                    twElm.setTweetImg(img);
+
+
+                    _tweetsList.Children.Add(twElm);
                     i++;
 
                 }

@@ -38,5 +38,10 @@ namespace P02Project
         {
             _layout.Background = bg;
         }
+
+        public void setMargin(double left, double top, double right, double bottom)
+        {
+            _layout.Margin = new Thickness(left, top, right, bottom);
+        }
 	}
 }
