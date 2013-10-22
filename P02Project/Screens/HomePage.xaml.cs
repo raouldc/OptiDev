@@ -321,6 +321,12 @@ namespace P02Project
             dt.Start();
         }
 
+
+        /// <summary>
+        /// Helper method to help animate the twitterBox screen
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void pushTwitterList(object sender, EventArgs e)
         {
 

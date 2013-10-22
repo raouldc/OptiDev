@@ -31,7 +31,8 @@ namespace P02Project
 
         private TopLevelPage _topLevelPage;
         private Storyboard _sbIn;
-
+        private Twitter service = new Twitter();
+        private DispatcherTimer _dt;
         
         public TwitterList(TopLevelPage top)
 		{
@@ -40,36 +41,45 @@ namespace P02Project
 			this.InitializeComponent();
             _topLevelPage = top;
 
-
+            IEnumerable<TwitterStatus> tweets = service.getTweets();
 
 
             // iterate over the twitter list
-            for (int i = 0; i < 50; i++)
+            if (tweets != null)
             {
-                TextBlock txtb = Util.TextBlockFactory();
 
-                txtb.TextWrapping = TextWrapping.Wrap;
-                BrushConverter bc = new BrushConverter();
-                txtb.Background = i % 2 == 0 ? (Brush)bc.ConvertFrom("#FF073f60") : (Brush)bc.ConvertFrom("#FF4899c8");
-                txtb.Foreground = (Brush)bc.ConvertFrom("#FFFFFFFF");
-                txtb.Margin = new Thickness(0, 5, 0, 0);
-                txtb.Padding = new Thickness(20, 20, 20, 20);
+                int i = 0;
+                foreach (TwitterStatus tweet in tweets)
+                {
 
-                txtb.Height = 110;
-                txtb.FontSize = 20;
-                
-                // put the twitter text in this variable
-                String twitterText = "hello world hello world hello world hello world hello world hello world hello world hello world hello world hello world hello world hello world hello world hello world" + i;
-                
-                txtb.Inlines.Add(new Run(twitterText));
-                _tweetsList.Children.Add(txtb);
 
+                    TextBlock txtb = Util.TextBlockFactory();
+
+                    txtb.TextWrapping = TextWrapping.Wrap;
+                    BrushConverter bc = new BrushConverter();
+                    txtb.Background = i % 2 == 0 ? (Brush)bc.ConvertFrom("#FF073f60") : (Brush)bc.ConvertFrom("#FF4899c8");
+                    txtb.Foreground = (Brush)bc.ConvertFrom("#FFFFFFFF");
+                    txtb.Margin = new Thickness(0, 5, 0, 0);
+                    txtb.Padding = new Thickness(20, 20, 20, 20);
+
+                    txtb.Height = 110;
+                    txtb.FontSize = 20;
+
+                    // put the twitter text in this variable
+                    String twitterText = tweet.TextDecoded;
+
+                    txtb.Inlines.Add(new Run(twitterText));
+                    _tweetsList.Children.Add(txtb);
+                    i++;
+
+                }
             }
 
 
             _sbIn = new Storyboard();
             
             Util.FadeIn(_sbIn, _tweetsListScrollViewer);
+            _dt = new DispatcherTimer();
             Util.StackAnimationDefault(_sbIn, _buttons.Children);
             Util.FadeIn(_sbIn, _ccfTwitterHome);
             Util.FadeIn(_sbIn, _ccfTwitterQR);
@@ -92,10 +102,25 @@ namespace P02Project
         /// <param name="e"></param>
         private void openWebcam(Object sender, RoutedEventArgs e)
         {
+            // create a new subscreen and push it into the stack of subscreens
+            AnimateOut();
+
+            _dt.Tick += new EventHandler(pusbWebcam);
+            _dt.Start();
+        }
+
+
+
+        private void pusbWebcam(object sender, EventArgs e)
+        {
             Webcam webcam = new Webcam();
             _topLevelPage.setContent(webcam);
             _topLevelPage.setSubtitle("Support Us On Twitter");
+            _topLevelPage.AnimateIn();
+
+            _dt.Stop();
         }
+
 
 
 
@@ -108,9 +133,8 @@ namespace P02Project
 
         public void AnimateOut()
         {
+            
         }
-
-
 
 
 	}

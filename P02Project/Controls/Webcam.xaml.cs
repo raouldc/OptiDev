@@ -19,6 +19,8 @@ using System.Windows.Media.Imaging;
 using CatenaLogic.Windows.Presentation.WebcamPlayer;
 using System.Collections.ObjectModel;
 using System.IO;
+using P02Project.Utils;
+using System.Windows.Media.Animation;
 
 
 namespace P02Project
@@ -26,7 +28,7 @@ namespace P02Project
 	/// <summary>
 	/// Interaction logic for Webcam.xaml
 	/// </summary>
-	public partial class Webcam : UserControl
+    public partial class Webcam : UserControl, Animatiable
 	{
 
         #region Variables
@@ -34,6 +36,7 @@ namespace P02Project
         private readonly String DEFAULT_TWEET = "Compose new Tweet...";
         private int numb = 0;
         private readonly String MYDOC_PATH = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+        private Storyboard _sbIn;
         #endregion
 
         /// <summary>
@@ -56,6 +59,12 @@ namespace P02Project
             
             // Create default device
             SelectedWebcamMonikerString = (CapDevice.DeviceMonikers.Length > 0) ? CapDevice.DeviceMonikers[0].MonikerString : "";
+
+            _sbIn = new Storyboard();
+            Util.FadeIn(_sbIn, _selectedImg);
+            Util.FadeIn(_sbIn, _tweetTxt);
+            Util.FadeIn(_sbIn, _imagesBox);
+            Util.FadeIn(_sbIn, webcamPlayer);
         }
         #endregion
 
@@ -229,6 +238,16 @@ namespace P02Project
             encoder.Save(stream);
             // close the stream
             stream.Close();
+        }
+
+        public void AnimateIn()
+        {
+            _sbIn.Begin(this);
+        }
+
+        public void AnimateOut()
+        {
+
         }
         #endregion
 
