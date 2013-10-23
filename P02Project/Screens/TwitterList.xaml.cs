@@ -84,7 +84,7 @@ namespace P02Project
                     // change the background colour of each element
                     Brush br = i % 2 == 0 ? (Brush)bc.ConvertFrom("#FF073f60") : (Brush)bc.ConvertFrom("#FF4899c8");
                     twElm.setBackground(br);
-                    twElm.setMargin(0, 5, 0, 0);
+                    twElm.setMargin(0, 0, 0, 5);
 
                     // put the twitter text in this variable
                     String twitterText = tweet.TextDecoded;
