@@ -25,20 +25,14 @@ namespace P02Project.Screens.BeadsOfCourage
         {
             InitializeComponent();
             beadPoloroid.IsUnclickable = true;
-            beadList = new List<Bead>();
-            beadList.Add(new Bead("Brown", "Loss of hair"));
-            beadList.Add(new Bead("Green", "Loss of hair"));
-            beadList.Add(new Bead("Blue", "Loss of hair"));
-            beadList.Add(new Bead("Purple", "Loss of hair"));
-            beadList.Add(new Bead("Grey", "Loss of hair"));
             String path = System.IO.Path.Combine(System.IO.Path.GetFullPath("."), "Utils/xml/BeadsOfCourageSchema/beads.xml");
             _beadModel = XMLUtilities.GetBeadsContentFromFile(path);
+            r =new Random();
         }
 
         private void Bead_MouseUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             // TODO: Add event handler implementation here.
-            int y = 5;
             //move beads and thread down
             //display enlarged bead and text on the topp
             if (sender.GetType() != typeof(Image))
