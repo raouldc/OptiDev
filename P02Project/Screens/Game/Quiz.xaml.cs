@@ -45,6 +45,13 @@ namespace P02Project.Screens.Game
             questionButtons.Add(QnFour);
             questionButtons.Add(QnFive);
             questionButtons.Add(QnSix);
+
+            DropShadowEffect dShdow = new DropShadowEffect();
+            dShdow.BlurRadius = 10;
+            dShdow.Opacity = 0.365;
+            fifty_fifty_button.Effect = dShdow;
+            skip_button.Effect = dShdow;
+            hint_button.Effect = dShdow;
             
 
             String path = System.IO.Path.Combine(System.IO.Path.GetFullPath("."), "Resources/xml/Questions.xml");
@@ -147,6 +154,8 @@ namespace P02Project.Screens.Game
                 fifty_fifty_button.IsEnabled = false;
                 activeQuestion.fifty_fifty();
                 changeButtonState();
+                fifty_fifty_button.Background = UNSELECTED_COLOR;
+                fifty_fifty_button.Effect = null;
                 //get two random items from the list that are incorrect
                 
             }
@@ -160,6 +169,8 @@ namespace P02Project.Screens.Game
                 hint_button.IsEnabled = false;
                 activeQuestion.HintUsed = true;
                 setContent(activeQuestion);
+                hint_button.Background = UNSELECTED_COLOR;
+                fifty_fifty_button.Effect = null;
             }
         }
 
@@ -171,6 +182,8 @@ namespace P02Project.Screens.Game
                 skip_button.IsEnabled = false;
                 activeQuestion.Answer(activeQuestion.CorrectAnswer);
                 setContent(activeQuestion);
+                skip_button.Background = UNSELECTED_COLOR;
+                skip_button.Effect = null;
             }
             
         }
