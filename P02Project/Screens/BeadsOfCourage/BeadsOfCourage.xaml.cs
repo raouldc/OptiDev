@@ -13,6 +13,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Media.Animation;
 using P02Project.Resources.xml;
+using P02Project.Screens.Game;
 
 namespace P02Project.Screens.BeadsOfCourage
 {
@@ -65,5 +66,13 @@ namespace P02Project.Screens.BeadsOfCourage
 
         private BeadModel _beadModel;
         private Random r;
+
+        private void button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Quiz q = new Quiz();
+            q.Topmost = true;
+            //q.Activate();
+            q.Show();
+        }
     }
 }

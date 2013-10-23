@@ -257,7 +257,7 @@
 			</Image.RenderTransform>
 		</Image>
 		<TextBlock x:Name="beadDetailTextBlock" HorizontalAlignment="Right" Height="198" Margin="0,225,32,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="364" FontSize="21.333" Visibility="Collapsed" Foreground="Black"/>
-		<Button x:Name="button" Content="Start Quiz" HorizontalAlignment="Right" Height="146" Margin="0,0,46,99.193" VerticalAlignment="Bottom" Width="356" Visibility="Collapsed"/>
+		<Button x:Name="button" Content="Start Quiz" HorizontalAlignment="Right" Height="146" Margin="0,0,46,99.193" VerticalAlignment="Bottom" Width="356" Visibility="Collapsed" Click="button_Click_1" />
     	<P02Project:PoloroidControl x:Name="beadPoloroid" HorizontalAlignment="Left" Margin="39,127,0,428" Width="364" RenderTransformOrigin="0.5,0.5" Visibility="Collapsed">
     		<P02Project:PoloroidControl.RenderTransform>
     			<TransformGroup>
