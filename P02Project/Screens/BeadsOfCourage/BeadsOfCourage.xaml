@@ -20,16 +20,16 @@
 			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="thread">
 				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="253.723"/>
 			</DoubleAnimationUsingKeyFrames>
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="lightgreen">
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="lime">
 				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="0.457"/>
 			</DoubleAnimationUsingKeyFrames>
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="lightgreen">
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="lime">
 				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="0.457"/>
 			</DoubleAnimationUsingKeyFrames>
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="lightgreen">
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="lime">
 				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="-273.476"/>
 			</DoubleAnimationUsingKeyFrames>
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="lightgreen">
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="lime">
 				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="96.847"/>
 			</DoubleAnimationUsingKeyFrames>
 			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="green">
@@ -128,13 +128,19 @@
 			<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="beadImageView">
 				<DiscreteObjectKeyFrame KeyTime="0:0:1" Value="{x:Static Visibility.Visible}"/>
 			</ObjectAnimationUsingKeyFrames>
+			<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="textBlock">
+				<DiscreteObjectKeyFrame KeyTime="0:0:1" Value="{x:Static Visibility.Visible}"/>
+			</ObjectAnimationUsingKeyFrames>
+			<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="beadTitle">
+				<DiscreteObjectKeyFrame KeyTime="0:0:1" Value="{x:Static Visibility.Visible}"/>
+			</ObjectAnimationUsingKeyFrames>
 		</Storyboard>
 	</UserControl.Resources>
     <UserControl.RenderTransform>
         <TranslateTransform x:Name="centreBead" Y="200" X="200"/>
     </UserControl.RenderTransform>
 	<UserControl.Triggers>
-		<EventTrigger RoutedEvent="Mouse.MouseDown" SourceName="lightgreen">
+		<EventTrigger RoutedEvent="Mouse.MouseDown" SourceName="lime">
 			<BeginStoryboard Storyboard="{StaticResource OnMouseDown1}"/>
 		</EventTrigger>
         <EventTrigger RoutedEvent="Mouse.MouseDown" SourceName="purple">
@@ -230,7 +236,7 @@
 				</TransformGroup>
 			</Image.RenderTransform>
 		</Image>
-		<Image x:Name="lightgreen" Margin="0,0,250.036,79.823" Source="/P02Project;component/Resources/images/beads/lightgreen.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" MouseUp="Bead_MouseUp" HorizontalAlignment="Right" Height="186.283" VerticalAlignment="Bottom" Width="266.593" d:LayoutOverrides="VerticalAlignment">
+		<Image x:Name="lime" Margin="0,0,250.036,79.823" Source="/P02Project;component/Resources/images/beads/lime.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" MouseUp="Bead_MouseUp" HorizontalAlignment="Right" Height="186.283" VerticalAlignment="Bottom" Width="266.593" d:LayoutOverrides="VerticalAlignment">
 			<Image.RenderTransform>
 				<TransformGroup>
 					<ScaleTransform/>
@@ -240,7 +246,7 @@
 				</TransformGroup>
 			</Image.RenderTransform>
 		</Image>
-		<Image x:Name="image4" Margin="0,93.201,237.773,0" Source="/P02Project;component/Resources/images/beads/lightgreen.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" MouseUp="Bead_MouseUp" HorizontalAlignment="Right" Height="186.282" VerticalAlignment="Top" Width="266.205">
+		<Image x:Name="image4" Margin="0,93.201,237.773,0" Source="/P02Project;component/Resources/images/beads/lime.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" MouseUp="Bead_MouseUp" HorizontalAlignment="Right" Height="186.282" VerticalAlignment="Top" Width="266.205">
 			<Image.RenderTransform>
 				<TransformGroup>
 					<ScaleTransform/>
@@ -250,7 +256,7 @@
 				</TransformGroup>
 			</Image.RenderTransform>
 		</Image>
-		<TextBlock x:Name="beadDetailTextBlock" HorizontalAlignment="Right" Height="278" Margin="0,109,38,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="364" Visibility="Collapsed"/>
+		<TextBlock x:Name="beadDetailTextBlock" HorizontalAlignment="Right" Height="198" Margin="0,225,32,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="364" FontSize="21.333" Visibility="Collapsed" Foreground="Black"/>
 		<Button x:Name="button" Content="Start Quiz" HorizontalAlignment="Right" Height="146" Margin="0,0,46,99.193" VerticalAlignment="Bottom" Width="356" Visibility="Collapsed"/>
     	<P02Project:PoloroidControl x:Name="beadPoloroid" HorizontalAlignment="Left" Margin="39,127,0,428" Width="364" RenderTransformOrigin="0.5,0.5" Visibility="Collapsed">
     		<P02Project:PoloroidControl.RenderTransform>
@@ -263,5 +269,7 @@
     		</P02Project:PoloroidControl.RenderTransform>
     	</P02Project:PoloroidControl>
     	<Image x:Name="beadImageView" Height="314" Margin="569,109,606,0" VerticalAlignment="Top" Visibility="Collapsed"/>
+    	<TextBlock x:Name="textBlock" HorizontalAlignment="Right" Height="54" Margin="0,181,34,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="364" FontSize="26.667" FontWeight="Bold" Visibility="Collapsed" Foreground="Black"><Run Language="en-nz" Text="Awarded for:"/></TextBlock>
+    	<TextBlock x:Name="beadTitle" Height="39" Margin="569,0,606,396.5" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Bottom" FontStyle="Italic" TextAlignment="Center" Foreground="Black" FontSize="18.667" Visibility="Collapsed"/>
 	</Grid>
 </UserControl>
