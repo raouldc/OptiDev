@@ -169,11 +169,11 @@ namespace P02Project.Screens.Game
                 changeButtonState();
                 if (qn.IsCorrect)
                 {
-                    StatusBar.Text = "Correct! Answer was: " + activeQuestion.CorrectAnswer;
+                    StatusBar.Text = "Answer was: " + activeQuestion.CorrectAnswer;
                 }
                 else
                 {
-                    StatusBar.Text = "Incorrect! Answer was: " + activeQuestion.CorrectAnswer+"\nYou answered: "+activeQuestion.OptionSelected;
+                    StatusBar.Text = "Answer was: " + activeQuestion.CorrectAnswer+"\nYou answered: "+activeQuestion.OptionSelected;
                 }
 
             }
@@ -196,11 +196,11 @@ namespace P02Project.Screens.Game
             {
                 //deactivate the other buttons
                 
-                StatusBar.Text = "Correct! Answer was: " + activeQuestion.CorrectAnswer;
+                StatusBar.Text = "Answer was: " + activeQuestion.CorrectAnswer;
             }
             else
             {
-                StatusBar.Text = "Incorrect! Answer was: " + activeQuestion.CorrectAnswer + "\nYou answered: " + activeQuestion.OptionSelected;
+                StatusBar.Text = "Answer was: " + activeQuestion.CorrectAnswer + "\nYou answered: " + activeQuestion.OptionSelected;
             }
             changeButtonState();
         }
@@ -211,11 +211,11 @@ namespace P02Project.Screens.Game
             
             if (activeQuestion.Answer((String)option_B.Content))
             {
-                StatusBar.Text = "Correct! Answer was: " + activeQuestion.CorrectAnswer;
+                StatusBar.Text = "Answer was: " + activeQuestion.CorrectAnswer;
             }
             else
             {
-                StatusBar.Text = "Incorrect! Answer was: " + activeQuestion.CorrectAnswer + "\nYou answered: " + activeQuestion.OptionSelected;
+                StatusBar.Text = "Answer was: " + activeQuestion.CorrectAnswer + "\nYou answered: " + activeQuestion.OptionSelected;
             }
             changeButtonState();
         }
@@ -226,11 +226,11 @@ namespace P02Project.Screens.Game
             
             if (activeQuestion.Answer((String)option_c.Content))
             {
-                StatusBar.Text = "Correct! Answer was: " + activeQuestion.CorrectAnswer;
+                StatusBar.Text = "Answer was: " + activeQuestion.CorrectAnswer;
             }
             else
             {
-                StatusBar.Text = "Incorrect! Answer was: " + activeQuestion.CorrectAnswer + "\nYou answered: " + activeQuestion.OptionSelected;
+                StatusBar.Text = "Answer was: " + activeQuestion.CorrectAnswer + "\nYou answered: " + activeQuestion.OptionSelected;
             }
             changeButtonState();
         }
@@ -241,12 +241,12 @@ namespace P02Project.Screens.Game
             
             if (activeQuestion.Answer((String)option_D.Content))
             {
-                StatusBar.Text = "Correct! Answer was: " + activeQuestion.CorrectAnswer;
+                StatusBar.Text = "Answer was: " + activeQuestion.CorrectAnswer;
                 
             }
             else
             {
-                StatusBar.Text = "Incorrect! Answer was: " + activeQuestion.CorrectAnswer + "\nYou answered: " + activeQuestion.OptionSelected;
+                StatusBar.Text = "Answer was: " + activeQuestion.CorrectAnswer + "\nYou answered: " + activeQuestion.OptionSelected;
             }
             changeButtonState();
         }

@@ -114,7 +114,7 @@
     		<Button x:Name="option_B" Content="Option" Margin="5" Grid.Row="4" Grid.Column="1" Click="option_B_Clicked" />
     		<Button x:Name="option_c" Content="Option" Margin="5" Grid.Row="5" Click="option_C_Clicked"/>
     		<Button x:Name="option_D" Margin="5" Grid.Row="5" Grid.Column="1" Content="Option" Click="option_D_Clicked" />
-    		<TextBlock x:Name="StatusBar" Grid.ColumnSpan="2" Margin="15,5" Grid.Row="2" TextWrapping="Wrap" Text="Status&#xd;&#xa;" Foreground="Black" FontFamily="Andy"/>
+    		<TextBlock x:Name="StatusBar" Grid.ColumnSpan="2" Margin="15,5" Grid.Row="2" TextWrapping="Wrap" Text="Status&#xd;&#xa;" Foreground="Black" FontFamily="Andy" FontSize="20"/>
     		<TextBlock x:Name="questionNumber" Margin="15,0,8,5" TextWrapping="Wrap" FontSize="15" FontFamily="Andy" Height="14.571" VerticalAlignment="Bottom"><Run Language="en-nz" Text="Question 1"/></TextBlock>
     	</Grid>
     </Grid>
