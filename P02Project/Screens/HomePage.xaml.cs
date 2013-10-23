@@ -117,6 +117,11 @@ namespace P02Project
                 Storyboard.SetTarget(panRight, uc);
                 Storyboard.SetTargetProperty(panRight, new PropertyPath(UserControl.MarginProperty));
             }
+
+            ThicknessAnimation panDown = new ThicknessAnimation(tb.Margin, new Thickness(0, 0, 15, -200), TimeSpan.FromMilliseconds(Util.animationMilisecs));
+            sbOut.Children.Add(panDown);
+            Storyboard.SetTarget(panDown, tb);
+            Storyboard.SetTargetProperty(panDown, new PropertyPath(TwitterBlock.MarginProperty));
         }
 
         public void AnimateOut()
