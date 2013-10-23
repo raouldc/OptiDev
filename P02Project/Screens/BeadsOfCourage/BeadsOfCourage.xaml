@@ -12,119 +12,82 @@
     				<DropShadowEffect Direction="180"/>
     			</Image.Effect>
     		</Image>
-    		<Image x:Name="beigeBead" Height="165.726" Margin="507.988,0,0,36.112" Source="/P02Project;component/Resources/images/beads/beige.png" Stretch="Fill" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="273.676" RenderTransformOrigin="0.5,0.5" MouseUp="Bead_MouseUp">
-    			<Image.Effect>
-    				<DropShadowEffect Direction="180"/>
-    			</Image.Effect>
+    		<Image Margin="0,0,226.5,76.997" Source="/P02Project;component/Resources/images/beads/lightgreen.png" Stretch="Fill" Height="191.411" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="273.933" RenderTransformOrigin="0.5,0.5" MouseUp="Bead_MouseUp">
     			<Image.RenderTransform>
     				<TransformGroup>
     					<ScaleTransform/>
     					<SkewTransform/>
-    					<RotateTransform Angle="4.789"/>
+    					<RotateTransform Angle="-21.502"/>
     					<TranslateTransform/>
     				</TransformGroup>
     			</Image.RenderTransform>
     		</Image>
-    		<Image x:Name="blackBead" Margin="0,92.946,192.113,0" Source="/P02Project;component/Resources/images/beads/black.png" Stretch="Fill" Height="165.427" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Right" Width="273.182" MouseUp="Bead_MouseUp">
-    			<Image.Effect>
-    				<DropShadowEffect Direction="180"/>
-    			</Image.Effect>
+    		<Image Margin="413,0,0,23.079" Source="/P02Project;component/Resources/images/beads/green.png" Stretch="Fill" HorizontalAlignment="Left" Height="191.411" VerticalAlignment="Bottom" Width="273.933" RenderTransformOrigin="0.5,0.5" MouseUp="Bead_MouseUp">
     			<Image.RenderTransform>
     				<TransformGroup>
     					<ScaleTransform/>
     					<SkewTransform/>
-    					<RotateTransform Angle="24.699"/>
+    					<RotateTransform Angle="3.779"/>
     					<TranslateTransform/>
     				</TransformGroup>
     			</Image.RenderTransform>
     		</Image>
-    		<Image x:Name="blueBead" Margin="472.978,-0.847,0,0" Source="/P02Project;component/Resources/images/beads/blue.png" Stretch="Fill" HorizontalAlignment="Left" Width="273.182" RenderTransformOrigin="0.5,0.5" Height="165.426" VerticalAlignment="Top" MouseUp="Bead_MouseUp">
-    			<Image.Effect>
-    				<DropShadowEffect Direction="180"/>
-    			</Image.Effect>
+    		<Image Height="197.047" Margin="772,0,576,18" Source="/P02Project;component/Resources/images/beads/purple.png" Stretch="Fill" VerticalAlignment="Bottom" RenderTransformOrigin="0.5,0.5" MouseUp="Bead_MouseUp">
     			<Image.RenderTransform>
     				<TransformGroup>
     					<ScaleTransform/>
     					<SkewTransform/>
-    					<RotateTransform Angle="-5.381"/>
+    					<RotateTransform Angle="-5.296"/>
     					<TranslateTransform/>
     				</TransformGroup>
     			</Image.RenderTransform>
     		</Image>
-    		<Image x:Name="brownBead" HorizontalAlignment="Right" Margin="0,349.269,46.475,384.549" Source="/P02Project;component/Resources/images/beads/brown.png" Stretch="Fill" Width="255.805" RenderTransformOrigin="0.5,0.5" MouseUp="Bead_MouseUp">
-    			<Image.Effect>
-    				<DropShadowEffect Direction="180"/>
-    			</Image.Effect>
+    		<Image Margin="0,328.51,43.067,380.079" Source="/P02Project;component/Resources/images/beads/green.png" Stretch="Fill" HorizontalAlignment="Right" Width="273.933" RenderTransformOrigin="0.5,0.5" MouseUp="Bead_MouseUp">
     			<Image.RenderTransform>
     				<TransformGroup>
     					<ScaleTransform/>
     					<SkewTransform/>
-    					<RotateTransform Angle="90.553"/>
+    					<RotateTransform Angle="-90.73"/>
     					<TranslateTransform/>
     				</TransformGroup>
     			</Image.RenderTransform>
     		</Image>
-    		<Image x:Name="limeBead" Margin="0,0,520.363,0" Source="/P02Project;component/Resources/images/beads/lime.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Right" Width="281.074" Height="170.206" VerticalAlignment="Top" MouseUp="Bead_MouseUp">
-    			<Image.Effect>
-    				<DropShadowEffect Direction="180"/>
-    			</Image.Effect>
+    		<Image Margin="0,70.592,247.5,0" Source="/P02Project;component/Resources/images/beads/lightgreen.png" Stretch="Fill" Height="191.411" VerticalAlignment="Top" HorizontalAlignment="Right" Width="273.933" RenderTransformOrigin="0.5,0.5" MouseUp="Bead_MouseUp">
     			<Image.RenderTransform>
     				<TransformGroup>
     					<ScaleTransform/>
     					<SkewTransform/>
-    					<RotateTransform Angle="5.574"/>
+    					<RotateTransform Angle="23.938"/>
     					<TranslateTransform/>
     				</TransformGroup>
     			</Image.RenderTransform>
     		</Image>
-    		<Image x:Name="magentaBead" Margin="194.544,0,0,117.373" Source="/P02Project;component/Resources/images/beads/magenta.png" Stretch="Fill" HorizontalAlignment="Left" Height="171.213" VerticalAlignment="Bottom" Width="282.739" RenderTransformOrigin="0.5,0.5" MouseUp="Bead_MouseUp">
-    			<Image.Effect>
-    				<DropShadowEffect Direction="180"/>
-    			</Image.Effect>
+    		<Image Height="197.047" Margin="802,-17.547,546,0" Source="/P02Project;component/Resources/images/beads/purple.png" Stretch="Fill" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" MouseUp="Bead_MouseUp">
     			<Image.RenderTransform>
     				<TransformGroup>
     					<ScaleTransform/>
     					<SkewTransform/>
-    					<RotateTransform Angle="31.053"/>
+    					<RotateTransform Angle="5.189"/>
     					<TranslateTransform/>
     				</TransformGroup>
     			</Image.RenderTransform>
     		</Image>
-    		<Image x:Name="purpleBead" Margin="0,0,523.548,25.827" Source="/P02Project;component/Resources/images/beads/purple.png" Stretch="Fill" Height="171.215" VerticalAlignment="Bottom" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Right" Width="282.739" MouseUp="Bead_MouseUp">
-    			<Image.Effect>
-    				<DropShadowEffect Direction="180"/>
-    			</Image.Effect>
+    		<Image Margin="450.5,4.51,0,0" Source="/P02Project;component/Resources/images/beads/green.png" Stretch="Fill" HorizontalAlignment="Left" Height="191.411" VerticalAlignment="Top" Width="273.933" RenderTransformOrigin="0.5,0.5" MouseUp="Bead_MouseUp">
     			<Image.RenderTransform>
     				<TransformGroup>
     					<ScaleTransform/>
     					<SkewTransform/>
-    					<RotateTransform Angle="-2.433"/>
+    					<RotateTransform Angle="-5.426"/>
     					<TranslateTransform/>
     				</TransformGroup>
     			</Image.RenderTransform>
     		</Image>
-    		<Image x:Name="tortoiseBead" Margin="10.509,360.995,0,367.791" Source="/P02Project;component/Resources/images/beads/tortoise.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" Width="282.738">
-    			<Image.Effect>
-    				<DropShadowEffect Direction="180"/>
-    			</Image.Effect>
+    		<Image Height="197.047" Margin="95.5,0,0,192.5" Source="/P02Project;component/Resources/images/beads/purple.png" Stretch="Fill" VerticalAlignment="Bottom" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" Width="282" MouseUp="Bead_MouseUp">
     			<Image.RenderTransform>
     				<TransformGroup>
     					<ScaleTransform/>
     					<SkewTransform/>
-    					<RotateTransform Angle="74.131"/>
-    					<TranslateTransform/>
-    				</TransformGroup>
-    			</Image.RenderTransform>
-    		</Image>
-    		<Image x:Name="whiteBead" Margin="0,0,184.934,116.15" Source="/P02Project;component/Resources/images/beads/white.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Right" Height="171.213" VerticalAlignment="Bottom" Width="282.738" MouseUp="Bead_MouseUp">
-    			<Image.Effect>
-    				<DropShadowEffect Direction="180"/>
-    			</Image.Effect>
-    			<Image.RenderTransform>
-    				<TransformGroup>
-    					<ScaleTransform/>
-    					<SkewTransform/>
-    					<RotateTransform Angle="-27.793"/>
+    					<RotateTransform Angle="54.284"/>
     					<TranslateTransform/>
     				</TransformGroup>
     			</Image.RenderTransform>

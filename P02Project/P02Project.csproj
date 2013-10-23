@@ -419,16 +419,10 @@
     <Resource Include="Resources\images\HowCanIHelp\gift.png" />
     <Resource Include="Resources\images\HowCanIHelp\qr_soc.png" />
     <Resource Include="Resources\images\HowCanIHelp\qr_boc.png" />
-    <Resource Include="Resources\images\beads\beige.png" />
-    <Resource Include="Resources\images\beads\black.png" />
-    <Resource Include="Resources\images\beads\blue.png" />
-    <Resource Include="Resources\images\beads\brown.png" />
-    <Resource Include="Resources\images\beads\lime.png" />
-    <Resource Include="Resources\images\beads\magenta.png" />
     <Resource Include="Resources\images\beads\purple.png" />
     <Resource Include="Resources\images\beads\thread.png" />
-    <Resource Include="Resources\images\beads\tortoise.png" />
-    <Resource Include="Resources\images\beads\white.png" />
+    <Resource Include="Resources\images\beads\green.png" />
+    <Resource Include="Resources\images\beads\lightgreen.png" />
     <Content Include="Resources\xml\About.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>
