@@ -38,19 +38,29 @@ namespace P02Project.Screens.Game
             PageModel model = XMLUtilities.GetContentFromFile(path);
             PageModelText[] textList = model.TextList;
             List<Question> Questions = new List<Question>();
-            //String answer = "Answer";
-            //Options.Add(answer);
-            //Options.Add("Not Answer 1");
-            //Options.Add("Not Answer 2");
-            //Options.Add("Not Answer 3");
-            //List<Question> Questions = new List<Question>();
-            //Questions.Add(new Question("Random Qn 1", answer, Options.ToList(), "nothing/image/path","hint 1"));
-            //Questions.Add(new Question("Random Qn 2", answer, Options.ToList(), "nothing/image/path","hint 2"));
-            //Questions.Add(new Question("Random Qn 3", answer, Options.ToList(), "nothing/image/path","hint 3"));
-            //Questions.Add(new Question("Random Qn 4", answer, Options.ToList(), "nothing/image/path","hint 4"));
-            //Questions.Add(new Question("Random Qn 5", answer, Options.ToList(), "nothing/image/path","hint 5"));
-            //Questions.Add(new Question("Random Qn 6", answer, Options.ToList(), "nothing/image/path","hint 6"));
-            ChooseQuestions(Questions);
+            for (int i = 0; i < textList.Count(); i = i + 5)
+            {
+                List<String> options = new List<string>();
+                for (int j = i+1; j < i+5; j++){
+                    options.Add(textList[j].Value);
+                }
+
+                Question q = new Question(textList[i].Value,options[0],options,"","Add hint here");
+                Questions.Add(q);
+            }
+                //String answer = "Answer";
+                //Options.Add(answer);
+                //Options.Add("Not Answer 1");
+                //Options.Add("Not Answer 2");
+                //Options.Add("Not Answer 3");
+                //List<Question> Questions = new List<Question>();
+                //Questions.Add(new Question("Random Qn 1", answer, Options.ToList(), "nothing/image/path","hint 1"));
+                //Questions.Add(new Question("Random Qn 2", answer, Options.ToList(), "nothing/image/path","hint 2"));
+                //Questions.Add(new Question("Random Qn 3", answer, Options.ToList(), "nothing/image/path","hint 3"));
+                //Questions.Add(new Question("Random Qn 4", answer, Options.ToList(), "nothing/image/path","hint 4"));
+                //Questions.Add(new Question("Random Qn 5", answer, Options.ToList(), "nothing/image/path","hint 5"));
+                //Questions.Add(new Question("Random Qn 6", answer, Options.ToList(), "nothing/image/path","hint 6"));
+                ChooseQuestions(Questions);
             activeQuestion = chosenQuestions[0];
         }
 
