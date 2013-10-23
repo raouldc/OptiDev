@@ -7,6 +7,8 @@ using System.Windows;
 using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Media.Effects;
+using System.Windows.Media;
+using System.Windows.Input;
 
 namespace P02Project
 {
@@ -30,6 +32,9 @@ namespace P02Project
             this.InitializeComponent();
 
             _parentHome = parent;
+
+            this.AddHandler(UIElement.TouchUpEvent, new EventHandler<TouchEventArgs>(twitterBoxClicked), true);
+            this.AddHandler(UIElement.MouseUpEvent, new MouseButtonEventHandler(twitterBoxClicked), true);
 
             DropShadowEffect dShdow = new DropShadowEffect();
             dShdow.BlurRadius = 10;
