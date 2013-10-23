@@ -10,6 +10,7 @@ namespace P02Project.Utils
         public String QuestionContent { get { return this.questionContent; } }
         public String ImagePath { get {return this.imagepath; } }
         public List<String> AllAvailableOptions { get { return allAvailableOptions; } }
+        public bool IsAnswered { get { return isAnswered; } }
 
         private String questionContent;
         private String answer;
@@ -30,15 +31,11 @@ namespace P02Project.Utils
             randomizeOptions(allOptionsTemp);
             this.imagepath = imagePath;
             this.OptionSelected = null;
-            this.isAnswered = true;
+            this.isAnswered = false;
         }
 
         public bool Answer(String answer)
         {
-            if (this.isAnswered)
-            {
-                throw new InvalidOperationException();
-            }
             this.OptionSelected = answer;
             this.isAnswered = true;
             if (this.OptionSelected == this.answer)

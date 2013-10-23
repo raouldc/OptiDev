@@ -128,27 +128,71 @@ namespace P02Project.Screens.Game
             option_B.Content = qn.AllAvailableOptions[1];
             option_c.Content = qn.AllAvailableOptions[2];
             option_D.Content = qn.AllAvailableOptions[3];
+            if (activeQuestion.IsAnswered)
+            {
+                disableButtons();
+
+            }
+            else
+            {
+                enableButtons();
+            }
         }
 
         private void option_A_Clicked(object sender, System.Windows.RoutedEventArgs e)
         {
         	// TODO: Add event handler implementation here.
+            if (activeQuestion.Answer((String)option_A.Content))
+            {
+                //deactivate the other buttons
+                option_B.IsEnabled = false;
+                option_c.IsEnabled = false;
+                option_D.IsEnabled = false;
+            }
         }
 
         private void option_B_Clicked(object sender, System.Windows.RoutedEventArgs e)
         {
         	// TODO: Add event handler implementation here.
+            if (activeQuestion.Answer((String)option_B.Content))
+            {
+                disableButtons();
+            }
         }
 
         private void option_C_Clicked(object sender, System.Windows.RoutedEventArgs e)
         {
         	// TODO: Add event handler implementation here.
+            if (activeQuestion.Answer((String)option_c.Content))
+            {
+                disableButtons();
+            }
         }
 
         private void option_D_Clicked(object sender, System.Windows.RoutedEventArgs e)
         {
         	// TODO: Add event handler implementation here.
+            if (activeQuestion.Answer((String)option_D.Content))
+            {
+                disableButtons();
+                
+            }
         }
 
+        private void disableButtons()
+        {
+            option_B.IsEnabled = false;
+            option_c.IsEnabled = false;
+            option_A.IsEnabled = false;
+            option_D.IsEnabled = false;
+        }
+
+        private void enableButtons()
+        {
+            option_B.IsEnabled = true;
+            option_c.IsEnabled = true;
+            option_A.IsEnabled = true;
+            option_D.IsEnabled = true;
+        }
     }
 }
