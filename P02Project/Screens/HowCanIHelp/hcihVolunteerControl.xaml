@@ -24,7 +24,7 @@
         </Grid.ColumnDefinitions>
         
         <!-- textbox used for the content of each subsection-->
-        <my:SurfaceScrollViewer x:Name="text" Grid.Column="1" Margin="20" Grid.RowSpan="3" Grid.ColumnSpan="2" Background="#7F525252" HorizontalScrollBarVisibility="Disabled" />
+        <my:SurfaceScrollViewer x:Name="text" Grid.Column="1" Margin="20" Grid.RowSpan="3" Grid.ColumnSpan="2" Background="#7F525252" HorizontalScrollBarVisibility="Disabled" ScrollChanged="text_ScrollChanged" />
 
         <!-- Set the option buttons at the left-->
 
