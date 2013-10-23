@@ -300,12 +300,12 @@ namespace P02Project
         private void pushBeads(object sender, EventArgs e)
         {
             // create a new subscreen and push it into the stack of subscreens
-            TopLevelPage nextScreen = new TopLevelPage(ParentWindow, "Play Beads");
+            TopLevelPage nextScreen = new TopLevelPage(ParentWindow, "Beads of Courage");
             //ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("Play Beads"), playBeads.colour, new UserControl(), "");
             
             //Quiz q = new Quiz();
             //q.Topmost = true;
-            ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("Play Beads"), playBeads.colour, new BeadsOfCourage(), "");
+            ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("Beads of Courage"), playBeads.colour, new BeadsOfCourage(), "");
             nextScreen.AnimateIn();
             //Quiz q = new Quiz();
             //q.Topmost = true;
