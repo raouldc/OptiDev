@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using System.Windows.Media.Animation;
 using P02Project.Resources.xml;
 using P02Project.Screens.Game;
+using System.Windows.Media.Effects;
 
 namespace P02Project.Screens.BeadsOfCourage
 {
@@ -22,6 +23,8 @@ namespace P02Project.Screens.BeadsOfCourage
     /// </summary>
     public partial class BeadsOfCourage : UserControl
     {
+        private static readonly Brush SELECTED_COLOR = new SolidColorBrush(Util._pageColDict["pbSelected"]);
+        private static readonly Brush UNSELECTED_COLOR = new SolidColorBrush(Util._pageColDict["pbUnSelected"]);
         public BeadsOfCourage()
         {
             InitializeComponent();
@@ -29,6 +32,11 @@ namespace P02Project.Screens.BeadsOfCourage
             String path = System.IO.Path.Combine(System.IO.Path.GetFullPath("."), "Utils/xml/BeadsOfCourageSchema/beads.xml");
             _beadModel = XMLUtilities.GetBeadsContentFromFile(path);
             r =new Random();
+            button.Background = SELECTED_COLOR;
+            DropShadowEffect dShdow = new DropShadowEffect();
+            dShdow.BlurRadius = 10;
+            dShdow.Opacity = 0.365;
+            button.Effect = dShdow;
         }
 
         private void Bead_MouseUp(object sender, System.Windows.Input.MouseButtonEventArgs e)

@@ -7,6 +7,36 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300" Width="1630" Height="900">
     <UserControl.Resources>
+        <!-- This style is used for buttons, to remove the WPF default 'animated' mouse over effect -->
+        <Style x:Key="MyButtonStyle" TargetType="Button">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border" 
+                            BorderThickness="0"
+                            Padding="4,2" 
+                            BorderBrush="DarkGray" 
+                            CornerRadius="0" 
+                            Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="BorderBrush" Value="Black" />
+                            </Trigger>
+                            <Trigger Property="IsFocused" Value="True">
+                                <Setter TargetName="border" Property="BorderBrush" Value="Black" />
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter TargetName="border" Property="BorderBrush" Value="Black" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
 		<Storyboard x:Key="OnMouseDown1">
 			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="thread">
 				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="0.457"/>
@@ -134,6 +164,60 @@
 			<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="beadTitle">
 				<DiscreteObjectKeyFrame KeyTime="0:0:1" Value="{x:Static Visibility.Visible}"/>
 			</ObjectAnimationUsingKeyFrames>
+			<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(TextElement.FontFamily)" Storyboard.TargetName="button">
+				<DiscreteObjectKeyFrame KeyTime="0:0:1">
+					<DiscreteObjectKeyFrame.Value>
+						<FontFamily>Andy</FontFamily>
+					</DiscreteObjectKeyFrame.Value>
+				</DiscreteObjectKeyFrame>
+			</ObjectAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(TextElement.FontSize)" Storyboard.TargetName="button">
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="42.667"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="beadDetailTextBlock">
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="108"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="textBlock">
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="108"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="beadDetailTextBlock">
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="-12"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="textBlock">
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="-12"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="beadImageView">
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="-39"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="beadTitle">
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="-36"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="beadTitle">
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="12"/>
+			</DoubleAnimationUsingKeyFrames>
+			<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(TextElement.FontFamily)" Storyboard.TargetName="textBlock">
+				<DiscreteObjectKeyFrame KeyTime="0:0:1">
+					<DiscreteObjectKeyFrame.Value>
+						<FontFamily>Andy</FontFamily>
+					</DiscreteObjectKeyFrame.Value>
+				</DiscreteObjectKeyFrame>
+			</ObjectAnimationUsingKeyFrames>
+			<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(TextElement.FontWeight)" Storyboard.TargetName="textBlock">
+				<DiscreteObjectKeyFrame KeyTime="0:0:1">
+					<DiscreteObjectKeyFrame.Value>
+						<FontWeight>Bold</FontWeight>
+					</DiscreteObjectKeyFrame.Value>
+				</DiscreteObjectKeyFrame>
+			</ObjectAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(TextElement.FontSize)" Storyboard.TargetName="textBlock">
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="32"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="beadPoloroid">
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="96"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="beadPoloroid">
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="57"/>
+			</DoubleAnimationUsingKeyFrames>
 		</Storyboard>
 	</UserControl.Resources>
     <UserControl.RenderTransform>
@@ -256,8 +340,17 @@
 				</TransformGroup>
 			</Image.RenderTransform>
 		</Image>
-		<TextBlock x:Name="beadDetailTextBlock" HorizontalAlignment="Right" Height="198" Margin="0,225,32,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="364" FontSize="21.333" Visibility="Collapsed" Foreground="Black"/>
-		<Button x:Name="button" Content="Start Quiz" HorizontalAlignment="Right" Height="146" Margin="0,0,46,99.193" VerticalAlignment="Bottom" Width="356" Visibility="Collapsed" Click="button_Click_1" />
+        <TextBlock x:Name="beadDetailTextBlock" Background="#7F525252" HorizontalAlignment="Right" Height="198" Margin="0,225,32,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="364" FontSize="21.333" Visibility="Collapsed" Foreground="Black" RenderTransformOrigin="0.5,0.5">
+        	<TextBlock.RenderTransform>
+        		<TransformGroup>
+        			<ScaleTransform/>
+        			<SkewTransform/>
+        			<RotateTransform/>
+        			<TranslateTransform/>
+        		</TransformGroup>
+        	</TextBlock.RenderTransform>
+        </TextBlock>
+        <Button x:Name="button" Style="{StaticResource MyButtonStyle}" Content="Start Quiz" HorizontalAlignment="Right" Height="146" Margin="0,0,46,99.193" VerticalAlignment="Bottom" Width="356" Visibility="Collapsed" Click="button_Click_1" />
     	<P02Project:PoloroidControl x:Name="beadPoloroid" HorizontalAlignment="Left" Margin="39,127,0,428" Width="364" RenderTransformOrigin="0.5,0.5" Visibility="Collapsed">
     		<P02Project:PoloroidControl.RenderTransform>
     			<TransformGroup>
@@ -268,8 +361,35 @@
     			</TransformGroup>
     		</P02Project:PoloroidControl.RenderTransform>
     	</P02Project:PoloroidControl>
-    	<Image x:Name="beadImageView" Height="314" Margin="569,109,606,0" VerticalAlignment="Top" Visibility="Collapsed"/>
-    	<TextBlock x:Name="textBlock" HorizontalAlignment="Right" Height="54" Margin="0,181,34,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="364" FontSize="26.667" FontWeight="Bold" Visibility="Collapsed" Foreground="Black"><Run Language="en-nz" Text="Awarded for:"/></TextBlock>
-    	<TextBlock x:Name="beadTitle" Height="39" Margin="569,0,606,396.5" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Bottom" FontStyle="Italic" TextAlignment="Center" Foreground="Black" FontSize="18.667" Visibility="Collapsed"/>
+    	<Image x:Name="beadImageView" Height="314" Margin="569,109,606,0" VerticalAlignment="Top" Visibility="Collapsed" RenderTransformOrigin="0.5,0.5">
+    		<Image.RenderTransform>
+    			<TransformGroup>
+    				<ScaleTransform/>
+    				<SkewTransform/>
+    				<RotateTransform/>
+    				<TranslateTransform/>
+    			</TransformGroup>
+    		</Image.RenderTransform>
+    	</Image>
+    	<TextBlock x:Name="textBlock" HorizontalAlignment="Right" Height="54" Margin="0,181,34,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="364" FontSize="26.667" FontWeight="Bold" Visibility="Collapsed" Foreground="Black" RenderTransformOrigin="0.5,0.5">
+    		<TextBlock.RenderTransform>
+    			<TransformGroup>
+    				<ScaleTransform/>
+    				<SkewTransform/>
+    				<RotateTransform/>
+    				<TranslateTransform/>
+    			</TransformGroup>
+    		</TextBlock.RenderTransform><Run Language="en-nz" Text="Awarded for:"/></TextBlock>
+    	<TextBlock x:Name="beadTitle" Height="39" Margin="569,0,606,396.5" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Bottom" FontStyle="Italic" TextAlignment="Center" Foreground="Black" FontSize="18.667" Visibility="Collapsed" RenderTransformOrigin="0.5,0.5">
+    		<TextBlock.RenderTransform>
+    			<TransformGroup>
+    				<ScaleTransform/>
+    				<SkewTransform/>
+    				<RotateTransform/>
+    				<TranslateTransform/>
+    			</TransformGroup>
+    		</TextBlock.RenderTransform>
+    	</TextBlock>
+    	<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
 	</Grid>
 </UserControl>
