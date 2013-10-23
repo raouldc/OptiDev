@@ -11,6 +11,7 @@ using System.Net.Cache;
 using System.Windows;
 using System.Windows.Controls;
 using System.Threading;
+using System.Windows.Threading;
 
 namespace P02Project
 {
@@ -43,7 +44,7 @@ namespace P02Project
                 worker = new BackgroundWorker();
             }
 
-            worker.DoWork += new DoWorkEventHandler(m_oWorker_DoWork);
+            //worker.DoWork += new DoWorkEventHandler(m_oWorker_DoWork);
             worker.ProgressChanged += new ProgressChangedEventHandler
                     (m_oWorker_ProgressChanged);
             worker.RunWorkerCompleted += new RunWorkerCompletedEventHandler
@@ -145,7 +146,7 @@ namespace P02Project
             src.UriSource = new Uri("pack://application:,,/Resources/images/icon.png");
             src.EndInit();
 
-
+            
 
 
             byte[] data;
@@ -179,21 +180,38 @@ namespace P02Project
         //post all tweets
         public void postTweet(String message, BitmapSource bitsource, DependencyObject depO)
         {
-
+            
 
             try
             {
                 (Window.GetWindow(depO) as TopWindow).StopTimer();
                 //twitter service
                 bitsource.Freeze();
+                var frame = BitmapFrame.Create(bitsource);
+                PngBitmapEncoder encoder = new PngBitmapEncoder();
+                encoder.Frames.Add(frame);
+                byte[] data;
+
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    encoder.Save(ms);
+                    data = ms.ToArray();
+
+
+                }
+
+                Stream stream = new MemoryStream(data); 
                 List<Object> args = new List<Object>();
                 args.Add(message);
                
                 args.Add(bitsource);
+                args.Add(stream);
                 timer = depO;
                 
                 worker.DoWork += new DoWorkEventHandler(m_oWorker_DoWork);
                 worker.RunWorkerAsync(args);
+
+
             }
             catch(Exception e)
             {
@@ -240,7 +258,10 @@ namespace P02Project
 
             try
             {
-                (Window.GetWindow(timer) as TopWindow).ResetTimer();
+                var window= (Window.GetWindow(timer) as TopWindow);
+                if(window!=null){
+                window.ResetTimer();
+                }
             }
             catch(NullReferenceException except)
             {
@@ -269,6 +290,8 @@ namespace P02Project
             Console.WriteLine("Processing......" + e.ProgressPercentage+ "%");
         }
 
+
+
         /// <summary>
         /// Time consuming operations go here </br>
         /// i.e. Database operations,Reporting
@@ -283,7 +306,7 @@ namespace P02Project
             //Get the elements
             String message = (String)args[0];
             BitmapSource bitsource = (BitmapSource)args[1];
-
+           
             Console.WriteLine("uploading image now");
             var service = new TwitterService(OAuthConsumerKey, OAuthConsumerSecret);
             service.AuthenticateWith(OAuthToken, OAuthTokenSecret);
@@ -292,10 +315,14 @@ namespace P02Project
             options.Status = message;
 
             //Create a byte array of the contents of the bitsource. 
-            byte[] data;
+            /*byte[] data;
             PngBitmapEncoder encoder = new PngBitmapEncoder();
-           
-            encoder.Frames.Add(BitmapFrame.Create(bitsource));
+
+
+       
+            var frame=BitmapFrame.Create(bitsource);
+            
+            encoder.Frames.Add(frame);
 
 
             using (MemoryStream ms = new MemoryStream())
@@ -307,7 +334,8 @@ namespace P02Project
             }
 
             Stream stream = new MemoryStream(data);
-
+            */
+            Stream stream = args[2] as MemoryStream;
             options.Status = message;
             var dic = new Dictionary<string, Stream>();
             dic.Add("...", stream);
