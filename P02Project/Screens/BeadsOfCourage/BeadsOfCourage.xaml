@@ -37,196 +37,196 @@
                 </Setter.Value>
             </Setter>
         </Style>
-		<Storyboard x:Key="OnMouseDown1">
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="thread">
-				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="0.457"/>
-			</DoubleAnimationUsingKeyFrames>
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="thread">
-				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="0.457"/>
-			</DoubleAnimationUsingKeyFrames>
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="thread">
-				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="-22.647"/>
-			</DoubleAnimationUsingKeyFrames>
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="thread">
-				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="253.723"/>
-			</DoubleAnimationUsingKeyFrames>
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="lime">
-				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="0.457"/>
-			</DoubleAnimationUsingKeyFrames>
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="lime">
-				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="0.457"/>
-			</DoubleAnimationUsingKeyFrames>
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="lime">
-				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="-273.476"/>
-			</DoubleAnimationUsingKeyFrames>
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="lime">
-				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="96.847"/>
-			</DoubleAnimationUsingKeyFrames>
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="magenta">
-				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="0.457"/>
-			</DoubleAnimationUsingKeyFrames>
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="magenta">
-				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="0.457"/>
-			</DoubleAnimationUsingKeyFrames>
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="magenta">
-				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="115.643"/>
-			</DoubleAnimationUsingKeyFrames>
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="magenta">
-				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="67.568"/>
-			</DoubleAnimationUsingKeyFrames>
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="purple">
-				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="0.457"/>
-			</DoubleAnimationUsingKeyFrames>
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="purple">
-				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="0.457"/>
-			</DoubleAnimationUsingKeyFrames>
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="purple">
-				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="-81.497"/>
-			</DoubleAnimationUsingKeyFrames>
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="purple">
-				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="66.339"/>
-			</DoubleAnimationUsingKeyFrames>
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="black">
-				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="0.457"/>
-			</DoubleAnimationUsingKeyFrames>
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="black">
-				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="0.457"/>
-			</DoubleAnimationUsingKeyFrames>
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="black">
-				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="-373.086"/>
-			</DoubleAnimationUsingKeyFrames>
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="black">
-				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="261.429"/>
-			</DoubleAnimationUsingKeyFrames>
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="red">
-				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="0.457"/>
-			</DoubleAnimationUsingKeyFrames>
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="red">
-				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="0.457"/>
-			</DoubleAnimationUsingKeyFrames>
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="red">
-				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="-262.073"/>
-			</DoubleAnimationUsingKeyFrames>
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="red">
-				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="401.487"/>
-			</DoubleAnimationUsingKeyFrames>
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="aqua">
-				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="0.457"/>
-			</DoubleAnimationUsingKeyFrames>
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="aqua">
-				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="0.457"/>
-			</DoubleAnimationUsingKeyFrames>
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="aqua">
-				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="-97.787"/>
-			</DoubleAnimationUsingKeyFrames>
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="aqua">
-				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="447.819"/>
-			</DoubleAnimationUsingKeyFrames>
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="dark_green">
-				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="0.457"/>
-			</DoubleAnimationUsingKeyFrames>
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="dark_green">
-				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="0.457"/>
-			</DoubleAnimationUsingKeyFrames>
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="dark_green">
-				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="95.278"/>
-			</DoubleAnimationUsingKeyFrames>
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="dark_green">
-				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="437.372"/>
-			</DoubleAnimationUsingKeyFrames>
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="blue">
-				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="0.457"/>
-			</DoubleAnimationUsingKeyFrames>
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="blue">
-				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="0.457"/>
-			</DoubleAnimationUsingKeyFrames>
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="blue">
-				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="285.865"/>
-			</DoubleAnimationUsingKeyFrames>
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="blue">
-				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="161.099"/>
-			</DoubleAnimationUsingKeyFrames>
-			<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="beadDetailTextBlock">
-				<DiscreteObjectKeyFrame KeyTime="0:0:1" Value="{x:Static Visibility.Visible}"/>
-			</ObjectAnimationUsingKeyFrames>
-			<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="button">
-				<DiscreteObjectKeyFrame KeyTime="0:0:1" Value="{x:Static Visibility.Visible}"/>
-			</ObjectAnimationUsingKeyFrames>
-			<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="beadPoloroid">
-				<DiscreteObjectKeyFrame KeyTime="0:0:1" Value="{x:Static Visibility.Visible}"/>
-			</ObjectAnimationUsingKeyFrames>
-			<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="beadImageView">
-				<DiscreteObjectKeyFrame KeyTime="0:0:1" Value="{x:Static Visibility.Visible}"/>
-			</ObjectAnimationUsingKeyFrames>
-			<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="textBlock">
-				<DiscreteObjectKeyFrame KeyTime="0:0:1" Value="{x:Static Visibility.Visible}"/>
-			</ObjectAnimationUsingKeyFrames>
-			<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="beadTitle">
-				<DiscreteObjectKeyFrame KeyTime="0:0:1" Value="{x:Static Visibility.Visible}"/>
-			</ObjectAnimationUsingKeyFrames>
-			<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(TextElement.FontFamily)" Storyboard.TargetName="button">
-				<DiscreteObjectKeyFrame KeyTime="0:0:1">
-					<DiscreteObjectKeyFrame.Value>
-						<FontFamily>Andy</FontFamily>
-					</DiscreteObjectKeyFrame.Value>
-				</DiscreteObjectKeyFrame>
-			</ObjectAnimationUsingKeyFrames>
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(TextElement.FontSize)" Storyboard.TargetName="button">
-				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="42.667"/>
-			</DoubleAnimationUsingKeyFrames>
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="beadDetailTextBlock">
-				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="108"/>
-			</DoubleAnimationUsingKeyFrames>
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="textBlock">
-				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="108"/>
-			</DoubleAnimationUsingKeyFrames>
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="beadDetailTextBlock">
-				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="-12"/>
-			</DoubleAnimationUsingKeyFrames>
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="textBlock">
-				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="-12"/>
-			</DoubleAnimationUsingKeyFrames>
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="beadImageView">
-				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="-39"/>
-			</DoubleAnimationUsingKeyFrames>
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="beadTitle">
-				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="-36"/>
-			</DoubleAnimationUsingKeyFrames>
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="beadTitle">
-				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="12"/>
-			</DoubleAnimationUsingKeyFrames>
-			<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(TextElement.FontFamily)" Storyboard.TargetName="textBlock">
-				<DiscreteObjectKeyFrame KeyTime="0:0:1">
-					<DiscreteObjectKeyFrame.Value>
-						<FontFamily>Andy</FontFamily>
-					</DiscreteObjectKeyFrame.Value>
-				</DiscreteObjectKeyFrame>
-			</ObjectAnimationUsingKeyFrames>
-			<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(TextElement.FontWeight)" Storyboard.TargetName="textBlock">
-				<DiscreteObjectKeyFrame KeyTime="0:0:1">
-					<DiscreteObjectKeyFrame.Value>
-						<FontWeight>Bold</FontWeight>
-					</DiscreteObjectKeyFrame.Value>
-				</DiscreteObjectKeyFrame>
-			</ObjectAnimationUsingKeyFrames>
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(TextElement.FontSize)" Storyboard.TargetName="textBlock">
-				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="32"/>
-			</DoubleAnimationUsingKeyFrames>
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="beadPoloroid">
-				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="96"/>
-			</DoubleAnimationUsingKeyFrames>
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="beadPoloroid">
-				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="57"/>
-			</DoubleAnimationUsingKeyFrames>
-		</Storyboard>
-	</UserControl.Resources>
+        <Storyboard x:Key="OnMouseDown1">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="thread">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0.457"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="thread">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0.457"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="thread">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="-22.647"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="thread">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="253.723"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="lime">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0.457"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="lime">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0.457"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="lime">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="-273.476"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="lime">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="96.847"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="magenta">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0.457"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="magenta">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0.457"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="magenta">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="115.643"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="magenta">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="67.568"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="purple">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0.457"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="purple">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0.457"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="purple">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="-81.497"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="purple">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="66.339"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="black">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0.457"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="black">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0.457"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="black">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="-373.086"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="black">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="261.429"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="red">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0.457"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="red">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0.457"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="red">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="-262.073"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="red">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="401.487"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="aqua">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0.457"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="aqua">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0.457"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="aqua">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="-97.787"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="aqua">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="447.819"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="dark_green">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0.457"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="dark_green">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0.457"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="dark_green">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="95.278"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="dark_green">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="437.372"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="blue">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0.457"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="blue">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0.457"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="blue">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="285.865"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="blue">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="161.099"/>
+            </DoubleAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="beadDetailTextBlock">
+                <DiscreteObjectKeyFrame KeyTime="0:0:1" Value="{x:Static Visibility.Visible}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="button">
+                <DiscreteObjectKeyFrame KeyTime="0:0:1" Value="{x:Static Visibility.Visible}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="beadPoloroid">
+                <DiscreteObjectKeyFrame KeyTime="0:0:1" Value="{x:Static Visibility.Visible}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="beadImageView">
+                <DiscreteObjectKeyFrame KeyTime="0:0:1" Value="{x:Static Visibility.Visible}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="textBlock">
+                <DiscreteObjectKeyFrame KeyTime="0:0:1" Value="{x:Static Visibility.Visible}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="beadTitle">
+                <DiscreteObjectKeyFrame KeyTime="0:0:1" Value="{x:Static Visibility.Visible}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(TextElement.FontFamily)" Storyboard.TargetName="button">
+                <DiscreteObjectKeyFrame KeyTime="0:0:1">
+                    <DiscreteObjectKeyFrame.Value>
+                        <FontFamily>Andy</FontFamily>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(TextElement.FontSize)" Storyboard.TargetName="button">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="42.667"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="beadDetailTextBlock">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="108"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="textBlock">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="108"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="beadDetailTextBlock">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="-12"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="textBlock">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="-12"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="beadImageView">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="-39"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="beadTitle">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="-36"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="beadTitle">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="12"/>
+            </DoubleAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(TextElement.FontFamily)" Storyboard.TargetName="textBlock">
+                <DiscreteObjectKeyFrame KeyTime="0:0:1">
+                    <DiscreteObjectKeyFrame.Value>
+                        <FontFamily>Andy</FontFamily>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(TextElement.FontWeight)" Storyboard.TargetName="textBlock">
+                <DiscreteObjectKeyFrame KeyTime="0:0:1">
+                    <DiscreteObjectKeyFrame.Value>
+                        <FontWeight>Bold</FontWeight>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(TextElement.FontSize)" Storyboard.TargetName="textBlock">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="32"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="beadPoloroid">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="96"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="beadPoloroid">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="57"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </UserControl.Resources>
     <UserControl.RenderTransform>
         <TranslateTransform x:Name="centreBead" Y="200" X="200"/>
     </UserControl.RenderTransform>
-	<UserControl.Triggers>
-		<EventTrigger RoutedEvent="Mouse.MouseDown" SourceName="lime">
-			<BeginStoryboard Storyboard="{StaticResource OnMouseDown1}"/>
-		</EventTrigger>
+    <UserControl.Triggers>
+        <EventTrigger RoutedEvent="Mouse.MouseDown" SourceName="lime">
+            <BeginStoryboard Storyboard="{StaticResource OnMouseDown1}"/>
+        </EventTrigger>
         <EventTrigger RoutedEvent="Mouse.MouseDown" SourceName="purple">
             <BeginStoryboard Storyboard="{StaticResource OnMouseDown1}"/>
         </EventTrigger>
@@ -247,149 +247,149 @@
         </EventTrigger>
     </UserControl.Triggers>
     <Grid x:Name="threadedBeadGrid" Margin="-195,-183,204,204">
-		<Image x:Name="thread" Margin="145.011,89.807,168.196,95.501" Source="/P02Project;component/Resources/images/beads/thread.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
-			<Image.RenderTransform>
-				<TransformGroup>
-					<ScaleTransform/>
-					<SkewTransform/>
-					<RotateTransform/>
-					<TranslateTransform/>
-				</TransformGroup>
-			</Image.RenderTransform>
-			<Image.Effect>
-				<DropShadowEffect Direction="180"/>
-			</Image.Effect>
-		</Image>
-		<Image x:Name="magenta" Margin="422.151,0,0,25.8" Source="/P02Project;component/Resources/images/beads/magenta.png" Stretch="Fill" HorizontalAlignment="Left" Height="186.283" VerticalAlignment="Bottom" Width="266.594" RenderTransformOrigin="0.5,0.5" MouseUp="Bead_MouseUp">
-			<Image.RenderTransform>
-				<TransformGroup>
-					<ScaleTransform/>
-					<SkewTransform/>
-					<RotateTransform Angle="3.779"/>
-					<TranslateTransform/>
-				</TransformGroup>
-			</Image.RenderTransform>
-		</Image>
-		<Image x:Name="purple" Height="191.768" Margin="771.533,0,583.781,20.857" Source="/P02Project;component/Resources/images/beads/purple.png" Stretch="Fill" VerticalAlignment="Bottom" RenderTransformOrigin="0.5,0.5" MouseUp="Bead_MouseUp">
-			<Image.RenderTransform>
-				<TransformGroup>
-					<ScaleTransform/>
-					<SkewTransform/>
-					<RotateTransform Angle="-5.296"/>
-					<TranslateTransform/>
-				</TransformGroup>
-			</Image.RenderTransform>
-		</Image>
-		<Image x:Name="black" Margin="0,339.919,65.126,352.798" Source="/P02Project;component/Resources/images/beads/black.png" Stretch="Fill" HorizontalAlignment="Right" Width="266.594" RenderTransformOrigin="0.5,0.5" MouseUp="Bead_MouseUp">
-			<Image.RenderTransform>
-				<TransformGroup>
-					<ScaleTransform/>
-					<SkewTransform/>
-					<RotateTransform Angle="-90.73"/>
-					<TranslateTransform/>
-				</TransformGroup>
-			</Image.RenderTransform>
-		</Image>
-		<Image x:Name="aqua" Height="191.768" Margin="800.729,3.133,554.585,0" Source="/P02Project;component/Resources/images/beads/aqua.png" Stretch="Fill" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" MouseUp="Bead_MouseUp">
-			<Image.RenderTransform>
-				<TransformGroup>
-					<ScaleTransform/>
-					<SkewTransform/>
-					<RotateTransform Angle="5.189"/>
-					<TranslateTransform/>
-				</TransformGroup>
-			</Image.RenderTransform>
-		</Image>
-		<Image x:Name="dark_green" Margin="458.647,24.599,0,0" Source="/P02Project;component/Resources/images/beads/dark%20green.png" Stretch="Fill" HorizontalAlignment="Left" Height="186.283" VerticalAlignment="Top" Width="266.594" RenderTransformOrigin="0.5,0.5" MouseUp="Bead_MouseUp">
-			<Image.RenderTransform>
-				<TransformGroup>
-					<ScaleTransform/>
-					<SkewTransform/>
-					<RotateTransform Angle="-5.426"/>
-					<TranslateTransform/>
-				</TransformGroup>
-			</Image.RenderTransform>
-		</Image>
-		<Image x:Name="blue" Margin="113.158,0,0,190.682" Source="/P02Project;component/Resources/images/beads/blue.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" Width="274.444" MouseUp="Bead_MouseUp" Height="171.331" VerticalAlignment="Bottom">
-			<Image.RenderTransform>
-				<TransformGroup>
-					<ScaleTransform/>
-					<SkewTransform/>
-					<RotateTransform Angle="54.284"/>
-					<TranslateTransform/>
-				</TransformGroup>
-			</Image.RenderTransform>
-		</Image>
-		<Image x:Name="lime" Margin="0,0,250.036,79.823" Source="/P02Project;component/Resources/images/beads/lime.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" MouseUp="Bead_MouseUp" HorizontalAlignment="Right" Height="186.283" VerticalAlignment="Bottom" Width="266.593" d:LayoutOverrides="VerticalAlignment">
-			<Image.RenderTransform>
-				<TransformGroup>
-					<ScaleTransform/>
-					<SkewTransform/>
-					<RotateTransform Angle="-21.502"/>
-					<TranslateTransform/>
-				</TransformGroup>
-			</Image.RenderTransform>
-		</Image>
-		<Image x:Name="red" Margin="0,93.201,237.773,0" Source="/P02Project;component/Resources/images/beads/red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" MouseUp="Bead_MouseUp" HorizontalAlignment="Right" Height="186.282" VerticalAlignment="Top" Width="266.205">
-			<Image.RenderTransform>
-				<TransformGroup>
-					<ScaleTransform/>
-					<SkewTransform/>
-					<RotateTransform Angle="23.938"/>
-					<TranslateTransform/>
-				</TransformGroup>
-			</Image.RenderTransform>
-		</Image>
+        <Image x:Name="thread" Margin="145.011,89.807,168.196,95.501" Source="/P02Project;component/Resources/images/beads/thread.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+            <Image.Effect>
+                <DropShadowEffect Direction="180"/>
+            </Image.Effect>
+        </Image>
+        <Image x:Name="magenta" Margin="422.151,0,0,25.8" Source="/P02Project;component/Resources/images/beads/magenta.png" Stretch="Fill" HorizontalAlignment="Left" Height="186.283" VerticalAlignment="Bottom" Width="266.594" RenderTransformOrigin="0.5,0.5" MouseUp="Bead_MouseUp">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="3.779"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image x:Name="purple" Height="191.768" Margin="771.533,0,583.781,20.857" Source="/P02Project;component/Resources/images/beads/purple.png" Stretch="Fill" VerticalAlignment="Bottom" RenderTransformOrigin="0.5,0.5" MouseUp="Bead_MouseUp">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-5.296"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image x:Name="black" Margin="0,339.919,65.126,352.798" Source="/P02Project;component/Resources/images/beads/black.png" Stretch="Fill" HorizontalAlignment="Right" Width="266.594" RenderTransformOrigin="0.5,0.5" MouseUp="Bead_MouseUp">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-90.73"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image x:Name="aqua" Height="191.768" Margin="800.729,3.133,554.585,0" Source="/P02Project;component/Resources/images/beads/aqua.png" Stretch="Fill" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" MouseUp="Bead_MouseUp">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="5.189"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image x:Name="dark_green" Margin="458.647,24.599,0,0" Source="/P02Project;component/Resources/images/beads/dark%20green.png" Stretch="Fill" HorizontalAlignment="Left" Height="186.283" VerticalAlignment="Top" Width="266.594" RenderTransformOrigin="0.5,0.5" MouseUp="Bead_MouseUp">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-5.426"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image x:Name="blue" Margin="113.158,0,0,190.682" Source="/P02Project;component/Resources/images/beads/blue.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" Width="274.444" MouseUp="Bead_MouseUp" Height="171.331" VerticalAlignment="Bottom">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="54.284"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image x:Name="lime" Margin="0,0,250.036,79.823" Source="/P02Project;component/Resources/images/beads/lime.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" MouseUp="Bead_MouseUp" HorizontalAlignment="Right" Height="186.283" VerticalAlignment="Bottom" Width="266.593" d:LayoutOverrides="VerticalAlignment">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-21.502"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image x:Name="red" Margin="0,93.201,237.773,0" Source="/P02Project;component/Resources/images/beads/red.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" MouseUp="Bead_MouseUp" HorizontalAlignment="Right" Height="186.282" VerticalAlignment="Top" Width="266.205">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="23.938"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
         <TextBlock x:Name="beadDetailTextBlock" Background="#7F525252" HorizontalAlignment="Right" Height="198" Margin="0,225,32,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="364" FontSize="21.333" Visibility="Collapsed" Foreground="Black" RenderTransformOrigin="0.5,0.5">
-        	<TextBlock.RenderTransform>
-        		<TransformGroup>
-        			<ScaleTransform/>
-        			<SkewTransform/>
-        			<RotateTransform/>
-        			<TranslateTransform/>
-        		</TransformGroup>
-        	</TextBlock.RenderTransform>
+                <TextBlock.RenderTransform>
+                        <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform/>
+                                <TranslateTransform/>
+                        </TransformGroup>
+                </TextBlock.RenderTransform>
         </TextBlock>
         <Button x:Name="button" Style="{StaticResource MyButtonStyle}" Content="Start Quiz" HorizontalAlignment="Right" Height="146" Margin="0,0,46,99.193" VerticalAlignment="Bottom" Width="356" Visibility="Collapsed" Click="button_Click_1" />
-    	<P02Project:PoloroidControl x:Name="beadPoloroid" HorizontalAlignment="Left" Margin="39,127,0,428" Width="364" RenderTransformOrigin="0.5,0.5" Visibility="Collapsed">
-    		<P02Project:PoloroidControl.RenderTransform>
-    			<TransformGroup>
-    				<ScaleTransform/>
-    				<SkewTransform/>
-    				<RotateTransform Angle="-8.588"/>
-    				<TranslateTransform/>
-    			</TransformGroup>
-    		</P02Project:PoloroidControl.RenderTransform>
-    	</P02Project:PoloroidControl>
-    	<Image x:Name="beadImageView" Height="314" Margin="569,109,606,0" VerticalAlignment="Top" Visibility="Collapsed" RenderTransformOrigin="0.5,0.5">
-    		<Image.RenderTransform>
-    			<TransformGroup>
-    				<ScaleTransform/>
-    				<SkewTransform/>
-    				<RotateTransform/>
-    				<TranslateTransform/>
-    			</TransformGroup>
-    		</Image.RenderTransform>
-    	</Image>
-    	<TextBlock x:Name="textBlock" HorizontalAlignment="Right" Height="54" Margin="0,181,34,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="364" FontSize="26.667" FontWeight="Bold" Visibility="Collapsed" Foreground="Black" RenderTransformOrigin="0.5,0.5">
-    		<TextBlock.RenderTransform>
-    			<TransformGroup>
-    				<ScaleTransform/>
-    				<SkewTransform/>
-    				<RotateTransform/>
-    				<TranslateTransform/>
-    			</TransformGroup>
-    		</TextBlock.RenderTransform><Run Language="en-nz" Text="Awarded for:"/></TextBlock>
-    	<TextBlock x:Name="beadTitle" Height="39" Margin="569,0,606,396.5" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Bottom" FontStyle="Italic" TextAlignment="Center" Foreground="Black" FontSize="18.667" Visibility="Collapsed" RenderTransformOrigin="0.5,0.5">
-    		<TextBlock.RenderTransform>
-    			<TransformGroup>
-    				<ScaleTransform/>
-    				<SkewTransform/>
-    				<RotateTransform/>
-    				<TranslateTransform/>
-    			</TransformGroup>
-    		</TextBlock.RenderTransform>
-    	</TextBlock>
-    	<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
-	</Grid>
+        <P02Project:PoloroidControl x:Name="beadPoloroid" HorizontalAlignment="Left" Margin="39,127,0,428" Width="364" RenderTransformOrigin="0.5,0.5" Visibility="Collapsed">
+            <P02Project:PoloroidControl.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-8.588"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </P02Project:PoloroidControl.RenderTransform>
+        </P02Project:PoloroidControl>
+        <Image x:Name="beadImageView" Height="314" Margin="569,109,606,0" VerticalAlignment="Top" Visibility="Collapsed" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Right" Height="54" Margin="0,181,34,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="364" FontSize="26.667" FontWeight="Bold" Visibility="Collapsed" Foreground="Black" RenderTransformOrigin="0.5,0.5">
+                    <TextBlock.RenderTransform>
+                            <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform/>
+                                    <TranslateTransform/>
+                            </TransformGroup>
+                    </TextBlock.RenderTransform><Run Language="en-nz" Text="Awarded for:"/></TextBlock>
+        <TextBlock x:Name="beadTitle" Height="39" Margin="569,0,606,396.5" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Bottom" FontStyle="Italic" TextAlignment="Center" Foreground="Black" FontSize="18.667" Visibility="Collapsed" RenderTransformOrigin="0.5,0.5">
+                    <TextBlock.RenderTransform>
+                            <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform/>
+                                    <TranslateTransform/>
+                            </TransformGroup>
+                    </TextBlock.RenderTransform>
+        </TextBlock>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+    </Grid>
 </UserControl>

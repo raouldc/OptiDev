@@ -31,7 +31,7 @@ namespace P02Project.Screens.BeadsOfCourage
             beadPoloroid.IsUnclickable = true;
             String path = System.IO.Path.Combine(System.IO.Path.GetFullPath("."), "Utils/xml/BeadsOfCourageSchema/beads.xml");
             _beadModel = XMLUtilities.GetBeadsContentFromFile(path);
-            r =new Random();
+            r = new Random();
             button.Background = SELECTED_COLOR;
             DropShadowEffect dShdow = new DropShadowEffect();
             dShdow.BlurRadius = 10;
