@@ -56,59 +56,20 @@ namespace P02Project.Screens.BeadsOfCourage
             bmpImage.EndInit();
             beadImageView.Source = bmpImage;
 
-
-            //Set the textbox content
-
-
-            //sder.RenderTransform = new RotateTransform(0);
-            //MoveTo(sder, 650, 100);
-            //var trans = new TranslateTransform();
-            ////trans.X = -300;
-            //trans.Y = -300;
-            //sder.RenderTransform = trans;
-            //sder.Visibility = Visibility.Collapsed;
-            //display info about the bead
-            //foreach (Image child in threadedBeadGrid.Children)
-            //{
-            //    if (child.Equals(sder))
-            //    {
-            //        continue;
-            //    }
-            //    else
-            //    {
-            //        child.Height = child.Height*0.2;
-            //        child.Width = child.Width*0.2;
-            //    }
-            //}
-        }
-
-        private List<Bead> beadList;
-        private BeadModel _beadModel;
-
-
-        private class Bead
-        {
-            String text { get; set; }
-            String name { get; set; }
-
-            public Bead(String name, String text)
+            foreach (var temp in _beadModel.BeadsList)
             {
-                this.text = text;
-                this.name = name;
+                if (!temp.id.ToLower().Equals(sder.Name.ToLower())) continue;
+                beadDetailTextBlock.Text = temp.Value.Trim();
+                beadTitle.Text = temp.id;
+                break;
             }
+
+            //beadPoloroid.setImage(_beadModel.Images);
+            beadPoloroid.setImage(_beadModel.Images[r.Next(_beadModel.Images.Length)].Value);
+
         }
 
-        //private void MoveTo(Image target, double newX, double newY)
-        //{
-        //    Vector offset = VisualTreeHelper.GetOffset(target);
-        //    var top = offset.Y;
-        //    var left = offset.X;
-        //    TranslateTransform trans = new TranslateTransform();
-        //    target.RenderTransform = trans;
-        //    DoubleAnimation anim1 = new DoubleAnimation(0, newY - top, TimeSpan.FromSeconds(1));
-        //    DoubleAnimation anim2 = new DoubleAnimation(0, newX - left, TimeSpan.FromSeconds(1));
-        //    trans.BeginAnimation(TranslateTransform.YProperty, anim1);
-        //    trans.BeginAnimation(TranslateTransform.XProperty, anim2);
-        //}
+        private BeadModel _beadModel;
+        private Random r;
     }
 }
