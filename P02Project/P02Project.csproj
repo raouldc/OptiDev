@@ -190,11 +190,6 @@
     <Compile Include="Utils\xml\BeadsOfCourageSchema\beads.cs">
       <DependentUpon>beads.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Utils\xml\BeadsOfCourageSchema\beads.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>beads.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Utils\xml\PageModel.cs">
       <DependentUpon>PageModel.xsd</DependentUpon>
     </Compile>
@@ -361,17 +356,7 @@
     <Resource Include="Resources\Fonts\seguisym.ttf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <None Include="Utils\xml\BeadsOfCourageSchema\beads.xsc">
-      <DependentUpon>beads.xsd</DependentUpon>
-    </None>
-    <None Include="Utils\xml\BeadsOfCourageSchema\beads.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>beads.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Utils\xml\BeadsOfCourageSchema\beads.xss">
-      <DependentUpon>beads.xsd</DependentUpon>
-    </None>
+    <None Include="Utils\xml\BeadsOfCourageSchema\beads.xsd" />
     <None Include="Utils\xml\Content.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -384,6 +369,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Utils\xml\BeadsOfCourageSchema\beads.xml" />
     <Resource Include="Resources\images\HowCanIHelp\qr_shop.png" />
     <Resource Include="Resources\images\HowCanIHelp\qr_volunteer.png" />
     <Resource Include="Utils\xml\PageModel.xml" />

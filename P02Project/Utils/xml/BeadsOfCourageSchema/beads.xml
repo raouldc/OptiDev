@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<BeadModel id ="Beads">
+  <BeadsList>
+    <Bead id="Beige">
+      Bone Marrow Aspirate,Biopsy,Joint Aspirations/Injections
+    </Bead>
+    <Bead id="White">
+      Chemotherapy
+    </Bead>
+    <Bead id="Blue">
+      Clinic Visit
+    </Bead>
+    <Bead id="Magenta">
+      Unusual Occurrence: Emergency Department, Ambulance, Heliflight
+    </Bead>
+    <Bead id="Brown">
+      Hair Loss, Hair Thinning
+    </Bead>
+    <Bead id="Lime">
+      Isolation, Fever, Neutropenia and Home Bed Rest
+    </Bead>
+    <Bead id="Tortoise">
+      Lumbar Puncture
+    </Bead>
+    <Bead id="Purple">
+      Infusions: Morphine and Course of IV Antibiotics
+    </Bead>
+    <Bead id="Black">
+      Pokes: IV starts, Blood Draws, Port Access and Injections-SC/IM
+    </Bead>
+    <Bead id="Glow in the Dark">
+      Radiation
+    </Bead>
+    <Bead id="Light Green">
+      Tests, Scans and Xrays
+    </Bead>
+    <Bead id="Red">
+      Transfusions
+    </Bead>
+    <Bead id="Aqua">
+      Tube Placement: NG/NJ/Chest Tube/Foley
+    </Bead>
+    <Bead id="Yellow">
+      Overnight Stay in Hospital
+    </Bead>
+    <Bead id="Dark Green">
+      Stem Cell Harvest, Dialysis and TPN
+    </Bead>
+    <Bead id="Silver/Gray">
+      Dressing Changes
+    </Bead>
+    <Bead id="Square Heart">
+      Transfer to Intensive Care - PICU
+    </Bead>
+    <Bead id="Rainbow">
+      Care Team Visit (PT/OT/SLT/Dietitian/SW/Play Specialist/Other)
+    </Bead>
+    <Bead id="Picture Discs">
+      Significant milestones or Special Events: Birthday, Special Accomplishments
+    </Bead>
+    <Bead id="Bumpy">
+      Medication Challenges | Mobility Challenges
+    </Bead>
+    <Bead id="Star">
+      Surgery like Tumor Removal, Orthopaedic or Reconstuctive
+    </Bead>
+    <Bead id="Red Heart">
+      Transfer to Adult Service
+    </Bead>
+    <Bead id="Purple Heart">
+      Completion of Treatment
+    </Bead>
+    <Bead id="Handmade Glass Bead">
+      Act of Courage, Bone Marrow Transplant and LEAP assessment
+    </Bead>
+    <Bead id="Fimo Eggs or Tube">
+      100 Bead Club
+    </Bead>
+  </BeadsList>
+
+
+  <Images>
+
+    <img id="Child1" caption="Mother and her child">resources/images/Home/abt.png</img>
+    <img id="Child2" caption="">resources/images/Home/abt.png</img>
+    <img id="Child3"></img>
+
+  </Images>
+</BeadModel>
