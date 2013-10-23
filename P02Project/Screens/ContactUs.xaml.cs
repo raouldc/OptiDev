@@ -33,9 +33,6 @@ namespace P02Project
 
         private SurfaceScrollViewer familyPlaceScroll;
 
-        private Grid familySupportGrid;
-        private Grid fundOfficeGrid;
-
         //Animations
         private Storyboard sbIn;
 
@@ -231,8 +228,8 @@ namespace P02Project
         }
 
         private Grid fundraisingOfficeContent() {
-            if(fundOfficeGrid == null){
-            fundOfficeGrid = new Grid();
+            
+            Grid fundOfficeGrid = new Grid();
 
             ColumnDefinition c1 = new ColumnDefinition();
             ColumnDefinition c2 = new ColumnDefinition();
@@ -246,12 +243,12 @@ namespace P02Project
             fundOfficeGrid.RowDefinitions.Add(r2);
             fundOfficeGrid.RowDefinitions.Add(r3);
 
-            RichTextBox box1 = new RichTextBox((FlowDocument)FindResource("auckFOFlow"));
-            RichTextBox box2 = new RichTextBox((FlowDocument)FindResource("waikatoFOFlow"));
-            RichTextBox box3 = new RichTextBox((FlowDocument)FindResource("taurangaFOFlow"));
-            RichTextBox box4 = new RichTextBox((FlowDocument)FindResource("wellFOFlow"));
-            RichTextBox box5 = new RichTextBox((FlowDocument)FindResource("canterburyFOFlow"));
-            RichTextBox box6 = new RichTextBox((FlowDocument)FindResource("otagoFOFlow"));
+            RichTextBox box1 = new RichTextBox(auckFOFlow());
+            RichTextBox box2 = new RichTextBox(waikatoFOFlow());
+            RichTextBox box3 = new RichTextBox(taurangaFOFlow());
+            RichTextBox box4 = new RichTextBox(wellFOFlow());
+            RichTextBox box5 = new RichTextBox(canterburyFOFlow());
+            RichTextBox box6 = new RichTextBox(otagoFOFlow());
 
             setRTBoxStyle(box1);
             setRTBoxStyle(box2);
@@ -284,7 +281,7 @@ namespace P02Project
             fundOfficeGrid.Children.Add(box4);
             fundOfficeGrid.Children.Add(box5);
             fundOfficeGrid.Children.Add(box6);
-            }
+           
             return fundOfficeGrid;
         }
 
@@ -306,8 +303,8 @@ namespace P02Project
 
         private Grid familySupportContent()
         {
-            if(familySupportGrid == null){
-            familySupportGrid = new Grid();
+
+            Grid familySupportGrid = new Grid();
            
             ColumnDefinition c1 = new ColumnDefinition();
             ColumnDefinition c2 = new ColumnDefinition();
@@ -321,12 +318,12 @@ namespace P02Project
             familySupportGrid.RowDefinitions.Add(r2);
             familySupportGrid.RowDefinitions.Add(r3);
 
-            RichTextBox box1 = new RichTextBox((FlowDocument)FindResource("auckFSFlow"));
-            RichTextBox box2 = new RichTextBox((FlowDocument)FindResource("waikatoFSFlow"));
-            RichTextBox box3 = new RichTextBox((FlowDocument)FindResource("tarawhitiFSFlow"));
-            RichTextBox box4 = new RichTextBox((FlowDocument)FindResource("wellFSFlow"));
-            RichTextBox box5 = new RichTextBox((FlowDocument)FindResource("chchFSFlow"));
-            RichTextBox box6 = new RichTextBox((FlowDocument)FindResource("dunedinFSFlow"));
+            RichTextBox box1 = new RichTextBox(auckFSFlow());
+            RichTextBox box2 = new RichTextBox(waikatoFSFlow());
+            RichTextBox box3 = new RichTextBox(tarawhitiFSFlow());
+            RichTextBox box4 = new RichTextBox(wellFSFlow());
+            RichTextBox box5 = new RichTextBox(chchFSFlow());
+            RichTextBox box6 = new RichTextBox(dunedinFSFlow());
 
             setRTBoxStyle(box1);
             setRTBoxStyle(box2);
@@ -359,7 +356,7 @@ namespace P02Project
             familySupportGrid.Children.Add(box4);
             familySupportGrid.Children.Add(box5);
             familySupportGrid.Children.Add(box6);
-        }
+        
             return familySupportGrid;
         }
 
@@ -515,7 +512,14 @@ namespace P02Project
             taurPin.Location = new Location(-37.699713, 176.156457);
             hBPin.Location = new Location(-39.628639, 176.822171);
             wellPin.Location = new Location(-41.307915, 174.77836);
-            
+
+            map.Children.Add(auckMOPin);
+            map.Children.Add(chchPin);
+            map.Children.Add(dunPin);
+            map.Children.Add(taurPin);
+            map.Children.Add(hBPin);
+            map.Children.Add(wellPin);
+
             map.AddHandler(UIElement.TouchDownEvent, new EventHandler<TouchEventArgs>(MapWithPushpins_TouchDown), true);
             map.AddHandler(UIElement.MouseDownEvent, new MouseButtonEventHandler(MapWithPushpins_MouseDown), true);
 
@@ -579,9 +583,9 @@ namespace P02Project
             scrollContent.AddHandler(UIElement.TouchUpEvent, new EventHandler<TouchEventArgs>(MainOffice_TouchDown), true);
 
             //Add main office content here
-            scrollContent.Content = mainOfficeContent();
+            scrollContent.Content = auckMOContent();
             
-            contentStackPanel.Children.Add(map);
+            contentStackPanel.Children.Add(moMap);
             contentStackPanel.Children.Add(scrollContent);
 
             scrollContent.HorizontalScrollBarVisibility = ScrollBarVisibility.Disabled;
@@ -709,5 +713,121 @@ namespace P02Project
                 familyPlaceScroll.Content = hbFPContent();
             }
         }
+
+        private FlowDocument auckFOFlow()
+        {
+            FlowDocument flow = new FlowDocument();
+            Paragraph p = new Paragraph();
+            p.Inlines.Add(new Bold(new Run("Auckland / Northland\n")));
+            p.Inlines.Add(new Run("Liz Atkinson\nPhone: 09 303 9976  | 021 574 545\nlatkinson@childcancer.org.nz"));
+            flow.Blocks.Add(p);
+            return flow;
+        }
+        private FlowDocument waikatoFOFlow()
+        {
+            FlowDocument flow = new FlowDocument();
+            Paragraph p = new Paragraph();
+            p.Inlines.Add(new Bold(new Run("Waikato\n")));
+            p.Inlines.Add(new Run("Sharon Robertson\nPhone: 021 858 903\nEmail: srobertson@childcancer.org.nz"));
+            flow.Blocks.Add(p);
+            return flow;
+        }
+        private FlowDocument taurangaFOFlow()
+        {
+            FlowDocument flow = new FlowDocument();
+            Paragraph p = new Paragraph();
+            p.Inlines.Add(new Bold(new Run("Tauranga\n")));
+            p.Inlines.Add(new Run("Delwynne Hahunga\nPhone: 07 579 4141 | 021 497 859\nEmail: dhahunga@childcancer.org.nz"));
+            flow.Blocks.Add(p);
+            return flow;
+        }
+        private FlowDocument wellFOFlow()
+        {
+            FlowDocument flow = new FlowDocument();
+            Paragraph p = new Paragraph();
+            p.Inlines.Add(new Bold(new Run("Wellington Family Place\n")));
+            p.Inlines.Add(new Run("27 Riddiford Street\nNewtown\nWellington\nPhone: (04) 389 2620"));
+            flow.Blocks.Add(p);
+            return flow;
+        }
+        private FlowDocument canterburyFOFlow()
+        {
+            FlowDocument flow = new FlowDocument();
+            Paragraph p = new Paragraph();
+            p.Inlines.Add(new Bold(new Run("Canterbury/West Coast\n")));
+            p.Inlines.Add(new Run("Clare Wilkinson\nPhone: 03 365 1485\nEmail: cwilkinson@childcancer.org.nz"));
+            flow.Blocks.Add(p);
+            return flow;
+        }
+        private FlowDocument otagoFOFlow()
+        {
+            FlowDocument flow = new FlowDocument();
+            Paragraph p = new Paragraph();
+            p.Inlines.Add(new Bold(new Run("Otago / Southland\n")));
+            p.Inlines.Add(new Run("Elaine Horn\nPhone:03 471 7258 | 021 733 671 \nEmail: ehorn@childcancer.org.nz"));
+            flow.Blocks.Add(p);
+            return flow;
+        }
+
+        //////////////////////////
+        //Family support flow documents
+        private FlowDocument auckFSFlow()
+        {
+            FlowDocument flow = new FlowDocument();
+            Paragraph p = new Paragraph();
+            p.Inlines.Add(new Bold(new Run("Auckland\n")));
+            p.Inlines.Add(new Run("Janet Masina\nPhone:09 303 9885 \nEmail: jmasina@childcancer.org.nz"));
+            flow.Blocks.Add(p);
+            return flow;
+        }
+
+        private FlowDocument waikatoFSFlow()
+        {
+            FlowDocument flow = new FlowDocument();
+            Paragraph p = new Paragraph();
+            p.Inlines.Add(new Bold(new Run("Waikato\n")));
+            p.Inlines.Add(new Run("Robyn Cresswell\nPhone: 021 714 088\nEmail: rcresswell@childcancer.org.nz"));
+            flow.Blocks.Add(p);
+            return flow;
+        }
+        private FlowDocument tarawhitiFSFlow()
+        {
+            FlowDocument flow = new FlowDocument();
+            Paragraph p = new Paragraph();
+            p.Inlines.Add(new Bold(new Run("Tarawhiti\n")));
+            p.Inlines.Add(new Run("Cheryl Scott\nPhone: 027 361 7000\nEmail: cscott@childcancer.org.nz"));
+            flow.Blocks.Add(p);
+            return flow;
+        }
+
+        private FlowDocument wellFSFlow()
+        {
+            FlowDocument flow = new FlowDocument();
+            Paragraph p = new Paragraph();
+            p.Inlines.Add(new Bold(new Run("Wellington\n")));
+            p.Inlines.Add(new Run("Tracy Ward\nPhone: 04 389 2620\nEmail: tward@childcancer.org.nz"));
+            flow.Blocks.Add(p);
+            return flow;
+        }
+
+        private FlowDocument chchFSFlow()
+        {
+            FlowDocument flow = new FlowDocument();
+            Paragraph p = new Paragraph();
+            p.Inlines.Add(new Bold(new Run("Christchurch\n")));
+            p.Inlines.Add(new Run("Robin Furley\nPhone: 03 365 1485\nEmail: rfurley@childcancer.org.nz"));
+            flow.Blocks.Add(p);
+            return flow;
+        }
+
+        private FlowDocument dunedinFSFlow() {
+            FlowDocument flow = new FlowDocument();
+            Paragraph p = new Paragraph();
+            p.Inlines.Add(new Bold(new Run("Dunedin\n")));
+            p.Inlines.Add(new Run("Christine Donovan\nPhone: 03 471 7258 \n Email: cdonovan@childcancer.org.nz"));
+            flow.Blocks.Add(p);
+            return flow;
+        }
+
     }
 }
