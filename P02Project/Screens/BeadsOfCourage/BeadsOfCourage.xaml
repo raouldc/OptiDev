@@ -59,12 +59,12 @@
             <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(TextElement.FontFamily)" Storyboard.TargetName="button">
                 <DiscreteObjectKeyFrame KeyTime="0:0:1">
                     <DiscreteObjectKeyFrame.Value>
-                        <FontFamily>Andy</FontFamily>
-                    </DiscreteObjectKeyFrame.Value>
+                		<FontFamily>Segoe UI</FontFamily>
+                	</DiscreteObjectKeyFrame.Value>
                 </DiscreteObjectKeyFrame>
             </ObjectAnimationUsingKeyFrames>
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(TextElement.FontSize)" Storyboard.TargetName="button">
-                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="42.667"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="32"/>
             </DoubleAnimationUsingKeyFrames>
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="beadDetailTextBlock">
                 <EasingDoubleKeyFrame KeyTime="0:0:1" Value="108"/>
@@ -85,13 +85,13 @@
                 <EasingDoubleKeyFrame KeyTime="0:0:1" Value="-60"/>
             </DoubleAnimationUsingKeyFrames>
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="beadTitle">
-                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="12"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="2"/>
             </DoubleAnimationUsingKeyFrames>
             <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(TextElement.FontFamily)" Storyboard.TargetName="textBlock">
                 <DiscreteObjectKeyFrame KeyTime="0:0:1">
                     <DiscreteObjectKeyFrame.Value>
-                        <FontFamily>Andy</FontFamily>
-                    </DiscreteObjectKeyFrame.Value>
+                		<FontFamily>Segoe UI</FontFamily>
+                	</DiscreteObjectKeyFrame.Value>
                 </DiscreteObjectKeyFrame>
             </ObjectAnimationUsingKeyFrames>
             <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(TextElement.FontWeight)" Storyboard.TargetName="textBlock">
@@ -102,7 +102,7 @@
                 </DiscreteObjectKeyFrame>
             </ObjectAnimationUsingKeyFrames>
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(TextElement.FontSize)" Storyboard.TargetName="textBlock">
-                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="32"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="24"/>
             </DoubleAnimationUsingKeyFrames>
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="beadPoloroid">
                 <EasingDoubleKeyFrame KeyTime="0:0:1" Value="96"/>
@@ -305,6 +305,12 @@
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(TextElement.FontSize)" Storyboard.TargetName="beadTitle">
             	<EasingDoubleKeyFrame KeyTime="0:0:1" Value="26.667"/>
             </DoubleAnimationUsingKeyFrames>
+            <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(Block.Padding)" Storyboard.TargetName="beadDetailTextBlock">
+            	<EasingThicknessKeyFrame KeyTime="0:0:1" Value="0,0,10,0"/>
+            </ThicknessAnimationUsingKeyFrames>
+            <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(Block.Padding)" Storyboard.TargetName="textBlock">
+            	<EasingThicknessKeyFrame KeyTime="0:0:1" Value="0,0,10,0"/>
+            </ThicknessAnimationUsingKeyFrames>
         </Storyboard>
     </UserControl.Resources>
     <UserControl.RenderTransform>
@@ -472,7 +478,7 @@
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
-        <TextBlock x:Name="beadDetailTextBlock" Background="#7F525252" HorizontalAlignment="Right" Height="198" Margin="0,85,16,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="364" FontSize="21.333" Visibility="Collapsed" Foreground="Black" RenderTransformOrigin="0.5,0.5">
+        <TextBlock x:Name="beadDetailTextBlock" HorizontalAlignment="Right" Height="198" Margin="0,85,16,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="364" FontSize="21.333" Visibility="Collapsed" Foreground="Black" RenderTransformOrigin="0.5,0.5">
                 <TextBlock.RenderTransform>
                         <TransformGroup>
                                 <ScaleTransform/>
@@ -503,7 +509,7 @@
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Right" Height="54" Margin="0,41,18,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="364" FontSize="26.667" FontWeight="Bold" Visibility="Collapsed" Foreground="Black" RenderTransformOrigin="0.5,0.5">
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Right" Height="54" Margin="0,43,18,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="364" FontSize="26.667" FontWeight="Bold" Visibility="Collapsed" Foreground="Black" RenderTransformOrigin="0.5,0.5">
                     <TextBlock.RenderTransform>
                             <TransformGroup>
                                     <ScaleTransform/>
