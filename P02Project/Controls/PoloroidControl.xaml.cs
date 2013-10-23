@@ -198,6 +198,14 @@ namespace P02Project
         private void Poloroid_MouseUp(object sender, MouseButtonEventArgs e)
         {
             showShadow();
+
+            try
+            {
+                (Window.GetWindow(this) as TopWindow).ResetTimer();
+            }
+            catch (NullReferenceException exp)
+            {
+            }
         }
 
 
@@ -209,6 +217,14 @@ namespace P02Project
         private void Poloroid_TouchUp(object sender, TouchEventArgs e)
         {
             showShadow();
+
+            try
+            {
+                (Window.GetWindow(this) as TopWindow).ResetTimer();
+            }
+            catch (NullReferenceException exp)
+            {
+            }
         }
 
         public void setGlow() {

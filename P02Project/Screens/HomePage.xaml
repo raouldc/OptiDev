@@ -35,7 +35,7 @@
             	<s:ScatterView x:Name="_titleExtension1" Grid.Row="0" Background="#FF5E99E9" HorizontalAlignment="Right" Height="120" Margin="0,0,240,0" VerticalAlignment="Top" Width="50" />
             	<s:ScatterView x:Name="_titleExtension2" Grid.Row="0" Background="#FF5E99E9" HorizontalAlignment="Right" Height="120" VerticalAlignment="Top" Width="240" />
         <!-- set polaroid for Family Support-->
-            	<view:PoloroidControl x:Name="familySupport" Height="316.546" Margin="951.697,0,635.697,167.227" VerticalAlignment="Bottom" RenderTransformOrigin="0.5,0.5" MouseUp="familySupport_MouseUp">
+            	<view:PoloroidControl x:Name="familySupport" Height="316.546" Margin="951.174,0,0,156.101" VerticalAlignment="Bottom" RenderTransformOrigin="0.5,0.5" MouseUp="familySupport_MouseUp" HorizontalAlignment="Left" Width="332.576">
             		<view:PoloroidControl.RenderTransform>
             			<TransformGroup>
             				<ScaleTransform/>

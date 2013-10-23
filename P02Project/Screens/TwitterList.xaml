@@ -26,7 +26,7 @@
     <Grid x:Name="LayoutRoot">
          
         <StackPanel x:Name="_buttons" HorizontalAlignment="Left" Height="95.5" Width="502.25" Margin="60,413,0,391.5" d:LayoutOverrides="VerticalAlignment" >
-        	<Button x:Name="_tweetUsBtn"  Content="Tweet Us" FontSize="48" FontFamily="Andy" BorderThickness="0" Background="#ff146290" BorderBrush="#00707070" Foreground="White" Width="502.25" HorizontalAlignment="Left" Click="openWebcam" Height="62" VerticalAlignment="Bottom"/>
+        	<Button x:Name="_tweetUsBtn"  Content="Tweet Us" FontSize="48" FontFamily="Andy" BorderThickness="0" Background="#ff146290" BorderBrush="#00707070" Foreground="White" Width="501" HorizontalAlignment="Left" Click="openWebcam" Height="59" VerticalAlignment="Bottom"/>
         </StackPanel>
         
         <Image x:Name="_ccfTwitterHome" HorizontalAlignment="Left" Margin="60,72,0,0" Width="502.25" Source="/P02Project;component/Resources/images/Twitter/ChildCanerTwitterHome.png" Height="341" VerticalAlignment="Top"/>

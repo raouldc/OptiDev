@@ -77,11 +77,27 @@ namespace P02Project
             //topLevelPage.AnimateOut();
             //dt.Start();
             topLevelPage.BackButton_Click(sender, e);
+
+            try
+            {
+                (Window.GetWindow(this) as TopWindow).ResetTimer();
+            }
+            catch (NullReferenceException exp)
+            {
+            }
         }
 
         private void CCF_Button_Click(object sender, RoutedEventArgs e)
         {
             topLevelPage.HomeButton_Click();
+
+            try
+            {
+                (Window.GetWindow(this) as TopWindow).ResetTimer();
+            }
+            catch (NullReferenceException exp)
+            {
+            }
         }
 	}
 }
