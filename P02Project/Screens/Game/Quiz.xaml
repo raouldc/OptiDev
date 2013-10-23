@@ -110,7 +110,7 @@
     			<RowDefinition Height="17.5*"/>
     			<RowDefinition Height="17.5*"/>
     		</Grid.RowDefinitions>
-            <TextBlock x:Name="content_title" Margin="15,15,15,8" TextWrapping="Wrap" FontSize="25" Grid.ColumnSpan="2" Grid.Row="1"><Run Language="en-nz" Text="Question"/></TextBlock>
+            <TextBlock x:Name="content_title" Margin="15,15,15,8" TextWrapping="Wrap" FontSize="20" Grid.ColumnSpan="2" Grid.Row="1"><Run Language="en-nz" Text="Question"/></TextBlock>
             <Button x:Name="option_A" Style="{StaticResource MyButtonStyle}" Content="Option" Margin="5" Grid.Row="4" Click="option_A_Clicked" FontSize="14" />
             <Button x:Name="option_B" Style="{StaticResource MyButtonStyle}" Content="Option" Margin="5" Grid.Row="4" Grid.Column="1" Click="option_B_Clicked" FontSize="14" />
             <Button x:Name="option_c" Style="{StaticResource MyButtonStyle}" Content="Option" Margin="5" Grid.Row="5" Click="option_C_Clicked" FontSize="14"/>

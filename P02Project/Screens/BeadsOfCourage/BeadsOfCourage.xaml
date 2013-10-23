@@ -606,5 +606,6 @@
         		</TransformGroup>
         	</Image.RenderTransform>
         </Image>
+        <TextBlock Margin="569,317,420,374" TextWrapping="Wrap" FontSize="48" TextAlignment="Center" Foreground="Black" Background="#7FFFFFFF" VerticalAlignment="Center"><Run Language="en-nz" Text="Tap a Bead to learn more about it"/></TextBlock>
     </Grid>
 </UserControl>
