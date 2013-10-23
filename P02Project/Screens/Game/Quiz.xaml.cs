@@ -21,10 +21,16 @@ namespace P02Project.Screens.Game
     {
         private List<Question> chosenQuestions;
         private Question activeQuestion;
+        private List<Button> buttonList;
         public Quiz()
         {
             InitializeComponent();
+            buttonList = new List<Button>();
             //create a new list of questions
+            buttonList.Add(option_A);
+            buttonList.Add(option_B);
+            buttonList.Add(option_c);
+            buttonList.Add(option_D);
             List<String> Options = new List<String>();
             String answer = "Answer";
             Options.Add(answer);
@@ -32,12 +38,12 @@ namespace P02Project.Screens.Game
             Options.Add("Not Answer 2");
             Options.Add("Not Answer 3");
             List<Question> Questions = new List<Question>();
-            Questions.Add(new Question("Random Qn 1", answer, Options, "nothing/image/path","hint 1"));
-            Questions.Add(new Question("Random Qn 2", answer, Options, "nothing/image/path","hint 2"));
-            Questions.Add(new Question("Random Qn 3", answer, Options, "nothing/image/path","hint 3"));
-            Questions.Add(new Question("Random Qn 4", answer, Options, "nothing/image/path","hint 4"));
-            Questions.Add(new Question("Random Qn 5", answer, Options, "nothing/image/path","hint 5"));
-            Questions.Add(new Question("Random Qn 6", answer, Options, "nothing/image/path","hint 6"));
+            Questions.Add(new Question("Random Qn 1", answer, Options.ToList(), "nothing/image/path","hint 1"));
+            Questions.Add(new Question("Random Qn 2", answer, Options.ToList(), "nothing/image/path","hint 2"));
+            Questions.Add(new Question("Random Qn 3", answer, Options.ToList(), "nothing/image/path","hint 3"));
+            Questions.Add(new Question("Random Qn 4", answer, Options.ToList(), "nothing/image/path","hint 4"));
+            Questions.Add(new Question("Random Qn 5", answer, Options.ToList(), "nothing/image/path","hint 5"));
+            Questions.Add(new Question("Random Qn 6", answer, Options.ToList(), "nothing/image/path","hint 6"));
             ChooseQuestions(Questions);
             activeQuestion = chosenQuestions[0];
         }
@@ -110,6 +116,8 @@ namespace P02Project.Screens.Game
             if (!activeQuestion.IsAnswered)
             {
                 fifty_fifty_button.IsEnabled = false;
+                activeQuestion.fifty_fifty();
+                changeButtonState();
                 //get two random items from the list that are incorrect
                 
             }
@@ -149,7 +157,7 @@ namespace P02Project.Screens.Game
             option_D.Content = qn.AllAvailableOptions[3];
             if (qn.IsAnswered)
             {
-                disableButtons();
+                changeButtonState();
                 if (qn.IsCorrect)
                 {
                     StatusBar.Text = "Correct! Answer was: " + activeQuestion.CorrectAnswer;
@@ -166,7 +174,7 @@ namespace P02Project.Screens.Game
             }
             else
             {
-                enableButtons();
+                changeButtonState();
                 StatusBar.Text = "";
             }
         }
@@ -174,7 +182,7 @@ namespace P02Project.Screens.Game
         private void option_A_Clicked(object sender, System.Windows.RoutedEventArgs e)
         {
         	// TODO: Add event handler implementation here.
-            disableButtons();
+            
             if (activeQuestion.Answer((String)option_A.Content))
             {
                 //deactivate the other buttons
@@ -185,12 +193,13 @@ namespace P02Project.Screens.Game
             {
                 StatusBar.Text = "Incorrect! Answer was: " + activeQuestion.CorrectAnswer + "\nYou answered: " + activeQuestion.OptionSelected;
             }
+            changeButtonState();
         }
 
         private void option_B_Clicked(object sender, System.Windows.RoutedEventArgs e)
         {
         	// TODO: Add event handler implementation here.
-            disableButtons();
+            
             if (activeQuestion.Answer((String)option_B.Content))
             {
                 StatusBar.Text = "Correct! Answer was: " + activeQuestion.CorrectAnswer;
@@ -199,12 +208,13 @@ namespace P02Project.Screens.Game
             {
                 StatusBar.Text = "Incorrect! Answer was: " + activeQuestion.CorrectAnswer + "\nYou answered: " + activeQuestion.OptionSelected;
             }
+            changeButtonState();
         }
 
         private void option_C_Clicked(object sender, System.Windows.RoutedEventArgs e)
         {
         	// TODO: Add event handler implementation here.
-            disableButtons();
+            
             if (activeQuestion.Answer((String)option_c.Content))
             {
                 StatusBar.Text = "Correct! Answer was: " + activeQuestion.CorrectAnswer;
@@ -213,12 +223,13 @@ namespace P02Project.Screens.Game
             {
                 StatusBar.Text = "Incorrect! Answer was: " + activeQuestion.CorrectAnswer + "\nYou answered: " + activeQuestion.OptionSelected;
             }
+            changeButtonState();
         }
 
         private void option_D_Clicked(object sender, System.Windows.RoutedEventArgs e)
         {
         	// TODO: Add event handler implementation here.
-            disableButtons();
+            
             if (activeQuestion.Answer((String)option_D.Content))
             {
                 StatusBar.Text = "Correct! Answer was: " + activeQuestion.CorrectAnswer;
@@ -227,23 +238,18 @@ namespace P02Project.Screens.Game
             else
             {
                 StatusBar.Text = "Incorrect! Answer was: " + activeQuestion.CorrectAnswer + "\nYou answered: " + activeQuestion.OptionSelected;
-            }        
+            }
+            changeButtonState();
         }
 
-        private void disableButtons()
+        private void changeButtonState()
         {
-            option_B.IsEnabled = false;
-            option_c.IsEnabled = false;
-            option_A.IsEnabled = false;
-            option_D.IsEnabled = false;
+            for (int i = 0; i < activeQuestion.IsEnabled.Count; i++)
+            {
+                buttonList[i].IsEnabled = activeQuestion.IsEnabled[i];
+            }
+
         }
 
-        private void enableButtons()
-        {
-            option_B.IsEnabled = true;
-            option_c.IsEnabled = true;
-            option_A.IsEnabled = true;
-            option_D.IsEnabled = true;
-        }
     }
 }
