@@ -370,6 +370,11 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\xml\BeadsOfCourage\beads.xml" />
+    <Resource Include="Resources\images\beads\blue.png" />
+    <Resource Include="Resources\images\beads\pink.png" />
+    <Resource Include="Resources\images\beads\aqua.png" />
+    <Resource Include="Resources\images\beads\black.png" />
+    <Resource Include="Resources\images\beads\red.png" />
     <Content Include="Utils\xml\BeadsOfCourageSchema\beads.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
