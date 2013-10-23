@@ -81,9 +81,9 @@
 
   <Images>
 
-    <img id="Child1" caption="Mother and her child">resources/images/Home/abt.png</img>
-    <img id="Child2" caption="">resources/images/Home/abt.png</img>
-    <img id="Child3"></img>
+    <img id="Child1" caption="Mother and her child">images/Home/abt.png</img>
+    <img id="Child2" caption="">images/Home/abt.png</img>
+    <img id="Child3">images/Home/abt.png</img>
 
   </Images>
 </BeadModel>
