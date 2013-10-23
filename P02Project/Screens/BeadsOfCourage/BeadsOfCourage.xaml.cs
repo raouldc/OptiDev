@@ -46,13 +46,13 @@ namespace P02Project.Screens.BeadsOfCourage
             //Change the bead image
             BitmapImage bmpImage = new BitmapImage();
             bmpImage.BeginInit();
-            bmpImage.UriSource = new Uri("pack://application:,,/Resources/images/beads/" + sder.Name + ".png");
+            bmpImage.UriSource = new Uri("pack://application:,,/Resources/images/beads/" + sder.Name.Replace("_", " ") + ".png");
             bmpImage.EndInit();
             beadImageView.Source = bmpImage;
 
             foreach (var temp in _beadModel.BeadsList)
             {
-                if (!temp.id.ToLower().Equals(sder.Name.ToLower())) continue;
+                if (!temp.id.ToLower().Equals(sder.Name.ToLower().Replace("_", " "))) continue;
                 beadDetailTextBlock.Text = temp.Value.Trim();
                 beadTitle.Text = temp.id;
                 break;
