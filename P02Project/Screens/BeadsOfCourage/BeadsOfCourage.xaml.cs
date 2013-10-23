@@ -42,20 +42,20 @@ namespace P02Project.Screens.BeadsOfCourage
             }
 
             Image sder = (Image) sender;
-            sder.Visibility = Visibility.Collapsed;
+            //sder.Visibility = Visibility.Collapsed;
             //display info about the bead
-            foreach (Image child in threadedBeadGrid.Children)
-            {
-                if (child.Equals(sder))
-                {
-                    continue;
-                }
-                else
-                {
-                    child.Height = child.Height*0.2;
-                    child.Width = child.Width*0.2;
-                }
-            }
+            //foreach (Image child in threadedBeadGrid.Children)
+            //{
+            //    if (child.Equals(sder))
+            //    {
+            //        continue;
+            //    }
+            //    else
+            //    {
+            //        child.Height = child.Height*0.2;
+            //        child.Width = child.Width*0.2;
+            //    }
+            //}
         }
 
         private List<Bead> beadList;
