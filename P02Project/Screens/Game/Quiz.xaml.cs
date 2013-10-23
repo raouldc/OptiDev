@@ -25,6 +25,14 @@ namespace P02Project.Screens.Game
         private List<Question> chosenQuestions;
         private static readonly Brush SELECTED_COLOR = new SolidColorBrush(Util._pageColDict["pbSelected"]);
         private static readonly Brush UNSELECTED_COLOR = new SolidColorBrush(Util._pageColDict["pbUnSelected"]);
+        //sea turtle green #438D80
+        private static readonly Brush ENABLED_COLOR = new SolidColorBrush(Util._pageColDict["cuSelected"]);
+        // teal #008080
+        private static readonly Brush DISABLED_COLOR = new SolidColorBrush(Util._pageColDict["cuUnSelected"]);
+        //red
+        private static readonly Brush INCORRECT_COLOR = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF0000"));
+        //green
+        private static readonly Brush CORRECT_COLOR = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#008000"));
         private Question activeQuestion;
         private List<Button> buttonList;
         private List<Button> questionButtons;
@@ -72,6 +80,10 @@ namespace P02Project.Screens.Game
                 ChooseQuestions(Questions);
             activeQuestion = chosenQuestions[0];
             addButtonColours(0);
+            
+            closeButton.Background = SELECTED_COLOR;
+            closeButton.Effect = dShdow;
+
         }
 
         private void ChooseQuestions(List<Question>AllQuestions)
@@ -106,8 +118,8 @@ namespace P02Project.Screens.Game
         	// TODO: Add event handler implementation here.
             activeQuestion = chosenQuestions[3];
             questionNumber.Text = "Question 4";
-            setContent(activeQuestion);
             addButtonColours(3);
+            setContent(activeQuestion);
         }
 
         private void question3_Click(object sender, System.Windows.RoutedEventArgs e)
@@ -123,8 +135,8 @@ namespace P02Project.Screens.Game
         {
         	// TODO: Add event handler implementation here.
             activeQuestion = chosenQuestions[5];
-            setContent(activeQuestion);
             addButtonColours(5);
+            setContent(activeQuestion);
         }
 
         private void question2_CLick(object sender, System.Windows.RoutedEventArgs e)
@@ -170,7 +182,7 @@ namespace P02Project.Screens.Game
                 activeQuestion.HintUsed = true;
                 setContent(activeQuestion);
                 hint_button.Background = UNSELECTED_COLOR;
-                fifty_fifty_button.Effect = null;
+                hint_button.Effect = null;
             }
         }
 
@@ -202,10 +214,14 @@ namespace P02Project.Screens.Game
                 changeButtonState();
                 if (qn.IsCorrect)
                 {
+                    correctField.Foreground = CORRECT_COLOR;
+                    correctField.Text = "Correct!";
                     StatusBar.Text = "Answer was: " + activeQuestion.CorrectAnswer;
                 }
                 else
                 {
+                    correctField.Foreground = INCORRECT_COLOR;
+                    correctField.Text = "Incorrect!";
                     StatusBar.Text = "Answer was: " + activeQuestion.CorrectAnswer+"\nYou answered: "+activeQuestion.OptionSelected;
                 }
 
@@ -216,9 +232,25 @@ namespace P02Project.Screens.Game
             }
             else
             {
+                
+                correctField.Text = "";
                 changeButtonState();
                 StatusBar.Text = "";
             }
+            setScore();
+        }
+
+        private void setScore()
+        {
+            int score = 0;
+            foreach (Question qun in chosenQuestions)
+            {
+                if (qun.IsCorrect == true)
+                {
+                    score++;
+                }
+            }
+            scoreField.Text = score.ToString();
         }
 
         private void option_A_Clicked(object sender, System.Windows.RoutedEventArgs e)
@@ -228,14 +260,18 @@ namespace P02Project.Screens.Game
             if (activeQuestion.Answer((String)option_A.Content))
             {
                 //deactivate the other buttons
-                
+                correctField.Foreground = CORRECT_COLOR;
+                correctField.Text = "Correct!";
                 StatusBar.Text = "Answer was: " + activeQuestion.CorrectAnswer;
             }
             else
             {
+                correctField.Foreground = INCORRECT_COLOR;
+                correctField.Text = "Incorrect!";
                 StatusBar.Text = "Answer was: " + activeQuestion.CorrectAnswer + "\nYou answered: " + activeQuestion.OptionSelected;
             }
             changeButtonState();
+            setScore();
         }
 
         private void option_B_Clicked(object sender, System.Windows.RoutedEventArgs e)
@@ -244,13 +280,18 @@ namespace P02Project.Screens.Game
             
             if (activeQuestion.Answer((String)option_B.Content))
             {
+                correctField.Foreground = CORRECT_COLOR;
+                correctField.Text = "Correct!";
                 StatusBar.Text = "Answer was: " + activeQuestion.CorrectAnswer;
             }
             else
             {
+                correctField.Foreground = INCORRECT_COLOR;
+                correctField.Text = "Incorrect!";
                 StatusBar.Text = "Answer was: " + activeQuestion.CorrectAnswer + "\nYou answered: " + activeQuestion.OptionSelected;
             }
             changeButtonState();
+            setScore();
         }
 
         private void option_C_Clicked(object sender, System.Windows.RoutedEventArgs e)
@@ -259,13 +300,18 @@ namespace P02Project.Screens.Game
             
             if (activeQuestion.Answer((String)option_c.Content))
             {
+                correctField.Foreground = CORRECT_COLOR;
+                correctField.Text = "Correct!";
                 StatusBar.Text = "Answer was: " + activeQuestion.CorrectAnswer;
             }
             else
             {
+                correctField.Foreground = INCORRECT_COLOR;
+                correctField.Text = "Incorrect!";
                 StatusBar.Text = "Answer was: " + activeQuestion.CorrectAnswer + "\nYou answered: " + activeQuestion.OptionSelected;
             }
             changeButtonState();
+            setScore();
         }
 
         private void option_D_Clicked(object sender, System.Windows.RoutedEventArgs e)
@@ -274,14 +320,19 @@ namespace P02Project.Screens.Game
             
             if (activeQuestion.Answer((String)option_D.Content))
             {
+                correctField.Foreground = CORRECT_COLOR;
+                correctField.Text = "Correct!";
                 StatusBar.Text = "Answer was: " + activeQuestion.CorrectAnswer;
                 
             }
             else
             {
+                correctField.Foreground = INCORRECT_COLOR;
+                correctField.Text = "Incorrect!";
                 StatusBar.Text = "Answer was: " + activeQuestion.CorrectAnswer + "\nYou answered: " + activeQuestion.OptionSelected;
             }
             changeButtonState();
+            setScore();
         }
 
         private void changeButtonState()
@@ -289,6 +340,18 @@ namespace P02Project.Screens.Game
             for (int i = 0; i < activeQuestion.IsEnabled.Count; i++)
             {
                 buttonList[i].IsEnabled = activeQuestion.IsEnabled[i];
+                if (buttonList[i].IsEnabled)
+                {
+                    buttonList[i].Background = ENABLED_COLOR;
+                    DropShadowEffect dShdow = new DropShadowEffect();
+                    dShdow.BlurRadius = 10;
+                    dShdow.Opacity = 0.365;
+                    buttonList[i].Effect = dShdow;
+                }else
+                {
+                    buttonList[i].Background = DISABLED_COLOR;
+                    buttonList[i].Effect = null;
+                }
             }
 
         }
