@@ -10,6 +10,7 @@ using Microsoft.Maps.MapControl.WPF;
 using Microsoft.Surface.Presentation.Controls;
 using System.Windows.Input;
 using P02Project.Utils;
+using System.Windows.Threading;
 
 namespace P02Project
 {
@@ -30,6 +31,7 @@ namespace P02Project
         private Pushpin taurPin;
         private Pushpin hBPin;
         private Pushpin wellPin;
+        //private DispatcherTimer mapLoader;
 
         private SurfaceScrollViewer familyPlaceScroll;
 
@@ -65,6 +67,7 @@ namespace P02Project
             sbIn = new Storyboard();
             Util.StackAnimationDefault(sbIn, buttons.Children);
 
+            //mapLoader = new DispatcherTimer();
 
             fmlPlClicked(null, null);
 
@@ -95,7 +98,9 @@ namespace P02Project
             dShdow.Opacity = 0.365;
             _fmlPlcs.Effect = dShdow;
 
-            content.Content = familyPlaceContent();
+            Action act = delegate() { content.Content = familyPlaceContent(); };
+            Dispatcher.BeginInvoke(act, DispatcherPriority.ApplicationIdle);
+            _fmlPlcs.Content = "Loading...";
 
             try
             {
@@ -132,7 +137,9 @@ namespace P02Project
             dShdow.Opacity = 0.365;
             _mainOff.Effect = dShdow;
 
-            content.Content = mainOfficeContent();
+            Action act = delegate() { content.Content = mainOfficeContent(); };
+            Dispatcher.BeginInvoke(act, DispatcherPriority.Background);
+            _mainOff.Content = "Loading...";
 
             try
             {
@@ -168,7 +175,9 @@ namespace P02Project
             dShdow.Opacity = 0.365;
             _fndrsOff.Effect = dShdow;
 
-            content.Content = fundraisingOfficeContent();
+            Action act = delegate() { content.Content = fundraisingOfficeContent(); };
+            Dispatcher.BeginInvoke(act, DispatcherPriority.Background);
+            _fndrsOff.Content = "Loading...";
 
             try
             {
@@ -205,7 +214,9 @@ namespace P02Project
             dShdow.Opacity = 0.365;
             _fmlSptBrns.Effect = dShdow;
 
-            content.Content = familySupportContent();
+            Action act = delegate() { content.Content = familySupportContent(); };
+            Dispatcher.BeginInvoke(act, DispatcherPriority.Background);
+            _fmlSptBrns.Content = "Loading... ";
 
             try
             {
@@ -281,6 +292,8 @@ namespace P02Project
             fundOfficeGrid.Children.Add(box4);
             fundOfficeGrid.Children.Add(box5);
             fundOfficeGrid.Children.Add(box6);
+
+            _fndrsOff.Content = "Fundraising Officies";
            
             return fundOfficeGrid;
         }
@@ -356,6 +369,8 @@ namespace P02Project
             familySupportGrid.Children.Add(box4);
             familySupportGrid.Children.Add(box5);
             familySupportGrid.Children.Add(box6);
+
+            _fmlSptBrns.Content = "Family Support Branches";
         
             return familySupportGrid;
         }
@@ -543,6 +558,8 @@ namespace P02Project
             familyPlaceScroll.HorizontalScrollBarVisibility = ScrollBarVisibility.Disabled;
             familyPlaceScroll.VerticalScrollBarVisibility = ScrollBarVisibility.Auto;
 
+            _fmlPlcs.Content = "Family Places";
+
             return contentStackPanel;
         }
 
@@ -590,6 +607,8 @@ namespace P02Project
 
             scrollContent.HorizontalScrollBarVisibility = ScrollBarVisibility.Disabled;
             scrollContent.VerticalScrollBarVisibility = ScrollBarVisibility.Auto;
+
+            _mainOff.Content = "Main Office";
 
             return contentStackPanel;
         }

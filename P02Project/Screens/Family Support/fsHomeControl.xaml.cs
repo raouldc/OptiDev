@@ -9,6 +9,9 @@ using Microsoft.Surface.Presentation.Controls;
 using Microsoft.Maps.MapControl.WPF;
 using System.Windows.Media.Animation;
 using P02Project.Utils;
+using System.Threading;
+using System.Windows.Threading;
+using System.ComponentModel;
 
 namespace P02Project
 {
@@ -385,11 +388,11 @@ namespace P02Project
             //add drop shadow
             DropShadowEffect dShdow = new DropShadowEffect();
             dShdow.BlurRadius = 10;
-            dShdow.Opacity = 0.365; 
+            dShdow.Opacity = 0.365;
             cList.Effect = dShdow;
 
             // set the content in the textbox
-            text.Content = cListContent();
+            //text.Content = cListContent();
             try
             {
                 (Window.GetWindow(this) as TopWindow).ResetTimer();
@@ -397,6 +400,11 @@ namespace P02Project
             catch (NullReferenceException exp)
             {
             }
+
+            // set the content in the 
+            Action action = delegate() { this.mapLoad(); };
+            Dispatcher.BeginInvoke(action, DispatcherPriority.Background);
+            cList.Content = "Loading...";
         }
 
         private void cList_TouchDown(object sender, TouchEventArgs e)
@@ -412,11 +420,15 @@ namespace P02Project
             //add drop shadow
             DropShadowEffect dShdow = new DropShadowEffect();
             dShdow.BlurRadius = 10;
-            dShdow.Opacity = 0.365; 
+            dShdow.Opacity = 0.365;
             cList.Effect = dShdow;
+        }
 
-            // set the content in the textbox
+        public void mapLoad()
+        {
+            //System.Threading.Thread.Sleep(3000);
             text.Content = cListContent();
+            cList.Content = "Contact List";
         }
         /// <summary>
         /// the helper method to generate the content when "contact list" has been clicked
@@ -424,9 +436,9 @@ namespace P02Project
         /// <returns></returns>
         private StackPanel cListContent()
         {
+            
             //Set content to on going donation
             StackPanel contentStackPanel = new StackPanel();
-
 
             // Set up the Bing map control
             map = new Map();
