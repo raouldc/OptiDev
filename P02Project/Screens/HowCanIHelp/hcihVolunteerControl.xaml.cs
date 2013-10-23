@@ -29,7 +29,7 @@ namespace P02Project
             //set text
             text.Content = GenerateContent();
 
-            Util.SetupQR(QRText, "To become a volunteer, visit http://childcancer.org.nz/How-you-can-help/Volunteering-Form.aspx");
+            Util.SetupQR(QRText, "To become a volunteer, visit http://tinyurl.com/jwsccm7");
 
             donate.removeTouch();
             donate.setShadow(10, 0.3, (Color)ColorConverter.ConvertFromString("#ff7f7f7f"));

@@ -59,7 +59,7 @@ namespace P02Project
             pols.Add(kagi);
             pols.Add(bb);
 
-            Util.SetupQR(QRText, "http://childcancer.org.nz/How-you-can-help/Our-campaigns.aspx");
+            Util.SetupQR(QRText, "http://tinyurl.com/lfxloyz");
 		}
 
 

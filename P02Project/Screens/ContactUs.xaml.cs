@@ -67,7 +67,7 @@ namespace P02Project
             sbIn = new Storyboard();
             Util.StackAnimationDefault(sbIn, buttons.Children);
 
-            Util.SetupQR(QRText, "http://www.childcancer.org.nz/Contact.Us-aspx");
+            Util.SetupQR(QRText, "http://tinyurl.com/myngagc");
 
             //mapLoader = new DispatcherTimer();
 
