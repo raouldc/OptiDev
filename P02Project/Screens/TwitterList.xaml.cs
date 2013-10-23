@@ -16,7 +16,7 @@ using P02Project.Resources.xml;
 using System.Windows.Threading;
 using TweetSharp;
 using System.Windows.Media.Animation;
-
+using System.Windows.Media.Effects;
 
 
 namespace P02Project
@@ -43,6 +43,15 @@ namespace P02Project
 
             IEnumerable<TwitterStatus> tweets = service.getTweets();
 
+            listTitle.FontFamily = Util.buttonTextFont;
+            listTitle.Foreground = new SolidColorBrush(Util.buttonTextColor);
+
+            _tweetUsBtn.FontFamily = Util.buttonTextFont;
+            //_tweetUsBtn.Foreground = new SolidColorBrush(Util.buttonTextColor);
+            DropShadowEffect dShdow = new DropShadowEffect();
+            dShdow.BlurRadius = 10;
+            dShdow.Opacity = 0.365;
+            _tweetUsBtn.Effect = dShdow;
 
             // iterate over the twitter list
             if (tweets != null)

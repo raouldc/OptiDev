@@ -21,7 +21,8 @@ using System.Collections.ObjectModel;
 using System.IO;
 using P02Project.Utils;
 using System.Windows.Media.Animation;
-
+using System.Windows.Media;
+using System.Windows.Media.Effects;
 
 namespace P02Project
 {
@@ -56,7 +57,12 @@ namespace P02Project
             CommandBindings.Add(new CommandBinding(P02Project.WebcamPlayer.Input.CaptureImageCommands.ClearAllImages,
                 new ExecutedRoutedEventHandler(ClearAllImages_Executed)));
 
-            
+            _tweetBtn.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF146290"));
+            DropShadowEffect dShdow = new DropShadowEffect();
+            dShdow.BlurRadius = 10;
+            dShdow.Opacity = 0.365;
+            _tweetBtn.Effect = dShdow;
+
             // Create default device
             SelectedWebcamMonikerString = (CapDevice.DeviceMonikers.Length > 0) ? CapDevice.DeviceMonikers[0].MonikerString : "";
 

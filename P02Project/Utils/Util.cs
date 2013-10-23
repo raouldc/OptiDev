@@ -15,35 +15,42 @@ namespace P02Project
     {
         // the dictionary of the color of each section
         public static readonly Dictionary<string, Color> _pageColDict = new Dictionary<string, Color>{
-            { "About",              (Color)ColorConverter.ConvertFromString("#ffdc1423")},
-            { "abtSelected",        (Color)ColorConverter.ConvertFromString("#FF920711")},
-            { "abtUnSelected",      (Color)ColorConverter.ConvertFromString("#FFee4c58")},
+            //red
+            { "About",              (Color)ColorConverter.ConvertFromString("#FFff353a")},
+            { "abtSelected",        (Color)ColorConverter.ConvertFromString("#FFff353a")},
+            { "abtUnSelected",      (Color)ColorConverter.ConvertFromString("#FFff9093")},
 
-            { "Family Support",     (Color)ColorConverter.ConvertFromString("#ff381f9c")}, //(Color)ColorConverter.ConvertFromString("#ff381f9c")},
+            //blue
+            { "Family Support",     (Color)ColorConverter.ConvertFromString("#FF4679f0")}, //(Color)ColorConverter.ConvertFromString("#ff381f9c")},
             { "fsSelected",         (Color)ColorConverter.ConvertFromString("#FF4679f0")}, //(Color)ColorConverter.ConvertFromString("#FF1d0b68")},
             { "fsUnSelected",       (Color)ColorConverter.ConvertFromString("#FF9ebbff")}, //(Color)ColorConverter.ConvertFromString("#FF6b53ce")},
 
-            { "How Can I Help?",    (Color)ColorConverter.ConvertFromString("#ffe2bb15")},
-            { "hcihSelected",       (Color)ColorConverter.ConvertFromString("#FF967b07")},
-            { "hcihUnSelected",     (Color)ColorConverter.ConvertFromString("#FFf1d24d")},
+            //yellow
+            { "How Can I Help?",    (Color)ColorConverter.ConvertFromString("#FFffdf35")},
+            { "hcihSelected",       (Color)ColorConverter.ConvertFromString("#FFffdf35")},
+            { "hcihUnSelected",     (Color)ColorConverter.ConvertFromString("#FFffed90")},
+            //pink
+            { "News",               (Color)ColorConverter.ConvertFromString("#fff83487")},
+            { "nwsSelected",        (Color)ColorConverter.ConvertFromString("#FFf83487")},
+            { "nwsUnSelected",      (Color)ColorConverter.ConvertFromString("#FFfc8ebc")},
+            //green
+            { "Events",             (Color)ColorConverter.ConvertFromString("#ff33f455")},
+            { "evtSelected",        (Color)ColorConverter.ConvertFromString("#FF33f455")},
+            { "evtUnSelected",      (Color)ColorConverter.ConvertFromString("#FF8dfaa0")},
+            //orange
+            { "Contact Us",         (Color)ColorConverter.ConvertFromString("#FFff8d35")},
+            { "cuSelected",         (Color)ColorConverter.ConvertFromString("#FFff8d35")},
+            { "cuUnSelected",       (Color)ColorConverter.ConvertFromString("#FFffc090")},
+            //purple
+            { "Play Beads",         (Color)ColorConverter.ConvertFromString("#ff9841f0")},
+            { "pbSelected",         (Color)ColorConverter.ConvertFromString("#ff9841f0")},
+            { "pbUnSelected",       (Color)ColorConverter.ConvertFromString("#ffc594f8")},
 
-            { "News",               (Color)ColorConverter.ConvertFromString("#ffbe1160")},
-            { "nwsSelected",        (Color)ColorConverter.ConvertFromString("#FF7e063d")},
-            { "nwsUnSelected",      (Color)ColorConverter.ConvertFromString("#FFdf488c")},
+            //twitter
+            { "Twitter",              (Color)ColorConverter.ConvertFromString("#ff3ea5ee")},
+            { "twtSelected",      (Color)ColorConverter.ConvertFromString("#FF3ea5ee")},
+            { "twtUnSelected",    (Color)ColorConverter.ConvertFromString("#FF92cdf6")},
 
-            { "Events",             (Color)ColorConverter.ConvertFromString("#ff28bb11")},
-            { "evtSelected",        (Color)ColorConverter.ConvertFromString("#FF167c06")},
-            { "evtUnSelected",      (Color)ColorConverter.ConvertFromString("#FF5cdd47")},
-
-            { "Contact Us",         (Color)ColorConverter.ConvertFromString("#ffe28615")},
-            { "cuSelected",         (Color)ColorConverter.ConvertFromString("#FF965607")},
-            { "cuUnSelected",       (Color)ColorConverter.ConvertFromString("#FFf1a74d")},
-
-            { "Play Beads",         (Color)ColorConverter.ConvertFromString("#ff870f94")},
-            { "pbSelected",         (Color)ColorConverter.ConvertFromString("#FF590562")},
-            { "pbUnSelected",       (Color)ColorConverter.ConvertFromString("#FFbd43ca")},
-
-            
             { "Extra",              (Color)ColorConverter.ConvertFromString("#ff146290")},
             { "extraSelected",      (Color)ColorConverter.ConvertFromString("#FF073f60")},
             { "extraUnSelected",    (Color)ColorConverter.ConvertFromString("#FF4899c8")}
@@ -89,7 +96,7 @@ namespace P02Project
         /// <returns></returns>
         public static String[] getLinks(String exclude)
         {
-            var links = new List<string>(new[] { "About", "Family Support", "How Can I Help?", "News", "Events", "Play Beads", "Contact Us" });
+            var links = new List<string>(new[] { "About", "Family Support", "How Can I Help?", "News", "Events", "Play Beads", "Contact Us", "Twitter" });
 
             links.Remove(exclude);
             return links.ToArray();

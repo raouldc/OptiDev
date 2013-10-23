@@ -43,7 +43,7 @@ namespace P02Project
                 RightButton button = new RightButton();
 
                 button.Width = 197;
-                button.Height = 155;
+                button.Height = 137;
 
                 //button.Name = "but" + name.Replace(" ", "");
 
@@ -126,6 +126,11 @@ namespace P02Project
                 case "Contact Us":
                     nextScreen = new TopLevelPage(ParentWindow, "Contact Us");
                     ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("Contact Us"), colour, new ContactUs(), "");
+                    break;
+
+                case "Twitter":
+                    nextScreen = new TopLevelPage(ParentWindow, "Twitter");
+                    ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("Twitter"), colour, new TwitterList(nextScreen), "Our Tweets");
                     break;
 
                 default:

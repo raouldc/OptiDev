@@ -41,6 +41,7 @@ namespace P02Project
 
 
             Caption.FontFamily = Util.buttonTextFont;
+            Caption.Foreground = new SolidColorBrush(Util.buttonTextColor);
 
             Storyboard.SetTargetName(dblAnimationIn, this.Name);
             Storyboard.SetTargetProperty(dblAnimationIn, new PropertyPath(UserControl.OpacityProperty));
@@ -70,6 +71,9 @@ namespace P02Project
             setCaption(caption);
             setColour(colour);
             UpdateLayout();
+
+            Caption.FontFamily = Util.buttonTextFont;
+            Caption.Foreground = new SolidColorBrush(Util.buttonTextColor);
         }
 
 
