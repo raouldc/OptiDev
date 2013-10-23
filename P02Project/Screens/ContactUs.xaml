@@ -501,7 +501,8 @@
         </my:SurfaceScrollViewer>
 
         <!-- QR image-->
-        <Image x:Name="qRCode" Source="/P02Project;component/Resources/images/Contact/ContactUSQR.png" Margin="157.5,25.333,157.5,46.667" Grid.Row="2" d:LayoutOverrides="Width, Height"/>
+        <Image x:Name="qRCode" Source="/P02Project;component/Resources/images/Contact/ContactUSQR.png" Margin="154.5,-93.667,160.499,0" Grid.Row="2" d:LayoutOverrides="Width" VerticalAlignment="Top"/>
+        <my:SurfaceScrollViewer x:Name="QRText" Margin="20,134.667,20,28.333" Grid.Row="2"/>
 
     </Grid>
 </UserControl>

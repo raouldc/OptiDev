@@ -491,7 +491,7 @@
         </StackPanel>
         
         <Image x:Name="_ccfTwitterHome" HorizontalAlignment="Left" Margin="60,72,0,0" Width="502.25" Source="/P02Project;component/Resources/images/Twitter/ChildCanerTwitterHome.png" Height="341" VerticalAlignment="Top"/>
-        <Image x:Name="_ccfTwitterQR" HorizontalAlignment="Left" Height="222.5" Margin="196.5,0,0,88" VerticalAlignment="Bottom" Width="226.5" Source="/P02Project;component/Resources/images/Twitter/ChilCancerTwitterQR.png" RenderTransformOrigin="0.535,0.933"/>
+        <Image x:Name="_ccfTwitterQR" HorizontalAlignment="Left" Height="222.5" Margin="203.5,0,0,165" VerticalAlignment="Bottom" Width="226.5" Source="/P02Project;component/Resources/images/Twitter/ChilCancerTwitterQR.png" RenderTransformOrigin="0.535,0.933"/>
         
         <Label x:Name="listTitle" Content="Our Tweets" Height="70" Margin="645,-2,738,0" VerticalAlignment="Top" FontFamily="Segoe UI" FontSize="48"/>
 
@@ -500,6 +500,7 @@
                 <!-- label showing each tweet goes here programmatically  -->
             </StackPanel>
         </Custom:SurfaceScrollViewer>
+        <Custom:SurfaceScrollViewer x:Name="QRText" HorizontalAlignment="Left" Height="137" Margin="90,0,0,28" VerticalAlignment="Bottom" Width="449"/>
         
     </Grid>
 </UserControl>

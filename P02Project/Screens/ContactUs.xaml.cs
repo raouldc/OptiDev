@@ -67,6 +67,8 @@ namespace P02Project
             sbIn = new Storyboard();
             Util.StackAnimationDefault(sbIn, buttons.Children);
 
+            Util.SetupQR(QRText, "http://www.childcancer.org.nz/Contact.Us-aspx");
+
             //mapLoader = new DispatcherTimer();
 
             fmlPlClicked(null, null);
@@ -287,8 +289,6 @@ namespace P02Project
             fundOfficeGrid.Children.Add(box4);
             fundOfficeGrid.Children.Add(box5);
             fundOfficeGrid.Children.Add(box6);
-
-            _fndrsOff.Content = "Fundraising Officies";
            
             return fundOfficeGrid;
         }
@@ -364,8 +364,6 @@ namespace P02Project
             familySupportGrid.Children.Add(box4);
             familySupportGrid.Children.Add(box5);
             familySupportGrid.Children.Add(box6);
-
-            _fmlSptBrns.Content = "Family Support Branches";
         
             return familySupportGrid;
         }

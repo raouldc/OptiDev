@@ -8,6 +8,8 @@ using System.Xml;
 using System.Xml.Linq;
 using System.Windows.Controls;
 using Microsoft.Maps.MapControl.WPF;
+using Microsoft.Surface.Presentation.Controls;
+using System.Windows.Documents;
 
 namespace P02Project
 {
@@ -142,6 +144,19 @@ namespace P02Project
         {
             using (var writer = XmlWriter.Create(path, new XmlWriterSettings {Indent = true}))
                 xml.WriteTo(writer);
+        }
+
+        public static void SetupQR(SurfaceScrollViewer QRText, String text)
+        {
+            QRText.Background = new SolidColorBrush(contentBgColor);
+            //QRText.Margin = contentMargin;
+            TextBlock tb = Util.TextBlockFactory();
+            tb.TextAlignment = TextAlignment.Center;
+            tb.TextWrapping = TextWrapping.Wrap;
+            tb.Inlines.Add(new Run(text));
+            StackPanel sp = new StackPanel();
+            sp.Children.Add(tb);
+            QRText.Content = sp;
         }
     }
 }

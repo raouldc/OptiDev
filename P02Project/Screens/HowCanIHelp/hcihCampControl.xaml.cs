@@ -26,6 +26,8 @@ namespace P02Project
             {
                 Util.FadeIn(sbIn, fElement);
             }
+
+            Util.SetupQR(QRText, "http://childcancer.org.nz/How-you-can-help/Our-campaigns.aspx");
 		}
 
         /// <summary>
