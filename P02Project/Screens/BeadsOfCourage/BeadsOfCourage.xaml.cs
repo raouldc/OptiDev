@@ -42,6 +42,7 @@ namespace P02Project.Screens.BeadsOfCourage
             }
 
             Image sder = (Image) sender;
+            sder.RenderTransform = new RotateTransform(0);
             //sder.Visibility = Visibility.Collapsed;
             //display info about the bead
             //foreach (Image child in threadedBeadGrid.Children)

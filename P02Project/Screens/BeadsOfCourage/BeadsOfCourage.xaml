@@ -1,8 +1,9 @@
-﻿<UserControl x:Class="P02Project.Screens.BeadsOfCourage.BeadsOfCourage"
+﻿<UserControl
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:Custom="http://schemas.microsoft.com/surface/2008" x:Class="P02Project.Screens.BeadsOfCourage.BeadsOfCourage" 
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300" Width="1630" Height="900">
 	<UserControl.Resources>
@@ -155,16 +156,6 @@
     				<DropShadowEffect Direction="180"/>
     			</Image.Effect>
     		</Image>
-    		<Image x:Name="image" Margin="0,0,226.5,76.997" Source="/P02Project;component/Resources/images/beads/lightgreen.png" Stretch="Fill" Height="191.411" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="273.933" RenderTransformOrigin="0.5,0.5" MouseUp="Bead_MouseUp">
-    			<Image.RenderTransform>
-    				<TransformGroup>
-    					<ScaleTransform/>
-    					<SkewTransform/>
-    					<RotateTransform Angle="-21.502"/>
-    					<TranslateTransform/>
-    				</TransformGroup>
-    			</Image.RenderTransform>
-    		</Image>
     		<Image x:Name="image1" Margin="413,0,0,23.079" Source="/P02Project;component/Resources/images/beads/green.png" Stretch="Fill" HorizontalAlignment="Left" Height="191.411" VerticalAlignment="Bottom" Width="273.933" RenderTransformOrigin="0.5,0.5" MouseUp="Bead_MouseUp">
     			<Image.RenderTransform>
     				<TransformGroup>
@@ -191,16 +182,6 @@
     					<ScaleTransform/>
     					<SkewTransform/>
     					<RotateTransform Angle="-90.73"/>
-    					<TranslateTransform/>
-    				</TransformGroup>
-    			</Image.RenderTransform>
-    		</Image>
-    		<Image x:Name="image4" Margin="0,70.592,247.5,0" Source="/P02Project;component/Resources/images/beads/lightgreen.png" Stretch="Fill" Height="191.411" VerticalAlignment="Top" HorizontalAlignment="Right" Width="273.933" RenderTransformOrigin="0.5,0.5" MouseUp="Bead_MouseUp">
-    			<Image.RenderTransform>
-    				<TransformGroup>
-    					<ScaleTransform/>
-    					<SkewTransform/>
-    					<RotateTransform Angle="23.938"/>
     					<TranslateTransform/>
     				</TransformGroup>
     			</Image.RenderTransform>
@@ -235,6 +216,30 @@
     				</TransformGroup>
     			</Image.RenderTransform>
     		</Image>
+    		<Custom:ScatterView Margin="0,0,236,76" HorizontalAlignment="Right" Height="242" VerticalAlignment="Bottom" Width="334" Foreground="{x:Null}">
+    			<Image x:Name="image" Margin="-98,-72,-95.933,-39.411" Source="/P02Project;component/Resources/images/beads/lightgreen.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" MouseUp="Bead_MouseUp">
+    				<Image.RenderTransform>
+    					<TransformGroup>
+    						<ScaleTransform/>
+    						<SkewTransform/>
+    						<RotateTransform Angle="-21.502"/>
+    						<TranslateTransform/>
+    					</TransformGroup>
+    				</Image.RenderTransform>
+    			</Image>
+    		</Custom:ScatterView>
+    		<Custom:ScatterView Margin="0,71.513,236,0" HorizontalAlignment="Right" Height="205.5" VerticalAlignment="Top" Width="437.5">
+    			<Image x:Name="image4" Margin="-70,-54,-116.033,-57.411" Source="/P02Project;component/Resources/images/beads/lightgreen.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" MouseUp="Bead_MouseUp">
+    				<Image.RenderTransform>
+    					<TransformGroup>
+    						<ScaleTransform/>
+    						<SkewTransform/>
+    						<RotateTransform Angle="23.938"/>
+    						<TranslateTransform/>
+    					</TransformGroup>
+    				</Image.RenderTransform>
+    			</Image>
+    		</Custom:ScatterView>
     	</Grid>
             
     </Grid>
