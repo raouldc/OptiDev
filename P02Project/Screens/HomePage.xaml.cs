@@ -88,12 +88,12 @@ namespace P02Project
             tb.Foreground = new SolidColorBrush(Colors.Black);
             
             Thickness t = tb.Margin;
-            t.Bottom = 10;
-            t.Right = 30;
+            t.Bottom = 15;
+            t.Right = 15;
             tb.Margin = t;
             
-            tb.Height = 80;
-            tb.Width = 700;
+            tb.Height = 120;
+            tb.Width = 600;
 
             tb.HorizontalAlignment = System.Windows.HorizontalAlignment.Right;
             tb.VerticalAlignment = System.Windows.VerticalAlignment.Bottom;

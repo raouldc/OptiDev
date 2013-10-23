@@ -5,18 +5,24 @@
 	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 	mc:Ignorable="d"
 	x:Class="P02Project.TwitterBlock"
-	x:Name="TwitterMessage" d:DesignHeight="78" d:DesignWidth="330">
+	x:Name="TwitterMessage" d:DesignHeight="120" d:DesignWidth="584">
     
-	<Grid x:Name="LayoutRoot" Background="#FF9AE4E8" Height="47">
-		<Grid.Effect>
-			<DropShadowEffect/>
-		</Grid.Effect>
+	<Grid x:Name="LayoutRoot" Background="White" Margin="0">
+		<Grid.RowDefinitions>
+			<RowDefinition x:Name="row1" Height="36.4"/>
+			<RowDefinition x:Name="row2" />
+		</Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.2*"/>
             <ColumnDefinition Width="0.8*"/>
         </Grid.ColumnDefinitions>
-        <Image Source="/P02Project;component/Resources/images/Twitter/twitter-bird-light-bgs.png" HorizontalAlignment="Right" Width="84.333" Margin="0,-14.75,4,-11.651" />
-        <TextBlock FontSize="16" Grid.Column="1" TextWrapping="Wrap" Text="CCF are at the Massey High @Hurricane_Kids gig today. They are rocking out  supporting kids with cancer! pic.twitter.com/1e2HvbKTIw" Name="msg"  TextAlignment="Left" Margin="-15.25,0,15.25,0" />
-        <Button Grid.ColumnSpan="2" Content="Button" Margin="-3,0,0,0" Opacity="0" Click="twitterBoxClicked"/>
+  
+        <Image x:Name="tweetImg" Grid.Row="1" Source="/P02Project;component/Resources/images/logoCCF.png" HorizontalAlignment="Center" Margin="10" VerticalAlignment="Center" />
+        <TextBlock FontSize="16" Grid.Row="1" Grid.Column="1" TextWrapping="Wrap" Text="CCF are at the Massey High @Hurricane_Kids gig today. They are rocking out  supporting kids with cancer! pic.twitter.com/1e2HvbKTIw" Name="msg"  TextAlignment="Left" Margin="5,10" />
+        <Button Grid.RowSpan="2" Grid.ColumnSpan="2" Margin="-3,0,0,0" Opacity="0" Click="twitterBoxClicked"/>
+        <Rectangle Grid.ColumnSpan="2" Grid.Row="0" Fill="#FF00ACEE"/>
+        <TextBlock FontSize="21.333" Grid.Row="0" Grid.ColumnSpan="2" TextWrapping="Wrap" Text="Twitter Feed." x:Name="title"  TextAlignment="Left" Margin="35,2,5,5" Foreground="White" />
+		<TextBlock FontSize="16" Grid.Row="0" Grid.ColumnSpan="2" TextWrapping="Wrap" Text="Click for more tweets" x:Name="prompt"  TextAlignment="Right" Margin="10,6,10,5" Foreground="White" HorizontalAlignment="Right" />
+		<Image x:Name="twitterImg" Grid.Row="0" Source="/P02Project;component/Resources/images/Twitter/twitter-bird-white.png" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Center" />
 	</Grid>
 </UserControl>
