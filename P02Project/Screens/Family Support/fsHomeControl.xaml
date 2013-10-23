@@ -531,7 +531,7 @@
 			<ColumnDefinition x:Name="_gridCol2" />
 		</Grid.ColumnDefinitions>
 
-        <my:SurfaceScrollViewer x:Name="text" Style="{DynamicResource SurfaceScrollViewerStyle1}" Grid.Column="1" Margin="20" Grid.RowSpan="3" Grid.ColumnSpan="2" Background="#7Fffffff" HorizontalScrollBarVisibility="Disabled" />
+        <my:SurfaceScrollViewer x:Name="text" Style="{DynamicResource SurfaceScrollViewerStyle1}" Grid.Column="1" Margin="20" Grid.RowSpan="3" Grid.ColumnSpan="2" Background="#7Fffffff" HorizontalScrollBarVisibility="Disabled" ScrollChanged="text_ScrollChanged" />
 
 		<!-- Set the option buttons at the left-->
 		<StackPanel x:Name="buttons" Margin="20" Grid.RowSpan="2">

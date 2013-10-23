@@ -93,5 +93,16 @@ namespace P02Project
         void Animatiable.AnimateOut()
         {
         }
+
+        private void text_ScrollChanged(object sender, ScrollChangedEventArgs e)
+        {
+            try
+            {
+                (Window.GetWindow(this) as TopWindow).ResetTimer();
+            }
+            catch (NullReferenceException exp)
+            {
+            }
+        }
     }
 }
