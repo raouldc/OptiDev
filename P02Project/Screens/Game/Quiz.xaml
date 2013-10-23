@@ -78,16 +78,18 @@
     		</Grid.ColumnDefinitions>
     		<Grid.RowDefinitions>
     			<RowDefinition Height="35*"/>
+    			<RowDefinition Height="10*"/>
     			<RowDefinition Height="25*"/>
     			<RowDefinition Height="17.5*"/>
     			<RowDefinition Height="17.5*"/>
     			<RowDefinition Height="10*"/>
     		</Grid.RowDefinitions>
     		<TextBlock x:Name="content_title" Margin="8" TextWrapping="Wrap" FontSize="29.333" Grid.ColumnSpan="2"><Run Language="en-nz" Text="Question"/></TextBlock>
-    		<Button x:Name="option_A" Content="Option" Margin="5" Grid.Row="2" Click="option_A_Clicked" />
-    		<Button x:Name="option_B" Content="Option" Margin="5" Grid.Row="2" Grid.Column="1" Click="option_B_Clicked" />
-    		<Button x:Name="option_c" Content="Option" Margin="5" Grid.Row="3" Click="option_C_Clicked"/>
-    		<Button x:Name="option_D" Margin="5" Grid.Row="3" Grid.Column="1" Content="Option" Click="option_D_Clicked" />
+    		<Button x:Name="option_A" Content="Option" Margin="5" Grid.Row="3" Click="option_A_Clicked" />
+    		<Button x:Name="option_B" Content="Option" Margin="5" Grid.Row="3" Grid.Column="1" Click="option_B_Clicked" />
+    		<Button x:Name="option_c" Content="Option" Margin="5" Grid.Row="4" Click="option_C_Clicked"/>
+    		<Button x:Name="option_D" Margin="5" Grid.Row="4" Grid.Column="1" Content="Option" Click="option_D_Clicked" />
+    		<TextBlock x:Name="StatusBar" Grid.ColumnSpan="2" Margin="10,5,0,5" Grid.Row="1" TextWrapping="Wrap" Text="Status&#xd;&#xa;" Foreground="Black"/>
     	</Grid>
     </Grid>
 </Window>
