@@ -12,6 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Media.Animation;
+using P02Project.Resources.xml;
 
 namespace P02Project.Screens.BeadsOfCourage
 {
@@ -23,28 +24,44 @@ namespace P02Project.Screens.BeadsOfCourage
         public BeadsOfCourage()
         {
             InitializeComponent();
-            beadList =new List<Bead>();
-            beadList.Add(new Bead("Brown","Loss of hair"));
+            beadPoloroid.IsUnclickable = true;
+            beadList = new List<Bead>();
+            beadList.Add(new Bead("Brown", "Loss of hair"));
             beadList.Add(new Bead("Green", "Loss of hair"));
             beadList.Add(new Bead("Blue", "Loss of hair"));
             beadList.Add(new Bead("Purple", "Loss of hair"));
             beadList.Add(new Bead("Grey", "Loss of hair"));
+            String path = System.IO.Path.Combine(System.IO.Path.GetFullPath("."), "Utils/xml/BeadsOfCourageSchema/beads.xml");
+            _beadModel = XMLUtilities.GetBeadsContentFromFile(path);
         }
 
         private void Bead_MouseUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-        	// TODO: Add event handler implementation here.
+            // TODO: Add event handler implementation here.
             int y = 5;
             //move beads and thread down
-            //enlarge clicked bead and move to the top
+            //display enlarged bead and text on the topp
             if (sender.GetType() != typeof(Image))
             {
                 return;
             }
 
-            Image sder = (Image) sender;
-            sder.RenderTransform = new RotateTransform(0);
-            MoveTo(sder, 650, 100);
+            Image sder = (Image)sender;
+
+
+            //Change the bead image
+            BitmapImage bmpImage = new BitmapImage();
+            bmpImage.BeginInit();
+            bmpImage.UriSource = new Uri("pack://application:,,/Resources/images/beads/" + sder.Name + ".png");
+            bmpImage.EndInit();
+            beadImageView.Source = bmpImage;
+
+
+            //Set the textbox content
+
+
+            //sder.RenderTransform = new RotateTransform(0);
+            //MoveTo(sder, 650, 100);
             //var trans = new TranslateTransform();
             ////trans.X = -300;
             //trans.Y = -300;
@@ -66,6 +83,8 @@ namespace P02Project.Screens.BeadsOfCourage
         }
 
         private List<Bead> beadList;
+        private BeadModel _beadModel;
+
 
         private class Bead
         {
@@ -79,17 +98,17 @@ namespace P02Project.Screens.BeadsOfCourage
             }
         }
 
-        private void MoveTo(Image target, double newX, double newY)
-        {
-            Vector offset = VisualTreeHelper.GetOffset(target);
-            var top = offset.Y;
-            var left = offset.X;
-            TranslateTransform trans = new TranslateTransform();
-            target.RenderTransform = trans;
-            DoubleAnimation anim1 = new DoubleAnimation(0, newY - top, TimeSpan.FromSeconds(1));
-            DoubleAnimation anim2 = new DoubleAnimation(0, newX - left, TimeSpan.FromSeconds(1));
-            trans.BeginAnimation(TranslateTransform.YProperty, anim1);
-            trans.BeginAnimation(TranslateTransform.XProperty, anim2);
-        }
+        //private void MoveTo(Image target, double newX, double newY)
+        //{
+        //    Vector offset = VisualTreeHelper.GetOffset(target);
+        //    var top = offset.Y;
+        //    var left = offset.X;
+        //    TranslateTransform trans = new TranslateTransform();
+        //    target.RenderTransform = trans;
+        //    DoubleAnimation anim1 = new DoubleAnimation(0, newY - top, TimeSpan.FromSeconds(1));
+        //    DoubleAnimation anim2 = new DoubleAnimation(0, newX - left, TimeSpan.FromSeconds(1));
+        //    trans.BeginAnimation(TranslateTransform.YProperty, anim1);
+        //    trans.BeginAnimation(TranslateTransform.XProperty, anim2);
+        //}
     }
 }

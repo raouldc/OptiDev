@@ -369,7 +369,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Utils\xml\BeadsOfCourageSchema\beads.xml" />
+    <Resource Include="Resources\xml\BeadsOfCourage\beads.xml" />
+    <Content Include="Utils\xml\BeadsOfCourageSchema\beads.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Resource Include="Resources\images\HowCanIHelp\qr_shop.png" />
     <Resource Include="Resources\images\HowCanIHelp\qr_volunteer.png" />
     <Resource Include="Utils\xml\PageModel.xml" />
