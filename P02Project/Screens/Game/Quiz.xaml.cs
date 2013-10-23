@@ -11,6 +11,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using P02Project.Utils;
+using P02Project.Utils.xml;
+using P02Project.Resources.xml;
 
 namespace P02Project.Screens.Game
 {
@@ -31,19 +33,23 @@ namespace P02Project.Screens.Game
             buttonList.Add(option_B);
             buttonList.Add(option_c);
             buttonList.Add(option_D);
-            List<String> Options = new List<String>();
-            String answer = "Answer";
-            Options.Add(answer);
-            Options.Add("Not Answer 1");
-            Options.Add("Not Answer 2");
-            Options.Add("Not Answer 3");
+
+            String path = System.IO.Path.Combine(System.IO.Path.GetFullPath("."), "Resources/xml/Questions.xml");
+            PageModel model = XMLUtilities.GetContentFromFile(path);
+            PageModelText[] textList = model.TextList;
             List<Question> Questions = new List<Question>();
-            Questions.Add(new Question("Random Qn 1", answer, Options.ToList(), "nothing/image/path","hint 1"));
-            Questions.Add(new Question("Random Qn 2", answer, Options.ToList(), "nothing/image/path","hint 2"));
-            Questions.Add(new Question("Random Qn 3", answer, Options.ToList(), "nothing/image/path","hint 3"));
-            Questions.Add(new Question("Random Qn 4", answer, Options.ToList(), "nothing/image/path","hint 4"));
-            Questions.Add(new Question("Random Qn 5", answer, Options.ToList(), "nothing/image/path","hint 5"));
-            Questions.Add(new Question("Random Qn 6", answer, Options.ToList(), "nothing/image/path","hint 6"));
+            //String answer = "Answer";
+            //Options.Add(answer);
+            //Options.Add("Not Answer 1");
+            //Options.Add("Not Answer 2");
+            //Options.Add("Not Answer 3");
+            //List<Question> Questions = new List<Question>();
+            //Questions.Add(new Question("Random Qn 1", answer, Options.ToList(), "nothing/image/path","hint 1"));
+            //Questions.Add(new Question("Random Qn 2", answer, Options.ToList(), "nothing/image/path","hint 2"));
+            //Questions.Add(new Question("Random Qn 3", answer, Options.ToList(), "nothing/image/path","hint 3"));
+            //Questions.Add(new Question("Random Qn 4", answer, Options.ToList(), "nothing/image/path","hint 4"));
+            //Questions.Add(new Question("Random Qn 5", answer, Options.ToList(), "nothing/image/path","hint 5"));
+            //Questions.Add(new Question("Random Qn 6", answer, Options.ToList(), "nothing/image/path","hint 6"));
             ChooseQuestions(Questions);
             activeQuestion = chosenQuestions[0];
         }
@@ -51,10 +57,9 @@ namespace P02Project.Screens.Game
         private void ChooseQuestions(List<Question>AllQuestions)
         {
             this.chosenQuestions = new List<Question>();
-            Random r = new Random();
             for (int i = 0; i < 6; i++)
             {
-                int index = r.Next(AllQuestions.Count);
+                int index = Question.rand.Next(AllQuestions.Count);
                 this.chosenQuestions.Add(AllQuestions[index]);
                 AllQuestions.RemoveAt(index);
                 //choose 6 random questions

@@ -26,7 +26,7 @@ namespace P02Project.Utils
         private String optionSelected;
         private String hintForQuestion;
         private bool isCorrect;
-        private static Random rand = new Random();
+        public static Random rand = new Random();
         //this is used to create a new Question that will be answered in teh quiz
         public Question(String QuestionContent, String answer, List<String> allOptions, String imagePath,String hint)
         {
