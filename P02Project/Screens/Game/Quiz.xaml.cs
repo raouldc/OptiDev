@@ -13,6 +13,7 @@ using System.Windows.Shapes;
 using P02Project.Utils;
 using P02Project.Utils.xml;
 using P02Project.Resources.xml;
+using System.Windows.Media.Effects;
 
 namespace P02Project.Screens.Game
 {
@@ -22,8 +23,11 @@ namespace P02Project.Screens.Game
     public partial class Quiz : Window
     {
         private List<Question> chosenQuestions;
+        private static readonly Brush SELECTED_COLOR = new SolidColorBrush(Util._pageColDict["pbSelected"]);
+        private static readonly Brush UNSELECTED_COLOR = new SolidColorBrush(Util._pageColDict["pbUnSelected"]);
         private Question activeQuestion;
         private List<Button> buttonList;
+        private List<Button> questionButtons;
         public Quiz()
         {
             InitializeComponent();
@@ -33,6 +37,15 @@ namespace P02Project.Screens.Game
             buttonList.Add(option_B);
             buttonList.Add(option_c);
             buttonList.Add(option_D);
+
+            questionButtons = new List<Button>();
+            questionButtons.Add(QnOne);
+            questionButtons.Add(QnTwo);
+            questionButtons.Add(QnThree);
+            questionButtons.Add(QnFour);
+            questionButtons.Add(QnFive);
+            questionButtons.Add(QnSix);
+            
 
             String path = System.IO.Path.Combine(System.IO.Path.GetFullPath("."), "Resources/xml/Questions.xml");
             PageModel model = XMLUtilities.GetContentFromFile(path);
@@ -51,6 +64,7 @@ namespace P02Project.Screens.Game
             }
                 ChooseQuestions(Questions);
             activeQuestion = chosenQuestions[0];
+            addButtonColours(0);
         }
 
         private void ChooseQuestions(List<Question>AllQuestions)
@@ -77,6 +91,7 @@ namespace P02Project.Screens.Game
             activeQuestion = chosenQuestions[4];
             questionNumber.Text = "Question 5";
             setContent(activeQuestion);
+            addButtonColours(4);
         }
 
         private void question4_Click(object sender, System.Windows.RoutedEventArgs e)
@@ -85,6 +100,7 @@ namespace P02Project.Screens.Game
             activeQuestion = chosenQuestions[3];
             questionNumber.Text = "Question 4";
             setContent(activeQuestion);
+            addButtonColours(3);
         }
 
         private void question3_Click(object sender, System.Windows.RoutedEventArgs e)
@@ -93,6 +109,7 @@ namespace P02Project.Screens.Game
             activeQuestion = chosenQuestions[2];
             questionNumber.Text = "Question 3";
             setContent(activeQuestion);
+            addButtonColours(2);
         }
 
         private void question6_Click(object sender, System.Windows.RoutedEventArgs e)
@@ -100,6 +117,7 @@ namespace P02Project.Screens.Game
         	// TODO: Add event handler implementation here.
             activeQuestion = chosenQuestions[5];
             setContent(activeQuestion);
+            addButtonColours(5);
         }
 
         private void question2_CLick(object sender, System.Windows.RoutedEventArgs e)
@@ -108,6 +126,7 @@ namespace P02Project.Screens.Game
             activeQuestion = chosenQuestions[1];
             questionNumber.Text = "Question 2";
             setContent(activeQuestion);
+            addButtonColours(1);
         }
 
         private void question1_Click(object sender, System.Windows.RoutedEventArgs e)
@@ -116,6 +135,7 @@ namespace P02Project.Screens.Game
             activeQuestion = chosenQuestions[0];
             questionNumber.Text = "Question 1";
             setContent(activeQuestion);
+            addButtonColours(0);
         }
 
         private void fifty_fifty_click(object sender, System.Windows.RoutedEventArgs e)
@@ -266,5 +286,24 @@ namespace P02Project.Screens.Game
         	// TODO: Add event handler implementation here.
         }
 
+        private void addButtonColours(int index)
+        {
+            for (int i = 0; i < questionButtons.Count; i++)
+            {
+                if (i == index)
+                {
+                    questionButtons[i].Background = SELECTED_COLOR;
+                    DropShadowEffect dShdow = new DropShadowEffect();
+                    dShdow.BlurRadius = 10;
+                    dShdow.Opacity = 0.365;
+                    questionButtons[i].Effect = dShdow;
+                }
+                else
+                {
+                    questionButtons[i].Background = UNSELECTED_COLOR;
+                    questionButtons[i].Effect = null;
+                }
+            }
+        }
     }
 }
