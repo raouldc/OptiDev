@@ -305,8 +305,8 @@ namespace P02Project
             Quiz q = new Quiz();
             q.Topmost = true;
             q.Activate();
-            q.Show();
-            
+            //q.Show();
+            q.ShowDialog();
             dt.Stop();
         }
 
