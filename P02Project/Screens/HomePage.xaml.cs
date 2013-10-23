@@ -238,8 +238,8 @@ namespace P02Project
         private void playBeads_MouseUp(object sender, MouseButtonEventArgs e)
         {
             // create a new subscreen and push it into the stack of subscreens
-            TopLevelPage nextScreen = new TopLevelPage(ParentWindow, "Play Beads");
-            ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("Play Beads"), playBeads.colour, new UserControl(), "");
+            //TopLevelPage nextScreen = new TopLevelPage(ParentWindow, "Play Beads");
+            //ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("Play Beads"), playBeads.colour, new UserControl(), "");
             Quiz q = new Quiz();
             q.Topmost = true;
             q.Activate();
