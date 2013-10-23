@@ -175,9 +175,7 @@ namespace P02Project
             dShdow.Opacity = 0.365;
             _fndrsOff.Effect = dShdow;
 
-            Action act = delegate() { content.Content = fundraisingOfficeContent(); };
-            Dispatcher.BeginInvoke(act, DispatcherPriority.Background);
-            _fndrsOff.Content = "Loading...";
+            content.Content = fundraisingOfficeContent();
 
             try
             {
@@ -214,10 +212,7 @@ namespace P02Project
             dShdow.Opacity = 0.365;
             _fmlSptBrns.Effect = dShdow;
 
-            Action act = delegate() { content.Content = familySupportContent(); };
-            Dispatcher.BeginInvoke(act, DispatcherPriority.Background);
-            _fmlSptBrns.Content = "Loading... ";
-
+            content.Content = familySupportContent();
             try
             {
                 (Window.GetWindow(this) as TopWindow).ResetTimer();

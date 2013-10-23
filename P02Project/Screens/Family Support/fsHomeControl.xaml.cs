@@ -483,6 +483,7 @@ namespace P02Project
             mscroll = new SurfaceScrollViewer();
             mscroll.Height = 300;
             mscroll.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#00000000"));
+            mscroll.ScrollChanged += new ScrollChangedEventHandler(mscroll_ScrollChanged);
 
 
             TextBlock prompt = Util.TextBlockFactory();
@@ -498,6 +499,17 @@ namespace P02Project
             mscroll.VerticalScrollBarVisibility = ScrollBarVisibility.Auto;
             
             return contentStackPanel;
+        }
+
+        void mscroll_ScrollChanged(object sender, ScrollChangedEventArgs e)
+        {
+            try
+            {
+                (Window.GetWindow(this) as TopWindow).ResetTimer();
+            }
+            catch (NullReferenceException exp)
+            {
+            }
         }
 
 
@@ -647,6 +659,8 @@ namespace P02Project
             hhscroll.Height = 300;
             hhscroll.Background = new SolidColorBrush(Util.contentBgColor);
 
+            hhscroll.ScrollChanged += new ScrollChangedEventHandler(hhscroll_ScrollChanged);
+
             //Create a prompt to show the user that they can move/zoom the pictures
             TextBlock prompt = Util.TextBlockFactory();
             prompt.TextAlignment = TextAlignment.Center;
@@ -692,6 +706,17 @@ namespace P02Project
 
             hawkesBay_MouseUp(null,null);
             return contentStackPanel;
+        }
+
+        void hhscroll_ScrollChanged(object sender, ScrollChangedEventArgs e)
+        {
+            try
+            {
+                (Window.GetWindow(this) as TopWindow).ResetTimer();
+            }
+            catch (NullReferenceException exp)
+            {
+            }
         }
 
         /// <summary>
@@ -810,6 +835,17 @@ namespace P02Project
 
         public void AnimateOut()
         {
+        }
+
+        private void text_ScrollChanged(object sender, ScrollChangedEventArgs e)
+        {
+            try
+            {
+                (Window.GetWindow(this) as TopWindow).ResetTimer();
+            }
+            catch (NullReferenceException exp)
+            {
+            }
         }
     }
 }

@@ -19,7 +19,7 @@
         </Grid.ColumnDefinitions>
 
         <!-- set a scroll view to store the content -->
-        <Custom:SurfaceScrollViewer Grid.Column="1" Margin="50,20,0,37" Grid.RowSpan="2" Width="1100" Background="#7F525252" Name="splitContentScrollViewer" HorizontalScrollBarVisibility="Disabled" />
+        <Custom:SurfaceScrollViewer Grid.Column="1" Margin="50,20,0,37" Grid.RowSpan="2" Width="1100" Background="#7F525252" Name="splitContentScrollViewer" HorizontalScrollBarVisibility="Disabled" ScrollChanged="splitContentScrollViewer_ScrollChanged" />
 
     </Grid>
 </UserControl>
