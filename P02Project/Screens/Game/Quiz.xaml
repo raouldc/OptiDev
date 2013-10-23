@@ -21,54 +21,55 @@
     				<ColumnDefinition Width="65*"/>
     				<ColumnDefinition Width="35*"/>
     			</Grid.ColumnDefinitions>
-    			<TextBlock Margin="0" TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Center"><Run Language="en-nz" Text="Question 6"/></TextBlock>
-    			<Ellipse Grid.Column="1" Fill="#FFF4F4F5" Margin="0" Stroke="Black" Width="25" Height="25" HorizontalAlignment="Center"/>
+    			<Ellipse x:Name="ellipse" Grid.Column="1" Fill="#FFF4F4F5" Margin="0" Stroke="Black" Width="25" Height="25" HorizontalAlignment="Center"/>
+    			<Button Content="Question 6" Margin="0" Panel.ZIndex="3" Grid.ColumnSpan="2" Click="question6_Click"/>
     		</Grid>
     		<Grid Margin="0,5">
     			<Grid.ColumnDefinitions>
     				<ColumnDefinition Width="65*"/>
     				<ColumnDefinition Width="35*"/>
     			</Grid.ColumnDefinitions>
-    			<TextBlock x:Name="___TextBlock___Question_5_" Margin="0,0,0,4.52" TextWrapping="Wrap" VerticalAlignment="Bottom" HorizontalAlignment="Center"><Run Language="en-nz" Text="Question 5"/></TextBlock>
     			<Ellipse Grid.Column="1" Fill="#FFF4F4F5" Margin="0" Stroke="Black" Width="25" Height="25" HorizontalAlignment="Center"/>
+    			<Button x:Name="___Button___Question_5_" Content="Question 5" Margin="0" Panel.ZIndex="3" Grid.ColumnSpan="2" Click="question5_click"/>
     		</Grid>
     		<Grid Margin="0,5">
     			<Grid.ColumnDefinitions>
     				<ColumnDefinition Width="65*"/>
     				<ColumnDefinition Width="35*"/>
     			</Grid.ColumnDefinitions>
-    			<TextBlock x:Name="___TextBlock___Question_5_1" Margin="0" TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Center"><Run Language="en-nz" Text="Question 4"/></TextBlock>
     			<Ellipse Grid.Column="1" Fill="#FFF4F4F5" Margin="0" Stroke="Black" Width="25" Height="25" HorizontalAlignment="Center"/>
+    			<Button x:Name="___Button___Question_4_" Content="Question 4" Margin="0" Panel.ZIndex="3" Grid.ColumnSpan="2" Click="question4_Click"/>
     		</Grid>
     		<Grid Margin="0,5">
     			<Grid.ColumnDefinitions>
     				<ColumnDefinition Width="65*"/>
     				<ColumnDefinition Width="35*"/>
     			</Grid.ColumnDefinitions>
-    			<TextBlock x:Name="___TextBlock___Question_3_" Margin="0" TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Center"><Run Language="en-nz" Text="Question 3"/></TextBlock>
     			<Ellipse Grid.Column="1" Fill="#FFF4F4F5" Margin="0" Stroke="Black" Width="25" Height="25" HorizontalAlignment="Center"/>
+    			<Button x:Name="___Button___Question_3_" Content="Question 3" Margin="0" Panel.ZIndex="3" Grid.ColumnSpan="2" Click="question3_Click"/>
     		</Grid>
     		<Grid Margin="0,5">
     			<Grid.ColumnDefinitions>
     				<ColumnDefinition Width="65*"/>
     				<ColumnDefinition Width="35*"/>
     			</Grid.ColumnDefinitions>
-    			<TextBlock Margin="0" TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Center"><Run Language="en-nz" Text="Question 2"/></TextBlock>
     			<Ellipse Grid.Column="1" Fill="#FFF4F4F5" Margin="0" Stroke="Black" Width="25" Height="25" HorizontalAlignment="Center"/>
+    			<Button x:Name="___Button___Question_2_" Content="Question 2" Margin="0" Panel.ZIndex="3" Grid.ColumnSpan="2" Click="question2_CLick"/>
     		</Grid>
     		<Grid Margin="0,5">
     			<Grid.ColumnDefinitions>
     				<ColumnDefinition Width="65*"/>
     				<ColumnDefinition Width="35*"/>
     			</Grid.ColumnDefinitions>
-    			<TextBlock Margin="0" TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Center"><Run Language="en-nz" Text="Question 1"/></TextBlock>
     			<Ellipse Grid.Column="1" Fill="#FFF4F4F5" Margin="0" Stroke="Black" Width="25" Height="25" HorizontalAlignment="Center"/>
+    			<Button Content="Question 1" Margin="0" Panel.ZIndex="3" Grid.ColumnSpan="2" Click="question1_Click"/>
     		</Grid>
+    		<TextBlock HorizontalAlignment="Left" Height="3" Margin="36,0,0,0" TextWrapping="Wrap" Text="TextBlock" Width="3"/>
     	</StackPanel>
     	<StackPanel Grid.Column="2" Margin="5">
-    		<Ellipse Fill="#FFF4F4F5" Height="36" Margin="8,15,8,0" Stroke="Black" VerticalAlignment="Center"/>
-    		<Ellipse Fill="#FFF4F4F5" Height="36" Margin="8,15,8,0" Stroke="Black" VerticalAlignment="Center"/>
-    		<Ellipse Fill="#FFF4F4F5" Height="36" Margin="8,15,8,0" Stroke="Black" VerticalAlignment="Center"/>
+    		<Button Content="50/50" Height="39" Margin="8,0" Click="fifty_fifty_click"/>
+    		<Button Content="Hint" Height="39" Margin="8,0" Click="hint_click"/>
+    		<Button Content="Skip" Height="39" Margin="8,0" Click="skip_click"/>
     	</StackPanel>
     	<Grid Grid.Column="1" Margin="0">
     		<Grid.ColumnDefinitions>
@@ -82,11 +83,11 @@
     			<RowDefinition Height="17.5*"/>
     			<RowDefinition Height="10*"/>
     		</Grid.RowDefinitions>
-    		<TextBlock Margin="8" TextWrapping="Wrap" FontSize="29.333" Grid.ColumnSpan="2"><Run Language="en-nz" Text="Question"/></TextBlock>
-    		<Button Content="Option" Margin="5" Grid.Row="2"/>
-    		<Button Content="Option" Margin="5" Grid.Row="2" Grid.Column="1"/>
-    		<Button Content="Option" Margin="5" Grid.Row="3"/>
-    		<Button Margin="5" Grid.Row="3" Grid.Column="1" Content="Option"/>
+    		<TextBlock x:Name="content_title" Margin="8" TextWrapping="Wrap" FontSize="29.333" Grid.ColumnSpan="2"><Run Language="en-nz" Text="Question"/></TextBlock>
+    		<Button x:Name="option_A" Content="Option" Margin="5" Grid.Row="2" Click="option_A_Clicked" />
+    		<Button x:Name="option_B" Content="Option" Margin="5" Grid.Row="2" Grid.Column="1" Click="option_B_Clicked" />
+    		<Button x:Name="option_c" Content="Option" Margin="5" Grid.Row="3" Click="option_C_Clicked"/>
+    		<Button x:Name="option_D" Margin="5" Grid.Row="3" Grid.Column="1" Content="Option" Click="option_D_Clicked" />
     	</Grid>
     </Grid>
 </Window>

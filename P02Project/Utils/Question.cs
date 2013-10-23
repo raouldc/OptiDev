@@ -7,53 +7,64 @@ namespace P02Project.Utils
 {
     class Question
     {
+        public String QuestionContent { get { return this.questionContent; } }
+        public String ImagePath { get {return this.imagepath; } }
+        public List<String> AllAvailableOptions { get { return allAvailableOptions; } }
+
         private String questionContent;
         private String answer;
-        private List<String> otherAlternatives;
+        private List<String> allAvailableOptions;
+        private String imagepath;
+        private bool isAnswered;
+        private String OptionSelected;
+        public String hint;
 
         //this is used to create a new Question that will be answered in teh quiz
-        public Question(String QuestionContent, String answer, List<String> otherAlternatives)
+        public Question(String QuestionContent, String answer, List<String> allOptions, String imagePath,String hint)
         {
+            this.allAvailableOptions = new List<String>();
             this.questionContent = QuestionContent;
             this.answer = answer;
-            if (otherAlternatives.Count != 3)
-            {
-                throw new ArgumentException();
-            }
-            this.otherAlternatives = otherAlternatives;
+            List<String> allOptionsTemp = new List<string>();
+            allOptionsTemp.AddRange(allOptions);
+            randomizeOptions(allOptionsTemp);
+            this.imagepath = imagePath;
+            this.OptionSelected = null;
+            this.isAnswered = true;
         }
 
-        public bool checkAnswer(String answer)
+        public bool Answer(String answer)
         {
-            if (answer == this.answer)
+            if (this.isAnswered)
+            {
+                throw new InvalidOperationException();
+            }
+            this.OptionSelected = answer;
+            this.isAnswered = true;
+            if (this.OptionSelected == this.answer)
             {
                 return true;
             }
             return false;
         }
 
-        public List<String> getAllOptionsRandomized()
+        private void randomizeOptions (List<String> options)
         {
-            //randomised list
-            List<String> randomisedOptions = new List<string>();
-            //unrandom list
-            List<String> allOptions = new List<string>();
-            allOptions.Add(this.answer);
-            allOptions.AddRange(this.otherAlternatives);
-            //pick a random element from alloptions and add it to randomisedOptions
+            allAvailableOptions.Clear();
+            //pick a random element from options and add it to allOptions
             //create a random item
             Random r = new Random();
             //while there are still options in the alloptions list
-            while (allOptions.Count > 0)
+            while (options.Count > 0)
             {
                 //choose an index at random
-                int index = r.Next(allOptions.Count);
+                int index = r.Next(options.Count);
                 //take the option chosen and add it to the randomisedOptions list
-                randomisedOptions.Add(allOptions[index]);
+                allAvailableOptions.Add(options[index]);
                 //remove the option from allOptions
-                allOptions.RemoveAt(index);
+                options.RemoveAt(index);
             }
-            return randomisedOptions;
         }
+
     }
 }

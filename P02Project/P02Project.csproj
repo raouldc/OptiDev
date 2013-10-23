@@ -359,7 +359,9 @@
   <ItemGroup>
     <Resource Include="Resources\images\HowCanIHelp\qr_shop.png" />
     <Resource Include="Resources\images\HowCanIHelp\qr_volunteer.png" />
-    <Resource Include="Utils\xml\PageModel.xml" />
+    <Resource Include="Utils\xml\PageModel.xml">
+      <SubType>Designer</SubType>
+    </Resource>
     <Resource Include="Resources\images\About\Ambassadors\Amanda.png" />
     <Resource Include="Resources\images\About\Ambassadors\Bernadine.png" />
     <Resource Include="Resources\images\About\Ambassadors\Chris.png" />
