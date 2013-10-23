@@ -10,6 +10,7 @@ using Microsoft.Maps.MapControl.WPF;
 using Microsoft.Surface.Presentation.Controls;
 using System.Windows.Input;
 using P02Project.Utils;
+using System.Windows.Threading;
 
 namespace P02Project
 {
@@ -30,6 +31,7 @@ namespace P02Project
         private Pushpin taurPin;
         private Pushpin hBPin;
         private Pushpin wellPin;
+        //private DispatcherTimer mapLoader;
 
         private SurfaceScrollViewer familyPlaceScroll;
 
@@ -65,6 +67,9 @@ namespace P02Project
             sbIn = new Storyboard();
             Util.StackAnimationDefault(sbIn, buttons.Children);
 
+            Util.SetupQR(QRText, "http://tinyurl.com/myngagc");
+
+            //mapLoader = new DispatcherTimer();
 
             fmlPlClicked(null, null);
 
@@ -95,7 +100,9 @@ namespace P02Project
             dShdow.Opacity = 0.365;
             _fmlPlcs.Effect = dShdow;
 
-            content.Content = familyPlaceContent();
+            Action act = delegate() { content.Content = familyPlaceContent(); };
+            Dispatcher.BeginInvoke(act, DispatcherPriority.ApplicationIdle);
+            _fmlPlcs.Content = "Loading...";
 
             try
             {
@@ -132,7 +139,9 @@ namespace P02Project
             dShdow.Opacity = 0.365;
             _mainOff.Effect = dShdow;
 
-            content.Content = mainOfficeContent();
+            Action act = delegate() { content.Content = mainOfficeContent(); };
+            Dispatcher.BeginInvoke(act, DispatcherPriority.Background);
+            _mainOff.Content = "Loading...";
 
             try
             {
@@ -206,7 +215,6 @@ namespace P02Project
             _fmlSptBrns.Effect = dShdow;
 
             content.Content = familySupportContent();
-
             try
             {
                 (Window.GetWindow(this) as TopWindow).ResetTimer();
@@ -528,6 +536,7 @@ namespace P02Project
 
 
             familyPlaceScroll = new SurfaceScrollViewer();
+            familyPlaceScroll.Style = this.FindResource("SurfaceScrollViewerStyle1") as Style;
             familyPlaceScroll.Height = 300;
             familyPlaceScroll.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#00000000"));
             
@@ -542,6 +551,8 @@ namespace P02Project
 
             familyPlaceScroll.HorizontalScrollBarVisibility = ScrollBarVisibility.Disabled;
             familyPlaceScroll.VerticalScrollBarVisibility = ScrollBarVisibility.Auto;
+
+            _fmlPlcs.Content = "Family Places";
 
             return contentStackPanel;
         }
@@ -578,6 +589,7 @@ namespace P02Project
             moMap.Children.Add(moPin);
 
             SurfaceScrollViewer scrollContent = new SurfaceScrollViewer();
+            scrollContent.Style = this.FindResource("SurfaceScrollViewerStyle1") as Style;
             scrollContent.Height = 300;
             scrollContent.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#00000000"));
             scrollContent.AddHandler(UIElement.TouchUpEvent, new EventHandler<TouchEventArgs>(MainOffice_TouchDown), true);
@@ -590,6 +602,8 @@ namespace P02Project
 
             scrollContent.HorizontalScrollBarVisibility = ScrollBarVisibility.Disabled;
             scrollContent.VerticalScrollBarVisibility = ScrollBarVisibility.Auto;
+
+            _mainOff.Content = "Main Office";
 
             return contentStackPanel;
         }

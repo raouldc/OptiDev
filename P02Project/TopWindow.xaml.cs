@@ -46,7 +46,7 @@ namespace P02Project
             InitializeComponent();
 
             inavtiveTimer = new DispatcherTimer();
-            inavtiveTimer.Interval = TimeSpan.FromSeconds(10);
+            inavtiveTimer.Interval = TimeSpan.FromSeconds(120);
             inavtiveTimer.Tick += new EventHandler(inavtiveTimer_Tick);
 
             stackOfScreens = new Stack<Screen>();

@@ -161,7 +161,7 @@
         <Border BorderBrush="Black" BorderThickness="3,3,5,5" Grid.Column="1" Margin="-219,23.49,18,203.49"/>
 
         <!-- Textbox to store the tweet message-->
-        <Custom:SurfaceTextBox Grid.Column="1" x:Name="_tweetTxt" Height="105.49" Margin="-217,0,16,65" TextWrapping="Wrap" Text="Compose new Tweet..." VerticalAlignment="Bottom" FontFamily="/P02Project;component/Resources/Fonts/#Segoe UI Symbol" FontSize="26.667" Foreground="#CC000000" Background="#E6FFFFFF" BorderBrush="#33000000" BorderThickness="3" MaxLength="100" KeyDown="_tweetTxt_KeyDown" />
+        <Custom:SurfaceTextBox Grid.Column="1" x:Name="_tweetTxt" Height="105.49" Margin="-217,0,16,65" TextWrapping="Wrap" Text="Compose new Tweet..." VerticalAlignment="Bottom" FontFamily="/P02Project;component/Resources/Fonts/#Segoe UI Symbol" FontSize="26.667" Foreground="#CC000000" Background="#E6FFFFFF" BorderBrush="#33000000" BorderThickness="3" MaxLength="100" KeyDown="tweetTxt_KeyDown" />
 
         <!-- Tweet Button-->
         <Button x:Name="_tweetBtn" Style="{StaticResource MyButtonStyle}" Content="Tweet" Grid.Column="1" Margin="0,0,18,8" Height="45" VerticalAlignment="Bottom" FontFamily="/P02Project;component/Resources/Fonts/#Segoe UI Symbol" FontSize="32" HorizontalAlignment="Right" Width="329" Click="tweetBtnClicked">

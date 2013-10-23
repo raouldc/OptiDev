@@ -4,6 +4,7 @@ using System.Windows.Documents;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using P02Project.Utils;
+using System;
 
 namespace P02Project
 {
@@ -27,6 +28,8 @@ namespace P02Project
             text.Margin = Util.contentMargin;
             //set text
             text.Content = GenerateContent();
+
+            Util.SetupQR(QRText, "To become a volunteer, visit http://tinyurl.com/jwsccm7");
 
             donate.removeTouch();
             donate.setShadow(10, 0.3, (Color)ColorConverter.ConvertFromString("#ff7f7f7f"));
@@ -89,6 +92,17 @@ namespace P02Project
 
         public void AnimateOut()
         {
+        }
+
+        private void text_ScrollChanged(object sender, ScrollChangedEventArgs e)
+        {
+            try
+            {
+                (Window.GetWindow(this) as TopWindow).ResetTimer();
+            }
+            catch (NullReferenceException exp)
+            {
+            }
         }
 	}
 }

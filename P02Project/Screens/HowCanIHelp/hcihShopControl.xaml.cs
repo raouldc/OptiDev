@@ -58,6 +58,8 @@ namespace P02Project
             pols.Add(firef);
             pols.Add(kagi);
             pols.Add(bb);
+
+            Util.SetupQR(QRText, "http://tinyurl.com/lfxloyz");
 		}
 
 

@@ -24,7 +24,7 @@
         </Grid.ColumnDefinitions>
         
         <!-- textbox used for the content of each subsection-->
-        <my:SurfaceScrollViewer x:Name="text" Grid.Column="1" Margin="20" Grid.RowSpan="3" Grid.ColumnSpan="2" Background="#7F525252" HorizontalScrollBarVisibility="Disabled" />
+        <my:SurfaceScrollViewer x:Name="text" Grid.Column="1" Margin="20" Grid.RowSpan="3" Grid.ColumnSpan="2" Background="#7F525252" HorizontalScrollBarVisibility="Disabled" ScrollChanged="text_ScrollChanged" />
 
         <!-- Set the option buttons at the left-->
 
@@ -40,8 +40,6 @@
             </view:PoloroidControl.RenderTransform>
         </view:PoloroidControl>
         <Image x:Name="QRCode" Margin="164,20,179.332,80" Source="/P02Project;component/Resources/images/HowCanIHelp/qr_volunteer.png" Stretch="Fill" d:LayoutOverrides="Width"/>
-        <my:SurfaceScrollViewer x:Name="QRText" Margin="49.333,-80,37.333,0" Background="#7F525252" HorizontalScrollBarVisibility="Disabled" Height="184" VerticalAlignment="Top" Grid.Row="1" d:LayoutOverrides="VerticalAlignment" >
-        	<TextBlock TextWrapping="Wrap" Text="To become a volunteer, visit http://childcancer.org.nz/How-you-can-help/Volunteering-Form.aspx" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="32" Foreground="White" Width="431.285" TextAlignment="Center"/>
-        </my:SurfaceScrollViewer>
+        <my:SurfaceScrollViewer x:Name="QRText" Margin="40.333,-80,46.333,0" Background="#7F525252" HorizontalScrollBarVisibility="Disabled" Height="184" VerticalAlignment="Top" Grid.Row="1" d:LayoutOverrides="VerticalAlignment" />
     </Grid>
 </UserControl>

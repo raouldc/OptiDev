@@ -4,6 +4,7 @@ using System.Windows.Documents;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using P02Project.Utils;
+using System;
 
 namespace P02Project.Screens
 {
@@ -98,6 +99,17 @@ namespace P02Project.Screens
         public void AnimateOut()
         {
             
+        }
+
+        private void splitContentScrollViewer_ScrollChanged(object sender, ScrollChangedEventArgs e)
+        {
+            try
+            {
+                (Window.GetWindow(this) as TopWindow).ResetTimer();
+            }
+            catch (NullReferenceException exp)
+            {
+            }
         }
     }
 }

@@ -116,7 +116,7 @@ namespace P02Project
                                     + "ouping.  They can then visit any observatory in New Zealand and use the telesco"
                                     + "pe to locate their star.\n\nMoney raised will help fund the $6 million required"
                                     + " each year for child and family support services in New Zealand.\n\nTo make a d"
-                                    + "onation, visit https://support.childcancer.org.nz/stars-of-courage or scan the "
+                                    + "onation, visit http://tinyurl.com/n7bhk5h or scan the "
                                     + "QR code below"));
 
             content.Children.Add(tb);
@@ -149,7 +149,7 @@ namespace P02Project
                                     + "honour the challenging journey children take while receiving care for cancer.  Each"
                                     + " collection of beads symbolises the courage and honours the milestones achieved alo"
                                     + "ng the treatment path.\n\nTo make a d"
-                                    + "onation, visit https://support.childcancer.org.nz/beads-of-courage or scan the "
+                                    + "onation, visit http://tinyurl.com/m5axzgt or scan the "
                                     + "QR code below"));
 
             content.Children.Add(tb);

@@ -26,6 +26,8 @@ namespace P02Project
             {
                 Util.FadeIn(sbIn, fElement);
             }
+
+            Util.SetupQR(QRText, "http://tinyurl.com/lfxloyz");
 		}
 
         /// <summary>

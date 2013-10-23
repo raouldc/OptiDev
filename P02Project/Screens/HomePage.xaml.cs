@@ -88,12 +88,12 @@ namespace P02Project
             tb.Foreground = new SolidColorBrush(Colors.Black);
             
             Thickness t = tb.Margin;
-            t.Bottom = 10;
-            t.Right = 30;
+            t.Bottom = 30;
+            t.Right = 15;
             tb.Margin = t;
             
-            tb.Height = 80;
-            tb.Width = 700;
+            tb.Height = 120;
+            tb.Width = 600;
 
             tb.HorizontalAlignment = System.Windows.HorizontalAlignment.Right;
             tb.VerticalAlignment = System.Windows.VerticalAlignment.Bottom;
@@ -338,7 +338,7 @@ namespace P02Project
             // create a new subscreen and push it into the stack of subscreens
             TopLevelPage nextScreen = new TopLevelPage(ParentWindow, "Twitter");
 
-            ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("About"), Util._pageColDict["Extra"], new TwitterList(nextScreen), "Our Tweets");
+            ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("Twitter"), Util._pageColDict["Extra"], new TwitterList(nextScreen), "Our Tweets");
             nextScreen.AnimateIn();
 
             dt.Stop();
