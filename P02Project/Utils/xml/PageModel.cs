@@ -14,21 +14,21 @@
 
 
 /// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.0.30319.1")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
-[System.Xml.Serialization.XmlRootAttribute(Namespace="", IsNullable=false)]
+//[System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.0.30319.1")]
+//[System.SerializableAttribute()]
+//[System.Diagnostics.DebuggerStepThroughAttribute()]
+//[System.ComponentModel.DesignerCategoryAttribute("code")]
+//[System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
+//[System.Xml.Serialization.XmlRootAttribute(Namespace="", IsNullable=false)]
 public partial class PageModel {
     
     private PageModelText[] textListField;
     
-    private PageModelImage[] imageListField;
+    //private PageModelImage[] imageListField;
     
     private PageModelLink[] linksListField;
     
-    private string idField;
+    //private string idField;
     
     private string pageTypeField;
     
@@ -47,17 +47,17 @@ public partial class PageModel {
     /// <remarks/>
     [System.Xml.Serialization.XmlArrayAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
     [System.Xml.Serialization.XmlArrayItemAttribute("Image", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public PageModelImage[] ImageList {
-        get {
-            return this.imageListField;
-        }
-        set {
-            this.imageListField = value;
-        }
-    }
+    //public PageModelImage[] ImageList {
+    //    get {
+    //        return this.imageListField;
+    //    }
+    //    set {
+    //        this.imageListField = value;
+    //    }
+    //}
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlArrayAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    //[System.Xml.Serialization.XmlArrayAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
     [System.Xml.Serialization.XmlArrayItemAttribute("Link", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
     public PageModelLink[] LinksList {
         get {
@@ -69,15 +69,15 @@ public partial class PageModel {
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlAttributeAttribute()]
-    public string id {
-        get {
-            return this.idField;
-        }
-        set {
-            this.idField = value;
-        }
-    }
+    //[System.Xml.Serialization.XmlAttributeAttribute()]
+    //public string id {
+    //    get {
+    //        return this.idField;
+    //    }
+    //    set {
+    //        this.idField = value;
+    //    }
+    //}
     
     /// <remarks/>
     [System.Xml.Serialization.XmlAttributeAttribute()]
@@ -150,47 +150,47 @@ public partial class PageModelText {
 }
 
 /// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.0.30319.1")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
+//[System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.0.30319.1")]
+//[System.SerializableAttribute()]
+//[System.Diagnostics.DebuggerStepThroughAttribute()]
+//[System.ComponentModel.DesignerCategoryAttribute("code")]
+//[System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
 public partial class PageModelImage {
     
-    private string idField;
+    //private string idField;
     
-    private string captionField;
+    //private string captionField;
     
     private string linkField;
     
-    private string valueField;
+    //private string valueField;
 
     private string nodeField;
     
     /// <remarks/>
     [System.Xml.Serialization.XmlAttributeAttribute()]
-    public string id {
-        get {
-            return this.idField;
-        }
-        set {
-            this.idField = value;
-        }
-    }
+    //public string id {
+    //    get {
+    //        return this.idField;
+    //    }
+    //    set {
+    //        this.idField = value;
+    //    }
+    //}
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlAttributeAttribute()]
-    public string caption {
-        get {
-            return this.captionField;
-        }
-        set {
-            this.captionField = value;
-        }
-    }
+    //[System.Xml.Serialization.XmlAttributeAttribute()]
+    //public string caption {
+    //    get {
+    //        return this.captionField;
+    //    }
+    //    set {
+    //        this.captionField = value;
+    //    }
+    //}
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlAttributeAttribute()]
+    //[System.Xml.Serialization.XmlAttributeAttribute()]
     public string link {
         get {
             return this.linkField;
@@ -201,15 +201,15 @@ public partial class PageModelImage {
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlTextAttribute()]
-    public string Value {
-        get {
-            return this.valueField;
-        }
-        set {
-            this.valueField = value;
-        }
-    }
+    //[System.Xml.Serialization.XmlTextAttribute()]
+    //public string Value {
+    //    get {
+    //        return this.valueField;
+    //    }
+    //    set {
+    //        this.valueField = value;
+    //    }
+    //}
     /// <remarks/>
     [System.Xml.Serialization.XmlAttributeAttribute()]
     public string node {
@@ -270,24 +270,24 @@ public partial class PageModelLink {
 }
 
 /// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.0.30319.1")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
-[System.Xml.Serialization.XmlRootAttribute(Namespace="", IsNullable=false)]
+//[System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.0.30319.1")]
+//[System.SerializableAttribute()]
+//[System.Diagnostics.DebuggerStepThroughAttribute()]
+//[System.ComponentModel.DesignerCategoryAttribute("code")]
+//[System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
+//[System.Xml.Serialization.XmlRootAttribute(Namespace="", IsNullable=false)]
 public partial class NewDataSet {
     
-    private PageModel[] itemsField;
+    //private PageModel[] itemsField;
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlElementAttribute("PageModel")]
-    public PageModel[] Items {
-        get {
-            return this.itemsField;
-        }
-        set {
-            this.itemsField = value;
-        }
-    }
+    //[System.Xml.Serialization.XmlElementAttribute("PageModel")]
+    //public PageModel[] Items {
+    //    get {
+    //        return this.itemsField;
+    //    }
+    //    set {
+    //        this.itemsField = value;
+    //    }
+    //}
 }
