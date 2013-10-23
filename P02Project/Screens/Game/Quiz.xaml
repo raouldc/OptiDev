@@ -67,9 +67,9 @@
     		<TextBlock HorizontalAlignment="Left" Height="3" Margin="36,0,0,0" TextWrapping="Wrap" Text="TextBlock" Width="3"/>
     	</StackPanel>
     	<StackPanel Grid.Column="2" Margin="5">
-    		<Button Content="50/50" Height="39" Margin="8,0" Click="fifty_fifty_click"/>
-    		<Button Content="Hint" Height="39" Margin="8,0" Click="hint_click"/>
-    		<Button Content="Skip" Height="39" Margin="8,0" Click="skip_click"/>
+            <Button  x:Name="fifty_fifty_button" Content="50/50" Height="39" Margin="8,0" Click="fifty_fifty_click"/>
+            <Button x:Name="hint_button" Content="Hint" Height="39" Margin="8,0" Click="hint_click"/>
+    		<Button x:Name="skip_button" Content="Skip" Height="39" Margin="8,0" Click="skip_click"/>
     	</StackPanel>
     	<Grid Grid.Column="1" Margin="0">
     		<Grid.ColumnDefinitions>

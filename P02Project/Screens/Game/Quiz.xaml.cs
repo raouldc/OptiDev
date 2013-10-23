@@ -107,16 +107,35 @@ namespace P02Project.Screens.Game
         {
         	// TODO: Add event handler implementation here.
             // Take two random wrong answers away
+            if (!activeQuestion.IsAnswered)
+            {
+                fifty_fifty_button.IsEnabled = false;
+                //get two random items from the list that are incorrect
+                
+            }
         }
 
         private void hint_click(object sender, System.Windows.RoutedEventArgs e)
         {
-        	// TODO: Add event handler implementation here.
+            if (!activeQuestion.IsAnswered)
+            {
+                
+                hint_button.IsEnabled = false;
+                activeQuestion.HintUsed = true;
+                setContent(activeQuestion);
+            }
         }
 
         private void skip_click(object sender, System.Windows.RoutedEventArgs e)
         {
-        	// TODO: Add event handler implementation here.
+        	// TODO: Add event handler implementation here.\
+            if (!activeQuestion.IsAnswered)
+            {
+                skip_button.IsEnabled = false;
+                activeQuestion.Answer(activeQuestion.CorrectAnswer);
+                setContent(activeQuestion);
+            }
+            
         }
 
         private void setContent(Question qn)
@@ -128,55 +147,87 @@ namespace P02Project.Screens.Game
             option_B.Content = qn.AllAvailableOptions[1];
             option_c.Content = qn.AllAvailableOptions[2];
             option_D.Content = qn.AllAvailableOptions[3];
-            if (activeQuestion.IsAnswered)
+            if (qn.IsAnswered)
             {
                 disableButtons();
+                if (qn.IsCorrect)
+                {
+                    StatusBar.Text = "Correct! Answer was: " + activeQuestion.CorrectAnswer;
+                }
+                else
+                {
+                    StatusBar.Text = "Incorrect! Answer was: " + activeQuestion.CorrectAnswer+"\nYou answered: "+activeQuestion.OptionSelected;
+                }
 
+            }
+            else if (qn.HintUsed)
+            {
+                StatusBar.Text = "Hint: " + activeQuestion.Hint;
             }
             else
             {
                 enableButtons();
+                StatusBar.Text = "";
             }
         }
 
         private void option_A_Clicked(object sender, System.Windows.RoutedEventArgs e)
         {
         	// TODO: Add event handler implementation here.
+            disableButtons();
             if (activeQuestion.Answer((String)option_A.Content))
             {
                 //deactivate the other buttons
-                option_B.IsEnabled = false;
-                option_c.IsEnabled = false;
-                option_D.IsEnabled = false;
+                
+                StatusBar.Text = "Correct! Answer was: " + activeQuestion.CorrectAnswer;
+            }
+            else
+            {
+                StatusBar.Text = "Incorrect! Answer was: " + activeQuestion.CorrectAnswer + "\nYou answered: " + activeQuestion.OptionSelected;
             }
         }
 
         private void option_B_Clicked(object sender, System.Windows.RoutedEventArgs e)
         {
         	// TODO: Add event handler implementation here.
+            disableButtons();
             if (activeQuestion.Answer((String)option_B.Content))
             {
-                disableButtons();
+                StatusBar.Text = "Correct! Answer was: " + activeQuestion.CorrectAnswer;
+            }
+            else
+            {
+                StatusBar.Text = "Incorrect! Answer was: " + activeQuestion.CorrectAnswer + "\nYou answered: " + activeQuestion.OptionSelected;
             }
         }
 
         private void option_C_Clicked(object sender, System.Windows.RoutedEventArgs e)
         {
         	// TODO: Add event handler implementation here.
+            disableButtons();
             if (activeQuestion.Answer((String)option_c.Content))
             {
-                disableButtons();
+                StatusBar.Text = "Correct! Answer was: " + activeQuestion.CorrectAnswer;
+            }
+            else
+            {
+                StatusBar.Text = "Incorrect! Answer was: " + activeQuestion.CorrectAnswer + "\nYou answered: " + activeQuestion.OptionSelected;
             }
         }
 
         private void option_D_Clicked(object sender, System.Windows.RoutedEventArgs e)
         {
         	// TODO: Add event handler implementation here.
+            disableButtons();
             if (activeQuestion.Answer((String)option_D.Content))
             {
-                disableButtons();
+                StatusBar.Text = "Correct! Answer was: " + activeQuestion.CorrectAnswer;
                 
             }
+            else
+            {
+                StatusBar.Text = "Incorrect! Answer was: " + activeQuestion.CorrectAnswer + "\nYou answered: " + activeQuestion.OptionSelected;
+            }        
         }
 
         private void disableButtons()
