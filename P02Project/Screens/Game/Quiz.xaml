@@ -110,14 +110,14 @@
     			<RowDefinition Height="17.5*"/>
     			<RowDefinition Height="17.5*"/>
     		</Grid.RowDefinitions>
-            <TextBlock x:Name="content_title" FontFamily="Andy" Margin="15,15,15,8" TextWrapping="Wrap" FontSize="25" Grid.ColumnSpan="2" Grid.Row="1"><Run Language="en-nz" Text="Question"/></TextBlock>
+            <TextBlock x:Name="content_title" Margin="15,15,15,8" TextWrapping="Wrap" FontSize="20" Grid.ColumnSpan="2" Grid.Row="1"><Run Language="en-nz" Text="Question"/></TextBlock>
             <Button x:Name="option_A" Style="{StaticResource MyButtonStyle}" Content="Option" Margin="5" Grid.Row="4" Click="option_A_Clicked" FontSize="14" />
             <Button x:Name="option_B" Style="{StaticResource MyButtonStyle}" Content="Option" Margin="5" Grid.Row="4" Grid.Column="1" Click="option_B_Clicked" FontSize="14" />
             <Button x:Name="option_c" Style="{StaticResource MyButtonStyle}" Content="Option" Margin="5" Grid.Row="5" Click="option_C_Clicked" FontSize="14"/>
             <Button x:Name="option_D" Style="{StaticResource MyButtonStyle}" Margin="5" Grid.Row="5" Grid.Column="1" Content="Option" Click="option_D_Clicked" FontSize="14" />
-    		<TextBlock x:Name="StatusBar" Grid.ColumnSpan="2" Margin="15,5" Grid.Row="3" TextWrapping="Wrap" Text="Status&#xd;&#xa;" Foreground="Black" FontFamily="Andy" FontSize="16"/>
-    		<TextBlock x:Name="questionNumber" Margin="15,0,8,5" TextWrapping="Wrap" FontSize="15" FontFamily="Andy" Height="14.571" VerticalAlignment="Bottom"><Run Language="en-nz" Text="Question 1"/></TextBlock>
-    		<TextBlock x:Name="correctField" Grid.ColumnSpan="2" Margin="15,8" Grid.Row="2" TextWrapping="Wrap" FontSize="42.667" FontFamily="Andy" FontWeight="Bold" Foreground="#FFFF6A02"><Run Language="en-nz" Text="Incorrect"/></TextBlock>
+    		<TextBlock x:Name="StatusBar" Grid.ColumnSpan="2" Margin="15,2,15,8" Grid.Row="3" TextWrapping="Wrap" Text="Status&#xd;&#xa;" Foreground="Black" FontSize="16"/>
+    		<TextBlock x:Name="questionNumber" Margin="15,0,8,0" TextWrapping="Wrap" FontSize="15" Height="25.571" VerticalAlignment="Bottom" FontWeight="Bold"><Run Language="en-nz" Text="Question 1"/></TextBlock>
+    		<TextBlock x:Name="correctField" Grid.ColumnSpan="2" Margin="15,-2,15,5" Grid.Row="2" TextWrapping="Wrap" FontSize="42.667" FontWeight="Bold" Foreground="#FFFF6A02"><Run Language="en-nz" Text="Incorrect"/></TextBlock>
     	</Grid>
     </Grid>
 </Window>
