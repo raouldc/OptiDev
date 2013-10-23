@@ -88,7 +88,7 @@ namespace P02Project
             tb.Foreground = new SolidColorBrush(Colors.Black);
             
             Thickness t = tb.Margin;
-            t.Bottom = 15;
+            t.Bottom = 30;
             t.Right = 15;
             tb.Margin = t;
             
@@ -338,7 +338,7 @@ namespace P02Project
             // create a new subscreen and push it into the stack of subscreens
             TopLevelPage nextScreen = new TopLevelPage(ParentWindow, "Twitter");
 
-            ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("About"), Util._pageColDict["Extra"], new TwitterList(nextScreen), "Our Tweets");
+            ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("Twitter"), Util._pageColDict["Extra"], new TwitterList(nextScreen), "Our Tweets");
             nextScreen.AnimateIn();
 
             dt.Stop();

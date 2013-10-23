@@ -192,9 +192,5 @@ namespace P02Project
 
         #endregion
 
-
     }
-
-
-
 }
