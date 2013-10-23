@@ -305,7 +305,7 @@ namespace P02Project
             
             //Quiz q = new Quiz();
             //q.Topmost = true;
-            ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("Beads of Courage"), playBeads.colour, new BeadsOfCourage(), "");
+            ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("Play Beads"), playBeads.colour, new BeadsOfCourage(), "");
             nextScreen.AnimateIn();
             //Quiz q = new Quiz();
             //q.Topmost = true;
