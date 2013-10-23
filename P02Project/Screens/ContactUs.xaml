@@ -485,7 +485,7 @@
 
         <!-- set all the option buttons at the left-->
         <StackPanel x:Name="buttons" Margin="20" Grid.RowSpan="2">
-            <Button x:Name="_fmlPlcs" Style="{StaticResource MyButtonStyle}" Content="Family Places" Margin="20" FontSize="48" FontFamily="Andy" Background="#ff710b7e" BorderThickness="0" BorderBrush="#00707070" Foreground="White" Click="fmlPlClicked" Width="460" HorizontalAlignment="Left">
+            <Button x:Name="_fmlPlcs" Style="{StaticResource MyButtonStyle}" Content="Family Places" Margin="20" FontSize="48" FontFamily="Andy" Background="#ff710b7e" BorderThickness="0" BorderBrush="#00707070" Foreground="White" Click="fmlPlClicked" Width="460">
                 <Button.Effect>
                     <DropShadowEffect/>
                 </Button.Effect>

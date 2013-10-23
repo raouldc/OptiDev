@@ -86,6 +86,7 @@ namespace P02Project.Screens.Game
         {
         	// TODO: Add event handler implementation here.
             activeQuestion = chosenQuestions[4];
+            questionNumber.Text = "Question 5";
             setContent(activeQuestion);
         }
 
@@ -93,6 +94,7 @@ namespace P02Project.Screens.Game
         {
         	// TODO: Add event handler implementation here.
             activeQuestion = chosenQuestions[3];
+            questionNumber.Text = "Question 4";
             setContent(activeQuestion);
         }
 
@@ -100,6 +102,7 @@ namespace P02Project.Screens.Game
         {
         	// TODO: Add event handler implementation here.
             activeQuestion = chosenQuestions[2];
+            questionNumber.Text = "Question 3";
             setContent(activeQuestion);
         }
 
@@ -114,6 +117,7 @@ namespace P02Project.Screens.Game
         {
         	// TODO: Add event handler implementation here.
             activeQuestion = chosenQuestions[1];
+            questionNumber.Text = "Question 2";
             setContent(activeQuestion);
         }
 
@@ -121,6 +125,7 @@ namespace P02Project.Screens.Game
         {
         	// TODO: Add event handler implementation here.
             activeQuestion = chosenQuestions[0];
+            questionNumber.Text = "Question 1";
             setContent(activeQuestion);
         }
 
