@@ -7,6 +7,7 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using P02Project.Resources.xml;
 using P02Project.Screens;
+using P02Project.Screens.BeadsOfCourage;
 using P02Project.Utils;
 using System.Windows.Threading;
 using P02Project.Screens.Game;
@@ -72,7 +73,7 @@ namespace P02Project
 
             // set image and color for Play Beads polaroid
             playBeads.setImage("images\\Home\\beads.png");
-            playBeads.setCaption("Play Beads");
+            playBeads.setCaption("Beads of Courage");
             playBeads.setColour(Util._pageColDict["Play Beads"]);
 
             components = new List<Animatiable>();
@@ -300,13 +301,19 @@ namespace P02Project
         {
             // create a new subscreen and push it into the stack of subscreens
             TopLevelPage nextScreen = new TopLevelPage(ParentWindow, "Play Beads");
-            ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("Play Beads"), playBeads.colour, new UserControl(), "");
+            //ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("Play Beads"), playBeads.colour, new UserControl(), "");
+            
+            //Quiz q = new Quiz();
+            //q.Topmost = true;
+            ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("Play Beads"), playBeads.colour, new BeadsOfCourage(), "");
             nextScreen.AnimateIn();
-            Quiz q = new Quiz();
-            q.Topmost = true;
+            //Quiz q = new Quiz();
+            //q.Topmost = true;
+            //q.Activate();
+            //q.Show();
             
             //q.Show();
-            q.ShowDialog();
+            //q.ShowDialog();
             dt.Stop();
         }
 

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -104,6 +104,9 @@
     <Compile Include="Controls\TweetListElement.xaml.cs">
       <DependentUpon>TweetListElement.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Screens\BeadsOfCourage\BeadsOfCourage.xaml.cs">
+      <DependentUpon>BeadsOfCourage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Screens\Family Support\fsHomeControl.xaml.cs">
       <DependentUpon>fsHomeControl.xaml</DependentUpon>
     </Compile>
@@ -185,6 +188,9 @@
     <Compile Include="Screens\TopLevelPage.xaml.cs">
       <DependentUpon>TopLevelPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Utils\xml\BeadsOfCourageSchema\beads.cs">
+      <DependentUpon>beads.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Utils\xml\PageModel.cs">
       <DependentUpon>PageModel.xsd</DependentUpon>
     </Compile>
@@ -193,6 +199,10 @@
     </Compile>
     <Compile Include="Utils\xml\XMLUtilities.cs" />
     <Page Include="Controls\TweetListElement.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Screens\BeadsOfCourage\BeadsOfCourage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -351,6 +361,7 @@
     <Resource Include="Resources\Fonts\seguisym.ttf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+    <None Include="Utils\xml\BeadsOfCourageSchema\beads.xsd" />
     <None Include="Utils\xml\Content.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -363,6 +374,17 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\xml\BeadsOfCourage\beads.xml" />
+    <Resource Include="Resources\images\beads\blue.png" />
+    <Resource Include="Resources\images\beads\aqua.png" />
+    <Resource Include="Resources\images\beads\black.png" />
+    <Resource Include="Resources\images\beads\red.png" />
+    <Resource Include="Resources\images\beads\magenta.png" />
+    <Resource Include="Resources\images\beads\dark green.png" />
+    <Resource Include="Resources\images\beads\red-heart.png" />
+    <Content Include="Utils\xml\BeadsOfCourageSchema\beads.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Resource Include="Resources\images\HowCanIHelp\qr_shop.png" />
     <Resource Include="Resources\images\HowCanIHelp\qr_volunteer.png" />
     <Resource Include="Resources\images\Twitter\twitter-bird-white.png" />
@@ -422,6 +444,10 @@
     <Resource Include="Resources\images\HowCanIHelp\qr_boc.png" />
     <Resource Include="Resources\images\Twitter\ChilCancerTwitterQR.png" />
     <Resource Include="Resources\images\Twitter\ChildCanerTwitterHome.png" />
+    <Resource Include="Resources\images\beads\purple.png" />
+    <Resource Include="Resources\images\beads\thread.png" />
+    <Resource Include="Resources\images\beads\lime.png" />
+
     <Content Include="Resources\xml\About.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>
