@@ -24,6 +24,20 @@ namespace P02Project.Resources.xml
 
         }
 
+        public static BeadModel GetBeadsContentFromFile(String filePath)
+        {
+            var mySerializer = new XmlSerializer(typeof(BeadModel));
+
+            BeadModel xmlContent;
+            using (var myFileStream = new FileStream(filePath, FileMode.Open))
+            {
+                xmlContent = (BeadModel)mySerializer.Deserialize(myFileStream);
+            }
+
+            return xmlContent;
+
+        }
+
         public static PageModel GetContentFromPage(string url)
         {
             var pageType = url.Split('/').LastOrDefault().Split('.').FirstOrDefault();
