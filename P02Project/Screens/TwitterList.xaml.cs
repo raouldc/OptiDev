@@ -106,6 +106,8 @@ namespace P02Project
 
                     }
 
+                    Util.SetupQR(QRText, "http://twitter.com/childcancernz");
+
                     twElm.setTweetImg(img);
 
                     _tweetsList.Children.Add(twElm);
