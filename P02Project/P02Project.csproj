@@ -383,9 +383,16 @@
     <Resource Include="Resources\images\beads\red.png" />
     <Resource Include="Resources\images\beads\magenta.png" />
     <Resource Include="Resources\images\beads\dark green.png" />
-    <Resource Include="Resources\images\beads\red-heart.png" />
+    <Resource Include="Resources\images\beads\red heart.png" />
+    <Resource Include="Resources\images\beads\beige.png" />
+    <Resource Include="Resources\images\beads\brown.png" />
+    <Resource Include="Resources\images\beads\rainbow.png" />
+    <Resource Include="Resources\images\beads\purple heart.png" />
+    <Resource Include="Resources\images\beads\star.png" />
+    <Resource Include="Resources\images\beads\yellow.png" />
     <Content Include="Utils\xml\BeadsOfCourageSchema\beads.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Resource Include="Resources\images\HowCanIHelp\qr_shop.png" />
     <Resource Include="Resources\images\HowCanIHelp\qr_volunteer.png" />
