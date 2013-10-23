@@ -141,16 +141,16 @@ namespace P02Project
 
                 (this.Content as Animatiable).AnimateIn();
             }
+
+            ResetTimer();
         }
         public void pushScreen(Screen screen)
         {
-            inavtiveTimer.Stop();
             stackOfScreens.Push(screen);
             this.Content = stackOfScreens.Peek();
             //this.WindowState = WindowState.Maximized;
-            //this.WindowStyle = WindowStyle.None;
-            inavtiveTimer.Start();
-
+            //this.WindowStyle = WindowStyle.None
+            ResetTimer();
         }
 
         public void popAll()
@@ -163,6 +163,7 @@ namespace P02Project
             this.Content = stackOfScreens.Peek();
             //this.WindowState = WindowState.Maximized;
             //this.WindowStyle = WindowStyle.None;
+            ResetTimer();
         }
 
         public void pushScreenOnStack(TopLevelPage nextScreen, String[] buttons, Color colour, UserControl content, String Subtitle)

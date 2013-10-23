@@ -125,6 +125,13 @@ namespace P02Project
         /// <param name="e"></param>
         private void openWebcam(Object sender, RoutedEventArgs e)
         {
+            try
+            {
+                (Window.GetWindow(this) as TopWindow).ResetTimer();
+            }
+            catch (NullReferenceException exp)
+            {
+            }
 
             Webcam webcam = new Webcam();
             _topLevelPage.setContent(webcam);
@@ -164,6 +171,11 @@ namespace P02Project
         public void AnimateOut()
         {
             
+        }
+
+        private void _tweetsListScrollViewer_ScrollChanged(object sender, System.Windows.Controls.ScrollChangedEventArgs e)
+        {
+            (Window.GetWindow(this) as TopWindow).ResetTimer();
         }
 
 
