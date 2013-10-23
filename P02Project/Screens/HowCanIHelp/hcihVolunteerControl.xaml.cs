@@ -2,14 +2,18 @@
 using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
+using P02Project.Utils;
+using System;
 
 namespace P02Project
 {
 	/// <summary>
 	/// Interaction logic for hcihBeads.xaml
 	/// </summary>
-	public partial class hcihVolunteerControl : UserControl
+	public partial class hcihVolunteerControl : UserControl, Animatiable
 	{
+        private Storyboard sbIn;
         /// <summary>
         /// Constructor
         /// </summary>
@@ -20,27 +24,40 @@ namespace P02Project
             // set image
             donate.setImage("images/Home/howCanIHelp.png");
 
+            text.Background = new SolidColorBrush(Util.contentBgColor);
+            text.Margin = Util.contentMargin;
             //set text
             text.Content = GenerateContent();
+
+            Util.SetupQR(QRText, "To become a volunteer, visit http://tinyurl.com/jwsccm7");
+
+            donate.removeTouch();
+            donate.setShadow(10, 0.3, (Color)ColorConverter.ConvertFromString("#ff7f7f7f"));
+
+            //animate
+            sbIn = new Storyboard();
+            Util.FadeIn(sbIn, text);
+            Util.FadeIn(sbIn, QRCode);
+            Util.FadeIn(sbIn, QRText);
 		}
 
-        private TextBlock TextBlockFactory()
-        {
-            TextBlock tb = new TextBlock();
-            tb.TextAlignment = TextAlignment.Left;
-            tb.FontSize = 24;
-            tb.Margin = new Thickness(10);
-            tb.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#ffffffff"));
-            tb.TextWrapping = TextWrapping.Wrap;
+        //private TextBlock TextBlockFactory()
+        //{
+        //    TextBlock tb = new TextBlock();
+        //    tb.TextAlignment = TextAlignment.Left;
+        //    tb.FontSize = 24;
+        //    tb.Margin = new Thickness(10);
+        //    tb.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#ffffffff"));
+        //    tb.TextWrapping = TextWrapping.Wrap;
 
-            return tb;
-        }
+        //    return tb;
+        //}
 
         private StackPanel GenerateContent()
         {
             StackPanel content = new StackPanel();
 
-            TextBlock tb = TextBlockFactory();
+            TextBlock tb = Util.TextBlockFactory();
 
             tb.Inlines.Add(new Bold(new Run("What is volunteering?")));
             tb.Inlines.Add(new Run("\nVolunteering provides a wonderful opportunity for people to meet, contribute and support a common " +
@@ -65,6 +82,27 @@ namespace P02Project
 
             content.Children.Add(tb);
             return content;
+        }
+
+        public void AnimateIn()
+        {
+            sbIn.Begin(this);
+            donate.AnimateIn();
+        }
+
+        public void AnimateOut()
+        {
+        }
+
+        private void text_ScrollChanged(object sender, ScrollChangedEventArgs e)
+        {
+            try
+            {
+                (Window.GetWindow(this) as TopWindow).ResetTimer();
+            }
+            catch (NullReferenceException exp)
+            {
+            }
         }
 	}
 }

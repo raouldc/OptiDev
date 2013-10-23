@@ -14,6 +14,6 @@
 				<DropShadowEffect BlurRadius="10" Opacity="0.365"/>
 			</Rectangle.Effect>
 		</Rectangle>
-		<TextBlock x:Name="Text" Margin="0" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Andy" Background="#00000000" FontSize="29.333" Foreground="White"><Run Language="en-nz" Text="Button Text"/></TextBlock>
+		<TextBlock x:Name="Text" Margin="10" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Andy" Background="#00000000" FontSize="29.333" Foreground="White"><Run Language="en-nz" Text="Button Text"/></TextBlock>
 	</Grid>
 </UserControl>

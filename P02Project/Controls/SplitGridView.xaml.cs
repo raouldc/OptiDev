@@ -2,14 +2,18 @@
 using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
+using P02Project.Utils;
+using System;
 
 namespace P02Project.Screens
 {
     /// <summary>
     /// Interaction logic for SplitGridView.xaml
     /// </summary>
-    public partial class SplitGridView : UserControl
+    public partial class SplitGridView : UserControl, Animatiable
     {
+        private Storyboard sbIn;
 
         /// <summary>
         /// Constructor
@@ -19,6 +23,8 @@ namespace P02Project.Screens
         {
             InitializeComponent();
 
+            splitContentScrollViewer.Margin = Util.contentMargin;
+            splitContentScrollViewer.Background = new SolidColorBrush(Util.contentBgColor);
             ////TODO: Set title and subtitle
             //String path = System.IO.Path.Combine(System.IO.Path.GetFullPath("."), "Resources/" + filename);
             //PageModel temp = XMLUtilities.GetContentFromFile(path);
@@ -40,6 +46,7 @@ namespace P02Project.Screens
                 p.RenderTransformOrigin.Offset(0.5,0.5);
                 p.RenderTransform = new RotateTransform(rotation);
                 p.IsUnclickable = true;
+                p.setShadow(10, 0.365, Colors.Black);
                 rotation = rotation * -1;
                 Grid.SetColumn(p, 0);
                 Grid.SetRow(p, count);
@@ -49,11 +56,7 @@ namespace P02Project.Screens
             PageModelText[] textList = temp.TextList;
 
             // config all the texts in the page
-            TextBlock tb = new TextBlock();
-            tb.TextAlignment = TextAlignment.Left;
-            tb.FontSize = 24;
-            tb.Margin = new Thickness(10);
-            tb.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#ffffffff"));
+            TextBlock tb = Util.TextBlockFactory();
             foreach (PageModelText txt in textList)
             {
       
@@ -73,7 +76,40 @@ namespace P02Project.Screens
             contentStackPanel.Children.Add(tb);
                         
             splitContentScrollViewer.Content = contentStackPanel;
+
+            sbIn = new Storyboard();
+
+            foreach (FrameworkElement fElement in contentStackPanel.Children)
+            {
+                Util.FadeIn(sbIn, fElement);
+            }
+
+            foreach (FrameworkElement fElement in PageContent.Children)
+            {
+                Util.FadeIn(sbIn, fElement);
+            }
   
+        }
+
+        public void AnimateIn()
+        {
+            sbIn.Begin(this);
+        }
+
+        public void AnimateOut()
+        {
+            
+        }
+
+        private void splitContentScrollViewer_ScrollChanged(object sender, ScrollChangedEventArgs e)
+        {
+            try
+            {
+                (Window.GetWindow(this) as TopWindow).ResetTimer();
+            }
+            catch (NullReferenceException exp)
+            {
+            }
         }
     }
 }

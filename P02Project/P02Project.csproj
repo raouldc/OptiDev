@@ -103,11 +103,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controls\TweetListElement.xaml.cs">
+      <DependentUpon>TweetListElement.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Screens\BeadsOfCourage\BeadsOfCourage.xaml.cs">
       <DependentUpon>BeadsOfCourage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Screens\Family Support\MapControl.xaml.cs">
-      <DependentUpon>MapControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Screens\Family Support\fsHomeControl.xaml.cs">
       <DependentUpon>fsHomeControl.xaml</DependentUpon>
@@ -136,7 +136,6 @@
     <Compile Include="Screens\HowCanIHelp\hcihBeads.xaml.cs">
       <DependentUpon>hcihBeads.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DataFetcher\DataItem.cs" />
     <Compile Include="Controls\CustomListView.cs" />
     <Compile Include="Screens\HowCanIHelp\hcihDonateControl.xaml.cs">
       <DependentUpon>hcihDonateControl.xaml</DependentUpon>
@@ -162,6 +161,9 @@
     <Compile Include="Controls\SplitGridView.xaml.cs">
       <DependentUpon>SplitGridView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Screens\TwitterList.xaml.cs">
+      <DependentUpon>TwitterList.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Utils\Animatiable.cs" />
     <Compile Include="Controls\TwitterBlock.xaml.cs">
       <DependentUpon>TwitterBlock.xaml</DependentUpon>
@@ -169,6 +171,7 @@
     <Compile Include="Controls\Webcam.xaml.cs">
       <DependentUpon>Webcam.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Utils\Question.cs" />
     <Compile Include="Utils\Twitter.cs" />
     <Compile Include="Utils\Util.cs" />
     <Compile Include="Controls\RightButtonControl.xaml.cs">
@@ -197,13 +200,13 @@
       <DependentUpon>PageModel.cs</DependentUpon>
     </Compile>
     <Compile Include="Utils\xml\XMLUtilities.cs" />
-    <Page Include="Screens\BeadsOfCourage\BeadsOfCourage.xaml">
+    <Page Include="Controls\TweetListElement.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Screens\Family Support\MapControl.xaml">
-      <SubType>Designer</SubType>
+    <Page Include="Screens\BeadsOfCourage\BeadsOfCourage.xaml">
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Screens\Family Support\fsHomeControl.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -314,6 +317,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Screens\TwitterList.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="TopWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -382,6 +389,7 @@
     </Content>
     <Resource Include="Resources\images\HowCanIHelp\qr_shop.png" />
     <Resource Include="Resources\images\HowCanIHelp\qr_volunteer.png" />
+    <Resource Include="Resources\images\Twitter\twitter-bird-white.png" />
     <Resource Include="Utils\xml\PageModel.xml" />
     <Resource Include="Resources\images\About\Ambassadors\Amanda.png" />
     <Resource Include="Resources\images\About\Ambassadors\Bernadine.png" />
@@ -436,6 +444,8 @@
     <Resource Include="Resources\images\HowCanIHelp\gift.png" />
     <Resource Include="Resources\images\HowCanIHelp\qr_soc.png" />
     <Resource Include="Resources\images\HowCanIHelp\qr_boc.png" />
+    <Resource Include="Resources\images\Twitter\ChilCancerTwitterQR.png" />
+    <Resource Include="Resources\images\Twitter\ChildCanerTwitterHome.png" />
     <Resource Include="Resources\images\beads\purple.png" />
     <Resource Include="Resources\images\beads\thread.png" />
     <Resource Include="Resources\images\beads\lime.png" />
@@ -504,6 +514,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\xml\Profiles\Steve.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\xml\Questions.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\xml\TemplateDoc.xml">

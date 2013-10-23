@@ -22,15 +22,12 @@ namespace P02Project
 
             sbIn = new Storyboard();
 
-            foreach (FrameworkElement c in LayoutRoot.Children)
+            foreach (FrameworkElement fElement in LayoutRoot.Children)
             {
-                DoubleAnimation da = new DoubleAnimation(0.0, 1.0, new Duration(TimeSpan.FromMilliseconds(200)));
-
-                sbIn.Children.Add(da);
-
-                Storyboard.SetTarget(da, c);
-                Storyboard.SetTargetProperty(da, new PropertyPath(FrameworkElement.OpacityProperty));
+                Util.FadeIn(sbIn, fElement);
             }
+
+            Util.SetupQR(QRText, "http://tinyurl.com/lfxloyz");
 		}
 
         /// <summary>

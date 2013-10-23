@@ -35,8 +35,6 @@ namespace P02Project
             topLevelPage.BackButton_Click(sender, null);
         }
 
-
-
         /// <summary>
         /// setter of the topLevelPage
         /// </summary>
@@ -44,8 +42,6 @@ namespace P02Project
         public void setTopPage(TopLevelPage top){
             topLevelPage = top;
         }
-
-
 
         /// <summary>
         /// set the background of the titlebar
@@ -59,7 +55,17 @@ namespace P02Project
             SubTitle.Foreground = new SolidColorBrush(col);
         }
 
+        public void setSubtitle(String sub) {
+            SubTitle.Content = sub;
 
+            if (sub.Equals(""))
+            {
+                Title.FontSize = 60;
+            }
+            else {
+                Title.FontSize = 40;
+            }
+        }
 
         /// <summary>
         /// this method called when the back button has been clicked
@@ -71,11 +77,27 @@ namespace P02Project
             //topLevelPage.AnimateOut();
             //dt.Start();
             topLevelPage.BackButton_Click(sender, e);
+
+            try
+            {
+                (Window.GetWindow(this) as TopWindow).ResetTimer();
+            }
+            catch (NullReferenceException exp)
+            {
+            }
         }
 
         private void CCF_Button_Click(object sender, RoutedEventArgs e)
         {
             topLevelPage.HomeButton_Click();
+
+            try
+            {
+                (Window.GetWindow(this) as TopWindow).ResetTimer();
+            }
+            catch (NullReferenceException exp)
+            {
+            }
         }
 	}
 }

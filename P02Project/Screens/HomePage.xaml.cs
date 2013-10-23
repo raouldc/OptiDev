@@ -85,16 +85,16 @@ namespace P02Project
             components.Add(contactUs);
             components.Add(playBeads);
 
-            TwitterBlock tb = new TwitterBlock();
+            TwitterBlock tb = new TwitterBlock(this);
             tb.Foreground = new SolidColorBrush(Colors.Black);
             
             Thickness t = tb.Margin;
-            t.Bottom = -15;
-            t.Right = 30;
+            t.Bottom = 30;
+            t.Right = 15;
             tb.Margin = t;
             
-            tb.Height = 80;
-            tb.Width = 700;
+            tb.Height = 120;
+            tb.Width = 600;
 
             tb.HorizontalAlignment = System.Windows.HorizontalAlignment.Right;
             tb.VerticalAlignment = System.Windows.VerticalAlignment.Bottom;
@@ -102,7 +102,7 @@ namespace P02Project
             poGrid.Children.Add(tb);
 
             dt = new DispatcherTimer();
-            dt.Interval = new TimeSpan(0, 0, 0, 0, 200);
+            dt.Interval = new TimeSpan(0, 0, 0, 0, Util.animationMilisecs);
             sbOut = new Storyboard();
 
             foreach (UserControl uc in components)
@@ -140,9 +140,20 @@ namespace P02Project
         private void about_MouseUp(object sender, MouseButtonEventArgs e)
         {
             // create a new subscreen and push it into the stack of subscreens
+            AnimateOut();
+
+            dt.Tick += new EventHandler(pushAbout);
+            dt.Start();
+        }
+
+        private void pushAbout(object sender, EventArgs e)
+        {
             TopLevelPage nextScreen = new TopLevelPage(ParentWindow, "About");
             String path = System.IO.Path.Combine(System.IO.Path.GetFullPath("."), "Resources/xml/About.xml");
             ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("About"), about.colour, new GridView(XMLUtilities.GetContentFromFile(path)), "");
+            nextScreen.AnimateIn();
+
+            dt.Stop();
         }
 
 
@@ -154,9 +165,20 @@ namespace P02Project
         /// <param name="e"></param>
         private void news_MouseUp(object sender, MouseButtonEventArgs e)
         {
+            AnimateOut();
+
+            dt.Tick += new EventHandler(pushNews);
+            dt.Start();
+        }
+
+        private void pushNews(object sender, EventArgs e)
+        {
             // create a new subscreen and push it into the stack of subscreens
             TopLevelPage nextScreen = new TopLevelPage(ParentWindow, "News");
             ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("News"), news.colour, new ScrollableView("News"), "");
+            nextScreen.AnimateIn();
+
+            dt.Stop();
         }
 
 
@@ -168,10 +190,20 @@ namespace P02Project
         /// <param name="e"></param>
         private void events_MouseUp(object sender, MouseButtonEventArgs e)
         {
+            AnimateOut();
+            
+            dt.Tick += new EventHandler(pushEvents);
+            dt.Start();
+        }
+
+        private void pushEvents(object sender, EventArgs e)
+        {
             // create a new subscreen and push it into the stack of subscreens
             TopLevelPage nextScreen = new TopLevelPage(ParentWindow, "Events");
-
             ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("Events"), events.colour, new ScrollableView("Events"), "");
+            nextScreen.AnimateIn();
+
+            dt.Stop();
         }
 
 
@@ -183,9 +215,20 @@ namespace P02Project
         /// <param name="e"></param>
         private void contactUs_MouseUp(object sender, MouseButtonEventArgs e)
         {
+            AnimateOut();
+
+            dt.Tick += new EventHandler(pushCU);
+            dt.Start();
+        }
+
+        private void pushCU(object sender, EventArgs e)
+        {
             // create a new subscreen and push it into the stack of subscreens
             TopLevelPage nextScreen = new TopLevelPage(ParentWindow, "Contact Us");
             ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("Contact Us"), contactUs.colour, new ContactUs(), "");
+            nextScreen.AnimateIn();
+
+            dt.Stop();
         }
 
 
@@ -208,10 +251,8 @@ namespace P02Project
         {
             // create a new subscreen and push it into the stack of subscreens
             TopLevelPage nextScreen = new TopLevelPage(ParentWindow, "How Can I Help?");
-            hcihHomeControl hcih = new hcihHomeControl(nextScreen);
-            ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("How Can I Help?"), howCanIHelp.colour, hcih, "");
+            ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("How Can I Help?"), howCanIHelp.colour, new hcihHomeControl(nextScreen), "");
             nextScreen.AnimateIn();
-            hcih.AnimateIn();
 
             dt.Stop();
         }
@@ -224,9 +265,21 @@ namespace P02Project
         /// <param name="e"></param>
         private void familySupport_MouseUp(object sender, MouseButtonEventArgs e)
         {
+            //Do animation
+            AnimateOut();
+
+            dt.Tick += new EventHandler(pushFS);
+            dt.Start();
+        }
+
+        private void pushFS(object sender, EventArgs e)
+        {
             // create a new subscreen and push it into the stack of subscreens
             TopLevelPage nextScreen = new TopLevelPage(ParentWindow, "Family Support");
             ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("Family Support"), familySupport.colour, new fsHomeControl(), "");
+            nextScreen.AnimateIn();
+
+            dt.Stop();
         }
 
 
@@ -238,42 +291,68 @@ namespace P02Project
         /// <param name="e"></param>
         private void playBeads_MouseUp(object sender, MouseButtonEventArgs e)
         {
+            AnimateOut();
+
+            dt.Tick +=new EventHandler(pushBeads);
+            dt.Start();
+        }
+
+        private void pushBeads(object sender, EventArgs e)
+        {
             // create a new subscreen and push it into the stack of subscreens
             TopLevelPage nextScreen = new TopLevelPage(ParentWindow, "Play Beads");
+            //ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("Play Beads"), playBeads.colour, new UserControl(), "");
+            
+            //Quiz q = new Quiz();
+            //q.Topmost = true;
             ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("Play Beads"), playBeads.colour, new BeadsOfCourage(), "");
+            nextScreen.AnimateIn();
             //Quiz q = new Quiz();
             //q.Topmost = true;
             //q.Activate();
             //q.Show();
             
+            //q.Show();
+            //q.ShowDialog();
+            dt.Stop();
         }
 
 
 
 
 
-
-        //??????????????????????????????????????????????????????????????????????????????
-        //??????????????????????????????????????????????????????????????????????????????
-        //??????????????????????????????????????????????????????????????????????????????
-        //??????????????????????????????????????????????????????????????????????????????
-        //??????????????????????????????????????????????????????????????????????????????
         /// <summary>
-        /// This method get called when the Camera button has been clicked
-        /// this is just a temporary button. need to replace with a proper one.
+        /// Helper method which is invoked from the twitterBox object
+        /// </summary>
+        public void twitterBoxClickedHelper()
+        {
+            // create a new subscreen and push it into the stack of subscreens
+            AnimateOut();
+
+            dt.Tick += new EventHandler(pushTwitterList);
+            dt.Start();
+        }
+
+
+        /// <summary>
+        /// Helper method to help animate the twitterBox screen
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void openWebcam(Object sender, RoutedEventArgs e)
+        private void pushTwitterList(object sender, EventArgs e)
         {
+
             // create a new subscreen and push it into the stack of subscreens
             TopLevelPage nextScreen = new TopLevelPage(ParentWindow, "Twitter");
-            
-            
-            
-            //*********************************************************************\\
-            // need to change the Util.getLinks("About") to a correct one \\
-            ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("About"), Util._pageColDict["Extra"], new Webcam(), "Support Us On Twitter");
+
+            ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("Twitter"), Util._pageColDict["Extra"], new TwitterList(nextScreen), "Our Tweets");
+            nextScreen.AnimateIn();
+
+            dt.Stop();
         }
+
+
+
+
     }
 }

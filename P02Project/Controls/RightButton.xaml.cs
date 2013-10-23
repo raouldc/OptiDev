@@ -2,6 +2,7 @@
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Effects;
+using P02Project.Utils;
 
 namespace P02Project
 {
@@ -19,6 +20,8 @@ namespace P02Project
 		public RightButton()
 		{
 			this.InitializeComponent();
+            Text.FontFamily = Util.buttonTextFont;
+            Text.Foreground = new SolidColorBrush(Util.buttonTextColor); 
 		}
 
 

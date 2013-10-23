@@ -3,24 +3,29 @@ using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Media;
 using System.Windows.Media.Effects;
+using System.Windows.Media.Animation;
+using P02Project.Utils;
+using System;
 
 namespace P02Project
 {
-	/// <summary>
-	/// Interaction logic for hcihBeads.xaml
-	/// </summary>
-	public partial class hcihBeads : UserControl
-	{
+    /// <summary>
+    /// Interaction logic for hcihBeads.xaml
+    /// </summary>
+    public partial class hcihBeads : UserControl, Animatiable
+    {
         private SolidColorBrush unsel;
         private SolidColorBrush sel;
+
+        private Storyboard sbIn;
 
         /// <summary>
         /// Constructor
         /// </summary>
         public hcihBeads()
-		{
-			this.InitializeComponent();
-            
+        {
+            this.InitializeComponent();
+
             // set image
             donate.setImage("images\\HowCanIHelp\\beads.png");
 
@@ -30,7 +35,33 @@ namespace P02Project
 
             //set content
             abtBeads_Click(this, null);
-		}
+
+            text.Background = new SolidColorBrush(Util.contentBgColor);
+            text.Margin = Util.contentMargin;
+
+            abtBeads.FontFamily = Util.buttonTextFont;
+            prgmBeads.FontFamily = Util.buttonTextFont;
+            aocBeads.FontFamily = Util.buttonTextFont;
+            contact.FontFamily = Util.buttonTextFont;
+
+            abtBeads.FontSize = Util.buttonTextSize;
+            prgmBeads.FontSize = Util.buttonTextSize;
+            aocBeads.FontSize = Util.buttonTextSize;
+            contact.FontSize = Util.buttonTextSize;
+
+            abtBeads.Foreground = new SolidColorBrush(Util.buttonTextColor);
+            prgmBeads.Foreground = new SolidColorBrush(Util.buttonTextColor);
+            aocBeads.Foreground = new SolidColorBrush(Util.buttonTextColor);
+            contact.Foreground = new SolidColorBrush(Util.buttonTextColor);
+
+            //Animations 
+            sbIn = new Storyboard();
+            Util.StackAnimationDefault(sbIn, buttons.Children);
+            Util.FadeIn(sbIn, text);
+
+            donate.removeTouch();
+            donate.setShadow(10, 0.3, (Color)ColorConverter.ConvertFromString("#ff7f7f7f"));
+        }
         /// <summary>
         /// set all the items in the background to unselected
         /// </summary>
@@ -50,17 +81,17 @@ namespace P02Project
         /// create a new textblock
         /// </summary>
         /// <returns></returns>
-        private TextBlock TextBlockFactory()
-        {
-            TextBlock tb = new TextBlock();
-            tb.TextAlignment = TextAlignment.Left;
-            tb.FontSize = 24;
-            tb.Margin = new Thickness(10);
-            tb.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#ffffffff"));
-            tb.TextWrapping = TextWrapping.Wrap;
+        //private TextBlock Util.TextBlockFactory()
+        //{
+        //    TextBlock tb = new TextBlock();
+        //    tb.TextAlignment = TextAlignment.Left;
+        //    tb.FontSize = 24;
+        //    tb.Margin = new Thickness(10);
+        //    tb.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#ffffffff"));
+        //    tb.TextWrapping = TextWrapping.Wrap;
 
-            return tb;
-        }
+        //    return tb;
+        //}
         /// <summary>
         /// add the data to the content about beads
         /// </summary>
@@ -69,7 +100,7 @@ namespace P02Project
         {
             StackPanel content = new StackPanel();
 
-            TextBlock tb = TextBlockFactory();
+            TextBlock tb = Util.TextBlockFactory();
             //data TODO place into XMl
             tb.Inlines.Add(new Run("The Beads of Courage® programme helps children cope by decreasing their illness-related distress," +
                                    "increases the use of positive coping strategies, helps them to find meaning in their illness and " +
@@ -93,7 +124,7 @@ namespace P02Project
             //TODO - move to xml
             StackPanel content = new StackPanel();
 
-            TextBlock tb = TextBlockFactory();
+            TextBlock tb = Util.TextBlockFactory();
             tb.Inlines.Add(new Run("These are the vast majority of beads used in the program. These beads are commercially manufactured " +
                                    "due largely to the sheer numbers involved. These beads are the ones that you may have seen on bead g" +
                                    "uides that correspond to specific events in treatment. We don’t ask artists to make programme beads."));
@@ -110,7 +141,7 @@ namespace P02Project
             //TODO - move to xml
             StackPanel content = new StackPanel();
 
-            TextBlock tb = TextBlockFactory();
+            TextBlock tb = Util.TextBlockFactory();
             tb.Inlines.Add(new Run("These are the artist-made glass beads that are given to acknowledge the milestones in their treatment" +
                                    " journey.\n\nTypes of Act of Courage beads include:"));
 
@@ -151,7 +182,7 @@ namespace P02Project
             //TODO - move to xml
             StackPanel content = new StackPanel();
 
-            TextBlock tb = TextBlockFactory();
+            TextBlock tb = Util.TextBlockFactory();
             tb.Inlines.Add(new Run("If you have any questions or want more information please don't hestiate to call our coordinator Kari " +
                                    "on (09) 416 5624.\n\nIf you are willing to contribute your beads to Beads of Courage program, please s" +
                                    "end them to:\n\nKari Lindsay-Beale\n5 Dene Court Lane\nGreenhithe 0632\nAuckland"));
@@ -168,9 +199,20 @@ namespace P02Project
         {
             SetAllUnsel();
             abtBeads.Background = sel;
-            abtBeads.Effect = new DropShadowEffect();
+            DropShadowEffect dShdow = new DropShadowEffect();
+            dShdow.BlurRadius = 10;
+            dShdow.Opacity = 0.365;
+            abtBeads.Effect = dShdow;
 
             text.Content = abtBeadsContent();
+
+            try
+            {
+                (Window.GetWindow(this) as TopWindow).ResetTimer();
+            }
+            catch (NullReferenceException exp)
+            {
+            }
         }
         /// <summary>
         /// handler for the prgm Beads button click
@@ -180,10 +222,20 @@ namespace P02Project
         private void prgmBeads_Click(object sender, RoutedEventArgs e)
         {
             SetAllUnsel();
-            prgmBeads.Background = sel;
-            prgmBeads.Effect = new DropShadowEffect();
+            prgmBeads.Background = sel; 
+            DropShadowEffect dShdow = new DropShadowEffect();
+            dShdow.BlurRadius = 10;
+            dShdow.Opacity = 0.365;
+            prgmBeads.Effect = dShdow;
 
             text.Content = PgrmBeadsContent();
+            try
+            {
+                (Window.GetWindow(this) as TopWindow).ResetTimer();
+            }
+            catch (NullReferenceException exp)
+            {
+            }
         }
         /// <summary>
         /// handler for the aocBeads button click
@@ -194,9 +246,20 @@ namespace P02Project
         {
             SetAllUnsel();
             aocBeads.Background = sel;
-            aocBeads.Effect = new DropShadowEffect();
+            DropShadowEffect dShdow = new DropShadowEffect();
+            dShdow.BlurRadius = 10;
+            dShdow.Opacity = 0.365;
+            aocBeads.Effect = dShdow;
 
             text.Content = AocBeadsContent();
+
+            try
+            {
+                (Window.GetWindow(this) as TopWindow).ResetTimer();
+            }
+            catch (NullReferenceException exp)
+            {
+            }
         }
         /// <summary>
         /// handler for the contact lick
@@ -207,8 +270,40 @@ namespace P02Project
         {
             SetAllUnsel();
             contact.Background = sel;
-            contact.Effect = new DropShadowEffect();
+            DropShadowEffect dShdow = new DropShadowEffect();
+            dShdow.BlurRadius = 10;
+            dShdow.Opacity = 0.365;
+            contact.Effect = dShdow;
             text.Content = ConactContent();
+
+            try
+            {
+                (Window.GetWindow(this) as TopWindow).ResetTimer();
+            }
+            catch (NullReferenceException exp)
+            {
+            }
         }
-	}
+
+        public void AnimateIn()
+        {
+            sbIn.Begin(this);
+            donate.AnimateIn();
+        }
+
+        public void AnimateOut()
+        {
+        }
+
+        private void text_ScrollChanged(object sender, ScrollChangedEventArgs e)
+        {
+            try
+            {
+                (Window.GetWindow(this) as TopWindow).ResetTimer();
+            }
+            catch (NullReferenceException exp)
+            {
+            }
+        }
+    }
 }

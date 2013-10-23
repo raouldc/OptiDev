@@ -18,6 +18,33 @@
 	d:DesignWidth="1630" d:DesignHeight="900" GotFocus="tweetTxtFocused">
 
     <UserControl.Resources>
+        <!-- This style is used for buttons, to remove the WPF default 'animated' mouse over effect -->
+        <Style x:Key="MyButtonStyle" TargetType="Button">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border" 
+                            BorderThickness="0"
+                            Padding="4,2" 
+                            BorderBrush="DarkGray" 
+                            CornerRadius="0" 
+                            Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="BorderBrush" Value="Black" />
+                            </Trigger>
+                            <Trigger Property="IsFocused" Value="True">
+                                <Setter TargetName="border" Property="BorderBrush" Value="Black" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
         <!-- Converters -->
         <localconverters:ThreeFourthConverter x:Key="ThreeFourthConverter" />
 
@@ -87,9 +114,9 @@
 
 
             <!-- Heading -->
-            <Label Grid.Row="0" Content="Webcam" Margin="-1,0,0,0" FontSize="40" FontFamily="Andy" VerticalAlignment="Top" Background="White" BorderBrush="{x:Null}"  HorizontalAlignment="Left" Width="214" />
+            <Label Grid.Row="0" Content="Webcam" Margin="-1,0,0,0" FontSize="40" FontFamily="/P02Project;component/Resources/Fonts/#Segoe UI Symbol" VerticalAlignment="Top" Background="White" BorderBrush="{x:Null}"  HorizontalAlignment="Left" Width="214" />
 
-            <Label Grid.Row="0" Content="Select a webcam:" Margin="174.5,52.823,59.5,0" FontSize="24" FontFamily="Andy" VerticalAlignment="Top" Background="White" BorderBrush="{x:Null}" RenderTransformOrigin="0.5,0.5" />
+            <Label Grid.Row="0" Content="Select a webcam:" Margin="174.5,50.823,59.5,0" FontSize="24" FontFamily="/P02Project;component/Resources/Fonts/#Segoe UI Symbol" VerticalAlignment="Top" Background="White" BorderBrush="{x:Null}" RenderTransformOrigin="0.5,0.5" />
             <!-- Select webcam combobox -->
             <ComboBox x:Name="webcamComboBox" ItemsSource="{x:Static webcam:CapDevice.DeviceMonikers}"
 				DisplayMemberPath="Name" SelectedValuePath="MonikerString"
@@ -121,12 +148,12 @@
             </Grid.RowDefinitions>
 
             <!-- Heading -->
-            <Label Grid.Row="0" Content="Select your image to tweet" FontSize="40" FontFamily="Andy" Background="White" BorderBrush="{x:Null}" />
+            <Label Grid.Row="0" Content="Select your image to tweet" FontSize="32" FontFamily="/P02Project;component/Resources/Fonts/#Segoe UI Symbol" Background="White" BorderBrush="{x:Null}" />
 
             <!-- Selected images -->
-            <ItemsControl Grid.Row="1" Focusable="false"
+            <ItemsControl x:Name="_imagesBox" Grid.Row="1" Focusable="false"
 				ItemsSource="{Binding SelectedImages, RelativeSource={RelativeSource AncestorType={x:Type local:Webcam}}}"
-				Style="{StaticResource SelectedImagesPanel}" Background="#FFAB7777" />
+				Style="{StaticResource SelectedImagesPanel}" Background="#FF146290" />
         </Grid>
 
         <!-- Selected Image for tweeting -->
@@ -134,11 +161,14 @@
         <Border BorderBrush="Black" BorderThickness="3,3,5,5" Grid.Column="1" Margin="-219,23.49,18,203.49"/>
 
         <!-- Textbox to store the tweet message-->
-		
-        <Custom:SurfaceTextBox Grid.Column="1" x:Name="_tweetTxt" Height="105.49" Margin="-217,0,16,65" TextWrapping="Wrap" Text="Compose new Tweet..." VerticalAlignment="Bottom" FontFamily="Andy" FontSize="26.667" Foreground="#CC000000" Background="#E6FFFFFF" BorderBrush="#33000000" BorderThickness="3" MaxLength="100" />
+        <Custom:SurfaceTextBox Grid.Column="1" x:Name="_tweetTxt" Height="105.49" Margin="-217,0,16,65" TextWrapping="Wrap" Text="Compose new Tweet..." VerticalAlignment="Bottom" FontFamily="/P02Project;component/Resources/Fonts/#Segoe UI Symbol" FontSize="26.667" Foreground="#CC000000" Background="#E6FFFFFF" BorderBrush="#33000000" BorderThickness="3" MaxLength="100" KeyDown="tweetTxt_KeyDown" />
 
         <!-- Tweet Button-->
-        <Button x:Name="_tweetBtn" Content="Tweet" Grid.Column="1" Margin="0,0,18,8" Height="45" VerticalAlignment="Bottom" FontFamily="Andy" FontSize="40" HorizontalAlignment="Right" Width="329" Click="tweetBtnClicked"/>
+        <Button x:Name="_tweetBtn" Style="{StaticResource MyButtonStyle}" Content="Tweet" Grid.Column="1" Margin="0,0,18,8" Height="45" VerticalAlignment="Bottom" FontFamily="/P02Project;component/Resources/Fonts/#Segoe UI Symbol" FontSize="32" HorizontalAlignment="Right" Width="329" Click="tweetBtnClicked">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" Opacity="0.375"/>
+            </Button.Effect>
+        </Button>
 
     </Grid>
 </UserControl>

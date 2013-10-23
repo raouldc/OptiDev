@@ -24,7 +24,7 @@ namespace P02Project
         /// <summary>
         /// Constructor
         /// </summary>
-        /// <value><c>true</c> if this instance is unclickable; otherwise, <c>false</c>.</value>
+        /// <value><fElement>true</fElement> if this instance is unclickable; otherwise, <fElement>false</fElement>.</value>
         public bool IsUnclickable { private get; set; }
 		public PoloroidControl()
 		{
@@ -34,13 +34,14 @@ namespace P02Project
             //Inward Animations
             dblAnimationIn.From = 0.0;
             dblAnimationIn.To = 1.0;
-            dblAnimationIn.Duration = new Duration(TimeSpan.FromMilliseconds(200));
+            dblAnimationIn.Duration = new Duration(TimeSpan.FromMilliseconds(Util.animationMilisecs));
 
 
             sbIn.Children.Add(dblAnimationIn);
 
 
-
+            Caption.FontFamily = Util.buttonTextFont;
+            Caption.Foreground = new SolidColorBrush(Util.buttonTextColor);
 
             Storyboard.SetTargetName(dblAnimationIn, this.Name);
             Storyboard.SetTargetProperty(dblAnimationIn, new PropertyPath(UserControl.OpacityProperty));
@@ -48,7 +49,7 @@ namespace P02Project
             //Outward Animations
             dblAnimationOut.From = 1.0;
             dblAnimationOut.To = 0.0;
-            dblAnimationOut.Duration = new Duration(TimeSpan.FromMilliseconds(200));
+            dblAnimationOut.Duration = new Duration(TimeSpan.FromMilliseconds(Util.animationMilisecs));
 
             sbOut.Children.Add(dblAnimationOut);
 
@@ -70,6 +71,9 @@ namespace P02Project
             setCaption(caption);
             setColour(colour);
             UpdateLayout();
+
+            Caption.FontFamily = Util.buttonTextFont;
+            Caption.Foreground = new SolidColorBrush(Util.buttonTextColor);
         }
 
 
@@ -198,6 +202,14 @@ namespace P02Project
         private void Poloroid_MouseUp(object sender, MouseButtonEventArgs e)
         {
             showShadow();
+
+            try
+            {
+                (Window.GetWindow(this) as TopWindow).ResetTimer();
+            }
+            catch (NullReferenceException exp)
+            {
+            }
         }
 
 
@@ -209,6 +221,14 @@ namespace P02Project
         private void Poloroid_TouchUp(object sender, TouchEventArgs e)
         {
             showShadow();
+
+            try
+            {
+                (Window.GetWindow(this) as TopWindow).ResetTimer();
+            }
+            catch (NullReferenceException exp)
+            {
+            }
         }
 
         public void setGlow() {

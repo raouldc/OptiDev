@@ -3,6 +3,7 @@ using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
+using System.Windows.Media;
 
 namespace P02Project.Screens
 {
@@ -14,6 +15,19 @@ namespace P02Project.Screens
         public PoloroidWithText()
         {
             InitializeComponent();
+
+            panel.Margin = Util.contentMargin;
+            panel.Background = new SolidColorBrush(Util.contentBgColor);
+
+            Place.FontFamily = Util.contentTextFont;
+            Date.FontFamily = Util.contentTextFont;
+            Description.FontFamily = Util.contentTextFont;
+            Title.FontFamily = Util.contentTextFont;
+
+            Place.Foreground = new SolidColorBrush(Util.contentTextColor);
+            Date.Foreground = new SolidColorBrush(Util.contentTextColor);
+            Description.Foreground = new SolidColorBrush(Util.contentTextColor);
+            Title.Foreground = new SolidColorBrush(Util.contentTextColor);
         }
         /// <summary>
         /// construct a new poloroid with text element
@@ -31,6 +45,22 @@ namespace P02Project.Screens
             setDate(date);
             setDescription(description);
             setTitle(title);
+
+            Canvas.Fill = new SolidColorBrush(Util._pageColDict["evtUnselected"]);
+
+            panel.Margin = Util.contentMargin;
+            panel.Background = new SolidColorBrush(Util.contentBgColor);
+
+            Place.FontFamily = Util.contentTextFont;
+            Date.FontFamily = Util.contentTextFont;
+            Description.FontFamily = Util.contentTextFont;
+            Title.FontFamily = Util.contentTextFont;
+
+            Place.Foreground = new SolidColorBrush(Util.contentTextColor);
+            Date.Foreground = new SolidColorBrush(Util.contentTextColor);
+            Description.Foreground = new SolidColorBrush(Util.contentTextColor);
+            Title.Foreground = new SolidColorBrush(Util.contentTextColor);
+
         }
         /// <summary>
         /// set the image of the poloroid with text

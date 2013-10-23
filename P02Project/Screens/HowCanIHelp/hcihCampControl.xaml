@@ -71,9 +71,7 @@
     		</Image.RenderTransform>
     	</Image>
     	<Image HorizontalAlignment="Right" Height="200" Margin="0,0,236,155.5" Source="/P02Project;component/Resources/images/HowCanIHelp/qr_camp.png" Stretch="Fill" VerticalAlignment="Bottom" Width="200"/>
-    	<my:SurfaceScrollViewer x:Name="QRText" Margin="0,748.5,145,0" Background="#7F525252" HorizontalScrollBarVisibility="Disabled" Height="130" VerticalAlignment="Top" HorizontalAlignment="Right" Width="387.667" >
-    		<TextBlock TextWrapping="Wrap" Text="http://childcancer.org.nz/How-you-can-help/Our-campaigns.aspx" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="32" Foreground="White" Width="431.285" TextAlignment="Center"/>
-    	</my:SurfaceScrollViewer>
+    	<my:SurfaceScrollViewer x:Name="QRText" Margin="0,748.5,66,0" Background="#7F525252" HorizontalScrollBarVisibility="Disabled" Height="130" VerticalAlignment="Top" HorizontalAlignment="Right" Width="535.667" />
         
         <!-- textbox used for the content of each subsection-->
         <!-- Set the option buttons at the left-->
