@@ -365,6 +365,7 @@
   <ItemGroup>
     <Resource Include="Resources\images\HowCanIHelp\qr_shop.png" />
     <Resource Include="Resources\images\HowCanIHelp\qr_volunteer.png" />
+    <Resource Include="Resources\images\Twitter\twitter-bird-white.png" />
     <Resource Include="Utils\xml\PageModel.xml" />
     <Resource Include="Resources\images\About\Ambassadors\Amanda.png" />
     <Resource Include="Resources\images\About\Ambassadors\Bernadine.png" />

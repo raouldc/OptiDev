@@ -111,33 +111,7 @@
             			</TransformGroup>
             		</view:PoloroidControl.RenderTransform>
             	</view:PoloroidControl>
-            	<Label Content="Click here to get more tweets ..." HorizontalAlignment="Right" Height="33" Margin="0,0,222.5,-7" VerticalAlignment="Bottom" Width="280" FontFamily="Andy" FontSize="20"/>
-                <!-- set title bar -->
-
-                <!-- title bar extentions-->
-                
-                <!-- set polaroid for Family Support-->
-
-                <!-- set polaroid for About-->
-
-                <!-- set polaroid for Contact Us -->
-
-                <!-- set polaroid for Events-->
-
-                <!-- set polaroid for How Can I Help-->
-
-                <!-- set polaroid for News-->
-
-                <!-- set polaroid for Play Beads-->
-
-                <!-- set title bar -->
-
-                <!-- title bar extentions-->
-				
-                
-                <!-- this is just a temporary button. need to replace this button from the twitter page. -->
-                <!--<Button Content="Camera" Grid.Column="2" Height="78" Margin="0,0,68,8" Grid.Row="1" VerticalAlignment="Bottom" FontSize="29.333" FontWeight="Bold" Click="openWebcam"/>-->
-				
+            	
             </Grid>
         </Viewbox>
     </Grid>
