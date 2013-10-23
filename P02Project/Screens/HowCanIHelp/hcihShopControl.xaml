@@ -1,0 +1,32 @@
+﻿<UserControl xmlns:my="clr-namespace:Microsoft.Surface.Presentation.Controls;assembly=Microsoft.Surface.Presentation" 
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	xmlns:view="clr-namespace:P02Project"
+	x:Class="P02Project.hcihShopControl"
+	x:Name="UserControl"
+	d:DesignWidth="1630" d:DesignHeight="900">
+
+    <Grid x:Name="LayoutRoot">
+        
+        <Grid.RowDefinitions>
+            <RowDefinition x:Name="_gridRow0" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition x:Name="_gridCol0" />
+        </Grid.ColumnDefinitions>
+    	<my:SurfaceScrollViewer x:Name="QRText" Margin="0,522.5,88,0" Background="#7F525252" HorizontalScrollBarVisibility="Disabled" Height="130" VerticalAlignment="Top" HorizontalAlignment="Right" Width="387.667" />
+    	<view:PoloroidControl x:Name="firef" Height="324" Margin="570,40,582,0" VerticalAlignment="Top"/>
+    	<view:PoloroidControl x:Name="eb" Height="324" Margin="34,40,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="478"/>
+    	<view:PoloroidControl x:Name="kagi" HorizontalAlignment="Left" Margin="34,448,0,128" Width="478"/>
+    	<view:PoloroidControl x:Name="bb" Margin="570,448,582,128"/>
+    	<Image x:Name="qr" HorizontalAlignment="Right" Source="/P02Project;component/Resources/images/HowCanIHelp/qr_shop.png" Stretch="Fill" Width="200" Margin="0,318.5,192,381.5"/>
+        
+        <!-- textbox used for the content of each subsection-->
+        <!-- Set the option buttons at the left-->
+        <!-- set the polaroid at bottom left-->
+    </Grid>
+</UserControl>

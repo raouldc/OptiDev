@@ -6,33 +6,43 @@
 	mc:Ignorable="d"
 	x:Class="P02Project.TitleBarControl"
 	x:Name="UserControl"
-	d:DesignWidth="1630" d:DesignHeight="120">
-	<UserControl.Resources>
-		<Style x:Key="CCF_Logo_Button" TargetType="{x:Type Button}">
-			<Setter Property="Template">
-				<Setter.Value>
-					<ControlTemplate TargetType="{x:Type Button}">
-						<Grid>
-							<Image Source="/P02Project;component/Resources/logoCCF-transparentaltered.png" Stretch="Fill"/>
-							<ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Content=""/>
-						</Grid>
-						<ControlTemplate.Triggers>
-							<Trigger Property="IsFocused" Value="True"/>
-							<Trigger Property="IsDefaulted" Value="True"/>
-							<Trigger Property="IsMouseOver" Value="True"/>
-							<Trigger Property="IsPressed" Value="True"/>
-							<Trigger Property="IsEnabled" Value="False"/>
-						</ControlTemplate.Triggers>
-					</ControlTemplate>
-				</Setter.Value>
-			</Setter>
-		</Style>
-	</UserControl.Resources>
+	d:DesignWidth="1630" Height="159.333">
+    
+    <!-- configure CCF Logo -->
+    <UserControl.Resources>
+        <Style x:Key="CCF_Logo_Button" TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid>
+                            <Image Source="/P02Project;component/Resources/images/logoCCF.png" Stretch="Fill"/>
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Content=""/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsFocused" Value="True"/>
+                            <Trigger Property="IsDefaulted" Value="True"/>
+                            <Trigger Property="IsMouseOver" Value="True"/>
+                            <Trigger Property="IsPressed" Value="True"/>
+                            <Trigger Property="IsEnabled" Value="False"/>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
 
-	<Grid x:Name="LayoutRoot" Background="#FF0D7F81">
-		<Button x:Name="Back" Content="Back" HorizontalAlignment="Left" Margin="8,8,0,8" Width="100" BorderThickness="0" Background="#FFED2121" OpacityMask="#FFE90C0C" Height="100" VerticalAlignment="Center"/>
-		<Button x:Name="CCF_Button" Content="" HorizontalAlignment="Left" Margin="125,8,0,8" Style="{DynamicResource CCF_Logo_Button}" Width="137" Height="104" VerticalAlignment="Center"/>
-		<Label x:Name="Title" Content="Page Title" Margin="300,0,0,0" FontSize="40" Foreground="White" VerticalAlignment="Center" FontFamily="Verdana"/>
-		<Label x:Name="SubTitle" Content="SubTitle" Margin="300,0,0,0" FontSize="29.333" Foreground="White" VerticalAlignment="Bottom" FontFamily="Verdana"/>
-	</Grid>
+    <!-- set the bar of the title-->
+    <Grid x:Name="BarBG">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition x:Name="Col0" />
+            <ColumnDefinition x:Name="Col1" Width="200"/>
+        </Grid.ColumnDefinitions>
+        <Rectangle x:Name="lRect" Stroke="#00000000"/>
+        <Button x:Name="Back" Content="" HorizontalAlignment="Left" Margin="37.832,40.081,0,0" BorderThickness="0" Background="#FFED2121" OpacityMask="#FFE90C0C" Click="Back_Click" Template="{DynamicResource BackButtonTemplate}" VerticalAlignment="Top" Height="149.753" Width="100"/>
+        <Button x:Name="CCF_Button" Content="" HorizontalAlignment="Left" Margin="162.334,20.957,0,32.336" Style="{DynamicResource CCF_Logo_Button}" Width="137"
+                Click="CCF_Button_Click" />
+        <Label x:Name="Title" Content="Page Title" Margin="335.333,34.735,-35.333,32" FontSize="40" Foreground="Red" FontFamily="Segoe UI" FontWeight="Bold" Background="#00000000" d:LayoutOverrides="Height" Grid.ColumnSpan="2" />
+        <Label x:Name="SubTitle" Content="SubTitle" Margin="336.333,79.012,-36.333,34.67" FontSize="29.333" Foreground="Red" FontFamily="Segoe UI" d:LayoutOverrides="Height"/>
+        <Rectangle x:Name="rRect" Grid.Column="1" Margin="-2,0,0,-20.667" Stroke="#00FDFDFD"/>
+    </Grid>
 </UserControl>

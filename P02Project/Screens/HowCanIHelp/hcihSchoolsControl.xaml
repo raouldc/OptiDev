@@ -1,0 +1,27 @@
+﻿<UserControl xmlns:my="clr-namespace:Microsoft.Surface.Presentation.Controls;assembly=Microsoft.Surface.Presentation" 
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	xmlns:view="clr-namespace:P02Project"
+	x:Class="P02Project.hcihSchoolsControl"
+	x:Name="UserControl"
+	d:DesignWidth="1630" d:DesignHeight="900">
+
+    <Grid x:Name="LayoutRoot">
+        
+        <Grid.RowDefinitions>
+            <RowDefinition x:Name="_gridRow0" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition x:Name="_gridCol0" Width="0.333*" />
+        </Grid.ColumnDefinitions>
+    	<Image Margin="100" Source="/P02Project;component/Resources/images/HowCanIHelp/kidsForCourage.png" Stretch="Fill" HorizontalAlignment="Center" VerticalAlignment="Center" Name="img" />
+        
+        <!-- textbox used for the content of each subsection-->
+        <!-- Set the option buttons at the left-->
+        <!-- set the polaroid at bottom left-->
+    </Grid>
+</UserControl>

@@ -21,8 +21,8 @@
 
 
   <ImageList>
-    <Image id="Child1" caption="Mother and her child">resources/images/abt.png</Image>
-    <Image id="Child2" caption="" link="toHome">resources/images/abt.png</Image>
+    <Image id="Child1" caption="Mother and her child">resources/images/Home/abt.png</Image>
+    <Image id="Child2" caption="" link="toHome">resources/images/Home/abt.png</Image>
     <Image id="Child3"></Image>
 
   </ImageList>

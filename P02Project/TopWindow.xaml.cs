@@ -7,6 +7,7 @@ using Microsoft.Surface;
 using Microsoft.Surface.Presentation.Controls;
 using P02Project.Screens;
 using P02Project.Utils;
+using System.Windows.Threading;
 
 
 namespace P02Project
@@ -16,6 +17,8 @@ namespace P02Project
     /// </summary>
     public partial class TopWindow : SurfaceWindow
     {
+        //Timer for inactivity
+        private DispatcherTimer inavtiveTimer;
 
         // screen resolution WIDTH * HEIGHT is a ratio of 16:09
         public static readonly int WIDTH = 1280;
@@ -42,8 +45,21 @@ namespace P02Project
         {
             InitializeComponent();
 
+            inavtiveTimer = new DispatcherTimer();
+            inavtiveTimer.Interval = TimeSpan.FromSeconds(120);
+            inavtiveTimer.Tick += new EventHandler(inavtiveTimer_Tick);
+
             stackOfScreens = new Stack<Screen>();
             //Setting starting Screen here, maybe should be in one of the other OnXXX methods of this class
+            pushScreen(new HomePage(this));
+
+            this.WindowStyle = System.Windows.WindowStyle.None;
+            this.WindowState = System.Windows.WindowState.Maximized;
+        }
+
+        void inavtiveTimer_Tick(object sender, EventArgs e)
+        {
+            popAll();
             pushScreen(new HomePage(this));
         }
 
@@ -120,20 +136,21 @@ namespace P02Project
             {
                 stackOfScreens.Pop();
                 this.Content = stackOfScreens.Peek();
-                this.WindowState = WindowState.Maximized;
-                this.WindowStyle = WindowStyle.None;
+                //this.WindowState = WindowState.Maximized;
+                //this.WindowStyle = WindowStyle.None;
 
                 (this.Content as Animatiable).AnimateIn();
             }
+
+            ResetTimer();
         }
         public void pushScreen(Screen screen)
         {
-         
             stackOfScreens.Push(screen);
             this.Content = stackOfScreens.Peek();
-            this.WindowState = WindowState.Maximized;
-            this.WindowStyle = WindowStyle.None;
-
+            //this.WindowState = WindowState.Maximized;
+            //this.WindowStyle = WindowStyle.None
+            ResetTimer();
         }
 
         public void popAll()
@@ -144,8 +161,9 @@ namespace P02Project
                 stackOfScreens.Pop();
             }
             this.Content = stackOfScreens.Peek();
-            this.WindowState = WindowState.Maximized;
-            this.WindowStyle = WindowStyle.None;
+            //this.WindowState = WindowState.Maximized;
+            //this.WindowStyle = WindowStyle.None;
+            ResetTimer();
         }
 
         public void pushScreenOnStack(TopLevelPage nextScreen, String[] buttons, Color colour, UserControl content, String Subtitle)
@@ -156,6 +174,31 @@ namespace P02Project
             nextScreen.setSubtitle(Subtitle);
             popAll();
             pushScreen(nextScreen);
+
+            try
+            {
+                (content as Animatiable).AnimateIn();
+            }
+            catch (NullReferenceException exp)
+            {
+                //Do nothing with this
+            }
+        }
+
+        public void ResetTimer()
+        {
+            inavtiveTimer.Stop();
+            inavtiveTimer.Start();
+        }
+
+        public void StopTimer()
+        {
+            inavtiveTimer.Stop();
+        }
+
+        public void StartTimer()
+        {
+            inavtiveTimer.Start();
         }
     
     }

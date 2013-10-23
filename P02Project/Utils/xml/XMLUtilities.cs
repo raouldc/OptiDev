@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Linq;
 using System.Net;
+using System.Xml;
+using System.Xml.Linq;
 using System.Xml.Serialization;
 using System.IO;
 using System.Threading;
@@ -24,99 +26,109 @@ namespace P02Project.Resources.xml
 
         }
 
+        public static BeadModel GetBeadsContentFromFile(String filePath)
+        {
+            var mySerializer = new XmlSerializer(typeof(BeadModel));
+
+            BeadModel xmlContent;
+            using (var myFileStream = new FileStream(filePath, FileMode.Open))
+            {
+                xmlContent = (BeadModel)mySerializer.Deserialize(myFileStream);
+            }
+
+            return xmlContent;
+
+        }
+
         public static PageModel GetContentFromPage(string url)
         {
             var pageType = url.Split('/').LastOrDefault().Split('.').FirstOrDefault();
             var path = "Resources/xml/" + pageType + ".xml";
             //If the requested file doesn't exist, or if the file is more than 12 hours old, try getting new file
             if (!File.Exists(path) 
-                || File.GetLastWriteTimeUtc(path) > DateTime.UtcNow.Subtract(new TimeSpan(12, 0, 0)))
+                || File.GetLastWriteTimeUtc(path) < DateTime.UtcNow.Subtract(new TimeSpan(12, 0, 0)))
             {
 
                 try {
                     //keep a list of all running threads
-                    List<Thread> threadList = new List<Thread>();
+                    var threadList = new List<Thread>();
                     var html = new HtmlWeb();
                     var page = html.Load(url);
                     var itemList =
                         page.GetElementbyId("contentPrimary").Elements("div").Where(
                             node => node.Attributes["class"].Value == "item").ToList();
-
-                    var textList = "<TextList>\n";
-                    var imageList = "<ImageList>\n";
-                    var linksList = "<LinksList>\n";
-                    var n = 1;
-                    foreach (var node in itemList) {
-                        textList += "<Text node=\"" + n + "\" type=\"title\">" +
-                                    node.Descendants("a").FirstOrDefault().InnerText + "</Text>\n";
-                        textList += "<Text node=\"" + n + "\" type=\"info\">" +
-                                    node.Descendants("p").FirstOrDefault().InnerText + "</Text>\n";
-                        if (pageType == "Events") {
-                            var content = node.Descendants("small").FirstOrDefault().InnerText;
-                            textList += "<Text node=\"" + n + "\" type=\"date\">" +
-                                        content.Substring(0, content.IndexOf("Where: ")) + "</Text>\n";
-                            textList += "<Text node=\"" + n + "\" type=\"place\">" +
-                                        content.Substring(content.IndexOf("Where: ")) + "</Text>\n";
-                        } else {
-                            textList += "<Text node=\"" + n + "\" type=\"date\">" +
-                                        node.Descendants("small").FirstOrDefault().InnerText + "</Text>\n";
-                        }
-                        var imagePath = "images/" + pageType + "/" + node.Descendants("a").FirstOrDefault().InnerText.Replace("/", "-").Replace("\\", "-").Replace(" ", "") + ".jpg";
+                    //Create file structure
+                    var xml = new XDocument(
+                        new XElement("PageModel", new XAttribute("id", pageType),
+                                new XElement("TextList"),
+                                new XElement("ImageList"),
+                                new XElement("LinksList")
+                                )
+                            );
+                    var nNode = 1;
+                    foreach (var htmlNode in itemList)
+                    {
+                        //Add element to text list for each htmlNode, with title, info, date and place
+                        var element = xml.Descendants("TextList").FirstOrDefault();
+                        element.Add(
+                            new XElement("Text", new XAttribute("node", nNode), new XAttribute("type", "title"), htmlNode.Descendants("a").FirstOrDefault().InnerText.Replace("&", "and")));
+                        element.Add(
+                            new XElement("Text", new XAttribute("node", nNode), new XAttribute("type", "info"), htmlNode.Descendants("p").FirstOrDefault().InnerText.Replace("&", "and")));
+                        var content = htmlNode.Descendants("small").FirstOrDefault().InnerText.Replace("&", "and");
+                        element.Add(
+                            new XElement("Text", new XAttribute("node", nNode), new XAttribute("type", "date"), (pageType == "Events" ? content.Substring(0, content.IndexOf("\r\nWhere: ")) : content)));
+                        element.Add(
+                            new XElement("Text", new XAttribute("node", nNode), new XAttribute("type", "place"), (pageType == "Events" ? content.Substring(content.IndexOf("Where: ")) : "")));
+                        //build path for image
+                        var imagePath = "images/" + pageType + "/" + htmlNode.Descendants("a").FirstOrDefault().InnerText.Replace("/", "-").Replace("\\", "-").Replace(" ", "") + ".jpg";
                         imagePath = imagePath.Replace(":", " -");
+                        //if the image is not already in cache, create a new thread and download
                         if (!File.Exists("Resources/" + imagePath)) {
+                            //Check if folder structure is there, if not create folder
                             if (!Directory.Exists("Resources/images/" + pageType))
                                 Directory.CreateDirectory("Resources/images/" + pageType);
                             //create a new ThreadedDataFetcherObject
-                            ThreadedDataFetcher fetcer = new ThreadedDataFetcher(new Uri("http://www.childcancer.org.nz" + node.Descendants("img").FirstOrDefault().Attributes["src"].Value), "Resources/" + imagePath);
+                            var fetcher = new ThreadedDataFetcher(new Uri("http://www.childcancer.org.nz" + htmlNode.Descendants("img").FirstOrDefault().Attributes["src"].Value), "Resources/" + imagePath);
                             //add the downloadFile method to a thread
-                            Thread th = new Thread(new ThreadStart(fetcer.downloadFile));
+                            var th = new Thread(fetcher.downloadFile);
                             //add the thread to the threadList
                             threadList.Add(th);
                             th.Start();
                             //while downloading is occurring, do everything else you need to do
                             //at the end make sure you join all the threads
                         }
-                        imageList += "<Image node=\"" + n + "\">" + imagePath + "</Image>\n";
-                        n++;
+                        xml.Descendants("ImageList").FirstOrDefault().Add(
+                            new XElement("Image", new XAttribute("node",nNode), imagePath));
+                        nNode++;
                     }
-                    textList += "</TextList>\n";
-                    imageList += "</ImageList>\n";
-                    linksList += "</LinksList>\n";
-                    var xml = "<?xml version=\"1.0\" encoding=\"utf-8\" ?>\n"
-                              + "<PageModel id =\"" + pageType + "\">\n"
-                              + textList + "\n"
-                              + imageList + "\n"
-                              + linksList + "\n"
-                              + "</PageModel>";
-                    xml = xml.Replace("&", "and");
+                    //write all text to file
+                    xml.WriteXml("Resources/xml/" + pageType + ".xml");
+
                     //join all the threads to make sure they have all finished
-                    foreach (Thread t in threadList)
+                    foreach (var t in threadList)
                     {
                         t.Join();
                     }
-                    //write all text to file
-                    File.WriteAllText(path, xml);
-                } catch (Exception)
-                {
+                    
+                } catch (Exception) {
+                    //If an Exception happens while getting data, return existing data, or Error data (create if it does not exist)
                     if (File.Exists(path))
                         return GetContentFromFile(path);
-                    if (File.Exists("Resources/xml/Error.xml"))
+                    if (!File.Exists("Resources/xml/Error.xml"))
                     {
-                        var xml = "<?xml version=\"1.0\" encoding=\"utf-8\" ?>"
-                                  + "<!--Can store information regarding, text images, links-->\n"
-                                  + "<PageModel id=\"Error\">\n"
-                                  + "    <TextList>\n"
-                                  + "        <Text node=\"1\" type=\"title\">Content could not be received</Text>\n"
-                                  + "        <Text node=\"1\" type=\"info\">Content could not be retrieved from the web. Please connect to the internet and try again.</Text>\n"
-                                  + "        <Text node=\"1\" type=\"date\"></Text>\n"
-                                  + "        <Text node=\"1\" type=\"place\"></Text>\n"
-                                  + "    </TextList>\n"
-                                  + "    <ImageList>\n"
-                                  + "    </ImageList>\n"
-                                  + "    <LinksList>\n"
-                                  + "    </LinksList>\n"
-                                  + "</PageModel>";
-                        File.WriteAllText("Resources/xml/Error.xml", xml);
+                        var xml = new XDocument(
+                            new XElement("PageModel", new XAttribute("id","Error"),
+                                new XElement("TextList", 
+                                    new XElement("Text", new XAttribute("node","1"), new XAttribute("type","title"),"Content could not be received"),
+                                    new XElement("Text", new XAttribute("node","1"), new XAttribute("type","info"),"Content could not be retrieved from the web. Please connect to the internet and try again."),
+                                    new XElement("Text", new XAttribute("node","1"), new XAttribute("type","date")),
+                                    new XElement("Text", new XAttribute("node","1"), new XAttribute("type","place"))                                    
+                                    ),
+                                new XElement("ImageList"),
+                                new XElement("LinksList")
+                                )
+                            );
+                        xml.WriteXml("Resources/xml/Error.xml");
                     }
                     return GetContentFromFile("Resources/xml/Error.xml");
                 }
@@ -132,7 +144,7 @@ namespace P02Project.Resources.xml
     {
         private Uri url;
         private String path;
-        private static WebClient client = new WebClient();
+        private WebClient client;
         /// <summary>
         /// create a new ThreadedDataFetcher
         /// </summary>
@@ -140,12 +152,14 @@ namespace P02Project.Resources.xml
         /// <param name="fileName">filename of the resulting file that is created </param>
         public ThreadedDataFetcher(Uri url, String fileName)
         {
+            this.client = new WebClient();
             this.url = url;
             this.path = fileName;
         }
         public void downloadFile()
         {
-            client.DownloadFileAsync(url, path);
+            client.DownloadFile(url, path);
+            client.Dispose();
         }
 
     }
