@@ -311,6 +311,9 @@
             <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(Block.Padding)" Storyboard.TargetName="textBlock">
             	<EasingThicknessKeyFrame KeyTime="0:0:1" Value="0,0,10,0"/>
             </ThicknessAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="textBlock1">
+            	<DiscreteObjectKeyFrame KeyTime="0:0:1" Value="{x:Static Visibility.Collapsed}"/>
+            </ObjectAnimationUsingKeyFrames>
         </Storyboard>
     </UserControl.Resources>
     <UserControl.RenderTransform>
@@ -606,6 +609,6 @@
         		</TransformGroup>
         	</Image.RenderTransform>
         </Image>
-        <TextBlock Margin="569,317,420,374" TextWrapping="Wrap" FontSize="48" TextAlignment="Center" Foreground="Black" Background="#7FFFFFFF" VerticalAlignment="Center"><Run Language="en-nz" Text="Tap a Bead to learn more about it"/></TextBlock>
+        <TextBlock x:Name="textBlock1" Margin="569,317,420,374" TextWrapping="Wrap" FontSize="48" TextAlignment="Center" Foreground="Black" Background="#7FFFFFFF" VerticalAlignment="Center"><Run Language="en-nz" Text="Tap a Bead to learn more about it"/></TextBlock>
     </Grid>
 </UserControl>
