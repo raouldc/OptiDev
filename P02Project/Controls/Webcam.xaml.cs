@@ -259,7 +259,7 @@ namespace P02Project
         #endregion
 
 
-        #region Click event handlers
+        #region event handlers
         /// <summary>
         /// invoked when an image in the select pool has been clicked
         /// </summary>
@@ -318,13 +318,7 @@ namespace P02Project
             // the text that need to post
             String newTweet = _tweetTxt.Text;
 
-            Console.Out.WriteLine("here is new tweet: " + newTweet);
-
-
-
-            //???????????????????????????????????????????????????????\\
-            // do the tweet post here
-            //???????????????????????????????????????????????????????\\
+            // do the tweet post 
 
             Twitter twitter = new Twitter();
 
@@ -339,7 +333,7 @@ namespace P02Project
             }
         }
 
-        private void _tweetTxt_KeyDown(object sender, KeyEventArgs e)
+        private void tweetTxt_KeyDown(object sender, KeyEventArgs e)
         {
             try
             {
@@ -349,9 +343,20 @@ namespace P02Project
             {
             }
         }
+
+        private void tweetTxtKeyUp(object sender, MouseButtonEventArgs e)
+        {
+            // if the tweeting text is default, remove it
+            if (_tweetTxt.Text.Equals(""))
+            {
+                _tweetTxt.Text = DEFAULT_TWEET;
+            }
+
+        }
         #endregion
 
-
+        
+       
     }
 	
 }

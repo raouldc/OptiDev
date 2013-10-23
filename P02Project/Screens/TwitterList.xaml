@@ -71,7 +71,5 @@
             </StackPanel>
         </Custom:SurfaceScrollViewer>
         
-
-
     </Grid>
 </UserControl>
