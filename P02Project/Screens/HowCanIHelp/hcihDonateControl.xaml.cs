@@ -56,6 +56,9 @@ namespace P02Project
             workplaceGiving.Foreground = new SolidColorBrush(Util.buttonTextColor);
             moreInfo.Foreground = new SolidColorBrush(Util.buttonTextColor);
 
+            donate.removeTouch();
+            donate.setShadow(10, 0.3, (Color)ColorConverter.ConvertFromString("#ff7f7f7f"));
+
             //set content
             oneOff_Click(null, null);
 

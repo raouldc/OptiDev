@@ -58,6 +58,9 @@ namespace P02Project
             sbIn = new Storyboard();
             Util.StackAnimationDefault(sbIn, buttons.Children);
             Util.FadeIn(sbIn, text);
+
+            donate.removeTouch();
+            donate.setShadow(10, 0.3, (Color)ColorConverter.ConvertFromString("#ff7f7f7f"));
         }
         /// <summary>
         /// set all the items in the background to unselected

@@ -46,6 +46,9 @@ namespace P02Project
             soc.Foreground = new SolidColorBrush(Util.buttonTextColor);
             boc.Foreground = new SolidColorBrush(Util.buttonTextColor);
 
+            donate.removeTouch();
+            donate.setShadow(10, 0.3, (Color)ColorConverter.ConvertFromString("#ff7f7f7f"));
+
             //set content
             soc_Click(this, null);
 

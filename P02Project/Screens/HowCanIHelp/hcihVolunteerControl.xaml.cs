@@ -28,6 +28,9 @@ namespace P02Project
             //set text
             text.Content = GenerateContent();
 
+            donate.removeTouch();
+            donate.setShadow(10, 0.3, (Color)ColorConverter.ConvertFromString("#ff7f7f7f"));
+
             //animate
             sbIn = new Storyboard();
             Util.FadeIn(sbIn, text);
