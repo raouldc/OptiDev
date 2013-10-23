@@ -101,7 +101,7 @@
             		</view:PoloroidControl.RenderTransform>
             	</view:PoloroidControl>
         <!-- set polaroid for Play Beads-->
-            	<view:PoloroidControl x:Name="playBeads" Margin="0,0,144.697,172.227" RenderTransformOrigin="0.5,0.5" MouseUp="playBeads_MouseUp" HorizontalAlignment="Right" Width="332.606" Height="316.546" VerticalAlignment="Bottom">
+            	<view:PoloroidControl x:Name="playBeads" Margin="0,0,144.697,187.227" RenderTransformOrigin="0.5,0.5" MouseUp="playBeads_MouseUp" HorizontalAlignment="Right" Width="332.606" Height="316.546" VerticalAlignment="Bottom">
             		<view:PoloroidControl.RenderTransform>
             			<TransformGroup>
             				<ScaleTransform/>

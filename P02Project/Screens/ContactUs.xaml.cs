@@ -528,6 +528,7 @@ namespace P02Project
 
 
             familyPlaceScroll = new SurfaceScrollViewer();
+            familyPlaceScroll.Style = this.FindResource("SurfaceScrollViewerStyle1") as Style;
             familyPlaceScroll.Height = 300;
             familyPlaceScroll.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#00000000"));
             
@@ -578,6 +579,7 @@ namespace P02Project
             moMap.Children.Add(moPin);
 
             SurfaceScrollViewer scrollContent = new SurfaceScrollViewer();
+            scrollContent.Style = this.FindResource("SurfaceScrollViewerStyle1") as Style;
             scrollContent.Height = 300;
             scrollContent.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#00000000"));
             scrollContent.AddHandler(UIElement.TouchUpEvent, new EventHandler<TouchEventArgs>(MainOffice_TouchDown), true);

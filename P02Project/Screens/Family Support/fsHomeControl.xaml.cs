@@ -469,6 +469,7 @@ namespace P02Project
             map.AddHandler(UIElement.MouseDownEvent, new MouseButtonEventHandler(MapWithPushpins_MouseDown), true);
             
             mscroll = new SurfaceScrollViewer();
+            mscroll.Style = this.FindResource("SurfaceScrollViewerStyle1") as Style;
             mscroll.Height = 300;
             mscroll.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#00000000"));
 
@@ -632,6 +633,7 @@ namespace P02Project
 
             //Create a scrollviewer for the details about the homes
             hhscroll = new SurfaceScrollViewer();
+            hhscroll.Style = this.FindResource("SurfaceScrollViewerStyle1") as Style;
             hhscroll.Height = 300;
             hhscroll.Background = new SolidColorBrush(Util.contentBgColor);
 
