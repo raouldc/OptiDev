@@ -157,6 +157,11 @@ namespace P02Project
             
         }
 
+        private void _tweetsListScrollViewer_ScrollChanged(object sender, System.Windows.Controls.ScrollChangedEventArgs e)
+        {
+            (Window.GetWindow(this) as TopWindow).ResetTimer();
+        }
+
 
 	}
 
