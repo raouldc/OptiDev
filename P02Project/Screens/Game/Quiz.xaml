@@ -94,6 +94,7 @@
             <Button  x:Name="fifty_fifty_button" Content="Simplify" Height="39" Style="{StaticResource MyButtonStyle}" Background="#ff9841f0" Margin="8,80,8,30" Click="fifty_fifty_click" FontSize="20"/>
             <Button x:Name="hint_button" Content="Hint" Style="{StaticResource MyButtonStyle}" Background="#ff9841f0" Height="39" Margin="8,0,8,30" Click="hint_click" FontSize="20"/>
             <Button x:Name="skip_button" Content="Skip" Style="{StaticResource MyButtonStyle}"  Background="#ff9841f0" Height="39" Margin="8,0" Click="skip_click" FontSize="20"/>
+            <Button Content="Close" Height="98" Margin="18,0,30,0" Click="close_Clicked"/>
     	</StackPanel>
     	<Grid Grid.Column="1" Margin="0,15,0.24,15">
     		<Grid.ColumnDefinitions>

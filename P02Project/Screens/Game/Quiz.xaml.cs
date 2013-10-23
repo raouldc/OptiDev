@@ -271,5 +271,11 @@ namespace P02Project.Screens.Game
 
         }
 
+        private void close_Clicked(object sender, System.Windows.RoutedEventArgs e)
+        {
+            this.Close();
+        	// TODO: Add event handler implementation here.
+        }
+
     }
 }

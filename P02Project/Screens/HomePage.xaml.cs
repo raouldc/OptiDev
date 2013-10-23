@@ -304,7 +304,7 @@ namespace P02Project
             nextScreen.AnimateIn();
             Quiz q = new Quiz();
             q.Topmost = true;
-            q.Activate();
+            
             //q.Show();
             q.ShowDialog();
             dt.Stop();
