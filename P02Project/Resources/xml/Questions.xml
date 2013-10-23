@@ -1,20 +1,157 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<QuestionList>
-  <Question>
-    <Content>
-      what is this?
-    </Content>
-    <Answer>
-      I dont know
-    </Answer>
-    <Option>
-      I do Know
-    </Option>
-    <Option>
-      Or Do i?
-    </Option>
-    <Option>
-      Maybe
-    </Option>
-  </Question>
-</QuestionList>
+
+<!--Can store information regarding, text images, links-->
+
+<PageModel>
+
+
+  <TextList>
+
+    <Text id="Question">
+      A White "Bead of Courage" is awarded to a child after what procedure?
+    </Text>
+    <Text id="Answer">
+      Chemotherapy
+    </Text>
+    <Text id="Option">
+      Placement or Removal of Central Line
+    </Text>
+    <Text id="Option">
+      Emergency Department
+    </Text>
+    <Text id="Option">
+      TPN
+    </Text>
+    <Text id="Question">
+      A Light Green "Bead of Courage" is awarded to a child after what procedure?
+    </Text>
+    <Text id="Answer">
+      Xray
+    </Text>
+    <Text id="Option">
+      Dressing Changes
+    </Text>
+    <Text id="Option">
+      Completion of Treatment
+    </Text>
+    <Text id="Option">
+      Bone Marrow Transplant
+    </Text>
+    <Text id="Question">
+      A brave child has had a fever, which of the following "Beads of Courage" will he/she recieve?
+    </Text>
+    <Text id="Answer">
+      Lime
+    </Text>
+    <Text id="Option">
+      Dark Green
+    </Text>
+    <Text id="Option">
+      Square Heart
+    </Text>
+    <Text id="Option">
+      Blue
+    </Text>
+    <Text id="Question">
+      What does recieving a black "Bead of Courage" represent?
+    </Text>
+    <Text id="Answer">
+      Port Access
+    </Text>
+    <Text id="Option">
+      Overnight Stay in Hospital
+    </Text>
+    <Text id="Option">
+      Hair Thinning
+    </Text>
+    <Text id="Option">
+      Clinic Visit
+    </Text>
+    <Text id="Question">
+      What does recieving a Red "Bead of Courage" represent?
+    </Text>
+    <Text id="Answer">
+      Blood Transfusions
+    </Text>
+    <Text id="Option">
+      Overnight Stay in Hospital
+    </Text>
+    <Text id="Option">
+      Completion of Treatment
+    </Text>
+    <Text id="Option">
+      Medication Challenges
+    </Text>
+    <Text id="Question">
+      A brave child has recieved a Beige "Bead of Courage", what procedure did he/she go through?
+    </Text>
+    <Text id="Answer">
+      Joint Aspirations/Injections
+    </Text>
+    <Text id="Option">
+      Stem Cell Harvest
+    </Text>
+    <Text id="Option">
+      Ultrasound
+    </Text>
+    <Text id="Option">
+      Kidney Dialysis
+    </Text>
+    <Text id="Question">
+      A Rainbow Coloured "Bead of Courage" has been presented to a Child, what event has occured?
+    </Text>
+    <Text id="Answer">
+      Care Team Visit
+    </Text>
+    <Text id="Option">
+      Stem Cell Harvest
+    </Text>
+    <Text id="Option">
+      Clinic Visit
+    </Text>
+    <Text id="Option">
+      Transfer to Adult Service
+    </Text>
+    <Text id="Question">
+      A brave child has recieved a Magenta "Bead of Courage", what caused this?
+    </Text>
+    <Text id="Answer">
+      An Unusual Occurence
+    </Text>
+    <Text id="Option">
+      Lumbar Puncture
+    </Text>
+    <Text id="Option">
+      Radiation Therapy
+    </Text>
+    <Text id="Option">
+      Bone Marrow Aspirate
+    </Text>
+    <Text id="Question">
+      An Aqua "Bead of Courage" has been presented to a child, why was it presented?
+    </Text>
+    <Text id="Answer">
+      Chest Tube Placement
+    </Text>
+    <Text id="Option">
+      Dressing Changes
+    </Text>
+    <Text id="Option">
+      Blood Draws
+    </Text>
+    <Text id="Option">
+      Transfer to Adult Service
+    </Text>
+  </TextList>
+
+
+  <ImageList>
+    <Image id="Top">images/About/Sisters.png</Image>
+  </ImageList>
+
+  <LinksList>
+  </LinksList>
+
+
+
+</PageModel>
