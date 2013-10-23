@@ -27,7 +27,7 @@
                 </Grid.ColumnDefinitions>
 <!-- set title bar -->
             	<s:ScatterView x:Name="_title" Grid.Row="0" Grid.Column="0" Background="#FF5E99E9" Height="120" Margin="0,0,290,0" VerticalAlignment="Top">
-            		<s:ScatterViewItem Background="Transparent" Width="300" Height="100" Orientation="0" CanRotate="False" CanScale="False" Center="150,50">
+            		<s:ScatterViewItem Background="Transparent" Width="300" Height="100" Orientation="0" CanRotate="False" CanScale="False" CanMove="False" Center="150,50">
             			<Image Stretch="Uniform"  Source="/P02Project;component/Resources/images/logoCCF.png"/>
             		</s:ScatterViewItem>
             	</s:ScatterView>
@@ -35,7 +35,7 @@
             	<s:ScatterView x:Name="_titleExtension1" Grid.Row="0" Background="#FF5E99E9" HorizontalAlignment="Right" Height="120" Margin="0,0,240,0" VerticalAlignment="Top" Width="50" />
             	<s:ScatterView x:Name="_titleExtension2" Grid.Row="0" Background="#FF5E99E9" HorizontalAlignment="Right" Height="120" VerticalAlignment="Top" Width="240" />
         <!-- set polaroid for Family Support-->
-            	<view:PoloroidControl x:Name="familySupport" Height="316.546" Margin="951.697,0,635.697,167.227" VerticalAlignment="Bottom" RenderTransformOrigin="0.5,0.5" MouseUp="familySupport_MouseUp">
+            	<view:PoloroidControl x:Name="familySupport" Height="316.546" Margin="951.174,0,0,156.101" VerticalAlignment="Bottom" RenderTransformOrigin="0.5,0.5" MouseUp="familySupport_MouseUp" HorizontalAlignment="Left" Width="332.576">
             		<view:PoloroidControl.RenderTransform>
             			<TransformGroup>
             				<ScaleTransform/>
@@ -101,7 +101,7 @@
             		</view:PoloroidControl.RenderTransform>
             	</view:PoloroidControl>
         <!-- set polaroid for Play Beads-->
-            	<view:PoloroidControl x:Name="playBeads" Margin="0,0,144.697,172.227" RenderTransformOrigin="0.5,0.5" MouseUp="playBeads_MouseUp" HorizontalAlignment="Right" Width="332.606" Height="316.546" VerticalAlignment="Bottom">
+            	<view:PoloroidControl x:Name="playBeads" Margin="0,0,144.697,187.227" RenderTransformOrigin="0.5,0.5" MouseUp="playBeads_MouseUp" HorizontalAlignment="Right" Width="332.606" Height="316.546" VerticalAlignment="Bottom">
             		<view:PoloroidControl.RenderTransform>
             			<TransformGroup>
             				<ScaleTransform/>
@@ -111,32 +111,7 @@
             			</TransformGroup>
             		</view:PoloroidControl.RenderTransform>
             	</view:PoloroidControl>
-                <!-- set title bar -->
-
-                <!-- title bar extentions-->
-                
-                <!-- set polaroid for Family Support-->
-
-                <!-- set polaroid for About-->
-
-                <!-- set polaroid for Contact Us -->
-
-                <!-- set polaroid for Events-->
-
-                <!-- set polaroid for How Can I Help-->
-
-                <!-- set polaroid for News-->
-
-                <!-- set polaroid for Play Beads-->
-
-                <!-- set title bar -->
-
-                <!-- title bar extentions-->
-				
-                
-                <!-- this is just a temporary button. need to replace this button from the twitter page. -->
-                <!--<Button Content="Camera" Grid.Column="2" Height="78" Margin="0,0,68,8" Grid.Row="1" VerticalAlignment="Bottom" FontSize="29.333" FontWeight="Bold" Click="openWebcam"/>-->
-				
+            	
             </Grid>
         </Viewbox>
     </Grid>

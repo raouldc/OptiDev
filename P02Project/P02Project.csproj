@@ -101,8 +101,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Screens\Family Support\MapControl.xaml.cs">
-      <DependentUpon>MapControl.xaml</DependentUpon>
+    <Compile Include="Controls\TweetListElement.xaml.cs">
+      <DependentUpon>TweetListElement.xaml</DependentUpon>
     </Compile>
     <Compile Include="Screens\Family Support\fsHomeControl.xaml.cs">
       <DependentUpon>fsHomeControl.xaml</DependentUpon>
@@ -156,6 +156,9 @@
     <Compile Include="Controls\SplitGridView.xaml.cs">
       <DependentUpon>SplitGridView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Screens\TwitterList.xaml.cs">
+      <DependentUpon>TwitterList.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Utils\Animatiable.cs" />
     <Compile Include="Controls\TwitterBlock.xaml.cs">
       <DependentUpon>TwitterBlock.xaml</DependentUpon>
@@ -189,9 +192,9 @@
       <DependentUpon>PageModel.cs</DependentUpon>
     </Compile>
     <Compile Include="Utils\xml\XMLUtilities.cs" />
-    <Page Include="Screens\Family Support\MapControl.xaml">
-      <SubType>Designer</SubType>
+    <Page Include="Controls\TweetListElement.xaml">
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Screens\Family Support\fsHomeControl.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -302,6 +305,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Screens\TwitterList.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="TopWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -361,6 +368,8 @@
     <Resource Include="Utils\xml\PageModel.xml">
       <SubType>Designer</SubType>
     </Resource>
+    <Resource Include="Resources\images\Twitter\twitter-bird-white.png" />
+    <Resource Include="Utils\xml\PageModel.xml" />
     <Resource Include="Resources\images\About\Ambassadors\Amanda.png" />
     <Resource Include="Resources\images\About\Ambassadors\Bernadine.png" />
     <Resource Include="Resources\images\About\Ambassadors\Chris.png" />
@@ -414,6 +423,8 @@
     <Resource Include="Resources\images\HowCanIHelp\gift.png" />
     <Resource Include="Resources\images\HowCanIHelp\qr_soc.png" />
     <Resource Include="Resources\images\HowCanIHelp\qr_boc.png" />
+    <Resource Include="Resources\images\Twitter\ChilCancerTwitterQR.png" />
+    <Resource Include="Resources\images\Twitter\ChildCanerTwitterHome.png" />
     <Content Include="Resources\xml\About.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>

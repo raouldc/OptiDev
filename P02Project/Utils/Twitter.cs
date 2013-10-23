@@ -8,6 +8,8 @@ using System.Drawing.Imaging;
 using System.Net;
 using System.ComponentModel;
 using System.Net.Cache;
+using System.Windows;
+using System.Windows.Controls;
 
 namespace P02Project
 {
@@ -150,50 +152,52 @@ namespace P02Project
 
 
         //post all tweets
-        public void postTweet(String message, BitmapSource bitsource)
+        public void postTweet(String message, BitmapSource bitsource, DependencyObject depO)
         {
 
 
-            //twitter service
-            var service = new TwitterService(OAuthConsumerKey, OAuthConsumerSecret);
-            service.AuthenticateWith(OAuthToken, OAuthTokenSecret);
-            SendTweetWithMediaOptions options = new SendTweetWithMediaOptions();
-
-
-
-            options.Status = message;
-
-
-            Image picture = this.BitmapFromSource(bitsource);
-
-            //Create a byte array of the contents of the bitsource. 
-            byte[] data;
-            BitmapEncoder encoder = new BmpBitmapEncoder();
-            encoder.Frames.Add(BitmapFrame.Create(bitsource));
-
-
-            using (MemoryStream ms = new MemoryStream())
+            try
             {
-                encoder.Save(ms);
-                data = ms.ToArray();
+                (Window.GetWindow(depO) as TopWindow).StopTimer();
+                //twitter service
+                var service = new TwitterService(OAuthConsumerKey, OAuthConsumerSecret);
+                service.AuthenticateWith(OAuthToken, OAuthTokenSecret);
+                SendTweetWithMediaOptions options = new SendTweetWithMediaOptions();
 
 
+
+                options.Status = message;
+
+
+
+
+                //Create a byte array of the contents of the bitsource. 
+                byte[] data;
+                PngBitmapEncoder encoder = new PngBitmapEncoder();
+                encoder.Frames.Add(BitmapFrame.Create(bitsource));
+
+
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    encoder.Save(ms);
+                    data = ms.ToArray();
+
+
+                }
+
+                Stream stream = new MemoryStream(data);
+
+                options.Status = "Testing with picture";
+                var dic = new Dictionary<string, Stream>();
+                dic.Add("some Image", stream);
+                options.Images = dic;
+
+                var t = service.SendTweetWithMedia(options);
             }
-
-            Stream stream = new MemoryStream(data);
-            picture.Save(stream, ImageFormat.Bmp);
-            //Set the image
-            options.Images.Add(message, stream);
-
-            //Set the status
-            options.Status = message;
-            service.SendTweetWithMedia(options);
-
-
-
-
-
-
+            finally
+            {
+                (Window.GetWindow(depO) as TopWindow).StartTimer();
+            }
 
 
         }

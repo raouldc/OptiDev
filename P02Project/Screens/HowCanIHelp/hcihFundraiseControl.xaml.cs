@@ -24,30 +24,29 @@ namespace P02Project
             // set image
             donate.setImage("images\\HowCanIHelp\\fundraise.png");
 
+            text.Background = new SolidColorBrush(Util.contentBgColor);
+            text.Margin = Util.contentMargin;
             //set text
             text.Content = GenerateContent();
 
+            donate.removeTouch();
+            donate.setShadow(10, 0.3, (Color)ColorConverter.ConvertFromString("#ff7f7f7f"));
+
             sbIn = new Storyboard();
-
-            DoubleAnimation da = new DoubleAnimation(0.0, 1.0, new Duration(TimeSpan.FromMilliseconds(200)));
-
-            sbIn.Children.Add(da);
-
-            Storyboard.SetTarget(da, text);
-            Storyboard.SetTargetProperty(da, new PropertyPath(FrameworkElement.OpacityProperty));
+            Util.FadeIn(sbIn, text);
 		}
 
-        private TextBlock TextBlockFactory()
-        {
-            TextBlock tb = new TextBlock();
-            tb.TextAlignment = TextAlignment.Left;
-            tb.FontSize = 24;
-            tb.Margin = new Thickness(10);
-            tb.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#ffffffff"));
-            tb.TextWrapping = TextWrapping.Wrap;
+        //private TextBlock TextBlockFactory()
+        //{
+        //    TextBlock tb = new TextBlock();
+        //    tb.TextAlignment = TextAlignment.Left;
+        //    tb.FontSize = 24;
+        //    tb.Margin = new Thickness(10);
+        //    tb.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#ffffffff"));
+        //    tb.TextWrapping = TextWrapping.Wrap;
 
-            return tb;
-        }
+        //    return tb;
+        //}
         /// <summary>
         /// genreate all the content needed for this view
         /// </summary>
@@ -58,7 +57,7 @@ namespace P02Project
         {
             StackPanel content = new StackPanel();
 
-            TextBlock tb = TextBlockFactory();
+            TextBlock tb = Util.TextBlockFactory();
             //data
             //TODO - move to xml
             tb.Inlines.Add(new Run("Holding a fundraising event is making a difference!\n\n"));
@@ -93,6 +92,17 @@ namespace P02Project
 
         void Animatiable.AnimateOut()
         {
+        }
+
+        private void text_ScrollChanged(object sender, ScrollChangedEventArgs e)
+        {
+            try
+            {
+                (Window.GetWindow(this) as TopWindow).ResetTimer();
+            }
+            catch (NullReferenceException exp)
+            {
+            }
         }
     }
 }

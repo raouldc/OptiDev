@@ -22,7 +22,7 @@
                                FontSize="96"
                                Grid.ColumnSpan="2"
                                VerticalAlignment="Bottom"
-                               Foreground="Red"><Run FontFamily="./resources/fonts/#Segoe UI Symbol" Text=""/></TextBlock>
+                               Foreground="Black"><Run FontFamily="./resources/fonts/#Segoe UI Symbol" Text=""/></TextBlock>
       		</Grid>
       	</ControlTemplate>
       </ResourceDictionary>

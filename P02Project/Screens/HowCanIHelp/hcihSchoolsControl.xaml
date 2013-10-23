@@ -18,7 +18,7 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition x:Name="_gridCol0" Width="0.333*" />
         </Grid.ColumnDefinitions>
-    	<Image Margin="100" Source="/P02Project;component/Resources/images/HowCanIHelp/kidsForCourage.png" Stretch="Fill" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+    	<Image Margin="100" Source="/P02Project;component/Resources/images/HowCanIHelp/kidsForCourage.png" Stretch="Fill" HorizontalAlignment="Center" VerticalAlignment="Center" Name="img" />
         
         <!-- textbox used for the content of each subsection-->
         <!-- Set the option buttons at the left-->

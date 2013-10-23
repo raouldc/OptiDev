@@ -19,14 +19,17 @@ using System.Windows.Media.Imaging;
 using CatenaLogic.Windows.Presentation.WebcamPlayer;
 using System.Collections.ObjectModel;
 using System.IO;
-
+using P02Project.Utils;
+using System.Windows.Media.Animation;
+using System.Windows.Media;
+using System.Windows.Media.Effects;
 
 namespace P02Project
 {
 	/// <summary>
 	/// Interaction logic for Webcam.xaml
 	/// </summary>
-	public partial class Webcam : UserControl
+    public partial class Webcam : UserControl, Animatiable
 	{
 
         #region Variables
@@ -34,6 +37,7 @@ namespace P02Project
         private readonly String DEFAULT_TWEET = "Compose new Tweet...";
         private int numb = 0;
         private readonly String MYDOC_PATH = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+        private Storyboard _sbIn;
         #endregion
 
         /// <summary>
@@ -53,9 +57,21 @@ namespace P02Project
             CommandBindings.Add(new CommandBinding(P02Project.WebcamPlayer.Input.CaptureImageCommands.ClearAllImages,
                 new ExecutedRoutedEventHandler(ClearAllImages_Executed)));
 
-            
+            _tweetBtn.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF146290"));
+            DropShadowEffect dShdow = new DropShadowEffect();
+            dShdow.BlurRadius = 10;
+            dShdow.Opacity = 0.365;
+            _tweetBtn.Effect = dShdow;
+
             // Create default device
             SelectedWebcamMonikerString = (CapDevice.DeviceMonikers.Length > 0) ? CapDevice.DeviceMonikers[0].MonikerString : "";
+
+
+            _sbIn = new Storyboard();
+            Util.FadeIn(_sbIn, _selectedImg);
+            Util.FadeIn(_sbIn, _tweetTxt);
+            Util.FadeIn(_sbIn, _imagesBox);
+            Util.FadeIn(_sbIn, webcamPlayer);
         }
         #endregion
 
@@ -230,10 +246,20 @@ namespace P02Project
             // close the stream
             stream.Close();
         }
+
+        public void AnimateIn()
+        {
+            _sbIn.Begin(this);
+        }
+
+        public void AnimateOut()
+        {
+
+        }
         #endregion
 
 
-        #region Click event handlers
+        #region event handlers
         /// <summary>
         /// invoked when an image in the select pool has been clicked
         /// </summary>
@@ -246,6 +272,14 @@ namespace P02Project
             BitmapSource bitmap = ((Image)btn.Content).Source as BitmapSource;
 
             _selectedImg.Source = bitmap;
+
+            try
+            {
+                (Window.GetWindow(this) as TopWindow).ResetTimer();
+            }
+            catch (NullReferenceException exp)
+            {
+            }
         }
 
 
@@ -260,6 +294,14 @@ namespace P02Project
             if (_tweetTxt.Text.Equals(DEFAULT_TWEET))
             {
                 _tweetTxt.Text = "";
+            }
+
+            try
+            {
+                (Window.GetWindow(this) as TopWindow).ResetTimer();
+            }
+            catch (NullReferenceException exp)
+            {
             }
         }
 
@@ -276,27 +318,45 @@ namespace P02Project
             // the text that need to post
             String newTweet = _tweetTxt.Text;
 
-            Console.Out.WriteLine("here is new tweet: " + newTweet);
-
-
-
-            //???????????????????????????????????????????????????????\\
-            // do the tweet post here
-            //???????????????????????????????????????????????????????\\
+            // do the tweet post 
 
             Twitter twitter = new Twitter();
 
-            twitter.postTweet(newTweet, bitmap);
+            twitter.postTweet(newTweet, bitmap, this);
+
+            try
+            {
+                (Window.GetWindow(this) as TopWindow).ResetTimer();
+            }
+            catch (NullReferenceException exp)
+            {
+            }
+        }
+
+        private void tweetTxt_KeyDown(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                (Window.GetWindow(this) as TopWindow).ResetTimer();
+            }
+            catch (NullReferenceException exp)
+            {
+            }
+        }
+
+        private void tweetTxtKeyUp(object sender, MouseButtonEventArgs e)
+        {
+            // if the tweeting text is default, remove it
+            if (_tweetTxt.Text.Equals(""))
+            {
+                _tweetTxt.Text = DEFAULT_TWEET;
+            }
+
         }
         #endregion
 
-
-
-
-
-
-
         
+       
     }
 	
 }

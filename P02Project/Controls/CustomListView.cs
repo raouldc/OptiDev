@@ -1,7 +1,8 @@
 ﻿using System.Windows.Controls;
 using System.Windows;
-
+using System.Windows.Media;
 using Microsoft.Surface.Presentation.Controls;
+using System.Windows;
 
 namespace P02Project.Screens
 {
@@ -24,7 +25,12 @@ namespace P02Project.Screens
             panel = new StackPanel();
             panel.Orientation = Orientation.Horizontal;
             this.Content = panel;
+            this.ScrollChanged += new ScrollChangedEventHandler(CustomListView_ScrollChanged);
+        }
 
+        void CustomListView_ScrollChanged(object sender, ScrollChangedEventArgs e)
+        {
+            (Window.GetWindow(this) as TopWindow).ResetTimer();
         }
 
         /// <summary>

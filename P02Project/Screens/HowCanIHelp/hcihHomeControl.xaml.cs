@@ -84,20 +84,26 @@ namespace P02Project
 
         private void beadsOfCourage_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            topLevelPage.setContent(new hcihBeads());
+            hcihBeads hcih = new hcihBeads();
+            topLevelPage.setContent(hcih);
             topLevelPage.setSubtitle("Beads of Courage");
+            (hcih as Animatiable).AnimateIn();
         }
 
         private void schools_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            topLevelPage.setContent(new hcihSchoolsControl());
+            hcihSchoolsControl hcih = new hcihSchoolsControl();
+            topLevelPage.setContent(hcih);
             topLevelPage.setSubtitle("Schools");
+            (hcih as Animatiable).AnimateIn();
         }
 
         private void volunteer_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            topLevelPage.setContent(new hcihVolunteerControl());
+            hcihVolunteerControl hcih = new hcihVolunteerControl();
+            topLevelPage.setContent(hcih);
             topLevelPage.setSubtitle("Volunteer");
+            (hcih as Animatiable).AnimateIn();
         }
 
         public void AnimateIn()

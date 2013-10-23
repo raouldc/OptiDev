@@ -6,13 +6,16 @@ using System.Windows.Input;
 using System.Windows.Media;
 using P02Project.Resources.xml;
 using P02Project.Screens;
+using P02Project.Utils;
+using System.Windows.Media.Animation;
 
 namespace P02Project
 {
+
     /// <summary>
     /// Interaction logic for GridView.xaml
     /// </summary>
-    public partial class GridView : UserControl
+    public partial class GridView : UserControl, Animatiable
     {
         // set the number of items, rows and columns
         private int numberOfItems;
@@ -26,12 +29,14 @@ namespace P02Project
         //a list of all pageModels
         private PageModelImage[] _pageModelArray;
 
+        //Animations
+        private Storyboard sbIn;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="GridView"/> class.
         /// </summary>
         /// <param name="_pageModelArray">The page model array.</param>
-        /// <param name="isF">if set to <c>true</c> [is f].</param>
+        /// <param name="isF">if set to <fElement>true</fElement> [is f].</param>
         /// <exception cref="System.Exception">There are too many rows or columns</exception>
         public GridView(PageModel pageModelArray)
         {
@@ -140,6 +145,15 @@ namespace P02Project
             }
 
             mainGrid.Children.Add(g);
+
+            //Animations
+            sbIn = new Storyboard();
+
+            foreach(FrameworkElement fElement in mainGrid.Children)
+            {
+                Util.FadeIn(sbIn, fElement);
+            }
+
             UpdateLayout();
         }
 
@@ -184,18 +198,22 @@ namespace P02Project
             }
 
             PageModel pModel = XMLUtilities.GetContentFromFile(path);
+            Animatiable page = null;
 
             switch (pModel.pageType.ToLower())
             { 
                 //add page models depending on which view we are using
                 case "funkygridview":
-                    levelpage.setContent(new GridView(pModel));
+                    page = new GridView(pModel);
+                    levelpage.setContent((GridView)page);
                     break;
                 case "splitgridview":
-                    levelpage.setContent(new SplitGridView(pModel));
+                    page = new SplitGridView(pModel);
+                    levelpage.setContent((SplitGridView)page);
                     break;
                 case "gridview":
-                    levelpage.setContent(new GridView(pModel));
+                    page = new GridView(pModel);
+                    levelpage.setContent((GridView)page);
                     break;
             }
             //add the captions to the parent page
@@ -208,7 +226,23 @@ namespace P02Project
                 levelpage.setSubtitle(levelpage.getSubtitle()+": " + fulltext);
             }
 
+            try
+            {
+                page.AnimateIn();
+            }
+            catch (NullReferenceException exp)
+            {
+            }
+        }
 
+        public void AnimateIn()
+        {
+            sbIn.Begin(this);
+        }
+
+        public void AnimateOut()
+        {
+            
         }
     }
 }
