@@ -58,8 +58,7 @@ namespace P02Project
             { "extraUnSelected",    (Color)ColorConverter.ConvertFromString("#FF4899c8")}
         };
 
-        ///////////////////
-        //Text attributes
+        #region TextContent
 
         //Content
         public static readonly FontFamily contentTextFont = new FontFamily("Segoe UI");
@@ -87,10 +86,13 @@ namespace P02Project
             return textB;
         }
 
-        //////////////
-        //Map 
-        public static readonly ApplicationIdCredentialsProvider MapProvider = new ApplicationIdCredentialsProvider("AtabbySpgE9zdS1c5C4Pp1FHWjbxM_nHqIBmfZ--pFwtM0Vddbw7-bfUMBW-FBao");
+        #endregion
 
+        #region Map
+        public static readonly ApplicationIdCredentialsProvider MapProvider = new ApplicationIdCredentialsProvider("AtabbySpgE9zdS1c5C4Pp1FHWjbxM_nHqIBmfZ--pFwtM0Vddbw7-bfUMBW-FBao");
+        #endregion
+
+        #region Right Button Links
         /// <summary>
         /// return the list of the links of the buttons
         /// </summary>
@@ -103,10 +105,28 @@ namespace P02Project
             links.Remove(exclude);
             return links.ToArray();
         }
+        #endregion
 
+        #region Animation
+
+        /// <summary>
+        /// The duration, in ms, for the animations
+        /// </summary>
         public static readonly int animationMilisecs = 200;
+
+        /// <summary>
+        /// The duration, in ms for animations that need to happed one after the other.
+        /// Add in this number to the length of the previos animation
+        /// </summary>
         public static readonly int animationDelay = 50;
 
+        /// <summary>
+        /// Animates a stack of buttons with a slide in from the right. Each button comes in, one after another
+        /// </summary>
+        /// <param name="sbIn">A Storyboard Object to save the timelines on</param>
+        /// <param name="buttons">A collection of the buttons in the order that they need otbe animated in</param>
+        /// <param name="from">A from location (usually off screen)</param>
+        /// <param name="to">A destination location</param>
         public static void StackAnimation(Storyboard sbIn, UIElementCollection buttons, Thickness from, Thickness to)
         {
             int count = 0;
@@ -126,11 +146,21 @@ namespace P02Project
             }
         }
 
+        /// <summary>
+        /// This does the StackAnimation with the default locations on the screen
+        /// </summary>
+        /// <param name="sbIn">A Storyboard object that the timelines need to be saved on</param>
+        /// <param name="buttons">A collection of buttons that need to be animated</param>
         public static void StackAnimationDefault(Storyboard sbIn, UIElementCollection buttons)
         {
             StackAnimation(sbIn, buttons, new Thickness(-1000, 20, 20, 20), new Thickness(20, 20, 20, 20));
         }
 
+        /// <summary>
+        /// Fades in an element from nothing to full opacity
+        /// </summary>
+        /// <param name="sb">Storyboard object to save the timeline on</param>
+        /// <param name="element">An element to animate</param>
         public static void FadeIn(Storyboard sb, UIElement element)
         {
             DoubleAnimation opa = new DoubleAnimation(0.0, 1.0, new Duration(TimeSpan.FromMilliseconds(animationMilisecs)));
@@ -139,13 +169,17 @@ namespace P02Project
             Storyboard.SetTarget(opa, element);
             Storyboard.SetTargetProperty(opa, new PropertyPath(UIElement.OpacityProperty));
         }
+        #endregion
 
+        #region XML
         public static void WriteXml(this XDocument xml, string path)
         {
             using (var writer = XmlWriter.Create(path, new XmlWriterSettings {Indent = true}))
                 xml.WriteTo(writer);
         }
+        #endregion
 
+        #region QR codes
         public static void SetupQR(SurfaceScrollViewer QRText, String text)
         {
             QRText.Background = new SolidColorBrush(contentBgColor);
@@ -158,5 +192,6 @@ namespace P02Project
             sp.Children.Add(tb);
             QRText.Content = sp;
         }
+        #endregion
     }
 }

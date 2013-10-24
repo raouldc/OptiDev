@@ -39,20 +39,13 @@ namespace P02Project
             text.Background = new SolidColorBrush(Util.contentBgColor);
             text.Margin = Util.contentMargin;
 
-            abtBeads.FontFamily = Util.buttonTextFont;
-            prgmBeads.FontFamily = Util.buttonTextFont;
-            aocBeads.FontFamily = Util.buttonTextFont;
-            contact.FontFamily = Util.buttonTextFont;
-
-            abtBeads.FontSize = Util.buttonTextSize;
-            prgmBeads.FontSize = Util.buttonTextSize;
-            aocBeads.FontSize = Util.buttonTextSize;
-            contact.FontSize = Util.buttonTextSize;
-
-            abtBeads.Foreground = new SolidColorBrush(Util.buttonTextColor);
-            prgmBeads.Foreground = new SolidColorBrush(Util.buttonTextColor);
-            aocBeads.Foreground = new SolidColorBrush(Util.buttonTextColor);
-            contact.Foreground = new SolidColorBrush(Util.buttonTextColor);
+            // Setting the styles for all the buttons
+            foreach (Button but in buttons.Children)
+            {
+                but.FontFamily = Util.buttonTextFont;
+                but.FontSize = Util.buttonTextSize;
+                but.Foreground = new SolidColorBrush(Util.buttonTextColor);
+            }
 
             //Animations 
             sbIn = new Storyboard();
@@ -62,6 +55,7 @@ namespace P02Project
             donate.removeTouch();
             donate.setShadow(10, 0.3, (Color)ColorConverter.ConvertFromString("#ff7f7f7f"));
         }
+
         /// <summary>
         /// set all the items in the background to unselected
         /// </summary>
@@ -77,21 +71,7 @@ namespace P02Project
             aocBeads.Effect = null;
             contact.Effect = null;
         }
-        /// <summary>
-        /// create a new textblock
-        /// </summary>
-        /// <returns></returns>
-        //private TextBlock Util.TextBlockFactory()
-        //{
-        //    TextBlock tb = new TextBlock();
-        //    tb.TextAlignment = TextAlignment.Left;
-        //    tb.FontSize = 24;
-        //    tb.Margin = new Thickness(10);
-        //    tb.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#ffffffff"));
-        //    tb.TextWrapping = TextWrapping.Wrap;
-
-        //    return tb;
-        //}
+        
         /// <summary>
         /// add the data to the content about beads
         /// </summary>
@@ -173,6 +153,7 @@ namespace P02Project
             content.Children.Add(tb);
             return content;
         }
+
         /// <summary>
         /// add contact data
         /// </summary>
@@ -190,6 +171,7 @@ namespace P02Project
             content.Children.Add(tb);
             return content;
         }
+
         /// <summary>
         /// handler for the about beads button click
         /// </summary>
@@ -206,6 +188,14 @@ namespace P02Project
 
             text.Content = abtBeadsContent();
 
+            ResetTimer();
+        }
+
+        /// <summary>
+        /// Resets the timeout timer
+        /// </summary>
+        private void ResetTimer()
+        {
             try
             {
                 (Window.GetWindow(this) as TopWindow).ResetTimer();
@@ -214,6 +204,7 @@ namespace P02Project
             {
             }
         }
+
         /// <summary>
         /// handler for the prgm Beads button click
         /// </summary>
@@ -229,13 +220,8 @@ namespace P02Project
             prgmBeads.Effect = dShdow;
 
             text.Content = PgrmBeadsContent();
-            try
-            {
-                (Window.GetWindow(this) as TopWindow).ResetTimer();
-            }
-            catch (NullReferenceException exp)
-            {
-            }
+
+            ResetTimer();
         }
         /// <summary>
         /// handler for the aocBeads button click
@@ -253,14 +239,9 @@ namespace P02Project
 
             text.Content = AocBeadsContent();
 
-            try
-            {
-                (Window.GetWindow(this) as TopWindow).ResetTimer();
-            }
-            catch (NullReferenceException exp)
-            {
-            }
+            ResetTimer();
         }
+
         /// <summary>
         /// handler for the contact lick
         /// </summary>
@@ -276,34 +257,33 @@ namespace P02Project
             contact.Effect = dShdow;
             text.Content = ConactContent();
 
-            try
-            {
-                (Window.GetWindow(this) as TopWindow).ResetTimer();
-            }
-            catch (NullReferenceException exp)
-            {
-            }
+            ResetTimer();
         }
 
+        /// <summary>
+        /// Begin Animations
+        /// </summary>
         public void AnimateIn()
         {
             sbIn.Begin(this);
             donate.AnimateIn();
         }
 
+        /// <summary>
+        /// Does nothing
+        /// </summary>
         public void AnimateOut()
         {
         }
 
+        /// <summary>
+        /// Reset the timer when the user scrolls
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void text_ScrollChanged(object sender, ScrollChangedEventArgs e)
         {
-            try
-            {
-                (Window.GetWindow(this) as TopWindow).ResetTimer();
-            }
-            catch (NullReferenceException exp)
-            {
-            }
+            ResetTimer();
         }
     }
 }

@@ -46,16 +46,19 @@ namespace P02Project
             soc.Foreground = new SolidColorBrush(Util.buttonTextColor);
             boc.Foreground = new SolidColorBrush(Util.buttonTextColor);
 
+            // Making the poloroid on this screen not clickable
             donate.removeTouch();
             donate.setShadow(10, 0.3, (Color)ColorConverter.ConvertFromString("#ff7f7f7f"));
 
             //set content
             soc_Click(this, null);
 
+            // Setting up the animations of some of the components
             sbIn = new Storyboard();
             Util.StackAnimationDefault(sbIn, buttons.Children);
             Util.FadeIn(sbIn, text);
 		}
+
         /// <summary>
         /// unselect all giftControl items
         /// </summary>
@@ -69,28 +72,9 @@ namespace P02Project
         }
 
         /// <summary>
-        /// create a new text block
+        /// Puts the Star of courage content on the screen
         /// </summary>
-        /// <returns>
-        /// new textblock with required formatting
-        /// </returns>
-        //private TextBlock TextBlockFactory()
-        //{
-        //    TextBlock tb = new TextBlock();
-        //    tb.TextAlignment = TextAlignment.Left;
-        //    tb.FontSize = 24;
-        //    tb.Margin = new Thickness(10);
-        //    tb.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#ffffffff"));
-        //    tb.TextWrapping = TextWrapping.Wrap;
-
-        //    return tb;
-        //}
-        /// <summary>
-        /// add content to the page
-        /// </summary>
-        /// <returns>
-        /// stackpanel with required content
-        /// </returns>
+        /// <returns>A Dynamically created StackPanel object that contains the runs of strings and images</returns>
         private StackPanel socContent()
         {
             StackPanel content = new StackPanel();
@@ -101,6 +85,7 @@ namespace P02Project
             src.UriSource = new Uri("pack://application:,,/Resources/images/HowCanIHelp/qr_soc.png");
             src.EndInit();
 
+            //QR code that points to the link
             qrCode.Source = src;
             qrCode.Height = 200;
             qrCode.Width = 200;
@@ -108,7 +93,8 @@ namespace P02Project
             qrCode.Margin = new Thickness(10);
 
             TextBlock tb = Util.TextBlockFactory();
-            //TODO - put into xml
+            
+            //Text Content
             tb.Inlines.Add(new Run("Make a $500 donation and gift a star to directly support a child’s cancer journey."
                                     + "\n\nStars of Courage is a unique programme which will see each child diagnosed "
                                     + "with cancer offered a dedicated star.\n\nEach child will receive the name of th"
@@ -119,11 +105,16 @@ namespace P02Project
                                     + "onation, visit http://tinyurl.com/n7bhk5h or scan the "
                                     + "QR code below"));
 
+            //Add the text first and then the iamge below it
             content.Children.Add(tb);
             content.Children.Add(qrCode);
             return content;
         }
 
+        /// <summary>
+        /// Dynamically generates the Beads of Courage content
+        /// </summary>
+        /// <returns>StackPanel Object that contents the text and images</returns>
         private StackPanel bocContent()
         {
             StackPanel content = new StackPanel();
@@ -157,15 +148,22 @@ namespace P02Project
             return content;
         }
 
+        /// <summary>
+        /// Need to animate the poloroid and the other components
+        /// </summary>
         void Animatiable.AnimateIn()
         {
             sbIn.Begin();
             donate.AnimateIn();
         }
 
+        /// <summary>
+        /// Do nothing
+        /// </summary>
         void Animatiable.AnimateOut()
         {
         }
+
         /// <summary>
         /// handler for soc control
         /// </summary>
@@ -182,6 +180,16 @@ namespace P02Project
             soc.Effect = dShdow;
 
             text.Content = socContent();
+
+            ResetTimer();
+        }
+
+        /// <summary>
+        /// This function resets the timeout
+        /// </summary>
+        private void ResetTimer()
+        {
+            //To reset the timer
             try
             {
                 (Window.GetWindow(this) as TopWindow).ResetTimer();
@@ -190,6 +198,7 @@ namespace P02Project
             {
             }
         }
+
         /// <summary>
         /// handler for boc control
         /// </summary>
@@ -207,13 +216,7 @@ namespace P02Project
 
             text.Content = bocContent();
 
-            try
-            {
-                (Window.GetWindow(this) as TopWindow).ResetTimer();
-            }
-            catch (NullReferenceException exp)
-            {
-            }
+            ResetTimer();
         }
     }
 }

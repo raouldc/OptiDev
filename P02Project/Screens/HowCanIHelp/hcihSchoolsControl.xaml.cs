@@ -21,12 +21,17 @@ namespace P02Project
             Util.FadeIn(sbIn, img);
 		}
 
-
+        /// <summary>
+        /// Fade in the Image on the screen
+        /// </summary>
         public void AnimateIn()
         {
             sbIn.Begin();
         }
 
+        /// <summary>
+        /// Does nothing
+        /// </summary>
         public void AnimateOut()
         {
             

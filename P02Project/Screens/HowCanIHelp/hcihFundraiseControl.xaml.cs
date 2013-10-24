@@ -14,6 +14,7 @@ namespace P02Project
     public partial class hcihFundraiseControl : UserControl, Animatiable
 	{
         private Storyboard sbIn;
+
         /// <summary>
         /// Constructor
         /// </summary>
@@ -32,21 +33,11 @@ namespace P02Project
             donate.removeTouch();
             donate.setShadow(10, 0.3, (Color)ColorConverter.ConvertFromString("#ff7f7f7f"));
 
+            // Fade in animation for the text area
             sbIn = new Storyboard();
             Util.FadeIn(sbIn, text);
 		}
 
-        //private TextBlock TextBlockFactory()
-        //{
-        //    TextBlock tb = new TextBlock();
-        //    tb.TextAlignment = TextAlignment.Left;
-        //    tb.FontSize = 24;
-        //    tb.Margin = new Thickness(10);
-        //    tb.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#ffffffff"));
-        //    tb.TextWrapping = TextWrapping.Wrap;
-
-        //    return tb;
-        //}
         /// <summary>
         /// genreate all the content needed for this view
         /// </summary>
@@ -81,6 +72,7 @@ namespace P02Project
             content.Children.Add(tb);
             return content;
         }
+
         /// <summary>
         /// begin the animation
         /// </summary>
@@ -90,10 +82,18 @@ namespace P02Project
             sbIn.Begin(this);
         }
 
+        /// <summary>
+        /// Do nothing
+        /// </summary>
         void Animatiable.AnimateOut()
         {
         }
 
+        /// <summary>
+        /// Reset the timer when the user scrolls
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void text_ScrollChanged(object sender, ScrollChangedEventArgs e)
         {
             try

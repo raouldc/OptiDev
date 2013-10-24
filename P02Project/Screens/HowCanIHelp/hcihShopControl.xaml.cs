@@ -62,7 +62,9 @@ namespace P02Project
             Util.SetupQR(QRText, "Find out more about our online store at http://tinyurl.com/k74ek3x");
 		}
 
-
+        /// <summary>
+        /// Does the animation for all the poloroids
+        /// </summary>
         void Animatiable.AnimateIn()
         {
             foreach (Animatiable a in pols)
@@ -72,6 +74,9 @@ namespace P02Project
             sbIn.Begin();
         }
 
+        /// <summary>
+        /// Does nothing
+        /// </summary>
         void Animatiable.AnimateOut()
         {
         }

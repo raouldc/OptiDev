@@ -30,6 +30,7 @@ namespace P02Project
             //Set button cols
             SolidColorBrush unsel = new SolidColorBrush(Util._pageColDict["hcihUnSelected"]);
             oneOff.Background = new SolidColorBrush(Util._pageColDict["hcihSelected"]);
+
             onGoing.Background = unsel;
             lastingLegacy.Background = unsel;
             workplaceGiving.Background = unsel;
@@ -38,23 +39,13 @@ namespace P02Project
             text.Background = new SolidColorBrush(Util.contentBgColor);
             text.Margin = Util.contentMargin;
 
-            oneOff.FontFamily = Util.buttonTextFont;
-            onGoing.FontFamily = Util.buttonTextFont;
-            lastingLegacy.FontFamily = Util.buttonTextFont;
-            workplaceGiving.FontFamily = Util.buttonTextFont;
-            moreInfo.FontFamily = Util.buttonTextFont;
-
-            oneOff.FontSize = Util.buttonTextSize;
-            onGoing.FontSize = Util.buttonTextSize;
-            lastingLegacy.FontSize = Util.buttonTextSize;
-            workplaceGiving.FontSize = Util.buttonTextSize;
-            moreInfo.FontSize = Util.buttonTextSize;
-
-            oneOff.Foreground = new SolidColorBrush(Util.buttonTextColor);
-            onGoing.Foreground = new SolidColorBrush(Util.buttonTextColor);
-            lastingLegacy.Foreground = new SolidColorBrush(Util.buttonTextColor);
-            workplaceGiving.Foreground = new SolidColorBrush(Util.buttonTextColor);
-            moreInfo.Foreground = new SolidColorBrush(Util.buttonTextColor);
+            // Setting the templte of the buttons
+            foreach (Button but in buttons.Children)
+            {
+                but.FontFamily = Util.buttonTextFont;
+                but.FontSize = Util.buttonTextSize;
+                but.Foreground = new SolidColorBrush(Util.buttonTextColor);
+            }
 
             donate.removeTouch();
             donate.setShadow(10, 0.3, (Color)ColorConverter.ConvertFromString("#ff7f7f7f"));
@@ -304,7 +295,8 @@ namespace P02Project
 
             TextBlock oneOffText1 = Util.TextBlockFactory();
             oneOffText1.Inlines.Add(new Bold(new Run("Donate Online \n")));
-            oneOffText1.Inlines.Add(new Run("You can make an online one-off donation through your credit card, it is simple, secure and super rewarding!\n"));
+            oneOffText1.Inlines.Add(new Run("You can make an online one-off donation through your credit card, it is simple, secu" +
+                                            "re and super rewarding!\n"));
             oneOffText1.Inlines.Add(new Run("To donate online, go to https://support.childcancer.org.nz or scan the QR code below\n"));
             oneOffText1.TextWrapping = TextWrapping.Wrap;
 
@@ -334,9 +326,16 @@ namespace P02Project
 
             TextBlock onGoingText1 = Util.TextBlockFactory();
             onGoingText1.Inlines.Add(new Bold(new Run("Making An On-going Donation \n")));
-            onGoingText1.Inlines.Add(new Run("Become a regular supporter of Child Cancer Foundation by setting up a regular donation from your credit card or bank account. This is just as simple and secure as making a one-off donation and can all be done online.  You can pledge any donation amount big or small on a weekly, monthly or quarterly basis, whatever suits you.  You will receive regular tax receipts to help with your annual tax rebate.\n\n"));
+            onGoingText1.Inlines.Add(new Run("Become a regular supporter of Child Cancer Foundation by setting up a regular donatio" +
+                                            "n from your credit card or bank account. This is just as simple and secure as making a" +
+                                            " one-off donation and can all be done online.  You can pledge any donation amount big " +
+                                            "or small on a weekly, monthly or quarterly basis, whatever suits you.  You will receiv" +
+                                            "e regular tax receipts to help with your annual tax rebate.\n\n"));
+
             onGoingText1.Inlines.Add(new Run("At anytime you can change your pledge of donation amount and frequency. \n\n"));
-            onGoingText1.Inlines.Add(new Run("Every regular donation, no matter how big or small, helps us continue to support our children and families affected by this traumatic disease. \n\n"));
+            onGoingText1.Inlines.Add(new Run("Every regular donation, no matter how big or small, helps us continue to support our c" +
+                                            "hildren and families affected by this traumatic disease. \n\n"));
+
             onGoingText1.Inlines.Add(new Run("To become a regular supporter please contact:  \n\n"));
             onGoingText1.Inlines.Add(new Bold(new Run("Sophie Armitage PHN ")));
             onGoingText1.Inlines.Add(new Run("09 303 9972 | "));
@@ -361,7 +360,12 @@ namespace P02Project
 
             TextBlock lastinLegacyText1 = Util.TextBlockFactory(); 
             lastinLegacyText1.Inlines.Add(new Bold(new Run("A Lasting Legacy \n")));
-            lastinLegacyText1.Inlines.Add(new Run("We are grateful that you are considering a bequest or legacy, to assist Child Cancer Foundation in continuing our work. We rely on the generosity of New Zealanders to fund our Child Cancer Services throughout New Zealand. Bequests or legacies are a very important source of funds to ensure our service continues to the highest possible level for our children and families, now and well into the future.\n\n"));
+            lastinLegacyText1.Inlines.Add(new Run("We are grateful that you are considering a bequest or legacy, to assist Child Can" +
+                                            "cer Foundation in continuing our work. We rely on the generosity of New Zealanders to f" +
+                                            "und our Child Cancer Services throughout New Zealand. Bequests or legacies are a very i" +
+                                            "mportant source of funds to ensure our service continues to the highest possible level " +
+                                            "for our children and families, now and well into the future.\n\n"));
+
             lastinLegacyText1.Inlines.Add(new Run("Your bequest could help to: \n"));
             lastinLegacyText1.Inlines.Add(new Run("- Directly support a child’s cancer journey\n"));
             lastinLegacyText1.Inlines.Add(new Run("- Help fund the Beads of Courage® programme\n"));
@@ -369,7 +373,11 @@ namespace P02Project
             lastinLegacyText1.Inlines.Add(new Run("- Support our families\n"));
             lastinLegacyText1.Inlines.Add(new Run("- Contribute towards research\n"));
             lastinLegacyText1.Inlines.Add(new Run("- Protect the future of Child Cancer Foundation\n\n"));
-            lastinLegacyText1.Inlines.Add(new Run("If you have already decided on leaving a bequest, making a will is the only way to ensure your wishes will be met in relation to the distribution of your assets or estate. A will also helps to avoid confusion over your intentions and gives you peace of mind.\n"));
+            lastinLegacyText1.Inlines.Add(new Run("If you have already decided on leaving a bequest, making a will is the only way " +
+                                            "to ensure your wishes will be met in relation to the distribution of your assets or es" +
+                                            "tate. A will also helps to avoid confusion over your intentions and gives you peace of" +
+                                            " mind.\n"));
+
             lastinLegacyText1.TextWrapping = TextWrapping.Wrap;
 
             contentStackPanel.Children.Add(lastinLegacyText1);
@@ -389,8 +397,16 @@ namespace P02Project
 
             TextBlock workplaceGivingText1 = Util.TextBlockFactory(); 
             workplaceGivingText1.Inlines.Add(new Bold(new Run("Workplace Giving \n")));
-            workplaceGivingText1.Inlines.Add(new Run("Workplace giving is a wonderful opportunity for you as an employee to give a regular donation to Child Cancer Foundation from your salary.  It is a simple process organised through your company with your chosen donation amount transfered from your salary to Child Cancer Foundation each pay period eliminating any need to retain tax receipts for each donation. \n\n"));
-            workplaceGivingText1.Inlines.Add(new Run("Choose Child Cancer Foundation as your charity of choice at your workplace, and encouraging your co-workers to do the same. It is an easy way for you to support children with cancer and their families. \n\n"));
+            workplaceGivingText1.Inlines.Add(new Run("Workplace giving is a wonderful opportunity for you as an employee to giv" +
+                                            "e a regular donation to Child Cancer Foundation from your salary.  It is a simple " +
+                                            "process organised through your company with your chosen donation amount transfered" +
+                                            " from your salary to Child Cancer Foundation each pay period eliminating any need " +
+                                            "to retain tax receipts for each donation. \n\n"));
+
+            workplaceGivingText1.Inlines.Add(new Run("Choose Child Cancer Foundation as your charity of choice at your workpla" +
+                                            "ce, and encouraging your co-workers to do the same. It is an easy way for you to" +
+                                            " support children with cancer and their families. \n\n"));
+
             workplaceGivingText1.Inlines.Add(new Run("For more information on workplace giving please contact:  \n\n"));
             workplaceGivingText1.Inlines.Add(new Bold(new Run("Sophie Armitage PHN ")));
             workplaceGivingText1.Inlines.Add(new Run("09 303 9972 | "));
@@ -415,8 +431,16 @@ namespace P02Project
 
             TextBlock onGoingText1 = Util.TextBlockFactory();
             onGoingText1.Inlines.Add(new Bold(new Run("More Information \n")));
-            onGoingText1.Inlines.Add(new Run("If you are ready to write your will, visit http://www.childcancer.org.nz/getattachment/How-you-can-help/Donate/Bequest.pdf.aspx for some official wording to assist you. \n\n"));
-            onGoingText1.Inlines.Add(new Run("Thank you so much for considering leaving a gift to Child Cancer Foundation in your will. If you do decide to leave a legacy or bequest to help support our Child Cancer services, please let us know as this will allow us to thank you for your gift and offer you a closer relationship with us. It does not, however, legally bind you to support us in any way and the information will be treated in the strictest of confidence. \n\n"));
+            onGoingText1.Inlines.Add(new Run("If you are ready to write your will, visit http://www.childcancer.org.nz/getatt" +
+                                            "achment/How-you-can-help/Donate/Bequest.pdf.aspx for some official wording to as" +
+                                            "sist you. \n\n"));
+
+            onGoingText1.Inlines.Add(new Run("Thank you so much for considering leaving a gift to Child Cancer Foundation in " +
+                                            "your will. If you do decide to leave a legacy or bequest to help support our Chi" +
+                                            "ld Cancer services, please let us know as this will allow us to thank you for yo" +
+                                            "ur gift and offer you a closer relationship with us. It does not, however, legal" +
+                                            "ly bind you to support us in any way and the information will be treated in the " +
+                                            "strictest of confidence. \n\n"));
 
             onGoingText1.Inlines.Add(new Run("For more information please contact:  \n\n"));
             onGoingText1.Inlines.Add(new Bold(new Run("Darragh O'Riordan PHN ")));
@@ -429,16 +453,27 @@ namespace P02Project
             return contentStackPanel;
         }
 
+        /// <summary>
+        /// Animate the poloroid and the text box
+        /// </summary>
         public void AnimateIn()
         {
             sbIn.Begin(this);
             donate.AnimateIn();
         }
 
+        /// <summary>
+        /// Does nothing
+        /// </summary>
         public void AnimateOut()
         {
         }
 
+        /// <summary>
+        /// Reset the timer back to zero
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void text_ScrollChanged(object sender, ScrollChangedEventArgs e)
         {
             try

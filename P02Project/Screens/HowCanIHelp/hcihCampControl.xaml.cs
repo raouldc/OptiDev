@@ -22,6 +22,7 @@ namespace P02Project
 
             sbIn = new Storyboard();
 
+            // Fade in every element on the screen
             foreach (FrameworkElement fElement in LayoutRoot.Children)
             {
                 Util.FadeIn(sbIn, fElement);
@@ -38,6 +39,9 @@ namespace P02Project
             sbIn.Begin();
         }
 
+        /// <summary>
+        /// Does nothing
+        /// </summary>
         void Animatiable.AnimateOut()
         {
         }

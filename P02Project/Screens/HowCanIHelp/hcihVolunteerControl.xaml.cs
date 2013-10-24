@@ -53,6 +53,10 @@ namespace P02Project
         //    return tb;
         //}
 
+        /// <summary>
+        /// Dynamically Generates content
+        /// </summary>
+        /// <returns>A StackPanel Object containg the runs of text</returns>
         private StackPanel GenerateContent()
         {
             StackPanel content = new StackPanel();
@@ -84,16 +88,27 @@ namespace P02Project
             return content;
         }
 
+        /// <summary>
+        /// Screen In Animation
+        /// </summary>
         public void AnimateIn()
         {
             sbIn.Begin(this);
             donate.AnimateIn();
         }
 
+        /// <summary>
+        /// Does nothing
+        /// </summary>
         public void AnimateOut()
         {
         }
 
+        /// <summary>
+        /// Resets Timer
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void text_ScrollChanged(object sender, ScrollChangedEventArgs e)
         {
             try
