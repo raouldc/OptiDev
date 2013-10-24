@@ -322,7 +322,7 @@ namespace P02Project
 
             Twitter twitter = new Twitter(this);
 
-            _tweetBtn.Content = "Loading...";
+            _tweetBtn.Content = "Uploading...";
 
             twitter.postTweet(newTweet, bitmap, this);
 
