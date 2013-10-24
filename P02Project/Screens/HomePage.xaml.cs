@@ -71,10 +71,10 @@ namespace P02Project
             contactUs.setCaption("Contact Us");
             contactUs.setColour(Util._pageColDict["Contact Us"]);
 
-            // set image and color for Play Beads polaroid
+            // set image and color for Beads of Courage polaroid
             playBeads.setImage("images\\Home\\beads.png");
             playBeads.setCaption("Beads of Courage");
-            playBeads.setColour(Util._pageColDict["Play Beads"]);
+            playBeads.setColour(Util._pageColDict["Beads of Courage"]);
 
             components = new List<Animatiable>();
             components.Add(about);
@@ -290,7 +290,7 @@ namespace P02Project
 
 
         /// <summary>
-        /// This method get called when the Play Beads has been clicked
+        /// This method get called when the Beads of Courage has been clicked
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -306,11 +306,11 @@ namespace P02Project
         {
             // create a new subscreen and push it into the stack of subscreens
             TopLevelPage nextScreen = new TopLevelPage(ParentWindow, "Beads of Courage");
-            //ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("Play Beads"), playBeads.colour, new UserControl(), "");
+            //ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("Beads of Courage"), playBeads.colour, new UserControl(), "");
             
             //Quiz q = new Quiz();
             //q.Topmost = true;
-            ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("Play Beads"), playBeads.colour, new BeadsOfCourage(), "");
+            ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("Beads of Courage"), playBeads.colour, new BeadsOfCourage(), "");
             nextScreen.AnimateIn();
             //Quiz q = new Quiz();
             //q.Topmost = true;

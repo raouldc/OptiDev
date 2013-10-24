@@ -44,7 +44,7 @@ namespace P02Project
             { "cuSelected",         (Color)ColorConverter.ConvertFromString("#FFff8d35")},
             { "cuUnSelected",       (Color)ColorConverter.ConvertFromString("#FFffc090")},
             //purple
-            { "Play Beads",         (Color)ColorConverter.ConvertFromString("#ff9841f0")},
+            { "Beads of Courage",         (Color)ColorConverter.ConvertFromString("#ff9841f0")},
             { "pbSelected",         (Color)ColorConverter.ConvertFromString("#ff9841f0")},
             { "pbUnSelected",       (Color)ColorConverter.ConvertFromString("#ffc594f8")},
 
@@ -98,7 +98,7 @@ namespace P02Project
         /// <returns></returns>
         public static String[] getLinks(String exclude)
         {
-            var links = new List<string>(new[] { "About", "Family Support", "How Can I Help?", "News", "Events", "Play Beads", "Contact Us", "Twitter" });
+            var links = new List<string>(new[] { "About", "Family Support", "How Can I Help?", "News", "Events", "Beads of Courage", "Contact Us", "Twitter" });
 
             links.Remove(exclude);
             return links.ToArray();
