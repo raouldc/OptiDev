@@ -7,6 +7,7 @@ using P02Project.Resources.xml;
 using P02Project.Screens;
 using P02Project.Utils;
 using System.Windows.Media.Animation;
+using P02Project.Screens.BeadsOfCourage;
 
 namespace P02Project
 {
@@ -14,7 +15,7 @@ namespace P02Project
     /// This class is responsible for laying out the buttons on the right side of the screen
     /// The colours for these buttons comes from the Util class
     /// </summary>
-    public partial class RightButtonControl : UserControl,Animatiable
+    public partial class RightButtonControl : UserControl, Animatiable
     {
         private Storyboard sbIn;
         /// <summary>
@@ -38,7 +39,7 @@ namespace P02Project
             int count = 0;
 
             // set every give name into the right button
-            foreach(String name in bNames)
+            foreach (String name in bNames)
             {
                 RightButton button = new RightButton();
 
@@ -103,7 +104,7 @@ namespace P02Project
                     break;
 
                 case "How Can I Help?":
-                    
+
                     nextScreen = new TopLevelPage(ParentWindow, "How Can I Help?");
                     ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("How Can I Help?"), colour, new hcihHomeControl(nextScreen), "");
                     break;
@@ -120,7 +121,7 @@ namespace P02Project
 
                 case "Beads of Courage":
                     nextScreen = new TopLevelPage(ParentWindow, "Beads of Courage");
-                    ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("Beads of Courage"), colour, new UserControl(), "");
+                    ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("Beads of Courage"), colour, new BeadsOfCourage(), "");
                     break;
 
                 case "Contact Us":
