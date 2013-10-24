@@ -390,6 +390,16 @@
     <Resource Include="Resources\images\beads\purple heart.png" />
     <Resource Include="Resources\images\beads\star.png" />
     <Resource Include="Resources\images\beads\yellow.png" />
+    <Resource Include="Resources\images\About\LittleBaby1.png" />
+    <Resource Include="Resources\images\About\LittleBaby11.png" />
+    <Resource Include="Resources\images\About\Sisters.png" />
+    <Resource Include="Resources\images\About\Sisters11.png" />
+    <Resource Include="Resources\images\About\Stories\Dequarn11.png" />
+    <Resource Include="Resources\images\About\Stories\Joyce11.png" />
+    <Resource Include="Resources\images\About\Stories\Emma11.png" />
+    <Resource Include="Resources\images\About\Stories\Hana11.png" />
+    <Resource Include="Resources\images\About\Stories\Kavahn11.png" />
+    <Resource Include="Resources\images\About\Stories\Manu11.png" />
     <Content Include="Utils\xml\BeadsOfCourageSchema\beads.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>
@@ -407,11 +417,9 @@
     <Resource Include="Resources\images\About\Ambassadors\Lorraine.png" />
     <Resource Include="Resources\images\About\Ambassadors\Megan.png" />
     <Resource Include="Resources\images\About\Ambassadors\Steve.png" />
-    <Resource Include="Resources\images\About\LittleBaby1.png" />
     <Resource Include="Resources\images\About\LittleBaby2.png" />
     <Resource Include="Resources\images\About\LittleBaby3.png" />
     <Resource Include="Resources\images\About\OurAmbassador.png" />
-    <Resource Include="Resources\images\About\Sisters.png" />
     <Resource Include="Resources\images\About\Stories\Dequarn.png" />
     <Resource Include="Resources\images\About\Stories\Dequarn2.png" />
     <Resource Include="Resources\images\About\Stories\Emma.png" />

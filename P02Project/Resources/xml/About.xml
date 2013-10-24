@@ -10,10 +10,10 @@
 
 
   <ImageList>
-    <Image id="About Us" caption="About Us" link="toAboutUs">images/About/LittleBaby1.png</Image>
+    <Image id="About Us" caption="About Us" link="toAboutUs">images/About/LittleBaby11.png</Image>
     <Image id="Our Ambassadors" caption="Our Ambassadors">images/About/OurAmbassador.png</Image>
     <Image id="Our Stories" caption="Our Stories">images/About/LittleBaby3.png</Image>
-    <Image id="How we Help" caption="How We Help">images/About/Sisters.png</Image>
+    <Image id="How we Help" caption="How We Help">images/About/Sisters11.png</Image>
     <Image id="Our History" caption="Our History">images/About/LittleBaby2.png</Image>
   </ImageList>
 
