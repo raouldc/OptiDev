@@ -157,7 +157,7 @@ namespace P02Project
             {
                 (content as Animatiable).AnimateIn();
             }
-            catch (NullReferenceException exp)
+            catch (NullReferenceException)
             {
                 //Do nothing with this
             }

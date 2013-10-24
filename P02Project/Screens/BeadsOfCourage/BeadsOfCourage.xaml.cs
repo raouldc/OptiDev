@@ -70,14 +70,19 @@ namespace P02Project.Screens.BeadsOfCourage
             //beadPoloroid.setImage(_beadModel.Images);
             beadPoloroid.setImage(_beadModel.Images[r.Next(_beadModel.Images.Length)].Value);
 
+            ResetTimer();
+
+        }
+
+        private void ResetTimer()
+        {
             try
             {
                 (Window.GetWindow(this) as TopWindow).ResetTimer();
             }
-            catch (NullReferenceException exp)
+            catch (NullReferenceException)
             {
             }
-
         }
 
         private BeadModel _beadModel;
@@ -92,13 +97,7 @@ namespace P02Project.Screens.BeadsOfCourage
             //q.Activate();
             //q.Show();
 
-            try
-            {
-                (Window.GetWindow(this) as TopWindow).ResetTimer();
-            }
-            catch (NullReferenceException exp)
-            {
-            }
+            ResetTimer();
         }
     }
 }

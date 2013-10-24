@@ -225,7 +225,7 @@ namespace P02Project
 
 
             }
-            catch(Exception e)
+            catch(Exception)
             {
                 (Window.GetWindow(depO) as TopWindow).StartTimer();
             }
@@ -277,7 +277,7 @@ namespace P02Project
                 window.ResetTimer();
                 }
             }
-            catch(NullReferenceException except)
+            catch(NullReferenceException)
             {
 
             }

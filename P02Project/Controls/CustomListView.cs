@@ -2,7 +2,6 @@
 using System.Windows;
 using System.Windows.Media;
 using Microsoft.Surface.Presentation.Controls;
-using System.Windows;
 
 namespace P02Project.Screens
 {

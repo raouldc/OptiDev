@@ -26,9 +26,6 @@ namespace P02Project
         private readonly int MAXROWS = 2;
         private bool isFunky = false;
 
-        //a list of all pageModels
-        private PageModelImage[] _pageModelArray;
-
         //Animations
         private Storyboard sbIn;
 
@@ -230,7 +227,7 @@ namespace P02Project
             {
                 page.AnimateIn();
             }
-            catch (NullReferenceException exp)
+            catch (NullReferenceException)
             {
             }
         }

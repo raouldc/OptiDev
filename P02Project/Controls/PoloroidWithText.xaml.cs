@@ -76,7 +76,7 @@ namespace P02Project.Screens
                 src.UriSource = new Uri(Directory.GetCurrentDirectory() + "/Resources/" + resName);
                 src.EndInit();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 src = new BitmapImage();
                 src.BeginInit();

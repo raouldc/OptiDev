@@ -134,12 +134,17 @@ namespace P02Project
             scholarship.Effect = dShdow; 
             //set content
             text.Content = scholarshipContent();
-            
+
+            ResetTimer();
+        }
+
+        private void ResetTimer()
+        {
             try
             {
                 (Window.GetWindow(this) as TopWindow).ResetTimer();
             }
-            catch (NullReferenceException exp)
+            catch (NullReferenceException)
             {
             }
         }
@@ -213,14 +218,8 @@ namespace P02Project
 
             // set the content of the textbox
             text.Content = pResourcesContent();
-            
-            try
-            {
-                (Window.GetWindow(this) as TopWindow).ResetTimer();
-            }
-            catch (NullReferenceException exp)
-            {
-            }
+
+            ResetTimer();
         }
 
         /// <summary>
@@ -272,13 +271,7 @@ namespace P02Project
             text.Content = hHomesContent();
             text.VerticalScrollBarVisibility = ScrollBarVisibility.Disabled;
 
-            try
-            {
-                (Window.GetWindow(this) as TopWindow).ResetTimer();
-            }
-            catch (NullReferenceException exp)
-            {
-            }
+            ResetTimer();
         }
 
         /// <summary>
@@ -332,14 +325,8 @@ namespace P02Project
 
             taupo.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
             taupo.VerticalAlignment = System.Windows.VerticalAlignment.Center;
-            
-            try
-            {
-                (Window.GetWindow(this) as TopWindow).ResetTimer();
-            }
-            catch (NullReferenceException exp)
-            {
-            }
+
+            ResetTimer();
         }
 
         /// <summary>
@@ -367,14 +354,8 @@ namespace P02Project
 
             arrowtown.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
             arrowtown.VerticalAlignment = System.Windows.VerticalAlignment.Center;
-           
-            try
-            {
-                (Window.GetWindow(this) as TopWindow).ResetTimer();
-            }
-            catch (NullReferenceException exp)
-            {
-            }
+
+            ResetTimer();
         }
 
         /// <summary>
@@ -402,14 +383,8 @@ namespace P02Project
 
             hawkesbay.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
             hawkesbay.VerticalAlignment = System.Windows.VerticalAlignment.Center;
-            
-            try
-            {
-                (Window.GetWindow(this) as TopWindow).ResetTimer();
-            }
-            catch (NullReferenceException exp)
-            {
-            }
+
+            ResetTimer();
         }
 
         /// <summary>
@@ -435,13 +410,7 @@ namespace P02Project
 
             // set the content in the textbox
             //text.Content = cListContent();
-            try
-            {
-                (Window.GetWindow(this) as TopWindow).ResetTimer();
-            }
-            catch (NullReferenceException exp)
-            {
-            }
+            ResetTimer();
 
             // set the content in the 
             Action action = delegate() { this.mapLoad(); };
@@ -549,13 +518,7 @@ namespace P02Project
 
         void mscroll_ScrollChanged(object sender, ScrollChangedEventArgs e)
         {
-            try
-            {
-                (Window.GetWindow(this) as TopWindow).ResetTimer();
-            }
-            catch (NullReferenceException exp)
-            {
-            }
+            ResetTimer();
         }
 
         /// <summary>
@@ -603,7 +566,7 @@ namespace P02Project
             {
                 (Window.GetWindow(this) as TopWindow).ResetTimer();
             }
-            catch (NullReferenceException exp)
+            catch (NullReferenceException)
             {
             }
         }
@@ -656,7 +619,7 @@ namespace P02Project
             {
                 (Window.GetWindow(this) as TopWindow).ResetTimer();
             }
-            catch (NullReferenceException exp)
+            catch (NullReferenceException)
             {
             }
 
@@ -768,13 +731,7 @@ namespace P02Project
 
         void hhscroll_ScrollChanged(object sender, ScrollChangedEventArgs e)
         {
-            try
-            {
-                (Window.GetWindow(this) as TopWindow).ResetTimer();
-            }
-            catch (NullReferenceException exp)
-            {
-            }
+            ResetTimer();
         }
 
         /// <summary>
@@ -897,13 +854,7 @@ namespace P02Project
 
         private void text_ScrollChanged(object sender, ScrollChangedEventArgs e)
         {
-            try
-            {
-                (Window.GetWindow(this) as TopWindow).ResetTimer();
-            }
-            catch (NullReferenceException exp)
-            {
-            }
+            ResetTimer();
         }
     }
 }

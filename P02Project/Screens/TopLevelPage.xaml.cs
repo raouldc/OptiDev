@@ -145,7 +145,7 @@ namespace P02Project.Screens
                 {
                     (old as Animatiable).AnimateOut();
                 }
-                catch (NullReferenceException exp)
+                catch (NullReferenceException)
                 {
                 }
 
@@ -159,7 +159,7 @@ namespace P02Project.Screens
                 {
                     (newContent as Animatiable).AnimateIn();
                 }
-                catch (NullReferenceException exp)
+                catch (NullReferenceException)
                 {
                 }
                
