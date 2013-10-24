@@ -400,6 +400,15 @@
     <Resource Include="Resources\images\About\Stories\Hana11.png" />
     <Resource Include="Resources\images\About\Stories\Kavahn11.png" />
     <Resource Include="Resources\images\About\Stories\Manu11.png" />
+    <Resource Include="Resources\images\About\Ambassadors\Amanda1.png" />
+    <Resource Include="Resources\images\About\Ambassadors\Bernadine1.png" />
+    <Resource Include="Resources\images\About\Ambassadors\Chris1.png" />
+    <Resource Include="Resources\images\About\Ambassadors\HamishEric1.png" />
+    <Resource Include="Resources\images\About\Ambassadors\Jerome1.png" />
+    <Resource Include="Resources\images\About\Ambassadors\Kieran1.png" />
+    <Resource Include="Resources\images\About\Ambassadors\Lorraine1.png" />
+    <Resource Include="Resources\images\About\Ambassadors\Megan1.png" />
+    <Resource Include="Resources\images\About\Ambassadors\Steve1.png" />
     <Content Include="Utils\xml\BeadsOfCourageSchema\beads.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>
