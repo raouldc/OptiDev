@@ -24,22 +24,24 @@ namespace P02Project
         {
             this.InitializeComponent();
 
-            // set image
+            // set polaroid image in the bottom left
             donate.setImage("images\\HowCanIHelp\\donate.png");
 
-            //Set button cols
+            //Set button colours
             SolidColorBrush unsel = new SolidColorBrush(Util._pageColDict["hcihUnSelected"]);
             oneOff.Background = new SolidColorBrush(Util._pageColDict["hcihSelected"]);
 
+            //Set the background of the unselected buttons
             onGoing.Background = unsel;
             lastingLegacy.Background = unsel;
             workplaceGiving.Background = unsel;
             moreInfo.Background = unsel;
 
+            //Set the style of the content scrollviewer
             text.Background = new SolidColorBrush(Util.contentBgColor);
             text.Margin = Util.contentMargin;
 
-            // Setting the templte of the buttons
+            // Setting the style of the buttons
             foreach (Button but in buttons.Children)
             {
                 but.FontFamily = Util.buttonTextFont;
@@ -47,10 +49,11 @@ namespace P02Project
                 but.Foreground = new SolidColorBrush(Util.buttonTextColor);
             }
 
+            //Remove the changing of the dropshadow from the polaroid as it does not lead anywhere
             donate.removeTouch();
             donate.setShadow(10, 0.3, (Color)ColorConverter.ConvertFromString("#ff7f7f7f"));
 
-            //set content
+            //set initial content
             oneOff_Click(null, null);
 
             //Animations
@@ -58,7 +61,6 @@ namespace P02Project
             Util.StackAnimationDefault(sbIn, buttons.Children);
             Util.FadeIn(sbIn, text);
         }
-
 
 
         /// <summary>

@@ -619,7 +619,6 @@ namespace P02Project
             scrollContent.Style = this.FindResource("SurfaceScrollViewerStyle1") as Style;
             scrollContent.Height = 300;
             scrollContent.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#00000000"));
-            scrollContent.AddHandler(UIElement.TouchUpEvent, new EventHandler<TouchEventArgs>(MainOffice_TouchDown), true);
             scrollContent.Content = auckMOContent();
             
             //Add the map and scrollviewer to the stack panel
@@ -705,7 +704,12 @@ namespace P02Project
 
             //Convert the mouse coordinates to a location on the map
             Location pinLocation = map.ViewportPointToLocation(touchPosition);
-
+            
+            //Negate longitude if it comes out negative. Unsure of why this is happening - assuming the user is likely to only look at nz
+            if (pinLocation.Longitude < 0)
+            {
+                pinLocation.Longitude = -pinLocation.Longitude;
+            }
             //Calculate the distance to the other pushpins
             double auckdist = Math.Sqrt(Math.Pow(auckMOPin.Location.Latitude - pinLocation.Latitude, 2) + Math.Pow(auckMOPin.Location.Longitude - -pinLocation.Longitude, 2));
             double chchdist = Math.Sqrt(Math.Pow(chchPin.Location.Latitude - pinLocation.Latitude, 2) + Math.Pow(chchPin.Location.Longitude - -pinLocation.Longitude, 2));

@@ -20,25 +20,30 @@ namespace P02Project
 	/// </summary>
 	public partial class fsHomeControl : UserControl,Animatiable
 	{
+        //Brushes for the left button colours
         private SolidColorBrush unsel;
         private SolidColorBrush sel;
 
+        //Holiday home variables
         private ScatterView scatter;
         private SurfaceScrollViewer hhscroll;
-
-        private SurfaceScrollViewer mscroll;
-
+        
         private ScatterViewItem arrowtown;
         private ScatterViewItem taupo;
         private ScatterViewItem hawkesbay;
 
-        private Storyboard sbIn;
-
+        //Map scrollviewer
+        private SurfaceScrollViewer mscroll;
+        
+        //Map variables
         Map map;
         Pushpin aucklandPin;
-            Pushpin christchurchPin;
-            Pushpin dunedinPin;
-            Pushpin wellingtonPin;
+        Pushpin christchurchPin;
+        Pushpin dunedinPin;
+        Pushpin wellingtonPin;
+
+        private Storyboard sbIn;
+
 
         /// <summary>
         /// Constructor
@@ -46,7 +51,8 @@ namespace P02Project
 		public fsHomeControl()
 		{
 			this.InitializeComponent();
-            
+
+            //Set the button brush colours 
             sel = new SolidColorBrush(Util._pageColDict["fsSelected"]);
             unsel = new SolidColorBrush(Util._pageColDict["fsUnSelected"]);
 
@@ -58,13 +64,16 @@ namespace P02Project
             Util.StackAnimationDefault(sbIn, buttons.Children);
             Util.FadeIn(sbIn, text);
 
+            //set initial content
             scholarship_Click(null, null);
 
+            //set properties of the polaroid at the bottom left
             fsPol.removeTouch();
             fsPol.setShadow(10,0.3,(Color)ColorConverter.ConvertFromString("#ff7f7f7f"));
-            //fsPol.removeBorder();
+            
 		}
 
+        //Set the styles of the left buttons
         private void SetButtonStyles()
         {
             scholarship.FontFamily = Util.buttonTextFont;
@@ -89,6 +98,7 @@ namespace P02Project
 
         }
 
+        //remove all dropshadows and set the colour to unselected on all buttons
         private void ResetBtnEffects()
         {
             scholarship.Background = unsel;
@@ -103,14 +113,14 @@ namespace P02Project
         }
 
         /// <summary>
-        /// This method called when the "One Off Donation" button has been clicked
+        /// This method called when the "Scholarships" button has been clicked
         /// </summary>
         /// <param name="sender"> the button that has been clicked</param>
         /// <param name="e"></param>
         private void scholarship_Click(object sender, RoutedEventArgs e)
         {
 
-            // set image
+            // set plaroid image
             fsPol.setImage("images\\FamilySupport\\KidWithHat.png");
 
             //remove drop shadow from other buttons
@@ -122,7 +132,7 @@ namespace P02Project
             dShdow.BlurRadius = 10;
             dShdow.Opacity = 0.365;
             scholarship.Effect = dShdow; 
-
+            //set content
             text.Content = scholarshipContent();
             
             try
@@ -134,6 +144,11 @@ namespace P02Project
             }
         }
 
+        /// <summary>
+        /// This method called when the "Scholarships" button has been clicked
+        /// </summary>
+        /// <param name="sender"> the button that has been clicked</param>
+        /// <param name="e"></param>
         private void schol_TouchDown(object sender, TouchEventArgs e)
         {
             // set image
@@ -149,16 +164,17 @@ namespace P02Project
             dShdow.Opacity = 0.365;
             scholarship.Effect = dShdow;
 
+            //set the content
             text.Content = scholarshipContent();
 
         }
+
         /// <summary>
-        /// the helper method to generate the content when the "One Off Donation" has been clicked
+        /// Creates a stackpanel that contains content for the scholarship page
         /// </summary>
         /// <returns></returns>
         private StackPanel scholarshipContent()
         {
-            //Set content to one off donation
             StackPanel contentStackPanel = new StackPanel();
 
             TextBlock scholarshipText = Util.TextBlockFactory();
@@ -171,25 +187,23 @@ namespace P02Project
             scholarshipText.Inlines.Add(new Bold(new Run("email ")));
             scholarshipText.Inlines.Add(new Run("aoconnor@childcancer.org.nz\n"));
 
-
             contentStackPanel.Children.Add(scholarshipText);
             return contentStackPanel;
         }
 
 
         /// <summary>
-        /// This method called when the "On Going Donation" button has been clicked
+        /// This method called when the "parent resources" button has been clicked
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void pResources_Click(object sender, RoutedEventArgs e)
         {
-            // set image
+            // set polaroid image
             fsPol.setImage("images\\FamilySupport\\MotherandChild.png");
 
             //Set the background colours of the buttons
             ResetBtnEffects();
-            //set presources to be selected
             pResources.Background = sel;
             //add drop shadow
             DropShadowEffect dShdow = new DropShadowEffect();
@@ -199,6 +213,7 @@ namespace P02Project
 
             // set the content of the textbox
             text.Content = pResourcesContent();
+            
             try
             {
                 (Window.GetWindow(this) as TopWindow).ResetTimer();
@@ -208,6 +223,11 @@ namespace P02Project
             }
         }
 
+        /// <summary>
+        /// This method called when the "parent resources" button has been clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void pRes_TouchDown(object sender, TouchEventArgs e)
         {
             // set image
@@ -228,18 +248,17 @@ namespace P02Project
         }
 
         /// <summary>
-        /// This method called when the "Workplace Giving" button has been clicked
+        /// This method called when the "holiday homes" button has been clicked
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void hHomes_Click(object sender, RoutedEventArgs e)
         {
-            // set image
+            // set polaroid image
             fsPol.setImage("images\\FamilySupport\\SmilingRelative.png");
 
             //Set the background colours of the buttons
             ResetBtnEffects();
-            //Set holiday homes to be selected
             hHomes.Background = sel;
 
             //add drop shadow
@@ -262,13 +281,18 @@ namespace P02Project
             }
         }
 
+        /// <summary>
+        /// This method called when the "holiday homes" button has been clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void hHomes_TouchDown(object sender, TouchEventArgs e)
         {
+            // set polaroid image
             fsPol.setImage("images\\FamilySupport\\SmilingRelative.png");
 
             //Set the background colours of the buttons
             ResetBtnEffects();
-            //Set holiday homes to be selected
             hHomes.Background = sel;
 
             //add drop shadow
@@ -283,14 +307,22 @@ namespace P02Project
             text.VerticalScrollBarVisibility = ScrollBarVisibility.Disabled;
         }
 
+        /// <summary>
+        /// This method called when the taupo image has been clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void taupo_MouseUp(object sender, MouseButtonEventArgs e)
         {
-
+            //set the content of the scrollviewer
             hhscroll.Content = taupoHomeContent();
+
+            //Set the glow on the taupo polaroid
             ((PoloroidControl)hawkesbay.Content).removeGlow();
             ((PoloroidControl)arrowtown.Content).removeGlow();
             ((PoloroidControl)taupo.Content).setGlow();
 
+            //set the taupo polaroid to be bigger than the other homes
             hawkesbay.Height = 200;
             hawkesbay.Width = 300;
             arrowtown.Height = 200;
@@ -298,69 +330,9 @@ namespace P02Project
             taupo.Height = 400;
             taupo.Width = 600;
 
-
             taupo.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
             taupo.VerticalAlignment = System.Windows.VerticalAlignment.Center;
-            //hawkesbay.Orientation = 0;
-            //arrowtown.Orientation = 0;
-           // taupo.Orientation = 0;
-            try
-            {
-                (Window.GetWindow(this) as TopWindow).ResetTimer();
-            }
-            catch (NullReferenceException exp)
-            {
-            }
-        }
-
-        private void arrowtown_MouseUp(object sender, MouseButtonEventArgs e)
-        {
-            hhscroll.Content = arrowtownHomeContent();
-
-            ((PoloroidControl)hawkesbay.Content).removeGlow();
-            ((PoloroidControl)arrowtown.Content).setGlow();
-            ((PoloroidControl)taupo.Content).removeGlow();
-
-            hawkesbay.Height = 200;
-            hawkesbay.Width = 300;
-            arrowtown.Height = 400;
-            arrowtown.Width = 600;
-            taupo.Height = 200;
-            taupo.Width = 300;
-
-            arrowtown.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
-            arrowtown.VerticalAlignment = System.Windows.VerticalAlignment.Center;
-           // hawkesbay.Orientation = 0;
-            //arrowtown.Orientation = 0;
-            //taupo.Orientation = 0;
-            try
-            {
-                (Window.GetWindow(this) as TopWindow).ResetTimer();
-            }
-            catch (NullReferenceException exp)
-            {
-            }
-        }
-
-        private void hawkesBay_MouseUp(object sender, MouseButtonEventArgs e)
-        {
             
-            hhscroll.Content = hawkesBayHomeContent();
-            ((PoloroidControl)hawkesbay.Content).setGlow();
-            ((PoloroidControl)arrowtown.Content).removeGlow();
-            ((PoloroidControl)taupo.Content).removeGlow();
-            hawkesbay.Height = 400;
-            hawkesbay.Width = 600;
-            arrowtown.Height = 200;
-            arrowtown.Width = 300;
-            taupo.Height = 200;
-            taupo.Width = 300;
-
-            hawkesbay.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
-            hawkesbay.VerticalAlignment = System.Windows.VerticalAlignment.Center;
-            //hawkesbay.Orientation = 0;
-            //arrowtown.Orientation = 0;
-            //taupo.Orientation = 0;
             try
             {
                 (Window.GetWindow(this) as TopWindow).ResetTimer();
@@ -371,13 +343,83 @@ namespace P02Project
         }
 
         /// <summary>
-        /// This method called when the "More Information" button has been clicked
+        /// This method called when the arrowtown image has been clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void arrowtown_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            //set the content of the scrollviewer
+            hhscroll.Content = arrowtownHomeContent();
+
+            //Set the glow on the arrowtown polaroid
+            ((PoloroidControl)hawkesbay.Content).removeGlow();
+            ((PoloroidControl)arrowtown.Content).setGlow();
+            ((PoloroidControl)taupo.Content).removeGlow();
+
+            //set the arrowtown polaroid to be bigger than the other homes
+            hawkesbay.Height = 200;
+            hawkesbay.Width = 300;
+            arrowtown.Height = 400;
+            arrowtown.Width = 600;
+            taupo.Height = 200;
+            taupo.Width = 300;
+
+            arrowtown.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
+            arrowtown.VerticalAlignment = System.Windows.VerticalAlignment.Center;
+           
+            try
+            {
+                (Window.GetWindow(this) as TopWindow).ResetTimer();
+            }
+            catch (NullReferenceException exp)
+            {
+            }
+        }
+
+        /// <summary>
+        /// This method called when the hawkes bay image has been clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void hawkesBay_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            //set the content of the scrollviewer
+            hhscroll.Content = hawkesBayHomeContent();
+
+            //Set the glow on the hawkes bay polaroid
+            ((PoloroidControl)hawkesbay.Content).setGlow();
+            ((PoloroidControl)arrowtown.Content).removeGlow();
+            ((PoloroidControl)taupo.Content).removeGlow();
+
+            //set the hawkes bay polaroid to be bigger than the other homes
+            hawkesbay.Height = 400;
+            hawkesbay.Width = 600;
+            arrowtown.Height = 200;
+            arrowtown.Width = 300;
+            taupo.Height = 200;
+            taupo.Width = 300;
+
+            hawkesbay.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
+            hawkesbay.VerticalAlignment = System.Windows.VerticalAlignment.Center;
+            
+            try
+            {
+                (Window.GetWindow(this) as TopWindow).ResetTimer();
+            }
+            catch (NullReferenceException exp)
+            {
+            }
+        }
+
+        /// <summary>
+        /// This method called when the contact list button has been clicked
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void cList_Click(object sender, RoutedEventArgs e)
         {
-            // set image
+            // set polaroid image
             fsPol.setImage("images\\FamilySupport\\TwoGirls.png");
 
             //Set the background colours of the buttons
@@ -454,48 +496,51 @@ namespace P02Project
             aucklandPin = new Pushpin();
             aucklandPin.Location = new Location(-36.843880, 174.767746);
 
-            // Adds the pushpin to the map.
+            // Add the pushpin to the map.
             map.Children.Add(aucklandPin);
 
             // The pushpin to add to the map.
             christchurchPin = new Pushpin();
             christchurchPin.Location = new Location(-43.531010,172.637787);
 
-            // Adds the pushpin to the map.
+            // Add the pushpin to the map.
             map.Children.Add(christchurchPin);
 
             // The pushpin to add to the map.
             dunedinPin = new Pushpin();
             dunedinPin.Location = new Location(-45.873489,170.503967);
 
-            // Adds the pushpin to the map.
+            // Add the pushpin to the map.
             map.Children.Add(dunedinPin);
             // The pushpin to add to the map.
             wellingtonPin = new Pushpin();
             wellingtonPin.Location = new Location(-41.288940,174.776276);
 
-            // Adds the pushpin to the map.
+            // Add the pushpin to the map.
             map.Children.Add(wellingtonPin);
 
+            //Create handlers to handle when the map is clicked
             map.AddHandler(UIElement.TouchDownEvent, new EventHandler<TouchEventArgs>(MapWithPushpins_TouchDown), true);
             map.AddHandler(UIElement.MouseDownEvent, new MouseButtonEventHandler(MapWithPushpins_MouseDown), true);
             
+            //Create a scroll viewer to show pin details
             mscroll = new SurfaceScrollViewer();
             mscroll.Style = this.FindResource("SurfaceScrollViewerStyle1") as Style;
             mscroll.Height = 300;
             mscroll.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#00000000"));
             mscroll.ScrollChanged += new ScrollChangedEventHandler(mscroll_ScrollChanged);
 
-
+            //set the initial content of the scroll viewer to be a prompt 
             TextBlock prompt = Util.TextBlockFactory();
             prompt.TextAlignment = TextAlignment.Center;
             prompt.Inlines.Add(new Run("Click on the pins to see their contact information\n"));
-
             mscroll.Content = prompt;
 
+            //Add the map and scrollviewer to the stack panel
             contentStackPanel.Children.Add(map);
             contentStackPanel.Children.Add(mscroll);
 
+            //Set only the vertical bar to be visible when necessary
             mscroll.HorizontalScrollBarVisibility = ScrollBarVisibility.Disabled;
             mscroll.VerticalScrollBarVisibility = ScrollBarVisibility.Auto;
             
@@ -513,7 +558,11 @@ namespace P02Project
             }
         }
 
-
+        /// <summary>
+        /// Called when the map is touched
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MapWithPushpins_TouchDown(object sender, TouchEventArgs e)
         {
             // Disables the default touch down behavior.
@@ -521,10 +570,15 @@ namespace P02Project
 
             //Get the touch down coordinates
             TouchPoint touchPosition = e.GetTouchPoint(this);
-            //Convert the mouse coordinates to a location on the map
-            //pinlocation longitude is comingout as negative so reversing
-            Location pinLocation = map.ViewportPointToLocation(touchPosition.Position);
 
+            //Convert the mouse coordinates to a location on the map
+            Location pinLocation = map.ViewportPointToLocation(touchPosition.Position);
+            
+            //Negate longitude if it comes out negative. Unsure of why this is happening - assuming the user is likely to only look at nz
+            if (pinLocation.Longitude < 0)
+            {
+                pinLocation.Longitude = -pinLocation.Longitude;
+            }
             //Calculate the distance to the other pushpins
             double auckdist = Math.Sqrt(Math.Pow(aucklandPin.Location.Latitude - pinLocation.Latitude, 2) + Math.Pow(aucklandPin.Location.Longitude - -pinLocation.Longitude, 2));
             double chchdist = Math.Sqrt(Math.Pow(christchurchPin.Location.Latitude - pinLocation.Latitude, 2) + Math.Pow(christchurchPin.Location.Longitude - -pinLocation.Longitude, 2));
@@ -544,9 +598,7 @@ namespace P02Project
             {
                 mscroll.Content = wellingtonContent();
             }
-          
-            // Adds the pushpin to the map.
-            //map.Children.Add(pin);
+         
             try
             {
                 (Window.GetWindow(this) as TopWindow).ResetTimer();
@@ -556,6 +608,11 @@ namespace P02Project
             }
         }
 
+        /// <summary>
+        /// Called when the map is clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MapWithPushpins_MouseDown(object sender, MouseButtonEventArgs e)
         {
             // Disables the default touch down behavior.
@@ -567,6 +624,11 @@ namespace P02Project
             //Convert the mouse coordinates to a location on the map
             Location pinLocation = map.ViewportPointToLocation(touchPosition);
 
+            //Negate longitude if it comes out negative. Unsure of why this is happening - assuming the user is likely to only look at nz
+            if (pinLocation.Longitude < 0)
+            {
+                pinLocation.Longitude = -pinLocation.Longitude;
+            }
             //Calculate the distance to the other pushpins
             double auckdist = Math.Sqrt(Math.Pow(aucklandPin.Location.Latitude - pinLocation.Latitude, 2) + Math.Pow(aucklandPin.Location.Longitude - -pinLocation.Longitude, 2));
             double chchdist = Math.Sqrt(Math.Pow(christchurchPin.Location.Latitude - pinLocation.Latitude, 2) + Math.Pow(christchurchPin.Location.Longitude - -pinLocation.Longitude, 2));
@@ -607,33 +669,26 @@ namespace P02Project
         /// <returns>A stack panel containing the parent resources content</returns>
         private StackPanel pResourcesContent()
         {
-            //Set content to on going donation
             StackPanel contentStackPanel = new StackPanel();
 
             TextBlock pResourcesText1 = Util.TextBlockFactory();
-
             TextBlock pResourcesText2 = Util.TextBlockFactory();
+
             pResourcesText2.Inlines.Add(new Bold(new Run("Parent Resources \n")));
             pResourcesText2.Inlines.Add(new Run("Child Cancer Foundation aims to provide up-to-date information for families. Below is a list of websites providing additional information, research documents and details about child cancer from around the world."));
 
             pResourcesText1.Inlines.Add(new Bold(new Run("\nKidscope\n")));
             pResourcesText1.Inlines.Add(new Run("www.kidscope.org\nAn organization which has been formed to help families and children better understand the effects of cancer and chemotherapy.\n\n"));
-
             pResourcesText1.Inlines.Add(new Bold(new Run("CancerCare, Inc.\n")));
             pResourcesText1.Inlines.Add(new Run("www.cancercareinc.org\n\n"));
-
             pResourcesText1.Inlines.Add(new Bold(new Run("Chemo Kids\n")));
             pResourcesText1.Inlines.Add(new Run("http://www.chemo4kids.com/cancer-resources/\nThis site offers simplified information about chemotherapy and its use to treat cancer.\n\n"));
-
             pResourcesText1.Inlines.Add(new Bold(new Run("Candlelighters\n")));
             pResourcesText1.Inlines.Add(new Run("www.candlelighters.org/ \nThe Candlelighters mission is to educate, support, serve, and advocate for families of children with cancer, survivors of childhood cancer and professionals who care for them.\n\n"));
-
             pResourcesText1.Inlines.Add(new Bold(new Run("ACT\n")));
             pResourcesText1.Inlines.Add(new Run("www.act.org.uk \nThe site of the Association for Children with life-threatening or terminal conditions and their families. This site is in the process of redevelopment and will include access to a web-based research journal called LitpaedpalLit.\n\n"));
-            
             pResourcesText1.Inlines.Add(new Bold(new Run("International Confederation of Child Cancer Parent Organisations\n")));
             pResourcesText1.Inlines.Add(new Run("www.icccpo.org\n\n"));
-
             pResourcesText1.Inlines.Add(new Bold(new Run("Action for Children and Youth in Aotearoa\n")));
             pResourcesText1.Inlines.Add(new Run("www.acya.org.nz \nThis site has many excellent documents relating to areas of rights of children and youth.\n\n"));
 
@@ -645,7 +700,7 @@ namespace P02Project
         /// <summary>
         /// Content to be displayed on the holiday homes page
         /// </summary>
-        /// <returns>A stackpanel with the holida home content</returns>
+        /// <returns>A stackpanel with the holiday home content</returns>
         private StackPanel hHomesContent()
         {
 
@@ -706,6 +761,7 @@ namespace P02Project
             hawkesbay.AddHandler(UIElement.MouseUpEvent, new MouseButtonEventHandler(hawkesBay_MouseUp), true);
             scatter.Items.Add(hawkesbay);
 
+            //set the content to initially be hawkes bay content
             hawkesBay_MouseUp(null,null);
             return contentStackPanel;
         }

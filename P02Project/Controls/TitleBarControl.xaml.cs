@@ -55,6 +55,10 @@ namespace P02Project
             SubTitle.Foreground = new SolidColorBrush(col);
         }
 
+        /// <summary>
+        /// Set the subtitle
+        /// </summary>
+        /// <param name="sub"></param>
         public void setSubtitle(String sub) {
             SubTitle.Content = sub;
 
