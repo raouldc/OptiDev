@@ -79,8 +79,10 @@ namespace P02Project.Screens.BeadsOfCourage
         {
             Quiz q = new Quiz();
             q.Topmost = true;
+            //q.Owner = Application.Current.MainWindow;
+            q.ShowDialog();
             //q.Activate();
-            q.Show();
+            //q.Show();
         }
     }
 }
