@@ -501,7 +501,7 @@
                 <!-- label showing each tweet goes here programmatically  -->
             </StackPanel>
         </Custom:SurfaceScrollViewer>
-        <Custom:SurfaceScrollViewer x:Name="QRText" HorizontalAlignment="Left" Height="137" Margin="90,0,0,28" VerticalAlignment="Bottom" Width="449"/>
+        <Custom:SurfaceScrollViewer x:Name="QRText" Margin="93,735,0,0" Background="#7F525252" HorizontalScrollBarVisibility="Disabled" Height="157" VerticalAlignment="Top" HorizontalAlignment="Left" Width="444.667" />
         
     </Grid>
 </UserControl>

@@ -67,7 +67,7 @@ namespace P02Project
             sbIn = new Storyboard();
             Util.StackAnimationDefault(sbIn, buttons.Children);
 
-            Util.SetupQR(QRText, "http://tinyurl.com/myngagc");
+            Util.SetupQR(QRText, "Find out other ways to contact us at\nhttp://tinyurl.com/mhdzd2f");
 
             //mapLoader = new DispatcherTimer();
 

@@ -59,7 +59,7 @@ namespace P02Project
             pols.Add(kagi);
             pols.Add(bb);
 
-            Util.SetupQR(QRText, "http://tinyurl.com/lfxloyz");
+            Util.SetupQR(QRText, "Find out more about our online store at http://tinyurl.com/k74ek3x");
 		}
 
 
