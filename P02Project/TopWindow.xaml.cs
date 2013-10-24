@@ -19,23 +19,7 @@ namespace P02Project
     {
         //Timer for inactivity
         private DispatcherTimer inavtiveTimer;
-
-        // screen resolution WIDTH * HEIGHT is a ratio of 16:09
-        public static readonly int WIDTH = 1280;
-        public static readonly int HEIGHT = 720;
-
-        // H_CCF_TITLE: is kept for CCF logo and view title.
-        public static readonly int H_CCF_TITLE = HEIGHT / 6;
-
-        // right hand side column kept for the tiles link to different pages (it is shown in all views except home view).
-        // W_LINK_TITLE : width of each tile
-        // H_LINK_TITLE : height of each tile
-        public static readonly int W_LINK_TILE = WIDTH * 3 / 16;
-        public static readonly int H_LINK_TILE = HEIGHT / 6;
-
-        // dictionary stores all the ScatterViewItem with its embedded Image and SurfaceButton represent the 7 main tiles
-        // about, news, events, contactUs, HowCanIHelp, FamilySupport, PlayBeads
-        //private Dictionary<String, SVIWithImgBtn> _dictOfAllHomeTiles;
+        
         private Stack<Screen> stackOfScreens;
 
         /// <summary>
@@ -136,8 +120,6 @@ namespace P02Project
             {
                 stackOfScreens.Pop();
                 this.Content = stackOfScreens.Peek();
-                //this.WindowState = WindowState.Maximized;
-                //this.WindowStyle = WindowStyle.None;
 
                 (this.Content as Animatiable).AnimateIn();
             }
@@ -148,8 +130,6 @@ namespace P02Project
         {
             stackOfScreens.Push(screen);
             this.Content = stackOfScreens.Peek();
-            //this.WindowState = WindowState.Maximized;
-            //this.WindowStyle = WindowStyle.None
             ResetTimer();
         }
 
@@ -161,8 +141,6 @@ namespace P02Project
                 stackOfScreens.Pop();
             }
             this.Content = stackOfScreens.Peek();
-            //this.WindowState = WindowState.Maximized;
-            //this.WindowStyle = WindowStyle.None;
             ResetTimer();
         }
 

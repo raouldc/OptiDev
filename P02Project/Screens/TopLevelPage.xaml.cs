@@ -13,17 +13,15 @@ namespace P02Project.Screens
     /// </summary>
     public partial class TopLevelPage : Screen
     {
-        // stach of the screens and the subtitle
+        // stack of the screens and the subtitle
         private Stack<UIElement> stackOfContent;
         private Stack<String> stackSubtitle;
         protected List<Animatiable> components;
 
-
-
         /// <summary>
         /// Constructor
         /// </summary>
-        /// <param name="parentWindow">This is access to the window that contains the stack. 
+        /// <param name="parentWindow">This accesses the window that contains the stack. 
         /// The buttons need to go through the stack</param>
         /// <param name="title">Set title bar</param>
         public TopLevelPage(TopWindow parentWindow, String title)
@@ -31,7 +29,7 @@ namespace P02Project.Screens
         {
             InitializeComponent();
 
-            // initilize the stacks and set the title of the screen
+            // initalize the stacks and set the title of the screen
             stackOfContent = new Stack<UIElement>();
             TitleBar.Title.Content = title;
             TitleBar.setTopPage(this);
@@ -119,17 +117,14 @@ namespace P02Project.Screens
             TitleBar.setColour(col);
         }
 
-
-
         /// <summary>
         /// set the right buttons
         /// </summary>
         /// <param name="bNames">Array of buttons to go on the right side. 
-        /// This array should be of size 6 at all times</param>
+        /// This array should be of size 7 at all times</param>
         public void setButtons(String[] bNames)
         {
             //Set the names of the buttons
-            //Needs to be improved so it sets the colours based on the name too
             RightButtons.setButtons(bNames);
 
         }

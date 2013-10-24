@@ -28,7 +28,6 @@ namespace P02Project
         {
             this.InitializeComponent();
 
-            //bla.Visibility = System.Windows.Visibility.Visible;
         }
 
 
@@ -211,8 +210,6 @@ namespace P02Project
             dt.Stop();
         }
 
-
-
         /// <summary>
         /// This method get called when the Contact Us has been clicked
         /// </summary>
@@ -235,8 +232,6 @@ namespace P02Project
 
             dt.Stop();
         }
-
-
 
         /// <summary>
         /// This method get called when the How Can I Help has been clicked
@@ -321,10 +316,6 @@ namespace P02Project
             //q.ShowDialog();
             dt.Stop();
         }
-
-
-
-
 
         /// <summary>
         /// Helper method which is invoked from the twitterBox object
