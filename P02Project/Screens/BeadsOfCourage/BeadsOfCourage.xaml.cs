@@ -70,6 +70,14 @@ namespace P02Project.Screens.BeadsOfCourage
             //beadPoloroid.setImage(_beadModel.Images);
             beadPoloroid.setImage(_beadModel.Images[r.Next(_beadModel.Images.Length)].Value);
 
+            try
+            {
+                (Window.GetWindow(this) as TopWindow).ResetTimer();
+            }
+            catch (NullReferenceException exp)
+            {
+            }
+
         }
 
         private BeadModel _beadModel;
@@ -79,8 +87,18 @@ namespace P02Project.Screens.BeadsOfCourage
         {
             Quiz q = new Quiz();
             q.Topmost = true;
+            //q.Owner = Application.Current.MainWindow;
+            q.ShowDialog();
             //q.Activate();
-            q.Show();
+            //q.Show();
+
+            try
+            {
+                (Window.GetWindow(this) as TopWindow).ResetTimer();
+            }
+            catch (NullReferenceException exp)
+            {
+            }
         }
     }
 }

@@ -36,8 +36,20 @@ namespace P02Project
         /// </summary>
         /// <param name="queryParameters">e.g., count=5&trim_user=true</param>
         /// <returns></returns>
+        private Webcam webcamControl;
 
+        public Twitter(Webcam us)
+        {
+            webcamControl = us;
+            initializeWorkers();
+            
+        }
         public Twitter()
+        {
+            initializeWorkers();
+        }
+
+        private void initializeWorkers()
         {
             if (worker == null)
             {
@@ -254,10 +266,12 @@ namespace P02Project
             {  
                 // Everything completed normally.
                Console.WriteLine( "Task Completed...");
+
             }
 
             try
             {
+                webcamControl._tweetBtn.Content = "Tweet";
                 var window= (Window.GetWindow(timer) as TopWindow);
                 if(window!=null){
                 window.ResetTimer();

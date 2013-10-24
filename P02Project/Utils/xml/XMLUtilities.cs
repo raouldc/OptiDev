@@ -46,8 +46,13 @@ namespace P02Project.Resources.xml
             var pageType = url.Split('/').LastOrDefault().Split('.').FirstOrDefault();
             var path = "Resources/xml/" + pageType + ".xml";
             //If the requested file doesn't exist, or if the file is more than 12 hours old, try getting new file
+<<<<<<< HEAD
             if (!File.Exists(path)
                 || File.GetLastWriteTimeUtc(path) < DateTime.UtcNow.Subtract(new TimeSpan(12, 0, 0)))
+=======
+            if (!File.Exists(path) 
+                /*|| File.GetLastWriteTimeUtc(path) < DateTime.UtcNow.Subtract(new TimeSpan(12, 0, 0))*/)
+>>>>>>> a183ec38a35a9d8d5c6be8356ba7ed77ab3e9448
             {
 
                 try

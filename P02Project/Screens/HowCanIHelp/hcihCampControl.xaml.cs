@@ -27,7 +27,7 @@ namespace P02Project
                 Util.FadeIn(sbIn, fElement);
             }
 
-            Util.SetupQR(QRText, "http://tinyurl.com/lfxloyz");
+            Util.SetupQR(QRText, "Find out more about our campaigns at http://tinyurl.com/lfxloyz");
 		}
 
         /// <summary>

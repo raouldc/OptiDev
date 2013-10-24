@@ -69,9 +69,20 @@ namespace P02Project.Screens
         public void setImage(String resName)
         {
             var src = new BitmapImage();
-            src.BeginInit();
-            src.UriSource = new Uri(Directory.GetCurrentDirectory() + "/Resources/" + resName);
-            src.EndInit();
+            try
+            {
+                
+                src.BeginInit();
+                src.UriSource = new Uri(Directory.GetCurrentDirectory() + "/Resources/" + resName);
+                src.EndInit();
+            }
+            catch (Exception ex)
+            {
+                src = new BitmapImage();
+                src.BeginInit();
+                src.UriSource = new Uri("pack://application:,,/Resources/" + resName);
+                src.EndInit();
+            }
 
             Image.Source = src;
         }
