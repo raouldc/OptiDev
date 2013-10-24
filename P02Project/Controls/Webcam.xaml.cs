@@ -320,7 +320,9 @@ namespace P02Project
 
             // do the tweet post 
 
-            Twitter twitter = new Twitter();
+            Twitter twitter = new Twitter(this);
+
+            _tweetBtn.Content = "Loading...";
 
             twitter.postTweet(newTweet, bitmap, this);
 
@@ -331,6 +333,8 @@ namespace P02Project
             catch (NullReferenceException exp)
             {
             }
+
+            
         }
 
         private void tweetTxt_KeyDown(object sender, KeyEventArgs e)
