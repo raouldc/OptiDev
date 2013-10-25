@@ -409,6 +409,15 @@
     <Resource Include="Resources\images\About\Ambassadors\Lorraine1.png" />
     <Resource Include="Resources\images\About\Ambassadors\Megan1.png" />
     <Resource Include="Resources\images\About\Ambassadors\Steve1.png" />
+    <Resource Include="Resources\images\About\hana.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\images\About\friends.png" />
+    <Resource Include="Resources\images\About\petra.png" />
+    <Resource Include="Resources\images\About\megan.png" />
+    <Resource Include="Resources\images\About\LittleBaby3poloroid.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
     <Content Include="Utils\xml\BeadsOfCourageSchema\beads.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>
