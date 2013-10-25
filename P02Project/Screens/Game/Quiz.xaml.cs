@@ -368,22 +368,7 @@ namespace P02Project.Screens.Game
         /// <param name="e">The <see cref="RoutedEventArgs" /> instance containing the event data.</param>
         private void option_A_Clicked(object sender, RoutedEventArgs e)
         {
-            if (activeQuestion != null && activeQuestion.Answer((String) option_A.Content))
-            {
-                //deactivate the other buttons
-                correctField.Foreground = CORRECT_COLOR;
-                correctField.Text = "Correct!";
-                StatusBar.Text = "Answer was: " + activeQuestion.CorrectAnswer;
-            }
-            else
-            {
-                correctField.Foreground = INCORRECT_COLOR;
-                correctField.Text = "Incorrect!";
-                StatusBar.Text = "Answer was: " + activeQuestion.CorrectAnswer + "\nYou answered: " +
-                                 activeQuestion.OptionSelected;
-            }
-            changeButtonState();
-            setScore();
+            answerQuestion((String)option_A.Content);
 
             ResetTimer();
         }
@@ -395,21 +380,7 @@ namespace P02Project.Screens.Game
         /// <param name="e">The <see cref="RoutedEventArgs" /> instance containing the event data.</param>
         private void option_B_Clicked(object sender, RoutedEventArgs e)
         {
-            if (activeQuestion.Answer((String) option_B.Content))
-            {
-                correctField.Foreground = CORRECT_COLOR;
-                correctField.Text = "Correct!";
-                StatusBar.Text = "Answer was: " + activeQuestion.CorrectAnswer;
-            }
-            else
-            {
-                correctField.Foreground = INCORRECT_COLOR;
-                correctField.Text = "Incorrect!";
-                StatusBar.Text = "Answer was: " + activeQuestion.CorrectAnswer + "\nYou answered: " +
-                                 activeQuestion.OptionSelected;
-            }
-            changeButtonState();
-            setScore();
+            answerQuestion((String)option_B.Content);
 
             ResetTimer();
         }
@@ -423,21 +394,7 @@ namespace P02Project.Screens.Game
         {
             // TODO: Add event handler implementation here.
 
-            if (activeQuestion.Answer((String) option_c.Content))
-            {
-                correctField.Foreground = CORRECT_COLOR;
-                correctField.Text = "Correct!";
-                StatusBar.Text = "Answer was: " + activeQuestion.CorrectAnswer;
-            }
-            else
-            {
-                correctField.Foreground = INCORRECT_COLOR;
-                correctField.Text = "Incorrect!";
-                StatusBar.Text = "Answer was: " + activeQuestion.CorrectAnswer + "\nYou answered: " +
-                                 activeQuestion.OptionSelected;
-            }
-            changeButtonState();
-            setScore();
+            answerQuestion((String)option_c.Content);
 
             ResetTimer();
         }
@@ -451,21 +408,7 @@ namespace P02Project.Screens.Game
         {
             // TODO: Add event handler implementation here.
 
-            if (activeQuestion.Answer((String) option_D.Content))
-            {
-                correctField.Foreground = CORRECT_COLOR;
-                correctField.Text = "Correct!";
-                StatusBar.Text = "Answer was: " + activeQuestion.CorrectAnswer;
-            }
-            else
-            {
-                correctField.Foreground = INCORRECT_COLOR;
-                correctField.Text = "Incorrect!";
-                StatusBar.Text = "Answer was: " + activeQuestion.CorrectAnswer + "\nYou answered: " +
-                                 activeQuestion.OptionSelected;
-            }
-            changeButtonState();
-            setScore();
+            answerQuestion((String)option_D.Content);
 
             ResetTimer();
         }
@@ -522,6 +465,26 @@ namespace P02Project.Screens.Game
                     questionButtons[i].Effect = null;
                 }
             }
+        }
+
+        private void answerQuestion(String content)
+        {
+            if (activeQuestion != null && activeQuestion.Answer(content))
+            {
+                //deactivate the other buttons
+                correctField.Foreground = CORRECT_COLOR;
+                correctField.Text = "Correct!";
+                StatusBar.Text = "Answer was: " + activeQuestion.CorrectAnswer;
+            }
+            else
+            {
+                correctField.Foreground = INCORRECT_COLOR;
+                correctField.Text = "Incorrect!";
+                StatusBar.Text = "Answer was: " + activeQuestion.CorrectAnswer + "\nYou answered: " +
+                                 activeQuestion.OptionSelected;
+            }
+            changeButtonState();
+            setScore();
         }
     }
 }
