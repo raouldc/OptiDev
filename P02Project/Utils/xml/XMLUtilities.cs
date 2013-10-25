@@ -11,8 +11,17 @@ using System.Collections.Generic;
 
 namespace P02Project.Resources.xml
 {
+    /// <summary>
+    /// Provides methods to read and parse xml files that follow a specific schem (PageModel or BeadModel).
+    /// </summary>
     class XMLUtilities
     {
+        /// <summary>
+        /// Gets the contents of a page model specified at filepath
+        /// </summary>
+        /// <param name="filePath"></param>
+        /// <returns></returns>
+
         public static PageModel GetContentFromFile(String filePath)
         {
             var mySerializer = new XmlSerializer(typeof(PageModel));
@@ -27,6 +36,11 @@ namespace P02Project.Resources.xml
 
         }
 
+        /// <summary>
+        /// Gets the contents of a BeanModel form the specified xml file at filepath
+        /// </summary>
+        /// <param name="filePath"></param>
+        /// <returns></returns>
         public static BeadModel GetBeadsContentFromFile(String filePath)
         {
             var mySerializer = new XmlSerializer(typeof(BeadModel));
