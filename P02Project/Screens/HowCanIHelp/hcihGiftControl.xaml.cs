@@ -194,7 +194,7 @@ namespace P02Project
             {
                 (Window.GetWindow(this) as TopWindow).ResetTimer();
             }
-            catch (NullReferenceException exp)
+            catch (NullReferenceException)
             {
             }
         }

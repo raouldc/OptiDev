@@ -82,11 +82,16 @@ namespace P02Project
             //dt.Start();
             topLevelPage.BackButton_Click(sender, e);
 
+            ResetTimer();
+        }
+
+        private void ResetTimer()
+        {
             try
             {
                 (Window.GetWindow(this) as TopWindow).ResetTimer();
             }
-            catch (NullReferenceException exp)
+            catch (NullReferenceException)
             {
             }
         }
@@ -95,13 +100,7 @@ namespace P02Project
         {
             topLevelPage.HomeButton_Click();
 
-            try
-            {
-                (Window.GetWindow(this) as TopWindow).ResetTimer();
-            }
-            catch (NullReferenceException exp)
-            {
-            }
+            ResetTimer();
         }
 	}
 }

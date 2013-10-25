@@ -93,11 +93,16 @@ namespace P02Project
 
             text.Content = oneOffContent();
 
+            ResetTimer();
+        }
+
+        private void ResetTimer()
+        {
             try
             {
                 (Window.GetWindow(this) as TopWindow).ResetTimer();
             }
-            catch (NullReferenceException exp)
+            catch (NullReferenceException)
             {
             }
         }
@@ -135,13 +140,7 @@ namespace P02Project
             // set the content of the textbox
             text.Content = onGoingContent();
 
-            try
-            {
-                (Window.GetWindow(this) as TopWindow).ResetTimer();
-            }
-            catch (NullReferenceException exp)
-            {
-            }
+            ResetTimer();
         }
 
 
@@ -177,13 +176,7 @@ namespace P02Project
             // set the content of the text box
             text.Content = lastingLegacyContent();
 
-            try
-            {
-                (Window.GetWindow(this) as TopWindow).ResetTimer();
-            }
-            catch (NullReferenceException exp)
-            {
-            }
+            ResetTimer();
         }
 
 
@@ -219,13 +212,7 @@ namespace P02Project
             // set the content of the textbox
             text.Content = workplaceGivingContent();
 
-            try
-            {
-                (Window.GetWindow(this) as TopWindow).ResetTimer();
-            }
-            catch (NullReferenceException exp)
-            {
-            }
+            ResetTimer();
         }
 
 
@@ -264,13 +251,7 @@ namespace P02Project
             // set the content in the textbox
             text.Content = moreInfoContent();
 
-            try
-            {
-                (Window.GetWindow(this) as TopWindow).ResetTimer();
-            }
-            catch (NullReferenceException exp)
-            {
-            }
+            ResetTimer();
         }
 
 
@@ -482,7 +463,7 @@ namespace P02Project
             {
                 (Window.GetWindow(this) as TopWindow).ResetTimer();
             }
-            catch (NullReferenceException exp)
+            catch (NullReferenceException)
             {
             }
         }

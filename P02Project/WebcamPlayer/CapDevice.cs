@@ -552,7 +552,7 @@ namespace CatenaLogic.Windows.Presentation.WebcamPlayer
                                     // Succeeded
                                     succeeded = true;
                                 }
-                                catch (Exception retryException)
+                                catch (Exception)
                                 {
                                     // Trace
                                     Trace.TraceInformation("Failed to retrieve the grabber information, tried {0} time(s)", retryCount);

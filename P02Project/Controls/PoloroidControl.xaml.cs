@@ -203,11 +203,16 @@ namespace P02Project
         {
             showShadow();
 
+            ResetTimer();
+        }
+
+        private void ResetTimer()
+        {
             try
             {
                 (Window.GetWindow(this) as TopWindow).ResetTimer();
             }
-            catch (NullReferenceException exp)
+            catch (NullReferenceException)
             {
             }
         }
@@ -222,13 +227,7 @@ namespace P02Project
         {
             showShadow();
 
-            try
-            {
-                (Window.GetWindow(this) as TopWindow).ResetTimer();
-            }
-            catch (NullReferenceException exp)
-            {
-            }
+            ResetTimer();
         }
 
         public void setGlow() {

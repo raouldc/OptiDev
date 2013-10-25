@@ -273,11 +273,16 @@ namespace P02Project
 
             _selectedImg.Source = bitmap;
 
+            ResetTimer();
+        }
+
+        private void ResetTimer()
+        {
             try
             {
                 (Window.GetWindow(this) as TopWindow).ResetTimer();
             }
-            catch (NullReferenceException exp)
+            catch (NullReferenceException)
             {
             }
         }
@@ -296,13 +301,7 @@ namespace P02Project
                 _tweetTxt.Text = "";
             }
 
-            try
-            {
-                (Window.GetWindow(this) as TopWindow).ResetTimer();
-            }
-            catch (NullReferenceException exp)
-            {
-            }
+            ResetTimer();
         }
 
 
@@ -326,26 +325,14 @@ namespace P02Project
 
             twitter.postTweet(newTweet, bitmap, this);
 
-            try
-            {
-                (Window.GetWindow(this) as TopWindow).ResetTimer();
-            }
-            catch (NullReferenceException exp)
-            {
-            }
+            ResetTimer();
 
             
         }
 
         private void tweetTxt_KeyDown(object sender, KeyEventArgs e)
         {
-            try
-            {
-                (Window.GetWindow(this) as TopWindow).ResetTimer();
-            }
-            catch (NullReferenceException exp)
-            {
-            }
+            ResetTimer();
         }
 
         private void tweetTxtKeyUp(object sender, MouseButtonEventArgs e)

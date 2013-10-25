@@ -176,7 +176,7 @@ namespace P02Project
 
 
             }
-            catch(Exception e)
+            catch(Exception)
             {
                 (Window.GetWindow(depO) as TopWindow).StartTimer();
             }

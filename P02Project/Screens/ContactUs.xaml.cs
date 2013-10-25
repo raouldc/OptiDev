@@ -112,11 +112,16 @@ namespace P02Project
             Dispatcher.BeginInvoke(act, DispatcherPriority.ApplicationIdle);
             _fmlPlcs.Content = "Loading...";
 
+            ResetTimer();
+        }
+
+        private void ResetTimer()
+        {
             try
             {
                 (Window.GetWindow(this) as TopWindow).ResetTimer();
             }
-            catch (NullReferenceException exp)
+            catch (NullReferenceException)
             {
             }
         }
@@ -151,13 +156,7 @@ namespace P02Project
             Dispatcher.BeginInvoke(act, DispatcherPriority.Background);
             _mainOff.Content = "Loading...";
 
-            try
-            {
-                (Window.GetWindow(this) as TopWindow).ResetTimer();
-            }
-            catch (NullReferenceException exp)
-            {
-            }
+            ResetTimer();
         }
 
 
@@ -187,13 +186,7 @@ namespace P02Project
 
             content.Content = fundraisingOfficeContent();
 
-            try
-            {
-                (Window.GetWindow(this) as TopWindow).ResetTimer();
-            }
-            catch (NullReferenceException exp)
-            {
-            }
+            ResetTimer();
         }
 
 
@@ -223,13 +216,7 @@ namespace P02Project
             _fmlSptBrns.Effect = dShdow;
 
             content.Content = familySupportContent();
-            try
-            {
-                (Window.GetWindow(this) as TopWindow).ResetTimer();
-            }
-            catch (NullReferenceException exp)
-            {
-            }
+            ResetTimer();
         }
 
 

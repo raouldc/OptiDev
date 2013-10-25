@@ -112,11 +112,16 @@ namespace P02Project.Screens.Game
             setContent(activeQuestion);
             addButtonColours(4);
 
+            ResetTimer();
+        }
+
+        private void ResetTimer()
+        {
             try
             {
                 (Window.GetWindow(this) as TopWindow).ResetTimer();
             }
-            catch (NullReferenceException exp)
+            catch (NullReferenceException)
             {
             }
         }
@@ -129,13 +134,7 @@ namespace P02Project.Screens.Game
             addButtonColours(3);
             setContent(activeQuestion);
 
-            try
-            {
-                (Window.GetWindow(this) as TopWindow).ResetTimer();
-            }
-            catch (NullReferenceException exp)
-            {
-            }
+            ResetTimer();
         }
 
         private void question3_Click(object sender, System.Windows.RoutedEventArgs e)
@@ -146,13 +145,7 @@ namespace P02Project.Screens.Game
             setContent(activeQuestion);
             addButtonColours(2);
 
-            try
-            {
-                (Window.GetWindow(this) as TopWindow).ResetTimer();
-            }
-            catch (NullReferenceException exp)
-            {
-            }
+            ResetTimer();
         }
 
         private void question6_Click(object sender, System.Windows.RoutedEventArgs e)
@@ -162,13 +155,7 @@ namespace P02Project.Screens.Game
             addButtonColours(5);
             setContent(activeQuestion);
 
-            try
-            {
-                (Window.GetWindow(this) as TopWindow).ResetTimer();
-            }
-            catch (NullReferenceException exp)
-            {
-            }
+            ResetTimer();
         }
 
         private void question2_CLick(object sender, System.Windows.RoutedEventArgs e)
@@ -179,13 +166,7 @@ namespace P02Project.Screens.Game
             setContent(activeQuestion);
             addButtonColours(1);
 
-            try
-            {
-                (Window.GetWindow(this) as TopWindow).ResetTimer();
-            }
-            catch (NullReferenceException exp)
-            {
-            }
+            ResetTimer();
         }
 
         private void question1_Click(object sender, System.Windows.RoutedEventArgs e)
@@ -196,13 +177,7 @@ namespace P02Project.Screens.Game
             setContent(activeQuestion);
             addButtonColours(0);
 
-            try
-            {
-                (Window.GetWindow(this) as TopWindow).ResetTimer();
-            }
-            catch (NullReferenceException exp)
-            {
-            }
+            ResetTimer();
         }
 
         private void fifty_fifty_click(object sender, System.Windows.RoutedEventArgs e)
@@ -220,13 +195,7 @@ namespace P02Project.Screens.Game
                 
             }
 
-            try
-            {
-                (Window.GetWindow(this) as TopWindow).ResetTimer();
-            }
-            catch (NullReferenceException exp)
-            {
-            }
+            ResetTimer();
         }
 
         private void hint_click(object sender, System.Windows.RoutedEventArgs e)
@@ -241,13 +210,7 @@ namespace P02Project.Screens.Game
                 hint_button.Effect = null;
             }
 
-            try
-            {
-                (Window.GetWindow(this) as TopWindow).ResetTimer();
-            }
-            catch (NullReferenceException exp)
-            {
-            }
+            ResetTimer();
         }
 
         private void skip_click(object sender, System.Windows.RoutedEventArgs e)
@@ -262,14 +225,7 @@ namespace P02Project.Screens.Game
                 skip_button.Effect = null;
             }
 
-            try
-            {
-                (Window.GetWindow(this) as TopWindow).ResetTimer();
-            }
-            catch (NullReferenceException exp)
-            {
-            }
-            
+            ResetTimer();            
         }
 
         private void setContent(Question qn)
@@ -345,13 +301,7 @@ namespace P02Project.Screens.Game
             changeButtonState();
             setScore();
 
-            try
-            {
-                (Window.GetWindow(this) as TopWindow).ResetTimer();
-            }
-            catch (NullReferenceException exp)
-            {
-            }
+            ResetTimer();
         }
 
         private void option_B_Clicked(object sender, System.Windows.RoutedEventArgs e)
@@ -373,13 +323,7 @@ namespace P02Project.Screens.Game
             changeButtonState();
             setScore();
 
-            try
-            {
-                (Window.GetWindow(this) as TopWindow).ResetTimer();
-            }
-            catch (NullReferenceException exp)
-            {
-            }
+            ResetTimer();
         }
 
         private void option_C_Clicked(object sender, System.Windows.RoutedEventArgs e)
@@ -401,13 +345,7 @@ namespace P02Project.Screens.Game
             changeButtonState();
             setScore();
 
-            try
-            {
-                (Window.GetWindow(this) as TopWindow).ResetTimer();
-            }
-            catch (NullReferenceException exp)
-            {
-            }
+            ResetTimer();
         }
 
         private void option_D_Clicked(object sender, System.Windows.RoutedEventArgs e)
@@ -430,13 +368,7 @@ namespace P02Project.Screens.Game
             changeButtonState();
             setScore();
 
-            try
-            {
-                (Window.GetWindow(this) as TopWindow).ResetTimer();
-            }
-            catch (NullReferenceException exp)
-            {
-            }
+            ResetTimer();
         }
 
         private void changeButtonState()
@@ -462,16 +394,8 @@ namespace P02Project.Screens.Game
 
         private void close_Clicked(object sender, System.Windows.RoutedEventArgs e)
         {
+            ResetTimer();
             this.Close();
-        	// TODO: Add event handler implementation here.
-
-            try
-            {
-                (Window.GetWindow(this) as TopWindow).ResetTimer();
-            }
-            catch (NullReferenceException exp)
-            {
-            }
         }
 
         private void addButtonColours(int index)
