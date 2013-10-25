@@ -88,7 +88,6 @@ namespace P02Project.Utils
         {
             //Random r = new Random();
             List<int> usedIndexes = new List<int>();
-            //usedIndexes.Add(allAvailableOptions.IndexOf(answer));
             int rootindex = allAvailableOptions.IndexOf(answer);
             for (int i = 0; i < 2; i++)
             {

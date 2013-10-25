@@ -29,10 +29,6 @@ namespace P02Project.Screens
 
             splitContentScrollViewer.Margin = Util.contentMargin;
             splitContentScrollViewer.Background = new SolidColorBrush(Util.contentBgColor);
-            ////TODO: Set title and subtitle
-            //String path = System.IO.Path.Combine(System.IO.Path.GetFullPath("."), "Resources/" + filename);
-            //PageModel temp = XMLUtilities.GetContentFromFile(path);
-
             // initialize the list to store all the images in this page.
             PageModelImage[] imgList = temp.ImageList;
             int count = 0;

@@ -60,8 +60,6 @@ namespace P02Project
                 button.Width = 197;
                 button.Height = 137;
 
-                //button.Name = "but" + name.Replace(" ", "");
-
                 //Need ot set a 15 margin on the right to make the shadow visible
                 button.Margin = new Thickness(0, 0, 15, 15);
                 button.HorizontalAlignment = HorizontalAlignment.Left;

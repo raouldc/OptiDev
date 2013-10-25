@@ -42,7 +42,6 @@ namespace P02Project
         {
             InitializeComponent();
 
-            //SelectedImages.Clear();
             // Subscribe command bindings
             CommandBindings.Add(new CommandBinding(CaptureImageCommands.CaptureImage,
                 CaptureImage_Executed, CaptureImage_CanExecute));

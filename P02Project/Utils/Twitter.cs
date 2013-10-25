@@ -55,7 +55,6 @@ namespace P02Project
                 worker = new BackgroundWorker();
             }
 
-            //worker.DoWork += new DoWorkEventHandler(m_oWorker_DoWork);
             worker.ProgressChanged += m_oWorker_ProgressChanged;
             worker.RunWorkerCompleted += m_oWorker_RunWorkerCompleted;
             worker.WorkerReportsProgress = true;
@@ -254,19 +253,6 @@ namespace P02Project
             var dic = new Dictionary<string, Stream>();
             dic.Add(message, stream);
             options.Images = dic;
-
-            //Below can be used to provide cancel feature
-            /*          
-                worker.ReportProgress(i);
-             
-                if (worker.CancellationPending)
-                {
-                    e.Cancel = true;
-                    worker.ReportProgress(0);
-                    return;
-                }*/
-
-
             service.SendTweetWithMedia(options);
             //Report 100% completion on operation completed
             worker.ReportProgress(100);
