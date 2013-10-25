@@ -1,27 +1,36 @@
-﻿using System.Collections.Generic;
+﻿#region
+
+using System.Collections.Generic;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using P02Project.Screens;
 using P02Project.Utils;
 
+#endregion
+
 namespace P02Project
 {
     /// <summary>
-    /// Interaction logic for hcihHomeControl.xaml
+    ///     Interaction logic for hcihHomeControl.xaml
     /// </summary>
     public partial class hcihHomeControl : UserControl, Animatiable
     {
-        private TopLevelPage topLevelPage;
-        private List<Animatiable> components;
+        private readonly List<Animatiable> components;
+        private readonly TopLevelPage topLevelPage;
 
+        /// <summary>
+        ///     Home page for the How Can I Help Section
+        /// </summary>
+        /// <param name="tlpage">Access Object to the Home page</param>
         public hcihHomeControl(TopLevelPage tlpage)
         {
-            this.InitializeComponent();
+            InitializeComponent();
 
             topLevelPage = tlpage;
             Color colour = Util._pageColDict["How Can I Help?"];
 
+            //Set the images for all the poloroids
             donate.setImage("images\\HowCanIHelp\\donate.png");
             donate.setCaption("Donate");
             donate.setColour(colour);
@@ -54,6 +63,7 @@ namespace P02Project
             gift.setCaption("Make a Gift");
             gift.setColour(colour);
 
+            //This maintains a list of all the poloroids that need to be animated on screen change
             components = new List<Animatiable>();
             components.Add(donate);
             components.Add(beadsOfCourage);
@@ -65,10 +75,27 @@ namespace P02Project
             components.Add(gift);
         }
 
+        /// <summary>
+        ///     Animate all the poloroids
+        /// </summary>
+        public void AnimateIn()
+        {
+            foreach (Animatiable a in components)
+            {
+                a.AnimateIn();
+            }
+        }
+
+        /// <summary>
+        ///     Does nothing
+        /// </summary>
+        public void AnimateOut()
+        {
+        }
 
 
         /// <summary>
-        /// this method called when the "Donate" polaroid has been clicked
+        ///     this method called when the "Donate" polaroid has been clicked
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -79,9 +106,13 @@ namespace P02Project
             topLevelPage.setContent(don);
             topLevelPage.setSubtitle("Donate");
             (don as Animatiable).AnimateIn();
-
         }
 
+        /// <summary>
+        ///     Beads of Courage poloroid is clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void beadsOfCourage_MouseUp(object sender, MouseButtonEventArgs e)
         {
             hcihBeads hcih = new hcihBeads();
@@ -90,6 +121,11 @@ namespace P02Project
             (hcih as Animatiable).AnimateIn();
         }
 
+        /// <summary>
+        ///     Schools poloroid is Clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void schools_MouseUp(object sender, MouseButtonEventArgs e)
         {
             hcihSchoolsControl hcih = new hcihSchoolsControl();
@@ -98,6 +134,11 @@ namespace P02Project
             (hcih as Animatiable).AnimateIn();
         }
 
+        /// <summary>
+        ///     Volunteer poloroid is clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void volunteer_MouseUp(object sender, MouseButtonEventArgs e)
         {
             hcihVolunteerControl hcih = new hcihVolunteerControl();
@@ -106,18 +147,11 @@ namespace P02Project
             (hcih as Animatiable).AnimateIn();
         }
 
-        public void AnimateIn()
-        {
-            foreach (Animatiable a in components)
-            {
-                a.AnimateIn();
-            }
-        }
-
-        public void AnimateOut()
-        {
-        }
-
+        /// <summary>
+        ///     Campigns Poloroid is clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void campaigns_MouseUp(object sender, MouseButtonEventArgs e)
         {
             hcihCampControl hcih = new hcihCampControl();
@@ -126,6 +160,11 @@ namespace P02Project
             (hcih as Animatiable).AnimateIn();
         }
 
+        /// <summary>
+        ///     Online Shop Poloroid Is clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void shop_MouseUp(object sender, MouseButtonEventArgs e)
         {
             hcihShopControl hcih = new hcihShopControl();
@@ -134,6 +173,11 @@ namespace P02Project
             (hcih as Animatiable).AnimateIn();
         }
 
+        /// <summary>
+        ///     Fundraise poloroid is clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void fundraise_MouseUp(object sender, MouseButtonEventArgs e)
         {
             hcihFundraiseControl hcih = new hcihFundraiseControl();
@@ -142,6 +186,11 @@ namespace P02Project
             (hcih as Animatiable).AnimateIn();
         }
 
+        /// <summary>
+        ///     Make a Gift poloroid is clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void gift_MouseUp(object sender, MouseButtonEventArgs e)
         {
             hcihGiftControl hcih = new hcihGiftControl();

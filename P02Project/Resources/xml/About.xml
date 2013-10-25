@@ -10,11 +10,11 @@
 
 
   <ImageList>
-    <Image id="About Us" caption="About Us" link="toAboutUs">images/About/LittleBaby1.png</Image>
-    <Image id="Our Ambassadors" caption="Our Ambassadors">images/About/OurAmbassador.png</Image>
-    <Image id="Our Stories" caption="Our Stories">images/About/LittleBaby3.png</Image>
-    <Image id="How we Help" caption="How We Help">images/About/Sisters.png</Image>
-    <Image id="Our History" caption="Our History">images/About/LittleBaby2.png</Image>
+    <Image id="About Us" caption="About Us" link="toAboutUs">images/About/friends.png</Image>
+    <Image id="Our Ambassadors" caption="Our Ambassadors">images/About/megan.png</Image>
+    <Image id="Our Stories" caption="Our Stories">images/About/LittleBaby3poloroid.png</Image>
+    <Image id="How we Help" caption="How We Help">images/About/hana.png</Image>
+    <Image id="Our History" caption="Our History">images/About/petra.png</Image>
   </ImageList>
 
   <LinksList>

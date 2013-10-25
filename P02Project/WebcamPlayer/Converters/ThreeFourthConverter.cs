@@ -1,29 +1,21 @@
-﻿///////////////////////////////////////////////////////////////////////////////
-//
-// This class was copied from
-// Geert van Horrik's implementation in his blog.
-// http://blog.catenalogic.com/post/2009/01/08/WPF-Webcam-Control-part-2.aspx
-// 
-// All the api and methods related to Windows Image Aquisition (WIA) were
-// implemented by Tamir Khason and edited by Geert van Horrik
-// 
-// Those API are in WebcamPlayer folder
-//
-///////////////////////////////////////////////////////////////////////////////
+﻿#region
 
 using System;
-using System.Windows.Data;
 using System.Diagnostics;
+using System.Globalization;
+using System.Windows.Data;
+
+#endregion
 
 namespace P02Project.WebcamPlayer.Converters
 {
     /// <summary>
-    /// Converts a double to 3/4 of its value
+    ///     Converts a double to 3/4 of its value
     /// </summary>
-    [ValueConversion(typeof(double), typeof(double))]
+    [ValueConversion(typeof (double), typeof (double))]
     public class ThreeFourthConverter : IValueConverter
     {
-        public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             // Declare variables
             double width;
@@ -31,7 +23,7 @@ namespace P02Project.WebcamPlayer.Converters
             try
             {
                 // Get value
-                width = (double)value;
+                width = (double) value;
             }
             catch (Exception)
             {
@@ -43,10 +35,10 @@ namespace P02Project.WebcamPlayer.Converters
             }
 
             // Convert
-            return (width > 0) ? (width / 4) * 3 : 0;
+            return (width > 0) ? (width/4)*3 : 0;
         }
 
-        public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
             throw new NotImplementedException();
         }

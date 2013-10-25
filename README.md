@@ -1,9 +1,7 @@
 OptiDev
 ========
 ##Note: 
-Internet connectivity required.  
-Events and News Fetcher may take some time to load the first time you run the application.  
-We are working to solve these issues.
+All tweets posted to @nzokdat https://twitter.com/nzokdat
 
 ## User Guide
 
@@ -21,6 +19,9 @@ This project was created and tested using Microsoft Visual Studio 2010, other ve
 ### 3. Microsoft XNA Game Studio 4.0    
 
 ### 4. Microsoft Surface 2.0 SDK and Runtime    
+
+
+_Note: Internet Connectivity is required for fetching content from Twitter and the CCF website. A webcam is also required if the image upload functionality of the Twitter feature is to be used._    
 
 
 ## Setup

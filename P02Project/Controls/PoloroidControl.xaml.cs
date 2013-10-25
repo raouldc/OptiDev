@@ -1,34 +1,33 @@
-﻿using System.Windows.Media.Effects;
+﻿#region
+
 using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Media.Animation;
+using System.Windows.Media.Effects;
+using System.Windows.Media.Imaging;
 using P02Project.Utils;
+
+#endregion
 
 namespace P02Project
 {
-	/// <summary>
-	/// Interaction logic for PoloroidControl.xaml
-	/// </summary>
-	public partial class PoloroidControl : UserControl, Animatiable
-	{
+    /// <summary>
+    ///     Interaction logic for PoloroidControl.xaml
+    /// </summary>
+    public partial class PoloroidControl : UserControl, Animatiable
+    {
         protected DoubleAnimation dblAnimationIn = new DoubleAnimation();
         protected DoubleAnimation dblAnimationOut = new DoubleAnimation();
 
         protected Storyboard sbIn = new Storyboard();
         protected Storyboard sbOut = new Storyboard();
 
-        /// <summary>
-        /// Constructor
-        /// </summary>
-        /// <value><fElement>true</fElement> if this instance is unclickable; otherwise, <fElement>false</fElement>.</value>
-        public bool IsUnclickable { private get; set; }
-		public PoloroidControl()
-		{
-			this.InitializeComponent();
+        public PoloroidControl()
+        {
+            InitializeComponent();
 
 
             //Inward Animations
@@ -43,8 +42,8 @@ namespace P02Project
             Caption.FontFamily = Util.buttonTextFont;
             Caption.Foreground = new SolidColorBrush(Util.buttonTextColor);
 
-            Storyboard.SetTargetName(dblAnimationIn, this.Name);
-            Storyboard.SetTargetProperty(dblAnimationIn, new PropertyPath(UserControl.OpacityProperty));
+            Storyboard.SetTargetName(dblAnimationIn, Name);
+            Storyboard.SetTargetProperty(dblAnimationIn, new PropertyPath(OpacityProperty));
 
             //Outward Animations
             dblAnimationOut.From = 1.0;
@@ -53,19 +52,19 @@ namespace P02Project
 
             sbOut.Children.Add(dblAnimationOut);
 
-            Storyboard.SetTargetName(dblAnimationOut, this.Name);
-            Storyboard.SetTargetProperty(dblAnimationOut, new PropertyPath(UserControl.OpacityProperty));
-		}
+            Storyboard.SetTargetName(dblAnimationOut, Name);
+            Storyboard.SetTargetProperty(dblAnimationOut, new PropertyPath(OpacityProperty));
+        }
 
         /// <summary>
-        /// Constructor
+        ///     Constructor
         /// </summary>
         /// <param name="resName">The name of the image in the resources folder</param>
         /// <param name="caption">The caption to go on the polaroid</param>
         /// <param name="colour">The colour of the backgroud of the text</param>
         public PoloroidControl(String resName, String caption, Color colour)
         {
-            this.InitializeComponent();
+            InitializeComponent();
             // set image, text and the color of the polaroid
             setImage(resName);
             setCaption(caption);
@@ -76,9 +75,41 @@ namespace P02Project
             Caption.Foreground = new SolidColorBrush(Util.buttonTextColor);
         }
 
+        /// <summary>
+        ///     Constructor
+        /// </summary>
+        /// <value><fElement>true</fElement> if this instance is unclickable; otherwise, <fElement>false</fElement>.</value>
+        public bool IsUnclickable { private get; set; }
 
         /// <summary>
-        /// setter method for the polaroid image
+        ///     getter method for the polaroid text
+        /// </summary>
+        public String text
+        {
+            get { return Caption.Text; }
+        }
+
+        /// <summary>
+        ///     getter method for the polaroid color
+        /// </summary>
+        public Color colour
+        {
+            get { return (Caption.Background as SolidColorBrush).Color; }
+        }
+
+        public void AnimateIn()
+        {
+            sbIn.Begin(this);
+        }
+
+        public void AnimateOut()
+        {
+            sbOut.Begin(this);
+        }
+
+
+        /// <summary>
+        ///     setter method for the polaroid image
         /// </summary>
         /// <param name="resName"></param>
         public void setImage(String resName)
@@ -92,9 +123,8 @@ namespace P02Project
         }
 
 
-
         /// <summary>
-        /// setter method for the polaroid text
+        ///     setter method for the polaroid text
         /// </summary>
         /// <param name="caption"></param>
         public void setCaption(String caption)
@@ -103,22 +133,8 @@ namespace P02Project
         }
 
 
-
         /// <summary>
-        /// getter method for the polaroid text
-        /// </summary>
-        public String text
-        {
-            get
-            {
-                return Caption.Text;
-            }
-        }
-
-
-
-        /// <summary>
-        /// setter method for the polaroid color
+        ///     setter method for the polaroid color
         /// </summary>
         /// <param name="colour"></param>
         public void setColour(Color colour)
@@ -127,22 +143,8 @@ namespace P02Project
         }
 
 
-
         /// <summary>
-        /// getter method for the polaroid color
-        /// </summary>
-        public Color colour
-        {
-            get
-            {
-                return (Caption.Background as SolidColorBrush).Color;
-            }
-        }
-
-
-
-        /// <summary>
-        /// make the animation when touched
+        ///     make the animation when touched
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -152,9 +154,8 @@ namespace P02Project
         }
 
 
-
         /// <summary>
-        /// make the animation when mouse pressed
+        ///     make the animation when mouse pressed
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -164,38 +165,33 @@ namespace P02Project
         }
 
 
-
         /// <summary>
-        /// a helper method for animate the shadow when the polaroid is clicked or touched
+        ///     a helper method for animate the shadow when the polaroid is clicked or touched
         /// </summary>
         private void hideShadow()
         {
             if (!IsUnclickable)
             {
-                ((DropShadowEffect)Canvas.Effect).Opacity = 0;
+                ((DropShadowEffect) Canvas.Effect).Opacity = 0;
             }
         }
 
 
-
-
         /// <summary>
-        /// a helper method for animate the shadow when the polaroid is clicked or touched
+        ///     a helper method for animate the shadow when the polaroid is clicked or touched
         /// </summary>
         private void showShadow()
         {
             if (!IsUnclickable)
             {
                 ((
-                DropShadowEffect)Canvas.Effect).Opacity = 1;
+                    DropShadowEffect) Canvas.Effect).Opacity = 1;
             }
-
         }
 
 
-
         /// <summary>
-        /// make the animation when lift up the mouse
+        ///     make the animation when lift up the mouse
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -203,18 +199,23 @@ namespace P02Project
         {
             showShadow();
 
+            ResetTimer();
+        }
+
+        private void ResetTimer()
+        {
             try
             {
                 (Window.GetWindow(this) as TopWindow).ResetTimer();
             }
-            catch (NullReferenceException exp)
+            catch (NullReferenceException)
             {
             }
         }
 
 
         /// <summary>
-        /// make the animation when stop touching
+        ///     make the animation when stop touching
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -222,46 +223,33 @@ namespace P02Project
         {
             showShadow();
 
-            try
-            {
-                (Window.GetWindow(this) as TopWindow).ResetTimer();
-            }
-            catch (NullReferenceException exp)
-            {
-            }
+            ResetTimer();
         }
 
-        public void setGlow() {
+        public void setGlow()
+        {
             removeTouch();
 
-            setShadow(10,0.7,(Color)ColorConverter.ConvertFromString("#fff2df11"));
+            setShadow(10, 0.7, (Color) ColorConverter.ConvertFromString("#fff2df11"));
         }
 
-        public void removeGlow() {
+        public void removeGlow()
+        {
             removeTouch();
-            
-            setShadow(10,0.365,(Color)ColorConverter.ConvertFromString("#ff000000"));
-        }
-        
-        public void AnimateIn()
-        {
-            sbIn.Begin(this);
-        }
 
-        public void AnimateOut()
-        {
-            sbOut.Begin(this);
+            setShadow(10, 0.365, (Color) ColorConverter.ConvertFromString("#ff000000"));
         }
 
         public void removeTouch()
         {
-            this.RemoveHandler(UIElement.TouchUpEvent, new EventHandler<TouchEventArgs>(Poloroid_TouchUp));
-            this.RemoveHandler(UIElement.MouseUpEvent, new MouseButtonEventHandler(Poloroid_MouseUp));
-            this.RemoveHandler(UIElement.TouchDownEvent, new EventHandler<TouchEventArgs>(Poloroid_TouchDown));
-            this.RemoveHandler(UIElement.MouseDownEvent, new MouseButtonEventHandler(Poloroid_MouseDown));
+            RemoveHandler(TouchUpEvent, new EventHandler<TouchEventArgs>(Poloroid_TouchUp));
+            RemoveHandler(MouseUpEvent, new MouseButtonEventHandler(Poloroid_MouseUp));
+            RemoveHandler(TouchDownEvent, new EventHandler<TouchEventArgs>(Poloroid_TouchDown));
+            RemoveHandler(MouseDownEvent, new MouseButtonEventHandler(Poloroid_MouseDown));
         }
 
-        public void setShadow(double blur, double opacity, Color col) {
+        public void setShadow(double blur, double opacity, Color col)
+        {
             DropShadowEffect dShdow = new DropShadowEffect();
             dShdow.BlurRadius = blur;
             dShdow.Opacity = opacity;
@@ -269,9 +257,9 @@ namespace P02Project
             Canvas.Effect = dShdow;
         }
 
-        public void removeBorder() {
+        public void removeBorder()
+        {
             Canvas.Stroke = null;
         }
     }
-
 }

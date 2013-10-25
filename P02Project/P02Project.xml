@@ -1,10 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
+
 <!--
 This file contains the information needed to install your application
 with the Surface Shell. Please refer to the documentation for deployment
 instructions.
 -->
-<ss:ApplicationInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ss="http://schemas.microsoft.com/Surface/2007/ApplicationMetadata">
+<ss:ApplicationInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                    xmlns:ss="http://schemas.microsoft.com/Surface/2007/ApplicationMetadata">
   <Application>
     <Title>P02Project</Title>
     <Description>P02Project</Description>

@@ -3,12 +3,9 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:s="http://schemas.microsoft.com/surface/2008" x:Class="P02Project.TopWindow"
     Title="P02Project"
-    SizeToContent="Manual"             
+    SizeToContent="Manual"
     Topmost="True"
-    Background="White" 
-    WindowState="Normal" 
-    WindowStyle="None"></s:SurfaceWindow>
-    
-    
-    
-    
+    Background="White"
+    WindowState="Normal"
+    WindowStyle="None">
+</s:SurfaceWindow>

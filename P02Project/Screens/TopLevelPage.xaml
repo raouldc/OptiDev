@@ -1,51 +1,52 @@
 ﻿<view:Screen x:Class="P02Project.Screens.TopLevelPage"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:s="http://schemas.microsoft.com/surface/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-	         mc:Ignorable="d"
+             mc:Ignorable="d"
              xmlns:view="clr-namespace:P02Project"
              d:DesignHeight="1080" d:DesignWidth="1920">
-    
+
     <Grid x:Name="LayoutRoot" OpacityMask="White">
-        
+
         <!-- set the background -->
-    	<Grid.Background>
-    		<ImageBrush TileMode="FlipX"/>
-    	</Grid.Background>
-        
-    	<Viewbox Margin="0">
-    		<Grid x:Name="pageGrid" Margin="0,0,0,0" Width="1920" Height="1080" OpacityMask="White" d:LayoutOverrides="Width, Height">
+        <Grid.Background>
+            <ImageBrush TileMode="FlipX" />
+        </Grid.Background>
+
+        <Viewbox Margin="0">
+            <Grid x:Name="pageGrid" Margin="0,0,0,0" Width="1920" Height="1080" OpacityMask="White"
+                  d:LayoutOverrides="Width, Height">
 
                 <!-- set the bead background-->
                 <Grid.Background>
-    				<ImageBrush ImageSource="/P02Project;component/Resources/images/beadBackground.png"/>
-    			</Grid.Background>
-                
-    			<Grid.RowDefinitions>
-    				<RowDefinition x:Name="_gridRow0" Height="180"/>
-    				<RowDefinition x:Name="_gridRow1"/>
-    				<RowDefinition x:Name="_gridRow2"/>
-    				<RowDefinition x:Name="_gridRow3"/>
-    				<RowDefinition x:Name="_gridRow4"/>
-    				<RowDefinition x:Name="_gridRow5"/>
-    			</Grid.RowDefinitions>
+                    <ImageBrush ImageSource="/P02Project;component/Resources/images/beadBackground.png" />
+                </Grid.Background>
 
-    			<Grid.ColumnDefinitions>
-    				<ColumnDefinition x:Name="_gridCol0" />
-    				<ColumnDefinition x:Name="_gridCol1"  Width="50" />
-    				<ColumnDefinition x:Name="_gridCol2" Width="240" />
-    			</Grid.ColumnDefinitions>
-                
+                <Grid.RowDefinitions>
+                    <RowDefinition x:Name="_gridRow0" Height="180" />
+                    <RowDefinition x:Name="_gridRow1" />
+                    <RowDefinition x:Name="_gridRow2" />
+                    <RowDefinition x:Name="_gridRow3" />
+                    <RowDefinition x:Name="_gridRow4" />
+                    <RowDefinition x:Name="_gridRow5" />
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition x:Name="_gridCol0" />
+                    <ColumnDefinition x:Name="_gridCol1" Width="50" />
+                    <ColumnDefinition x:Name="_gridCol2" Width="240" />
+                </Grid.ColumnDefinitions>
+
                 <!-- set the title bar-->
-    			<view:TitleBarControl x:Name="TitleBar"/>
-                
+                <view:TitleBarControl x:Name="TitleBar" />
+
                 <!-- set the right butons-->
-    			<view:RightButtonControl x:Name="RightButtons" Grid.Column="2" Margin="10" Grid.RowSpan="6"/>
-    			<Grid x:Name="PageContent" Margin="0" Grid.Row="1" Grid.RowSpan="5"/>
-        	
-    		</Grid>
-    	</Viewbox>
+                <view:RightButtonControl x:Name="RightButtons" Grid.Column="2" Margin="10" Grid.RowSpan="6" />
+                <Grid x:Name="PageContent" Margin="0" Grid.Row="1" Grid.RowSpan="5" />
+
+            </Grid>
+        </Viewbox>
     </Grid>
 </view:Screen>

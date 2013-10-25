@@ -1,26 +1,14 @@
-﻿///////////////////////////////////////////////////////////////////////////////
-// CapInterfaces v1.1
-//
-// This software is released into the public domain.  You are free to use it
-// in any way you like, except that you may not sell this source code.
-//
-// This software is provided "as is" with no expressed or implied warranty.
-// I accept no liability for any damage or loss of business that this software
-// may cause.
-// 
-// This source code is originally written by Tamir Khason (see http://blogs.microsoft.co.il/blogs/tamir
-// or http://www.codeplex.com/wpfcap).
-// 
-// Modifications are made by Geert van Horrik (CatenaLogic, see http://blog.catenalogic.com) 
-//
-///////////////////////////////////////////////////////////////////////////////
+﻿#region
 
 using System;
 using System.Runtime.InteropServices;
 using System.Runtime.InteropServices.ComTypes;
 
+#endregion
+
 namespace CatenaLogic.Windows.Presentation.WebcamPlayer
 {
+    # region interfaces
     [ComImport, Guid("56A868A9-0AD4-11CE-B03A-0020AF0BA770"), InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
     internal interface IGraphBuilder
     {
@@ -37,7 +25,8 @@ namespace CatenaLogic.Windows.Presentation.WebcamPlayer
         int FindFilterByName([In, MarshalAs(UnmanagedType.LPWStr)] string name, [Out] out IBaseFilter filter);
 
         [PreserveSig]
-        int ConnectDirect([In] IPin pinOut, [In] IPin pinIn, [In, MarshalAs(UnmanagedType.LPStruct)] AMMediaType mediaType);
+        int ConnectDirect([In] IPin pinOut, [In] IPin pinIn,
+            [In, MarshalAs(UnmanagedType.LPStruct)] AMMediaType mediaType);
 
         [PreserveSig]
         int Reconnect([In] IPin pin);
@@ -169,8 +158,8 @@ namespace CatenaLogic.Windows.Presentation.WebcamPlayer
     {
         [PreserveSig]
         int Next([In] int cPins,
-           [Out, MarshalAs(UnmanagedType.LPArray, SizeParamIndex = 0)] IPin[] pins,
-           [Out] out int pinsFetched);
+            [Out, MarshalAs(UnmanagedType.LPArray, SizeParamIndex = 0)] IPin[] pins,
+            [Out] out int pinsFetched);
 
         [PreserveSig]
         int Skip([In] int cPins);
@@ -182,7 +171,7 @@ namespace CatenaLogic.Windows.Presentation.WebcamPlayer
         int Clone([Out] out IEnumPins enumPins);
     }
 
-    [ComImport,Guid("56A8689F-0AD4-11CE-B03A-0020AF0BA770"),InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
+    [ComImport, Guid("56A8689F-0AD4-11CE-B03A-0020AF0BA770"), InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
     internal interface IFilterGraph
     {
         [PreserveSig]
@@ -198,7 +187,8 @@ namespace CatenaLogic.Windows.Presentation.WebcamPlayer
         int FindFilterByName([In, MarshalAs(UnmanagedType.LPWStr)] string name, [Out] out IBaseFilter filter);
 
         [PreserveSig]
-        int ConnectDirect([In] IPin pinOut, [In] IPin pinIn, [In, MarshalAs(UnmanagedType.LPStruct)] AMMediaType mediaType);
+        int ConnectDirect([In] IPin pinOut, [In] IPin pinIn,
+            [In, MarshalAs(UnmanagedType.LPStruct)] AMMediaType mediaType);
 
         [PreserveSig]
         int Reconnect([In] IPin pin);
@@ -210,7 +200,7 @@ namespace CatenaLogic.Windows.Presentation.WebcamPlayer
         int SetDefaultSyncSource();
     }
 
-    [ComImport,Guid("55272A00-42CB-11CE-8135-00AA004BB851"),InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
+    [ComImport, Guid("55272A00-42CB-11CE-8135-00AA004BB851"), InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
     internal interface IPropertyBag
     {
         [PreserveSig]
@@ -219,13 +209,13 @@ namespace CatenaLogic.Windows.Presentation.WebcamPlayer
             [In, Out, MarshalAs(UnmanagedType.Struct)] ref object pVar,
             [In] IntPtr pErrorLog);
 
-         [PreserveSig]
+        [PreserveSig]
         int Write(
             [In, MarshalAs(UnmanagedType.LPWStr)] string propertyName,
             [In, MarshalAs(UnmanagedType.Struct)] ref object pVar);
     }
 
-    [ComImport,Guid("6B652FFF-11FE-4FCE-92AD-0266B5D7C78F"),InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
+    [ComImport, Guid("6B652FFF-11FE-4FCE-92AD-0266B5D7C78F"), InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
     internal interface ISampleGrabber
     {
         [PreserveSig]
@@ -250,7 +240,7 @@ namespace CatenaLogic.Windows.Presentation.WebcamPlayer
         int SetCallback(ISampleGrabberCB callback, int whichMethodToCallback);
     }
 
-    [ComImport, Guid("0579154A-2B53-4994-B0D0-E773148EFF85"),InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
+    [ComImport, Guid("0579154A-2B53-4994-B0D0-E773148EFF85"), InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
     internal interface ISampleGrabberCB
     {
         [PreserveSig]
@@ -267,7 +257,7 @@ namespace CatenaLogic.Windows.Presentation.WebcamPlayer
         int CreateClassEnumerator([In] ref Guid type, [Out] out IEnumMoniker enumMoniker, [In] int flags);
     }
 
-    [ComImport,Guid("56A868B4-0AD4-11CE-B03A-0020AF0BA770"),InterfaceType(ComInterfaceType.InterfaceIsDual)]
+    [ComImport, Guid("56A868B4-0AD4-11CE-B03A-0020AF0BA770"), InterfaceType(ComInterfaceType.InterfaceIsDual)]
     internal interface IVideoWindow
     {
         [PreserveSig]
@@ -276,7 +266,7 @@ namespace CatenaLogic.Windows.Presentation.WebcamPlayer
         [PreserveSig]
         int get_Caption([Out] out string caption);
 
-         [PreserveSig]
+        [PreserveSig]
         int put_WindowStyle(int windowStyle);
 
         [PreserveSig]
@@ -421,4 +411,5 @@ namespace CatenaLogic.Windows.Presentation.WebcamPlayer
         [PreserveSig]
         int StopWhenReady();
     }
+    # endregion
 }

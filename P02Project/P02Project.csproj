@@ -390,6 +390,39 @@
     <Resource Include="Resources\images\beads\purple heart.png" />
     <Resource Include="Resources\images\beads\star.png" />
     <Resource Include="Resources\images\beads\yellow.png" />
+    <Resource Include="Resources\images\About\Stories\Dequarn11.png" />
+    <Resource Include="Resources\images\About\Stories\Joyce11.png" />
+    <Resource Include="Resources\images\About\Stories\Emma11.png" />
+    <Resource Include="Resources\images\About\Stories\Hana11.png" />
+    <Resource Include="Resources\images\About\Stories\Kavahn11.png" />
+    <Resource Include="Resources\images\About\Stories\Manu11.png" />
+    <Resource Include="Resources\images\About\Ambassadors\Amanda1.png" />
+    <Resource Include="Resources\images\About\Ambassadors\Bernadine1.png" />
+    <Resource Include="Resources\images\About\Ambassadors\Chris1.png" />
+    <Resource Include="Resources\images\About\Ambassadors\HamishEric1.png" />
+    <Resource Include="Resources\images\About\Ambassadors\Jerome1.png" />
+    <Resource Include="Resources\images\About\Ambassadors\Kieran1.png" />
+    <Resource Include="Resources\images\About\Ambassadors\Lorraine1.png" />
+    <Resource Include="Resources\images\About\Ambassadors\Megan1.png" />
+    <Resource Include="Resources\images\About\Ambassadors\Steve1.png" />
+    <Resource Include="Resources\images\About\hana.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\images\About\friends.png" />
+    <Resource Include="Resources\images\About\petra.png" />
+    <Resource Include="Resources\images\About\megan.png" />
+    <Resource Include="Resources\images\About\LittleBaby3poloroid.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\images\About\hana2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\images\About\petra2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\images\logoCCF.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
     <Content Include="Utils\xml\BeadsOfCourageSchema\beads.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>
@@ -407,11 +440,7 @@
     <Resource Include="Resources\images\About\Ambassadors\Lorraine.png" />
     <Resource Include="Resources\images\About\Ambassadors\Megan.png" />
     <Resource Include="Resources\images\About\Ambassadors\Steve.png" />
-    <Resource Include="Resources\images\About\LittleBaby1.png" />
-    <Resource Include="Resources\images\About\LittleBaby2.png" />
     <Resource Include="Resources\images\About\LittleBaby3.png" />
-    <Resource Include="Resources\images\About\OurAmbassador.png" />
-    <Resource Include="Resources\images\About\Sisters.png" />
     <Resource Include="Resources\images\About\Stories\Dequarn.png" />
     <Resource Include="Resources\images\About\Stories\Dequarn2.png" />
     <Resource Include="Resources\images\About\Stories\Emma.png" />
@@ -525,6 +554,7 @@
     </Content>
     <Content Include="Resources\xml\Questions.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="Resources\xml\TemplateDoc.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -532,7 +562,6 @@
     <Resource Include="Resources\images\HowCanIHelp\qrcode_Donate.png" />
     <Resource Include="Resources\images\beadBackground.png" />
     <Resource Include="Resources\images\HowCanIHelp\donate.png" />
-    <Resource Include="Resources\images\logoCCF.png" />
     <Resource Include="Resources\images\Home\abt.png" />
     <Resource Include="Resources\images\Home\beads.png" />
     <Resource Include="Resources\images\Home\contact.png" />
@@ -552,7 +581,6 @@
     <Folder Include="Fonts\" />
     <Folder Include="Resources\images\Events\" />
     <Folder Include="Resources\images\News\" />
-    <Folder Include="Screens\About\" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">

@@ -9,7 +9,7 @@
 
     <Text id="Question">A White "Bead of Courage" is awarded to a child after what procedure?</Text>
     <Text id="Answer">Chemotherapy</Text>
-    <Text id="Option">Placement of a Central Line</Text>
+    <Text id="Option">Placement of Central Line</Text>
     <Text id="Option">Emergency Department</Text>
     <Text id="Option">TPN</Text>
     <Text id="Hint">Form Of Cancer Treatment</Text>
@@ -24,16 +24,16 @@
     <Text id="Option">Dark Green</Text>
     <Text id="Option">Square Heart</Text>
     <Text id="Option">Blue</Text>
-    <Text id="Hint">Lemon and ...</Text>
+    <Text id="Hint">Green Citrus fruit</Text>
     <Text id="Question">What does recieving a black "Bead of Courage" represent?</Text>
     <Text id="Answer">Blood Draws</Text>
-    <Text id="Option">Overnight Stay in Hospital</Text>
+    <Text id="Option">Overnight Stay</Text>
     <Text id="Option">Hair Thinning</Text>
     <Text id="Option">Clinic Visit</Text>
     <Text id="Hint">The act of removing a fluid from the body for testing purposes</Text>
     <Text id="Question">What does recieving a Red "Bead of Courage" represent?</Text>
     <Text id="Answer">Blood Transfusions</Text>
-    <Text id="Option">Overnight Stay in Hospital</Text>
+    <Text id="Option">Overnight Stay</Text>
     <Text id="Option">Completion of Treatment</Text>
     <Text id="Option">Medication Challenges</Text>
     <Text id="Hint">Bodily fluid associated with red</Text>
@@ -65,7 +65,7 @@
 
 
   <ImageList>
-    <Image id="Top">images/About/Sisters.png</Image>
+    <Image id="Top">images/About/friends.png</Image>
   </ImageList>
 
   <LinksList>

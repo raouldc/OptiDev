@@ -1,25 +1,13 @@
-﻿///////////////////////////////////////////////////////////////////////////////
-// CapStructures v1.1
-//
-// This software is released into the public domain.  You are free to use it
-// in any way you like, except that you may not sell this source code.
-//
-// This software is provided "as is" with no expressed or implied warranty.
-// I accept no liability for any damage or loss of business that this software
-// may cause.
-// 
-// This source code is originally written by Tamir Khason (see http://blogs.microsoft.co.il/blogs/tamir
-// or http://www.codeplex.com/wpfcap).
-// 
-// Modifications are made by Geert van Horrik (CatenaLogic, see http://blog.catenalogic.com) 
-//
-///////////////////////////////////////////////////////////////////////////////
+﻿#region
 
 using System;
 using System.Runtime.InteropServices;
 
+#endregion
+
 namespace CatenaLogic.Windows.Presentation.WebcamPlayer
 {
+    # region structandenum
     [ComVisible(false)]
     internal enum PinDirection
     {
@@ -34,11 +22,9 @@ namespace CatenaLogic.Windows.Presentation.WebcamPlayer
 
         public Guid SubType;
 
-        [MarshalAs(UnmanagedType.Bool)]
-        public bool FixedSizeSamples = true;
+        [MarshalAs(UnmanagedType.Bool)] public bool FixedSizeSamples = true;
 
-        [MarshalAs(UnmanagedType.Bool)]
-        public bool TemporalCompression;
+        [MarshalAs(UnmanagedType.Bool)] public bool TemporalCompression;
 
         public int SampleSize = 1;
 
@@ -78,8 +64,7 @@ namespace CatenaLogic.Windows.Presentation.WebcamPlayer
 
         public PinDirection Direction;
 
-        [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 128)]
-        public string Name;
+        [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 128)] public string Name;
     }
 
     [ComVisible(false), StructLayout(LayoutKind.Sequential)]
@@ -97,7 +82,7 @@ namespace CatenaLogic.Windows.Presentation.WebcamPlayer
 
         public BitmapInfoHeader BmiHeader;
     }
-    
+
     [ComVisible(false), StructLayout(LayoutKind.Sequential, Pack = 2)]
     internal struct BitmapInfoHeader
     {
@@ -135,4 +120,5 @@ namespace CatenaLogic.Windows.Presentation.WebcamPlayer
 
         public int Bottom;
     }
+    # endregion
 }

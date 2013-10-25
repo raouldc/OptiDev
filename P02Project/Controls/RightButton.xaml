@@ -1,19 +1,24 @@
 ﻿<UserControl
-	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-	mc:Ignorable="d"
-	x:Class="P02Project.RightButton"
-	x:Name="UserControl"
-	d:DesignWidth="219" d:DesignHeight="130.5" BorderThickness="0" Margin="0">
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    x:Class="P02Project.RightButton"
+    x:Name="UserControl"
+    d:DesignWidth="219" d:DesignHeight="130.5" BorderThickness="0" Margin="0">
 
-	<Grid x:Name="LayoutRoot">
-		<Rectangle x:Name="Canvas" Fill="#FF4D58FF" MouseDown="Background_MouseDown" MouseUp="Background_MouseUp" RadiusX="1" RadiusY="1">
-			<Rectangle.Effect>
-				<DropShadowEffect BlurRadius="10" Opacity="0.365"/>
-			</Rectangle.Effect>
-		</Rectangle>
-		<TextBlock x:Name="Text" Margin="10" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Andy" Background="#00000000" FontSize="29.333" Foreground="White"><Run Language="en-nz" Text="Button Text"/></TextBlock>
-	</Grid>
+    <Grid x:Name="LayoutRoot">
+        <Rectangle x:Name="Canvas" Fill="#FF4D58FF" MouseDown="Background_MouseDown" MouseUp="Background_MouseUp"
+                   RadiusX="1" RadiusY="1">
+            <Rectangle.Effect>
+                <DropShadowEffect BlurRadius="10" Opacity="0.365" />
+            </Rectangle.Effect>
+        </Rectangle>
+        <TextBlock x:Name="Text" Margin="10" TextWrapping="Wrap" HorizontalAlignment="Center"
+                   VerticalAlignment="Center" FontFamily="Andy" Background="#00000000" FontSize="29.333"
+                   Foreground="White">
+            <Run Language="en-nz" Text="Button Text" />
+        </TextBlock>
+    </Grid>
 </UserControl>

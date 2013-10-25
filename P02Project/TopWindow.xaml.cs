@@ -1,45 +1,33 @@
+# region
 using System;
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using System.Windows.Threading;
 using Microsoft.Surface;
 using Microsoft.Surface.Presentation.Controls;
 using P02Project.Screens;
 using P02Project.Utils;
-using System.Windows.Threading;
+# endregion
 
 
 namespace P02Project
 {
     /// <summary>
-    /// Interaction logic for TopWindow.xaml
+    ///     Interaction logic for TopWindow.xaml
     /// </summary>
     public partial class TopWindow : SurfaceWindow
     {
+        # region variables
         //Timer for inactivity
-        private DispatcherTimer inavtiveTimer;
+        private readonly DispatcherTimer inavtiveTimer;
+        private readonly Stack<Screen> stackOfScreens;
+        # endregion
 
-        // screen resolution WIDTH * HEIGHT is a ratio of 16:09
-        public static readonly int WIDTH = 1280;
-        public static readonly int HEIGHT = 720;
-
-        // H_CCF_TITLE: is kept for CCF logo and view title.
-        public static readonly int H_CCF_TITLE = HEIGHT / 6;
-
-        // right hand side column kept for the tiles link to different pages (it is shown in all views except home view).
-        // W_LINK_TITLE : width of each tile
-        // H_LINK_TITLE : height of each tile
-        public static readonly int W_LINK_TILE = WIDTH * 3 / 16;
-        public static readonly int H_LINK_TILE = HEIGHT / 6;
-
-        // dictionary stores all the ScatterViewItem with its embedded Image and SurfaceButton represent the 7 main tiles
-        // about, news, events, contactUs, HowCanIHelp, FamilySupport, PlayBeads
-        //private Dictionary<String, SVIWithImgBtn> _dictOfAllHomeTiles;
-        private Stack<Screen> stackOfScreens;
-
+        # region constructor
         /// <summary>
-        /// Default constructor.
+        ///     Default constructor.
         /// </summary>
         public TopWindow()
         {
@@ -47,24 +35,26 @@ namespace P02Project
 
             inavtiveTimer = new DispatcherTimer();
             inavtiveTimer.Interval = TimeSpan.FromSeconds(120);
-            inavtiveTimer.Tick += new EventHandler(inavtiveTimer_Tick);
+            inavtiveTimer.Tick += inavtiveTimer_Tick;
 
             stackOfScreens = new Stack<Screen>();
             //Setting starting Screen here, maybe should be in one of the other OnXXX methods of this class
             pushScreen(new HomePage(this));
 
-            this.WindowStyle = System.Windows.WindowStyle.None;
-            this.WindowState = System.Windows.WindowState.Maximized;
+            WindowStyle = WindowStyle.None;
+            WindowState = WindowState.Maximized;
         }
+        # endregion
 
-        void inavtiveTimer_Tick(object sender, EventArgs e)
+        # region methods
+        private void inavtiveTimer_Tick(object sender, EventArgs e)
         {
             popAll();
             pushScreen(new HomePage(this));
         }
 
         /// <summary>
-        /// Occurs when the window is about to close. 
+        ///     Occurs when the window is about to close.
         /// </summary>
         /// <param name="e"></param>
         protected override void OnClosed(EventArgs e)
@@ -76,7 +66,7 @@ namespace P02Project
         }
 
         /// <summary>
-        /// Adds handlers for window availability events.
+        ///     Adds handlers for window availability events.
         /// </summary>
         private void AddWindowAvailabilityHandlers()
         {
@@ -87,7 +77,7 @@ namespace P02Project
         }
 
         /// <summary>
-        /// Removes handlers for window availability events.
+        ///     Removes handlers for window availability events.
         /// </summary>
         private void RemoveWindowAvailabilityHandlers()
         {
@@ -98,7 +88,7 @@ namespace P02Project
         }
 
         /// <summary>
-        /// This is called when the user can interact with the application's window.
+        ///     This is called when the user can interact with the application's window.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -108,7 +98,7 @@ namespace P02Project
         }
 
         /// <summary>
-        /// This is called when the user can see but not interact with the application's window.
+        ///     This is called when the user can see but not interact with the application's window.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -120,7 +110,7 @@ namespace P02Project
         }
 
         /// <summary>
-        /// This is called when the application's window is not visible or interactive.
+        ///     This is called when the application's window is not visible or interactive.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -129,44 +119,51 @@ namespace P02Project
             //TODO: disable audio, animations here
         }
 
+        /// <summary>
+        /// pop a screen
+        /// </summary>
         public void popScreen()
         {
-        
             if (stackOfScreens.Count > 1)
             {
                 stackOfScreens.Pop();
-                this.Content = stackOfScreens.Peek();
-                //this.WindowState = WindowState.Maximized;
-                //this.WindowStyle = WindowStyle.None;
+                Content = stackOfScreens.Peek();
 
-                (this.Content as Animatiable).AnimateIn();
+                (Content as Animatiable).AnimateIn();
             }
 
             ResetTimer();
         }
+
+        /// <summary>
+        /// push the given screen into the stack
+        /// </summary>
+        /// <param name="screen"></param>
         public void pushScreen(Screen screen)
         {
             stackOfScreens.Push(screen);
-            this.Content = stackOfScreens.Peek();
-            //this.WindowState = WindowState.Maximized;
-            //this.WindowStyle = WindowStyle.None
+            Content = stackOfScreens.Peek();
             ResetTimer();
         }
 
+        /// <summary>
+        /// pop all the screen on the stack => show the Home Screen
+        /// </summary>
         public void popAll()
         {
-           
             while (stackOfScreens.Count > 1)
             {
                 stackOfScreens.Pop();
             }
-            this.Content = stackOfScreens.Peek();
-            //this.WindowState = WindowState.Maximized;
-            //this.WindowStyle = WindowStyle.None;
+            Content = stackOfScreens.Peek();
             ResetTimer();
         }
 
-        public void pushScreenOnStack(TopLevelPage nextScreen, String[] buttons, Color colour, UserControl content, String Subtitle)
+        /// <summary>
+        /// push the given screen into the screen stack
+        /// </summary>
+        public void pushScreenOnStack(TopLevelPage nextScreen, String[] buttons, Color colour, UserControl content,
+            String Subtitle)
         {
             nextScreen.setButtons(buttons);
             nextScreen.setTitleColour(colour);
@@ -179,27 +176,36 @@ namespace P02Project
             {
                 (content as Animatiable).AnimateIn();
             }
-            catch (NullReferenceException exp)
+            catch (NullReferenceException)
             {
                 //Do nothing with this
             }
         }
 
+        /// <summary>
+        /// Helper method to reset the timer
+        /// </summary>
         public void ResetTimer()
         {
             inavtiveTimer.Stop();
             inavtiveTimer.Start();
         }
 
+        /// <summary>
+        /// Helper method to stop the timer
+        /// </summary>
         public void StopTimer()
         {
             inavtiveTimer.Stop();
         }
 
+        /// <summary>
+        /// Helper method to start the timer
+        /// </summary>
         public void StartTimer()
         {
             inavtiveTimer.Start();
         }
-    
+        # endregion
     }
 }

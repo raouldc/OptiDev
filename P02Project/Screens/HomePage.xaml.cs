@@ -1,40 +1,60 @@
-﻿using System;
+﻿#region
+
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
+using System.Windows.Threading;
 using P02Project.Resources.xml;
 using P02Project.Screens;
 using P02Project.Screens.BeadsOfCourage;
 using P02Project.Utils;
-using System.Windows.Threading;
-using P02Project.Screens.Game;
+
+#endregion
 
 namespace P02Project
 {
     /// <summary>
-    /// Interaction logic for HomePage.xaml
+    ///     Interaction logic for HomePage.xaml
     /// </summary>
     public partial class HomePage : Screen, Animatiable
     {
         private List<Animatiable> components;
-        DispatcherTimer dt;
+        private DispatcherTimer dt;
 
-        Storyboard sbOut;
+        private Storyboard sbOut;
 
         public HomePage(TopWindow parentWindow) : base(parentWindow)
         {
-            this.InitializeComponent();
+            InitializeComponent();
+        }
 
-            //bla.Visibility = System.Windows.Visibility.Visible;
+        /// <summary>
+        /// inherited implementation
+        /// </summary>
+        public void AnimateOut()
+        {
+            sbOut.AutoReverse = false;
+            sbOut.Begin(this);
         }
 
 
         /// <summary>
-        ///
-        /// this method called when the surface app has just been created.
+        /// inherited implementation
+        /// </summary>
+        public void AnimateIn()
+        {
+            sbOut.AutoReverse = true;
+            sbOut.Begin(this, true);
+            sbOut.Seek(this, new TimeSpan(0, 0, 0), TimeSeekOrigin.Duration);
+        }
+
+        /// <summary>
+        ///     this method called when the surface app has just been created.
         /// </summary>
         /// <param name="e"></param>
         protected override void OnInitialized(EventArgs e)
@@ -71,10 +91,10 @@ namespace P02Project
             contactUs.setCaption("Contact Us");
             contactUs.setColour(Util._pageColDict["Contact Us"]);
 
-            // set image and color for Play Beads polaroid
+            // set image and color for Beads of Courage polaroid
             playBeads.setImage("images\\Home\\beads.png");
             playBeads.setCaption("Beads of Courage");
-            playBeads.setColour(Util._pageColDict["Play Beads"]);
+            playBeads.setColour(Util._pageColDict["Beads of Courage"]);
 
             components = new List<Animatiable>();
             components.Add(about);
@@ -87,18 +107,18 @@ namespace P02Project
 
             TwitterBlock tb = new TwitterBlock(this);
             tb.Foreground = new SolidColorBrush(Colors.Black);
-            
+
             Thickness t = tb.Margin;
             t.Bottom = 30;
             t.Right = 15;
             tb.Margin = t;
-            
+
             tb.Height = 120;
             tb.Width = 600;
 
-            tb.HorizontalAlignment = System.Windows.HorizontalAlignment.Right;
-            tb.VerticalAlignment = System.Windows.VerticalAlignment.Bottom;
-            
+            tb.HorizontalAlignment = HorizontalAlignment.Right;
+            tb.VerticalAlignment = VerticalAlignment.Bottom;
+
             poGrid.Children.Add(tb);
 
             dt = new DispatcherTimer();
@@ -115,25 +135,18 @@ namespace P02Project
                 sbOut.Children.Add(panRight);
 
                 Storyboard.SetTarget(panRight, uc);
-                Storyboard.SetTargetProperty(panRight, new PropertyPath(UserControl.MarginProperty));
+                Storyboard.SetTargetProperty(panRight, new PropertyPath(MarginProperty));
             }
-        }
 
-        public void AnimateOut()
-        {
-            sbOut.AutoReverse = false;
-            sbOut.Begin(this);
-        }
-
-        public void AnimateIn()
-        {
-            sbOut.AutoReverse = true;
-            sbOut.Begin(this, true);
-            sbOut.Seek(this, new TimeSpan(0, 0, 0), TimeSeekOrigin.Duration);
+            ThicknessAnimation panDown = new ThicknessAnimation(tb.Margin, new Thickness(0, 0, 15, -200),
+                TimeSpan.FromMilliseconds(Util.animationMilisecs));
+            sbOut.Children.Add(panDown);
+            Storyboard.SetTarget(panDown, tb);
+            Storyboard.SetTargetProperty(panDown, new PropertyPath(MarginProperty));
         }
 
         /// <summary>
-        /// This method get called when the About has been clicked
+        ///     This method get called when the About has been clicked
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -142,24 +155,24 @@ namespace P02Project
             // create a new subscreen and push it into the stack of subscreens
             AnimateOut();
 
-            dt.Tick += new EventHandler(pushAbout);
+            dt.Tick += pushAbout;
             dt.Start();
         }
 
         private void pushAbout(object sender, EventArgs e)
         {
             TopLevelPage nextScreen = new TopLevelPage(ParentWindow, "About");
-            String path = System.IO.Path.Combine(System.IO.Path.GetFullPath("."), "Resources/xml/About.xml");
-            ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("About"), about.colour, new GridView(XMLUtilities.GetContentFromFile(path)), "");
+            String path = Path.Combine(Path.GetFullPath("."), "Resources/xml/About.xml");
+            ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("About"), about.colour,
+                new GridView(XMLUtilities.GetContentFromFile(path)), "");
             nextScreen.AnimateIn();
 
             dt.Stop();
         }
 
 
-
         /// <summary>
-        /// This method get called when the News has been clicked
+        ///     This method get called when the News has been clicked
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -167,7 +180,7 @@ namespace P02Project
         {
             AnimateOut();
 
-            dt.Tick += new EventHandler(pushNews);
+            dt.Tick += pushNews;
             dt.Start();
         }
 
@@ -175,24 +188,24 @@ namespace P02Project
         {
             // create a new subscreen and push it into the stack of subscreens
             TopLevelPage nextScreen = new TopLevelPage(ParentWindow, "News");
-            ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("News"), news.colour, new ScrollableView("News"), "");
+            ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("News"), news.colour, new ScrollableView("News"),
+                "");
             nextScreen.AnimateIn();
 
             dt.Stop();
         }
 
 
-
         /// <summary>
-        /// This method get called when the Events has been clicked
+        ///     This method get called when the Events has been clicked
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void events_MouseUp(object sender, MouseButtonEventArgs e)
         {
             AnimateOut();
-            
-            dt.Tick += new EventHandler(pushEvents);
+
+            dt.Tick += pushEvents;
             dt.Start();
         }
 
@@ -200,16 +213,15 @@ namespace P02Project
         {
             // create a new subscreen and push it into the stack of subscreens
             TopLevelPage nextScreen = new TopLevelPage(ParentWindow, "Events");
-            ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("Events"), events.colour, new ScrollableView("Events"), "");
+            ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("Events"), events.colour,
+                new ScrollableView("Events"), "");
             nextScreen.AnimateIn();
 
             dt.Stop();
         }
 
-
-
         /// <summary>
-        /// This method get called when the Contact Us has been clicked
+        ///     This method get called when the Contact Us has been clicked
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -217,7 +229,7 @@ namespace P02Project
         {
             AnimateOut();
 
-            dt.Tick += new EventHandler(pushCU);
+            dt.Tick += pushCU;
             dt.Start();
         }
 
@@ -225,16 +237,15 @@ namespace P02Project
         {
             // create a new subscreen and push it into the stack of subscreens
             TopLevelPage nextScreen = new TopLevelPage(ParentWindow, "Contact Us");
-            ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("Contact Us"), contactUs.colour, new ContactUs(), "");
+            ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("Contact Us"), contactUs.colour, new ContactUs(),
+                "");
             nextScreen.AnimateIn();
 
             dt.Stop();
         }
 
-
-
         /// <summary>
-        /// This method get called when the How Can I Help has been clicked
+        ///     This method get called when the How Can I Help has been clicked
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -243,7 +254,7 @@ namespace P02Project
             //Do out animation
             AnimateOut();
 
-            dt.Tick += new EventHandler(pushHCIH);
+            dt.Tick += pushHCIH;
             dt.Start();
         }
 
@@ -251,7 +262,8 @@ namespace P02Project
         {
             // create a new subscreen and push it into the stack of subscreens
             TopLevelPage nextScreen = new TopLevelPage(ParentWindow, "How Can I Help?");
-            ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("How Can I Help?"), howCanIHelp.colour, new hcihHomeControl(nextScreen), "");
+            ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("How Can I Help?"), howCanIHelp.colour,
+                new hcihHomeControl(nextScreen), "");
             nextScreen.AnimateIn();
 
             dt.Stop();
@@ -259,7 +271,7 @@ namespace P02Project
 
 
         /// <summary>
-        /// This method get called when the Family Support has been clicked
+        ///     This method get called when the Family Support has been clicked
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -268,7 +280,7 @@ namespace P02Project
             //Do animation
             AnimateOut();
 
-            dt.Tick += new EventHandler(pushFS);
+            dt.Tick += pushFS;
             dt.Start();
         }
 
@@ -276,16 +288,16 @@ namespace P02Project
         {
             // create a new subscreen and push it into the stack of subscreens
             TopLevelPage nextScreen = new TopLevelPage(ParentWindow, "Family Support");
-            ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("Family Support"), familySupport.colour, new fsHomeControl(), "");
+            ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("Family Support"), familySupport.colour,
+                new fsHomeControl(), "");
             nextScreen.AnimateIn();
 
             dt.Stop();
         }
 
 
-
         /// <summary>
-        /// This method get called when the Play Beads has been clicked
+        ///     This method get called when the Beads of Courage has been clicked
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -293,7 +305,7 @@ namespace P02Project
         {
             AnimateOut();
 
-            dt.Tick +=new EventHandler(pushBeads);
+            dt.Tick += pushBeads;
             dt.Start();
         }
 
@@ -301,58 +313,40 @@ namespace P02Project
         {
             // create a new subscreen and push it into the stack of subscreens
             TopLevelPage nextScreen = new TopLevelPage(ParentWindow, "Beads of Courage");
-            //ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("Play Beads"), playBeads.colour, new UserControl(), "");
-            
-            //Quiz q = new Quiz();
-            //q.Topmost = true;
-            ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("Beads of Courage"), playBeads.colour, new BeadsOfCourage(), "");
+            ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("Beads of Courage"), playBeads.colour,
+                new BeadsOfCourage(), "");
             nextScreen.AnimateIn();
-            //Quiz q = new Quiz();
-            //q.Topmost = true;
-            //q.Activate();
-            //q.Show();
-            
-            //q.Show();
-            //q.ShowDialog();
             dt.Stop();
         }
 
-
-
-
-
         /// <summary>
-        /// Helper method which is invoked from the twitterBox object
+        ///     Helper method which is invoked from the twitterBox object
         /// </summary>
         public void twitterBoxClickedHelper()
         {
             // create a new subscreen and push it into the stack of subscreens
             AnimateOut();
 
-            dt.Tick += new EventHandler(pushTwitterList);
+            dt.Tick += pushTwitterList;
             dt.Start();
         }
 
 
         /// <summary>
-        /// Helper method to help animate the twitterBox screen
+        ///     Helper method to help animate the twitterBox screen
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void pushTwitterList(object sender, EventArgs e)
         {
-
             // create a new subscreen and push it into the stack of subscreens
             TopLevelPage nextScreen = new TopLevelPage(ParentWindow, "Twitter");
 
-            ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("Twitter"), Util._pageColDict["Extra"], new TwitterList(nextScreen), "Our Tweets");
+            ParentWindow.pushScreenOnStack(nextScreen, Util.getLinks("Twitter"), Util._pageColDict["Extra"],
+                new TwitterList(nextScreen), "Our Tweets");
             nextScreen.AnimateIn();
 
             dt.Stop();
         }
-
-
-
-
     }
 }

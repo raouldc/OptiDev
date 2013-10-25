@@ -1,8 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 
 <!--Can store information regarding, text images, links-->
 
-<PageModel id ="SomeIdentifier">
+<PageModel id="SomeIdentifier">
 
 
   <TextList>
@@ -33,7 +33,6 @@
     <Link id="link1">www.google3.com</Link>
 
   </LinksList>
-
 
 
 </PageModel>

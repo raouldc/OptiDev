@@ -1,50 +1,54 @@
-﻿using System;
+﻿#region
+
+using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
-using P02Project.Screens;
 using System.Windows.Threading;
+using P02Project.Screens;
+
+#endregion
 
 namespace P02Project
 {
-	/// <summary>
-	/// Interaction logic for TitleBarControl.xaml
-	/// </summary>
-	public partial class TitleBarControl : UserControl
-	{
-
+    /// <summary>
+    ///     Interaction logic for TitleBarControl.xaml
+    /// </summary>
+    public partial class TitleBarControl : UserControl
+    {
         // topLevelPage is the main screen
+        private readonly DispatcherTimer dt;
         private TopLevelPage topLevelPage;
-        private DispatcherTimer dt;
 
 
         /// <summary>
-        /// constructor
+        ///     constructor
         /// </summary>
-		public TitleBarControl()
-		{
-			this.InitializeComponent();
+        public TitleBarControl()
+        {
+            InitializeComponent();
             dt = new DispatcherTimer();
             dt.Interval = TimeSpan.FromMilliseconds(300);
-            dt.Tick += new EventHandler(dt_Tick);
-		}
+            dt.Tick += dt_Tick;
+        }
 
-        void dt_Tick(object sender, EventArgs e)
+        private void dt_Tick(object sender, EventArgs e)
         {
             dt.Stop();
             topLevelPage.BackButton_Click(sender, null);
         }
 
         /// <summary>
-        /// setter of the topLevelPage
+        ///     setter of the topLevelPage
         /// </summary>
         /// <param name="top"></param>
-        public void setTopPage(TopLevelPage top){
+        public void setTopPage(TopLevelPage top)
+        {
             topLevelPage = top;
         }
 
         /// <summary>
-        /// set the background of the titlebar
+        ///     set the background of the titlebar
         /// </summary>
         /// <param name="col"></param>
         public void setColour(Color col)
@@ -55,20 +59,26 @@ namespace P02Project
             SubTitle.Foreground = new SolidColorBrush(col);
         }
 
-        public void setSubtitle(String sub) {
+        /// <summary>
+        ///     Set the subtitle
+        /// </summary>
+        /// <param name="sub"></param>
+        public void setSubtitle(String sub)
+        {
             SubTitle.Content = sub;
 
             if (sub.Equals(""))
             {
                 Title.FontSize = 60;
             }
-            else {
+            else
+            {
                 Title.FontSize = 40;
             }
         }
 
         /// <summary>
-        /// this method called when the back button has been clicked
+        ///     this method called when the back button has been clicked
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -78,11 +88,16 @@ namespace P02Project
             //dt.Start();
             topLevelPage.BackButton_Click(sender, e);
 
+            ResetTimer();
+        }
+
+        private void ResetTimer()
+        {
             try
             {
                 (Window.GetWindow(this) as TopWindow).ResetTimer();
             }
-            catch (NullReferenceException exp)
+            catch (NullReferenceException)
             {
             }
         }
@@ -91,13 +106,7 @@ namespace P02Project
         {
             topLevelPage.HomeButton_Click();
 
-            try
-            {
-                (Window.GetWindow(this) as TopWindow).ResetTimer();
-            }
-            catch (NullReferenceException exp)
-            {
-            }
+            ResetTimer();
         }
-	}
+    }
 }

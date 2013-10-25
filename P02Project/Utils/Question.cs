@@ -1,34 +1,28 @@
-﻿using System;
+﻿#region
+
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+
+#endregion
 
 namespace P02Project.Utils
 {
-    class Question
+    internal class Question
     {
-        public String QuestionContent { get { return this.questionContent; } }
-        public String ImagePath { get {return this.imagepath; } }
-        public List<String> AllAvailableOptions { get { return allAvailableOptions; } }
-        public bool IsAnswered { get { return isAnswered; } }
-        public String Hint { get { return hintForQuestion; } }
-        public bool IsCorrect { get { return isCorrect; } }
-        public String OptionSelected { get { return this.optionSelected; } }
-        public String CorrectAnswer { get { return answer; } }
-        public bool HintUsed {get;set;}
-        public List<bool> IsEnabled { get; set; }
-
-        private String questionContent;
-        private String answer;
-        private List<String> allAvailableOptions;
-        private String imagepath;
-        private bool isAnswered;
-        private String optionSelected;
-        private String hintForQuestion;
-        private bool isCorrect;
+        # region variables
         public static Random rand = new Random();
-        //this is used to create a new Question that will be answered in teh quiz
-        public Question(String QuestionContent, String answer, List<String> allOptions, String imagePath,String hint)
+        private readonly List<String> allAvailableOptions;
+        private readonly String answer;
+        private readonly String hintForQuestion;
+        private readonly String imagepath;
+        private readonly String questionContent;
+        private bool isAnswered;
+        private bool isCorrect;
+        private String optionSelected;
+        # endregion
+
+        # region Constructor
+        public Question(String QuestionContent, String answer, List<String> allOptions, String imagePath, String hint)
         {
             //all options are enabled at the beginign;
             IsEnabled = new List<bool>();
@@ -36,71 +30,131 @@ namespace P02Project.Utils
             IsEnabled.Add(true);
             IsEnabled.Add(true);
             IsEnabled.Add(true);
-            
-            this.allAvailableOptions = new List<String>();
-            this.questionContent = QuestionContent;
+
+            allAvailableOptions = new List<String>();
+            questionContent = QuestionContent;
             this.answer = answer;
             List<String> allOptionsTemp = new List<string>();
             allOptionsTemp.AddRange(allOptions);
             randomizeOptions(allOptionsTemp);
-            this.imagepath = imagePath;
-            this.optionSelected = null;
-            this.isAnswered = false;
-            this.hintForQuestion = hint;
-            this.isCorrect = false;
+            imagepath = imagePath;
+            optionSelected = null;
+            isAnswered = false;
+            hintForQuestion = hint;
+            isCorrect = false;
+        }
+        # endregion
+
+        # region properties
+        public String QuestionContent
+        {
+            get { return questionContent; }
         }
 
+        public String ImagePath
+        {
+            get { return imagepath; }
+        }
+
+        public List<String> AllAvailableOptions
+        {
+            get { return allAvailableOptions; }
+        }
+
+        public bool IsAnswered
+        {
+            get { return isAnswered; }
+        }
+
+        public String Hint
+        {
+            get { return hintForQuestion; }
+        }
+
+        public bool IsCorrect
+        {
+            get { return isCorrect; }
+        }
+
+        public String OptionSelected
+        {
+            get { return optionSelected; }
+        }
+
+        public String CorrectAnswer
+        {
+            get { return answer; }
+        }
+
+        public bool HintUsed { get; set; }
+        public List<bool> IsEnabled { get; set; }
+
+        # endregion
+
+        # region methods
+        //fifty_fifty the question
         public void fifty_fifty()
         {
-            //Random r = new Random();
+
             List<int> usedIndexes = new List<int>();
-            //usedIndexes.Add(allAvailableOptions.IndexOf(answer));
+            //get index of answer
             int rootindex = allAvailableOptions.IndexOf(answer);
+            //for 2 options
             for (int i = 0; i < 2; i++)
             {
-                //get the correct answer
+               
                 int index = 100;
                 int randomlySelectedIndex = 0;
-                while (index>=0)
+                while (index >= 0)
                 {
+                    //choose a random index
                     randomlySelectedIndex = rand.Next(4);
+                    //if it is not the root index
                     if (randomlySelectedIndex != rootindex)
                     {
                         //check if we have used this index before
                         index = usedIndexes.FindIndex(x => x == randomlySelectedIndex);
+                        //if we have, re-check for an index
                     }
                 }
+                //add to used indexes
                 usedIndexes.Add(randomlySelectedIndex);
             }
+            //disable the two used indexes
             foreach (int indexUsed in usedIndexes)
             {
                 IsEnabled[indexUsed] = false;
             }
         }
 
+        //answer this question with an answer
         public bool Answer(String answer)
         {
-            this.optionSelected = answer;
+            //set option selected
+            optionSelected = answer;
+            //disable all options
             for (int i = 0; i < IsEnabled.Count; i++)
             {
                 IsEnabled[i] = false;
             }
-                this.isAnswered = true;
-            if (this.OptionSelected == this.answer)
+            //set isAnswered
+            isAnswered = true;
+            //if correct, set iscorrect
+            if (OptionSelected == this.answer)
             {
-                this.isCorrect = true;
+                isCorrect = true;
                 return true;
             }
             return false;
         }
 
-        private void randomizeOptions (List<String> options)
+        //jumble up the answers to the questions randomly
+        private void randomizeOptions(List<String> options)
         {
             allAvailableOptions.Clear();
             //pick a random element from options and add it to allOptions
-            //create a random item
-           
-            //while there are still options in the alloptions list
+
+            //while there are still options in the options list
             while (options.Count > 0)
             {
                 //choose an index at random
@@ -111,6 +165,6 @@ namespace P02Project.Utils
                 options.RemoveAt(index);
             }
         }
-
+        # endregion
     }
 }

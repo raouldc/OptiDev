@@ -1,70 +1,65 @@
-﻿///////////////////////////////////////////////////////////////////////////////
-//
-// Some of the functionalities in this file have been adapted from
-// Geert van Horrik's implementation in his blog.
-// http://blog.catenalogic.com/post/2009/01/08/WPF-Webcam-Control-part-2.aspx
-// 
-// All the api and methods related to Windows Image Aquisition (WIA) were
-// implemented by Tamir Khason and edited by Geert van Horrik
-// 
-// Those API are in WebcamPlayer folder
-//
-///////////////////////////////////////////////////////////////////////////////
+﻿#region
 
 using System;
+using System.Collections.ObjectModel;
+using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Animation;
+using System.Windows.Media.Effects;
 using System.Windows.Media.Imaging;
 using CatenaLogic.Windows.Presentation.WebcamPlayer;
-using System.Collections.ObjectModel;
-using System.IO;
 using P02Project.Utils;
-using System.Windows.Media.Animation;
-using System.Windows.Media;
-using System.Windows.Media.Effects;
+using P02Project.WebcamPlayer.Input;
+
+#endregion
 
 namespace P02Project
 {
-	/// <summary>
-	/// Interaction logic for Webcam.xaml
-	/// </summary>
+    /// <summary>
+    ///     Interaction logic for Webcam.xaml
+    /// </summary>
     public partial class Webcam : UserControl, Animatiable
-	{
-
+    {
         #region Variables
-        private readonly int NUMB_LIMIT_PHOTOS = 9;
+
         private readonly String DEFAULT_TWEET = "Compose new Tweet...";
-        private int numb = 0;
         private readonly String MYDOC_PATH = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-        private Storyboard _sbIn;
+        private readonly int NUMB_LIMIT_PHOTOS = 9;
+        private readonly Storyboard _sbIn;
+        private int numb;
+
         #endregion
 
         /// <summary>
-        /// create a new webcam event
+        ///     create a new webcam event
         /// </summary>
-        #region Constructor & destructor
+
+        #region Constructor
         public Webcam()
-		{
-			this.InitializeComponent();
+        {
+            InitializeComponent();
 
-            //SelectedImages.Clear();
             // Subscribe command bindings
-            CommandBindings.Add(new CommandBinding(P02Project.WebcamPlayer.Input.CaptureImageCommands.CaptureImage,
-                new ExecutedRoutedEventHandler(CaptureImage_Executed), new CanExecuteRoutedEventHandler(CaptureImage_CanExecute)));
-            CommandBindings.Add(new CommandBinding(P02Project.WebcamPlayer.Input.CaptureImageCommands.RemoveImage,
-                new ExecutedRoutedEventHandler(RemoveImage_Executed)));
-            CommandBindings.Add(new CommandBinding(P02Project.WebcamPlayer.Input.CaptureImageCommands.ClearAllImages,
-                new ExecutedRoutedEventHandler(ClearAllImages_Executed)));
+            CommandBindings.Add(new CommandBinding(CaptureImageCommands.CaptureImage,
+                CaptureImage_Executed, CaptureImage_CanExecute));
+            CommandBindings.Add(new CommandBinding(CaptureImageCommands.RemoveImage,
+                RemoveImage_Executed));
+            CommandBindings.Add(new CommandBinding(CaptureImageCommands.ClearAllImages,
+                ClearAllImages_Executed));
 
-            _tweetBtn.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF146290"));
+            _tweetBtn.Background = new SolidColorBrush((Color) ColorConverter.ConvertFromString("#FF146290"));
             DropShadowEffect dShdow = new DropShadowEffect();
             dShdow.BlurRadius = 10;
             dShdow.Opacity = 0.365;
             _tweetBtn.Effect = dShdow;
 
             // Create default device
-            SelectedWebcamMonikerString = (CapDevice.DeviceMonikers.Length > 0) ? CapDevice.DeviceMonikers[0].MonikerString : "";
+            SelectedWebcamMonikerString = (CapDevice.DeviceMonikers.Length > 0)
+                ? CapDevice.DeviceMonikers[0].MonikerString
+                : "";
 
 
             _sbIn = new Storyboard();
@@ -75,11 +70,10 @@ namespace P02Project
         }
         #endregion
 
-
-
         #region Command bindings
+
         /// <summary>
-        /// Determines whether the CaptureImage command can be executed
+        ///     Determines whether the CaptureImage command can be executed
         /// </summary>
         /// <param name="sender">Sender</param>
         /// <param name="e">EventArgs</param>
@@ -90,7 +84,7 @@ namespace P02Project
         }
 
         /// <summary>
-        /// Invoked when the CaptureImage command is executed
+        ///     Invoked when the CaptureImage command is executed
         /// </summary>
         /// <param name="sender">Sender</param>
         /// <param name="e">EventArgs</param>
@@ -107,7 +101,7 @@ namespace P02Project
                     SelectedImages.RemoveAt(0);
                 }
                 SelectedImages.Add(bitmap);
-                
+
                 // create a new name with the incremented numb (e.g. test0.jpg, test1.jpg, ...)
                 String filename = MYDOC_PATH + "\\test" + numb + ".jpg";
                 numb++;
@@ -115,12 +109,11 @@ namespace P02Project
                 writeThisImageTo(bitmap, filename);
 
                 _selectedImg.Source = bitmap;
-
             }
         }
 
         /// <summary>
-        /// Invoked when the RemoveImage command is executed
+        ///     Invoked when the RemoveImage command is executed
         /// </summary>
         /// <param name="sender">Sender</param>
         /// <param name="e">EventArgs</param>
@@ -135,7 +128,7 @@ namespace P02Project
         }
 
         /// <summary>
-        /// Invoked when the ClearAllImages command is executed
+        ///     Invoked when the ClearAllImages command is executed
         /// </summary>
         /// <param name="sender">Sender</param>
         /// <param name="e">EventArgs</param>
@@ -144,69 +137,86 @@ namespace P02Project
             // Clear all images
             SelectedImages.Clear();
         }
+
         #endregion
 
         #region Properties
-        /// <summary>
-        /// Wrapper for the WebcamRotation dependency property
-        /// </summary>
-        public double WebcamRotation
-        {
-            get { return (double)GetValue(WebcamRotationProperty); }
-            set { SetValue(WebcamRotationProperty, value); }
-        }
 
         // Using a DependencyProperty as the backing store for WebcamRotation.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty WebcamRotationProperty =
-            DependencyProperty.Register("WebcamRotation", typeof(double), typeof(Webcam), new UIPropertyMetadata(180d));
-
-        /// <summary>
-        /// Wrapper for the SelectedWebcam dependency property
-        /// </summary>
-        public CapDevice SelectedWebcam
-        {
-            get { return (CapDevice)GetValue(SelectedWebcamProperty); }
-            set { SetValue(SelectedWebcamProperty, value); }
-        }
+            DependencyProperty.Register("WebcamRotation", typeof (double), typeof (Webcam), new UIPropertyMetadata(180d));
 
         // Using a DependencyProperty as the backing store for SelectedWebcam.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty SelectedWebcamProperty =
-            DependencyProperty.Register("SelectedWebcam", typeof(CapDevice), typeof(Webcam), new UIPropertyMetadata(null));
+            DependencyProperty.Register("SelectedWebcam", typeof (CapDevice), typeof (Webcam),
+                new UIPropertyMetadata(null));
+
+        // Using a DependencyProperty as the backing store for SelectedWebcamMonikerString.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty SelectedWebcamMonikerStringProperty =
+            DependencyProperty.Register("SelectedWebcamMonikerString", typeof (string),
+                typeof (Webcam), new UIPropertyMetadata("", SelectedWebcamMonikerString_Changed));
+
+        // Using a DependencyProperty as the backing store for SelectedImages.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty SelectedImagesProperty = DependencyProperty.Register(
+            "SelectedImages", typeof (ObservableCollection<BitmapSource>),
+            typeof (Webcam), new UIPropertyMetadata(new ObservableCollection<BitmapSource>()));
 
         /// <summary>
-        /// Wrapper for the SelectedWebcamMonikerString dependency property
+        ///     Wrapper for the WebcamRotation dependency property
+        /// </summary>
+        public double WebcamRotation
+        {
+            get { return (double) GetValue(WebcamRotationProperty); }
+            set { SetValue(WebcamRotationProperty, value); }
+        }
+
+        /// <summary>
+        ///     Wrapper for the SelectedWebcam dependency property
+        /// </summary>
+        public CapDevice SelectedWebcam
+        {
+            get { return (CapDevice) GetValue(SelectedWebcamProperty); }
+            set { SetValue(SelectedWebcamProperty, value); }
+        }
+
+        /// <summary>
+        ///     Wrapper for the SelectedWebcamMonikerString dependency property
         /// </summary>
         public string SelectedWebcamMonikerString
         {
-            get { return (string)GetValue(SelectedWebcamMonikerStringProperty); }
+            get { return (string) GetValue(SelectedWebcamMonikerStringProperty); }
             set { SetValue(SelectedWebcamMonikerStringProperty, value); }
         }
 
-        // Using a DependencyProperty as the backing store for SelectedWebcamMonikerString.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty SelectedWebcamMonikerStringProperty = DependencyProperty.Register("SelectedWebcamMonikerString", typeof(string),
-            typeof(Webcam), new UIPropertyMetadata("", new PropertyChangedCallback(SelectedWebcamMonikerString_Changed)));
-
         /// <summary>
-        /// Wrapper for the SelectedImages dependency property
+        ///     Wrapper for the SelectedImages dependency property
         /// </summary>
         public ObservableCollection<BitmapSource> SelectedImages
         {
-            get { return (ObservableCollection<BitmapSource>)GetValue(SelectedImagesProperty); }
+            get { return (ObservableCollection<BitmapSource>) GetValue(SelectedImagesProperty); }
             set { SetValue(SelectedImagesProperty, value); }
         }
 
-        // Using a DependencyProperty as the backing store for SelectedImages.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty SelectedImagesProperty = DependencyProperty.Register("SelectedImages", typeof(ObservableCollection<BitmapSource>),
-            typeof(Webcam), new UIPropertyMetadata(new ObservableCollection<BitmapSource>()));
         #endregion
 
         #region Methods
+
+        public void AnimateIn()
+        {
+            _sbIn.Begin(this);
+        }
+
+        public void AnimateOut()
+        {
+        }
+
         /// <summary>
-        /// Invoked when the SelectedWebcamMonikerString dependency property has changed
+        ///     Invoked when the SelectedWebcamMonikerString dependency property has changed
         /// </summary>
         /// <param name="sender">Sender</param>
         /// <param name="e">EventArgs</param>
-        private static void SelectedWebcamMonikerString_Changed(DependencyObject sender, DependencyPropertyChangedEventArgs e)
+        private static void SelectedWebcamMonikerString_Changed(DependencyObject sender,
+            DependencyPropertyChangedEventArgs e)
         {
             // Get typed sender
             Webcam typedSender = sender as Webcam;
@@ -229,7 +239,7 @@ namespace P02Project
 
 
         /// <summary>
-        /// A helper method that write a given image to a given filename
+        ///     A helper method that write a given image to a given filename
         /// </summary>
         /// <param name="bitmap"></param>
         private void writeThisImageTo(BitmapSource bitmap, String filename)
@@ -239,7 +249,7 @@ namespace P02Project
             // create an encoder
             JpegBitmapEncoder encoder = new JpegBitmapEncoder();
             TextBlock myTextBlock = new TextBlock();
-            myTextBlock.Text = "Codec Author is: " + encoder.CodecInfo.Author.ToString();
+            myTextBlock.Text = "Codec Author is: " + encoder.CodecInfo.Author;
             // add the bitmap to the frame
             encoder.Frames.Add(BitmapFrame.Create(bitmap));
             encoder.Save(stream);
@@ -247,44 +257,39 @@ namespace P02Project
             stream.Close();
         }
 
-        public void AnimateIn()
-        {
-            _sbIn.Begin(this);
-        }
-
-        public void AnimateOut()
-        {
-
-        }
         #endregion
 
-
         #region event handlers
+
         /// <summary>
-        /// invoked when an image in the select pool has been clicked
+        ///     invoked when an image in the select pool has been clicked
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void selectedImageClicked(Object sender, RoutedEventArgs e)
         {
-            
-            Button btn = (Button)sender;
-            BitmapSource bitmap = ((Image)btn.Content).Source as BitmapSource;
+            Button btn = (Button) sender;
+            BitmapSource bitmap = ((Image) btn.Content).Source as BitmapSource;
 
             _selectedImg.Source = bitmap;
 
+            ResetTimer();
+        }
+
+        private void ResetTimer()
+        {
             try
             {
                 (Window.GetWindow(this) as TopWindow).ResetTimer();
             }
-            catch (NullReferenceException exp)
+            catch (NullReferenceException)
             {
             }
         }
 
 
         /// <summary>
-        /// Invoked when tweeting textbox has been touched.
+        ///     Invoked when tweeting textbox has been touched.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -296,18 +301,12 @@ namespace P02Project
                 _tweetTxt.Text = "";
             }
 
-            try
-            {
-                (Window.GetWindow(this) as TopWindow).ResetTimer();
-            }
-            catch (NullReferenceException exp)
-            {
-            }
+            ResetTimer();
         }
 
 
         /// <summary>
-        /// Invoked when "Tweet" button has been clicked
+        ///     Invoked when "Tweet" button has been clicked
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -320,28 +319,18 @@ namespace P02Project
 
             // do the tweet post 
 
-            Twitter twitter = new Twitter();
+            Twitter twitter = new Twitter(this);
+
+            _tweetBtn.Content = "Uploading...";
 
             twitter.postTweet(newTweet, bitmap, this);
 
-            try
-            {
-                (Window.GetWindow(this) as TopWindow).ResetTimer();
-            }
-            catch (NullReferenceException exp)
-            {
-            }
+            ResetTimer();
         }
 
         private void tweetTxt_KeyDown(object sender, KeyEventArgs e)
         {
-            try
-            {
-                (Window.GetWindow(this) as TopWindow).ResetTimer();
-            }
-            catch (NullReferenceException exp)
-            {
-            }
+            ResetTimer();
         }
 
         private void tweetTxtKeyUp(object sender, MouseButtonEventArgs e)
@@ -351,12 +340,10 @@ namespace P02Project
             {
                 _tweetTxt.Text = DEFAULT_TWEET;
             }
-
         }
+
         #endregion
 
-        
        
     }
-	
 }
