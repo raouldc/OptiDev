@@ -1,5 +1,4 @@
-#region
-
+# region
 using System;
 using System.Collections.Generic;
 using System.Windows;
@@ -10,8 +9,8 @@ using Microsoft.Surface;
 using Microsoft.Surface.Presentation.Controls;
 using P02Project.Screens;
 using P02Project.Utils;
+# endregion
 
-#endregion
 
 namespace P02Project
 {
@@ -20,11 +19,13 @@ namespace P02Project
     /// </summary>
     public partial class TopWindow : SurfaceWindow
     {
+        # region variables
         //Timer for inactivity
         private readonly DispatcherTimer inavtiveTimer;
-
         private readonly Stack<Screen> stackOfScreens;
+        # endregion
 
+        # region constructor
         /// <summary>
         ///     Default constructor.
         /// </summary>
@@ -43,7 +44,9 @@ namespace P02Project
             WindowStyle = WindowStyle.None;
             WindowState = WindowState.Maximized;
         }
+        # endregion
 
+        # region methods
         private void inavtiveTimer_Tick(object sender, EventArgs e)
         {
             popAll();
@@ -203,5 +206,6 @@ namespace P02Project
         {
             inavtiveTimer.Start();
         }
+        # endregion
     }
 }

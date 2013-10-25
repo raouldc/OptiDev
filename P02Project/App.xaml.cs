@@ -1,7 +1,5 @@
 #region
-
 using System.Windows;
-
 #endregion
 
 namespace P02Project

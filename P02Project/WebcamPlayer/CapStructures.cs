@@ -7,6 +7,7 @@ using System.Runtime.InteropServices;
 
 namespace CatenaLogic.Windows.Presentation.WebcamPlayer
 {
+    # region structandenum
     [ComVisible(false)]
     internal enum PinDirection
     {
@@ -119,4 +120,5 @@ namespace CatenaLogic.Windows.Presentation.WebcamPlayer
 
         public int Bottom;
     }
+    # endregion
 }
