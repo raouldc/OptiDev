@@ -40,7 +40,7 @@ namespace P02Project.Utils
             hintForQuestion = hint;
             isCorrect = false;
         }
-
+        //properties
         public String QuestionContent
         {
             get { return questionContent; }
@@ -84,41 +84,54 @@ namespace P02Project.Utils
         public bool HintUsed { get; set; }
         public List<bool> IsEnabled { get; set; }
 
+        //fifty_fifty the question
         public void fifty_fifty()
         {
-            //Random r = new Random();
+
             List<int> usedIndexes = new List<int>();
+            //get index of answer
             int rootindex = allAvailableOptions.IndexOf(answer);
+            //for 2 options
             for (int i = 0; i < 2; i++)
             {
-                //get the correct answer
+               
                 int index = 100;
                 int randomlySelectedIndex = 0;
                 while (index >= 0)
                 {
+                    //choose a random index
                     randomlySelectedIndex = rand.Next(4);
+                    //if it is not the root index
                     if (randomlySelectedIndex != rootindex)
                     {
                         //check if we have used this index before
                         index = usedIndexes.FindIndex(x => x == randomlySelectedIndex);
+                        //if we have, re-check for an index
                     }
                 }
+                //add to used indexes
                 usedIndexes.Add(randomlySelectedIndex);
             }
+            //disable the two used indexes
             foreach (int indexUsed in usedIndexes)
             {
                 IsEnabled[indexUsed] = false;
             }
         }
 
+        //answer this question with an answer
         public bool Answer(String answer)
         {
+            //set option selected
             optionSelected = answer;
+            //disable all options
             for (int i = 0; i < IsEnabled.Count; i++)
             {
                 IsEnabled[i] = false;
             }
+            //set isAnswered
             isAnswered = true;
+            //if correct, set iscorrect
             if (OptionSelected == this.answer)
             {
                 isCorrect = true;
@@ -127,13 +140,13 @@ namespace P02Project.Utils
             return false;
         }
 
+        //jumble up the answers to the questions randomly
         private void randomizeOptions(List<String> options)
         {
             allAvailableOptions.Clear();
             //pick a random element from options and add it to allOptions
-            //create a random item
 
-            //while there are still options in the alloptions list
+            //while there are still options in the options list
             while (options.Count > 0)
             {
                 //choose an index at random
