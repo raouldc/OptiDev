@@ -578,7 +578,6 @@
     <Folder Include="Fonts\" />
     <Folder Include="Resources\images\Events\" />
     <Folder Include="Resources\images\News\" />
-    <Folder Include="Screens\About\" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">

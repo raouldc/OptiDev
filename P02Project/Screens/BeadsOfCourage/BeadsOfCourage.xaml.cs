@@ -20,18 +20,34 @@ namespace P02Project.Screens.BeadsOfCourage
     /// </summary>
     public partial class BeadsOfCourage : UserControl
     {
+        /// <summary>
+        /// The selected color
+        /// </summary>
         private static readonly Brush SELECTED_COLOR = new SolidColorBrush(Util._pageColDict["pbSelected"]);
+        /// <summary>
+        /// The unselected color
+        /// </summary>
         private static readonly Brush UNSELECTED_COLOR = new SolidColorBrush(Util._pageColDict["pbUnSelected"]);
+        /// <summary>
+        /// The _bead model
+        /// </summary>
         private readonly BeadModel _beadModel;
-        private readonly Random r;
+        /// <summary>
+        /// Instance of the random class
+        /// </summary>
+        private readonly Random _r;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="BeadsOfCourage"/> class.
+        /// </summary>
         public BeadsOfCourage()
         {
             InitializeComponent();
             beadPoloroid.IsUnclickable = true;
+            //load beads from xml
             String path = Path.Combine(Path.GetFullPath("."), "Utils/xml/BeadsOfCourageSchema/beads.xml");
             _beadModel = XMLUtilities.GetBeadsContentFromFile(path);
-            r = new Random();
+            _r = new Random();
             button.Background = SELECTED_COLOR;
             DropShadowEffect dShdow = new DropShadowEffect();
             dShdow.BlurRadius = 10;
@@ -39,11 +55,15 @@ namespace P02Project.Screens.BeadsOfCourage
             button.Effect = dShdow;
         }
 
+        /// <summary>
+        /// Handles the MouseUp event of the Bead control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="MouseButtonEventArgs"/> instance containing the event data.</param>
         private void Bead_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            // TODO: Add event handler implementation here.
             //move beads and thread down
-            //display enlarged bead and text on the topp
+            //display enlarged bead and text on the top
             if (sender.GetType() != typeof (Image))
             {
                 return;
@@ -63,14 +83,13 @@ namespace P02Project.Screens.BeadsOfCourage
             foreach (var temp in _beadModel.BeadsList)
             {
                 if (!temp.id.ToLower().Equals(sder.Name.ToLower().Replace("_", " "))) continue;
+                //set the textbox text
                 beadDetailTextBlock.Text = temp.Value.Trim();
                 beadTitle.Text = temp.id;
                 break;
             }
-
-            //beadPoloroid.setImage(_beadModel.Images);
-            beadPoloroid.setImage(_beadModel.Images[r.Next(_beadModel.Images.Length)].Value);
-
+            //set the poloroid image to a random image from the xml
+            beadPoloroid.setImage(_beadModel.Images[_r.Next(_beadModel.Images.Length)].Value);
             ResetTimer();
         }
 
@@ -85,15 +104,17 @@ namespace P02Project.Screens.BeadsOfCourage
             }
         }
 
+        /// <summary>
+        /// Handles the event of the button_Click control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="RoutedEventArgs"/> instance containing the event data.</param>
         private void button_Click_1(object sender, RoutedEventArgs e)
         {
+            //create a quiz window and display it
             Quiz q = new Quiz();
             q.Topmost = true;
-            //q.Owner = Application.Current.MainWindow;
             q.ShowDialog();
-            //q.Activate();
-            //q.Show();
-
             ResetTimer();
         }
     }

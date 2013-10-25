@@ -23,9 +23,9 @@
                    Name="msg" TextAlignment="Left" Margin="5,10" />
         <Button Grid.RowSpan="2" Grid.ColumnSpan="2" Margin="-3,0,0,0" Opacity="0" Click="twitterBoxClicked" />
         <Rectangle Grid.ColumnSpan="2" Grid.Row="0" Fill="#FF00ACEE" />
-        <TextBlock FontSize="21.333" Grid.Row="0" Grid.ColumnSpan="2" TextWrapping="Wrap" Text="Twitter Feed."
+        <TextBlock FontSize="21.333" Grid.Row="0" Grid.ColumnSpan="2" TextWrapping="Wrap" Text="Twitter Feed"
                    x:Name="title" TextAlignment="Left" Margin="35,2,5,5" Foreground="White" />
-        <TextBlock FontSize="16" Grid.Row="0" Grid.ColumnSpan="2" TextWrapping="Wrap" Text="Click for more tweets"
+        <TextBlock FontSize="16" Grid.Row="0" Grid.ColumnSpan="2" TextWrapping="Wrap" Text="Tap for more tweets"
                    x:Name="prompt" TextAlignment="Right" Margin="10,6,10,5" Foreground="White"
                    HorizontalAlignment="Right" />
         <Image x:Name="twitterImg" Grid.Row="0"
