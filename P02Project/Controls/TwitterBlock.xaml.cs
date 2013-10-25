@@ -66,23 +66,39 @@ namespace P02Project
 
         void dt_Tick(object sender, EventArgs e)
         {
-            int index = r.Next() % tweets.Count;
-            msg.Text = tweets[index].TextDecoded;
 
-            // put the default twitter image, for the case that the url is not working.
             BitmapImage img = new BitmapImage();
             img.BeginInit();
             img.UriSource = new Uri("pack://application:,,/Resources/images/logoCCF.png");
             img.EndInit();
-
-            //Ask Twitter to get url
-            List<String> urls = service.getImageUrlsForTweet(tweets[index]);
-            if (urls.Count > 0)
+            if (tweets.Count != 0)
             {
-                String imgUrl = urls[0];
-                img = service.getBitmapImageForUrl(imgUrl);
 
+                int index = r.Next() % tweets.Count;
+                msg.Text = tweets[index].TextDecoded;
+
+                // put the default twitter image, for the case that the url is not working.
+
+
+
+                //Ask Twitter to get url
+                List<String> urls = service.getImageUrlsForTweet(tweets[index]);
+                if (urls.Count > 0)
+                {
+                    String imgUrl = urls[0];
+                    img = service.getBitmapImageForUrl(imgUrl);
+
+                }
             }
+            else
+            {
+                //No tweets
+
+                msg.Text = "Unable to retrieve tweets from Twitter";
+            }
+            
+           
+            
 
             //set image
             tweetImg.Source = img;
