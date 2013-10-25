@@ -33,6 +33,7 @@ namespace P02Project
 
             _parentHome = parent;
 
+            //Handlers for timers
             this.AddHandler(UIElement.TouchUpEvent, new EventHandler<TouchEventArgs>(twitterBoxClicked), true);
             this.AddHandler(UIElement.MouseUpEvent, new MouseButtonEventHandler(twitterBoxClicked), true);
 
@@ -51,35 +52,30 @@ namespace P02Project
                 IEnumerable<TwitterStatus> result = service.getTweets();
                 if (result != null)
                 {
-
                     foreach (TwitterStatus t in result)
                     {
-
+                        //Cache
                         tweets.Add(t);
                     }
                 }
               
             }
-
             dt.Start();
         }
 
         void dt_Tick(object sender, EventArgs e)
         {
-
+            //Set default image
             BitmapImage img = new BitmapImage();
             img.BeginInit();
             img.UriSource = new Uri("pack://application:,,/Resources/images/logoCCF.png");
             img.EndInit();
+
             if (tweets.Count != 0)
             {
-
+                
                 int index = r.Next() % tweets.Count;
                 msg.Text = tweets[index].TextDecoded;
-
-                // put the default twitter image, for the case that the url is not working.
-
-
 
                 //Ask Twitter to get url
                 List<String> urls = service.getImageUrlsForTweet(tweets[index]);
