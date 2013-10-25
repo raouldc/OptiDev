@@ -1,27 +1,31 @@
-﻿using System.Collections.Generic;
+﻿#region
+
+using System.Collections.Generic;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using P02Project.Screens;
 using P02Project.Utils;
 
+#endregion
+
 namespace P02Project
 {
     /// <summary>
-    /// Interaction logic for hcihHomeControl.xaml
+    ///     Interaction logic for hcihHomeControl.xaml
     /// </summary>
     public partial class hcihHomeControl : UserControl, Animatiable
     {
-        private TopLevelPage topLevelPage;
-        private List<Animatiable> components;
+        private readonly List<Animatiable> components;
+        private readonly TopLevelPage topLevelPage;
 
         /// <summary>
-        /// Home page for the How Can I Help Section
+        ///     Home page for the How Can I Help Section
         /// </summary>
         /// <param name="tlpage">Access Object to the Home page</param>
         public hcihHomeControl(TopLevelPage tlpage)
         {
-            this.InitializeComponent();
+            InitializeComponent();
 
             topLevelPage = tlpage;
             Color colour = Util._pageColDict["How Can I Help?"];
@@ -71,10 +75,27 @@ namespace P02Project
             components.Add(gift);
         }
 
+        /// <summary>
+        ///     Animate all the poloroids
+        /// </summary>
+        public void AnimateIn()
+        {
+            foreach (Animatiable a in components)
+            {
+                a.AnimateIn();
+            }
+        }
+
+        /// <summary>
+        ///     Does nothing
+        /// </summary>
+        public void AnimateOut()
+        {
+        }
 
 
         /// <summary>
-        /// this method called when the "Donate" polaroid has been clicked
+        ///     this method called when the "Donate" polaroid has been clicked
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -85,11 +106,10 @@ namespace P02Project
             topLevelPage.setContent(don);
             topLevelPage.setSubtitle("Donate");
             (don as Animatiable).AnimateIn();
-
         }
 
         /// <summary>
-        /// Beads of Courage poloroid is clicked
+        ///     Beads of Courage poloroid is clicked
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -102,7 +122,7 @@ namespace P02Project
         }
 
         /// <summary>
-        /// Schools poloroid is Clicked
+        ///     Schools poloroid is Clicked
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -115,7 +135,7 @@ namespace P02Project
         }
 
         /// <summary>
-        /// Volunteer poloroid is clicked
+        ///     Volunteer poloroid is clicked
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -128,25 +148,7 @@ namespace P02Project
         }
 
         /// <summary>
-        /// Animate all the poloroids
-        /// </summary>
-        public void AnimateIn()
-        {
-            foreach (Animatiable a in components)
-            {
-                a.AnimateIn();
-            }
-        }
-
-        /// <summary>
-        /// Does nothing
-        /// </summary>
-        public void AnimateOut()
-        {
-        }
-
-        /// <summary>
-        /// Campigns Poloroid is clicked
+        ///     Campigns Poloroid is clicked
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -159,7 +161,7 @@ namespace P02Project
         }
 
         /// <summary>
-        /// Online Shop Poloroid Is clicked
+        ///     Online Shop Poloroid Is clicked
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -172,7 +174,7 @@ namespace P02Project
         }
 
         /// <summary>
-        /// Fundraise poloroid is clicked
+        ///     Fundraise poloroid is clicked
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -185,7 +187,7 @@ namespace P02Project
         }
 
         /// <summary>
-        /// Make a Gift poloroid is clicked
+        ///     Make a Gift poloroid is clicked
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

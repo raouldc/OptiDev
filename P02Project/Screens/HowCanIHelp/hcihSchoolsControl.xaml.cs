@@ -1,28 +1,33 @@
-﻿using System.Windows.Controls;
+﻿#region
+
+using System.Windows.Controls;
 using System.Windows.Media.Animation;
 using P02Project.Utils;
 
+#endregion
+
 namespace P02Project
 {
-	/// <summary>
-	/// Interaction logic for hcihBeads.xaml
-	/// </summary>
+    /// <summary>
+    ///     Interaction logic for hcihBeads.xaml
+    /// </summary>
     public partial class hcihSchoolsControl : UserControl, Animatiable
-	{
-        private Storyboard sbIn;
+    {
+        private readonly Storyboard sbIn;
+
         /// <summary>
-        /// Constructor
+        ///     Constructor
         /// </summary>
         public hcihSchoolsControl()
-		{
-			this.InitializeComponent();
+        {
+            InitializeComponent();
 
             sbIn = new Storyboard();
             Util.FadeIn(sbIn, img);
-		}
+        }
 
         /// <summary>
-        /// Fade in the Image on the screen
+        ///     Fade in the Image on the screen
         /// </summary>
         public void AnimateIn()
         {
@@ -30,11 +35,10 @@ namespace P02Project
         }
 
         /// <summary>
-        /// Does nothing
+        ///     Does nothing
         /// </summary>
         public void AnimateOut()
         {
-            
         }
     }
 }

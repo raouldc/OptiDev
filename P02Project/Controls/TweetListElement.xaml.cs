@@ -1,27 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿#region
+
+using System;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+
+#endregion
 
 namespace P02Project
 {
-	/// <summary>
-	/// Interaction logic for TweetListElement.xaml
-	/// </summary>
-	public partial class TweetListElement : UserControl
-	{
-		public TweetListElement()
-		{
-			this.InitializeComponent();
-		}
+    /// <summary>
+    ///     Interaction logic for TweetListElement.xaml
+    /// </summary>
+    public partial class TweetListElement : UserControl
+    {
+        public TweetListElement()
+        {
+            InitializeComponent();
+        }
 
         public void setTweetText(String txt)
         {
@@ -43,5 +40,5 @@ namespace P02Project
         {
             _layout.Margin = new Thickness(left, top, right, bottom);
         }
-	}
+    }
 }

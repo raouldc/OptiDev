@@ -1,32 +1,35 @@
-﻿using System;
+﻿#region
+
+using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Media.Effects;
 using System.Windows.Media.Animation;
+using System.Windows.Media.Effects;
+using System.Windows.Media.Imaging;
 using P02Project.Utils;
+
+#endregion
 
 namespace P02Project
 {
-	/// <summary>
-	/// Interaction logic for hcihBeads.xaml
-	/// </summary>
-	public partial class hcihGiftControl : UserControl, Animatiable
-	{
-        private SolidColorBrush unsel;
-        private SolidColorBrush sel;
-
-        private Storyboard sbIn;
+    /// <summary>
+    ///     Interaction logic for hcihBeads.xaml
+    /// </summary>
+    public partial class hcihGiftControl : UserControl, Animatiable
+    {
+        private readonly Storyboard sbIn;
+        private readonly SolidColorBrush sel;
+        private readonly SolidColorBrush unsel;
 
         /// <summary>
-        /// Constructor
+        ///     Constructor
         /// </summary>
         public hcihGiftControl()
-		{
-			this.InitializeComponent();
-            
+        {
+            InitializeComponent();
+
             // set image
             donate.setImage("images\\HowCanIHelp\\gift.png");
 
@@ -48,7 +51,7 @@ namespace P02Project
 
             // Making the poloroid on this screen not clickable
             donate.removeTouch();
-            donate.setShadow(10, 0.3, (Color)ColorConverter.ConvertFromString("#ff7f7f7f"));
+            donate.setShadow(10, 0.3, (Color) ColorConverter.ConvertFromString("#ff7f7f7f"));
 
             //set content
             soc_Click(this, null);
@@ -57,10 +60,26 @@ namespace P02Project
             sbIn = new Storyboard();
             Util.StackAnimationDefault(sbIn, buttons.Children);
             Util.FadeIn(sbIn, text);
-		}
+        }
 
         /// <summary>
-        /// unselect all giftControl items
+        ///     Need to animate the poloroid and the other components
+        /// </summary>
+        void Animatiable.AnimateIn()
+        {
+            sbIn.Begin();
+            donate.AnimateIn();
+        }
+
+        /// <summary>
+        ///     Do nothing
+        /// </summary>
+        void Animatiable.AnimateOut()
+        {
+        }
+
+        /// <summary>
+        ///     unselect all giftControl items
         /// </summary>
         private void SetAllUnsel()
         {
@@ -72,7 +91,7 @@ namespace P02Project
         }
 
         /// <summary>
-        /// Puts the Star of courage content on the screen
+        ///     Puts the Star of courage content on the screen
         /// </summary>
         /// <returns>A Dynamically created StackPanel object that contains the runs of strings and images</returns>
         private StackPanel socContent()
@@ -89,21 +108,21 @@ namespace P02Project
             qrCode.Source = src;
             qrCode.Height = 200;
             qrCode.Width = 200;
-            qrCode.HorizontalAlignment = System.Windows.HorizontalAlignment.Left;
+            qrCode.HorizontalAlignment = HorizontalAlignment.Left;
             qrCode.Margin = new Thickness(10);
 
             TextBlock tb = Util.TextBlockFactory();
-            
+
             //Text Content
             tb.Inlines.Add(new Run("Make a $500 donation and gift a star to directly support a child’s cancer journey."
-                                    + "\n\nStars of Courage is a unique programme which will see each child diagnosed "
-                                    + "with cancer offered a dedicated star.\n\nEach child will receive the name of th"
-                                    + "eir star, its coordinates in the sky and information on its constellation or gr"
-                                    + "ouping.  They can then visit any observatory in New Zealand and use the telesco"
-                                    + "pe to locate their star.\n\nMoney raised will help fund the $6 million required"
-                                    + " each year for child and family support services in New Zealand.\n\nTo make a d"
-                                    + "onation, visit http://tinyurl.com/n7bhk5h or scan the "
-                                    + "QR code below"));
+                                   + "\n\nStars of Courage is a unique programme which will see each child diagnosed "
+                                   + "with cancer offered a dedicated star.\n\nEach child will receive the name of th"
+                                   + "eir star, its coordinates in the sky and information on its constellation or gr"
+                                   + "ouping.  They can then visit any observatory in New Zealand and use the telesco"
+                                   + "pe to locate their star.\n\nMoney raised will help fund the $6 million required"
+                                   + " each year for child and family support services in New Zealand.\n\nTo make a d"
+                                   + "onation, visit http://tinyurl.com/n7bhk5h or scan the "
+                                   + "QR code below"));
 
             //Add the text first and then the iamge below it
             content.Children.Add(tb);
@@ -112,7 +131,7 @@ namespace P02Project
         }
 
         /// <summary>
-        /// Dynamically generates the Beads of Courage content
+        ///     Dynamically generates the Beads of Courage content
         /// </summary>
         /// <returns>StackPanel Object that contents the text and images</returns>
         private StackPanel bocContent()
@@ -128,20 +147,21 @@ namespace P02Project
             qrCode.Source = src;
             qrCode.Height = 200;
             qrCode.Width = 200;
-            qrCode.HorizontalAlignment = System.Windows.HorizontalAlignment.Left;
+            qrCode.HorizontalAlignment = HorizontalAlignment.Left;
             qrCode.Margin = new Thickness(10);
 
             TextBlock tb = Util.TextBlockFactory();
-            tb.Inlines.Add(new Run("Make a $5 donation and gift a Bead of Courage® to a child with cancer to directly supp"
-                                    + "ort a child’s cancer journey.\n\nOn average three children in New Zealand are diagn"
-                                    + "osed with cancer each week.  These children undergo an astounding 100,000 treatment"
-                                    + "s and procedures each year.  For every treatment and procedure a child endures they"
-                                    + " receive a bead of courage.\n\nBeads of Courage® is a unique programme designed to "
-                                    + "honour the challenging journey children take while receiving care for cancer.  Each"
-                                    + " collection of beads symbolises the courage and honours the milestones achieved alo"
-                                    + "ng the treatment path.\n\nTo make a d"
-                                    + "onation, visit http://tinyurl.com/m5axzgt or scan the "
-                                    + "QR code below"));
+            tb.Inlines.Add(
+                new Run("Make a $5 donation and gift a Bead of Courage® to a child with cancer to directly supp"
+                        + "ort a child’s cancer journey.\n\nOn average three children in New Zealand are diagn"
+                        + "osed with cancer each week.  These children undergo an astounding 100,000 treatment"
+                        + "s and procedures each year.  For every treatment and procedure a child endures they"
+                        + " receive a bead of courage.\n\nBeads of Courage® is a unique programme designed to "
+                        + "honour the challenging journey children take while receiving care for cancer.  Each"
+                        + " collection of beads symbolises the courage and honours the milestones achieved alo"
+                        + "ng the treatment path.\n\nTo make a d"
+                        + "onation, visit http://tinyurl.com/m5axzgt or scan the "
+                        + "QR code below"));
 
             content.Children.Add(tb);
             content.Children.Add(qrCode);
@@ -149,23 +169,7 @@ namespace P02Project
         }
 
         /// <summary>
-        /// Need to animate the poloroid and the other components
-        /// </summary>
-        void Animatiable.AnimateIn()
-        {
-            sbIn.Begin();
-            donate.AnimateIn();
-        }
-
-        /// <summary>
-        /// Do nothing
-        /// </summary>
-        void Animatiable.AnimateOut()
-        {
-        }
-
-        /// <summary>
-        /// handler for soc control
+        ///     handler for soc control
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -185,7 +189,7 @@ namespace P02Project
         }
 
         /// <summary>
-        /// This function resets the timeout
+        ///     This function resets the timeout
         /// </summary>
         private void ResetTimer()
         {
@@ -200,7 +204,7 @@ namespace P02Project
         }
 
         /// <summary>
-        /// handler for boc control
+        ///     handler for boc control
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

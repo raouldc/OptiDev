@@ -1,22 +1,26 @@
-﻿using System.Windows;
+﻿#region
+
+using System;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using P02Project.Utils;
-using System;
+
+#endregion
 
 namespace P02Project.Screens
 {
     /// <summary>
-    /// Interaction logic for SplitGridView.xaml
+    ///     Interaction logic for SplitGridView.xaml
     /// </summary>
     public partial class SplitGridView : UserControl, Animatiable
     {
-        private Storyboard sbIn;
+        private readonly Storyboard sbIn;
 
         /// <summary>
-        /// Constructor
+        ///     Constructor
         /// </summary>
         /// <param name="filename"></param>
         public SplitGridView(PageModel temp)
@@ -32,7 +36,7 @@ namespace P02Project.Screens
             // initialize the list to store all the images in this page.
             PageModelImage[] imgList = temp.ImageList;
             int count = 0;
-            double rotation =8;
+            double rotation = 8;
 
             // confige each image
             foreach (PageModelImage img in imgList)
@@ -43,11 +47,11 @@ namespace P02Project.Screens
                 p.Height = 350;
                 p.setCaption(img.caption);
                 p.Margin = new Thickness(25);
-                p.RenderTransformOrigin.Offset(0.5,0.5);
+                p.RenderTransformOrigin.Offset(0.5, 0.5);
                 p.RenderTransform = new RotateTransform(rotation);
                 p.IsUnclickable = true;
                 p.setShadow(10, 0.365, Colors.Black);
-                rotation = rotation * -1;
+                rotation = rotation*-1;
                 Grid.SetColumn(p, 0);
                 Grid.SetRow(p, count);
                 PageContent.Children.Add(p);
@@ -59,22 +63,20 @@ namespace P02Project.Screens
             TextBlock tb = Util.TextBlockFactory();
             foreach (PageModelText txt in textList)
             {
-      
-                if ((txt.id!=null)&&(txt.id.Equals("bold")))
+                if ((txt.id != null) && (txt.id.Equals("bold")))
                 {
                     tb.Inlines.Add(new Bold(new Run(txt.Value.Trim() + "\n\n")));
                 }
                 else
                 {
                     tb.Inlines.Add(new Run(txt.Value.Trim() + "\n\n"));
-
                 }
             }
 
             StackPanel contentStackPanel = new StackPanel();
 
             contentStackPanel.Children.Add(tb);
-                        
+
             splitContentScrollViewer.Content = contentStackPanel;
 
             sbIn = new Storyboard();
@@ -88,7 +90,6 @@ namespace P02Project.Screens
             {
                 Util.FadeIn(sbIn, fElement);
             }
-  
         }
 
         public void AnimateIn()
@@ -98,7 +99,6 @@ namespace P02Project.Screens
 
         public void AnimateOut()
         {
-            
         }
 
         private void splitContentScrollViewer_ScrollChanged(object sender, ScrollChangedEventArgs e)

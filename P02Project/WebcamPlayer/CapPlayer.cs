@@ -1,38 +1,24 @@
-﻿///////////////////////////////////////////////////////////////////////////////
-// CapPlayer v1.1
-//
-// This software is released into the public domain.  You are free to use it
-// in any way you like, except that you may not sell this source code.
-//
-// This software is provided "as is" with no expressed or implied warranty.
-// I accept no liability for any damage or loss of business that this software
-// may cause.
-// 
-// This source code is originally written by Tamir Khason (see http://blogs.microsoft.co.il/blogs/tamir
-// or http://www.codeplex.com/wpfcap).
-// 
-// Modifications are made by Geert van Horrik (CatenaLogic, see http://blog.catenalogic.com) 
-//
-///////////////////////////////////////////////////////////////////////////////
+﻿#region
 
 using System;
-using System.Windows.Media.Imaging;
-using System.Windows.Media;
-using System.Windows.Controls;
+using System.ComponentModel;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Data;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+
+#endregion
 
 namespace CatenaLogic.Windows.Presentation.WebcamPlayer
 {
     public class CapPlayer : Image, IDisposable
     {
         #region Variables
+
         #endregion
 
         #region Constructor & destructor
-        public CapPlayer()
-        {
-        }
 
         public void Dispose()
         {
@@ -46,69 +32,78 @@ namespace CatenaLogic.Windows.Presentation.WebcamPlayer
                 Device = null;
             }
         }
+
         #endregion
 
         #region Properties
+
+        // Using a DependencyProperty as the backing store for Device.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty DeviceProperty = DependencyProperty.Register("Device",
+            typeof (CapDevice),
+            typeof (CapPlayer), new UIPropertyMetadata(null, DeviceProperty_Changed));
+
+        // Using a DependencyProperty as the backing store for Rotation.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty RotationProperty = DependencyProperty.Register("Rotation",
+            typeof (double), typeof (CapPlayer),
+            new UIPropertyMetadata(0d, RotationProperty_Changed));
+
+        public static readonly DependencyProperty FramerateProperty =
+            DependencyProperty.Register("Framerate", typeof (float), typeof (CapPlayer),
+                new UIPropertyMetadata(default(float)));
+
         /// <summary>
-        /// Wrapper for the Device dependency property
+        ///     Wrapper for the Device dependency property
         /// </summary>
         public CapDevice Device
         {
-            get { return (CapDevice)GetValue(DeviceProperty); }
+            get { return (CapDevice) GetValue(DeviceProperty); }
             set { SetValue(DeviceProperty, value); }
         }
 
-        // Using a DependencyProperty as the backing store for Device.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty DeviceProperty = DependencyProperty.Register("Device", typeof(CapDevice), 
-            typeof(CapPlayer), new UIPropertyMetadata(null, new PropertyChangedCallback(DeviceProperty_Changed)));
-
         /// <summary>
-        /// Wrapper for the Rotation dependency property
+        ///     Wrapper for the Rotation dependency property
         /// </summary>
         public double Rotation
         {
-            get { return (double)GetValue(RotationProperty); }
+            get { return (double) GetValue(RotationProperty); }
             set { SetValue(RotationProperty, value); }
         }
 
-        // Using a DependencyProperty as the backing store for Rotation.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty RotationProperty = DependencyProperty.Register("Rotation", typeof(double), typeof(CapPlayer), 
-            new UIPropertyMetadata(0d, new PropertyChangedCallback(RotationProperty_Changed)));
-
         /// <summary>
-        /// Wrapper for the framerate dependency property
+        ///     Wrapper for the framerate dependency property
         /// </summary>
         public float Framerate
         {
-            get { return (float)GetValue(FramerateProperty); }
+            get { return (float) GetValue(FramerateProperty); }
             set { SetValue(FramerateProperty, value); }
         }
 
-        public static readonly DependencyProperty FramerateProperty =
-            DependencyProperty.Register("Framerate", typeof(float), typeof(CapPlayer), new UIPropertyMetadata(default(float)));
-
         /// <summary>
-        /// Gets the current bitmap
+        ///     Gets the current bitmap
         /// </summary>
         public BitmapSource CurrentBitmap
         {
             get
             {
                 // Return right value
-                return (Device != null) ? new TransformedBitmap(Device.BitmapSource.Clone(), new RotateTransform(Rotation)) : null;
+                return (Device != null)
+                    ? new TransformedBitmap(Device.BitmapSource.Clone(), new RotateTransform(Rotation))
+                    : null;
             }
         }
+
         #endregion
 
         #region Methods
-        static void DeviceProperty_Changed(DependencyObject sender, DependencyPropertyChangedEventArgs e)
+
+        private static void DeviceProperty_Changed(DependencyObject sender, DependencyPropertyChangedEventArgs e)
         {
             // Get the sender
             CapPlayer typedSender = sender as CapPlayer;
             if ((typedSender != null) && (e.NewValue != null))
             {
                 // Make sure that we are not in design mode
-                if (System.ComponentModel.DesignerProperties.GetIsInDesignMode(typedSender)) return;
+                if (DesignerProperties.GetIsInDesignMode(typedSender)) return;
 
                 // Unsubscribe from previous device
                 CapDevice oldDevice = e.OldValue as CapDevice;
@@ -128,22 +123,22 @@ namespace CatenaLogic.Windows.Presentation.WebcamPlayer
             }
         }
 
-        static void RotationProperty_Changed(DependencyObject sender, DependencyPropertyChangedEventArgs e)
+        private static void RotationProperty_Changed(DependencyObject sender, DependencyPropertyChangedEventArgs e)
         {
             // Get the sender
             CapPlayer typedSender = sender as CapPlayer;
             if (typedSender != null)
             {
                 // Rotate
-                typedSender.LayoutTransform = new RotateTransform((double)e.NewValue);
+                typedSender.LayoutTransform = new RotateTransform((double) e.NewValue);
             }
         }
 
         /// <summary>
-        /// Cleans up a specific device
+        ///     Cleans up a specific device
         /// </summary>
         /// <param name="device">Device to clean up</param>
-        void CleanUpDevice(CapDevice device)
+        private void CleanUpDevice(CapDevice device)
         {
             // Check if there even is a device
             if (device == null) return;
@@ -156,17 +151,17 @@ namespace CatenaLogic.Windows.Presentation.WebcamPlayer
         }
 
         /// <summary>
-        /// Invoked when a new bitmap is ready
+        ///     Invoked when a new bitmap is ready
         /// </summary>
         /// <param name="sender">Sender</param>
         /// <param name="e">EventArgs</param>
-        void device_OnNewBitmapReady(object sender, EventArgs e)
+        private void device_OnNewBitmapReady(object sender, EventArgs e)
         {
             // Create new binding for the framerate
             Binding b = new Binding();
             b.Source = Device;
             b.Path = new PropertyPath(CapDevice.FramerateProperty);
-            SetBinding(CapPlayer.FramerateProperty, b);
+            SetBinding(FramerateProperty, b);
 
             // Get the sender
             CapDevice typedSender = sender as CapDevice;
@@ -176,6 +171,7 @@ namespace CatenaLogic.Windows.Presentation.WebcamPlayer
                 Source = typedSender.BitmapSource;
             }
         }
+
         #endregion
     }
 }

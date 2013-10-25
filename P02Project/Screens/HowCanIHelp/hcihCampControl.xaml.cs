@@ -1,24 +1,27 @@
-﻿using System;
+﻿#region
+
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Animation;
 using P02Project.Utils;
 
+#endregion
+
 namespace P02Project
 {
-	/// <summary>
-	/// Interaction logic for hcihBeads.xaml
-	/// </summary>
+    /// <summary>
+    ///     Interaction logic for hcihBeads.xaml
+    /// </summary>
     public partial class hcihCampControl : UserControl, Animatiable
-	{
-        Storyboard sbIn;
-        
+    {
+        private readonly Storyboard sbIn;
+
         /// <summary>
-        /// Constructor
+        ///     Constructor
         /// </summary>
         public hcihCampControl()
-		{
-			this.InitializeComponent();
+        {
+            InitializeComponent();
 
             sbIn = new Storyboard();
 
@@ -29,10 +32,10 @@ namespace P02Project
             }
 
             Util.SetupQR(QRText, "Find out more about our campaigns at http://tinyurl.com/lfxloyz");
-		}
+        }
 
         /// <summary>
-        /// begin the animation
+        ///     begin the animation
         /// </summary>
         void Animatiable.AnimateIn()
         {
@@ -40,7 +43,7 @@ namespace P02Project
         }
 
         /// <summary>
-        /// Does nothing
+        ///     Does nothing
         /// </summary>
         void Animatiable.AnimateOut()
         {

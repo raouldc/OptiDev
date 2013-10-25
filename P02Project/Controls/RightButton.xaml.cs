@@ -1,79 +1,75 @@
-﻿using System.Windows.Controls;
+﻿#region
+
+using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Effects;
-using P02Project.Utils;
+
+#endregion
 
 namespace P02Project
 {
-	/// <summary>
-	/// This class is the UserControl for the buttons on the Right
-    /// The buttons can have a custom colour and caption
-	/// </summary>
-	public partial class RightButton : UserControl
-	{
-
-
+    /// <summary>
+    ///     This class is the UserControl for the buttons on the Right
+    ///     The buttons can have a custom colour and caption
+    /// </summary>
+    public partial class RightButton : UserControl
+    {
         /// <summary>
-        /// constructor
+        ///     constructor
         /// </summary>
-		public RightButton()
-		{
-			this.InitializeComponent();
+        public RightButton()
+        {
+            InitializeComponent();
             Text.FontFamily = Util.buttonTextFont;
-            Text.Foreground = new SolidColorBrush(Util.buttonTextColor); 
-		}
-
+            Text.Foreground = new SolidColorBrush(Util.buttonTextColor);
+        }
 
 
         /// <summary>
-        /// Gets or Sets the Caption of the buttons
-        /// The caption is the text on the button
+        ///     Gets or Sets the Caption of the buttons
+        ///     The caption is the text on the button
         /// </summary>
         public string Caption
         {
-            set { this.Text.Text = value; }
-            get { return this.Text.Text; }
+            set { Text.Text = value; }
+            get { return Text.Text; }
         }
 
 
-
         /// <summary>
-        /// Gets or Sets the colour of the button
+        ///     Gets or Sets the colour of the button
         /// </summary>
         public Color Colour
         {
-            set { this.Canvas.Fill = new SolidColorBrush(value); }
-            get { return ((SolidColorBrush)this.Canvas.Fill).Color; }
+            set { Canvas.Fill = new SolidColorBrush(value); }
+            get { return ((SolidColorBrush) Canvas.Fill).Color; }
         }
 
 
-
         /// <summary>
-        /// Sets the opacity of the shadow to 100%
-        /// Makes the shadow visible
+        ///     Sets the opacity of the shadow to 100%
+        ///     Makes the shadow visible
         /// </summary>
         private void showShadow()
         {
-            ((DropShadowEffect)Canvas.Effect).Opacity = 1;
+            ((DropShadowEffect) Canvas.Effect).Opacity = 1;
         }
 
 
-
         /// <summary>
-        /// Sets the opacity of the shadow to 0%
-        /// Makes the shadow invisible
+        ///     Sets the opacity of the shadow to 0%
+        ///     Makes the shadow invisible
         /// </summary>
         private void hideShadow()
         {
-            ((DropShadowEffect)Canvas.Effect).Opacity = 0;
+            ((DropShadowEffect) Canvas.Effect).Opacity = 0;
         }
 
 
-
         /// <summary>
-        /// When the mouse is down, the shadow of the button is hidden to make
-        /// it look like the button is moving down
+        ///     When the mouse is down, the shadow of the button is hidden to make
+        ///     it look like the button is moving down
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -83,10 +79,9 @@ namespace P02Project
         }
 
 
-
         /// <summary>
-        /// When the mouse if up, the shadow of the button is made visible to make 
-        /// the button look like it's moving up
+        ///     When the mouse if up, the shadow of the button is made visible to make
+        ///     the button look like it's moving up
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -94,6 +89,5 @@ namespace P02Project
         {
             showShadow();
         }
-
-	}
+    }
 }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿#region
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
@@ -6,23 +8,27 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using P02Project.Utils;
 
+#endregion
+
 namespace P02Project.Screens
 {
     /// <summary>
-    /// Interaction logic for TopLevelPage.xaml
+    ///     Interaction logic for TopLevelPage.xaml
     /// </summary>
     public partial class TopLevelPage : Screen
     {
         // stack of the screens and the subtitle
-        private Stack<UIElement> stackOfContent;
-        private Stack<String> stackSubtitle;
+        private readonly Stack<UIElement> stackOfContent;
+        private readonly Stack<String> stackSubtitle;
         protected List<Animatiable> components;
 
         /// <summary>
-        /// Constructor
+        ///     Constructor
         /// </summary>
-        /// <param name="parentWindow">This accesses the window that contains the stack. 
-        /// The buttons need to go through the stack</param>
+        /// <param name="parentWindow">
+        ///     This accesses the window that contains the stack.
+        ///     The buttons need to go through the stack
+        /// </param>
         /// <param name="title">Set title bar</param>
         public TopLevelPage(TopWindow parentWindow, String title)
             : base(parentWindow)
@@ -58,7 +64,7 @@ namespace P02Project.Screens
         }
 
         /// <summary>
-        /// Set the content part of the grid
+        ///     Set the content part of the grid
         /// </summary>
         /// <param name="control">Sets the inner child contents of the page</param>
         public void setContent(UIElement control)
@@ -73,7 +79,7 @@ namespace P02Project.Screens
             //Add content to stack if it's not already in it
             if (!stackOfContent.ToArray().Contains(control))
             {
-            stackOfContent.Push(control);
+                stackOfContent.Push(control);
             }
 
             //set control to it's place in the grid
@@ -84,9 +90,8 @@ namespace P02Project.Screens
         }
 
 
-
         /// <summary>
-        /// set the subtitle of the screen
+        ///     set the subtitle of the screen
         /// </summary>
         /// <param name="sub"></param>
         public void setSubtitle(String sub)
@@ -96,9 +101,8 @@ namespace P02Project.Screens
         }
 
 
-
         /// <summary>
-        /// get the subtitle of the screen
+        ///     get the subtitle of the screen
         /// </summary>
         /// <returns></returns>
         public String getSubtitle()
@@ -107,9 +111,8 @@ namespace P02Project.Screens
         }
 
 
-
         /// <summary>
-        /// set the color of the title of the screen
+        ///     set the color of the title of the screen
         /// </summary>
         /// <param name="col"></param>
         public void setTitleColour(Color col)
@@ -118,19 +121,20 @@ namespace P02Project.Screens
         }
 
         /// <summary>
-        /// set the right buttons
+        ///     set the right buttons
         /// </summary>
-        /// <param name="bNames">Array of buttons to go on the right side. 
-        /// This array should be of size 7 at all times</param>
+        /// <param name="bNames">
+        ///     Array of buttons to go on the right side.
+        ///     This array should be of size 7 at all times
+        /// </param>
         public void setButtons(String[] bNames)
         {
             //Set the names of the buttons
             RightButtons.setButtons(bNames);
-
         }
 
         /// <summary>
-        /// This method called when the Back button has been clicked
+        ///     This method called when the Back button has been clicked
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -153,7 +157,7 @@ namespace P02Project.Screens
                 pageGrid.Children.Remove(old);
                 //set next control to be the content
                 UIElement newContent = stackOfContent.Pop();
-                this.setContent(newContent);
+                setContent(newContent);
 
                 try
                 {
@@ -162,19 +166,18 @@ namespace P02Project.Screens
                 catch (NullReferenceException)
                 {
                 }
-               
+
                 stackSubtitle.Pop();
 
                 // set the subtitle according to the subtitle that store in the stack
                 if (stackSubtitle.Count < 1)
                 {
-                    this.setSubtitle("");
+                    setSubtitle("");
                 }
                 else
                 {
                     String sub = stackSubtitle.Pop();
-                    this.setSubtitle(sub);
-                    
+                    setSubtitle(sub);
                 }
             }
             else
@@ -187,6 +190,5 @@ namespace P02Project.Screens
         {
             ParentWindow.popScreen();
         }
-
     }
 }

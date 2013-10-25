@@ -1,55 +1,47 @@
-﻿///////////////////////////////////////////////////////////////////////////////
-// CapGrabber v1.1
-//
-// This software is released into the public domain.  You are free to use it
-// in any way you like, except that you may not sell this source code.
-//
-// This software is provided "as is" with no expressed or implied warranty.
-// I accept no liability for any damage or loss of business that this software
-// may cause.
-// 
-// This source code is originally written by Tamir Khason (see http://blogs.microsoft.co.il/blogs/tamir
-// or http://www.codeplex.com/wpfcap).
-// 
-// Modifications are made by Geert van Horrik (CatenaLogic, see http://blog.catenalogic.com) 
-//
-///////////////////////////////////////////////////////////////////////////////
+﻿#region
 
 using System;
-using System.Runtime.InteropServices;
 using System.ComponentModel;
+using System.Runtime.InteropServices;
+
+#endregion
 
 namespace CatenaLogic.Windows.Presentation.WebcamPlayer
 {
     internal class CapGrabber : ISampleGrabberCB, INotifyPropertyChanged
     {
         #region Win32 imports
+
         [DllImport("Kernel32.dll", EntryPoint = "RtlMoveMemory")]
         private static extern void CopyMemory(IntPtr Destination, IntPtr Source, int Length);
+
         #endregion
 
         #region Variables
+
         private int _height = default(int);
         private int _width = default(int);
-        #endregion 
+
+        #endregion
 
         #region Constructor & destructor
-        public CapGrabber()
-        {
-        }
+
         #endregion
 
         #region Events
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         public event EventHandler NewFrameArrived;
+
         #endregion
 
         #region Properties
+
         public IntPtr Map { get; set; }
 
         /// <summary>
-        /// Gets or sets the width of the grabber
+        ///     Gets or sets the width of the grabber
         /// </summary>
         public int Width
         {
@@ -62,7 +54,7 @@ namespace CatenaLogic.Windows.Presentation.WebcamPlayer
         }
 
         /// <summary>
-        /// Gets or sets the height of the grabber
+        ///     Gets or sets the height of the grabber
         /// </summary>
         public int Height
         {
@@ -73,9 +65,11 @@ namespace CatenaLogic.Windows.Presentation.WebcamPlayer
                 OnPropertyChanged("Height");
             }
         }
+
         #endregion
 
         #region Methods
+
         public int SampleCB(double sampleTime, IntPtr sample)
         {
             return 0;
@@ -91,7 +85,7 @@ namespace CatenaLogic.Windows.Presentation.WebcamPlayer
             return 0;
         }
 
-        void OnNewFrameArrived()
+        private void OnNewFrameArrived()
         {
             if (NewFrameArrived != null)
             {
@@ -99,13 +93,14 @@ namespace CatenaLogic.Windows.Presentation.WebcamPlayer
             }
         }
 
-        void OnPropertyChanged(string name)
+        private void OnPropertyChanged(string name)
         {
             if (PropertyChanged != null)
             {
                 PropertyChanged(this, new PropertyChangedEventArgs(name));
             }
         }
+
         #endregion
     }
 }

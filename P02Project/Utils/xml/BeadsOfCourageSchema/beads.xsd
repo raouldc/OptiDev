@@ -1,5 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<xs:schema id="BeadDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+
+<xs:schema id="BeadDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
   <xs:element name="BeadModel">
     <xs:complexType>
       <xs:sequence>

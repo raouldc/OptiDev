@@ -1,5 +1,6 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<BeadModel id ="Beads">
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<BeadModel id="Beads">
   <BeadsList>
     <Bead id="Beige">
       Bone Marrow Aspirate,Biopsy,Joint Aspirations/Injections

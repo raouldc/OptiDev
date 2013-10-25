@@ -1,47 +1,39 @@
-﻿///////////////////////////////////////////////////////////////////////////////
-// FilterInfo v1.1
-//
-// This software is released into the public domain.  You are free to use it
-// in any way you like, except that you may not sell this source code.
-//
-// This software is provided "as is" with no expressed or implied warranty.
-// I accept no liability for any damage or loss of business that this software
-// may cause.
-// 
-// This source code is originally written by Tamir Khason (see http://blogs.microsoft.co.il/blogs/tamir
-// or http://www.codeplex.com/wpfcap).
-// 
-// Modifications are made by Geert van Horrik (CatenaLogic, see http://blog.catenalogic.com) 
-//
-///////////////////////////////////////////////////////////////////////////////
+﻿#region
 
 using System;
-using System.Runtime.InteropServices.ComTypes;
 using System.Runtime.InteropServices;
+using System.Runtime.InteropServices.ComTypes;
+
+#endregion
 
 namespace CatenaLogic.Windows.Presentation.WebcamPlayer
 {
     /// <summary>
-    /// FilterInfo class
+    ///     FilterInfo class
     /// </summary>
     public class FilterInfo : IComparable
     {
         #region Win32
+
         [DllImport("ole32.dll")]
         public static extern int CreateBindCtx(int reserved, out IBindCtx ppbc);
 
         [DllImport("ole32.dll", CharSet = CharSet.Unicode)]
         public static extern int MkParseDisplayName(IBindCtx pbc, string szUserName, ref int pchEaten, out IMoniker ppmk);
+
         #endregion
 
         #region Variables
-        private readonly string _name;
+
         private readonly string _monikerString;
+        private readonly string _name;
+
         #endregion
 
         #region Constructor & destructor
+
         /// <summary>
-        /// Initializes a new filter info object
+        ///     Initializes a new filter info object
         /// </summary>
         /// <param name="monikerString">Moniker string to base the filter on</param>
         public FilterInfo(string monikerString)
@@ -52,41 +44,61 @@ namespace CatenaLogic.Windows.Presentation.WebcamPlayer
         }
 
         /// <summary>
-        /// Initializes a new filter info object
+        ///     Initializes a new filter info object
         /// </summary>
         /// <param name="moniker">Moniker to base the filter on</param>
         internal FilterInfo(IMoniker moniker)
             : this(GetMonikerString(moniker))
-        { }
+        {
+        }
+
         #endregion
 
         #region Properties
+
         /// <summary>
-        /// Gets the name
+        ///     Gets the name
         /// </summary>
         public string Name
         {
-            get
-            {
-                return _name;
-            }
+            get { return _name; }
         }
 
         /// <summary>
-        /// Gets the Moniker String
+        ///     Gets the Moniker String
         /// </summary>
         public string MonikerString
         {
-            get
-            {
-                return _monikerString;
-            }
+            get { return _monikerString; }
         }
+
         #endregion
 
         #region Methods
+
         /// <summary>
-        /// Creates a specific filter based on the moniker
+        ///     Compares the current object to another object
+        /// </summary>
+        /// <param name="value">Value to compare the current object to</param>
+        /// <returns>If 0, the values are equal</returns>
+        public int CompareTo(object value)
+        {
+            // Get the object as filter info
+            FilterInfo f = (FilterInfo) value;
+
+            // Check if we have a valid object
+            if (f == null)
+            {
+                // No, so different
+                return 1;
+            }
+
+            // Valid object, compare the names
+            return (Name.CompareTo(f.Name));
+        }
+
+        /// <summary>
+        ///     Creates a specific filter based on the moniker
         /// </summary>
         /// <param name="filterMoniker">FilterMoniker to create the </param>
         /// <returns>Filter or null</returns>
@@ -105,7 +117,7 @@ namespace CatenaLogic.Windows.Presentation.WebcamPlayer
                 if (MkParseDisplayName(bindCtx, filterMoniker, ref n, out moniker) == 0)
                 {
                     // Bind to the object
-                    Guid filterId = typeof(IBaseFilter).GUID;
+                    Guid filterId = typeof (IBaseFilter).GUID;
                     moniker.BindToObject(null, null, ref filterId, out filterObject);
 
                     // Clean up
@@ -121,7 +133,7 @@ namespace CatenaLogic.Windows.Presentation.WebcamPlayer
         }
 
         /// <summary>
-        /// Gets the moniker string for a specific moniker
+        ///     Gets the moniker string for a specific moniker
         /// </summary>
         /// <param name="moniker">Moniker to retrieve the moniker string of</param>
         /// <returns>Moniker string</returns>
@@ -138,7 +150,7 @@ namespace CatenaLogic.Windows.Presentation.WebcamPlayer
         }
 
         /// <summary>
-        /// Gets the name of a specific moniker
+        ///     Gets the name of a specific moniker
         /// </summary>
         /// <param name="moniker">Moniker object to get the name of</param>
         /// <returns>Name of a specific moniker</returns>
@@ -151,9 +163,9 @@ namespace CatenaLogic.Windows.Presentation.WebcamPlayer
             try
             {
                 // Bind the moniker to storage
-                Guid bagId = typeof(IPropertyBag).GUID;
+                Guid bagId = typeof (IPropertyBag).GUID;
                 moniker.BindToStorage(null, null, ref bagId, out bagObj);
-                bag = (IPropertyBag)bagObj;
+                bag = (IPropertyBag) bagObj;
 
                 // Try to retrieve the friendly name
                 object val = "";
@@ -164,7 +176,7 @@ namespace CatenaLogic.Windows.Presentation.WebcamPlayer
                 }
 
                 // Convert to string & validate
-                string result = (string)val;
+                string result = (string) val;
                 if (string.IsNullOrEmpty(result))
                 {
                     throw new ApplicationException();
@@ -191,7 +203,7 @@ namespace CatenaLogic.Windows.Presentation.WebcamPlayer
         }
 
         /// <summary>
-        /// Gets the name of a specific moniker
+        ///     Gets the name of a specific moniker
         /// </summary>
         /// <param name="monikerString">Moniker string to get the name of</param>
         /// <returns>Name of a specific moniker</returns>
@@ -226,26 +238,6 @@ namespace CatenaLogic.Windows.Presentation.WebcamPlayer
             return name;
         }
 
-        /// <summary>
-        /// Compares the current object to another object
-        /// </summary>
-        /// <param name="value">Value to compare the current object to</param>
-        /// <returns>If 0, the values are equal</returns>
-        public int CompareTo(object value)
-        {
-            // Get the object as filter info
-            FilterInfo f = (FilterInfo)value;
-
-            // Check if we have a valid object
-            if (f == null)
-            {
-                // No, so different
-                return 1;
-            }
-
-            // Valid object, compare the names
-            return (Name.CompareTo(f.Name));
-        }
         #endregion
     }
 }

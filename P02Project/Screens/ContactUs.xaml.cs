@@ -1,49 +1,49 @@
-﻿using System;
-using System.Collections.Generic;
+﻿#region
+
+using System;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Media;
-using System.Windows.Media.Effects;
-using System.Windows.Media.Animation;
 using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Animation;
+using System.Windows.Media.Effects;
+using System.Windows.Threading;
 using Microsoft.Maps.MapControl.WPF;
 using Microsoft.Surface.Presentation.Controls;
-using System.Windows.Input;
 using P02Project.Utils;
-using System.Windows.Threading;
+
+#endregion
 
 namespace P02Project
 {
     /// <summary>
-    /// Interaction logic for ContactUs.xaml
+    ///     Interaction logic for ContactUs.xaml
     /// </summary>
     public partial class ContactUs : UserControl, Animatiable
     {
         // constant color for selected and unselected buttons
         private static readonly Brush SELECTED_COLOR = new SolidColorBrush(Util._pageColDict["cuSelected"]);
         private static readonly Brush UNSELECTED_COLOR = new SolidColorBrush(Util._pageColDict["cuUnSelected"]);
+        private readonly Storyboard sbIn;
 
         //Variables used in creation of the map
-        private Map moMap;
-        private Map map;
         private Pushpin auckMOPin;
         private Pushpin chchPin;
         private Pushpin dunPin;
-        private Pushpin taurPin;
+        private SurfaceScrollViewer familyPlaceScroll;
         private Pushpin hBPin;
+        private Map map;
+        private Map moMap;
+        private Pushpin taurPin;
         private Pushpin wellPin;
 
         //private DispatcherTimer mapLoader;
 
-        private SurfaceScrollViewer familyPlaceScroll;
-
-        //Animations
-        private Storyboard sbIn;
-
         public ContactUs()
         {
-            this.InitializeComponent();
-            
+            InitializeComponent();
+
             // set the initial style for each button
             setButtonStyles();
 
@@ -56,7 +56,15 @@ namespace P02Project
             //mapLoader = new DispatcherTimer();
 
             fmlPlClicked(null, null);
+        }
 
+        public void AnimateIn()
+        {
+            sbIn.Begin(this);
+        }
+
+        public void AnimateOut()
+        {
         }
 
         // Sets the colour,font and text properties of the right buttons
@@ -83,9 +91,9 @@ namespace P02Project
             _fmlSptBrns.Foreground = new SolidColorBrush(Util.buttonTextColor);
         }
 
-        
+
         /// <summary>
-        /// this method called when the "Family Places" option button has been clicked
+        ///     this method called when the "Family Places" option button has been clicked
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -108,7 +116,7 @@ namespace P02Project
             dShdow.Opacity = 0.365;
             _fmlPlcs.Effect = dShdow;
 
-            Action act = delegate() { content.Content = familyPlaceContent(); };
+            Action act = delegate { content.Content = familyPlaceContent(); };
             Dispatcher.BeginInvoke(act, DispatcherPriority.ApplicationIdle);
             _fmlPlcs.Content = "Loading...";
 
@@ -127,9 +135,8 @@ namespace P02Project
         }
 
 
-
         /// <summary>
-        /// this method called when the "Main Office" option button has been clicked
+        ///     this method called when the "Main Office" option button has been clicked
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -152,7 +159,7 @@ namespace P02Project
             dShdow.Opacity = 0.365;
             _mainOff.Effect = dShdow;
 
-            Action act = delegate() { content.Content = mainOfficeContent(); };
+            Action act = delegate { content.Content = mainOfficeContent(); };
             Dispatcher.BeginInvoke(act, DispatcherPriority.Background);
             _mainOff.Content = "Loading...";
 
@@ -161,7 +168,7 @@ namespace P02Project
 
 
         /// <summary>
-        /// this method called when the "Findraising Office" option button has been clicked
+        ///     this method called when the "Findraising Office" option button has been clicked
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -190,9 +197,8 @@ namespace P02Project
         }
 
 
-
         /// <summary>
-        /// this method called when the "Family Support Branches" option button has been clicked
+        ///     this method called when the "Family Support Branches" option button has been clicked
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -220,21 +226,12 @@ namespace P02Project
         }
 
 
-        public void AnimateIn()
-        {
-            sbIn.Begin(this);
-        }
-
-        public void AnimateOut()
-        {
-            
-        }
-
         //Creates a grid containing the content of the fundraising offices section
-        private Grid fundraisingOfficeContent() {
+        private Grid fundraisingOfficeContent()
+        {
             //Create a new grid
             Grid fundOfficeGrid = new Grid();
-            
+
             //set the columns of the grid
             ColumnDefinition c1 = new ColumnDefinition();
             ColumnDefinition c2 = new ColumnDefinition();
@@ -291,7 +288,7 @@ namespace P02Project
             fundOfficeGrid.Children.Add(box4);
             fundOfficeGrid.Children.Add(box5);
             fundOfficeGrid.Children.Add(box6);
-           
+
             return fundOfficeGrid;
         }
 
@@ -309,7 +306,7 @@ namespace P02Project
             DropShadowEffect dShdow = new DropShadowEffect();
             dShdow.BlurRadius = 10;
             dShdow.Opacity = 0.365;
-            box.Effect = dShdow; 
+            box.Effect = dShdow;
         }
 
         //Creates a grid containing the content of the family support section
@@ -374,12 +371,12 @@ namespace P02Project
             familySupportGrid.Children.Add(box4);
             familySupportGrid.Children.Add(box5);
             familySupportGrid.Children.Add(box6);
-        
+
             return familySupportGrid;
         }
 
         /// <summary>
-        /// Content about the Auckland main office contacts
+        ///     Content about the Auckland main office contacts
         /// </summary>
         /// <returns> A stack panel containing the content</returns>
         private StackPanel auckMOContent()
@@ -397,13 +394,13 @@ namespace P02Project
             textB.Inlines.Add(new Run(" | 09 366 1270"));
             textB.Inlines.Add(new Bold(new Run("Fax")));
             textB.Inlines.Add(new Run(" | 09 377 9395\n"));
-            
+
             contentStackPanel.Children.Add(textB);
             return contentStackPanel;
         }
 
-    /// <summary>
-        /// Content about the Auckland family place contacts
+        /// <summary>
+        ///     Content about the Auckland family place contacts
         /// </summary>
         /// <returns> A stack panel containing the content</returns>
         private StackPanel auckFPContent()
@@ -419,9 +416,8 @@ namespace P02Project
         }
 
 
-
-    /// <summary>
-        /// Content about the Tauranga family place contacts
+        /// <summary>
+        ///     Content about the Tauranga family place contacts
         /// </summary>
         /// <returns> A stack panel containing the content</returns>
         private StackPanel taurangaFPContent()
@@ -437,7 +433,7 @@ namespace P02Project
         }
 
         /// <summary>
-        /// Content about the Hawkes Bay family place contacts
+        ///     Content about the Hawkes Bay family place contacts
         /// </summary>
         /// <returns> A stack panel containing the content</returns>
         private StackPanel hbFPContent()
@@ -453,7 +449,7 @@ namespace P02Project
         }
 
         /// <summary>
-        /// Content about the Wellington family place contacts
+        ///     Content about the Wellington family place contacts
         /// </summary>
         /// <returns> A stack panel containing the content</returns>
         private StackPanel wellFPContent()
@@ -469,7 +465,7 @@ namespace P02Project
         }
 
         /// <summary>
-        /// Content about the Christchurch family place contacts
+        ///     Content about the Christchurch family place contacts
         /// </summary>
         /// <returns> A stack panel containing the content</returns>
         private StackPanel chchFPContent()
@@ -478,14 +474,16 @@ namespace P02Project
 
             TextBlock textB = Util.TextBlockFactory();
             textB.Inlines.Add(new Bold(new Run("Christchurch Family Place \n")));
-            textB.Inlines.Add(new Run("Temporarily located at:\n297 Russley Road (entrance off Ron Guthrey Road)\nAvonhead\nChristchurch\nPhone: (03) 365 1485\nConstruction on our new Family Place will begin shortly!\n"));
-            
+            textB.Inlines.Add(
+                new Run(
+                    "Temporarily located at:\n297 Russley Road (entrance off Ron Guthrey Road)\nAvonhead\nChristchurch\nPhone: (03) 365 1485\nConstruction on our new Family Place will begin shortly!\n"));
+
             contentStackPanel.Children.Add(textB);
             return contentStackPanel;
         }
 
         /// <summary>
-        /// Content about the Dunedin family place contacts
+        ///     Content about the Dunedin family place contacts
         /// </summary>
         /// <returns> A stack panel containing the content</returns>
         private StackPanel dunedinFPContent()
@@ -502,7 +500,7 @@ namespace P02Project
 
 
         /// <summary>
-        /// Creates a stack panel containing the content for the family place section
+        ///     Creates a stack panel containing the content for the family place section
         /// </summary>
         /// <returns></returns>
         private StackPanel familyPlaceContent()
@@ -510,10 +508,10 @@ namespace P02Project
             //Create the stack panel
             StackPanel contentStackPanel = new StackPanel();
 
-            
+
             // Create the map
             map = new Map();
-            map.Mode = new AerialMode(labels: true);
+            map.Mode = new AerialMode(true);
             map.CredentialsProvider = Util.MapProvider;
             map.HorizontalAlignment = HorizontalAlignment.Stretch;
             map.VerticalAlignment = VerticalAlignment.Stretch;
@@ -547,15 +545,15 @@ namespace P02Project
             map.Children.Add(wellPin);
 
             //Add handlers for both mouse and touch events so that when the user touches a pushpin, it can be handled
-            map.AddHandler(UIElement.TouchDownEvent, new EventHandler<TouchEventArgs>(MapWithPushpins_TouchDown), true);
-            map.AddHandler(UIElement.MouseDownEvent, new MouseButtonEventHandler(MapWithPushpins_MouseDown), true);
+            map.AddHandler(TouchDownEvent, new EventHandler<TouchEventArgs>(MapWithPushpins_TouchDown), true);
+            map.AddHandler(MouseDownEvent, new MouseButtonEventHandler(MapWithPushpins_MouseDown), true);
 
             //Create a scroll viewer to display place details
             familyPlaceScroll = new SurfaceScrollViewer();
-            familyPlaceScroll.Style = this.FindResource("SurfaceScrollViewerStyle1") as Style;
+            familyPlaceScroll.Style = FindResource("SurfaceScrollViewerStyle1") as Style;
             familyPlaceScroll.Height = 300;
-            familyPlaceScroll.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#00000000"));
-            
+            familyPlaceScroll.Background = new SolidColorBrush((Color) ColorConverter.ConvertFromString("#00000000"));
+
             //Set the initial content of  the scroll viewer to prompt the user to click on a pushpin
             TextBlock prompt = Util.TextBlockFactory();
             prompt.TextAlignment = TextAlignment.Center;
@@ -578,7 +576,7 @@ namespace P02Project
 
 
         /// <summary>
-        /// Creates a stack panel containing the content for the main office section
+        ///     Creates a stack panel containing the content for the main office section
         /// </summary>
         /// <returns></returns>
         private StackPanel mainOfficeContent()
@@ -588,7 +586,7 @@ namespace P02Project
 
             //Create a map
             moMap = new Map();
-            moMap.Mode = new AerialMode(labels: true);
+            moMap.Mode = new AerialMode(true);
             moMap.CredentialsProvider = Util.MapProvider;
             moMap.HorizontalAlignment = HorizontalAlignment.Stretch;
             moMap.VerticalAlignment = VerticalAlignment.Stretch;
@@ -597,17 +595,17 @@ namespace P02Project
             moMap.Height = 550;
 
             //Create the pushpin for the main office
-            Pushpin moPin = new Pushpin(); 
+            Pushpin moPin = new Pushpin();
             moPin.Location = new Location(-36.857897, 174.769401);
             moMap.Children.Add(moPin);
 
             //Create a scroll viewer to display main office details
             SurfaceScrollViewer scrollContent = new SurfaceScrollViewer();
-            scrollContent.Style = this.FindResource("SurfaceScrollViewerStyle1") as Style;
+            scrollContent.Style = FindResource("SurfaceScrollViewerStyle1") as Style;
             scrollContent.Height = 300;
-            scrollContent.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#00000000"));
+            scrollContent.Background = new SolidColorBrush((Color) ColorConverter.ConvertFromString("#00000000"));
             scrollContent.Content = auckMOContent();
-            
+
             //Add the map and scrollviewer to the stack panel
             contentStackPanel.Children.Add(moMap);
             contentStackPanel.Children.Add(scrollContent);
@@ -629,7 +627,7 @@ namespace P02Project
 
             //Get the touch down coordinates
             TouchPoint touchPosition = e.GetTouchPoint(this);
-            
+
             //Convert the mouse coordinates to a location on the map
             Location pinLocation = map.ViewportPointToLocation(touchPosition.Position);
 
@@ -640,45 +638,50 @@ namespace P02Project
             }
 
             //Calculate the distance to the other pushpins
-            double auckdist = Math.Sqrt(Math.Pow(auckMOPin.Location.Latitude - pinLocation.Latitude, 2) + Math.Pow(auckMOPin.Location.Longitude - pinLocation.Longitude, 2));
-            double chchdist = Math.Sqrt(Math.Pow(chchPin.Location.Latitude - pinLocation.Latitude, 2) + Math.Pow(chchPin.Location.Longitude - pinLocation.Longitude, 2));
-            double dundist = Math.Sqrt(Math.Pow(dunPin.Location.Latitude - pinLocation.Latitude, 2) + Math.Pow(dunPin.Location.Longitude - pinLocation.Longitude, 2));
-            double welldist = Math.Sqrt(Math.Pow(wellPin.Location.Latitude - pinLocation.Latitude, 2) + Math.Pow(wellPin.Location.Longitude - pinLocation.Longitude, 2));
-            double taurdist = Math.Sqrt(Math.Pow(taurPin.Location.Latitude - pinLocation.Latitude, 2) + Math.Pow(taurPin.Location.Longitude - pinLocation.Longitude, 2));
-            double hbdist = Math.Sqrt(Math.Pow(hBPin.Location.Latitude - pinLocation.Latitude, 2) + Math.Pow(hBPin.Location.Longitude - pinLocation.Longitude, 2));
+            double auckdist =
+                Math.Sqrt(Math.Pow(auckMOPin.Location.Latitude - pinLocation.Latitude, 2) +
+                          Math.Pow(auckMOPin.Location.Longitude - pinLocation.Longitude, 2));
+            double chchdist =
+                Math.Sqrt(Math.Pow(chchPin.Location.Latitude - pinLocation.Latitude, 2) +
+                          Math.Pow(chchPin.Location.Longitude - pinLocation.Longitude, 2));
+            double dundist =
+                Math.Sqrt(Math.Pow(dunPin.Location.Latitude - pinLocation.Latitude, 2) +
+                          Math.Pow(dunPin.Location.Longitude - pinLocation.Longitude, 2));
+            double welldist =
+                Math.Sqrt(Math.Pow(wellPin.Location.Latitude - pinLocation.Latitude, 2) +
+                          Math.Pow(wellPin.Location.Longitude - pinLocation.Longitude, 2));
+            double taurdist =
+                Math.Sqrt(Math.Pow(taurPin.Location.Latitude - pinLocation.Latitude, 2) +
+                          Math.Pow(taurPin.Location.Longitude - pinLocation.Longitude, 2));
+            double hbdist =
+                Math.Sqrt(Math.Pow(hBPin.Location.Latitude - pinLocation.Latitude, 2) +
+                          Math.Pow(hBPin.Location.Longitude - pinLocation.Longitude, 2));
 
             //If within 2 latitude/longitude then show content
             if (auckdist > -1 && auckdist < 2)
             {
-                
                 familyPlaceScroll.Content = auckFPContent();
             }
             else if (chchdist > -2 && chchdist < 2)
             {
-                
                 familyPlaceScroll.Content = chchFPContent();
             }
             else if (dundist > -2 && dundist < 2)
             {
-                
                 familyPlaceScroll.Content = dunedinFPContent();
             }
             else if (welldist > -2 && welldist < 2)
             {
-                
                 familyPlaceScroll.Content = wellFPContent();
             }
             else if (taurdist > -2 && taurdist < 2)
             {
-                
                 familyPlaceScroll.Content = taurangaFPContent();
             }
             else if (hbdist > -2 && hbdist < 2)
             {
-                
                 familyPlaceScroll.Content = hbFPContent();
             }
-            
         }
 
         private void MapWithPushpins_MouseDown(object sender, MouseButtonEventArgs e)
@@ -691,50 +694,56 @@ namespace P02Project
 
             //Convert the mouse coordinates to a location on the map
             Location pinLocation = map.ViewportPointToLocation(touchPosition);
-            
+
             //Negate longitude if it comes out negative. Unsure of why this is happening - assuming the user is likely to only look at nz
             if (pinLocation.Longitude < 0)
             {
                 pinLocation.Longitude = -pinLocation.Longitude;
             }
             //Calculate the distance to the other pushpins
-            double auckdist = Math.Sqrt(Math.Pow(auckMOPin.Location.Latitude - pinLocation.Latitude, 2) + Math.Pow(auckMOPin.Location.Longitude - -pinLocation.Longitude, 2));
-            double chchdist = Math.Sqrt(Math.Pow(chchPin.Location.Latitude - pinLocation.Latitude, 2) + Math.Pow(chchPin.Location.Longitude - -pinLocation.Longitude, 2));
-            double dundist = Math.Sqrt(Math.Pow(dunPin.Location.Latitude - pinLocation.Latitude, 2) + Math.Pow(dunPin.Location.Longitude - -pinLocation.Longitude, 2));
-            double welldist = Math.Sqrt(Math.Pow(wellPin.Location.Latitude - pinLocation.Latitude, 2) + Math.Pow(wellPin.Location.Longitude - -pinLocation.Longitude, 2));
-            double taurdist = Math.Sqrt(Math.Pow(taurPin.Location.Latitude - pinLocation.Latitude, 2) + Math.Pow(taurPin.Location.Longitude - -pinLocation.Longitude, 2));
-            double hbdist = Math.Sqrt(Math.Pow(hBPin.Location.Latitude - pinLocation.Latitude, 2) + Math.Pow(hBPin.Location.Longitude - -pinLocation.Longitude, 2));
+            double auckdist =
+                Math.Sqrt(Math.Pow(auckMOPin.Location.Latitude - pinLocation.Latitude, 2) +
+                          Math.Pow(auckMOPin.Location.Longitude - -pinLocation.Longitude, 2));
+            double chchdist =
+                Math.Sqrt(Math.Pow(chchPin.Location.Latitude - pinLocation.Latitude, 2) +
+                          Math.Pow(chchPin.Location.Longitude - -pinLocation.Longitude, 2));
+            double dundist =
+                Math.Sqrt(Math.Pow(dunPin.Location.Latitude - pinLocation.Latitude, 2) +
+                          Math.Pow(dunPin.Location.Longitude - -pinLocation.Longitude, 2));
+            double welldist =
+                Math.Sqrt(Math.Pow(wellPin.Location.Latitude - pinLocation.Latitude, 2) +
+                          Math.Pow(wellPin.Location.Longitude - -pinLocation.Longitude, 2));
+            double taurdist =
+                Math.Sqrt(Math.Pow(taurPin.Location.Latitude - pinLocation.Latitude, 2) +
+                          Math.Pow(taurPin.Location.Longitude - -pinLocation.Longitude, 2));
+            double hbdist =
+                Math.Sqrt(Math.Pow(hBPin.Location.Latitude - pinLocation.Latitude, 2) +
+                          Math.Pow(hBPin.Location.Longitude - -pinLocation.Longitude, 2));
 
-           
+
             //If within 2 latitude/longitude then show content
             if (auckdist > -1 && auckdist < 2)
             {
-                
                 familyPlaceScroll.Content = auckFPContent();
             }
             else if (chchdist > -2 && chchdist < 2)
             {
-                
                 familyPlaceScroll.Content = chchFPContent();
             }
             else if (dundist > -2 && dundist < 2)
             {
-               
                 familyPlaceScroll.Content = dunedinFPContent();
             }
             else if (welldist > -2 && welldist < 2)
             {
-                
                 familyPlaceScroll.Content = wellFPContent();
             }
             else if (taurdist > -2 && taurdist < 2)
             {
-                
                 familyPlaceScroll.Content = taurangaFPContent();
             }
             else if (hbdist > -2 && hbdist < 2)
             {
-                
                 familyPlaceScroll.Content = hbFPContent();
             }
         }
@@ -770,7 +779,8 @@ namespace P02Project
             FlowDocument flow = new FlowDocument();
             Paragraph p = new Paragraph();
             p.Inlines.Add(new Bold(new Run("Tauranga\n")));
-            p.Inlines.Add(new Run("Delwynne Hahunga\nPhone: 07 579 4141 | 021 497 859\nEmail: dhahunga@childcancer.org.nz"));
+            p.Inlines.Add(
+                new Run("Delwynne Hahunga\nPhone: 07 579 4141 | 021 497 859\nEmail: dhahunga@childcancer.org.nz"));
             flow.Blocks.Add(p);
             return flow;
         }
@@ -867,7 +877,8 @@ namespace P02Project
         }
 
         //Flow Document containing dunedin family support content
-        private FlowDocument dunedinFSFlow() {
+        private FlowDocument dunedinFSFlow()
+        {
             FlowDocument flow = new FlowDocument();
             Paragraph p = new Paragraph();
             p.Inlines.Add(new Bold(new Run("Dunedin\n")));
@@ -875,6 +886,5 @@ namespace P02Project
             flow.Blocks.Add(p);
             return flow;
         }
-
     }
 }

@@ -1,51 +1,53 @@
-﻿using System;
+﻿#region
+
+using System;
 using System.Collections.Generic;
+using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
+using System.Windows.Media.Effects;
+using System.Windows.Media.Imaging;
 using System.Windows.Threading;
 using TweetSharp;
-using System.Windows;
-using System.Windows.Media.Animation;
-using System.Windows.Media.Imaging;
-using System.Windows.Media.Effects;
-using System.Windows.Media;
-using System.Windows.Input;
+
+#endregion
 
 namespace P02Project
 {
     /// <summary>
-    /// Interaction logic for TwitterBlock.xaml
+    ///     Interaction logic for TwitterBlock.xaml
     /// </summary>
     public partial class TwitterBlock : UserControl
     {
-        DispatcherTimer dt;
-        Twitter service = new Twitter();
-        Random r = new Random();
-        List<TwitterStatus> tweets = new List<TwitterStatus>();
-        private HomePage _parentHome;
+        private readonly HomePage _parentHome;
+        private readonly Random r = new Random();
+        private readonly Twitter service = new Twitter();
+        private readonly List<TwitterStatus> tweets = new List<TwitterStatus>();
+        private DispatcherTimer dt;
 
 
         /// <summary>
-        /// create a new twitter block
+        ///     create a new twitter block
         /// </summary>
         public TwitterBlock(HomePage parent)
         {
-            this.InitializeComponent();
+            InitializeComponent();
 
             _parentHome = parent;
 
             //Handlers for timers
-            this.AddHandler(UIElement.TouchUpEvent, new EventHandler<TouchEventArgs>(twitterBoxClicked), true);
-            this.AddHandler(UIElement.MouseUpEvent, new MouseButtonEventHandler(twitterBoxClicked), true);
+            AddHandler(TouchUpEvent, new EventHandler<TouchEventArgs>(twitterBoxClicked), true);
+            AddHandler(MouseUpEvent, new MouseButtonEventHandler(twitterBoxClicked), true);
 
             DropShadowEffect dShdow = new DropShadowEffect();
             dShdow.BlurRadius = 10;
             dShdow.Opacity = 0.365;
-            this.Effect = dShdow;
+            Effect = dShdow;
 
             //create a new dispatcher
             dt = new DispatcherTimer();
             dt.Interval = TimeSpan.FromSeconds(7);
-            dt.Tick += new EventHandler(dt_Tick);
+            dt.Tick += dt_Tick;
 
             if (tweets.Count == 0)
             {
@@ -58,12 +60,11 @@ namespace P02Project
                         tweets.Add(t);
                     }
                 }
-              
             }
             dt.Start();
         }
 
-        void dt_Tick(object sender, EventArgs e)
+        private void dt_Tick(object sender, EventArgs e)
         {
             //Set default image
             BitmapImage img = new BitmapImage();
@@ -73,8 +74,7 @@ namespace P02Project
 
             if (tweets.Count != 0)
             {
-                
-                int index = r.Next() % tweets.Count;
+                int index = r.Next()%tweets.Count;
                 msg.Text = tweets[index].TextDecoded;
 
                 //Ask Twitter to get url
@@ -83,7 +83,6 @@ namespace P02Project
                 {
                     String imgUrl = urls[0];
                     img = service.getBitmapImageForUrl(imgUrl);
-
                 }
             }
             else
@@ -92,18 +91,15 @@ namespace P02Project
 
                 msg.Text = "Unable to retrieve tweets from Twitter";
             }
-            
-           
-            
+
 
             //set image
             tweetImg.Source = img;
-
         }
 
 
         /// <summary>
-        /// This method get called when the twitter button has been clicked
+        ///     This method get called when the twitter button has been clicked
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
