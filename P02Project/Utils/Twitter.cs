@@ -17,7 +17,9 @@ namespace P02Project
 {
 
     /// <summary>
-    /// create a new twitter dispatcher
+    /// Provides interaction with the Twitter.
+    /// Offers methods to retrive and post methods. 
+    /// Posts are made to @nzokdat and tweets are retrived from @ChildCancerNZ
     /// </summary>
     public class Twitter
     {
@@ -67,7 +69,11 @@ namespace P02Project
         }
 
 
-        //get all tweets
+        /// <summary>
+        /// Utility method that gets the image urls for a tweet. 
+        /// </summary>
+        /// <param name="tweet"></param>
+        /// <returns> A list of strings containing media urlss</returns>
         public List<String> getImageUrlsForTweet(TwitterStatus tweet)
         {
 
@@ -85,6 +91,11 @@ namespace P02Project
 
         }
 
+        /// <summary>
+        /// Utility method that returns the bitmap with the contents of the url
+        /// </summary>
+        /// <param name="url"></param>
+        /// <returns>Reuturns bitmap image for a urls</returns>
         public BitmapImage getBitmapImageForUrl(String url)
         {
             BitmapImage src = new BitmapImage();
@@ -97,8 +108,11 @@ namespace P02Project
         }
 
 
-       
 
+        /// <summary>
+        /// Returns the tweets for ChildCancerNZ
+        /// </summary>
+        /// <returns></returns>
         public IEnumerable<TwitterStatus> getTweets()
         {
 
@@ -117,79 +131,16 @@ namespace P02Project
         }
 
 
-        /*
-        private void updateImage(Uri uri)
-        {
-            
-            WebClient client = new WebClient();
-            
-            client.OpenReadCompleted += new OpenReadCompletedEventHandler(delegate(object sender, OpenReadCompletedEventArgs e)
-            {
-                BitmapImage imageToLoad = new BitmapImage();
-                imageToLoad.StreamSource = (e.Result as Stream);
-                this.images.Add(imageToLoad);
-                
-            });
-
-            client.OpenReadAsync(uri, uri.AbsoluteUri);
-          
-
-
-
-        }
-         */
-
-
-       
-
-        public void testTweetPostWithImage()
-        {
-
-
-
-            //twiter service
-            var service = new TwitterService(OAuthConsumerKey, OAuthConsumerSecret);
-            service.AuthenticateWith(OAuthToken, OAuthTokenSecret);
-            SendTweetWithMediaOptions options = new SendTweetWithMediaOptions();
-
-
-            BitmapImage src = new BitmapImage();
-            src.BeginInit();
-            src.UriSource = new Uri("pack://application:,,/Resources/images/icon.png");
-            src.EndInit();
-
-            
-
-
-            byte[] data;
-            PngBitmapEncoder encoder = new PngBitmapEncoder();
-            encoder.Frames.Add(BitmapFrame.Create(src));
-
-
-            using (MemoryStream ms = new MemoryStream())
-            {
-                encoder.Save(ms);
-                data = ms.ToArray();
-
-
-            }
-
-            Stream stream = new MemoryStream(data);
-
-            options.Status = "Testing with picture";
-            var dic = new Dictionary<string, Stream>();
-            dic.Add("some Image", stream);
-            options.Images = dic;
-            //t = service.SendTweetWithMedia(options);
-
-
-
-        }
 
 
 
 
-        //post all tweets
+        /// <summary>
+        /// Post a message and image (from the webcam), Posts are made to @nzokdat
+        /// </summary>
+        /// <param name="message"></param>
+        /// <param name="bitsource"></param>
+        /// <param name="depO"></param>
         public void postTweet(String message, BitmapSource bitsource, DependencyObject depO)
         {
             
@@ -230,6 +181,7 @@ namespace P02Project
                 (Window.GetWindow(depO) as TopWindow).StartTimer();
             }
         }
+
         //get a bitmap of images to write out
         private System.Drawing.Bitmap BitmapFromSource(BitmapSource bitmapsource)
         {
@@ -244,7 +196,7 @@ namespace P02Project
             return bitmap;
         }
 
-        //Multi threading
+        //-----------Multi threading
 
         void m_oWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
@@ -277,16 +229,16 @@ namespace P02Project
                 window.ResetTimer();
                 }
             }
-            catch(NullReferenceException except)
+            catch(NullReferenceException)
             {
 
             }
-            //Change the status of the buttons on the UI accordingly
-           // btnStartAsyncOperation.Enabled = true;
-            //btnCancel.Enabled = false;
+           
         }
+
+
         /// <summary>
-        /// Notification is performed here to the progress bar
+        /// Any notification of progress can be done here.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -297,8 +249,6 @@ namespace P02Project
 
             // the UI control directly, no funny business with Control.Invoke :)
 
-            // Update the progressBar with the integer supplied to us from the
-
             // ReportProgress() function.  
            
             Console.WriteLine("Processing......" + e.ProgressPercentage+ "%");
@@ -307,11 +257,10 @@ namespace P02Project
 
 
         /// <summary>
-        /// Time consuming operations go here </br>
-        /// i.e. Database operations,Reporting
+        /// Uploading image, done on a different thread. </br>
         /// </summary>
         /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="e"> Contains the </param>
         void m_oWorker_DoWork(object sender, DoWorkEventArgs e)
         {
 
@@ -320,39 +269,18 @@ namespace P02Project
             //Get the elements
             String message = (String)args[0];
             BitmapSource bitsource = (BitmapSource)args[1];
-           
-            Console.WriteLine("uploading image now");
+            Stream stream = args[2] as MemoryStream;
+
+            Console.WriteLine("Uploading image now");
+
             var service = new TwitterService(OAuthConsumerKey, OAuthConsumerSecret);
             service.AuthenticateWith(OAuthToken, OAuthTokenSecret);
+           
             SendTweetWithMediaOptions options = new SendTweetWithMediaOptions();
-
-            options.Status = message;
-
-            //Create a byte array of the contents of the bitsource. 
-            /*byte[] data;
-            PngBitmapEncoder encoder = new PngBitmapEncoder();
-
-
-       
-            var frame=BitmapFrame.Create(bitsource);
-            
-            encoder.Frames.Add(frame);
-
-
-            using (MemoryStream ms = new MemoryStream())
-            {
-                encoder.Save(ms);
-                data = ms.ToArray();
-
-
-            }
-
-            Stream stream = new MemoryStream(data);
-            */
-            Stream stream = args[2] as MemoryStream;
+                        
             options.Status = message;
             var dic = new Dictionary<string, Stream>();
-            dic.Add("...", stream);
+            dic.Add(message, stream);
             options.Images = dic;
 
                 //Below can be used to provide cancel feature
@@ -372,11 +300,5 @@ namespace P02Project
             worker.ReportProgress(100);
         }
     }
-
-
-
-  
-
-
 
 }
