@@ -37,7 +37,7 @@ namespace P02Project
         ///     create a new webcam event
         /// </summary>
 
-        #region Constructor & destructor
+        #region Constructor
         public Webcam()
         {
             InitializeComponent();
@@ -68,6 +68,7 @@ namespace P02Project
             Util.FadeIn(_sbIn, _imagesBox);
             Util.FadeIn(_sbIn, webcamPlayer);
         }
+        #endregion
 
         #region Command bindings
 
@@ -343,6 +344,6 @@ namespace P02Project
 
         #endregion
 
-        #endregion
+       
     }
 }
