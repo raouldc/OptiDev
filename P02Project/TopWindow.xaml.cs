@@ -116,6 +116,9 @@ namespace P02Project
             //TODO: disable audio, animations here
         }
 
+        /// <summary>
+        /// pop a screen
+        /// </summary>
         public void popScreen()
         {
             if (stackOfScreens.Count > 1)
@@ -129,6 +132,10 @@ namespace P02Project
             ResetTimer();
         }
 
+        /// <summary>
+        /// push the given screen into the stack
+        /// </summary>
+        /// <param name="screen"></param>
         public void pushScreen(Screen screen)
         {
             stackOfScreens.Push(screen);
@@ -136,6 +143,9 @@ namespace P02Project
             ResetTimer();
         }
 
+        /// <summary>
+        /// pop all the screen on the stack => show the Home Screen
+        /// </summary>
         public void popAll()
         {
             while (stackOfScreens.Count > 1)
@@ -146,6 +156,9 @@ namespace P02Project
             ResetTimer();
         }
 
+        /// <summary>
+        /// push the given screen into the screen stack
+        /// </summary>
         public void pushScreenOnStack(TopLevelPage nextScreen, String[] buttons, Color colour, UserControl content,
             String Subtitle)
         {
@@ -166,17 +179,26 @@ namespace P02Project
             }
         }
 
+        /// <summary>
+        /// Helper method to reset the timer
+        /// </summary>
         public void ResetTimer()
         {
             inavtiveTimer.Stop();
             inavtiveTimer.Start();
         }
 
+        /// <summary>
+        /// Helper method to stop the timer
+        /// </summary>
         public void StopTimer()
         {
             inavtiveTimer.Stop();
         }
 
+        /// <summary>
+        /// Helper method to start the timer
+        /// </summary>
         public void StartTimer()
         {
             inavtiveTimer.Start();

@@ -103,7 +103,7 @@ namespace P02Project
                     // put the default twitter image, for the case that the url is not working.
                     BitmapImage img = new BitmapImage();
                     img.BeginInit();
-                    img.UriSource = new Uri("pack://application:,,/Resources/images/logoCCF.png");
+                    img.UriSource = new Uri("pack://application:,,/Resources/images/CCF_logo.png");
                     img.EndInit();
 
 
