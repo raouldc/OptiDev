@@ -69,7 +69,7 @@ namespace P02Project
             //Set default image
             BitmapImage img = new BitmapImage();
             img.BeginInit();
-            img.UriSource = new Uri("pack://application:,,/Resources/images/logoCCF.png");
+            img.UriSource = new Uri("pack://application:,,/Resources/images/CCF_logo.png");
             img.EndInit();
 
             if (tweets.Count != 0)
