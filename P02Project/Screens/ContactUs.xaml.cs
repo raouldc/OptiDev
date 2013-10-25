@@ -38,8 +38,6 @@ namespace P02Project
         private Pushpin taurPin;
         private Pushpin wellPin;
 
-        //private DispatcherTimer mapLoader;
-
         public ContactUs()
         {
             InitializeComponent();
@@ -52,8 +50,6 @@ namespace P02Project
             Util.StackAnimationDefault(sbIn, buttons.Children);
 
             Util.SetupQR(QRText, "Find out other ways to contact us at\nhttp://tinyurl.com/mhdzd2f");
-
-            //mapLoader = new DispatcherTimer();
 
             fmlPlClicked(null, null);
         }
