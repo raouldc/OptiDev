@@ -9,6 +9,7 @@ namespace P02Project.Utils
 {
     internal class Question
     {
+        # region variables
         public static Random rand = new Random();
         private readonly List<String> allAvailableOptions;
         private readonly String answer;
@@ -18,7 +19,9 @@ namespace P02Project.Utils
         private bool isAnswered;
         private bool isCorrect;
         private String optionSelected;
+        # endregion
 
+        # region Constructor
         public Question(String QuestionContent, String answer, List<String> allOptions, String imagePath, String hint)
         {
             //all options are enabled at the beginign;
@@ -40,7 +43,9 @@ namespace P02Project.Utils
             hintForQuestion = hint;
             isCorrect = false;
         }
-        //properties
+        # endregion
+
+        # region properties
         public String QuestionContent
         {
             get { return questionContent; }
@@ -84,6 +89,9 @@ namespace P02Project.Utils
         public bool HintUsed { get; set; }
         public List<bool> IsEnabled { get; set; }
 
+        # endregion
+
+        # region methods
         //fifty_fifty the question
         public void fifty_fifty()
         {
@@ -157,5 +165,6 @@ namespace P02Project.Utils
                 options.RemoveAt(index);
             }
         }
+        # endregion
     }
 }

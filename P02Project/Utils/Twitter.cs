@@ -20,8 +20,9 @@ namespace P02Project
     /// </summary>
     public class Twitter
     {
+        # region variables
         private static DependencyObject timer;
-
+        
         /// <summary>
         ///     https://dev.twitter.com/docs/auth/creating-signature
         /// </summary>
@@ -36,18 +37,31 @@ namespace P02Project
 
         private List<BitmapImage> images = new List<BitmapImage>();
         private BackgroundWorker worker = new BackgroundWorker();
+        # endregion
 
+
+        # region Constructor
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="us"></param>
         public Twitter(Webcam us)
         {
             webcamControl = us;
             initializeWorkers();
         }
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public Twitter()
         {
             initializeWorkers();
         }
 
+        /// <summary>
+        /// Constructor helper
+        /// </summary>
         private void initializeWorkers()
         {
             if (worker == null)
@@ -60,8 +74,9 @@ namespace P02Project
             worker.WorkerReportsProgress = true;
             worker.WorkerSupportsCancellation = true;
         }
+        # endregion
 
-
+        # region methods
         /// <summary>
         ///     Utility method that gets the image urls for a tweet.
         /// </summary>
@@ -158,7 +173,12 @@ namespace P02Project
             }
         }
 
-        //get a bitmap of images to write out
+        /// <summary>
+        /// get a bitmap of images to write out
+        /// </summary>
+        /// <param name="bitmapsource"></param>
+        /// <returns></returns>
+
         private Bitmap BitmapFromSource(BitmapSource bitmapsource)
         {
             Bitmap bitmap;
@@ -171,9 +191,15 @@ namespace P02Project
             }
             return bitmap;
         }
+        # endregion
 
-        //-----------Multi threading
 
+        # region threadworkers
+        /// <summary>
+        /// thread run back process is complete
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void m_oWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             // The background process is complete. We need to inspect
@@ -257,5 +283,6 @@ namespace P02Project
             //Report 100% completion on operation completed
             worker.ReportProgress(100);
         }
+        # endregion
     }
 }
