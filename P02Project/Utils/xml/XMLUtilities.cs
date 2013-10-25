@@ -114,8 +114,8 @@ namespace P02Project.Resources.xml
                             if (!Directory.Exists("Resources/images/" + pageType))
                                 Directory.CreateDirectory("Resources/images/" + pageType);
                             //create a new ThreadedDataFetcherObject
-                            var hello = htmlNode.Descendants("img").FirstOrDefault();
-                            if (hello != null)
+                            var isImage = htmlNode.Descendants("img").FirstOrDefault();
+                            if (isImage != null)
                             {
                                 ThreadedDataFetcher fetcher =
                                     new ThreadedDataFetcher(

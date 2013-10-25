@@ -554,6 +554,7 @@
     </Content>
     <Content Include="Resources\xml\Questions.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="Resources\xml\TemplateDoc.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
