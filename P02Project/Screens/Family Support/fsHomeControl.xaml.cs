@@ -29,16 +29,43 @@ namespace P02Project
 
         //Holiday home variables
 
+        /// <summary>
+        /// The arrowtown
+        /// </summary>
         private ScatterViewItem arrowtown;
+        /// <summary>
+        /// The auckland pin
+        /// </summary>
         private Pushpin aucklandPin;
+        /// <summary>
+        /// The christchurch pin
+        /// </summary>
         private Pushpin christchurchPin;
+        /// <summary>
+        /// The dunedin pin
+        /// </summary>
         private Pushpin dunedinPin;
+        /// <summary>
+        /// The hawkesbay pin
+        /// </summary>
         private ScatterViewItem hawkesbay;
         private SurfaceScrollViewer hhscroll;
+        /// <summary>
+        /// The map
+        /// </summary>
         private Map map;
         private SurfaceScrollViewer mscroll;
+        /// <summary>
+        /// The scatter
+        /// </summary>
         private ScatterView scatter;
+        /// <summary>
+        /// The taupo pin
+        /// </summary>
         private ScatterViewItem taupo;
+        /// <summary>
+        /// The wellington pin
+        /// </summary>
         private Pushpin wellingtonPin;
 
 
@@ -104,6 +131,9 @@ namespace P02Project
         }
 
         //remove all dropshadows and set the colour to unselected on all buttons
+        /// <summary>
+        /// Resets the BTN effects.
+        /// </summary>
         private void ResetBtnEffects()
         {
             scholarship.Background = unsel;
@@ -142,6 +172,9 @@ namespace P02Project
             ResetTimer();
         }
 
+        /// <summary>
+        /// Resets the timer.
+        /// </summary>
         private void ResetTimer()
         {
             try
@@ -525,6 +558,11 @@ namespace P02Project
             return contentStackPanel;
         }
 
+        /// <summary>
+        /// Handles the ScrollChanged event of the mscroll control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="ScrollChangedEventArgs"/> instance containing the event data.</param>
         private void mscroll_ScrollChanged(object sender, ScrollChangedEventArgs e)
         {
             ResetTimer();
@@ -772,6 +810,11 @@ namespace P02Project
             return contentStackPanel;
         }
 
+        /// <summary>
+        /// Handles the ScrollChanged event of the hhscroll control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="ScrollChangedEventArgs"/> instance containing the event data.</param>
         private void hhscroll_ScrollChanged(object sender, ScrollChangedEventArgs e)
         {
             ResetTimer();
@@ -906,6 +949,11 @@ namespace P02Project
             return contentStackPanel;
         }
 
+        /// <summary>
+        /// Handles the ScrollChanged event of the text control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="ScrollChangedEventArgs"/> instance containing the event data.</param>
         private void text_ScrollChanged(object sender, ScrollChangedEventArgs e)
         {
             ResetTimer();
