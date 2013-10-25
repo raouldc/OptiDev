@@ -21,6 +21,9 @@ This project was created and tested using Microsoft Visual Studio 2010, other ve
 ### 4. Microsoft Surface 2.0 SDK and Runtime    
 
 
+_Note: Internet Connectivity is required for fetching content from Twitter and the CCF website. A webcam is also required if the image upload functionality of the Twitter feature is to be used._    
+
+
 ## Setup
 
 1. Navigate to the directory of your choice and clone the repository onto your local machine    
