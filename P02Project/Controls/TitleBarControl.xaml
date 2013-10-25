@@ -15,11 +15,11 @@
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Button}">
                         <Grid>
-                            <Image Source="/P02Project;component/Resources/images/logoCCF.png" Stretch="Fill" />
                             <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                               RecognizesAccessKey="True"
                                               SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
                                               VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Content="" />
+                            <Image Margin="-1,20.04,-0.024,14" Source="/P02Project;component/Resources/images/CCF_logo.png" Stretch="Fill"/>
                         </Grid>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsFocused" Value="True" />

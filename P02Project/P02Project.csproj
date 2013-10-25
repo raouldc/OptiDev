@@ -559,7 +559,6 @@
     <Resource Include="Resources\images\HowCanIHelp\qrcode_Donate.png" />
     <Resource Include="Resources\images\beadBackground.png" />
     <Resource Include="Resources\images\HowCanIHelp\donate.png" />
-    <Resource Include="Resources\images\logoCCF.png" />
     <Resource Include="Resources\images\Home\abt.png" />
     <Resource Include="Resources\images\Home\beads.png" />
     <Resource Include="Resources\images\Home\contact.png" />
