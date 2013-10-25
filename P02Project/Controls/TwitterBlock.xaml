@@ -17,7 +17,7 @@
             <ColumnDefinition Width="0.8*" />
         </Grid.ColumnDefinitions>
 
-        <Image x:Name="tweetImg" Grid.Row="1" Source="/P02Project;component/Resources/images/CCF_logo.png"
+        <Image x:Name="tweetImg" Grid.Row="1" Source="/P02Project;component/Resources/images/logoCCF.png"
                HorizontalAlignment="Center" Margin="10" VerticalAlignment="Center" />
         <TextBlock FontSize="16" Grid.Row="1" Grid.Column="1" TextWrapping="Wrap" Text="Loading Twitter Feed"
                    Name="msg" TextAlignment="Left" Margin="5,10" />

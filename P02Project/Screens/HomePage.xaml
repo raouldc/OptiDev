@@ -125,7 +125,7 @@
                         </TransformGroup>
                     </view:PoloroidControl.RenderTransform>
                 </view:PoloroidControl>
-                <Image HorizontalAlignment="Left" Height="91.81" Margin="93,9.5,0,0" Source="/P02Project;component/Resources/images/CCF_logo.png" Stretch="Fill" VerticalAlignment="Top" Width="176"/>
+                <Image HorizontalAlignment="Left" Height="91.81" Margin="93,9.5,0,0" Source="/P02Project;component/Resources/images/logoCCF.png" Stretch="Fill" VerticalAlignment="Top" Width="176"/>
 
             </Grid>
         </Viewbox>

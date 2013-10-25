@@ -130,7 +130,7 @@ namespace P02Project.Resources.xml
                             }
                             else
                             {
-                                imagePath = "images/CCF_logo.png";
+                                imagePath = "images/logoCCF.png";
                             }
                         }
                         xml.Descendants("ImageList").FirstOrDefault().Add(

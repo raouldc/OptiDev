@@ -420,7 +420,7 @@
     <Resource Include="Resources\images\About\petra2.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Resources\images\CCF_logo.png">
+    <Resource Include="Resources\images\logoCCF.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Content Include="Utils\xml\BeadsOfCourageSchema\beads.xml">
