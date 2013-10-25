@@ -33,13 +33,19 @@ namespace P02Project
             InitializeComponent();
         }
 
-
+        /// <summary>
+        /// inherited implementation
+        /// </summary>
         public void AnimateOut()
         {
             sbOut.AutoReverse = false;
             sbOut.Begin(this);
         }
 
+
+        /// <summary>
+        /// inherited implementation
+        /// </summary>
         public void AnimateIn()
         {
             sbOut.AutoReverse = true;

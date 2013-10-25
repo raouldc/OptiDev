@@ -47,6 +47,10 @@ namespace P02Project.Screens
             components.Add(RightButtons);
         }
 
+        # region methods
+        /// <summary>
+        /// inherted implementation
+        /// </summary>
         public void AnimateOut()
         {
             foreach (Animatiable a in components)
@@ -55,6 +59,9 @@ namespace P02Project.Screens
             }
         }
 
+        /// <summary>
+        /// inherted implementation
+        /// </summary>
         public void AnimateIn()
         {
             foreach (Animatiable a in components)
@@ -132,7 +139,9 @@ namespace P02Project.Screens
             //Set the names of the buttons
             RightButtons.setButtons(bNames);
         }
+        # endregion
 
+        # region eventhandlers
         /// <summary>
         ///     This method called when the Back button has been clicked
         /// </summary>
@@ -186,9 +195,13 @@ namespace P02Project.Screens
             }
         }
 
+        /// <summary>
+        /// called when home button clicked
+        /// </summary>
         public void HomeButton_Click()
         {
             ParentWindow.popScreen();
         }
+        # endregion
     }
 }
