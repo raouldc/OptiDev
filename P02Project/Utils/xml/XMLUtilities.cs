@@ -62,7 +62,7 @@ namespace P02Project.Resources.xml
             //If the requested file doesn't exist, or if the file is more than 12 hours old, try getting new file
 
             if (!File.Exists(path)
-                || File.GetLastWriteTimeUtc(path) < DateTime.UtcNow.Subtract(new TimeSpan(12, 0, 0)))
+                || File.GetLastWriteTimeUtc(path) < DateTime.UtcNow.Subtract(new TimeSpan(1, 0, 0)))
             {
                 try
                 {
